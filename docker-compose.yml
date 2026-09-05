@@ -1,0 +1,63 @@
+# --- ANTHONY AI: CLOUD SWARM ORCHESTRATOR v1.0 ---
+version: '3.8'
+
+services:
+  # 1. THE BRAIN (MIND_SERVER)
+  mind_server:
+    build: .
+    container_name: mind_server
+    ports:
+      - "8000:8000"
+    volumes:
+      - empire_vault:/app/data
+      - renderings:/app/renderings
+    env_file: .env
+    command: python nexus_core.py
+    restart: always
+
+  # 2. THE STRIKER (SOCIAL_WORKER)
+  strike_worker:
+    build: .
+    container_name: strike_worker
+    volumes:
+      - empire_vault:/app/data
+      - renderings:/app/renderings
+    env_file: .env
+    command: python execute_live_strikes.py
+    restart: always
+
+  # 3. THE STRATEGIST (DIRECTOR_ENGINE)
+  director_engine:
+    build: .
+    container_name: director_engine
+    volumes:
+      - empire_vault:/app/data
+    env_file: .env
+    command: python anthony_video_publisher.py
+    restart: always
+
+  # 4. THE FORGE (PRODUCTION_WORKER)
+  # NOTE: In Cloud mode, this uses OpenRouter for reasoning to save GPU costs.
+  production_worker:
+    build: .
+    container_name: production_worker
+    volumes:
+      - empire_vault:/app/data
+      - renderings:/app/renderings
+    env_file: .env
+    command: python production_worker.py
+    restart: always
+
+  # 5. THE ANALYST (ANALYTICS_RADAR)
+  analytics_radar:
+    build: .
+    container_name: analytics_radar
+    volumes:
+      - empire_vault:/app/data
+    env_file: .env
+    command: python analytics_node.py
+    restart: always
+
+volumes:
+  empire_vault:
+  renderings:

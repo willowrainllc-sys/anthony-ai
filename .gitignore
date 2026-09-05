@@ -1,0 +1,93 @@
+# --- EMPIRE GHOST PROTOCOL: GIT IGNORE ---
+# Use this to keep the Sovereign Mind hidden from the public Git.
+
+# 1. Environment & Secrets
+.env
+*.key
+rh_private.key
+empire_api_budget.json
+post_state.json
+meta_hibernation.json
+
+# 2. THE VAULT (Database)
+*.db
+*.db-journal
+*.db-wal
+swarm_vault/
+Bunker_Cold_Storage/
+Queue/
+
+# 3. HIGH-QUANTA NODES (The Ghost Mind)
+# These files are hidden from the open-source build.
+node_*.py
+generative_strike_node.py
+script_synthesizer.py
+director_score_engine.py
+ltx_pipelines.py
+master_pipeline.py
+nexus_core.py
+social_browser_agent.py
+facebook_browser_bot.py
+facebook_page_architect.py
+mobile_agent_strike.py
+master_scraper.py
+media_renderer.py
+media_processor.py
+robinhood_node.py
+social_harvest_node.py
+kinetic_captions.py
+swarm_news_pipeline.py
+commerce_core.py
+empire_bottler.py
+empire_budget.py
+empire_daemon.py
+global_vault_sync.py
+token_manager.py
+update_bios.py
+scrape_*.py
+
+# 4. SECURITY & STEALTH MODULES
+cognitive_sentinel.py
+ninja_protection.py
+decm_shield.py
+shimmer_shield.py
+oracle_core.py
+bibleious_core.py
+einstein_core.py
+heaven_core.py
+tesla_core.py
+quantum_*.py
+self_healer.py
+swarm_persistence.py
+swarm_ether_sync.py
+swarm_purifier.py
+swarm_watchdog.py
+swarm_tasks.py
+cross_pollinator.py
+seo_master.py
+frontend_dictionary.py
+authorize_*.py
+view_facebook.py
+token_longevity_fixer.py
+facebook_rotator.py
+device_fingerprint.py
+jitter_clock.py
+checkpoint_daemon.py
+
+# 5. PERSONAL IDENTITY & CONFIG
+human_hybrid_persona.json
+anthony_ai_config.json
+
+# 6. ASSETS & LOGS
+ComfyUI/
+Renderings/
+Products/
+Logs/
+secure_assets/
+temp_assets/
+venv/
+__pycache__/
+*.mp4
+*.mp3
+*.png
+*.jpg

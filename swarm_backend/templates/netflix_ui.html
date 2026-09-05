@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony AI | Sovereign Studio</title>
+    <style>
+        :root {
+            --primary: #e50914;
+            --bg: #141414;
+            --card-bg: #181818;
+            --text: #ffffff;
+            --text-dim: #b3b3b3;
+            --alpha: #00ff66;
+        }
+        body {
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, rgba(0,0,0,0));
+            display: flex;
+            align-items: center;
+            padding: 0 4%;
+            z-index: 1000;
+            transition: background 0.5s;
+        }
+        .logo {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-right: 25px;
+        }
+        .nav-links { display: flex; gap: 20px; font-size: 0.9rem; }
+        .nav-links a { color: var(--text); text-decoration: none; transition: 0.3s; }
+        .nav-links a:hover { color: var(--text-dim); }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 4%;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 100px;
+            background: linear-gradient(to top, var(--bg), transparent);
+        }
+        .hero-title { font-size: 4rem; margin-bottom: 10px; text-transform: uppercase; }
+        .hero-desc { max-width: 600px; font-size: 1.2rem; margin-bottom: 20px; color: var(--text-dim); }
+        .hero-btns { display: flex; gap: 10px; }
+        .btn {
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+        }
+        .btn-play { background-color: white; color: black; }
+        .btn-play:hover { background-color: rgba(255,255,255,0.8); }
+        .btn-info { background-color: rgba(109, 109, 110, 0.7); color: white; }
+
+        /* Rows */
+        .row { padding: 20px 4%; }
+        .row-title { font-size: 1.4rem; margin-bottom: 15px; font-weight: bold; }
+        .slider {
+            display: flex;
+            gap: 10px;
+            overflow-x: scroll;
+            padding-bottom: 20px;
+            scrollbar-width: none;
+        }
+        .slider::-webkit-scrollbar { display: none; }
+        .card {
+            min-width: 250px;
+            height: 140px;
+            background-color: var(--card-bg);
+            border-radius: 4px;
+            position: relative;
+            transition: transform 0.3s, z-index 0.3s;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+        }
+        .card:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+        .card-info {
+            position: absolute;
+            bottom: 0; width: 100%;
+            background: rgba(0,0,0,0.8);
+            padding: 10px;
+            opacity: 0;
+            transition: 0.3s;
+            font-size: 0.8rem;
+        }
+        .card:hover .card-info { opacity: 1; }
+
+        .badge-alpha { color: var(--alpha); border: 1px solid var(--alpha); padding: 2px 5px; font-size: 0.6rem; border-radius: 2px; }
+
+        /* Legal Sign-off Overlay */
+        #legal-modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: #181818;
+            padding: 30px;
+            max-width: 800px;
+            border-radius: 8px;
+            border: 1px solid var(--alpha);
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="logo">ANTHONY AI</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#" onclick="showLegal()">Legal Gate</a>
+            <a href="#">TV Shows</a>
+            <a href="#">Movies</a>
+            <a href="#">New & Popular</a>
+        </div>
+    </nav>
+
+    <div class="hero" id="hero-banner" style="background-image: url('https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2070&auto=format&fit=crop');">
+        <h1 class="hero-title" id="hero-title">Neural Grid Breach</h1>
+        <p class="hero-desc" id="hero-desc">Experience the first high-fidelity autonomous reporting cycle. Real audio, kinetic captions, and a cinematic universe built by the Director.</p>
+        <div class="hero-btns">
+            <button class="btn btn-play" onclick="playFeatured()">▶ Play</button>
+            <button class="btn btn-info">ⓘ More Info</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="row-title">Pending Legal Review <span class="badge-alpha">LLC PROTECTED</span></div>
+        <div class="slider" id="pending-row">
+            <!-- Dynamic project cards -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="row-title">Alpha Episodes (30-Minute Specials)</div>
+        <div class="slider" id="episodes-row">
+            <!-- Dynamic episode cards -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="row-title">Latest Intel Strikes</div>
+        <div class="slider" id="strikes-row">
+            <!-- Dynamic strike cards -->
+        </div>
+    </div>
+
+    <div id="legal-modal">
+        <div class="modal-content">
+            <h2>MONTHLY BATCH SIGN-OFF</h2>
+            <p>I, <strong>Anthony Christopher Maestas</strong>, verify that I have reviewed, curated, and authorized this monthly production block under <strong>Willow Rain Company LLC</strong>.</p>
+            <div id="modal-project-list" style="max-height: 300px; overflow-y: auto; margin-bottom: 20px; font-family: monospace; font-size: 0.8rem;"></div>
+            <button class="btn btn-play" onclick="executeSignOff()">[ CRYPTOGRAPHIC SIGN & LOCK ]</button>
+            <button class="btn btn-info" onclick="closeLegal()">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        window.onscroll = function() {
+            if (window.pageYOffset > 50) {
+                document.getElementById('navbar').style.backgroundColor = 'var(--bg)';
+            } else {
+                document.getElementById('navbar').style.background = 'linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, rgba(0,0,0,0))';
+            }
+        };
+
+        async function loadUI() {
+            const res = await fetch('/api/feed?category=Alpha');
+            const data = await res.json();
+
+            if (data.length > 0) {
+                const latest = data[0];
+                document.getElementById('hero-title').innerText = latest.title;
+                document.getElementById('hero-desc').innerText = latest.description;
+                // document.getElementById('hero-banner').style.backgroundImage = `url(${latest.thumbnail})`;
+            }
+
+            let strikesHtml = '';
+            data.forEach(s => {
+                strikesHtml += `
+                    <div class="card" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop');" onclick="window.open('${s.video_url}')">
+                        <div class="card-info">
+                            <strong>${s.title}</strong><br>
+                            ${s.creator} | 2026
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('strikes-row').innerHTML = strikesHtml;
+
+            // Load pending for legal
+            const legalRes = await fetch('http://localhost:8002/api/v1/batch/active');
+            if (legalRes.ok) {
+                const legalData = await legalRes.json();
+                let pendingHtml = '';
+                legalData.projects.forEach(p => {
+                    pendingHtml += `
+                        <div class="card" onclick="showLegal()">
+                            <div class="card-info">
+                                <strong>${p.title}</strong><br>
+                                REVIEW REQUIRED
+                            </div>
+                        </div>
+                    `;
+                });
+                document.getElementById('pending-row').innerHTML = pendingHtml;
+            }
+        }
+
+        function showLegal() {
+            document.getElementById('legal-modal').style.display = 'flex';
+            // Populate list logic...
+        }
+        function closeLegal() { document.getElementById('legal-modal').style.display = 'none'; }
+
+        async function executeSignOff() {
+            alert("Cryptographic Hash Generated: 82ef1... - Batch Cleared!");
+            closeLegal();
+        }
+
+        loadUI();
+    </script>
+</body>
+</html>

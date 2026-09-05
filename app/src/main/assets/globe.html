@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony AI Globe</title>
+    <style>
+        body { margin: 0; background-color: #000000; overflow: hidden; font-family: monospace; }
+        #globeViz { width: 100vw; height: 100vh; }
+
+        /* Tactical HUD */
+        #hud {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        .hud-box {
+            background: rgba(0, 10, 5, 0.8);
+            border: 1px solid #00ff80;
+            padding: 8px 12px;
+            border-radius: 4px;
+            color: #00ff80;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            backdrop-filter: blur(4px);
+        }
+    </style>
+    <script src="https://unpkg.com/three"></script>
+    <script src="https://unpkg.com/globe.gl"></script>
+</head>
+<body>
+    <div id="hud">
+        <div class="hud-box">⚡ ANTHONY // GRID</div>
+        <div class="hud-box">SYNC: ACTIVE</div>
+    </div>
+    <div id="globeViz"></div>
+
+    <script>
+        const color = '#00FF64';
+        let userLocation = null;
+
+        const world = Globe()
+            (document.getElementById('globeViz'))
+            // Use High-Res Satellite as default
+            .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
+            .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
+            .backgroundImageUrl('https://unpkg.com/three-globe/example/img/night-sky.png')
+            .showAtmosphere(true)
+            .atmosphereColor(color)
+            .atmosphereAltitude(0.2);
+
+        // Standard Globe Settings
+        world.controls().autoRotate = false;
+        world.controls().enableDamping = true;
+
+        // Custom Points
+        world.pointsData([])
+             .pointLat('lat')
+             .pointLng('lng')
+             .pointColor(d => d.isUser ? '#00FF80' : '#FFFF00')
+             .pointRadius(d => d.isUser ? 0.6 : 0.25)
+             .pointAltitude(0.01)
+             .pointLabel('name');
+
+        // Dynamic Tile Layer for "Google Maps" look when zoomed in
+        // We use Esri World Imagery which is high-res satellite
+        world.tileLayerData([{
+            url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
+        }]);
+
+        // Interaction
+        world.onGlobeClick(({ lat, lng }) => {
+            if (window.AndroidBridge) window.AndroidBridge.onLocationSelected(lat, lng);
+        });
+
+        // API
+        window.setUserLocation = function(lat, lng) {
+            userLocation = { lat, lng, name: 'NODE: PRIMARY', isUser: true };
+            const pts = world.pointsData().filter(p => !p.isUser);
+            world.pointsData([...pts, userLocation]);
+            world.pointOfView({ lat, lng, altitude: 2.0 }, 2000);
+        };
+
+        window.updateData = function(json) {
+            const data = JSON.parse(json);
+            if (data.points) {
+                const pts = data.points;
+                if (userLocation) pts.push(userLocation);
+                world.pointsData(pts);
+            }
+        };
+
+        window.flyTo = function(lat, lng, alt) {
+            // alt from Kotlin is 1.0 - 3.5.
+            // Globe.gl altitude is distance from center (1.0 = surface).
+            let targetAlt = 2.5;
+            if (alt > 2.5) targetAlt = 0.5; // Closer
+            if (alt > 3.0) targetAlt = 0.1; // Very Close
+            world.pointOfView({ lat, lng, altitude: targetAlt }, 2500);
+        };
+
+        window.clearPath = function() {
+            world.pointsData(userLocation ? [userLocation] : []);
+        };
+
+        window.addEventListener('resize', () => {
+            world.width(window.innerWidth);
+            world.height(window.innerHeight);
+        });
+    </script>
+</body>
+</html>

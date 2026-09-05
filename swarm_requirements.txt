@@ -1,0 +1,24 @@
+# Core Backend
+fastapi
+uvicorn[standard]
+pydantic
+requests
+apscheduler
+httpx
+python-dotenv
+supabase
+cursor
+keyboard
+
+# Video Automation Dependencies
+moviepy
+ffmpeg-python
+openai-whisper
+opencv-python
+playwright
+
+# ML (CPU-Stable)
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision
+torchaudio

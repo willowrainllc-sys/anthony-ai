@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Minimalist Ghost Spirit "A" Shape -->
+    <path
+        android:fillColor="@color/spirit_white"
+        android:pathData="M54,20 C48,20 40,25 35,35 C30,45 28,60 30,75 C31,80 34,85 40,82 C45,80 48,70 50,60 L58,60 C60,70 63,80 68,82 C74,85 77,80 78,75 C80,60 78,45 73,35 C68,25 60,20 54,20 Z M54,32 C58,32 62,36 64,42 L44,42 C46,36 50,32 54,32 Z" />
+
+    <!-- Ethereal wisps -->
+    <path
+        android:fillColor="@color/spirit_white"
+        android:pathData="M30,85 Q32,90 28,95" />
+    <path
+        android:fillColor="@color/spirit_white"
+        android:pathData="M78,85 Q76,90 80,95" />
+</vector>

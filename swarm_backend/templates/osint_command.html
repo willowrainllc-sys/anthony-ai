@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTHONY AI // OSINT COMMAND CENTER</title>
+    <script src='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js'></script>
+    <link href='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=JetBrains+Mono:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glow-neon: #00ff64;
+            --risk-high: #ff3e3e;
+            --risk-med: #ffcc00;
+            --bg-dark: #050507;
+            --panel-bg: rgba(10, 10, 12, 0.85);
+            --border-glow: rgba(0, 255, 100, 0.3);
+        }
+
+        body, html {
+            margin: 0; padding: 0; height: 100%; width: 100%;
+            background-color: var(--bg-dark);
+            color: var(--glow-neon);
+            font-family: 'JetBrains+Mono', monospace;
+            overflow: hidden;
+        }
+
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+        .hud-overlay {
+            position: absolute;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.9), inset 0 0 10px rgba(0, 255, 100, 0.05);
+            backdrop-filter: blur(8px);
+            pointer-events: all;
+            border-radius: 4px;
+        }
+
+        #header {
+            top: 20px; left: 20px; right: 20px; height: 60px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 24px;
+        }
+
+        .header-title {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900; font-size: 20px; letter-spacing: 4px;
+            text-shadow: 0 0 10px var(--glow-neon);
+        }
+
+        #sidebar {
+            top: 100px; left: 20px; width: 280px; bottom: 40px;
+            padding: 20px; overflow-y: auto;
+        }
+
+        #vitals {
+            bottom: 40px; right: 20px; width: 320px; bottom: 40px;
+            padding: 16px; display: flex; flex-direction: column;
+        }
+
+        .section-title {
+            font-size: 10px; font-weight: 700; color: #666;
+            margin-bottom: 12px; text-transform: uppercase; letter-spacing: 2px;
+        }
+
+        .layer-toggle {
+            display: flex; align-items: center; gap: 10px;
+            margin-bottom: 8px; cursor: pointer;
+            font-size: 12px;
+        }
+
+        .vital-item {
+            border-left: 2px solid var(--glow-neon); padding-left: 10px;
+            margin-bottom: 15px;
+        }
+        .vital-label { font-size: 9px; color: #888; }
+        .vital-value { font-size: 14px; font-weight: 700; }
+
+        #evidence-feed {
+            flex-grow: 1; overflow-y: auto; font-size: 10px; color: #888;
+        }
+        .evidence-entry {
+            border-bottom: 1px solid rgba(0,255,100,0.1); padding: 8px 0;
+        }
+
+        .marker {
+            width: 12px; height: 12px; border-radius: 50%;
+            background: var(--glow-neon); border: 2px solid #fff;
+            box-shadow: 0 0 10px var(--glow-neon);
+            cursor: pointer;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,255,100,0) 0%, rgba(0,255,100,0.02) 50%, rgba(0,255,100,0) 100%);
+            background-size: 100% 4px; z-index: 1000; pointer-events: none;
+            animation: scanline 10s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="scanline"></div>
+    <div id="map"></div>
+
+    <div id="header" class="hud-overlay panel">
+        <div class="header-title">ANTHONY_AI // RECON_NODE</div>
+        <div id="status-clock" style="font-size: 14px; font-weight: 700;">00:00:00</div>
+    </div>
+
+    <div id="sidebar" class="hud-overlay panel">
+        <div class="section-title">Layer Control</div>
+        <div id="layer-controls">
+            <label class="layer-toggle"><input type="checkbox" id="toggle-cctv" checked> CCTV Nodes</label>
+            <label class="layer-toggle"><input type="checkbox" id="toggle-maritime" checked> Maritime Routes</label>
+            <label class="layer-toggle"><input type="checkbox" id="toggle-satellite" checked> Satellite Orbits</label>
+            <label class="layer-toggle"><input type="checkbox" id="toggle-fences" checked> Geofences</label>
+        </div>
+
+        <div class="section-title" style="margin-top: 30px;">Active Signals</div>
+        <div id="mission-list" style="font-size: 11px; color: #888;">
+            > Initializing Global OSINT...<br>
+            > Scanning Hub 42...<br>
+            > Proxy Tunnel Established.
+        </div>
+    </div>
+
+    <div id="vitals" class="hud-overlay panel">
+        <div class="section-title">Evidence Feed</div>
+        <div id="evidence-feed">
+            [WAITING FOR TACTICAL EVENTS...]
+        </div>
+        <div class="section-title" style="margin-top: 20px;">System Vitals</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="vital-item">
+                <div class="vital-label">Active Nodes</div>
+                <div class="vital-value" id="active-nodes">0</div>
+            </div>
+            <div class="vital-item">
+                <div class="vital-label">Threat Level</div>
+                <div class="vital-value" id="threat-level">LOW</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: {
+                "version": 8,
+                "sources": {
+                    "osm": {
+                        "type": "raster",
+                        "tiles": ["https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"],
+                        "tileSize": 256
+                    }
+                },
+                "layers": [
+                    {
+                        "id": "osm",
+                        "type": "raster",
+                        "source": "osm",
+                        "paint": { "raster-brightness-max": 0.2, "raster-saturation": -1 }
+                    }
+                ]
+            },
+            center: [0, 20],
+            zoom: 2
+        });
+
+        const markers = [];
+
+        map.on('load', () => {
+            loadTacticalLayers();
+            updateTelemetry();
+            updateEvidence();
+
+            map.on('moveend', () => {
+                if (document.getElementById('toggle-cctv').checked) {
+                    fetchCctvNodes();
+                }
+            });
+        });
+
+        async function loadTacticalLayers() {
+            const resp = await fetch('/api/osint/tactical-layers');
+            const data = await resp.json();
+
+            // 1. Maritime Routes
+            map.addSource('maritime', {
+                type: 'geojson',
+                data: {
+                    type: 'FeatureCollection',
+                    features: data.maritime_routes.map(r => ({
+                        type: 'Feature',
+                        geometry: { type: 'LineString', coordinates: r.coordinates },
+                        properties: { name: r.name, risk: r.risk }
+                    }))
+                }
+            });
+
+            map.addLayer({
+                id: 'maritime-lines',
+                type: 'line',
+                source: 'maritime',
+                layout: { 'visibility': 'visible' },
+                paint: {
+                    'line-color': ['match', ['get', 'risk'], 'HIGH', '#ff3e3e', 'MEDIUM', '#ffcc00', '#00ff64'],
+                    'line-width': 2,
+                    'line-opacity': 0.6
+                }
+            });
+
+            // 2. Satellite Orbits
+            map.addSource('satellite', {
+                type: 'geojson',
+                data: {
+                    type: 'FeatureCollection',
+                    features: data.satellite_paths.map(s => ({
+                        type: 'Feature',
+                        geometry: { type: 'LineString', coordinates: s.coordinates },
+                        properties: { name: s.name }
+                    }))
+                }
+            });
+
+            map.addLayer({
+                id: 'satellite-lines',
+                type: 'line',
+                source: 'satellite',
+                layout: { 'visibility': 'visible' },
+                paint: { 'line-color': '#00ff64', 'line-width': 1, 'line-dasharray': [4, 4], 'line-opacity': 0.3 }
+            });
+
+            // 3. Geofences
+            if (data.geofences) {
+                data.geofences.forEach(f => {
+                    // Draw a circle for each geofence
+                    // In MapLibre we'd typically create a polygon GeoJSON
+                    console.log("Geofence loaded:", f.name);
+                });
+            }
+        }
+
+        async function fetchCctvNodes() {
+            const center = map.getCenter();
+            const resp = await fetch(`/api/osint/cctv-nodes?lat=${center.lat}&lng=${center.lng}&radius=10000`);
+            const result = await resp.json();
+
+            markers.forEach(m => m.remove());
+            markers.length = 0;
+
+            if (result.status === 'success') {
+                result.nodes.forEach(node => {
+                    const el = document.createElement('div');
+                    el.className = 'marker';
+                    const m = new maplibregl.Marker(el)
+                        .setLngLat([node.lng, node.lat])
+                        .setPopup(new maplibregl.Popup({ offset: 25 }).setHTML(`
+                            <div class="cctv-node">
+                                <div class="section-title">${node.name}</div>
+                                <div style="font-size: 9px; color: #888;">Op: ${node.operator}</div>
+                                <div style="margin-top: 10px; height: 100px; background: #111; display: flex; align-items: center; justify-content: center;">
+                                    [STREAM_HANDSHAKE...]
+                                </div>
+                            </div>
+                        `))
+                        .addTo(map);
+                    markers.push(m);
+                });
+            }
+        }
+
+        async function updateTelemetry() {
+            try {
+                const resp = await fetch('/api/osint/telemetry');
+                const data = await resp.json();
+                document.getElementById('active-nodes').innerText = data.active_nodes;
+                document.getElementById('threat-level').innerText = data.threat_level;
+                document.getElementById('threat-level').style.color = data.threat_level === 'CRITICAL' ? '#ff3e3e' : '#00ff64';
+            } catch (e) {}
+        }
+
+        async function updateEvidence() {
+            try {
+                const resp = await fetch('/api/osint/evidence');
+                const data = await resp.json();
+                const feed = document.getElementById('evidence-feed');
+
+                if (data.length > 0) {
+                    feed.innerHTML = data.map(ev => `
+                        <div class="evidence-entry">
+                            <span style="color: #fff;">[${ev.node}]</span> Entry Detected.<br>
+                            <span style="color: ${ev.meta.alert === 'CRITICAL' ? '#ff3e3e' : '#ffcc00'}">${ev.meta.alert} ALERT</span> // ${new Date(ev.time * 1000).toLocaleTimeString()}
+                        </div>
+                    `).join('');
+                }
+            } catch (e) {}
+        }
+
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('status-clock').innerText = now.toTimeString().split(' ')[0];
+        }, 1000);
+
+        setInterval(updateTelemetry, 5000);
+        setInterval(updateEvidence, 10000);
+    </script>
+</body>
+</html>

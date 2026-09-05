@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willow Rain Hub | Alpha Spectrum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #e5e5e5; }
+        .alpha-gradient { background: linear-gradient(90deg, #ff0000 0%, #000000 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body class="p-6">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-12">
+            <h1 class="text-3xl font-bold tracking-tighter text-white">WILLOW RAIN <span class="text-red-600">COMPANY</span></h1>
+            <div class="px-3 py-1 bg-red-900/30 border border-red-500 rounded text-red-500 text-xs font-mono uppercase">Grid 4.0 Synchronized</div>
+        </header>
+
+        <!-- Main Bio -->
+        <section id="bio" class="glass-card p-8 rounded-2xl mb-8">
+            <h2 class="text-xl font-semibold mb-4 text-white uppercase tracking-widest border-l-4 border-red-600 pl-4">About the Empire</h2>
+            <p class="text-lg leading-relaxed text-gray-400">
+                Willow Rain Company LLC is the architect of the <span class="text-white italic">Alpha Spectrum</span>.
+                We deploy autonomous neural swarms to harvest, refine, and broadcast high-fidelity intelligence across the global grid.
+                Our mission is total media sovereignty.
+            </p>
+        </section>
+
+        <!-- Social Network -->
+        <section id="network" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="glass-card p-6 rounded-xl hover:border-red-600 transition-colors">
+                <h3 class="text-white font-bold mb-2">ANTHONY AI</h3>
+                <p class="text-sm text-gray-500 mb-4">Sovereign Intel Broadcast Node</p>
+                <div class="flex space-x-3">
+                    <a href="https://facebook.com/willowraincompanyllc" class="text-xs bg-white text-black px-3 py-1 rounded hover:bg-gray-300">FACEBOOK</a>
+                    <a href="https://threads.net/@willowraincompanyllc" class="text-xs bg-white text-black px-3 py-1 rounded hover:bg-gray-300">THREADS</a>
+                    <a href="https://tiktok.com/@anthonyai" class="text-xs bg-white text-black px-3 py-1 rounded hover:bg-gray-300">TIKTOK</a>
+                </div>
+            </div>
+            <div class="glass-card p-6 rounded-xl hover:border-blue-600 transition-colors">
+                <h3 class="text-white font-bold mb-2">ACM ENTERTAINMENT</h3>
+                <p class="text-sm text-gray-500 mb-4">High-Velocity Viral Engine</p>
+                <div class="flex space-x-3">
+                    <a href="#" class="text-xs bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-500 uppercase">Archive</a>
+                    <a href="#" class="text-xs bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-500 uppercase">Direct</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Feed Area -->
+        <section id="feed" class="glass-card p-8 rounded-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-lg font-semibold text-white uppercase tracking-widest">Live Spectrum Feed</h2>
+                <div class="h-2 w-2 bg-green-500 rounded-full animate-pulse"></div>
+            </div>
+            <div class="space-y-4">
+                <div class="p-4 bg-black/50 border-l-2 border-red-600 rounded">
+                    <div class="text-xs font-mono text-gray-600 mb-1">STRIKE_SUCCESS | 0.4s AGO</div>
+                    <div class="text-sm font-medium">Alpha Deep Dive: Neural Grid Expansion complete in Southeast Asia.</div>
+                </div>
+                <div class="p-4 bg-black/50 border-l-2 border-gray-800 rounded opacity-50">
+                    <div class="text-xs font-mono text-gray-600 mb-1">HARVEST_COMPLETE | 5m AGO</div>
+                    <div class="text-sm font-medium">NASA Discovery Feed processed. 20 high-fidelity items indexed.</div>
+                </div>
+                <!-- Placeholder for dynamic JS loading -->
+                <div id="dynamic-content" class="text-center py-8 text-gray-700 font-mono text-xs italic">
+                    [WAITING FOR SWARM SYNCHRONIZATION...]
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-12 text-center text-xs text-gray-600 font-mono tracking-widest uppercase">
+            &copy; 2026 Willow Rain Company LLC | All Rights Reserved | Non-Conformist Entity
+        </footer>
+    </div>
+</body>
+</html>
