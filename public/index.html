@@ -131,40 +131,6 @@
             opacity: 0.9;
         }
 
-        .btn-social {
-            background: #161618;
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px;
-            width: 100%;
-            font-weight: 600;
-            font-size: 0.9rem;
-            border-radius: 10px;
-            cursor: pointer;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .btn-social:hover {
-            border-color: var(--accent-green);
-        }
-
-        .skip-link {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            text-decoration: none;
-            cursor: pointer;
-            margin-top: 16px;
-            display: inline-block;
-        }
-
-        .skip-link:hover {
-            color: var(--accent-green);
-        }
-
         .error {
             color: #ff3355;
             font-size: 0.85rem;
@@ -180,33 +146,24 @@
             <div class="logo-inner">🐜</div>
         </div>
         <div class="brand-title">ANTHONY AI</div>
-        <div class="subtitle">Mission Hub // Access Terminal</div>
+        <div class="subtitle">Mission Hub // Access Gate</div>
 
-        <input type="password" id="accessKey" placeholder="Enter Access Code (or press Authenticate)">
+        <input type="password" id="accessKey" placeholder="Enter Access Password">
         <button class="btn-gradient" onclick="authenticate()">AUTHENTICATE GRID</button>
 
-        <button class="btn-social" onclick="guestLogin()">♪ Log in with TikTok</button>
-        <button class="btn-social" onclick="guestLogin()">G Continue with Google</button>
-        <button class="btn-social" onclick="guestLogin()">f Continue with Facebook</button>
-
-        <a class="skip-link" onclick="guestLogin()">Skip for now &rarr;</a>
-        <div id="errorMsg" class="error">Access Denied: Invalid Access Code</div>
+        <div id="errorMsg" class="error">Access Denied: Invalid Password</div>
     </div>
 
     <script>
         function authenticate() {
             const passcode = document.getElementById('accessKey').value.trim();
-            if (passcode === 'anthony2026' || passcode === 'yourpassword' || passcode === '') {
+            // Strict Password Check
+            if (passcode === 'Deadangone19@') {
                 sessionStorage.setItem('authorized', 'true');
                 window.location.href = 'dashboard.html';
             } else {
                 document.getElementById('errorMsg').style.display = 'block';
             }
-        }
-
-        function guestLogin() {
-            sessionStorage.setItem('authorized', 'true');
-            window.location.href = 'dashboard.html';
         }
 
         document.getElementById('accessKey').addEventListener('keyup', function(e) {
