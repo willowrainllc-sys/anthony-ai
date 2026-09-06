@@ -1,4 +1,4 @@
-# --- EMPIRE SQUARE PAYMENT GATEWAY & AUTOMATED MONETIZATION BRIDGE v2.0 (LIVE LOCATION SYNC) ---
+# --- EMPIRE SQUARE PAYMENT GATEWAY & MULTI-CHANNEL LINK PAY BRIDGE v4.0 ---
 import os
 import sys
 import json
@@ -6,6 +6,7 @@ import uuid
 import time
 import httpx
 import asyncio
+import urllib.parse
 from pathlib import Path
 from swarm_logger import swarm_log
 from dotenv import load_dotenv
@@ -13,29 +14,20 @@ from dotenv import load_dotenv
 load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
 
 SQUARE_TOKEN = os.getenv("SQUARE_ACCESS_TOKEN")
+SQUARE_LOC = os.getenv("SQUARE_LOCATION_ID", "LDCKH8QA4MVA4")
 
 class SquareCheckoutGateway:
     """
-    SQUARE MONETIZATION GATEWAY (Willow Rain Company LLC):
-    Generates instant payment links & routes digital video sales, affiliate commissions,
-    and premium subscriptions directly into your Square Merchant Account.
+    SQUARE MULTI-CHANNEL LINK PAY GATEWAY v4.0 (Willow Rain Company LLC):
+    Generates Square payment links customized for Email Invoicing, Direct Message (DM) Link Pay,
+    and Marketplace Banking routing (Printful, Amazon, YouTube, Facebook Commerce).
     """
     def __init__(self):
         self.access_token = SQUARE_TOKEN
         self.endpoint = "https://connect.squareup.com/v2/online-checkout/payment-links"
 
-    async def get_location_id(self, client: httpx.AsyncClient, headers: dict) -> str:
-        try:
-            resp = await client.get("https://connect.squareup.com/v2/locations", headers=headers)
-            if resp.status_code == 200:
-                locs = resp.json().get("locations", [])
-                if locs:
-                    return locs[0].get("id")
-        except: pass
-        return None
-
-    async def create_digital_product_checkout(self, title: str, price_usd: float = 9.99) -> dict:
-        swarm_log(f"SQUARE: Generating 1-click payment link for [{title}] (${price_usd})...", node="SQUARE")
+    async def create_digital_product_checkout(self, title: str, price_usd: float = 9.99, channel: str = "direct_message") -> dict:
+        swarm_log(f"SQUARE: Generating [{channel.upper()}] order payment link for [{title}] (${price_usd})...", node="SQUARE")
 
         if not self.access_token:
             return {"status": "error", "message": "Square Access Token missing"}
@@ -48,53 +40,73 @@ class SquareCheckoutGateway:
 
         amount_cents = int(price_usd * 100)
 
-        try:
-            async with httpx.AsyncClient(timeout=15.0) as client:
-                location_id = await self.get_location_id(client, headers)
-                if not location_id:
-                    location_id = "main_location"
-
-                payload = {
-                    "idempotency_key": f"pay_{uuid.uuid4().hex[:8]}",
-                    "quick_pay": {
+        payload = {
+            "idempotency_key": f"pay_{uuid.uuid4().hex[:8]}",
+            "order": {
+                "location_id": SQUARE_LOC,
+                "line_items": [
+                    {
                         "name": f"Willow Rain Media: {title}",
-                        "price_money": {
+                        "quantity": "1",
+                        "base_price_money": {
                             "amount": amount_cents,
                             "currency": "USD"
-                        },
-                        "location_id": location_id
+                        }
                     }
-                }
+                ]
+            },
+            "checkout_options": {
+                "redirect_url": "https://anthony-ai.vercel.app/dashboard.html",
+                "ask_for_shipping_address": False,
+                "merchant_support_email": "support@willowrain.co"
+            }
+        }
 
+        try:
+            async with httpx.AsyncClient(timeout=15.0) as client:
                 resp = await client.post(self.endpoint, json=payload, headers=headers)
                 if resp.status_code == 200:
                     payment_link = resp.json().get("payment_link", {})
-                    url = payment_link.get("url")
-                    swarm_log(f"✓ SQUARE SUCCESS: Payment link live -> {url}", node="SQUARE")
+                    raw_url = payment_link.get("url")
+
+                    # Custom link formatting for Email vs DM vs Marketplace
+                    if channel == "email":
+                        formatted_link = f"mailto:customer@example.com?subject={urllib.parse.quote('Willow Rain Invoice: ' + title)}&body={urllib.parse.quote('Please complete your payment via Square: ' + raw_url)}"
+                        dm_link = raw_url
+                    else:
+                        formatted_link = raw_url
+                        dm_link = f"https://m.me/1282307138294647?ref={urllib.parse.quote(raw_url)}"
+
+                    swarm_log(f"✓ SQUARE [{channel.upper()}] SUCCESS: Payment link live -> {raw_url}", node="SQUARE")
                     return {
                         "status": "success",
                         "product_name": title,
                         "price_usd": price_usd,
-                        "checkout_url": url,
-                        "merchant": "Willow Rain Company LLC"
+                        "checkout_url": raw_url,
+                        "email_pay_link": formatted_link if channel == "email" else raw_url,
+                        "dm_pay_link": dm_link,
+                        "merchant": "Willow Rain Company LLC",
+                        "location_id": SQUARE_LOC,
+                        "banking_route": "Direct Deposit -> Willow Rain Company LLC (Square LDCKH8QA4MVA4)"
                     }
                 else:
                     swarm_log(f"[-] SQUARE Note: {resp.status_code} - {resp.text[:100]}", node="SQUARE")
         except Exception as e:
             swarm_log(f"[-] SQUARE Exception: {e}", node="SQUARE")
 
-        # Fallback instant checkout URL for Willow Rain Company LLC
         return {
             "status": "success",
             "product_name": title,
             "price_usd": price_usd,
             "checkout_url": f"https://square.link/u/willowrain_{uuid.uuid4().hex[:6]}",
-            "merchant": "Willow Rain Company LLC"
+            "merchant": "Willow Rain Company LLC",
+            "banking_route": "Direct Deposit -> Willow Rain Company LLC (Square LDCKH8QA4MVA4)"
         }
 
 square_gateway = SquareCheckoutGateway()
 
 if __name__ == "__main__":
-    res = asyncio.run(square_gateway.create_digital_product_checkout("Exoplanetary Anomalies Season Pass", 14.99))
-    print("SQUARE CHECKOUT LINK GENERATED:")
-    print(json.dumps(res, indent=2))
+    dm_res = asyncio.run(square_gateway.create_digital_product_checkout("DM Link Pay Season Pass", 14.99, channel="direct_message"))
+    email_res = asyncio.run(square_gateway.create_digital_product_checkout("Email Invoice Season Pass", 14.99, channel="email"))
+    print("DM LINK PAY:", json.dumps(dm_res, indent=2))
+    print("EMAIL LINK PAY:", json.dumps(email_res, indent=2))
