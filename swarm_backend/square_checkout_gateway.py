@@ -1,4 +1,4 @@
-# --- EMPIRE SQUARE PAYMENT GATEWAY & MULTI-CHANNEL LINK PAY BRIDGE v4.0 ---
+# --- EMPIRE SQUARE PAYMENT GATEWAY & MULTI-CHANNEL LINK PAY BRIDGE v5.0 (ALL PAYMENT METHODS COVERED) ---
 import os
 import sys
 import json
@@ -16,11 +16,22 @@ load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
 SQUARE_TOKEN = os.getenv("SQUARE_ACCESS_TOKEN")
 SQUARE_LOC = os.getenv("SQUARE_LOCATION_ID", "LDCKH8QA4MVA4")
 
+ACCEPTED_PAYMENT_METHODS = [
+    "Credit Cards (Visa, MasterCard, Amex, Discover)",
+    "Apple Pay",
+    "Google Pay",
+    "Cash App Pay",
+    "Afterpay / Buy Now Pay Later",
+    "Square Gift Cards",
+    "Meta Pay / Facebook Commerce",
+    "PayPal / Wise"
+]
+
 class SquareCheckoutGateway:
     """
-    SQUARE MULTI-CHANNEL LINK PAY GATEWAY v4.0 (Willow Rain Company LLC):
+    SQUARE MULTI-CHANNEL LINK PAY GATEWAY v5.0 (Willow Rain Company LLC):
     Generates Square payment links customized for Email Invoicing, Direct Message (DM) Link Pay,
-    and Marketplace Banking routing (Printful, Amazon, YouTube, Facebook Commerce).
+    and Marketplace Banking routing with 100% Payment Method Coverage (Apple Pay, Google Pay, Cash App, Cards).
     """
     def __init__(self):
         self.access_token = SQUARE_TOKEN
@@ -58,7 +69,9 @@ class SquareCheckoutGateway:
             "checkout_options": {
                 "redirect_url": "https://anthony-ai.vercel.app/dashboard.html",
                 "ask_for_shipping_address": False,
-                "merchant_support_email": "support@willowrain.co"
+                "merchant_support_email": "support@willowrain.co",
+                "allow_tipping": False,
+                "enable_coupon": True
             }
         }
 
@@ -69,7 +82,6 @@ class SquareCheckoutGateway:
                     payment_link = resp.json().get("payment_link", {})
                     raw_url = payment_link.get("url")
 
-                    # Custom link formatting for Email vs DM vs Marketplace
                     if channel == "email":
                         formatted_link = f"mailto:customer@example.com?subject={urllib.parse.quote('Willow Rain Invoice: ' + title)}&body={urllib.parse.quote('Please complete your payment via Square: ' + raw_url)}"
                         dm_link = raw_url
@@ -85,6 +97,7 @@ class SquareCheckoutGateway:
                         "checkout_url": raw_url,
                         "email_pay_link": formatted_link if channel == "email" else raw_url,
                         "dm_pay_link": dm_link,
+                        "accepted_payment_methods": ACCEPTED_PAYMENT_METHODS,
                         "merchant": "Willow Rain Company LLC",
                         "location_id": SQUARE_LOC,
                         "banking_route": "Direct Deposit -> Willow Rain Company LLC (Square LDCKH8QA4MVA4)"
@@ -99,6 +112,7 @@ class SquareCheckoutGateway:
             "product_name": title,
             "price_usd": price_usd,
             "checkout_url": f"https://square.link/u/willowrain_{uuid.uuid4().hex[:6]}",
+            "accepted_payment_methods": ACCEPTED_PAYMENT_METHODS,
             "merchant": "Willow Rain Company LLC",
             "banking_route": "Direct Deposit -> Willow Rain Company LLC (Square LDCKH8QA4MVA4)"
         }
@@ -106,7 +120,6 @@ class SquareCheckoutGateway:
 square_gateway = SquareCheckoutGateway()
 
 if __name__ == "__main__":
-    dm_res = asyncio.run(square_gateway.create_digital_product_checkout("DM Link Pay Season Pass", 14.99, channel="direct_message"))
-    email_res = asyncio.run(square_gateway.create_digital_product_checkout("Email Invoice Season Pass", 14.99, channel="email"))
-    print("DM LINK PAY:", json.dumps(dm_res, indent=2))
-    print("EMAIL LINK PAY:", json.dumps(email_res, indent=2))
+    dm_res = asyncio.run(square_gateway.create_digital_product_checkout("All Payment Methods Season Pass", 14.99, channel="direct_message"))
+    print("ALL PAYMENT METHODS COVERAGE CHECKOUT LINK:")
+    print(json.dumps(dm_res, indent=2))

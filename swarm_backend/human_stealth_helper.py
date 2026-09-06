@@ -1,7 +1,8 @@
-# --- EMPIRE HUMAN ACTION STEALTH & JITTER HELPER v1.0 (SAFETY FIRST) ---
+# --- EMPIRE HUMAN ACTION STEALTH, BEZIER MOUSE & ARROW CLICKER HELPER v2.0 ---
 import os
 import sys
 import time
+import math
 import random
 import asyncio
 from pathlib import Path
@@ -16,11 +17,11 @@ STEALTH_USER_AGENTS = [
 
 class HumanStealthHelper:
     """
-    HUMAN STEALTH & ACTION MIMICRY HELPER:
-    1. Simulates human typing rhythm with natural keystroke delays.
-    2. Implements organic mouse movement & scroll jitter.
-    3. Masks navigator.webdriver flags to bypass anti-bot detection.
-    4. Enforces rate-limiting cooldowns for 100% account safety.
+    HUMAN STEALTH, BEZIER MOUSE & ARROW CLICKER HELPER v2.0:
+    1. Curved Bezier Mouse Cursor Movement & Arrow Clicker with natural acceleration/deceleration.
+    2. Human typing rhythm with randomized per-character keystroke variance.
+    3. Organic page scrolling & random viewport mouse hover jitter.
+    4. Complete WebGL, Canvas, and webdriver anti-bot masking.
     """
     @staticmethod
     def get_random_user_agent() -> str:
@@ -34,12 +35,70 @@ class HumanStealthHelper:
         await asyncio.sleep(delay)
 
     @staticmethod
+    async def move_mouse_bezier(page, start_x: int, start_y: int, end_x: int, end_y: int, steps: int = 15):
+        """Moves mouse along a natural human Bezier curve to bypass bot detection."""
+        ctrl_x = start_x + (end_x - start_x) * random.uniform(0.2, 0.8) + random.randint(-40, 40)
+        ctrl_y = start_y + (end_y - start_y) * random.uniform(0.2, 0.8) + random.randint(-40, 40)
+
+        for i in range(1, steps + 1):
+            t = i / steps
+            # Quadratic Bezier formula
+            x = int((1 - t)**2 * start_x + 2 * (1 - t) * t * ctrl_x + t**2 * end_x)
+            y = int((1 - t)**2 * start_y + 2 * (1 - t) * t * ctrl_y + t**2 * end_y)
+            await page.mouse.move(x, y)
+            await asyncio.sleep(random.uniform(0.01, 0.03))
+
+    @staticmethod
+    async def human_arrow_click(page, selector: str):
+        """Locates element bounding box, moves mouse in Bezier curve, hovers, and clicks."""
+        try:
+            elem = page.locator(selector).first
+            box = await elem.bounding_box()
+            if box:
+                target_x = int(box["x"] + box["width"] * random.uniform(0.3, 0.7))
+                target_y = int(box["y"] + box["height"] * random.uniform(0.3, 0.7))
+
+                # Current mouse position or default start
+                start_x, start_y = random.randint(100, 400), random.randint(100, 400)
+                await HumanStealthHelper.move_mouse_bezier(page, start_x, start_y, target_x, target_y)
+
+                # Pre-click hover jitter
+                await page.mouse.move(target_x + random.randint(-2, 2), target_y + random.randint(-2, 2))
+                await asyncio.sleep(random.uniform(0.1, 0.3))
+
+                await page.mouse.down()
+                await asyncio.sleep(random.uniform(0.05, 0.15))
+                await page.mouse.up()
+                swarm_log(f"✓ STEALTH: Executed human arrow click at ({target_x}, {target_y}) on {selector}", node="STEALTH")
+                return True
+        except Exception as e:
+            swarm_log(f"[-] Stealth Click Fallback for {selector}: {e}", node="STEALTH")
+            try:
+                await page.click(selector)
+                return True
+            except: pass
+        return False
+
+    @staticmethod
     async def type_like_human(page, selector: str, text: str):
         """Types text into an input field with randomized human keystroke speed."""
-        await page.click(selector)
+        await HumanStealthHelper.human_arrow_click(page, selector)
         for char in text:
             await page.keyboard.type(char)
             await asyncio.sleep(random.uniform(0.04, 0.16)) # 40ms to 160ms per char
+
+    @staticmethod
+    async def human_scroll_jitter(page):
+        """Scrolls page up and down organically to mimic human reading behavior."""
+        try:
+            for _ in range(random.randint(2, 4)):
+                scroll_y = random.randint(150, 450)
+                await page.mouse.wheel(0, scroll_y)
+                await asyncio.sleep(random.uniform(0.8, 1.8))
+                if random.random() > 0.5:
+                    await page.mouse.wheel(0, -random.randint(50, 150))
+                    await asyncio.sleep(random.uniform(0.5, 1.2))
+        except: pass
 
     @staticmethod
     async def inject_stealth_scripts(page):
@@ -60,7 +119,7 @@ human_stealth = HumanStealthHelper()
 
 if __name__ == "__main__":
     async def test_stealth():
-        print("Testing Human Stealth Helper...")
+        print("Testing Human Stealth Bezier & Arrow Clicker Helper v2.0...")
         print("User Agent:", human_stealth.get_random_user_agent())
         await human_stealth.apply_human_jitter(1.0, 2.0)
         print("✓ Stealth test complete.")
