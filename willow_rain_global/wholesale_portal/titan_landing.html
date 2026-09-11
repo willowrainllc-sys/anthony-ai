@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OBSIDIAN_TITAN | The Global Web Browser | Privacy by Ingress</title>
+<meta content="Obsidian Titan: The ultimate Global web browser for privacy, zero-log browsing, and ghost mesh routing. Built by Anthony Christopher." name="description"/>
+<meta content="Global browser, privacy, zero log, ghost mesh, Anthony Christopher, obsidian global, private internet, secure ingress" name="keywords"/>
+<meta content="Anthony Christopher" name="author"/>
+<link href="http://titan-browser.io/" rel="canonical"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&amp;family=Inter:wght@400;600;800&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        :root {
+            --bg: #050505;
+            --accent: #3b82f6;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .space-grotesk { font-family: 'Space Grotesk', sans-serif; }
+        .mono { font-family: 'Space Mono', monospace; }
+
+        .hero-glow {
+            position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
+            width: 80%; height: 500px;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .btn-download {
+            background: #fff; color: #000;
+            padding: 18px 45px; border-radius: 100px;
+            font-weight: 800; font-size: 1.1rem;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px rgba(255,255,255,0.1);
+        }
+        .btn-download:hover { transform: scale(1.05); box-shadow: 0 15px 50px rgba(59, 130, 246, 0.3); }
+
+        .feature-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            padding: 40px; border-radius: 30px;
+            transition: 0.3s;
+        }
+        .feature-card:hover { border-color: var(--accent); background: rgba(59, 130, 246, 0.05); }
+
+        /* 🔱 Mobile Frame Simulation */
+        .phone-frame {
+            width: 280px; height: 580px;
+            background: #111; border-radius: 45px;
+            padding: 12px; border: 2px solid #222;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+        }
+        .phone-screen {
+            background: #000; width: 100%; height: 100%;
+            border-radius: 35px; overflow: hidden;
+            display: flex; flex-direction: column;
+            background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=400');
+            background-size: cover;
+        }
+
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+<div class="hero-glow"></div>
+<!-- 🔱 Navigation -->
+<nav class="flex justify-between items-center px-12 py-8 border-bottom border-white/5">
+<div class="space-grotesk font-bold text-2xl tracking-tighter">OBSIDIAN_TITAN</div>
+<div class="hidden md:flex gap-10 text-sm font-semibold text-gray-400">
+<a class="hover:text-white transition" href="#">MISSION</a>
+<a class="hover:text-white transition" href="#">GHOST MESH</a>
+<a class="hover:text-white transition" href="#">SECURITY</a>
+</div>
+<button class="text-xs font-bold px-6 py-2 border border-white/10 rounded-full hover:bg-white hover:text-black transition">DIRECTOR ACCESS</button>
+</nav>
+<!-- 🔱 Hero Section -->
+<section class="max-w-7xl mx-auto px-6 py-32 flex flex-col md:flex-row items-center gap-20">
+<div class="flex-1">
+<div class="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-[10px] font-bold tracking-widest mb-6 uppercase">v26.0 Stable Release</div>
+<h1 class="space-grotesk text-6xl md:text-8xl font-bold leading-[0.9] tracking-tighter mb-10">
+                Browse without <br/><span class="text-gray-500">being tracked.</span>
+</h1>
+<p class="text-xl text-gray-400 max-w-lg mb-12 leading-relaxed">
+                The modern web is built on surveillance. Obsidian Titan is built on American freedom. Experience 100% private browsing powered by the global Obsidian decentralized network.
+            </p>
+<div class="flex flex-col gap-8">
+    <div class="flex flex-wrap gap-4">
+        <a class="flex items-center gap-3 bg-white text-black px-6 py-3 rounded-xl font-bold hover:scale-105 transition shadow-lg" href="/download/obsidian.apk">
+            <svg fill="currentColor" viewbox="0 0 24 24" width="20"><path d="M17.523 15.3414c-.5511 0-.9981-.447-.9981-.9981s.447-.9981.9981-.9981.9981.447.9981.9981-.447.9981-.9981.9981zm-11.046 0c-.5511 0-.9981-.447-.9981-.9981s.447-.9981.9981-.9981.9981.447.9981.9981-.447.9981-.9981.9981zm11.445-5.9961l1.9912-3.4485c.1202-.2082.0489-.4751-.1592-.5953-.2082-.1202-.4751-.0489-.5953.1592l-2.0205 3.499c-1.393-.637-2.9515-.9982-4.5924-.9982-1.641 0-3.1994.3612-4.5924.9982l-2.0205-3.499c-.1202-.2082-.387-.2794-.5953-.1592-.2081.1202-.2794.3871-.1592.5953l1.9912 3.4485c-3.136 1.7616-5.263 4.965-5.435 8.718h18.828c-.172-3.753-2.299-6.9564-5.435-8.718z"></path></svg>
+            ANDROID
+        </a>
+        <a class="flex items-center gap-3 bg-white/10 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/20 transition border border-white/10" href="/download/titan_windows.zip">
+            <svg fill="currentColor" viewbox="0 0 24 24" width="20"><path d="M0 3.449L9.75 2.1V11.7H0V3.449zm0 17.102L9.75 21.9V12.3H0v8.251zM10.5 1.8L24 0v11.7H10.5V1.8zm0 20.4L24 24V12.3H10.5v9.9z"></path></svg>
+            WINDOWS
+        </a>
+        <a class="flex items-center gap-3 bg-white/10 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/20 transition border border-white/10" href="/download/titan_macos.dmg">
+            <svg fill="currentColor" viewbox="0 0 24 24" width="20"><path d="M17.066 20.243c-1.137.915-2.352 1.757-3.614 1.757-.962 0-1.426-.454-2.587-.454-1.161 0-1.674.433-2.587.433-1.261 0-2.522-.915-3.661-1.757C2.261 18.397 0 14.545 0 10.741c0-3.41 1.954-5.204 3.905-5.204.961 0 1.547.454 2.378.454.832 0 1.341-.454 2.38-.454 1.953 0 3.905 1.794 3.905 5.204 0 .915-.117 1.83-.351 2.746-.35 1.488-1.284 3.197-2.378 4.112zM12.039 3.091C12.039 1.385 13.432 0 15.137 0c0 1.706-1.393 3.091-3.098 3.091z"></path></svg>
+            MACOS
+        </a>
+    </div>
+    <div class="flex items-center gap-3 px-2">
+        <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+        <span class="text-[10px] font-bold text-emerald-500 uppercase tracking-widest">Global Mesh Ingress: ACTIVE</span>
+    </div>
+</div>
+<p class="mt-8 text-[10px] text-gray-600 uppercase font-bold tracking-widest">A Product of Obsidian Global Holdings</p>
+</div>
+<div class="relative hidden lg:block">
+<div class="phone-frame">
+<div class="phone-screen">
+<div class="p-6">
+<div class="w-full h-8 bg-white/10 rounded-lg flex items-center px-3 gap-2">
+<div class="text-[8px]">🛰️</div>
+<div class="text-[8px] text-white/40">obsidian-global.io</div>
+</div>
+</div>
+<div class="mt-auto p-10">
+<div class="text-3xl font-black mb-2 italic">GHOST</div>
+<div class="text-[10px] font-bold text-gray-400">INGRESS_AUTHORIZED</div>
+</div>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/20 blur-3xl rounded-full"></div>
+</div>
+</section>
+<!-- 🔱 Features -->
+<section class="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
+<div class="grid md:grid-cols-3 gap-10">
+<div class="feature-card">
+<div class="text-3xl mb-6">🛡️</div>
+<h3 class="space-grotesk text-xl font-bold mb-4">Zero-Log Architecture</h3>
+<p class="text-sm text-gray-500 leading-relaxed">History, cookies, and trackers are excommunicated at the kernel level. What you browse never leaves your device.</p>
+</div>
+<div class="feature-card">
+<div class="text-3xl mb-6">📡</div>
+<h3 class="space-grotesk text-xl font-bold mb-4">Ghost Mesh Routing</h3>
+<p class="text-sm text-gray-500 leading-relaxed">Your traffic is dispersed across our private Missouri backhaul, rendering standard tracking signatures useless.</p>
+</div>
+<div class="feature-card">
+<div class="text-3xl mb-6">🔱</div>
+<h3 class="space-grotesk text-xl font-bold mb-4">Director Intelligence</h3>
+<p class="text-sm text-gray-500 leading-relaxed">Integrated with Anthony-Latest v29.0 for real-time web context and neural-assisted search results.</p>
+</div>
+</div>
+</section>
+<!-- 🔱 Footer -->
+<footer class="px-12 py-20 border-t border-white/5 text-center">
+<div class="space-grotesk text-sm font-bold text-gray-600 mb-6 tracking-widest uppercase">Obsidian Global Holdings © 2026</div>
+<div class="flex justify-center gap-10 text-[10px] font-bold text-gray-500">
+<a href="terms.html">TERMS</a>
+<a href="privacy.html">PRIVACY</a>
+<a href="#">GHOST DNA</a>
+</div>
+</footer>
+</body>
+</html>

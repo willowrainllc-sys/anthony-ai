@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OBSIDIAN AI STUDIO | Industrial IDE | Anthony Christopher</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Inter:wght@400;600&amp;family=Orbitron:wght@900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        :root {
+            --bg-darker: #1e1e1e;
+            --bg-dark: #252526;
+            --bg-light: #333333;
+            --accent: #007acc;
+            --border: #3c3c3c;
+            --text: #cccccc;
+        }
+        body { background-color: var(--bg-darker); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; display: flex; height: 100vh; overflow: hidden; }
+        .sidebar { width: 250px; background: var(--bg-dark); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+        .editor-area { flex: 1; display: flex; flex-direction: column; background: #1e1e1e; }
+        .tab-bar { height: 35px; background: var(--bg-dark); display: flex; align-items: center; padding-left: 10px; border-bottom: 1px solid var(--border); }
+        .tab { padding: 0 15px; height: 100%; display: flex; align-items: center; font-size: 11px; background: #1e1e1e; border-right: 1px solid var(--border); cursor: pointer; color: #fff; }
+        .code-view { flex: 1; padding: 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #d4d4d4; overflow-y: auto; line-height: 1.6; }
+        .terminal { height: 200px; background: #000; border-top: 1px solid var(--border); padding: 15px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #10b981; }
+        .sidebar-item { padding: 5px 20px; font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .sidebar-item:hover { background: #2a2d2e; }
+        .status-bar { height: 22px; background: var(--accent); color: #fff; font-size: 10px; display: flex; align-items: center; padding: 0 10px; justify-content: space-between; }
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+    <aside class="sidebar">
+        <div class="p-4 border-b border-border mb-2 flex items-center justify-between">
+            <span class="orbitron text-[10px] tracking-widest text-blue-400">EXPLORER</span>
+            <button onclick="window.location.href='/download/obsidian_ai_studio.zip'" class="text-[8px] bg-blue-600 px-2 py-1 rounded hover:bg-blue-500 text-white font-bold">ZIP BUNDLE</button>
+        </div>
+        <div class="sidebar-item">📁 obsidian-global</div>
+        <div class="sidebar-item ml-4">📁 swarm_backend</div>
+        <div class="sidebar-item ml-8 text-blue-300">📄 titan_browser.py</div>
+        <div class="sidebar-item ml-8">📄 native_nexus.py</div>
+        <div class="sidebar-item ml-4">📁 wholesale_portal</div>
+        <div class="sidebar-item ml-8 text-yellow-500">📄 index.html</div>
+        <div class="sidebar-item ml-8">📄 global_pay.html</div>
+        <div class="sidebar-item mt-auto p-4 opacity-30 text-[9px] uppercase tracking-tighter">
+            USA_CITIZEN_IDE v1.0
+        </div>
+    </aside>
+
+    <main class="editor-area">
+        <div class="tab-bar">
+            <div class="tab">index.html</div>
+            <div class="tab opacity-50">titan_browser.py</div>
+        </div>
+        <div class="code-view">
+            <pre>
+<span class="text-blue-400">&lt;!DOCTYPE html&gt;</span>
+<span class="text-blue-400">&lt;html lang="en"&gt;</span>
+<span class="text-blue-400">&lt;head&gt;</span>
+    <span class="text-gray-500">&lt;!-- 🔱 OBSIDIAN GLOBAL MASTER INGRESS --&gt;</span>
+    <span class="text-blue-400">&lt;title&gt;</span>OBSIDIAN GLOBAL<span class="text-blue-400">&lt;/title&gt;</span>
+<span class="text-blue-400">&lt;/head&gt;</span>
+<span class="text-blue-400">&lt;body&gt;</span>
+    <span class="text-emerald-500">&lt;h1&gt;</span>TREND SETTER AI ACTIVE<span class="text-emerald-500">&lt;/h1&gt;</span>
+<span class="text-blue-400">&lt;/body&gt;</span>
+<span class="text-blue-400">&lt;/html&gt;</span>
+            </pre>
+        </div>
+        <div class="terminal">
+            <div>[2026-09-11 13:30:05] > STRIKE initiated: Building industrial bundle...</div>
+            <div>[2026-09-11 13:30:06] > 103 Developer Nodes engaged.</div>
+            <div>[2026-09-11 13:30:08] > Success: Portals updated on Global Bridge.</div>
+            <div class="animate-pulse mt-2">_</div>
+        </div>
+        <div class="status-bar">
+            <div>Master Grid: Connected (103 Nodes)</div>
+            <div class="flex gap-4">
+                <span>UTF-8</span>
+                <span>Python 3.13</span>
+                <span>🔱 TITAN_CORE</span>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CHECKOUT | Industrial Settlement | Obsidian Global</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Inter:wght@400;600;800&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        :root {
+            --bg: #050505;
+            --accent: #3b82f6;
+            --border: rgba(255, 255, 255, 0.08);
+            --surface: #0a0a0a;
+        }
+        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .checkout-container { background: var(--surface); border: 1px solid var(--border); padding: 50px; border-radius: 24px; width: 100%; max-width: 450px; box-shadow: 0 40px 100px rgba(0,0,0,0.8); }
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; font-weight: 900; }
+        input, select { width: 100%; background: #000; border: 1px solid var(--border); padding: 15px; border-radius: 8px; color: #fff; outline: none; transition: 0.3s; }
+        input:focus { border-color: var(--accent); }
+        .summary-box { background: rgba(255,255,255,0.02); border: 1px solid var(--border); padding: 20px; border-radius: 12px; margin-bottom: 30px; }
+        .btn-strike { width: 100%; background: #fff; color: #000; padding: 18px; border-radius: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        .btn-strike:hover { background: var(--accent); color: #fff; transform: scale(1.02); }
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+
+<div class="checkout-container">
+    <div class="text-center mb-10">
+        <h1 class="orbitron text-2xl font-black tracking-widest">INDUSTRIAL_SETTLEMENT</h1>
+        <p class="text-[9px] text-gray-600 mt-2 tracking-widest">OBSIDIAN GLOBAL SECURE INGRESS</p>
+    </div>
+
+    <div class="summary-box">
+        <div class="flex justify-between items-center mb-2">
+            <span class="text-xs text-gray-500">Service:</span>
+            <span class="text-sm font-bold" id="serviceName">Enterprise License</span>
+        </div>
+        <div class="flex justify-between items-center">
+            <span class="text-xs text-gray-500">Amount Due:</span>
+            <span class="text-xl font-black text-emerald-500" id="servicePrice">$0.00</span>
+        </div>
+    </div>
+
+    <form id="checkoutForm">
+        <div class="input-group">
+            <label>Legal Name</label>
+            <input type="text" id="custName" placeholder="Full Legal Identity" required>
+        </div>
+        <div class="input-group">
+            <label>Business Email</label>
+            <input type="email" id="custEmail" placeholder="ingress@firm.com" required>
+        </div>
+        <div class="input-group">
+            <label>Settlement Method</label>
+            <select id="payMethod">
+                <option value="CARD">Credit/Debit Card (Stripe)</option>
+                <option value="BTC">Bitcoin (Lightning Strike)</option>
+                <option value="GLOBAL_PAY">Global Pay ($cashtag)</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn-strike mt-6">Authorize Transaction</button>
+    </form>
+
+    <div class="mt-10 text-center">
+        <p class="text-[8px] text-gray-700 tracking-widest uppercase">Verified by Anthony Christopher | Est 12.19.1987</p>
+    </div>
+</div>
+
+<script>
+    // URL Params for dynamic pricing
+    const urlParams = new URLSearchParams(window.location.search);
+    const type = urlParams.get('type') || 'enterprise';
+    const price = urlParams.get('price') || '499.00';
+
+    document.getElementById('serviceName').innerText = type.toUpperCase().replace('_', ' ');
+    document.getElementById('servicePrice').innerText = '$' + price;
+
+    document.getElementById('checkoutForm').onsubmit = async (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button');
+        btn.innerText = "PROCESSING STRIKE...";
+        btn.disabled = true;
+
+        const data = {
+            name: document.getElementById('custName').value,
+            email: document.getElementById('custEmail').value,
+            type: type,
+            amount: parseFloat(price),
+            method: document.getElementById('payMethod').value
+        };
+
+        try {
+            // 🔱 Firing the physical settlement request to the Native Nexus
+            const resp = await fetch('/api/settle/authorize', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            });
+            const result = await resp.json();
+
+            if (result.success) {
+                alert(`✓ SUCCESS: Transaction Authorized. Status: ${result.status}`);
+                window.location.href = 'success.html';
+            } else {
+                alert(`[-] FAIL: ${result.message}`);
+                btn.innerText = "Authorize Transaction";
+                btn.disabled = false;
+            }
+        } catch (err) {
+            alert("[-] INGRESS ERROR: Global Settlement Layer Unreachable. Verify Root Key Status.");
+            btn.innerText = "Authorize Transaction";
+            btn.disabled = false;
+        }
+    };
+</script>
+
+</body>
+</html>

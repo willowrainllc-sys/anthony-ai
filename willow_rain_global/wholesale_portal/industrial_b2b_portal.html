@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>B2B PORTAL | Compute & Mesh Procurement | Obsidian Global</title>
+<meta content="B2B Portal: Industrial-grade compute and residential mesh procurement for AI labs and enterprise firms. Built by Anthony Christopher." name="description"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Inter:wght@400;600;800&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        :root {
+            --bg: #010103;
+            --accent: #3b82f6;
+            --border: rgba(255, 255, 255, 0.05);
+            --surface: #0a0a0a;
+        }
+        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        .mono { font-family: 'Space Mono', monospace; }
+
+        nav { padding: 30px 60px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+
+        .hero { padding: 100px 60px; text-align: left; max-width: 1200px; }
+
+        .product-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 40px; border-radius: 4px;
+            transition: 0.3s;
+        }
+        .product-card:hover { border-color: var(--accent); box-shadow: 0 0 40px rgba(59, 130, 246, 0.15); }
+
+        .btn-procure {
+            width: 100%; background: #fff; color: #000; padding: 15px; border-radius: 4px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px;
+        }
+        .btn-procure:hover { background: var(--accent); color: #fff; }
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+    <nav>
+        <div class="orbitron font-bold text-xl tracking-[5px]">OBSIDIAN_B2B</div>
+        <div class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Enterprise Procurement // USA_AUTHORIZED</div>
+    </nav>
+
+    <div class="hero">
+        <h1 class="orbitron text-6xl font-black mb-6 leading-tight">Scale your Intelligence <br><span class="text-blue-500">with Industrial Ingress.</span></h1>
+        <p class="text-xl text-gray-400 max-w-2xl mb-12">The world's most reliable residential mesh and distributed compute for AI model training and large-scale data operations.</p>
+
+        <div class="grid md:grid-cols-2 gap-10">
+            <!-- PRODUCT 1: RESIDENTIAL MESH -->
+            <div class="product-card">
+                <div class="text-blue-500 font-black mb-4 uppercase tracking-widest text-[10px]">Tier 01 // Mesh Ingress</div>
+                <h3 class="orbitron text-2xl font-bold mb-4">Residential Matrix</h3>
+                <p class="text-sm text-gray-500 mb-8">Access our private 5,000 IP Missouri backhaul. 100% human-grade residential reputation scores.</p>
+                <div class="text-3xl font-black mb-8">$5,000 <span class="text-xs text-gray-600">/monthly retainer</span></div>
+                <button class="btn-procure" onclick="window.location.href='obsidian_unified_checkout.html?type=mesh_retainer&price=5000.00'">INITIATE PROCUREMENT</button>
+            </div>
+
+            <!-- PRODUCT 2: COMPUTE -->
+            <div class="product-card">
+                <div class="text-emerald-500 font-black mb-4 uppercase tracking-widest text-[10px]">Tier 02 // Compute Pulse</div>
+                <h3 class="orbitron text-2xl font-bold mb-4">VDC Node Access</h3>
+                <p class="text-sm text-gray-500 mb-8">Tap into our 103-node GPU cluster for high-speed AI inference and cinematic rendering.</p>
+                <div class="text-3xl font-black mb-8">$9,000 <span class="text-xs text-gray-600">/monthly retainer</span></div>
+                <button class="btn-procure" onclick="window.location.href='obsidian_unified_checkout.html?type=compute_retainer&price=9000.00'">INITIATE PROCUREMENT</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="p-20 text-center border-t border-white/5 opacity-30">
+        <p class="text-[8px] font-bold tracking-[5px] uppercase">Verified by Obsidian Root Authority | Est 12.19.1987</p>
+    </footer>
+</body>
+</html>

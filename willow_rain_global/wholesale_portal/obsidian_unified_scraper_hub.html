@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TITAN HUB | Unified Scraper Mesh | Anthony Christopher</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Space+Mono&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #000000;
+            --matrix: #00ff41;
+            --accent: #3b82f6;
+            --gold: #fbbf24;
+            --glass: rgba(10, 10, 15, 0.98);
+            --border: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* 🔱 Navigation Sidebar */
+        .sidebar {
+            background: #000;
+            border-right: 1px solid var(--border);
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo { font-family: 'Orbitron'; font-weight: 900; letter-spacing: 5px; color: var(--matrix); font-size: 1.5em; margin-bottom: 50px; }
+        .nav-item { padding: 15px 20px; border-radius: 12px; cursor: pointer; transition: 0.3s; color: #444; font-weight: 800; font-size: 0.8em; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+        .nav-item:hover, .nav-item.active { background: rgba(0, 255, 65, 0.05); color: var(--matrix); border: 1px solid rgba(0, 255, 65, 0.1); }
+
+        /* 🔱 Main Hub */
+        .hub {
+            padding: 40px;
+            overflow-y: auto;
+            background: radial-gradient(circle at top right, #051505 0%, #000 70%);
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 40px;
+        }
+
+        .header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+        .header h1 { font-family: 'Orbitron'; font-size: 3em; margin: 0; letter-spacing: -2px; }
+
+        .scraper-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .scraper-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 40px;
+            position: relative;
+            transition: 0.4s;
+        }
+
+        .scraper-card:hover { transform: translateY(-10px); border-color: var(--matrix); box-shadow: 0 20px 60px rgba(0, 255, 65, 0.05); }
+
+        .badge { position: absolute; top: 30px; right: 40px; font-size: 0.6em; font-weight: 900; color: var(--matrix); background: rgba(0, 255, 65, 0.1); padding: 5px 12px; border-radius: 100px; letter-spacing: 2px; }
+
+        .feature-detail { margin-top: 20px; color: #666; font-size: 0.85em; line-height: 1.6; }
+
+        .btn-strike { width: 100%; padding: 15px; border-radius: 10px; font-weight: 900; cursor: pointer; border: none; text-transform: uppercase; letter-spacing: 2px; background: #fff; color: #000; }
+        .btn-strike:hover { background: var(--matrix); color: #000; }
+
+        footer { grid-column: span 2; padding: 40px; text-align: center; border-top: 1px solid var(--border); color: #222; font-size: 0.7em; }
+
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+<div class="sidebar">
+<div class="logo">TITAN HUB</div>
+<div class="nav-item active">● UNIFIED MESH</div>
+<div class="nav-item">● LEAD SNIPER</div>
+<div class="nav-item">● ESTATE OSINT</div>
+<div class="nav-item">● MEDIA NETWORK</div>
+<div class="nav-item">● DARK WEB PROBE</div>
+<div style="flex:1"></div>
+<div class="label" style="font-size: 10px; color: #333; line-height: 2;">
+            API_KEY: TM-XXXX-XXXX<br/>
+            TIER: TITAN_UNRESTRICTED<br/>
+            SINK: bc1qk4...yzx
+        </div>
+</div>
+<div class="hub">
+<div class="header">
+<div>
+<p style="color: var(--matrix); letter-spacing: 10px; font-weight: 700;">Global NETWORK</p>
+<h1>SCRAPER CORE</h1>
+</div>
+<div style="text-align: right;">
+<p style="color: #444; font-size: 0.8em; letter-spacing: 2px;">MESH COORDINATION</p>
+<p style="font-size: 2.5em; font-weight: 900; color: #fff; margin: 0;">5,Global-gradeS</p>
+</div>
+</div>
+<div class="scraper-grid">
+<!-- WORLD SCRAPER -->
+<div class="scraper-card">
+<div class="badge">ACTIVE</div>
+<h3 style="font-family: 'Orbitron'; color: var(--gold);">WORLD SCRAPER</h3>
+<p style="font-size: 0.8em; color: #666;">Extracting raw packet data from global high-traffic nodes.</p>
+<div class="feature-detail">
+                    ● Secure Connection with Global root blades.<br/>
+                    ● Bypassing global rate-limits via Vortex Mesh.<br/>
+                    ● 50GB Real-time Data Ingress per Strike.
+                </div>
+<button class="btn-strike" onclick="alert('🔱 Increasing World Access Velocity... Network Stabilized.')">START NETWORK SYNC</button>
+</div>
+<!-- QUANTUM LEADS -->
+<div class="scraper-card">
+<div class="badge">ACTIVE</div>
+<h3 style="font-family: 'Orbitron'; color: var(--gold);">GHOST LEADS</h3>
+<p style="font-size: 0.8em; color: #666;">Scraping public records for motivated seller signatures.</p>
+<div class="feature-detail">
+                    ● Automated Public Deed Analysis.<br/>
+                    ● Identifying tax-delinquent signatures.<br/>
+                    ● Direct Liquidation to Stride Bank sink.
+                </div>
+<button class="btn-strike" onclick="alert('🔱 Dispatching Lead Sniper to Missouri Cluster... Authorized.')">SECURE BATCH</button>
+</div>
+</div>
+</div>
+</body>
+</html>

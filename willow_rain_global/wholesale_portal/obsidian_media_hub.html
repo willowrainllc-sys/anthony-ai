@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OBSIDIAN MEDIA | Global Content Access</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&amp;family=Inter:wght@300;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root { --bg: #020205; --accent: #8b5cf6; --glass: rgba(15, 15, 20, 0.9); --border: rgba(255, 255, 255, 0.05); }
+        body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
+        .hero { height: 60vh; background: radial-gradient(circle at center, #1e1b4b 0%, #020205 70%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-bottom: 1px solid var(--border); }
+        .grid { display: grid; grid-template-cols: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; padding: 60px; }
+        .video-card { background: var(--glass); border: 1px solid var(--border); border-radius: 30px; overflow: hidden; transition: 0.4s; }
+        .video-card:hover { transform: translateY(-10px); border-color: var(--accent); }
+        .thumb { width: 100%; height: 200px; background: #000; position: relative; }
+        .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3em; opacity: 0.5; }
+        .meta { padding: 25px; }
+        .auth-btn { background: #fff; color: #000; padding: 12px 30px; border-radius: 100px; font-weight: 700; text-decoration: none; position: fixed; top: 30px; right: 40px; z-index: 100; }
+        .negotiating-badge { background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 4px 10px; border-radius: 5px; font-size: 0.7em; font-weight: bold; border: 1px solid rgba(16, 185, 129, 0.2); }
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+<a class="auth-btn" href="#">Join Obsidian</a>
+<section class="hero">
+<h1 style="font-family: 'Space Grotesk'; font-size: 4em; letter-spacing: -2px;">THE MEDIA HUB</h1>
+<p style="color: #64748b; letter-spacing: 2px;">Global Documentaries // Built by Anthony Christopher</p>
+</section>
+<div class="grid">
+<!-- VIDEO 1 -->
+<div class="video-card">
+<div class="thumb"><div class="play-btn">▶</div></div>
+<div class="meta">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+<span class="negotiating-badge">VERIFIED ACCESS</span>
+</div>
+<h3 style="margin:0;">FUTURE CYBER TECH: EP 01</h3>
+<p style="color: #666; font-size: 0.8em; margin-top: 10px;">9:42 • 1.2M Likes • Obsidian Exclusive</p>
+</div>
+</div>
+<!-- VIDEO 2 -->
+<div class="video-card">
+<div class="thumb"><div class="play-btn">▶</div></div>
+<div class="meta">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+<span class="negotiating-badge">VERIFIED ACCESS</span>
+</div>
+<h3 style="margin:0;">THE MESH REVOLUTION</h3>
+<p style="color: #666; font-size: 0.8em; margin-top: 10px;">12:15 • 840K Likes • Anthony Christopher</p>
+</div>
+</div>
+</div>
+</body>
+</html>

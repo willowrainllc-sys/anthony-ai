@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLOBAL PAY | Autonomous Settlement | Anthony Christopher</title>
+    <meta name="description" content="Global Pay: The trend-setter in USA-engineered digital payments. Secure, instant, and borderless peer-to-peer settlement.">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600;800&family=Space+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --accent: #00d64f; /* Cash App Green */
+            --text: #000000;
+            --gray: #f2f2f2;
+            --usa-red: #ef4444;
+        }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
+        .space-grotesk { font-family: 'Space Grotesk', sans-serif; }
+        .mono { font-family: 'Space Mono', monospace; }
+
+        .usa-mini-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.1);
+            padding: 2px 10px;
+            border-radius: 100px;
+            font-family: 'Space Mono';
+            font-size: 8px;
+            font-weight: 900;
+            color: var(--usa-red);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-strike {
+            background: var(--accent); color: #fff;
+            padding: 18px 45px; border-radius: 12px;
+            font-weight: 800; font-size: 1.1rem;
+            transition: 0.2s;
+        }
+        .btn-strike:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,214,79,0.2); }
+
+        .numpad-btn {
+            width: 80px; height: 80px;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 24px; font-weight: 600;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+        .numpad-btn:active { background: var(--gray); }
+
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body class="flex flex-col items-center justify-center min-h-screen p-6">
+
+    <!-- 🔱 Master Header -->
+    <div class="fixed top-10 left-10 flex items-center gap-3">
+        <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center text-white font-black italic text-xl">O</div>
+        <div class="space-grotesk font-bold tracking-tighter text-xl">GLOBAL PAY</div>
+    </div>
+
+    <!-- 🔱 Tabs -->
+    <div class="flex gap-12 mb-12 text-sm font-bold text-gray-400 uppercase tracking-widest">
+        <div class="text-black border-b-2 border-black pb-2 cursor-pointer" id="tab-cash" onclick="showTab('cash')">CASH</div>
+        <div class="hover:text-black cursor-pointer pb-2" id="tab-crypto" onclick="showTab('crypto')">CRYPTO</div>
+        <div class="hover:text-black cursor-pointer pb-2" onclick="alert('🔱 Business Intelligence Locked.')">CARDS</div>
+    </div>
+
+    <!-- 🔱 Amount Display -->
+    <div id="cash-view">
+        <div class="text-center mb-12">
+            <div class="text-7xl font-black space-grotesk" id="amountDisplay">$0</div>
+            <div class="text-gray-400 mt-4 font-semibold uppercase tracking-widest text-[10px]">global-pay.io</div>
+        </div>
+
+        <!-- 🔱 Numpad Grid -->
+        <div class="grid grid-cols-3 gap-8 mb-16">
+            <div class="numpad-btn" onclick="addNum('1')">1</div>
+            <div class="numpad-btn" onclick="addNum('2')">2</div>
+            <div class="numpad-btn" onclick="addNum('3')">3</div>
+            <div class="numpad-btn" onclick="addNum('4')">4</div>
+            <div class="numpad-btn" onclick="addNum('5')">5</div>
+            <div class="numpad-btn" onclick="addNum('6')">6</div>
+            <div class="numpad-btn" onclick="addNum('7')">7</div>
+            <div class="numpad-btn" onclick="addNum('8')">8</div>
+            <div class="numpad-btn" onclick="addNum('9')">9</div>
+            <div class="numpad-btn" onclick="addNum('.')">.</div>
+            <div class="numpad-btn" onclick="addNum('0')">0</div>
+            <div class="numpad-btn" onclick="clearNum()">×</div>
+        </div>
+
+        <!-- 🔱 Action Bar -->
+        <div class="flex gap-4 w-full max-w-sm">
+            <button class="flex-1 bg-black text-white py-4 rounded-xl font-bold hover:scale-105 transition" onclick="alert('🔱 Ingress Requested.')">REQUEST</button>
+            <button class="flex-1 bg-green-500 text-white py-4 rounded-xl font-bold hover:scale-105 transition" onclick="payStrike()">PAY</button>
+        </div>
+    </div>
+
+    <!-- 🔱 Crypto View -->
+    <div id="crypto-view" class="hidden w-full max-w-md">
+        <div class="space-y-4">
+            <div class="bg-gray-50 p-6 rounded-2xl flex justify-between items-center border border-gray-100">
+                <div>
+                    <div class="font-bold">BITCOIN</div>
+                    <div class="text-xs text-gray-500">BTC / USD</div>
+                </div>
+                <div class="text-right">
+                    <div class="font-bold text-lg">$77,175.50</div>
+                    <div class="text-xs text-green-500 font-bold">+2.45%</div>
+                </div>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-2xl flex justify-between items-center border border-gray-100">
+                <div>
+                    <div class="font-bold">ETHEREUM</div>
+                    <div class="text-xs text-gray-500">ETH / USD</div>
+                </div>
+                <div class="text-right">
+                    <div class="font-bold text-lg">$3,450.20</div>
+                    <div class="text-xs text-green-500 font-bold">+1.82%</div>
+                </div>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-2xl flex justify-between items-center border border-gray-100">
+                <div>
+                    <div class="font-bold">SOLANA</div>
+                    <div class="text-xs text-gray-500">SOL / USD</div>
+                </div>
+                <div class="text-right">
+                    <div class="font-bold text-lg">$145.80</div>
+                    <div class="text-xs text-red-500 font-bold">-0.45%</div>
+                </div>
+            </div>
+        </div>
+        <button class="w-full mt-10 bg-black text-white py-4 rounded-xl font-bold hover:bg-gray-900 transition" onclick="alert('🔱 Crypto Ingress Portal Opening...')">TRADE ASSETS</button>
+    </div>
+
+    <script>
+        let currentAmount = "0";
+
+        function showTab(tab) {
+            const cash = document.getElementById('cash-view');
+            const crypto = document.getElementById('crypto-view');
+            const tCash = document.getElementById('tab-cash');
+            const tCrypto = document.getElementById('tab-crypto');
+
+            if (tab === 'cash') {
+                cash.classList.remove('hidden');
+                crypto.classList.add('hidden');
+                tCash.classList.add('text-black', 'border-b-2', 'border-black');
+                tCrypto.classList.remove('text-black', 'border-b-2', 'border-black');
+            } else {
+                cash.classList.add('hidden');
+                crypto.classList.remove('hidden');
+                tCrypto.classList.add('text-black', 'border-b-2', 'border-black');
+                tCash.classList.remove('text-black', 'border-b-2', 'border-black');
+            }
+        }
+
+        function addNum(n) {
+            if (currentAmount === "0" && n !== ".") currentAmount = "";
+            if (n === "." && currentAmount.includes(".")) return;
+            currentAmount += n;
+            updateDisplay();
+        }
+
+        function clearNum() {
+            currentAmount = "0";
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            document.getElementById('amountDisplay').innerText = "$" + currentAmount;
+        }
+
+        async function payStrike() {
+            const amount = parseFloat(currentAmount);
+            if (amount <= 0) return;
+
+            const cashtag = prompt("Enter Receiver Cashtag (e.g. $anthony):");
+            if (!cashtag) return;
+
+            try {
+                const resp = await fetch('/api/pay/transfer', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        sender: "$director",
+                        receiver: cashtag,
+                        amount: amount,
+                        note: "Autonomous Business Strike"
+                    })
+                });
+                const data = await resp.json();
+                if (data.success) {
+                    alert(`✓ STRIKE COMPLETE: $${amount} moved to ${cashtag}. TXID: ${data.result}`);
+                    clearNum();
+                } else {
+                    alert(`[-] FAIL: ${data.result}`);
+                }
+            } catch (e) {
+                alert("Connection Error. Ensure Industrial Nexus is live.");
+            }
+        }
+    </script>
+</body>
+</html>

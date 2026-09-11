@@ -1,0 +1,2062 @@
+{
+    "AIPHONY_001": {
+        "identity": {
+            "number": "+15730992104",
+            "eid": "27321882622597023312051468019610",
+            "imei": "670294332004898",
+            "shai": "AIPH-AIPHONY_001-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_002": {
+        "identity": {
+            "number": "+16365912185",
+            "eid": "91363779314121988501062454911942",
+            "imei": "559673225717556",
+            "shai": "AIPH-AIPHONY_002-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_003": {
+        "identity": {
+            "number": "+13149153178",
+            "eid": "40694262602205209679437208073292",
+            "imei": "696779963048056",
+            "shai": "AIPH-AIPHONY_003-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_004": {
+        "identity": {
+            "number": "+15018266405",
+            "eid": "00086182435788634798324117640725",
+            "imei": "420807756277206",
+            "shai": "AIPH-AIPHONY_004-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_005": {
+        "identity": {
+            "number": "+13143280445",
+            "eid": "93977245426734135945728818717279",
+            "imei": "381457039120273",
+            "shai": "AIPH-AIPHONY_005-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_006": {
+        "identity": {
+            "number": "+15019743081",
+            "eid": "76577467623498506308117944797563",
+            "imei": "658778500200661",
+            "shai": "AIPH-AIPHONY_006-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_007": {
+        "identity": {
+            "number": "+15011046993",
+            "eid": "68123352971764922198040975862984",
+            "imei": "468660154426148",
+            "shai": "AIPH-AIPHONY_007-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_008": {
+        "identity": {
+            "number": "+15016776144",
+            "eid": "39485926956319963638077977673884",
+            "imei": "897853029990366",
+            "shai": "AIPH-AIPHONY_008-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_009": {
+        "identity": {
+            "number": "+15014055873",
+            "eid": "57010790325091616378463234826973",
+            "imei": "313272143593754",
+            "shai": "AIPH-AIPHONY_009-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_010": {
+        "identity": {
+            "number": "+15736410649",
+            "eid": "81615320348903707184692720392324",
+            "imei": "143759529693382",
+            "shai": "AIPH-AIPHONY_010-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_011": {
+        "identity": {
+            "number": "+13148707842",
+            "eid": "94943418390324319437702883048592",
+            "imei": "089463213216693",
+            "shai": "AIPH-AIPHONY_011-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_012": {
+        "identity": {
+            "number": "+13148370891",
+            "eid": "20803599956473921676691340220787",
+            "imei": "720041032761623",
+            "shai": "AIPH-AIPHONY_012-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_013": {
+        "identity": {
+            "number": "+16369329280",
+            "eid": "92347414089587894564193911191587",
+            "imei": "156580847513532",
+            "shai": "AIPH-AIPHONY_013-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_014": {
+        "identity": {
+            "number": "+15012116921",
+            "eid": "50336407467446305964024412171695",
+            "imei": "505235101826807",
+            "shai": "AIPH-AIPHONY_014-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_015": {
+        "identity": {
+            "number": "+15735312819",
+            "eid": "16891130886413090093577631708712",
+            "imei": "099285465141379",
+            "shai": "AIPH-AIPHONY_015-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_016": {
+        "identity": {
+            "number": "+13142185467",
+            "eid": "21072457901918482093859487076300",
+            "imei": "386577243039859",
+            "shai": "AIPH-AIPHONY_016-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_017": {
+        "identity": {
+            "number": "+16367279564",
+            "eid": "61771254340058828952453984969269",
+            "imei": "283263726568409",
+            "shai": "AIPH-AIPHONY_017-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_018": {
+        "identity": {
+            "number": "+13147768433",
+            "eid": "99157518989464282859309044948441",
+            "imei": "861033427510763",
+            "shai": "AIPH-AIPHONY_018-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_019": {
+        "identity": {
+            "number": "+15017218882",
+            "eid": "79707471927088229292826246017880",
+            "imei": "939704609079207",
+            "shai": "AIPH-AIPHONY_019-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_020": {
+        "identity": {
+            "number": "+15012269934",
+            "eid": "71761671937638735309411956618461",
+            "imei": "708594825020543",
+            "shai": "AIPH-AIPHONY_020-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_021": {
+        "identity": {
+            "number": "+15737816611",
+            "eid": "18570772654281012532969507477942",
+            "imei": "239317675541065",
+            "shai": "AIPH-AIPHONY_021-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_022": {
+        "identity": {
+            "number": "+16365638140",
+            "eid": "21750467202525213509703385844554",
+            "imei": "160333834426490",
+            "shai": "AIPH-AIPHONY_022-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_023": {
+        "identity": {
+            "number": "+13144942366",
+            "eid": "15506312236462379380069263178465",
+            "imei": "530749273068803",
+            "shai": "AIPH-AIPHONY_023-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_024": {
+        "identity": {
+            "number": "+13146848763",
+            "eid": "56229322110740652452229503674762",
+            "imei": "373806153328349",
+            "shai": "AIPH-AIPHONY_024-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_025": {
+        "identity": {
+            "number": "+16367074147",
+            "eid": "91489603925049087590214904601160",
+            "imei": "775825005318138",
+            "shai": "AIPH-AIPHONY_025-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_026": {
+        "identity": {
+            "number": "+15734788484",
+            "eid": "40026248654237560278016783671944",
+            "imei": "708658828998845",
+            "shai": "AIPH-AIPHONY_026-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_027": {
+        "identity": {
+            "number": "+15736174778",
+            "eid": "03441394857621951437556620475829",
+            "imei": "328908751217925",
+            "shai": "AIPH-AIPHONY_027-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_028": {
+        "identity": {
+            "number": "+16361696749",
+            "eid": "85054106257160832248873883270783",
+            "imei": "508024927785451",
+            "shai": "AIPH-AIPHONY_028-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_029": {
+        "identity": {
+            "number": "+13146154379",
+            "eid": "32374626237711022538079409847518",
+            "imei": "912046232221379",
+            "shai": "AIPH-AIPHONY_029-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_030": {
+        "identity": {
+            "number": "+16368630161",
+            "eid": "39785976129117694601229362652621",
+            "imei": "627626569332072",
+            "shai": "AIPH-AIPHONY_030-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_031": {
+        "identity": {
+            "number": "+13148954662",
+            "eid": "65046740887640040487116211595950",
+            "imei": "336813473327462",
+            "shai": "AIPH-AIPHONY_031-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_032": {
+        "identity": {
+            "number": "+15736281452",
+            "eid": "84589895100320635585440779209756",
+            "imei": "935186651942871",
+            "shai": "AIPH-AIPHONY_032-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_033": {
+        "identity": {
+            "number": "+13143169971",
+            "eid": "08899436532868167641867590718986",
+            "imei": "934447327095401",
+            "shai": "AIPH-AIPHONY_033-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_034": {
+        "identity": {
+            "number": "+15018659513",
+            "eid": "32352912262720941151759452564577",
+            "imei": "959343050589597",
+            "shai": "AIPH-AIPHONY_034-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_035": {
+        "identity": {
+            "number": "+15731815342",
+            "eid": "18789332478751702928921572198039",
+            "imei": "515091819090535",
+            "shai": "AIPH-AIPHONY_035-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_036": {
+        "identity": {
+            "number": "+15019455727",
+            "eid": "95249885627189479528073121888537",
+            "imei": "678702129122674",
+            "shai": "AIPH-AIPHONY_036-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_037": {
+        "identity": {
+            "number": "+16369544179",
+            "eid": "65067080570360805567371979540480",
+            "imei": "055233149906855",
+            "shai": "AIPH-AIPHONY_037-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_038": {
+        "identity": {
+            "number": "+13140057242",
+            "eid": "61107590085250007533767848047013",
+            "imei": "378063873187330",
+            "shai": "AIPH-AIPHONY_038-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_039": {
+        "identity": {
+            "number": "+15010674849",
+            "eid": "82288415688640482922154767312092",
+            "imei": "554638229075450",
+            "shai": "AIPH-AIPHONY_039-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_040": {
+        "identity": {
+            "number": "+15735846166",
+            "eid": "88280197240393428191300369631111",
+            "imei": "917195961917442",
+            "shai": "AIPH-AIPHONY_040-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_041": {
+        "identity": {
+            "number": "+13140418580",
+            "eid": "73998973267614898484681467811518",
+            "imei": "407243189634901",
+            "shai": "AIPH-AIPHONY_041-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_042": {
+        "identity": {
+            "number": "+13149269428",
+            "eid": "55514961670015297214569452604417",
+            "imei": "738010505593837",
+            "shai": "AIPH-AIPHONY_042-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_043": {
+        "identity": {
+            "number": "+15010669053",
+            "eid": "77595587772687232855295093414987",
+            "imei": "842430410330145",
+            "shai": "AIPH-AIPHONY_043-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_044": {
+        "identity": {
+            "number": "+15014133715",
+            "eid": "14038267167409992011828438778315",
+            "imei": "466167216441689",
+            "shai": "AIPH-AIPHONY_044-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_045": {
+        "identity": {
+            "number": "+15013993314",
+            "eid": "44074377163346520262886608502063",
+            "imei": "250191004999238",
+            "shai": "AIPH-AIPHONY_045-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_046": {
+        "identity": {
+            "number": "+13143122956",
+            "eid": "03552784083983668517613042883552",
+            "imei": "063620704802081",
+            "shai": "AIPH-AIPHONY_046-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_047": {
+        "identity": {
+            "number": "+15013487434",
+            "eid": "98485361569127718543351424002004",
+            "imei": "865165807441563",
+            "shai": "AIPH-AIPHONY_047-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_048": {
+        "identity": {
+            "number": "+16365412951",
+            "eid": "34751728986264110921602981431938",
+            "imei": "803708576018930",
+            "shai": "AIPH-AIPHONY_048-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_049": {
+        "identity": {
+            "number": "+15017421177",
+            "eid": "71546382296033458202466599279720",
+            "imei": "060487691484770",
+            "shai": "AIPH-AIPHONY_049-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_050": {
+        "identity": {
+            "number": "+13143057521",
+            "eid": "23847814498904749741920679190115",
+            "imei": "904478628624088",
+            "shai": "AIPH-AIPHONY_050-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_051": {
+        "identity": {
+            "number": "+15730142570",
+            "eid": "49784536408102891260162740461404",
+            "imei": "844235034726718",
+            "shai": "AIPH-AIPHONY_051-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_052": {
+        "identity": {
+            "number": "+15739096142",
+            "eid": "71106273212051648075337858255842",
+            "imei": "041465405563085",
+            "shai": "AIPH-AIPHONY_052-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_053": {
+        "identity": {
+            "number": "+15736805135",
+            "eid": "08285572848896178995220978037023",
+            "imei": "738055359602730",
+            "shai": "AIPH-AIPHONY_053-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_054": {
+        "identity": {
+            "number": "+15014933948",
+            "eid": "63977480619234365033436682378472",
+            "imei": "652390146507962",
+            "shai": "AIPH-AIPHONY_054-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_055": {
+        "identity": {
+            "number": "+16367709526",
+            "eid": "42890577866823965947872989184264",
+            "imei": "403656509714782",
+            "shai": "AIPH-AIPHONY_055-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_056": {
+        "identity": {
+            "number": "+16363080167",
+            "eid": "12129661313465878182549747894184",
+            "imei": "631304330682197",
+            "shai": "AIPH-AIPHONY_056-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_057": {
+        "identity": {
+            "number": "+13140786148",
+            "eid": "08228561485413601380445245021172",
+            "imei": "456524809584889",
+            "shai": "AIPH-AIPHONY_057-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_058": {
+        "identity": {
+            "number": "+15019584691",
+            "eid": "02001880834481648299083348725469",
+            "imei": "738552538544688",
+            "shai": "AIPH-AIPHONY_058-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_059": {
+        "identity": {
+            "number": "+16369853552",
+            "eid": "67641418754809510690415532655658",
+            "imei": "098752969281989",
+            "shai": "AIPH-AIPHONY_059-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_060": {
+        "identity": {
+            "number": "+15738047824",
+            "eid": "98503067750231708361899298905800",
+            "imei": "100566770956512",
+            "shai": "AIPH-AIPHONY_060-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_061": {
+        "identity": {
+            "number": "+15736572221",
+            "eid": "30656280523026206831046585643349",
+            "imei": "116905003317361",
+            "shai": "AIPH-AIPHONY_061-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_062": {
+        "identity": {
+            "number": "+15733783990",
+            "eid": "44012337053417279635076497749633",
+            "imei": "522715435610311",
+            "shai": "AIPH-AIPHONY_062-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_063": {
+        "identity": {
+            "number": "+15739337436",
+            "eid": "19094463023721008748059827983002",
+            "imei": "477304049859633",
+            "shai": "AIPH-AIPHONY_063-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_064": {
+        "identity": {
+            "number": "+16365624406",
+            "eid": "51104933886919557017145364546457",
+            "imei": "527224781643397",
+            "shai": "AIPH-AIPHONY_064-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_065": {
+        "identity": {
+            "number": "+16360918707",
+            "eid": "27682729035216028663686282900538",
+            "imei": "492743274897535",
+            "shai": "AIPH-AIPHONY_065-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_066": {
+        "identity": {
+            "number": "+13146032227",
+            "eid": "22546592994842079028204889925716",
+            "imei": "676508044316069",
+            "shai": "AIPH-AIPHONY_066-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_067": {
+        "identity": {
+            "number": "+15732856191",
+            "eid": "11264486499060286771860049419817",
+            "imei": "937262034347032",
+            "shai": "AIPH-AIPHONY_067-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_068": {
+        "identity": {
+            "number": "+15017405790",
+            "eid": "59641722862229642423092659018971",
+            "imei": "923597161130965",
+            "shai": "AIPH-AIPHONY_068-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_069": {
+        "identity": {
+            "number": "+13147361725",
+            "eid": "42786928719962842399938741191870",
+            "imei": "950270669412893",
+            "shai": "AIPH-AIPHONY_069-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_070": {
+        "identity": {
+            "number": "+13140803716",
+            "eid": "23278951712045935261911150359858",
+            "imei": "853944625916970",
+            "shai": "AIPH-AIPHONY_070-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_071": {
+        "identity": {
+            "number": "+16369541655",
+            "eid": "20531974179265017805249522519767",
+            "imei": "893869260567347",
+            "shai": "AIPH-AIPHONY_071-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_072": {
+        "identity": {
+            "number": "+15012064289",
+            "eid": "87039924850071152803061986614008",
+            "imei": "643812940791230",
+            "shai": "AIPH-AIPHONY_072-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_073": {
+        "identity": {
+            "number": "+16368198530",
+            "eid": "38740334570554161981291951036844",
+            "imei": "985163911553516",
+            "shai": "AIPH-AIPHONY_073-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_074": {
+        "identity": {
+            "number": "+15734394100",
+            "eid": "89572798419974471475502514152751",
+            "imei": "683353184813417",
+            "shai": "AIPH-AIPHONY_074-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_075": {
+        "identity": {
+            "number": "+16364665718",
+            "eid": "89399871560459329405668020229303",
+            "imei": "563621299053571",
+            "shai": "AIPH-AIPHONY_075-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_076": {
+        "identity": {
+            "number": "+15732597341",
+            "eid": "57148778782407604005594565716143",
+            "imei": "223840905326524",
+            "shai": "AIPH-AIPHONY_076-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_077": {
+        "identity": {
+            "number": "+15013836549",
+            "eid": "36373795934033962928349361564355",
+            "imei": "854478065851758",
+            "shai": "AIPH-AIPHONY_077-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_078": {
+        "identity": {
+            "number": "+15017175471",
+            "eid": "10847878054457664088067658988827",
+            "imei": "421169848735941",
+            "shai": "AIPH-AIPHONY_078-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_079": {
+        "identity": {
+            "number": "+15730856604",
+            "eid": "51406452878581550243539069859873",
+            "imei": "958478321028230",
+            "shai": "AIPH-AIPHONY_079-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_080": {
+        "identity": {
+            "number": "+15730030658",
+            "eid": "07718441754543466329749839940386",
+            "imei": "568899460039665",
+            "shai": "AIPH-AIPHONY_080-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_081": {
+        "identity": {
+            "number": "+13146124569",
+            "eid": "15245608814697838507896911150783",
+            "imei": "321351608373863",
+            "shai": "AIPH-AIPHONY_081-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_082": {
+        "identity": {
+            "number": "+13149650682",
+            "eid": "71967606288917947801757321071517",
+            "imei": "692271402077651",
+            "shai": "AIPH-AIPHONY_082-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_083": {
+        "identity": {
+            "number": "+13148496212",
+            "eid": "21114098903007630089693901701233",
+            "imei": "982697816980693",
+            "shai": "AIPH-AIPHONY_083-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_084": {
+        "identity": {
+            "number": "+15019270071",
+            "eid": "94699694370663985831621659734446",
+            "imei": "903004969648288",
+            "shai": "AIPH-AIPHONY_084-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_085": {
+        "identity": {
+            "number": "+15019445629",
+            "eid": "33769910327728076672567204779477",
+            "imei": "277375226795488",
+            "shai": "AIPH-AIPHONY_085-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_086": {
+        "identity": {
+            "number": "+16368542911",
+            "eid": "41465727662626977189494308542282",
+            "imei": "734989992761261",
+            "shai": "AIPH-AIPHONY_086-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_087": {
+        "identity": {
+            "number": "+15011892322",
+            "eid": "70143597754801850843115861900206",
+            "imei": "563317490306056",
+            "shai": "AIPH-AIPHONY_087-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_088": {
+        "identity": {
+            "number": "+16362282480",
+            "eid": "21234105652141255036919421271200",
+            "imei": "114528360553979",
+            "shai": "AIPH-AIPHONY_088-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_089": {
+        "identity": {
+            "number": "+15734578803",
+            "eid": "12514353393162776846144950343628",
+            "imei": "429659116265231",
+            "shai": "AIPH-AIPHONY_089-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_090": {
+        "identity": {
+            "number": "+13148142871",
+            "eid": "93012847145668120181694689952669",
+            "imei": "675230703557586",
+            "shai": "AIPH-AIPHONY_090-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_091": {
+        "identity": {
+            "number": "+16366358342",
+            "eid": "27521561901435829590363845030798",
+            "imei": "288694326810656",
+            "shai": "AIPH-AIPHONY_091-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_092": {
+        "identity": {
+            "number": "+13146582616",
+            "eid": "28029095827547917954056152446738",
+            "imei": "731767563400331",
+            "shai": "AIPH-AIPHONY_092-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_093": {
+        "identity": {
+            "number": "+15019927718",
+            "eid": "02949306964171976150733573841927",
+            "imei": "253413630328553",
+            "shai": "AIPH-AIPHONY_093-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_094": {
+        "identity": {
+            "number": "+16362955198",
+            "eid": "10688220545622461111712357164127",
+            "imei": "358963108859125",
+            "shai": "AIPH-AIPHONY_094-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_095": {
+        "identity": {
+            "number": "+15738978875",
+            "eid": "35975586412370269198616495975395",
+            "imei": "676225575048521",
+            "shai": "AIPH-AIPHONY_095-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_096": {
+        "identity": {
+            "number": "+13147683405",
+            "eid": "91436324149388901421385847341068",
+            "imei": "554907483655969",
+            "shai": "AIPH-AIPHONY_096-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_097": {
+        "identity": {
+            "number": "+15733158468",
+            "eid": "60392454934067807495457339634520",
+            "imei": "950740670901187",
+            "shai": "AIPH-AIPHONY_097-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_098": {
+        "identity": {
+            "number": "+15739560204",
+            "eid": "85579628846260513094386682004387",
+            "imei": "688757860218182",
+            "shai": "AIPH-AIPHONY_098-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_099": {
+        "identity": {
+            "number": "+15014535790",
+            "eid": "08418494312291715273614426783186",
+            "imei": "574316813102524",
+            "shai": "AIPH-AIPHONY_099-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_100": {
+        "identity": {
+            "number": "+15736716344",
+            "eid": "63926281782944208961641096684670",
+            "imei": "200622202491621",
+            "shai": "AIPH-AIPHONY_100-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_101": {
+        "identity": {
+            "number": "+15013598012",
+            "eid": "90507066828106623683706502013130",
+            "imei": "028750375437803",
+            "shai": "AIPH-AIPHONY_101-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_102": {
+        "identity": {
+            "number": "+15734026394",
+            "eid": "27052885112608151994061979197439",
+            "imei": "778476620691125",
+            "shai": "AIPH-AIPHONY_102-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    },
+    "AIPHONY_103": {
+        "identity": {
+            "number": "+13149941659",
+            "eid": "79379934987389001550287525901892",
+            "imei": "825275693541598",
+            "shai": "AIPH-AIPHONY_103-SYNC"
+        },
+        "brain": "anthony-latest-v29.0-DEV",
+        "status": "AUTHORIZED_INGRESS",
+        "agentic_capabilities": [
+            "autonomous_social_posting",
+            "omni_browser_harvester",
+            "headless_playwright_stealth",
+            "playwright_specialist",
+            "full_stack_developer",
+            "2fa_self_healing",
+            "system_architect",
+            "autonomous_code_striker"
+        ]
+    }
+}

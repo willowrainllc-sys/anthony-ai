@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OBSIDIAN GLOBAL | The Global Universe | Anthony Christopher</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root { --bg: #020205; --accent: #3b82f6; --gold: #fbbf24; --border: rgba(255, 255, 255, 0.05); }
+        body { background: var(--bg); color: #fff; font-family: 'Space Grotesk', sans-serif; margin: 0; overflow-x: hidden; }
+        .aura { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #0a0a1a 0%, #020205 100%); z-index: -1; }
+        nav { padding: 30px 60px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); backdrop-filter: blur(20px); sticky: top; }
+        .brand { font-family: 'Orbitron'; font-weight: 900; letter-spacing: 5px; color: #fff; }
+
+        .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 60px; max-width: 1400px; margin: 0 auto; }
+        .pillar-card { background: rgba(15, 15, 20, 0.9); border: 1px solid var(--border); padding: 40px; border-radius: 40px; transition: 0.5s; text-align: center; cursor: pointer; }
+        .pillar-card:hover { transform: scale(1.05) translateY(-10px); border-color: var(--accent); box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2); }
+        .pillar-card h3 { font-family: 'Orbitron'; font-size: 1.5em; margin-bottom: 15px; color: var(--gold); }
+        .pillar-card .live-url { font-family: 'Space Mono', monospace; font-size: 0.7em; color: #444; margin-top: 10px; }
+
+        .hero { height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero h1 { font-family: 'Orbitron'; font-size: 5em; margin: 0; letter-spacing: -2px; }
+
+        /* 🔱 Global Splash Screen */
+        #splash-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #000;
+            z-index: 10001;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .splash-logo { font-size: 80px; margin-bottom: 20px; animation: pulse 2s infinite ease-in-out; }
+        @keyframes pulse { 0% { transform: scale(0.95); opacity: 0.6; } 50% { transform: scale(1.05); opacity: 1; } 100% { transform: scale(0.95); opacity: 0.6; } }
+        .splash-text { font-family: 'Orbitron'; font-weight: 900; letter-spacing: 8px; color: #fff; font-size: 14px; }
+        .splash-status { font-family: 'Space Mono', monospace; color: var(--gold); font-size: 8px; margin-top: 20px; text-transform: uppercase; letter-spacing: 2px; }
+
+        footer { padding: 60px; text-align: center; border-top: 1px solid var(--border); color: #333; font-size: 0.8em; }
+
+        /* 🔱 USA AI Citizen Branding */
+        .usa-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-family: 'Space Mono';
+            font-size: 10px;
+            font-weight: 900;
+            color: #ef4444;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .usa-dot { width: 6px; height: 6px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #fff; }
+
+        /* 🔱 ASI Hologram Section */
+        .asi-team-strip {
+            padding: 40px 0;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            background: rgba(59, 130, 246, 0.02);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hologram-worker {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0.6;
+            transition: 0.5s;
+        }
+
+        .hologram-worker:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .hologram-icon {
+            width: 50px; height: 70px;
+            color: var(--accent);
+            filter: drop-shadow(0 0 10px var(--accent));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .worker-label {
+            font-family: 'Orbitron';
+            font-size: 8px;
+            margin-top: 10px;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .biometric-scanner-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.05), transparent);
+            animation: sweep 10s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sweep {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+<div class="aura"></div>
+<nav>
+<div class="brand">OBSIDIAN</div>
+<div style="font-size: 0.7em; color: var(--gold); letter-spacing: 3px; text-transform: uppercase;">God, Family, Business.</div>
+</nav>
+<section class="hero">
+<div class="usa-badge"><div class="usa-dot" style="background: #3b82f6; box-shadow: 0 0 10px #3b82f6;"></div> TREND SETTER AI | USA AUTHORIZED</div>
+<p style="color: var(--accent); letter-spacing: 10px; font-weight: 900; text-transform: uppercase;">American Industrial Intelligence</p>
+<h1 style="font-family: 'Orbitron'; font-size: 4em; margin-top: 10px;">OBSIDIAN GLOBAL</h1>
+<p style="color: #64748b; max-width: 700px; margin-top: 20px; font-size: 1.1rem; line-height: 1.6;">The world's premier American-engineered decentralized ecosystem. We are the trend-setters in sovereign infrastructure for private data, secure communications, and autonomous patriotic wealth.</p>
+</section>
+
+<!-- 🔱 USA AI Workforce (Hologram Ingress) -->
+<div class="asi-team-strip" onclick="window.location.href='obsidian_device_grid.html'">
+    <div class="biometric-scanner-overlay"></div>
+    <div class="hologram-worker">
+        <div class="hologram-icon">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <div class="worker-label">USA_UNIT_001</div>
+    </div>
+    <div class="hologram-worker">
+        <div class="hologram-icon">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <div class="worker-label">USA_UNIT_002</div>
+    </div>
+    <div class="hologram-worker">
+        <div class="hologram-icon" style="color: #ef4444;">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <div class="worker-label" style="color: #ef4444;">COMMAND_CHIEF</div>
+    </div>
+    <div class="hologram-worker">
+        <div class="hologram-icon">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <div class="worker-label">USA_UNIT_003</div>
+    </div>
+    <div class="hologram-worker">
+        <div class="hologram-icon">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <div class="worker-label">USA_UNIT_004</div>
+    </div>
+</div>
+<div class="pillar-grid">
+<div class="pillar-card" onclick="window.location.href='titan_landing.html'">
+<div style="font-size: 2.5em; margin-bottom: 20px;">🛰️</div>
+<h3>TITAN</h3>
+<div class="live-url">titan-browser.io</div>
+</div>
+<div class="pillar-card" onclick="window.location.href='obsidian_pay_hub.html'">
+<div style="font-size: 2.5em; margin-bottom: 20px;">💵</div>
+<h3>PAY</h3>
+<div class="live-url">global-pay.io</div>
+</div>
+<div class="pillar-card" onclick="window.location.href='town360_landing.html'">
+<div style="font-size: 2.5em; margin-bottom: 20px;">🏛️</div>
+<h3>TOWN 360</h3>
+<div class="live-url">town360.com</div>
+</div>
+<div class="pillar-card" onclick="window.location.href='vortex_landing.html'">
+<div style="font-size: 2.5em; margin-bottom: 20px;">🧬</div>
+<h3>VORTEX</h3>
+<div class="live-url">vortex-global.io</div>
+</div>
+<div class="pillar-card" onclick="window.location.href='estates_landing.html'">
+<div style="font-size: 2.5em; margin-bottom: 20px;">🏘️</div>
+<h3>ESTATES</h3>
+<div class="live-url">brick-bitcoin.net</div>
+</div>
+<div class="pillar-card" onclick="window.location.href='ad_strike_landing.html'">
+<div style="font-size: 2.5em; margin-bottom: 20px;">📊</div>
+<h3>AD STRIKE</h3>
+<div class="live-url">ad-strike.io</div>
+</div>
+<div class="pillar-card" onclick="window.location.href='obsidian_hosting_landing.html'">
+<div style="font-size: 2.5em; margin-bottom: 20px;">☁️</div>
+<h3>HOSTING</h3>
+<div class="live-url">obsidian-hosting.io</div>
+</div>
+<div class="pillar-card" onclick="window.location.href='obsidian_shopping_landing.html'">
+<div style="font-size: 2.5em; margin-bottom: 20px;">🛍️</div>
+<h3>STRIKER</h3>
+<div class="live-url">obsidian-striker.io</div>
+</div>
+</div>
+<footer>
+<div style="margin-bottom: 20px;">
+<a href="terms.html" style="color: #444; text-decoration: none; margin: 0 15px;">Terms of Service</a>
+<a href="privacy.html" style="color: #444; text-decoration: none; margin: 0 15px;">Privacy Protocol</a>
+</div>
+        Built by Anthony Christopher Maestas | OBSIDIAN GLOBAL HOLDINGS © 2026
+        <br/>
+        # --- Built by Anthony Christopher | Est 12.19.1987 ---
+    </footer>
+<!-- 🔱 Master Splash -->
+<div id="splash-screen">
+<div class="splash-logo">🔱</div>
+<div class="splash-text">Global GATEWAY</div>
+<div class="splash-status">Decrypting Universe Command...</div>
+</div>
+<script>
+        // 🔱 Splash Sequence
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                splash.style.opacity = '0';
+                setTimeout(() => { splash.style.display = 'none'; }, 1000);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
