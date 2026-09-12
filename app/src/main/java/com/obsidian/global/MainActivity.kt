@@ -19,6 +19,7 @@ import com.obsidian.global.ui.BiometricScannerScreen
 import com.obsidian.global.ui.ObsidianRacingGate
 import com.obsidian.global.ui.ObsidianSplashScreen
 import com.obsidian.global.ui.ObsidianTitanBrowserScreen
+import com.obsidian.global.ui.NativeRegistrarDashboardScreen
 
 class MainActivity : ComponentActivity() {
     private var voiceRecognizerManager: VoiceRecognizerManager? = null
@@ -94,6 +95,14 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                     "voyager" -> {
+                        NativeRegistrarDashboardScreen(
+                            onNavigateBrowser = { url ->
+                                browserUrl = url
+                                currentScreen = "titan_web"
+                            }
+                        )
+                    }
+                    "titan_web" -> {
                         ObsidianTitanBrowserScreen(
                             initialUrl = browserUrl,
                             onCompromised = { currentScreen = "racing_gate" }
