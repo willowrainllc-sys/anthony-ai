@@ -3,74 +3,71 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Dashboard | Obsidian City Domain & Hosting Manager</title>
+    <title>Account Manager & Help Center | Obsidian City</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --bg: #050505;
-            --surface: #0f0f0f;
-            --accent: #3b82f6;
-            --border: rgba(255, 255, 255, 0.08);
-            --glass: rgba(20, 20, 25, 0.85);
-        }
-        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
-        .glass-card { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 20px; }
-        nav { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); background: #050505; }
-        .brand { font-weight: 900; font-size: 1.4rem; letter-spacing: -1px; }
+        body { background-color: #f8fafc; color: #0f172a; font-family: 'Inter', sans-serif; margin: 0; }
+        .nav-header { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .dashboard-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: 0.2s; }
+        .dashboard-card:hover { border-color: #2563eb; box-shadow: 0 15px 40px rgba(37,99,235,0.08); }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="brand">OBSIDIAN<span class="text-blue-500">.CITY</span> // ACCOUNT MANAGER</div>
-        <div class="flex items-center gap-6">
-            <a href="index.html" class="text-sm font-semibold text-gray-400 hover:text-white">Storefront</a>
-            <a href="obsidian_unified_checkout.html" class="text-sm font-semibold text-gray-400 hover:text-white">Billing</a>
-            <button onclick="window.location.href='index.html'" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-xl text-xs font-bold transition">Exit to Home</button>
+    <!-- 🔱 Navigation Header -->
+    <nav class="nav-header">
+        <div class="flex items-center gap-10">
+            <a href="index.html" class="font-black text-2xl tracking-tighter text-slate-900">OBSIDIAN<span class="text-blue-600">.CITY</span> // ACCOUNT MANAGER</a>
+        </div>
+        <div class="flex items-center gap-6 text-sm font-bold text-slate-600">
+            <a href="index.html" class="hover:text-blue-600">Storefront</a>
+            <a href="obsidian_unified_checkout.html" class="hover:text-blue-600">Billing</a>
+            <a href="index.html" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl text-xs transition shadow-md">Exit to Home</a>
         </div>
     </nav>
 
+    <!-- 🔱 Dashboard Content Area -->
     <div class="max-w-7xl mx-auto px-6 py-12">
         <div class="mb-10">
-            <h1 class="text-3xl font-black mb-2">Welcome back, Director</h1>
-            <p class="text-gray-400 text-sm">Manage your registered domains, active websites, professional email, and cloud hosting nodes.</p>
+            <h1 class="text-3xl font-black text-slate-900 mb-2">Welcome back, Entrepreneur</h1>
+            <p class="text-slate-600 text-sm">Manage your registered domains, active websites, professional email, and cloud hosting nodes.</p>
         </div>
 
         <!-- Stats Overview -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-            <div class="glass-card p-6">
-                <div class="text-xs text-gray-400 uppercase tracking-widest mb-2">Active Domains</div>
-                <div class="text-2xl font-black text-blue-400">obsidian.city</div>
-                <div class="text-[10px] text-emerald-400 mt-2">● DNS Active & Secured</div>
+            <div class="dashboard-card">
+                <div class="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">Active Domains</div>
+                <div class="text-2xl font-black text-blue-600">mybusiness.city</div>
+                <div class="text-[10px] text-emerald-600 font-bold mt-2">● DNS Active & Secured</div>
             </div>
-            <div class="glass-card p-6">
-                <div class="text-xs text-gray-400 uppercase tracking-widest mb-2">Active Websites</div>
-                <div class="text-2xl font-black">1 Deployed</div>
-                <div class="text-[10px] text-emerald-400 mt-2">● Vercel Edge Live</div>
+            <div class="dashboard-card">
+                <div class="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">Active Websites</div>
+                <div class="text-2xl font-black text-slate-900">1 Deployed</div>
+                <div class="text-[10px] text-emerald-600 font-bold mt-2">● Vercel Edge Live</div>
             </div>
-            <div class="glass-card p-6">
-                <div class="text-xs text-gray-400 uppercase tracking-widest mb-2">Professional Email</div>
-                <div class="text-2xl font-black">admin@obsidian.city</div>
-                <div class="text-[10px] text-emerald-400 mt-2">● Secure IMAP/SMTP</div>
+            <div class="dashboard-card">
+                <div class="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">Professional Email</div>
+                <div class="text-lg font-black text-slate-900 truncate">admin@mybusiness.com</div>
+                <div class="text-[10px] text-emerald-600 font-bold mt-2">● Secure IMAP/SMTP</div>
             </div>
-            <div class="glass-card p-6">
-                <div class="text-xs text-gray-400 uppercase tracking-widest mb-2">Account Balance</div>
-                <div class="text-2xl font-black">$0.00</div>
-                <div class="text-[10px] text-gray-400 mt-2">Wholesale Tier 1</div>
+            <div class="dashboard-card">
+                <div class="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">Account Balance</div>
+                <div class="text-2xl font-black text-slate-900">$0.00</div>
+                <div class="text-[10px] text-slate-500 mt-2 font-bold">Wholesale Tier 1</div>
             </div>
         </div>
 
         <!-- Domain & Hosting Management Section -->
-        <div class="glass-card p-8 mb-8">
+        <div class="dashboard-card mb-12">
             <div class="flex justify-between items-center mb-6">
-                <h2 class="text-xl font-bold">Your Products & Services</h2>
-                <a href="obsidian_domains.html" class="text-blue-400 hover:underline text-xs font-bold uppercase tracking-wider">+ Register New Domain</a>
+                <h2 class="text-xl font-bold text-slate-900">Your Products & Services</h2>
+                <a href="obsidian_domains.html" class="text-blue-600 hover:underline text-xs font-bold uppercase tracking-wider">+ Register New Domain</a>
             </div>
 
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead>
-                        <tr class="border-b border-white/10 text-xs text-gray-400 uppercase">
+                        <tr class="border-b border-slate-200 text-xs text-slate-400 uppercase tracking-wider">
                             <th class="pb-4">Product / Domain</th>
                             <th class="pb-4">Type</th>
                             <th class="pb-4">Status</th>
@@ -78,29 +75,59 @@
                             <th class="pb-4 text-right">Actions</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-white/5 text-sm">
+                    <tbody class="divide-y divide-slate-100 text-sm">
                         <tr>
-                            <td class="py-4 font-bold">obsidian.city</td>
-                            <td class="py-4 text-gray-400">Domain Name</td>
-                            <td class="py-4"><span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-xs font-bold">Active</span></td>
-                            <td class="py-4 text-gray-400">2027-09-12</td>
+                            <td class="py-4 font-bold text-slate-900">mybusiness.city</td>
+                            <td class="py-4 text-slate-600">Domain Name</td>
+                            <td class="py-4"><span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold">Active</span></td>
+                            <td class="py-4 text-slate-600">2027-09-12</td>
                             <td class="py-4 text-right">
-                                <button onclick="alert('DNS settings managed via Cloudflare / Vercel Edge.')" class="text-blue-400 hover:underline font-semibold text-xs">Manage DNS</button>
+                                <button onclick="alert('DNS settings managed via Cloudflare / Vercel Edge.')" class="text-blue-600 hover:underline font-semibold text-xs">Manage DNS</button>
                             </td>
                         </tr>
                         <tr>
-                            <td class="py-4 font-bold">Obsidian Edge Hosting (Vercel)</td>
-                            <td class="py-4 text-gray-400">Web Hosting</td>
-                            <td class="py-4"><span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-xs font-bold">Live</span></td>
-                            <td class="py-4 text-gray-400">Auto-Renew</td>
+                            <td class="py-4 font-bold text-slate-900">Obsidian Edge Hosting (Vercel)</td>
+                            <td class="py-4 text-slate-600">Web Hosting</td>
+                            <td class="py-4"><span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold">Live</span></td>
+                            <td class="py-4 text-slate-600">Auto-Renew</td>
                             <td class="py-4 text-right">
-                                <a href="https://vercel.com" target="_blank" class="text-blue-400 hover:underline font-semibold text-xs">View Deployment</a>
+                                <a href="https://vercel.com" target="_blank" class="text-blue-600 hover:underline font-semibold text-xs">View Deployment</a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+
+        <!-- Help Center Section -->
+        <div class="dashboard-card">
+            <h2 class="text-xl font-bold text-slate-900 mb-4">Help Center & Support Desk</h2>
+            <p class="text-slate-600 text-sm mb-6">Need assistance with your domain, SSL certificates, or cloud hosting nodes? Our 24/7 technical guides are ready to assist.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+                    <h4 class="font-bold text-slate-900 mb-1">Domain Transfer Guide</h4>
+                    <p class="text-slate-500 text-xs mb-4">How to transfer existing domains to Obsidian City.</p>
+                    <a href="obsidian_domains.html" class="text-blue-600 font-bold text-xs hover:underline">Read Guide →</a>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+                    <h4 class="font-bold text-slate-900 mb-1">SSL & Security Setup</h4>
+                    <p class="text-slate-500 text-xs mb-4">Enabling post-quantum SSL certificates.</p>
+                    <a href="obsidian_unified_checkout.html" class="text-blue-600 font-bold text-xs hover:underline">Learn More →</a>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
+                    <h4 class="font-bold text-slate-900 mb-1">Contact Support</h4>
+                    <p class="text-slate-500 text-xs mb-4">Call 1-800-OBSIDIAN or open a priority ticket.</p>
+                    <a href="#" onclick="alert('Priority support ticket created.'); return false;" class="text-blue-600 font-bold text-xs hover:underline">Open Ticket →</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-16 px-12 mt-20 text-xs">
+        <div class="max-w-7xl mx-auto text-center">
+            <p>Copyright © 1999 - 2026 Willow Rain Company LLC (Arkansas). All Rights Reserved. Account Manager & Help Center.</p>
+        </div>
+    </footer>
 </body>
 </html>
