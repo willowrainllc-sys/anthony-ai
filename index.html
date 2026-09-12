@@ -8,20 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 1. Natural document scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
+        /* 1. Lock viewport like a mobile app screen */
+        html, body {
             margin: 0;
             padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
             background-color: #f8fafc;
             color: #0f172a;
             font-family: 'Inter', sans-serif;
-            padding-top: 172px; /* Exact height of fixed header */
-            padding-bottom: 70px; /* Space for mobile app bottom nav */
-            overflow-x: hidden;
+            padding-top: 172px;
         }
 
         /* 2. Force the header to stay permanently fixed at the top */
