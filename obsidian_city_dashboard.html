@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-OBSIDIAN_GLOBAL_ADSENSE" crossorigin="anonymous"></script>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Account Manager & Help Center | Obsidian City</title>
@@ -53,7 +54,7 @@
             </div>
             <div class="dashboard-card">
                 <div class="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">Professional Email</div>
-                <div class="text-lg font-black text-slate-900 truncate">admin@mybusiness.com</div>
+                <div class="text-lg font-black text-slate-900 truncate" id="userEmailDisplay">admin@mybusiness.com</div>
                 <div class="text-[10px] text-emerald-600 font-bold mt-2">● Secure IMAP/SMTP</div>
             </div>
             <div class="dashboard-card">
@@ -135,5 +136,14 @@
             <p>Copyright © 1999 - 2026 Willow Rain Company LLC (Arkansas). All Rights Reserved. Account Manager & Help Center.</p>
         </div>
     </footer>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const email = localStorage.getItem('obsidian_email');
+            if (email) {
+                const el = document.getElementById('userEmailDisplay');
+                if (el) el.innerText = email;
+            }
+        });
+    </script>
 </body>
 </html>
