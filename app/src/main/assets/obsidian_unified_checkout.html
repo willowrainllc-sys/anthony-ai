@@ -44,48 +44,67 @@
             <label>Delivery Email (For Domain Info)</label>
             <input type="email" id="custEmail" placeholder="jane@example.com" required>
         </div>
-        <div class="input-group text-left">
-            <label>Card Information</label>
-            <input type="text" placeholder="4242 •••• •••• 4242" required>
-        </div>
-        <div class="grid grid-cols-2 gap-4 input-group text-left">
-            <div>
-                <label>Expiration</label>
-                <input type="text" placeholder="MM / YY" required>
+
+        <!-- 🔱 Payment Fields (Hidden for Free Plans) -->
+        <div id="paymentFields">
+            <div class="input-group text-left">
+                <label>Card Information</label>
+                <input type="text" id="cardNum" placeholder="4242 •••• •••• 4242">
             </div>
-            <div>
-                <label>CVC</label>
-                <input type="text" placeholder="123" required>
+            <div class="grid grid-cols-2 gap-4 input-group text-left">
+                <div>
+                    <label>Expiration</label>
+                    <input type="text" id="cardExp" placeholder="MM / YY">
+                </div>
+                <div>
+                    <label>CVC</label>
+                    <input type="text" id="cardCvc" placeholder="123">
+                </div>
             </div>
         </div>
 
-        <button type="submit" class="btn-pay mt-2">Authorize & Purchase →</button>
+        <button type="submit" id="submitBtn" class="btn-pay mt-2">Authorize & Purchase →</button>
     </form>
 
     <div class="mt-6 text-center text-xs text-slate-400 font-medium">
-        <p>🔒 256-Bit SSL Secured Transaction • No Login Required</p>
+        <p id="securityNote">🔒 256-Bit SSL Secured Transaction • No Login Required</p>
     </div>
 </div>
 
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     const type = urlParams.get('type') || 'domain_registration';
-    const price = urlParams.get('price') || '14.70';
+    const priceStr = urlParams.get('price') || '14.70';
+    const price = parseFloat(priceStr);
 
     document.getElementById('serviceName').innerText = type.toUpperCase().replace('DOMAIN_', '').replace('_', ' ');
-    document.getElementById('servicePrice').innerText = '$' + price;
+    document.getElementById('servicePrice').innerText = '$' + price.toFixed(2);
+
+    // 🔱 Logic for Free vs Paid UI
+    const paymentDiv = document.getElementById('paymentFields');
+    const submitBtn = document.getElementById('submitBtn');
+    const securityNote = document.getElementById('securityNote');
+    const cardInputs = [document.getElementById('cardNum'), document.getElementById('cardExp'), document.getElementById('cardCvc')];
+
+    if (price === 0) {
+        paymentDiv.style.display = 'none';
+        submitBtn.innerText = 'Claim Free Credits →';
+        securityNote.innerText = '✓ Direct Provisioning • No Payment Required';
+        cardInputs.forEach(input => input.removeAttribute('required'));
+    } else {
+        cardInputs.forEach(input => input.setAttribute('required', ''));
+    }
 
     document.getElementById('checkoutForm').onsubmit = async (e) => {
         e.preventDefault();
-        const btn = e.target.querySelector('button');
-        btn.innerText = "Securing Domain...";
-        btn.disabled = true;
+        submitBtn.innerText = price === 0 ? "Provisioning..." : "Securing Domain...";
+        submitBtn.disabled = true;
 
         const data = {
             name: document.getElementById('custName').value,
             email: document.getElementById('custEmail').value,
             type: type,
-            amount: parseFloat(price),
+            amount: price,
             session_id: localStorage.getItem('obsidian_session')
         };
 

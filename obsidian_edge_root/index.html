@@ -170,8 +170,9 @@
     <main>
         <!-- 🔱 Hero Section with St. Charles 4K Video Loop -->
         <section class="hero-video-section">
-            <video autoplay muted loop playsinline class="bg-video">
+            <video autoplay muted loop playsinline class="bg-video" id="heroVideo">
                 <source src="https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175" type="video/mp4">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-city-traffic-at-night-11-large.mp4" type="video/mp4">
             </video>
             <div class="video-overlay"></div>
             <div class="hero-inner">
@@ -368,11 +369,18 @@
             const vids = document.querySelectorAll('video');
             vids.forEach(vid => {
                 vid.muted = true;
-                vid.play().catch(err => {
-                    document.body.addEventListener('click', () => {
-                        vid.play();
-                    }, { once: true });
-                });
+                vid.setAttribute('autoplay', '');
+                vid.setAttribute('muted', '');
+                vid.setAttribute('playsinline', '');
+
+                const playPromise = vid.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(err => {
+                        console.log("Autoplay blocked, waiting for interaction.");
+                        document.body.addEventListener('mousedown', () => { vid.play(); }, { once: true });
+                        document.body.addEventListener('touchstart', () => { vid.play(); }, { once: true });
+                    });
+                }
             });
         });
 
