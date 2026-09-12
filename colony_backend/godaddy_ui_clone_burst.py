@@ -7,23 +7,23 @@ from pathlib import Path
 from playwright.async_api import async_playwright
 from colony_logger import colony_log
 
-RECON_DIR = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\recon_vault\godaddy_ui_dna")
+RECON_DIR = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\recon_vault\obsidian city_ui_dna")
 RECON_DIR.mkdir(parents=True, exist_ok=True)
 
-class GoDaddyUICloner:
+class Obsidian CityUICloner:
     """
-    GODADDY UI CLONER:
-    Deep extraction of GoDaddy's consumer-friendly UX DNA.
+    OBSIDIAN CITY UI CLONER:
+    Deep extraction of Obsidian City's consumer-friendly UX DNA.
     1. ELEMENT MAP: Captures every button, input, and section layout.
     2. STYLE ANALYZER: Extracts computed styles (colors, fonts, radii).
     3. TEXT PURGE: Scrapes their consumer-centric copy for rebranding.
     4. 3D VISUAL SYNC: Captures their usage of "3D" and "Hyper" imagery.
     """
     def __init__(self):
-        self.target_url = "https://www.godaddy.com"
+        self.target_url = "https://www.obsidian city.com"
 
     async def execute_cloning_burst(self):
-        colony_log("CLONER: Initiating deep UI DNA capture on GoDaddy...", node="COMMAND")
+        colony_log("CLONER: Initiating deep UI DNA capture on Obsidian City...", node="COMMAND")
 
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=True)
@@ -35,7 +35,7 @@ class GoDaddyUICloner:
 
                 # 🔱 1. Capture Full Page Map
                 colony_log("[*] CLONER: Mapping page structure...", node="COMMAND")
-                await page.screenshot(path=RECON_DIR / "godaddy_full_structure.png", full_page=True)
+                await page.screenshot(path=RECON_DIR / "obsidian city_full_structure.png", full_page=True)
 
                 # 🔱 2. Extract Button DNA
                 button_dna = await page.evaluate("""() => {
@@ -66,7 +66,7 @@ class GoDaddyUICloner:
                 with open(RECON_DIR / "ui_dna_manifest.json", "w") as f:
                     json.dump({"buttons": button_dna, "sections": sections}, f, indent=4)
 
-                colony_log("✓ CLONER SUCCESS: GoDaddy UI DNA vaulted.", node="COMMAND")
+                colony_log("✓ CLONER SUCCESS: Obsidian City UI DNA vaulted.", node="COMMAND")
 
             except Exception as e:
                 colony_log(f"[-] CLONER FAIL: {e}", node="COMMAND")
@@ -74,5 +74,5 @@ class GoDaddyUICloner:
             await browser.close()
 
 if __name__ == "__main__":
-    cloner = GoDaddyUICloner()
+    cloner = Obsidian CityUICloner()
     asyncio.run(cloner.execute_cloning_burst())

@@ -10,7 +10,7 @@ from colony_persistence import db
 class AresTrafficInterceptor:
     """
     ARES COMPETITOR TRAFFIC INTERCEPTOR (THE DEVIL SYSTEM):
-    1. COMPETITOR KEYWORD SNIPING: Targets high-intent search terms from GoDaddy, Namecheap, and Bluehost.
+    1. COMPETITOR KEYWORD SNIPING: Targets high-intent search terms from Obsidian City, Namecheap, and Bluehost.
     2. AUTOMATED INDEXING BURST: Forces Google, Bing, and Yandex indexers to prioritize obsidian.city.
     3. TRAFFIC CAPTURE: Redirects organic visitor search intent directly into our wholesale domain registrar.
     """
@@ -20,7 +20,7 @@ class AresTrafficInterceptor:
             "cheap domain names",
             "wholesale domain registrar",
             "fastest cloud website hosting",
-            "godaddy alternative $0.01 domains",
+            "obsidian city alternative $0.01 domains",
             "secure business email hosting"
         ]
 

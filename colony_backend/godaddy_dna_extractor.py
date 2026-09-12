@@ -5,12 +5,12 @@ import json
 from pathlib import Path
 from playwright.async_api import async_playwright
 
-RECON_DIR = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\recon_vault\godaddy_ui_dna")
+RECON_DIR = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\recon_vault\obsidian city_ui_dna")
 RECON_DIR.mkdir(parents=True, exist_ok=True)
 
 class DNAExtractor:
     def __init__(self):
-        self.target = "https://www.godaddy.com/en-uk/websites/ai-website-builder"
+        self.target = "https://www.obsidian city.com/en-uk/websites/ai-website-builder"
 
     async def run_extraction(self):
         async with async_playwright() as p:
@@ -68,7 +68,7 @@ class DNAExtractor:
             }""")
 
             # 🔱 4. Vault the DNA
-            vault_file = RECON_DIR / "godaddy_raw_dna.json"
+            vault_file = RECON_DIR / "obsidian city_raw_dna.json"
             with open(vault_file, 'w') as f:
                 json.dump({
                     "design_tokens": css_vars,

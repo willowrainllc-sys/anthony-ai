@@ -42,7 +42,7 @@ class ObsidianUIVerifier:
                 await asyncio.sleep(2)
 
                 colony_log("[*] VERIFIER: Verifying 'Start Building' Button Aura...", node="SUPREME")
-                await page.hover(".btn-godaddy")
+                await page.hover(".btn-obsidian city")
 
                 colony_log("✓ VERIFIER SUCCESS: Visual Audit Complete. Status: LEGIT.", node="SUPREME")
 

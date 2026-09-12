@@ -7,7 +7,7 @@ from pathlib import Path
 from playwright.async_api import async_playwright
 from colony_logger import colony_log
 
-RECON_DIR = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\recon_vault\godaddy_visual")
+RECON_DIR = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\recon_vault\obsidian city_visual")
 RECON_DIR.mkdir(parents=True, exist_ok=True)
 
 class ObsidianVisualCloner:
@@ -21,16 +21,16 @@ class ObsidianVisualCloner:
     """
     def __init__(self):
         self.targets = {
-            "marketplace": "https://www.godaddy.com/en-uk/websites/ai-website-builder",
-            "domains": "https://www.godaddy.com/en-uk/domains",
-            "hosting": "https://www.godaddy.com/en-uk/hosting",
-            "security": "https://www.godaddy.com/en-uk/web-security/ssl-certificate",
-            "email": "https://www.godaddy.com/en-uk/email-marketing"
+            "marketplace": "https://www.obsidian city.com/en-uk/websites/ai-website-builder",
+            "domains": "https://www.obsidian city.com/en-uk/domains",
+            "hosting": "https://www.obsidian city.com/en-uk/hosting",
+            "security": "https://www.obsidian city.com/en-uk/web-security/ssl-certificate",
+            "email": "https://www.obsidian city.com/en-uk/email-marketing"
         }
 
 
     async def execute_visual_burst(self):
-        colony_log("CLONER: Initiating Headed Visual Burst on GoDaddy...", node="COMMAND")
+        colony_log("CLONER: Initiating Headed Visual Burst on Obsidian City...", node="COMMAND")
 
         async with async_playwright() as p:
             # 🔱 Launching HEADED mode (slow_mo for visibility)
@@ -67,7 +67,7 @@ class ObsidianVisualCloner:
                 await page.screenshot(path=RECON_DIR / "02_pricing_dna.png")
 
                 # 🔱 4. Final Re-Skin Logic (Simulated)
-                colony_log("✓ CLONER SUCCESS: GoDaddy whole-site layout vaulted.", node="COMMAND")
+                colony_log("✓ CLONER SUCCESS: Obsidian City whole-site layout vaulted.", node="COMMAND")
 
             except Exception as e:
                 colony_log(f"[-] CLONER FAIL: {e}", node="COMMAND")

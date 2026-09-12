@@ -22,7 +22,7 @@ class CompetitorReconBurst:
         self.targets = {
             "banking": "https://cash.app",
             "browser": "https://brave.com",
-            "domains": "https://www.godaddy.com",
+            "domains": "https://www.obsidian city.com",
             "crypto": "https://www.coinbase.com"
         }
         RECON_DIR.mkdir(parents=True, exist_ok=True)
