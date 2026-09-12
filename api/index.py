@@ -88,7 +88,11 @@ class handler(BaseHTTPRequestHandler):
         payload = json.loads(post_data) if post_data else {}
         path = self.path
 
-        if "/api/domains/register" in path:
+        if "/api/auth/signin" in path:
+            email = payload.get("email", "director@obsidian.city")
+            session_id = f"sess_{int(time.time())}_{random.randint(1000,9999)}"
+            response = {"success": True, "session_id": session_id, "email": email, "message": "Session authorized and saved."}
+        elif "/api/domains/register" in path:
             response = {"success": True, "message": f"Identity [{payload.get('domain')}] secured via NameSilo wholesale gateway."}
         elif "/api/settle/authorize" in path:
             response = {"success": True, "status": "AUTHORIZED_PULSE", "txid": "TX-VERCEL-EDGE"}
