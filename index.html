@@ -497,6 +497,20 @@
             resDiv.innerHTML = html;
             btn.innerText = "SEARCH";
         }
+
+        // 🔱 Foolproof Background Video Autoplay Enforcer
+        window.addEventListener('DOMContentLoaded', () => {
+            const vid = document.querySelector('.bg-video-wrap video');
+            if (vid) {
+                vid.muted = true;
+                vid.play().catch(err => {
+                    console.log('Autoplay restriction intercepted, enabling touch-to-play:', err);
+                    document.body.addEventListener('click', () => {
+                        vid.play();
+                    }, { once: true });
+                });
+            }
+        });
     </script>
 </body>
 </html>
