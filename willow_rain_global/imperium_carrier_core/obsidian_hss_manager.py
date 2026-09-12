@@ -3,12 +3,12 @@ import sqlite3
 import time
 import os
 import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) + "/swarm_backend")
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) + "/colony_backend")
 
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
-DB_PATH = r"C:\ObsidianAi_Swarm\Obsidian_Carrier.db"
+DB_PATH = r"C:\ObsidianAi_Colony\Obsidian_Carrier.db"
 
 class ObsidianHSS:
     """
@@ -51,7 +51,7 @@ class ObsidianHSS:
             """, (imsi, msisdn, imei, auth_key, time.time()))
             conn.commit()
 
-        swarm_log(f"[IMPERIUM] HSS: Provisioned Master Carrier Identity -> {msisdn} [IMSI: {imsi}]", node="CARRIER")
+        colony_log(f"[IMPERIUM] HSS: Provisioned Master Carrier Identity -> {msisdn} [IMSI: {imsi}]", node="CARRIER")
         return {"imsi": imsi, "msisdn": msisdn, "k_key": auth_key}
 
 import os

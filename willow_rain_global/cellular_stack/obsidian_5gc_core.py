@@ -39,7 +39,7 @@ async def register_device(ue: UEContext):
     """AMF Entry Point: Registers a physical phone into the Obsidian Grid."""
     # Logic to handle 9-digit internal MSISDNs
     if len(ue.msisdn) == 9:
-        swarm_log(f"[SUPREME] 5GC_CORE: INTERNAL OBSIDIAN UE Attached -> {ue.msisdn}", node="SECURITY")
+        colony_log(f"[SUPREME] 5GC_CORE: INTERNAL OBSIDIAN UE Attached -> {ue.msisdn}", node="SECURITY")
 
     print(f"[SUPREME] 5GC_CORE: New UE Attached -> IMSI: {ue.imsi} | MSISDN: {ue.msisdn}")
     res = core.register_ue(ue.imsi, ue.imei, ue.msisdn)

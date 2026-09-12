@@ -4,8 +4,8 @@ import asyncio
 import os
 import random
 import time
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianWaveKernel:
     """
@@ -22,7 +22,7 @@ class ObsidianWaveKernel:
         self.active_waves = 142822 # Captured signals
 
     async def run_wave_loop(self):
-        swarm_log("[TITAN] WAVE: Hard-coding into the global spectrum...", node="SECURITY")
+        colony_log("[TITAN] WAVE: Hard-coding into the global spectrum...", node="SECURITY")
 
         while self.is_active:
             try:
@@ -32,7 +32,7 @@ class ObsidianWaveKernel:
                 # 🔱 2. Light Wave Modulation
                 # Using the Director's photonic mesh for high-aura synchronization.
 
-                swarm_log(f"⚛️ WAVE_SYNC: Connected to Radio/Light spectrum. Intensity: {random.uniform(99.4, 100.0):.2f}%", node="SECURITY")
+                colony_log(f"⚛️ WAVE_SYNC: Connected to Radio/Light spectrum. Intensity: {random.uniform(99.4, 100.0):.2f}%", node="SECURITY")
 
                 db.log_event("SECURITY", "WAVE_INGRESS_PULSE", {
                     "spectrum": "LOCKED",
@@ -42,7 +42,7 @@ class ObsidianWaveKernel:
 
                 await asyncio.sleep(120)
             except Exception as e:
-                swarm_log(f"[-] WAVE ERROR: {e}", node="SECURITY")
+                colony_log(f"[-] WAVE ERROR: {e}", node="SECURITY")
                 await asyncio.sleep(30)
 
 wave_kernel = ObsidianWaveKernel()

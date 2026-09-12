@@ -2,23 +2,23 @@
 import asyncio
 import os
 import random
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianLifestyleSniper:
     """
     LIFESTYLE SNIPER:
     Provides immediate 'Free Wins' for the Core Team.
     1. TRAVEL ARBITRAGE: Automatically hunts for luxury trip 'Mistake Fares' for Pueblo-based departures.
-    2. GIFT CARD HARVEST: Uses 103 nodes to automate entries for verified high-yield rewards.
+    2. GIFT CARD HARVEST: Uses The Nest to automate entries for verified high-yield rewards.
     3. PRODUCT SNIPING: Monitors retail marketplaces for 90%+ discounts on tech and home gear.
     4. CONCIERGE ASI: Manages schedules and personal bookings via the Port 9000 Brain.
     """
     def __init__(self):
         self.is_hunting = True
 
-    async def run_lifestyle_strike(self):
-        swarm_log("🏝️ LIFESTYLE: Initiating luxury asset hunt for Anthony and Lily...", node="FINANCE")
+    async def run_lifestyle_burst(self):
+        colony_log("🏝️ LIFESTYLE: Initiating luxury asset hunt for Anthony and Lily...", node="FINANCE")
 
         while self.is_hunting:
             try:
@@ -30,7 +30,7 @@ class ObsidianLifestyleSniper:
                 ]
 
                 for win in wins:
-                    swarm_log(f"🎯 LIFESTYLE: Target Acquired -> {win['title']}", node="FINANCE")
+                    colony_log(f"🎯 LIFESTYLE: Target Acquired -> {win['title']}", node="FINANCE")
                     db.log_event("FINANCE", "LIFESTYLE_WIN_FOUND", win)
 
                 await asyncio.sleep(3600) # Deep scan every hour
@@ -40,4 +40,4 @@ class ObsidianLifestyleSniper:
 lifestyle_sniper = ObsidianLifestyleSniper()
 
 if __name__ == "__main__":
-    asyncio.run(lifestyle_sniper.run_lifestyle_strike())
+    asyncio.run(lifestyle_sniper.run_lifestyle_burst())

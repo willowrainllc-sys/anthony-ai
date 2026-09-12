@@ -1,10 +1,10 @@
 @echo off
 SETLOCAL EnableDelayedExpansion
-TITLE Maga Media Empire - High Performance Swarm
+TITLE Maga Media Empire - High Performance Colony
 COLOR 0E
 
 echo ============================================================
-echo  MAGA MEDIA EMPIRE: HIGH-PERFORMANCE SWARM UPGRADE
+echo  MAGA MEDIA EMPIRE: HIGH-PERFORMANCE COLONY UPGRADE
 echo ============================================================
 
 :: 1. Check for Admin
@@ -24,11 +24,11 @@ for /f "tokens=2 delims=:" %%a in ('ipconfig ^| findstr /C:"IPv4 Address" ^| fin
 echo [WIFI] Current IP: %WIFI_IP%
 
 :: 3. Clear and Reset Firewall Rules
-echo [*] Resetting Swarm Firewall Gates...
-powershell -Command "Remove-NetFirewallRule -DisplayName 'Swarm Brain' -ErrorAction SilentlyContinue"
-powershell -Command "Remove-NetFirewallRule -DisplayName 'Swarm n8n' -ErrorAction SilentlyContinue"
-powershell -Command "New-NetFirewallRule -DisplayName 'Swarm Brain' -Direction Inbound -LocalPort 8000,11434 -Protocol TCP -Action Allow -Profile Private,Public"
-powershell -Command "New-NetFirewallRule -DisplayName 'Swarm n8n' -Direction Inbound -LocalPort 5678 -Protocol TCP -Action Allow -Profile Private,Public"
+echo [*] Resetting Colony Firewall Gates...
+powershell -Command "Remove-NetFirewallRule -DisplayName 'Colony Brain' -ErrorAction SilentlyContinue"
+powershell -Command "Remove-NetFirewallRule -DisplayName 'Colony n8n' -ErrorAction SilentlyContinue"
+powershell -Command "New-NetFirewallRule -DisplayName 'Colony Brain' -Direction Inbound -LocalPort 8000,11434 -Protocol TCP -Action Allow -Profile Private,Public"
+powershell -Command "New-NetFirewallRule -DisplayName 'Colony n8n' -Direction Inbound -LocalPort 5678 -Protocol TCP -Action Allow -Profile Private,Public"
 echo [OK] Firewall gates 8000, 5678, and 11434 are now wide open.
 
 :: 4. Force Port 8000 and 11434 Cleanup
@@ -47,7 +47,7 @@ timeout /t 5 /nobreak >nul
 
 :: 6. Trigger TMZ Scraper for Fresh Intel
 echo [*] Triggering TMZ Scraper...
-set "BACKEND_DIR=%~dp0swarm_backend"
+set "BACKEND_DIR=%~dp0colony_backend"
 if exist "!BACKEND_DIR!\scrape_tmz.py" (
     cd /d "!BACKEND_DIR!"
     python scrape_tmz.py
@@ -61,7 +61,7 @@ if exist "!BACKEND_DIR!" (
     cd /d "!BACKEND_DIR!"
     start "Mind-Server" cmd /c "python -m uvicorn nexus_core:app --host 0.0.0.0 --port 8000 --reload"
 ) else (
-    echo [!] ERROR: Swarm backend directory missing at !BACKEND_DIR!
+    echo [!] ERROR: Colony backend directory missing at !BACKEND_DIR!
 )
 
 echo ------------------------------------------------------------

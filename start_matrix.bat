@@ -1,10 +1,10 @@
 @echo off
 SETLOCAL EnableDelayedExpansion
-TITLE Anthony AI - Master Swarm Launcher
+TITLE Anthony AI - Master Colony Launcher
 COLOR 0A
 
 echo ==========================================
-echo LAUNCHING ANTHONY AI LOCAL SWARM PIPELINE
+echo LAUNCHING ANTHONY AI LOCAL COLONY PIPELINE
 echo ==========================================
 
 :: 0. Check for Administrator privileges (Required for Firewall/Port Cleanup)
@@ -15,7 +15,7 @@ if %errorLevel% neq 0 (
     exit /b 1
 )
 
-:: Swarm Performance & VRAM Config
+:: Colony Performance & VRAM Config
 set "OLLAMA_NUM_PARALLEL=1"
 set "OLLAMA_MAX_LOADED_MODELS=1"
 set "OLLAMA_HOST=127.0.0.1"
@@ -24,8 +24,8 @@ set "OLLAMA_NUM_GPU=0"
 
 :: 1. Open Firewall Gates (Regular Wi-Fi Optimization)
 echo [*] Opening Firewall Gates (8000, 5678, 11434)...
-powershell -Command "New-NetFirewallRule -DisplayName 'Swarm Brain' -Direction Inbound -LocalPort 8000,11434 -Protocol TCP -Action Allow -Profile Private,Public -ErrorAction SilentlyContinue" >nul 2>&1
-powershell -Command "New-NetFirewallRule -DisplayName 'Swarm n8n' -Direction Inbound -LocalPort 5678 -Protocol TCP -Action Allow -Profile Private,Public -ErrorAction SilentlyContinue" >nul 2>&1
+powershell -Command "New-NetFirewallRule -DisplayName 'Colony Brain' -Direction Inbound -LocalPort 8000,11434 -Protocol TCP -Action Allow -Profile Private,Public -ErrorAction SilentlyContinue" >nul 2>&1
+powershell -Command "New-NetFirewallRule -DisplayName 'Colony n8n' -Direction Inbound -LocalPort 5678 -Protocol TCP -Action Allow -Profile Private,Public -ErrorAction SilentlyContinue" >nul 2>&1
 
 :: 2. Pre-Flight Port Clean
 echo [*] Releasing Handshake Ports and Processes...
@@ -45,14 +45,14 @@ start "Mosquitto-MQTT" /min cmd /c "mosquitto -v"
 echo [*] Initializing Ollama-Core (CPU-Stable)...
 start "Ollama-Core" cmd /c "set OLLAMA_IGPU_ENABLE=0 && set OLLAMA_NUM_GPU=0 && ollama serve"
 
-:: 4. Launch Master Swarm Core (FastAPI Mind-Server)
+:: 4. Launch Master Colony Core (FastAPI Mind-Server)
 timeout /t 5 /nobreak >nul
 echo [*] Booting Mind-Server on http://127.0.0.1:8000...
-set "BACKEND_DIR=%~dp0swarm_backend"
+set "BACKEND_DIR=%~dp0colony_backend"
 if exist "!BACKEND_DIR!" (
     start "Mind-Server" cmd /c "cd /d !BACKEND_DIR! && python -m uvicorn nexus_core:app --host 0.0.0.0 --port 8000 --reload"
 ) else (
-    echo [!] ERROR: Swarm backend directory missing at !BACKEND_DIR!
+    echo [!] ERROR: Colony backend directory missing at !BACKEND_DIR!
 )
 
 :: 5. Spin up n8n and local Docker containers

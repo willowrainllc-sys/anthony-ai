@@ -4,8 +4,8 @@ import os
 import random
 import time
 import requests
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianQuantumScraper:
     """
@@ -23,7 +23,7 @@ class ObsidianQuantumScraper:
         self.total_extracted_mb = 0.0
 
     async def start_high_velocity_scrape(self):
-        swarm_log(f"QUANTUM: Initiating High-Velocity Scrape for [{self.node_id}] via Port [{self.port}]...", node="INGRESS")
+        colony_log(f"QUANTUM: Initiating High-Velocity Scrape for [{self.node_id}] via Port [{self.port}]...", node="INGRESS")
 
         while self.is_active:
             try:
@@ -34,7 +34,7 @@ class ObsidianQuantumScraper:
 
                 # 2. Feed the Portal (Direct Ingress)
                 # In production, this pushes to https://api.obsidian-global.io/feed
-                swarm_log(f" FEED: Pushing {extraction_chunk:.2f} MB of high-aura data to Portal.", node="INGRESS")
+                colony_log(f" FEED: Pushing {extraction_chunk:.2f} MB of high-aura data to Portal.", node="INGRESS")
 
                 db.log_event("INGRESS", "VELOCITY_PULSE", {
                     "node": self.node_id,
@@ -46,7 +46,7 @@ class ObsidianQuantumScraper:
                 await asyncio.sleep(random.uniform(2, 5)) # Sub-5 second pulse
 
             except Exception as e:
-                swarm_log(f"[-] VELOCITY ERROR: {e}", node="INGRESS")
+                colony_log(f"[-] VELOCITY ERROR: {e}", node="INGRESS")
                 await asyncio.sleep(10)
 
 if __name__ == "__main__":

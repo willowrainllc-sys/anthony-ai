@@ -270,7 +270,7 @@ fun AnthonyAiFeedScreen(
                         ProductionJobCard(job)
                     }
                 } else {
-                    items(viewModel.swarmFeed) { video ->
+                    items(viewModel.colonyFeed) { video ->
                         AIVideoCard(video)
                     }
                 }

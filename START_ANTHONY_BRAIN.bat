@@ -19,6 +19,6 @@ start /b anthony-engine run anthony "hello"
 
 :: 3. Launch the API server
 echo [*] Launching API Gateway...
-python swarm_backend/anthony_brain_server.py
+python colony_backend/anthony_brain_server.py
 
 pause

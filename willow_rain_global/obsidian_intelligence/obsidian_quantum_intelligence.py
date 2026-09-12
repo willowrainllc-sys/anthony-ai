@@ -3,8 +3,8 @@
 import pennylane as qml
 from pennylane import numpy as np
 import asyncio
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianQuantumIntelligence:
     """

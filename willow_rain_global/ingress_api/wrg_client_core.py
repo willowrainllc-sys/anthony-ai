@@ -6,7 +6,7 @@ import uuid
 import time
 import socket
 from pathlib import Path
-from swarm_logger import swarm_log
+from colony_logger import colony_log
 from obsidian_ghost_dna import dna_factory
 
 class WillowIngressClient:
@@ -23,11 +23,11 @@ class WillowIngressClient:
         self.client_id = f"WRG-CLI-{uuid.uuid4().hex[:6].upper()}"
 
     async def start_sharing_pulse(self):
-        swarm_log(f"WRG_CLIENT: Starting Ingress for [{self.master_email}] on [{self.device_dna['name']}]", node="INGRESS")
+        colony_log(f"WRG_CLIENT: Starting Ingress for [{self.master_email}] on [{self.device_dna['name']}]", node="INGRESS")
 
         # 1. Register with the Obsidian Hive
         # In production, this hits https://api.willow-ingress.co/node/register
-        swarm_log(f" WRG_CLIENT: Handshake Success. ID: {self.client_id}", node="INGRESS")
+        colony_log(f" WRG_CLIENT: Handshake Success. ID: {self.client_id}", node="INGRESS")
 
         while True:
             # 2. Simulate/Execute Bandwidth Sharing
@@ -42,7 +42,7 @@ class WillowIngressClient:
             from obsidian_account_ledger import account_ledger
             # Note: We'll add a 'WILLOW_INGRESS' service type to the ledger
 
-            swarm_log(f"WRG_CLIENT: Shared {bytes_shared/1024/1024:.2f} MB. Credits: +{credits_earned:.4f}", node="INGRESS")
+            colony_log(f"WRG_CLIENT: Shared {bytes_shared/1024/1024:.2f} MB. Credits: +{credits_earned:.4f}", node="INGRESS")
 
             await asyncio.sleep(60) # High-frequency data heartbeat
 

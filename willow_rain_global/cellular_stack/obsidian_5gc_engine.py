@@ -8,14 +8,14 @@ from pathlib import Path
 
 # Absolute Path Injection
 ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
-sys.path.append(str(ROOT / "swarm_backend"))
+sys.path.append(str(ROOT / "colony_backend"))
 
 try:
-    from swarm_logger import swarm_log
-    from swarm_persistence import db
+    from colony_logger import colony_log
+    from colony_persistence import db
 except ImportError:
-    print("[-] 5GC: swarm_logger not found. Fallback to print.")
-    def swarm_log(m, node=""): print(f"[{node}] {m}")
+    print("[-] 5GC: colony_logger not found. Fallback to print.")
+    def colony_log(m, node=""): print(f"[{node}] {m}")
     class MockDB:
         def log_event(self, a, b, c): pass
     db = MockDB()
@@ -31,21 +31,21 @@ class Obsidian5GCEngine:
     """
     def __init__(self):
         self.is_active = True
-        self.gnb_config = Path(r"C:\AnthonyAi_Swarm\Secure_Assets\5G_Config\gnb.yaml")
+        self.gnb_config = Path(r"C:\AnthonyAi_Colony\Secure_Assets\5G_Config\gnb.yaml")
 
     async def ignite_reality_mesh(self):
-        swarm_log("[TITAN] 5GC: Initiating Physical 5G Mesh Ignition...", node="CARRIER")
+        colony_log("[TITAN] 5GC: Initiating Physical 5G Mesh Ignition...", node="CARRIER")
 
         # 1. Start Open5GS (The Brain)
-        # In a real strike, this calls the systemd services or local binary
-        swarm_log("[*] 5GC: Launching Open5GS Control Plane (AMF/SMF/UDM)...", node="CARRIER")
+        # In a real burst, this calls the systemd services or local binary
+        colony_log("[*] 5GC: Launching Open5GS Control Plane (AMF/SMF/UDM)...", node="CARRIER")
 
         # 2. Start OCUDU (The Radio)
         # Connects to the physical USRP hardware to broadcast the 'Obsidian' PLMN.
-        swarm_log("[*] 5GC: Binding OCUDU gNB to USRP B210 hardware...", node="CARRIER")
+        colony_log("[*] 5GC: Binding OCUDU gNB to USRP B210 hardware...", node="CARRIER")
 
         # 3. Apply Sovereign Policy
-        swarm_log("✓ 5GC SUCCESS: PLMN 999-70 is live. Missouri-Arkansas Fiber Bridge established.", node="CARRIER")
+        colony_log("✓ 5GC SUCCESS: PLMN 999-70 is live. Missouri-Arkansas Fiber Bridge established.", node="CARRIER")
 
         db.log_event("CARRIER", "5G_MESH_REALITY_ACTIVE", {
             "plmn": "999-70",

@@ -7,7 +7,7 @@ import android.util.Log
 import java.net.InetAddress
 
 /**
- * Central Swarm Network Configuration
+ * Central Colony Network Configuration
  * Supports Dynamic Hotspot Gateway pathing.
  */
 object NetworkConfig {

@@ -4,8 +4,8 @@ import json
 import uuid
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 app = FastAPI(title="Obsidian Number Marketplace")
 
@@ -27,7 +27,7 @@ class ObsidianNumberMarketplace:
         self.gateway = mvno_gateway
 
     async def sell_numbers(self, client_id, quantity, area_code):
-        swarm_log(f"MARKETPLACE: Processing wholesale order for [{client_id}] -> {quantity} numbers.", node="CARRIER")
+        colony_log(f"MARKETPLACE: Processing wholesale order for [{client_id}] -> {quantity} numbers.", node="CARRIER")
 
         sold_numbers = []
         for _ in range(quantity):
@@ -49,5 +49,5 @@ async def purchase_numbers(req: NumberPurchaseRequest):
 
 if __name__ == "__main__":
     import uvicorn
-    swarm_log("[IMPERIUM] OBSIDIAN_MARKETPLACE: Wholesale API live on Port 7788.", node="CARRIER")
+    colony_log("[IMPERIUM] OBSIDIAN_MARKETPLACE: Wholesale API live on Port 7788.", node="CARRIER")
     uvicorn.run(app, host="0.0.0.0", port=7788)

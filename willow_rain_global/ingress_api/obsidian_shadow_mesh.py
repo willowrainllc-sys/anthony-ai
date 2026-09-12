@@ -2,8 +2,8 @@
 import asyncio
 import os
 import random
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianShadowMesh:
     """
@@ -15,7 +15,7 @@ class ObsidianShadowMesh:
     4. ZERO CARRIER: Bypasses commercial towers to provide free internet access.
     """
     async def run_mesh_tunnel(self):
-        swarm_log(" SHADOW_MESH: Initiating P2P fiber backhaul bridge...", node="NETWORK")
+        colony_log(" SHADOW_MESH: Initiating P2P fiber backhaul bridge...", node="NETWORK")
 
         while True:
             # 1. Discover Peers (Physical Scan)
@@ -23,7 +23,7 @@ class ObsidianShadowMesh:
             # 3. Route Traffic through the Missouri Matrix
 
             # Simulated Heartbeat
-            swarm_log(" SHADOW_MESH: 103 active hops providing unlimited backhaul.", node="NETWORK")
+            colony_log(" SHADOW_MESH: 103 active hops providing unlimited backhaul.", node="NETWORK")
             await asyncio.sleep(60)
 
 shadow_mesh = ObsidianShadowMesh()

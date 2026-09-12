@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DASHBOARD | Obsidian Edge</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        :root {
+            --bg: #000000;
+            --surface: #0a0a0a;
+            --border: #333333;
+            --accent: #3b82f6;
+        }
+        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; display: flex; height: 100vh; overflow: hidden; }
+
+        .sidebar { width: 240px; border-right: 1px solid var(--border); padding: 40px 20px; display: flex; flex-direction: column; }
+        .main { flex: 1; display: flex; flex-direction: column; overflow-y: auto; }
+
+        .nav-header { padding: 15px 40px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+
+        .nav-item { padding: 12px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #888; cursor: pointer; transition: 0.2s; margin-bottom: 4px; }
+        .nav-item:hover, .nav-item.active { color: #fff; background: #111; }
+
+        .project-card { background: #000; border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: 0.3s; cursor: pointer; }
+        .project-card:hover { border-color: #666; }
+
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 10px #10b981; }
+
+        .btn-new { background: #fff; color: #000; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 13px; }
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+
+    <aside class="sidebar">
+        <div class="flex items-center gap-2 mb-12 px-4">
+            <svg width="20" height="20" viewBox="0 0 76 65" fill="none"><path d="M37.5274 0L75.0548 65H0L37.5274 0Z" fill="white"/></svg>
+            <span class="font-black tracking-tighter">OBSIDIAN_EDGE</span>
+        </div>
+        <div class="nav-item active">Projects</div>
+        <div class="nav-item">Deployments</div>
+        <div class="nav-item">Domains</div>
+        <div class="nav-item">Analytics</div>
+        <div class="nav-item">Logs</div>
+        <div class="nav-item">Settings</div>
+
+        <div class="mt-auto px-4 py-6 bg-blue-500/5 rounded-xl border border-blue-500/10 text-[9px] text-blue-400 font-bold uppercase tracking-widest">
+            ARES_ENGINE ENABLED
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="nav-header">
+            <div class="flex items-center gap-4">
+                <span class="text-sm font-bold">willowrainllc-sys</span>
+                <span class="text-gray-700">/</span>
+                <span class="text-sm font-bold text-gray-400">Personal</span>
+            </div>
+            <button class="btn-new" onclick="alert('🔱 Starting New Industrial Ingress...')">Create New Project</button>
+        </header>
+
+        <div class="p-10 max-w-6xl w-full mx-auto">
+            <div class="flex justify-between items-end mb-10">
+                <h1 class="text-3xl font-bold tracking-tight">Projects</h1>
+                <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">103 NODES ARMED</div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Project 1: Obsidian City -->
+                <div class="project-card" onclick="window.location.href='obsidian_city_marketplace.html'">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-bold text-lg">obsidian-city</h3>
+                        <div class="status-dot"></div>
+                    </div>
+                    <div class="text-[11px] font-mono text-gray-500 mb-6">https://obsidian.city</div>
+                    <div class="flex items-center gap-4 text-[10px] text-gray-600 font-bold uppercase tracking-widest">
+                        <span>Production</span>
+                        <span>17h ago</span>
+                        <span class="text-blue-500 cursor-pointer" onclick="window.location.href='obsidian_ui_verifier.py'">ARES: WATCH_VERIFY</span>
+                    </div>
+                </div>
+
+                <!-- Project 2: Town 360 -->
+                <div class="project-card" onclick="window.location.href='town360_landing.html'">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-bold text-lg">town-360</h3>
+                        <div class="status-dot"></div>
+                    </div>
+                    <div class="text-[11px] font-mono text-gray-500 mb-6">https://town360.com</div>
+                    <div class="flex items-center gap-4 text-[10px] text-gray-600 font-bold uppercase tracking-widest">
+                        <span>Production</span>
+                        <span>2d ago</span>
+                        <span>STABLE</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🔱 Live Logs Section (ARES Bridge) -->
+            <div class="mt-12 bg-surface rounded-2xl border border-border overflow-hidden">
+                <div class="px-6 py-4 bg-black border-b border-border flex justify-between items-center">
+                    <span class="text-xs font-bold uppercase tracking-widest text-gray-500">Deployment Logs // ARES_BRIDGE</span>
+                    <button class="text-[9px] font-bold text-blue-500" onclick="location.reload()">REFRESH_STREAM</button>
+                </div>
+                <div class="p-6 font-mono text-[10px] text-emerald-500/80 space-y-2 h-40 overflow-y-auto">
+                    <div>[22:45:01] > ARES: Initiating Industrial Deploy Burst...</div>
+                    <div>[22:45:03] > MESH: Validating Root Certificate cert_O6RAXS...</div>
+                    <div>[22:45:05] > VERCEL: Mapping obsidian.city to Vercel Global Edge...</div>
+                    <div>[22:45:08] > SUCCESS: Deployment sync 100% complete.</div>
+                    <div class="animate-pulse">_</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

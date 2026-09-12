@@ -5,8 +5,8 @@ import json
 import time
 import subprocess
 from pathlib import Path
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianSubscriberDaemon:
     """
@@ -19,10 +19,10 @@ class ObsidianSubscriberDaemon:
     """
     def __init__(self):
         self.is_active = True
-        self.registry_path = Path(r"C:\ObsidianAi_Swarm\Obsidian_Subscriber_Registry.db")
+        self.registry_path = Path(r"C:\ObsidianAi_Colony\Obsidian_Subscriber_Registry.db")
 
     async def run_daemon_loop(self):
-        swarm_log("[IMPERIUM] DAEMON: Igniting Obsidian Subscriber Lifecycle Loop...", node="CARRIER")
+        colony_log("[IMPERIUM] DAEMON: Igniting Obsidian Subscriber Lifecycle Loop...", node="CARRIER")
 
         while self.is_active:
             try:
@@ -35,11 +35,11 @@ class ObsidianSubscriberDaemon:
                     await self._monitor_subscriber_mining(sub)
 
                 # 3. Heartbeat Pulse
-                swarm_log(f"[IMPERIUM] DAEMON: Audit complete. {len(subscribers)} identities are ACTIVE in the loop.", node="CARRIER")
+                colony_log(f"[IMPERIUM] DAEMON: Audit complete. {len(subscribers)} identities are ACTIVE in the loop.", node="CARRIER")
                 await asyncio.sleep(300) # 5-minute pulse
 
             except Exception as e:
-                swarm_log(f" DAEMON ERROR: {e}", node="CARRIER")
+                colony_log(f" DAEMON ERROR: {e}", node="CARRIER")
                 await asyncio.sleep(60)
 
     def _get_active_subscribers(self):

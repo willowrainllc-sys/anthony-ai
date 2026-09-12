@@ -3,8 +3,8 @@ import os
 import uuid
 import json
 import random
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianESIMGenerator:
     """
@@ -37,7 +37,7 @@ class ObsidianESIMGenerator:
         }
 
         db.log_event("SECURITY", "OBSIDIAN_IDENTITY_PROVISIONED", identity)
-        swarm_log(f"[IMPERIUM] OBSIDIAN: Standard 10-Digit Number [{msisdn}] provisioned.", node="SECURITY")
+        colony_log(f"[IMPERIUM] OBSIDIAN: Standard 10-Digit Number [{msisdn}] provisioned.", node="SECURITY")
 
         return identity
 

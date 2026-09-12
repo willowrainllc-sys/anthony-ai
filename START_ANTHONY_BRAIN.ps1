@@ -22,6 +22,6 @@ Start-Process -FilePath "ollama" -ArgumentList "run anthony `"hello`"" -NoNewWin
 
 # 3. Launch the API server
 Write-Host "[*] Launching API Gateway..." -ForegroundColor Green
-python C:\Users\willo\OneDrive\Desktop\Anthony_Ai\swarm_backend\anthony_brain_server.py
+python C:\Users\willo\OneDrive\Desktop\Anthony_Ai\colony_backend\anthony_brain_server.py
 
 Read-Host "Press Enter to exit..."

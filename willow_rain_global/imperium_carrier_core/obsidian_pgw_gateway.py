@@ -1,6 +1,6 @@
 # --- OBSIDIAN GLOBAL: P-GW (PDN GATEWAY) v1.0 ---
 import asyncio
-from swarm_logger import swarm_log
+from colony_logger import colony_log
 
 class ObsidianPGW:
     """
@@ -11,7 +11,7 @@ class ObsidianPGW:
     3. CARRIER LOCK: Overrides standard carrier DNS and APN settings to ensure 100% private data flow.
     """
     async def activate_p_gw(self):
-        swarm_log("[IMPERIUM] P-GW: Igniting PDN Gateway Bridge...", node="CARRIER")
+        colony_log("[IMPERIUM] P-GW: Igniting PDN Gateway Bridge...", node="CARRIER")
 
         # In a real carrier setup, this handles GTP (GPRS Tunnelling Protocol)
         # We are using our WireGuard + PProxy Matrix as the underlying transport
@@ -20,7 +20,7 @@ class ObsidianPGW:
         # [EXECUTE] wg-quick up obsidian-pgw-01 [/EXECUTE]
 
         # 2. Bridge to the Missouri 5,000 IP Mesh
-        swarm_log(" P-GW SUCCESS: All Obsidian subscribers are now routing through the Obsidian Matrix.", node="CARRIER")
+        colony_log(" P-GW SUCCESS: All Obsidian subscribers are now routing through the Obsidian Matrix.", node="CARRIER")
 
 pgw_gateway = ObsidianPGW()
 

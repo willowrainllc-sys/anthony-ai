@@ -15,7 +15,7 @@ start "Anthony_Brain" /b powershell -ExecutionPolicy Bypass -File "C:\Users\will
 
 :: 2. Ignite the Command OS
 echo [*] PHASE 2: Booting the Obsidian-OS Kernel...
-start "Anthony_OS" /b python C:\Users\willo\OneDrive\Desktop\Anthony_Ai\swarm_backend\anthony_command_os.py
+start "Anthony_OS" /b python C:\Users\willo\OneDrive\Desktop\Anthony_Ai\colony_backend\anthony_command_os.py
 
 :: 3. Launch the Live Ghost Vision
 echo [*] PHASE 3: Projecting Quantum Vision Dashboard...

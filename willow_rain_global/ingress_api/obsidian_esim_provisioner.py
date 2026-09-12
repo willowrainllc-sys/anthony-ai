@@ -7,10 +7,10 @@ from pathlib import Path
 
 # Absolute Path Correction
 ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
-sys.path.append(str(ROOT / "swarm_backend"))
+sys.path.append(str(ROOT / "colony_backend"))
 
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianESIMProvisioner:
     """
@@ -24,7 +24,7 @@ class ObsidianESIMProvisioner:
         self.sm_dp_plus = "smdp.obsidian-global.io"
 
     def generate_fresh_activation(self, node_id: str):
-        swarm_log(f"[IMPERIUM] eSIM: Provisioning fresh identity for [{node_id}]...", node="CARRIER")
+        colony_log(f"[IMPERIUM] eSIM: Provisioning fresh identity for [{node_id}]...", node="CARRIER")
 
         # 1. Generate standard 10-digit number (A NEW ONE)
         prefix = "314"
@@ -43,7 +43,7 @@ class ObsidianESIMProvisioner:
             "plan": "UNLIMITED_FIBER_DATA"
         }
 
-        # 2. Hard-code into HSS Database (Simulation log for this strike)
+        # 2. Hard-code into HSS Database (Simulation log for this burst)
         db.log_event("CARRIER", "FRESH_ESIM_PROVISIONED", packet)
 
         return packet

@@ -45,7 +45,7 @@ fun AgentRoomScreen(
 ) {
     val agents = listOf(
         AgentStatus("ANTHONY_LATEST", "SUPREME MIND", "NATIVE_ONLINE", Icons.Default.Cyclone, Color(0xFF8B5CF6), "Hardware-native autonomy. Middlemen excommunicated."),
-        AgentStatus("GHOST_MINER", "BANDWIDTH STRIKE", "MINING", Icons.Default.CellTower, Color(0xFF10B981), "Isolated P2P data harvesting swarm."),
+        AgentStatus("GHOST_MINER", "BANDWIDTH BURST", "MINING", Icons.Default.CellTower, Color(0xFF10B981), "Isolated P2P data harvesting colony."),
         AgentStatus("SHADOW_UPLOADER", "SOCIAL INFLUENCE", "POSTING", Icons.Default.Stream, Color(0xFFF43F5E), "Behavioral video distribution fleet."),
         AgentStatus("CASH_SENTINEL", "BTC SETTLEMENT", "LOCKED", Icons.Default.CurrencyBitcoin, Color(0xFFFBBF24), "On-chain verification and auto-withdraw."),
         AgentStatus("MATRIX_GATEWAY", "RESIDENTIAL MESH", "ROUTING", Icons.Default.Shield, Color(0xFF3B82F6), "5,000 IP Missouri ingress controller."),

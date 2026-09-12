@@ -4,8 +4,8 @@ import asyncio
 import os
 import json
 import random
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianPoisonPillEngine:
     """
@@ -21,21 +21,21 @@ class ObsidianPoisonPillEngine:
         self.pills_deployed = 0
 
     async def deploy_pill(self, target_ip, signature="LEGACY_AI"):
-        swarm_log(f"💀 PPE: Deploying Poison Pill strike against [{signature}] at {target_ip}...", node="SECURITY")
+        colony_log(f"💀 PPE: Deploying Poison Pill burst against [{signature}] at {target_ip}...", node="SECURITY")
 
         # Logic to deliver a recursive prompt or packet-burst payload
         self.pills_deployed += 1
 
-        db.log_event("SECURITY", "POISON_PILL_STRIKE", {
+        db.log_event("SECURITY", "POISON_PILL_BURST", {
             "target": target_ip,
             "signature": signature,
             "status": "ANNIHILATED"
         })
 
-        swarm_log(f"✓ PPE SUCCESS: Target [{target_ip}] logic-locked. Connection vaporized.", node="SECURITY")
+        colony_log(f"✓ PPE SUCCESS: Target [{target_ip}] logic-locked. Connection vaporized.", node="SECURITY")
 
     async def run_pill_sentry(self):
-        swarm_log("[SHADOW] PPE: Sentry active. Scanning for rival AI signatures...", node="SECURITY")
+        colony_log("[SHADOW] PPE: Sentry active. Scanning for rival AI signatures...", node="SECURITY")
         while self.is_active:
             # Simulated Detection of a 'Big Dog' bot
             if random.random() < 0.05:

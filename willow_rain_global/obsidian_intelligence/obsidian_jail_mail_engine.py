@@ -3,8 +3,8 @@
 import asyncio
 import os
 import json
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianJailMailEngine:
     """
@@ -20,7 +20,7 @@ class ObsidianJailMailEngine:
         self.pricing = {"message": 0.10, "video_min": 0.25}
 
     async def run_corrections_ingress(self):
-        swarm_log("[SHADOW] JAIL_MAIL: Initiating independent communication ingress...", node="SECURITY")
+        colony_log("[SHADOW] JAIL_MAIL: Initiating independent communication ingress...", node="SECURITY")
 
         while self.is_active:
             try:
@@ -28,7 +28,7 @@ class ObsidianJailMailEngine:
                 # 2. Perform ASI scrubbing (Safety Handshake)
                 # 3. Inject into the 'Obsidian Connect' tablet interface
 
-                swarm_log("✓ JAIL_MAIL: Communication pipeline is stable and unblocked.", node="SECURITY")
+                colony_log("✓ JAIL_MAIL: Communication pipeline is stable and unblocked.", node="SECURITY")
 
                 db.log_event("CORRECTIONS", "GRID_HEARTBEAT", {
                     "active_tablets": 650,
@@ -38,12 +38,12 @@ class ObsidianJailMailEngine:
 
                 await asyncio.sleep(600) # Heartbeat every 10 mins
             exceptException as e:
-                swarm_log(f"[-] JAIL_MAIL ERROR: {e}", node="SECURITY")
+                colony_log(f"[-] JAIL_MAIL ERROR: {e}", node="SECURITY")
                 await asyncio.sleep(30)
 
     async def process_transaction(self, user_id, amount):
         """Liquidates family payments directly to the Director's treasury."""
-        swarm_log(f"💰 JAIL_MAIL: Captured ${amount} from User [{user_id}].", node="FINANCE")
+        colony_log(f"💰 JAIL_MAIL: Captured ${amount} from User [{user_id}].", node="FINANCE")
         # Logic to move funds to bc1qk4...yzx
         return True
 

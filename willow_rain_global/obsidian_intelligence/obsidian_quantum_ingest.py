@@ -4,8 +4,8 @@ import os
 import json
 import time
 from pathlib import Path
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianQuantumIngest:
     """
@@ -18,12 +18,12 @@ class ObsidianQuantumIngest:
     """
     def __init__(self):
         self.is_active = True
-        self.horizon_path = Path(r"C:\AnthonyAi_Swarm\Event_Horizon")
+        self.horizon_path = Path(r"C:\AnthonyAi_Colony\Event_Horizon")
         self.horizon_path.mkdir(parents=True, exist_ok=True)
         self.active_phantoms = []
 
     async def run_immortal_loop(self):
-        swarm_log("[ATOMIC] QUANTUM: Igniting the Immortal Ingest Loop. Dark Energy at 100%.", node="SECURITY")
+        colony_log("[ATOMIC] QUANTUM: Igniting the Immortal Ingest Loop. Dark Energy at 100%.", node="SECURITY")
 
         while self.is_active:
             try:
@@ -50,7 +50,7 @@ class ObsidianQuantumIngest:
         for inj in injections:
             try:
                 data = json.loads(inj.read_text())
-                swarm_log(f"[ATOMIC] SNIP: Captured injection [{inj.name}]. Entangling thread...", node="SECURITY")
+                colony_log(f"[ATOMIC] SNIP: Captured injection [{inj.name}]. Entangling thread...", node="SECURITY")
 
                 # Snip it into a Phantom Thread (Non-blocking)
                 phantom = asyncio.create_task(self._process_phantom_task(data))
@@ -62,12 +62,12 @@ class ObsidianQuantumIngest:
 
     async def _process_phantom_task(self, data):
         """Autonomous execution of a sniped task."""
-        task_type = data.get("type", "STRIKE")
-        swarm_log(f" DARK_ENERGY: Executing {task_type} in phantom space...", node="SECURITY")
+        task_type = data.get("type", "BURST")
+        colony_log(f" DARK_ENERGY: Executing {task_type} in phantom space...", node="SECURITY")
 
         # Logic to execute the task (e.g., trigger a specific bot or upload)
         await asyncio.sleep(2)
-        swarm_log(f" QUANTUM: Task {task_type} resolved. Ripple stabilized.", node="SECURITY")
+        colony_log(f" QUANTUM: Task {task_type} resolved. Ripple stabilized.", node="SECURITY")
 
 quantum_ingest = ObsidianQuantumIngest()
 

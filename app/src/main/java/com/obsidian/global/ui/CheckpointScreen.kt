@@ -154,7 +154,7 @@ fun MissionCommandCenterUI(viewModel: MainViewModel) {
                     val now = System.currentTimeMillis() / 1000
                     telemetry.clocksInfo.forEach { clock ->
                         if (clock.channel != "QUANTUM_LOCK") {
-                            val etaSec = (clock.lastStrike + 3600.0) - now.toDouble()
+                            val etaSec = (clock.lastBurst + 3600.0) - now.toDouble()
                             val m = (etaSec / 60.0).coerceAtLeast(0.0).toInt()
                             val s = (etaSec % 60).coerceAtLeast(0.0).toInt()
                             val etaStr = if (m > 0 || s > 0) String.format(Locale.US, "%02d:%02d", m, s) else "LIVE"
@@ -276,7 +276,7 @@ fun MissionCommandCenterUI(viewModel: MainViewModel) {
 
 @Composable
 fun WormholeFeedSection(viewModel: MainViewModel) {
-    val videos = viewModel.swarmFeed
+    val videos = viewModel.colonyFeed
     val categories = listOf("For you", "Shadow", "Alpha", "Archive")
     var playingVideoUrl by remember { mutableStateOf<String?>(null) }
     
@@ -324,7 +324,7 @@ fun WormholeFeedSection(viewModel: MainViewModel) {
                     contentPadding = PaddingValues(bottom = 16.dp)
                 ) {
                     items(videos.size) { index ->
-                        VideoStrikeItem(
+                        VideoBurstItem(
                             video = videos[index],
                             viewModel = viewModel,
                             onPlay = { playingVideoUrl = it }
@@ -359,7 +359,7 @@ fun WormholeFeedSection(viewModel: MainViewModel) {
 }
 
 @Composable
-fun VideoStrikeItem(video: AIVideo, viewModel: MainViewModel, onPlay: (String) -> Unit) {
+fun VideoBurstItem(video: AIVideo, viewModel: MainViewModel, onPlay: (String) -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -428,7 +428,7 @@ fun VideoStrikeItem(video: AIVideo, viewModel: MainViewModel, onPlay: (String) -
                             )
                         }
                         Text(
-                            text = video.title ?: "Obsidian Strike",
+                            text = video.title ?: "Obsidian Burst",
                             color = Color.White,
                             fontWeight = FontWeight.Bold,
                             fontSize = 16.sp,

@@ -1,8 +1,8 @@
 # --- OBSIDIAN GLOBAL: USER PLAN DELIVERY SYSTEM v1.0 ---
 import os
 import json
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianPlanDelivery:
     """
@@ -13,7 +13,7 @@ class ObsidianPlanDelivery:
     3. THE TRADE: Enforces that the phone MUST be sharing data to keep the plan active.
     """
     def generate_download_package(self, email: str):
-        swarm_log(f"DELIVERY: Packaging 'Unlimited' plan for [{email}]...", node="CARRIER")
+        colony_log(f"DELIVERY: Packaging 'Unlimited' plan for [{email}]...", node="CARRIER")
 
         # 1. Generate the Identity (Phone Number + eSIM)
         from willow_rain_global.cellular_stack.obsidian_esim_generator import esim_generator

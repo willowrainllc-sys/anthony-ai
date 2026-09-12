@@ -3,8 +3,8 @@
 import asyncio
 import os
 import random
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianSatelliteIngress:
     """
@@ -21,7 +21,7 @@ class ObsidianSatelliteIngress:
         self.gps_purity = 0.9999
 
     async def run_sat_loop(self):
-        swarm_log("[TITAN] SAT: Establishing Geospatial Satellite Handshake...", node="SECURITY")
+        colony_log("[TITAN] SAT: Establishing Geospatial Satellite Handshake...", node="SECURITY")
 
         while self.is_active:
             try:
@@ -31,9 +31,9 @@ class ObsidianSatelliteIngress:
                 # 🔱 2. Update Global Eye Coordinates
                 # Ensuring the St. Charles Gold Ant is always at the center.
 
-                swarm_log(f"🛰️ SAT_SYNC: Connected to {self.sat_nodes} receivers. Purity: {self.gps_purity*100}%", node="SECURITY")
+                colony_log(f"🛰️ SAT_SYNC: Connected to {self.sat_nodes} receivers. Purity: {self.gps_purity*100}%", node="SECURITY")
 
-                db.log_event("SECURITY", "SAT_INGRESS_STRIKE", {
+                db.log_event("SECURITY", "SAT_INGRESS_BURST", {
                     "satellites": self.sat_nodes,
                     "mode": "GEOSPATIAL_TITAN",
                     "status": "AUTHORIZED"
@@ -41,7 +41,7 @@ class ObsidianSatelliteIngress:
 
                 await asyncio.sleep(300)
             except Exception as e:
-                swarm_log(f"[-] SAT ERROR: {e}", node="SECURITY")
+                colony_log(f"[-] SAT ERROR: {e}", node="SECURITY")
                 await asyncio.sleep(60)
 
 sat_ingress = ObsidianSatelliteIngress()

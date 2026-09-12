@@ -2,8 +2,8 @@
 import asyncio
 import os
 import json
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianMeshOrchestrator:
     """
@@ -14,7 +14,7 @@ class ObsidianMeshOrchestrator:
     3. DATA HOPPING: Routes traffic through the most stable "Jump" to reach the Missouri Matrix.
     """
     async def run_mesh_coordinator(self):
-        swarm_log("MESH: Initiating Obsidian Peer-to-Peer coordinator...", node="NETWORK")
+        colony_log("MESH: Initiating Obsidian Peer-to-Peer coordinator...", node="NETWORK")
 
         while True:
             # 1. Audit active hops (Devices near each other)

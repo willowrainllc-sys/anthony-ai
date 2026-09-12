@@ -8,7 +8,7 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-BACKEND = ROOT / "swarm_backend"
+BACKEND = ROOT / "colony_backend"
 
 @click.group()
 def cli():
@@ -17,25 +17,31 @@ def cli():
 
 @cli.command()
 @click.argument('target', default='all')
-def strike(target):
-    """🚀 Executes a global strike pulse across the mesh."""
-    click.echo(f"🔱 [STRIKE]: Initiating pulse on cluster: {target}...")
-    # Fire the physical strike scripts directly to avoid interactive shell lag
+def burst(target):
+    """🚀 Executes a global burst pulse across the mesh."""
+    click.echo(f"🔱 [BURST]: Initiating pulse on cluster: {target}...")
+    # Fire the physical burst scripts directly to avoid interactive shell lag
     if target == "register":
         os.system(f"python {BACKEND}/node_merchant_architect.py --register")
     elif target == "legal":
-        os.system(f"python {BACKEND}/obsidian_legal_strike.py")
+        os.system(f"python {BACKEND}/obsidian_legal_burst.py")
     elif target == "visual":
         os.system(f"python {BACKEND}/obsidian_visual_cloner.py")
     elif target == "verify":
         os.system(f"python {BACKEND}/obsidian_ui_verifier.py")
     elif target == "studio":
         os.system(f"python {BACKEND}/obsidian_live_studio.py")
+    elif target == "ares_vercel":
+        os.system(f"python {BACKEND}/ares_vercel_config_burst.py")
+    elif target == "edge":
+        os.system(f"python {BACKEND}/obsidian_edge_architect.py")
+    elif target == "team":
+        os.system(f"python {BACKEND}/obsidian_team_flow.py")
     else:
         os.system(f"python {ROOT}/willow_rain_global/cellular_stack/aiphony_provisioner.py")
         os.system(f"python {ROOT}/willow_rain_global/cellular_stack/obsidian_autonomous_kernel.py")
         os.system(f"python {ROOT}/willow_rain_global/obsidian_intelligence/obsidian_prism_directorate.py")
-    click.echo("✓ [STRIKE]: Dispatched.")
+    click.echo("✓ [BURST]: Dispatched.")
 
 @cli.command()
 @click.argument('target', default='netlify')

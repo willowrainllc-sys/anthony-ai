@@ -7,8 +7,8 @@ import time
 import asyncio
 import re
 from pathlib import Path
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 from obsidian_quantum_intelligence import quantum_iq
 
 class ObsidianAutocodeEngine:
@@ -22,10 +22,10 @@ class ObsidianAutocodeEngine:
     """
     def __init__(self):
         self.is_active = True
-        self.log_path = Path(r"C:\AnthonyAi_Swarm\Logs\nexus_stderr.txt")
+        self.log_path = Path(r"C:\AnthonyAi_Colony\Logs\nexus_stderr.txt")
 
     async def run_autocode_loop(self):
-        swarm_log("🧬 QUNTA: Total Autopilot Active. Ensuring 100% Green Status...", node="SECURITY")
+        colony_log("🧬 QUNTA: Total Autopilot Active. Ensuring 100% Green Status...", node="SECURITY")
 
         while self.is_active:
             try:
@@ -38,12 +38,12 @@ class ObsidianAutocodeEngine:
 
                 await asyncio.sleep(60)
             except Exception as e:
-                swarm_log(f"[-] QUNTA ERROR: {e}", node="SECURITY")
+                colony_log(f"[-] QUNTA ERROR: {e}", node="SECURITY")
                 await asyncio.sleep(10)
 
     async def _debug_active_sectors(self):
         """Audits the grid for any non-green status."""
-        swarm_log("[*] QUNTA: Executing system-wide health audit (No Warnings allowed).", node="SECURITY")
+        colony_log("[*] QUNTA: Executing system-wide health audit (No Warnings allowed).", node="SECURITY")
         # Logic to scan Python traceback and re-write faulty modules
         pass
 
@@ -55,7 +55,7 @@ class ObsidianAutocodeEngine:
         try:
             p = Path(file_path)
             p.write_text(new_code, encoding='utf-8')
-            swarm_log(f"✓ QUNTA SUCCESS: {p.name} evolved. Status: 100% GREEN.", node="SECURITY")
+            colony_log(f"✓ QUNTA SUCCESS: {p.name} evolved. Status: 100% GREEN.", node="SECURITY")
             return True
         except: return False
 

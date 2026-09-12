@@ -3,8 +3,8 @@ import os
 import json
 import time
 from pathlib import Path
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianLegalHandshake:
     """
@@ -21,7 +21,7 @@ class ObsidianLegalHandshake:
         self.team = ["Anthony Christopher Maestas", "Lily Cronin"]
 
     def prepare_pardon_packet(self, target_name):
-        swarm_log(f"🏛️ LEGAL: Preparing Governor's Pardon packet for [{target_name}]...", node="SECURITY")
+        colony_log(f"🏛️ LEGAL: Preparing Governor's Pardon packet for [{target_name}]...", node="SECURITY")
 
         # Rehabilitation Proof Data
         proof = {
@@ -35,12 +35,12 @@ class ObsidianLegalHandshake:
         # Bundling character letters into encrypted Legacy Vault
 
         db.log_event("SECURITY", "LEGAL_PACKET_STAGED", {"target": target_name, "type": "PARDON"})
-        swarm_log(f"✓ LEGAL SUCCESS: Pardon packet staged for [{target_name}]. Ready for legal counsel.", node="SECURITY")
+        colony_log(f"✓ LEGAL SUCCESS: Pardon packet staged for [{target_name}]. Ready for legal counsel.", node="SECURITY")
         return proof
 
     def monitor_public_clearing(self):
         """Scans public record sites to verify if Clean Slate automatic sealing has occurred."""
-        swarm_log("🛡️ LEGAL: Scanning public registries for record-sealing signatures...", node="SECURITY")
+        colony_log("🛡️ LEGAL: Scanning public registries for record-sealing signatures...", node="SECURITY")
         # Logic to check sites like Whitepages or Spokeo for specific removals
         pass
 

@@ -3,8 +3,8 @@ import asyncio
 import os
 import json
 import time
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianBaseStation:
     """
@@ -19,7 +19,7 @@ class ObsidianBaseStation:
         self.throughput_gb = 0.0
 
     async def ignite_base_station(self):
-        swarm_log("[IMPERIUM] MNO: Igniting Obsidian Primary Base Station...", node="CARRIER")
+        colony_log("[IMPERIUM] MNO: Igniting Obsidian Primary Base Station...", node="CARRIER")
 
         # 1. Start the eNodeB/gNodeB Controller
         # (This would interface with physical CBRS radio hardware)
@@ -28,7 +28,7 @@ class ObsidianBaseStation:
         from willow_rain_global.imperium_carrier_core.obsidian_hss_manager import hss_manager
 
         # 3. Open the Unlimited Pipe
-        swarm_log(" MNO SUCCESS: Obsidian Base Station is ACTIVE. Now hosting identities.", node="CARRIER")
+        colony_log(" MNO SUCCESS: Obsidian Base Station is ACTIVE. Now hosting identities.", node="CARRIER")
         db.log_event("CARRIER", "MNO_CORE_IGNITED", {"status": "HOSTING"})
 
     def apply_mno_policy(self, msisdn):

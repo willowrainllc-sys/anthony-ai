@@ -12,12 +12,12 @@ async def test():
         print(f"Error: Missing credentials. Token: {bool(FB_TOKEN)}, PageID: {PAGE_ID}")
         return
 
-    video_url = "https://nhurgrrauzuebgrepigg.supabase.co/storage/v1/object/public/ai-videos/news/swarm_137c879b.mp4"
+    video_url = "https://nhurgrrauzuebgrepigg.supabase.co/storage/v1/object/public/ai-videos/news/colony_137c879b.mp4"
     url = f"https://graph.facebook.com/v19.0/{PAGE_ID}/videos"
 
     data = {
         "file_url": video_url,
-        "description": "Test post from Anthony AI Swarm",
+        "description": "Test post from Anthony AI Colony",
         "access_token": FB_TOKEN
     }
 

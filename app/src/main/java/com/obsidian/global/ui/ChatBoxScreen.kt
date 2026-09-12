@@ -142,7 +142,7 @@ fun ChatBoxScreen(
 
         // COMMANDS & INPUT
         Column {
-            QuickStrikeBar(
+            QuickBurstBar(
                 suggestions = viewModel.quickPanelSuggestions,
                 onCommandSelected = { cmd -> 
                     if (cmd.contains("ARCHIVE")) {
@@ -237,7 +237,7 @@ fun ChatBoxScreen(
 }
 
 @Composable
-fun QuickStrikeBar(suggestions: List<String>, onCommandSelected: (String) -> Unit) {
+fun QuickBurstBar(suggestions: List<String>, onCommandSelected: (String) -> Unit) {
     val commands = if (suggestions.isNotEmpty()) suggestions else listOf(
         "📖 ARCHIVES",
         "🛠️ AI FORGE",

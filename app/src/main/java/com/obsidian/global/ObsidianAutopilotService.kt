@@ -66,12 +66,12 @@ class ObsidianAutopilotService : Service() {
                     Log.d("AUTOPILOT", "Syncing feed and vitals from: $currentUrl")
                     
                     // 1. Check Video Feed
-                    val swarmFeed = MeshApiService.api.getFeed("For you")
-                    if (swarmFeed.size > lastVideoCount && lastVideoCount != 0) {
-                        val newCount = swarmFeed.size - lastVideoCount
+                    val colonyFeed = MeshApiService.api.getFeed("For you")
+                    if (colonyFeed.size > lastVideoCount && lastVideoCount != 0) {
+                        val newCount = colonyFeed.size - lastVideoCount
                         updateNotification("New Content: $newCount new cinematic drops detected.")
                     }
-                    lastVideoCount = swarmFeed.size
+                    lastVideoCount = colonyFeed.size
                     
                     // 2. Check Real Square Balance
                     val vitals = MeshApiService.api.getRevenueVitals()

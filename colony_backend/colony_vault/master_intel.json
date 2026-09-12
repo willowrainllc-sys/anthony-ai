@@ -1,0 +1,26 @@
+[
+    {
+        "title": "The Obsidian Citadel Breach",
+        "description": "Bioluminescent ritual in a glass city.",
+        "reality_score": 98,
+        "brand": "SPECTACLE"
+    },
+    {
+        "title": "Sky-Forge Ignition",
+        "description": "Liquid gold rivers flowing into clouds.",
+        "reality_score": 95,
+        "brand": "SPECTACLE"
+    },
+    {
+        "title": "The Emerald Jungle Gate",
+        "description": "Floating stone ruins in a vertical forest.",
+        "reality_score": 97,
+        "brand": "SPECTACLE"
+    },
+    {
+        "title": "SIGNAL: HIGH-STAKES ARBITRAGE",
+        "description": "New velocity detected in High-Stakes Arbitrage. High retention potential.",
+        "brand": "GRID",
+        "reality_score": 90
+    }
+]

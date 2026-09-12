@@ -4,8 +4,8 @@ import os
 import json
 import time
 import requests
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianGodsEye:
     """
@@ -21,8 +21,8 @@ class ObsidianGodsEye:
         self.is_active = True
         self.active_tracks = {"aviation": 0, "maritime": 0, "cctv": 0}
 
-    async def run_surveillance_strike(self):
-        swarm_log("[SUPREME] GODS-EYE: Initiating Global Spatial Ingress...", node="SECURITY")
+    async def run_surveillance_burst(self):
+        colony_log("[SUPREME] GODS-EYE: Initiating Global Spatial Ingress...", node="SECURITY")
 
         while self.is_active:
             try:
@@ -35,7 +35,7 @@ class ObsidianGodsEye:
                 self.active_tracks["maritime"] = 156
                 self.active_tracks["cctv"] = 89
 
-                swarm_log(f"✓ GODS-EYE: {sum(self.active_tracks.values())} targets locked across the horizon.", node="SECURITY")
+                colony_log(f"✓ GODS-EYE: {sum(self.active_tracks.values())} targets locked across the horizon.", node="SECURITY")
 
                 db.log_event("SECURITY", "GODS_EYE_SCAN_COMPLETE", {
                     "vitals": self.active_tracks,
@@ -44,7 +44,7 @@ class ObsidianGodsEye:
 
                 await asyncio.sleep(60) # Scan every minute
             except Exception as e:
-                swarm_log(f"[-] GODS-EYE ERROR: {e}", node="SECURITY")
+                colony_log(f"[-] GODS-EYE ERROR: {e}", node="SECURITY")
                 await asyncio.sleep(10)
 
     def get_tactical_vitals(self):
@@ -58,4 +58,4 @@ class ObsidianGodsEye:
 gods_eye = ObsidianGodsEye()
 
 if __name__ == "__main__":
-    asyncio.run(gods_eye.run_surveillance_strike())
+    asyncio.run(gods_eye.run_surveillance_burst())

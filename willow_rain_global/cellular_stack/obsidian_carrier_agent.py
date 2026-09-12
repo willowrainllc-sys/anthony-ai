@@ -1,7 +1,7 @@
 # --- OBSIDIAN GLOBAL: MASTER CARRIER AGENT v1.0 ---
 import asyncio
 import requests
-from swarm_logger import swarm_log
+from colony_logger import colony_log
 
 class ObsidianCarrierAgent:
     """
@@ -16,13 +16,13 @@ class ObsidianCarrierAgent:
         self.hss_url = "http://localhost:7777/amf/register" # Internal 5GC endpoint
 
     async def connect_to_carrier(self):
-        swarm_log(f"[IMPERIUM] CARRIER: Connecting [{self.msisdn}] to the Obsidian Core...", node="CARRIER")
+        colony_log(f"[IMPERIUM] CARRIER: Connecting [{self.msisdn}] to the Obsidian Core...", node="CARRIER")
 
         # 1. Authenticate with HSS
         # 2. Establish UPF/PGW Data Path
         # 3. Enable 10-digit SIP Calling
 
-        swarm_log(f" CARRIER SUCCESS: [{self.msisdn}] is now a verified Obsidian Global subscriber.", node="CARRIER")
+        colony_log(f" CARRIER SUCCESS: [{self.msisdn}] is now a verified Obsidian Global subscriber.", node="CARRIER")
         return True
 
 if __name__ == "__main__":

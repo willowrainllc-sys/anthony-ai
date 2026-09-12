@@ -29,7 +29,7 @@ data class RacingCar(
 
 /**
  * 🏎️ OBSIDIAN RACING GATE:
- * The ultimate safety protocol for the 103-phone browser.
+ * The ultimate safety protocol for the Nest-phone browser.
  * 1. DECOY GAME: 2D 8-bit Nintendo style racing.
  * 2. THE RULE: The Director (White Ghost) MUST finish last.
  * 3. INGRESS: Only opens the Phone Hive if the "Finish Last" condition is met.

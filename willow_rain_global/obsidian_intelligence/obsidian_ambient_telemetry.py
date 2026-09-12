@@ -3,8 +3,8 @@ import asyncio
 import socket
 import time
 import random
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianAmbientTelemetry:
     """
@@ -19,7 +19,7 @@ class ObsidianAmbientTelemetry:
         self.missouri_matrix_ip = "192.168.1.214"
 
     async def execute_ambient_scan(self):
-        swarm_log("OIS: Initiating ambient scan of the Missouri Matrix...", node="SECURITY")
+        colony_log("OIS: Initiating ambient scan of the Missouri Matrix...", node="SECURITY")
 
         results = []
         for port in self.ports:
@@ -53,7 +53,7 @@ class ObsidianAmbientTelemetry:
                     "reason": status
                 })
 
-        swarm_log(f" OIS SUCCESS: Ambient scan complete. Matrix Aura: {self._calculate_average_aura(results)}%", node="SECURITY")
+        colony_log(f" OIS SUCCESS: Ambient scan complete. Matrix Aura: {self._calculate_average_aura(results)}%", node="SECURITY")
         return results
 
     def _measure_ambient_latency(self, port):

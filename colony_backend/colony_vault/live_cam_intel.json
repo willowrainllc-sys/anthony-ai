@@ -1,0 +1,12 @@
+[
+    {
+        "name": "St. Charles Main Street",
+        "url": "https://example.com/live/stcharles_main.m3u8",
+        "type": "LIVE"
+    },
+    {
+        "name": "St. Louis Gateway Node",
+        "url": "https://example.com/live/gateway_arch.m3u8",
+        "type": "LIVE"
+    }
+]

@@ -5,8 +5,8 @@ import os
 import json
 import time
 import random
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class OsirisReconEngine:
     """
@@ -23,7 +23,7 @@ class OsirisReconEngine:
         self.vuln_index = 99.4 # High Aura Accuracy
 
     async def run_recon_loop(self):
-        swarm_log("[SHADOW] OSIRIS: Initiating Global Reconnaissance Strike...", node="SECURITY")
+        colony_log("[SHADOW] OSIRIS: Initiating Global Reconnaissance Burst...", node="SECURITY")
 
         while self.is_active:
             try:
@@ -33,7 +33,7 @@ class OsirisReconEngine:
                 # 2. Pipeline processing (Firestore logic simulation)
                 # identifies emails, hashes, and corporate tokens in the packet stream
 
-                swarm_log(f"✓ OSIRIS: Intercepted {intercepts} packets. Scanning for logic-flaws...", node="SECURITY")
+                colony_log(f"✓ OSIRIS: Intercepted {intercepts} packets. Scanning for logic-flaws...", node="SECURITY")
 
                 db.log_event("SECURITY", "OSIRIS_RECON_PULSE", {
                     "intercepts": intercepts,
@@ -45,7 +45,7 @@ class OsirisReconEngine:
                 await asyncio.sleep(60) # Recon scan every minute
 
             except Exception as e:
-                swarm_log(f"[-] OSIRIS ERROR: {e}", node="SECURITY")
+                colony_log(f"[-] OSIRIS ERROR: {e}", node="SECURITY")
                 await asyncio.sleep(10)
 
 osiris_recon = OsirisReconEngine()

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AD_BURST | Creative Dashboard | Obsidian Global</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Inter:wght@400;600;800&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        :root {
+            --bg: #050505;
+            --accent: #facc15;
+            --border: rgba(255, 255, 255, 0.08);
+            --surface: #0a0a0a;
+        }
+        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 40px; }
+        .dashboard-container { max-width: 1000px; margin: 0 auto; }
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        .upload-box { border: 2px dashed var(--border); padding: 60px; border-radius: 20px; text-align: center; cursor: pointer; transition: 0.3s; background: var(--surface); }
+        .upload-box:hover { border-color: var(--accent); background: rgba(250, 204, 21, 0.02); }
+        .btn-burst { background: #fff; color: #000; padding: 15px 40px; border-radius: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; width: 100%; margin-top: 20px; }
+        .btn-burst:hover { background: var(--accent); transform: scale(1.02); }
+        .preview-pane { background: var(--surface); border: 1px solid var(--border); padding: 30px; border-radius: 20px; min-height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+    <div class="dashboard-container">
+        <header class="flex justify-between items-center mb-20">
+            <div>
+                <h1 class="orbitron text-3xl font-black tracking-widest text-yellow-400">AD_BURST_CONSOLE</h1>
+                <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-2">Industrial Ad Synthesis // USA_AUTHORIZED</p>
+            </div>
+            <div class="text-right">
+                <div class="text-[8px] text-gray-600 uppercase">Director Payout</div>
+                <div class="text-xl font-black text-emerald-500">$0.00</div>
+            </div>
+        </header>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+            <!-- Left: Creative Input -->
+            <div class="space-y-8">
+                <div class="upload-box" id="dropZone">
+                    <div class="text-5xl mb-4">🖼️</div>
+                    <div class="font-bold">Drop Brand Image</div>
+                    <p class="text-xs text-gray-500 mt-2">Industrial JPG/PNG/MP4 Supported</p>
+                </div>
+
+                <div class="space-y-4">
+                    <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Brand Narrative</label>
+                    <input type="text" id="brandPrompt" class="w-full bg-black border border-white/10 p-4 rounded-xl text-white outline-none focus:border-yellow-500" placeholder="e.g. Luxury Crypto Wallet">
+                </div>
+
+                <button class="btn-burst" id="generateBtn">SYNTHESIZE AD CREATIVE</button>
+            </div>
+
+            <!-- Right: Industrial Preview -->
+            <div class="space-y-4">
+                <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest text-center block">Creative Output Preview</label>
+                <div class="preview-pane" id="previewPane">
+                    <div class="text-gray-700 text-center">
+                        <div class="text-6xl mb-4 opacity-10">🔱</div>
+                        <p class="text-xs uppercase tracking-widest font-bold">Waiting for Ingress...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-32 text-center border-t border-white/5 pt-10 opacity-30">
+            <p class="text-[8px] font-bold tracking-[5px] uppercase">Verified by Obsidian Root Authority | Est 12.19.1987</p>
+        </footer>
+    </div>
+
+    <script>
+        const genBtn = document.getElementById('generateBtn');
+        const preview = document.getElementById('previewPane');
+        const prompt = document.getElementById('brandPrompt');
+
+        genBtn.onclick = async () => {
+            if (!prompt.value) return alert("Enter Brand Narrative.");
+
+            genBtn.innerText = "SYNTHESIZING AURA...";
+            genBtn.disabled = true;
+
+            // 🔱 Firing the burst to the Ad Creator Kernel
+            try {
+                // Simulation of the backend burst
+                await new Promise(r => setTimeout(r, 3000));
+
+                preview.innerHTML = `
+                    <div class="w-full h-full border border-yellow-500/20 rounded-xl overflow-hidden relative group cursor-pointer">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <div class="text-yellow-400 orbitron text-lg font-bold mb-1">${prompt.value.toUpperCase()}</div>
+                            <div class="text-[9px] text-gray-300 tracking-widest font-bold">POWERED BY OBSIDIAN GLOBAL</div>
+                        </div>
+                        <div class="w-full h-full bg-gray-900 flex items-center justify-center">
+                            <span class="text-gray-800 text-[100px] orbitron font-black">AD</span>
+                        </div>
+                    </div>
+                    <button class="btn-burst mt-6" style="background: #10b981; color: #fff;" onclick="alert('🔱 Burst Dispatched to 103-Node Mesh.')">DEPLOY TO GRID</button>
+                `;
+
+                alert("✓ CREATIVE SYNTHESIZED: Industrial Ad ready for deployment.");
+            } catch (e) {
+                alert("[-] Burst Fail: Kernel Connection Lost.");
+            } finally {
+                genBtn.innerText = "SYNTHESIZE AD CREATIVE";
+                genBtn.disabled = false;
+            }
+        };
+    </script>
+</body>
+</html>

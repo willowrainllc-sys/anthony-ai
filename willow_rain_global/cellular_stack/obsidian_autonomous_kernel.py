@@ -9,14 +9,14 @@ from pathlib import Path
 
 # Absolute Path Injection
 ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
-sys.path.append(str(ROOT / "swarm_backend"))
+sys.path.append(str(ROOT / "colony_backend"))
 
 try:
-    from swarm_logger import swarm_log
-    from swarm_persistence import db
+    from colony_logger import colony_log
+    from colony_persistence import db
 except ImportError:
-    print("[-] AUTONOMOUS: swarm_logger not found. Fallback to print.")
-    def swarm_log(m, node=""): print(f"[{node}] {m}")
+    print("[-] AUTONOMOUS: colony_logger not found. Fallback to print.")
+    def colony_log(m, node=""): print(f"[{node}] {m}")
     class MockDB:
         def log_event(self, a, b, c): pass
     db = MockDB()
@@ -24,7 +24,7 @@ except ImportError:
 class AiphonyAutonomousKernel:
     """
     AIPHONY AUTONOMOUS KERNEL:
-    The background pilot for the 103-node humanoid mesh.
+    The background pilot for the Nest-node humanoid mesh.
     1. MISSION CYCLING: Rotates between mining, social growth, and web ingress.
     2. BEHAVIORAL SPOOFING: Simulates human-like pauses and interactions.
     3. REVENUE EXTRACTION: Autonomously executes Honeygain and BTC mining.
@@ -36,7 +36,7 @@ class AiphonyAutonomousKernel:
         self.status_file = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\willow_rain_global\wholesale_portal\autonomous_telemetry.json")
 
     async def execute_autonomous_loop(self):
-        swarm_log(f"🔱 AUTONOMOUS: Initiating mission loop for 103 nodes...", node="SUPREME")
+        colony_log(f"🔱 AUTONOMOUS: Initiating mission loop for The Nest...", node="SUPREME")
 
         while True:
             try:
@@ -50,19 +50,19 @@ class AiphonyAutonomousKernel:
                         "status": "ACTIVE",
                         "mission": current_mission,
                         "load": uptime,
-                        "last_strike": time.strftime("%H:%M:%S")
+                        "last_burst": time.strftime("%H:%M:%S")
                     }
 
                 # Physical Handshake with the Web UI
                 self.status_file.write_text(json.dumps(telemetry, indent=4))
 
                 if random.random() < 0.1:
-                    swarm_log(f"[*] AUTONOMOUS: 103 Nodes executing mission [SOCIAL_GROWTH].", node="SUPREME")
+                    colony_log(f"[*] AUTONOMOUS: The Nest executing mission [SOCIAL_GROWTH].", node="SUPREME")
 
                 await asyncio.sleep(45) # Pulse every 45s
 
             except Exception as e:
-                swarm_log(f"[-] AUTONOMOUS ERROR: {e}", node="SECURITY")
+                colony_log(f"[-] AUTONOMOUS ERROR: {e}", node="SECURITY")
                 await asyncio.sleep(10)
 
 if __name__ == "__main__":

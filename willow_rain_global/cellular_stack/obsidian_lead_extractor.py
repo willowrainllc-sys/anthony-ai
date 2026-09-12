@@ -5,13 +5,13 @@ import csv
 import os
 from pathlib import Path
 import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) + "/swarm_backend")
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) + "/colony_backend")
 
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
-CARRIER_DB = r"C:\ObsidianAi_Swarm\Obsidian_Carrier.db"
-EXPORT_DIR = Path(r"D:\ObsidianAi_Swarm\Secure_Assets\Lead_Vault")
+CARRIER_DB = r"C:\ObsidianAi_Colony\Obsidian_Carrier.db"
+EXPORT_DIR = Path(r"D:\ObsidianAi_Colony\Secure_Assets\Lead_Vault")
 
 class ObsidianLeadExtractor:
     """
@@ -25,7 +25,7 @@ class ObsidianLeadExtractor:
         EXPORT_DIR.mkdir(parents=True, exist_ok=True)
 
     def extract_wholesale_list(self, limit: int = 1000, target_niche: str = "Missouri"):
-        swarm_log(f"LEADS: Harvesting [{limit}] sales leads for niche [{target_niche}]...", node="CARRIER")
+        colony_log(f"LEADS: Harvesting [{limit}] sales leads for niche [{target_niche}]...", node="CARRIER")
 
         if not os.path.exists(CARRIER_DB):
             return "ERROR: Carrier DB Offline"
@@ -50,7 +50,7 @@ class ObsidianLeadExtractor:
                 writer.writerow([scored["msisdn"], scored["niche"], r[2], scored["score"], scored["tier"]])
 
         db.log_event("CARRIER", "SALES_LEAD_LIST_GENERATED", {"count": len(rows), "niche": target_niche, "path": str(file_path)})
-        swarm_log(f" LEADS SUCCESS: Exported {len(rows)} high-aura Missouri leads.", node="CARRIER")
+        colony_log(f" LEADS SUCCESS: Exported {len(rows)} high-aura Missouri leads.", node="CARRIER")
         return file_path
 
 import time

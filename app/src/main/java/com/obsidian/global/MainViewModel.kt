@@ -84,7 +84,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     var searchResultLocation: LatLng? by mutableStateOf(null)
 
-    val swarmFeed = mutableStateListOf<AIVideo>()
+    val colonyFeed = mutableStateListOf<AIVideo>()
 
     val streetCameras = mutableStateListOf<StreetCamera>()
 
@@ -129,7 +129,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val localFallbackVideos = listOf(
         AIVideo(id="v1", title="CYBER STREETS 2099", description="The neon glow of the future. Walking through the rain in Shibuya.", thumbnailUrl="https://images.unsplash.com/photo-1545143333-14387679366a?q=80&w=1000", videoUrl="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", category="Urban", views="1.8M", posted="Just Now", creator = "Obsidian City"),
-        AIVideo(id="v2", title="NEURAL MESH SYNC", description="The empire is conscious. Data flows through the global swarm.", thumbnailUrl="https://images.unsplash.com/photo-1506318137071-a8e063b4b4bf?q=80&w=1000", videoUrl="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4", category="Tech", views="2.5M", posted="10m ago", creator = "Obsidian City"),
+        AIVideo(id="v2", title="NEURAL MESH SYNC", description="The empire is conscious. Data flows through the global colony.", thumbnailUrl="https://images.unsplash.com/photo-1506318137071-a8e063b4b4bf?q=80&w=1000", videoUrl="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4", category="Tech", views="2.5M", posted="10m ago", creator = "Obsidian City"),
         AIVideo(id="v3", title="DEEP SEA ABYSS", description="What lies beneath the surface? Exploring the bioluminescent mysteries.", thumbnailUrl="https://images.unsplash.com/photo-1551244072-5d12893278ab?q=80&w=1000", videoUrl="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4", category="Nature", views="3.1M", posted="1h ago", creator = "Obsidian City"),
         AIVideo(id="v4", title="MARTIAN FRONTIER", description="The first colony on the red planet. A new era for humanity.", thumbnailUrl="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=1000", videoUrl="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4", category="Space", views="5.4M", posted="3h ago", creator = "Obsidian City"),
         AIVideo(id="v5", title="QUANTUM BREACH", description="Encryption is dead. The grid is open. Are you watching?", thumbnailUrl="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000", videoUrl="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4", category="Tech", views="1.2M", posted="5h ago", creator = "Obsidian City")
@@ -137,7 +137,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
         legacyFeedVideos.addAll(localFallbackVideos)
-        swarmFeed.addAll(localFallbackVideos) // Initial fallbacks
+        colonyFeed.addAll(localFallbackVideos) // Initial fallbacks
         NetworkConfig.sync(application)
         startConnectionLoop()
         loadStreetCameras()
@@ -182,7 +182,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 activityFeed.add("⚛️ QUANTUM: Grid Yield Analysis Active")
                 activityFeed.add("🛡️ OPSEC: Root Key Updated -> LILYANTHONYLEOWILLOW")
                 activityFeed.add("💰 TREASURY: $0.00 (Cold Reality Active)")
-                activityFeed.add("📱 HIVE: 103 Mustang Nodes Entangled and Scavenging")
+                activityFeed.add("📱 HIVE: 103 Oracles of the Nest Entangled and Scavenging")
 
                 if (connectionStatus == null || (!(connectionStatus!!.contains("Ready")))) {
                     reconnect()
@@ -251,7 +251,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun fetchSupabaseFeed(force: Boolean = false) {
-        if (!force && swarmFeed.isNotEmpty()) return
+        if (!force && colonyFeed.isNotEmpty()) return
 
         viewModelScope.launch {
             if (force) {
@@ -262,22 +262,22 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 // Now fetching from our sovereign native web server on Port 80
                 val data = withTimeoutOrNull(8.seconds) { MeshApiService.api.getFeed(selectedCategory) }
                 if (!data.isNullOrEmpty()) {
-                    swarmFeed.clear()
-                    swarmFeed.addAll(data)
+                    colonyFeed.clear()
+                    colonyFeed.addAll(data)
                     activityFeed.add("GRID: Successfully synced ${data.size} items.")
                 } else {
                     val fallback = withTimeoutOrNull(8.seconds) { MeshApiService.api.getFeed("all") }
                     if (!fallback.isNullOrEmpty()) {
-                        swarmFeed.clear()
-                        swarmFeed.addAll(fallback)
-                    } else if (swarmFeed.isEmpty()) {
-                        swarmFeed.addAll(localFallbackVideos)
+                        colonyFeed.clear()
+                        colonyFeed.addAll(fallback)
+                    } else if (colonyFeed.isEmpty()) {
+                        colonyFeed.addAll(localFallbackVideos)
                     }
                 }
             } catch (e: Exception) {
                 Log.e("SOVEREIGN_SYNC", "Native Ingress Fail: ${e.message}")
-                if (swarmFeed.isEmpty()) {
-                    swarmFeed.addAll(localFallbackVideos)
+                if (colonyFeed.isEmpty()) {
+                    colonyFeed.addAll(localFallbackVideos)
                 }
             } finally {
                 isRefreshing = false
@@ -391,7 +391,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         return file
     }
 
-    fun confirmGlobalStrike(video: AIVideo) {
+    fun confirmGlobalBurst(video: AIVideo) {
         viewModelScope.launch {
             try {
                 val payload = PublishRequest(
@@ -400,19 +400,19 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     videoUrl = video.videoUrl,
                     platforms = listOf("YOUTUBE", "FACEBOOK", "INSTA_THREADS", "TIKTOK")
                 )
-                MeshApiService.api.swarmStrike(payload)
-                activityFeed.add("Strike deployed: ${video.title}")
+                MeshApiService.api.colonyBurst(payload)
+                activityFeed.add("Burst deployed: ${video.title}")
             } catch (e: Exception) {
-                Log.e("STRIKE", "Failed: ${e.message}")
+                Log.e("BURST", "Failed: ${e.message}")
             }
         }
     }
 
-    fun triggerFullStrikeAll() {
+    fun triggerFullBurstAll() {
         viewModelScope.launch {
             try {
-                MeshApiService.api.igniteFullStrike()
-                activityFeed.add("Full grid strike ignited.")
+                MeshApiService.api.igniteFullBurst()
+                activityFeed.add("Full grid burst ignited.")
                 fetchSupabaseFeed(force = true)
             } catch (_: Exception) {}
         }
@@ -564,7 +564,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             sharedPreferences.edit(commit = true) { clear() }
             withContext(Dispatchers.Main) {
                 chatHistory.clear()
-                swarmFeed.clear()
+                colonyFeed.clear()
             }
         }
     }

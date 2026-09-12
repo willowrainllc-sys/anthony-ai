@@ -35,8 +35,8 @@ def cleanup():
     summary = []
     total_cleared = 0
 
-    # 1. C:\AnthonyAi_Swarm\Renderings
-    path1 = r'C:\AnthonyAi_Swarm\Renderings'
+    # 1. C:\AnthonyAi_Colony\Renderings
+    path1 = r'C:\AnthonyAi_Colony\Renderings'
     c1 = clear_contents(path1)
     summary.append(f"Renderings: {c1 / (1024*1024):.2f} MB")
     total_cleared += c1
@@ -47,8 +47,8 @@ def cleanup():
     summary.append(f"Temp: {c2 / (1024*1024):.2f} MB")
     total_cleared += c2
 
-    # 3. C:\AnthonyAi_Swarm\Logs (over 100MB)
-    path3 = r'C:\AnthonyAi_Swarm\Logs'
+    # 3. C:\AnthonyAi_Colony\Logs (over 100MB)
+    path3 = r'C:\AnthonyAi_Colony\Logs'
     c3 = 0
     if os.path.exists(path3):
         for f in os.listdir(path3):

@@ -3,8 +3,8 @@ import asyncio
 import os
 import random
 import time
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianIngressEngine:
     """
@@ -23,7 +23,7 @@ class ObsidianIngressEngine:
         self.mode = "CONTENT_DELIVERY" # Forces high-earning mode
 
     async def start_autonomous_mining(self):
-        swarm_log(f"INGRESS: Node [{self.node_id}] is now an ELITE ISP Saturn Supplier.", node="NETWORK")
+        colony_log(f"INGRESS: Node [{self.node_id}] is now an ELITE ISP Saturn Supplier.", node="NETWORK")
 
         while self.is_active:
             try:
@@ -38,7 +38,7 @@ class ObsidianIngressEngine:
                 # We aggregate this into a single 'Elite' rate for the Director.
                 earnings_usd = (data_chunk / 1024) * 0.60 # Doubled rate for ISP status
 
-                db.log_event("FINANCE", "ISP_MINING_STRIKE", {
+                db.log_event("FINANCE", "ISP_MINING_BURST", {
                     "node_id": self.node_id,
                     "mb_shared": round(data_chunk, 2),
                     "mode": self.mode,
@@ -50,7 +50,7 @@ class ObsidianIngressEngine:
                 await asyncio.sleep(random.randint(15, 45))
 
             except Exception as e:
-                swarm_log(f"[-] INGRESS ERROR [{self.node_id}]: {e}", node="NETWORK")
+                colony_log(f"[-] INGRESS ERROR [{self.node_id}]: {e}", node="NETWORK")
                 await asyncio.sleep(30)
 
 if __name__ == "__main__":

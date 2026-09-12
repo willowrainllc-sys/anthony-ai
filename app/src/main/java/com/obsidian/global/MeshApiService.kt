@@ -41,7 +41,7 @@ data class PublishRequest(
     val caption: String? = null,
     @SerializedName("media_url") val mediaUrl: String? = null,
     @SerializedName("image_url") val imageUrl: String? = null,
-    @SerializedName("video_url") val videoUrl: String? = null, // Alias for unified strike
+    @SerializedName("video_url") val videoUrl: String? = null, // Alias for unified burst
     val platforms: List<String> = listOf("facebook"),
 )
 
@@ -57,7 +57,7 @@ data class CheckpointRequest(
 data class TelemetryResponse(
     val temporal: Map<String, Any?>,
     @SerializedName("wholesale") val wholesale: WholesaleTelemetry?,
-    @SerializedName("last_strike") val lastStrike: StrikeInfo?,
+    @SerializedName("last_burst") val lastBurst: BurstInfo?,
     @SerializedName("clocks_info") val clocksInfo: List<ClockInfo> = emptyList(),
     val timestamp: Double
 )
@@ -83,11 +83,11 @@ data class CryptoBetInfo(
 
 data class ClockInfo(
     val channel: String,
-    @SerializedName("last_strike") val lastStrike: Double,
+    @SerializedName("last_burst") val lastBurst: Double,
     val total: Int
 )
 
-data class StrikeInfo(
+data class BurstInfo(
     val node: String,
     val time: Double
 )
@@ -234,13 +234,13 @@ interface MeshApiService {
         @Body payload: PublishRequest
     ): Response<ResponseBody>
 
-    @POST("/api/swarm/strike")
-    suspend fun swarmStrike(
+    @POST("/api/colony/burst")
+    suspend fun colonyBurst(
         @Body payload: PublishRequest
     ): Response<ResponseBody>
 
-    @POST("/api/swarm/ignite")
-    suspend fun igniteFullStrike(): Response<ResponseBody>
+    @POST("/api/colony/ignite")
+    suspend fun igniteFullBurst(): Response<ResponseBody>
 
     @POST("/api/telemetry/revenue-pulse")
     suspend fun sendRevenuePulse(
@@ -259,7 +259,7 @@ interface MeshApiService {
         const val OBSIDIAN_API_KEY = "anthony_mesh_secure_key_2026"
         private const val TAG = "MESH_CONNECT"
 
-        // Default to Swarm MagicDNS
+        // Default to Colony MagicDNS
         private var currentIp: String = NetworkConfig.currentBaseUrl.replace("http://", "")
         private var _api: MeshApiService? = null
 

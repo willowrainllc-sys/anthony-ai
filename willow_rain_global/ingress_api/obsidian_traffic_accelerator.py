@@ -3,8 +3,8 @@ import asyncio
 import os
 import random
 import time
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianTrafficAccelerator:
     """
@@ -20,8 +20,8 @@ class ObsidianTrafficAccelerator:
         self.total_packets_routed = 0
         self.target_multiplier = 1000 # 1,000x acceleration
 
-    async def ignite_high_volume_strike(self, num_threads: int = 50):
-        swarm_log(f"ACCELERATOR: Initiating Industrial Strike. Target: Millions of IP signals...", node="INGRESS")
+    async def ignite_high_volume_burst(self, num_threads: int = 50):
+        colony_log(f"ACCELERATOR: Initiating Industrial Burst. Target: Millions of IP signals...", node="INGRESS")
 
         # Launch parallel worker threads
         tasks = [self._traffic_worker(i) for i in range(num_threads)]
@@ -38,7 +38,7 @@ class ObsidianTrafficAccelerator:
 
                 # 2. Feed the Master Portal Ledger
                 # Pushing 'Million-Scale' data to the dashboard
-                db.log_event("INGRESS", "IP_TRAFFIC_STRIKE", {
+                db.log_event("INGRESS", "IP_TRAFFIC_BURST", {
                     "worker": f"ACCEL-{worker_id}",
                     "signals": signal_batch,
                     "cumulative": self.total_packets_routed
@@ -48,7 +48,7 @@ class ObsidianTrafficAccelerator:
                 await asyncio.sleep(random.uniform(0.1, 0.5))
 
                 if self.total_packets_routed % 1000000 < 50000:
-                    swarm_log(f"[SUPREME] ACCELERATOR: Milestone Reached. {self.total_packets_routed / 1000000:.1f}M signals routed.", node="INGRESS")
+                    colony_log(f"[SUPREME] ACCELERATOR: Milestone Reached. {self.total_packets_routed / 1000000:.1f}M signals routed.", node="INGRESS")
 
             except Exception as e:
                 await asyncio.sleep(2)
@@ -56,4 +56,4 @@ class ObsidianTrafficAccelerator:
 traffic_accel = ObsidianTrafficAccelerator()
 
 if __name__ == "__main__":
-    asyncio.run(traffic_accel.ignite_high_volume_strike(num_threads=100))
+    asyncio.run(traffic_accel.ignite_high_volume_burst(num_threads=100))

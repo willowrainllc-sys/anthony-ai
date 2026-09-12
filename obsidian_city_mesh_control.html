@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MESH_CONTROL | City OS | Obsidian Global</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        :root {
+            --city-bg: #050505;
+            --city-accent: #3b82f6;
+            --city-border: rgba(255, 255, 255, 0.08);
+            --city-surface: #0a0a0a;
+        }
+        body { background-color: var(--city-bg); color: #fff; font-family: 'Space Mono', monospace; margin: 0; padding: 40px; }
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        .node-row { border: 1px solid var(--city-border); padding: 20px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; background: var(--city-surface); }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 10px #10b981; }
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+    <header class="mb-12">
+        <h1 class="orbitron text-2xl font-black tracking-widest text-blue-500">MESH_CONTROL_CENTER</h1>
+        <p class="text-[10px] text-gray-500 mt-2 uppercase tracking-widest">Real-time Node Orchestration</p>
+    </header>
+
+    <div class="space-y-4" id="nodeList">
+        <!-- Node entries will be generated here -->
+    </div>
+
+    <script>
+        const list = document.getElementById('nodeList');
+        for (let i = 1; i <= 5; i++) {
+            const row = document.createElement('div');
+            row.className = 'node-row';
+            row.innerHTML = `
+                <div class="flex items-center gap-4">
+                    <div class="status-dot"></div>
+                    <div>
+                        <div class="font-bold text-sm uppercase">USA_NODE_${i.toString().padStart(3, '0')}</div>
+                        <div class="text-[8px] text-gray-600">IP: 127.0.0.1 | Uptime: 99.9%</div>
+                    </div>
+                </div>
+                <button class="text-[9px] font-bold border border-blue-500/30 px-3 py-1 rounded hover:bg-blue-500/10 transition" onclick="alert('🔱 SIGNAL_PING_SENT')">PING_NODE</button>
+            `;
+            list.appendChild(row);
+        }
+    </script>
+</body>
+</html>

@@ -3,8 +3,8 @@ import os
 import asyncio
 import json
 from obsidian_comm.rest import Client
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianMVNOGateway:
     """
@@ -22,10 +22,10 @@ class ObsidianMVNOGateway:
 
     async def provision_number(self, area_code="314", node_id=None):
         """Buys a Missouri-based number and assigns it to a grid node."""
-        swarm_log(f"MVNO: Searching for Missouri ({area_code}) numbers...", node="SECURITY")
+        colony_log(f"MVNO: Searching for Missouri ({area_code}) numbers...", node="SECURITY")
 
         if not self.client:
-            swarm_log("[-] MVNO FAIL: No TWILIO_ACCOUNT_SID found in .env.", node="SECURITY")
+            colony_log("[-] MVNO FAIL: No TWILIO_ACCOUNT_SID found in .env.", node="SECURITY")
             return None
 
         try:
@@ -37,7 +37,7 @@ class ObsidianMVNOGateway:
                 # 2. Purchase (Commented out to prevent accidental charges, ready for activation)
                 # purchased = self.client.incoming_phone_numbers.create(phone_number=phone_num)
 
-                swarm_log(f" MVNO: Number [{phone_num}] provisioned for Node [{node_id}].", node="SECURITY")
+                colony_log(f" MVNO: Number [{phone_num}] provisioned for Node [{node_id}].", node="SECURITY")
 
                 db.log_event("SECURITY", "PHONE_NUMBER_PROVISIONED", {
                     "number": phone_num,
@@ -46,7 +46,7 @@ class ObsidianMVNOGateway:
                 })
                 return phone_num
         except Exception as e:
-            swarm_log(f"[-] MVNO ERROR: {e}", node="SECURITY")
+            colony_log(f"[-] MVNO ERROR: {e}", node="SECURITY")
         return None
 
     async def get_latest_sms(self, phone_number):

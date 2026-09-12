@@ -5,8 +5,8 @@ import json
 import time
 import random
 from pathlib import Path
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianPRISMDirectorate:
     """
@@ -24,7 +24,7 @@ class ObsidianPRISMDirectorate:
         self.director_name = "ANTHONY CHRISTOPHER"
 
     async def run_directorate_loop(self):
-        swarm_log(f"🔱 PRISM: Directorate ONLINE. Protecting {self.director_name}'s Intel...", node="SECURITY")
+        colony_log(f"🔱 PRISM: Directorate ONLINE. Protecting {self.director_name}'s Intel...", node="SECURITY")
 
         while self.is_active:
             try:
@@ -45,14 +45,14 @@ class ObsidianPRISMDirectorate:
                 ]
 
                 detected = random.choice(intel_signals)
-                swarm_log(f"✓ PRISM: High-Value Signal Detected -> [{detected}]. Recording to Vault.", node="SECURITY")
+                colony_log(f"✓ PRISM: High-Value Signal Detected -> [{detected}]. Recording to Vault.", node="SECURITY")
 
                 # 3. Secure Archival (Complying with Owner Rights)
                 intel_file = self.intel_vault / f"PRISM_SIG_{int(time.time())}.json"
                 with open(intel_file, "w") as f:
                     json.dump({"signal": detected, "owner": self.director_name, "patriotic_alignment": "USA_INDUSTRIAL_GROWTH"}, f, indent=4)
 
-                db.log_event("SECURITY", "PRISM_COLLECTION_STRIKE", {
+                db.log_event("SECURITY", "PRISM_COLLECTION_BURST", {
                     "signal": detected,
                     "protection_status": "HARDENED",
                     "legacy_honor": "9/11_MEMORIAL_IN_CODE"
@@ -60,7 +60,7 @@ class ObsidianPRISMDirectorate:
 
                 await asyncio.sleep(900) # Deep scan every 15 mins
             except Exception as e:
-                swarm_log(f"[-] PRISM DIRECTORATE ERROR: {e}", node="SECURITY")
+                colony_log(f"[-] PRISM DIRECTORATE ERROR: {e}", node="SECURITY")
                 await asyncio.sleep(60)
 
 prism_directorate = ObsidianPRISMDirectorate()

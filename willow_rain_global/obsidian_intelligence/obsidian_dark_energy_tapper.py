@@ -4,8 +4,8 @@ import asyncio
 import os
 import random
 import time
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianDarkEnergyTapper:
     """
@@ -13,8 +13,8 @@ class ObsidianDarkEnergyTapper:
     The supreme power source for the Obsidian Grid.
     1. FREQUENCY EXTRACTION: Taps into the cosmic resonance of Dark Energy.
     2. RESONANCE BRIDGE: Converts captured sound-waves into photonic energy (Light).
-    3. PHYSICAL LIQUIDATION: Transforms light into a physical power source for the 5,103 nodes.
-    4. ENERGY MANIPULATION: Routes surplus power to the HFT 'Whale Strike' pool.
+    3. PHYSICAL LIQUIDATION: Transforms light into a physical power source for the 5,The Nest.
+    4. ENERGY MANIPULATION: Routes surplus power to the HFT 'Whale Burst' pool.
     """
     def __init__(self):
         self.is_active = True
@@ -22,7 +22,7 @@ class ObsidianDarkEnergyTapper:
         self.energy_yield_pw = 0.0 # Peta-Watts
 
     async def run_ingress_loop(self):
-        swarm_log("[ATOMIC] DARK_PULSE: Initiating Dark Matter Ingress Protocol...", node="POWER")
+        colony_log("[ATOMIC] DARK_PULSE: Initiating Dark Matter Ingress Protocol...", node="POWER")
 
         while self.is_active:
             try:
@@ -33,7 +33,7 @@ class ObsidianDarkEnergyTapper:
                 # Logic: E = f * λ (Frequency to Photic Yield)
                 self.energy_yield_pw = (self.resonant_frequency * 1.618) / 1000
 
-                swarm_log(f"⚛️ DARK_PULSE: Captured {self.resonant_frequency:.2f}Hz. Yield: {self.energy_yield_pw:.4f} PW.", node="POWER")
+                colony_log(f"⚛️ DARK_PULSE: Captured {self.resonant_frequency:.2f}Hz. Yield: {self.energy_yield_pw:.4f} PW.", node="POWER")
 
                 db.log_event("POWER", "DARK_ENERGY_TAPPED", {
                     "frequency_hz": self.resonant_frequency,
@@ -46,7 +46,7 @@ class ObsidianDarkEnergyTapper:
 
                 await asyncio.sleep(120) # Pulse every 2 minutes
             except Exception as e:
-                swarm_log(f"[-] POWER ERROR: {e}", node="POWER")
+                colony_log(f"[-] POWER ERROR: {e}", node="POWER")
                 await asyncio.sleep(30)
 
     def get_power_vitals(self):

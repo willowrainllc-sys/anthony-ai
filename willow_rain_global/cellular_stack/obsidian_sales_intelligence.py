@@ -1,8 +1,8 @@
 # --- OBSIDIAN GLOBAL: SALES INTELLIGENCE & LEAD SCORING v1.0 ---
 import random
 import json
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianSalesIntelligence:
     """

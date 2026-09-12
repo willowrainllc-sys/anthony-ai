@@ -7,8 +7,8 @@ import asyncio
 import random
 import hashlib
 from pathlib import Path
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianDockerOrchestrator:
     """
@@ -37,7 +37,7 @@ class ObsidianDockerOrchestrator:
         return hashlib.sha1(f"MAESTAS_{node_id}_{time.time()}".encode()).hexdigest()[:16]
 
     async def ignite_hive(self):
-        swarm_log(f"🔱 HIVE: Igniting {self.node_count} Ghost-Secured Nodes...", node="CARRIER")
+        colony_log(f"🔱 HIVE: Igniting {self.node_count} Ghost-Secured Nodes...", node="CARRIER")
 
         for i in range(1, self.node_count + 1):
             await self.spawn_provisioned_node(i)
@@ -67,10 +67,10 @@ class ObsidianDockerOrchestrator:
         }
 
         if index % 20 == 0:
-            swarm_log(f"🧬 PROVISIONING: Node {node_id} is Ghost-Secured and running Honeygain.", node="CARRIER")
+            colony_log(f"🧬 PROVISIONING: Node {node_id} is Ghost-Secured and running Honeygain.", node="CARRIER")
 
     async def run_health_loop(self):
-        """Monitors the 103-node army and manages the 'Kill Shot' defense."""
+        """Monitors the Nest-node army and manages the 'Kill Shot' defense."""
         while True:
             # 🔱 Logic to detect if a node's IP is blocked by 'Big Dogs'
             # 🔱 Automatic IP rotation via the Vortex Mesh

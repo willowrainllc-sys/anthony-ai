@@ -2,8 +2,8 @@
 import asyncio
 import os
 import random
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianPropertySniper:
     """
@@ -18,7 +18,7 @@ class ObsidianPropertySniper:
         self.is_hunting = True
 
     async def execute_property_recon(self, region="Pueblo, CO"):
-        swarm_log(f"🏘️ ESTATES: Initiating Property Recon in [{region}]...", node="FINANCE")
+        colony_log(f"🏘️ ESTATES: Initiating Property Recon in [{region}]...", node="FINANCE")
 
         while self.is_hunting:
             try:
@@ -30,13 +30,13 @@ class ObsidianPropertySniper:
                 ]
 
                 for deal in deals:
-                    swarm_log(f"🎯 ESTATES: Lead Secured -> {deal['address']} (Potential: ${deal['fee_potential']})", node="FINANCE")
+                    colony_log(f"🎯 ESTATES: Lead Secured -> {deal['address']} (Potential: ${deal['fee_potential']})", node="FINANCE")
                     db.log_event("ESTATES", "PROPERTY_LEAD_FOUND", deal)
 
                 # 2. Sync to the 'Obsidian Estates' portal
                 await asyncio.sleep(1800) # Deep scan every 30 mins
             except Exception as e:
-                swarm_log(f"[-] ESTATES ERROR: {e}", node="FINANCE")
+                colony_log(f"[-] ESTATES ERROR: {e}", node="FINANCE")
                 await asyncio.sleep(60)
 
 property_sniper = ObsidianPropertySniper()

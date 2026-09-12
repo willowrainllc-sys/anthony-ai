@@ -5,10 +5,10 @@ from pathlib import Path
 
 # Fix paths for standalone execution
 ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
-sys.path.append(str(ROOT / "swarm_backend"))
+sys.path.append(str(ROOT / "colony_backend"))
 
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianVpnOverlayManager:
     """
@@ -19,13 +19,13 @@ class ObsidianVpnOverlayManager:
         self.overlay_name = "OBSIDIAN-CORE-DARK"
 
     def ignite_sovereign_overlay(self):
-        swarm_log(" VPN_OVERLAY: Initiating Sovereign Mesh Handshake...", node="SECURITY")
+        colony_log(" VPN_OVERLAY: Initiating Sovereign Mesh Handshake...", node="SECURITY")
 
         # Simulated Key Generation
-        swarm_log(f"VPN_OVERLAY: Fabric [{self.overlay_name}] is online. Mapping tunnels...", node="SECURITY")
+        colony_log(f"VPN_OVERLAY: Fabric [{self.overlay_name}] is online. Mapping tunnels...", node="SECURITY")
 
         db.log_event("SECURITY", "VPN_OVERLAY_ACTIVE", {"fabric": self.overlay_name, "status": "DARK_ROUTING"})
-        swarm_log(" VPN_OVERLAY SUCCESS: Dark Mesh is unblocked and untraceable.", node="SECURITY")
+        colony_log(" VPN_OVERLAY SUCCESS: Dark Mesh is unblocked and untraceable.", node="SECURITY")
         return True
 
 if __name__ == "__main__":

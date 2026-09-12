@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>THE SPHERE | Ancient Tech Design | Obsidian Global</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { margin: 0; background: #000; overflow: hidden; font-family: 'Orbitron', sans-serif; }
+        #container { width: 100vw; height: 100vh; }
+        .hud {
+            position: absolute;
+            top: 40px; left: 40px;
+            color: #10b981;
+            pointer-events: none;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+        .vitals {
+            position: absolute;
+            bottom: 40px; right: 40px;
+            text-align: right;
+            color: #fbbf24;
+            pointer-events: none;
+        }
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+<div class="hud">
+<h1 style="font-size: 2em; margin: 0;">Global_Sphere</h1>
+<p style="font-size: 0.6em; color: #444;">Ancient_Tech_VQE_Resonance</p>
+</div>
+<div class="vitals">
+<div style="font-size: 0.6em; color: #666;">GRID_HEARTBEAT</div>
+<div style="font-size: 1.5em; font-weight: 900;">ACTIVE_100.0%</div>
+</div>
+<div id="container"></div>
+<script>
+        // --- Built by Anthony Christopher | Est 12.19.1987 ---
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('container').appendChild(renderer.domElement);
+
+        // 🔱 The Ancient Sphere (Wireframe + Glow)
+        const geometry = new THREE.IcosahedronGeometry(1.5, 4);
+        const material = new THREE.MeshBasicMaterial({
+            color: 0x10b981,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.2
+        });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+
+        // Inner Core
+        const coreGeo = new THREE.IcosahedronGeometry(0.8, 2);
+        const coreMat = new THREE.MeshBasicMaterial({
+            color: 0xfbbf24,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.8
+        });
+        const core = new THREE.Mesh(coreGeo, coreMat);
+        scene.add(core);
+
+        // Particles
+        const pointsGeo = new THREE.BufferGeometry();
+        const pointsCount = 1000;
+        const coords = new Float32Array(pointsCount * 3);
+        for(let i=0; i<pointsCount*3; i++) coords[i] = (Math.random() - 0.5) * 10;
+        pointsGeo.setAttribute('position', new THREE.BufferAttribute(coords, 3));
+        const pointsMat = new THREE.PointsMaterial({ color: 0x3b82f6, size: 0.02 });
+        const particles = new THREE.Points(pointsGeo, pointsMat);
+        scene.add(particles);
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            sphere.rotation.y += 0.005;
+            sphere.rotation.x += 0.002;
+            core.rotation.y -= 0.01;
+            particles.rotation.y += 0.001;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>

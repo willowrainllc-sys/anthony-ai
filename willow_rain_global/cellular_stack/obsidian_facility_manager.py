@@ -8,10 +8,10 @@ from datetime import datetime
 
 # Absolute Path Correction
 ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
-sys.path.append(str(ROOT / "swarm_backend"))
+sys.path.append(str(ROOT / "colony_backend"))
 
-from swarm_logger import swarm_log
-from swarm_persistence import db
+from colony_logger import colony_log
+from colony_persistence import db
 
 class ObsidianFacilityManager:
     """
@@ -28,7 +28,7 @@ class ObsidianFacilityManager:
         self.encryption_mode = "Kyber-1024 (PQC)"
 
     async def run_facility_autopilot(self):
-        swarm_log(" FACILITY: Initiating Global Meshining Facility Command...", node="SUPREME")
+        colony_log(" FACILITY: Initiating Global Meshining Facility Command...", node="SUPREME")
 
         while True:
             try:
@@ -43,16 +43,16 @@ class ObsidianFacilityManager:
 
                 await asyncio.sleep(300) # 5-minute pulse
             except Exception as e:
-                swarm_log(f"[-] FACILITY ERROR: {e}", node="SUPREME")
+                colony_log(f"[-] FACILITY ERROR: {e}", node="SUPREME")
                 await asyncio.sleep(60)
 
     async def _audit_local_hardware(self):
         cpu = psutil.cpu_percent()
         ram = psutil.virtual_memory().percent
-        swarm_log(f" FACILITY: [MO-CENTRAL] Health Audit -> CPU: {cpu}% | RAM: {ram}%", node="SECURITY")
+        colony_log(f" FACILITY: [MO-CENTRAL] Health Audit -> CPU: {cpu}% | RAM: {ram}%", node="SECURITY")
 
         if ram > 96:
-            swarm_log("[ALERT] FACILITY: RAM Critical. Shifting mining load to Cloud VDC.", node="SECURITY")
+            colony_log("[ALERT] FACILITY: RAM Critical. Shifting mining load to Cloud VDC.", node="SECURITY")
             # Signal to scale down local miners
 
     async def _provision_cloud_blocks(self):
@@ -61,7 +61,7 @@ class ObsidianFacilityManager:
         await sovereign_vdc.ignite_sovereign_cloud()
 
         target_count = 50000
-        swarm_log(f" FACILITY: Sovereign VDC scaling to {target_count} nodes on bare metal.", node="SUPREME")
+        colony_log(f" FACILITY: Sovereign VDC scaling to {target_count} nodes on bare metal.", node="SUPREME")
 
         self.active_facilities.append({"name": "OBS-SOVEREIGN-VDC", "status": "ACTIVE", "type": "INTERNAL"})
         db.log_event("FACILITY", "MIGRATION_COMPLETE", {"status": "100%_INDEPENDENT"})
