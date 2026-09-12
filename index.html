@@ -20,6 +20,7 @@
             color: #0f172a;
             font-family: 'Inter', sans-serif;
             padding-top: 172px; /* Exact height of fixed header */
+            padding-bottom: 70px; /* Space for mobile app bottom nav */
             overflow-x: hidden;
         }
 
@@ -451,5 +452,21 @@
             window.location.href = `obsidian_domain_results.html?q=${encodeURIComponent(input)}`;
         }
     </script>
+
+    <!-- 🔱 Mobile App Bottom Navigation Bar -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 py-3 px-6 flex justify-around items-center z-[9999] md:hidden shadow-2xl">
+        <a href="index.html" class="flex flex-col items-center text-blue-600 text-[10px] font-bold">
+            <span class="text-lg">🏠</span> Home
+        </a>
+        <a href="obsidian_domains.html" class="flex flex-col items-center text-slate-500 text-[10px] font-bold">
+            <span class="text-lg">🔍</span> Search
+        </a>
+        <a href="obsidian_unified_checkout.html" class="flex flex-col items-center text-slate-500 text-[10px] font-bold">
+            <span class="text-lg">🛒</span> Basket
+        </a>
+        <a href="obsidian_signin.html" class="flex flex-col items-center text-slate-500 text-[10px] font-bold">
+            <span class="text-lg">👤</span> Account
+        </a>
+    </div>
 </body>
 </html>
