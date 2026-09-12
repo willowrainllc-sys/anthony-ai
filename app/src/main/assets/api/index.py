@@ -43,7 +43,12 @@ class handler(BaseHTTPRequestHandler):
         query_params = urllib.parse.parse_qs(parsed_path.query)
 
         if "/api/domains/search" in path:
-            q = query_params.get("domain", ["mybrand"])[0].lower().split('.')[0].replace(/[^a-z0-9]/g, '')
+            # 🔱 Robust keyword extraction
+            raw_q = query_params.get("domain", [""])[0] or query_params.get("q", [""])[0]
+            if not raw_q: raw_q = "mybrand"
+
+            q = raw_q.lower().split('.')[0].replace(/[^a-z0-9]/g, '')
+            if not q: q = "mybrand"
 
             results = []
             for tld, retail in RETAIL_PRICES.items():
