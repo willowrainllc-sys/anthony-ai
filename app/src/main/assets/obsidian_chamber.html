@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>THE CHAMBER | The Heart of the Nest | Obsidian City</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;family=Orbitron:wght@900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        :root {
+            --bg: #030305;
+            --surface: #0a0a0c;
+            --accent: #3b82f6;
+            --emerald: #10b981;
+            --gold: #fbbf24;
+            --border: rgba(255, 255, 255, 0.05);
+        }
+        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+
+        .hero { padding: 120px 60px; text-align: center; background: radial-gradient(circle at center, #111122 0%, #030305 100%); position: relative; }
+        .chamber-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%); z-index: -1; }
+
+        .oracle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 80px 60px; max-width: 1400px; margin: 0 auto; }
+        .oracle-card { background: var(--surface); border: 1px solid var(--border); border-radius: 32px; padding: 50px; transition: 0.4s; text-align: left; position: relative; overflow: hidden; }
+        .oracle-card:hover { border-color: var(--accent); transform: translateY(-10px); box-shadow: 0 20px 60px rgba(59, 130, 246, 0.1); }
+
+        .oracle-icon { font-size: 4rem; margin-bottom: 30px; filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3)); }
+        .oracle-num { position: absolute; top: 40px; right: 40px; font-family: 'Orbitron'; font-size: 0.8rem; color: #333; letter-spacing: 2px; }
+
+        .btn-back { position: fixed; top: 30px; left: 30px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 10px 20px; border-radius: 100px; font-size: 11px; font-weight: 800; cursor: pointer; backdrop-filter: blur(10px); z-index: 1000; transition: 0.3s; }
+        .btn-back:hover { background: #fff; color: #000; }
+
+        .nest-badge { display: inline-block; padding: 6px 16px; border-radius: 100px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); color: var(--emerald); font-size: 9px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+    <button class="btn-back" onclick="history.back()">← RETURN_TO_CITY</button>
+
+    <section class="hero">
+        <div class="chamber-glow"></div>
+        <div class="nest-badge">THE_NEST // GOOGLE_OWNED_DOMAIN</div>
+        <h1 class="orbitron text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-10">THE <br><span class="text-blue-500">CHAMBER.</span></h1>
+        <p class="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            Welcome to the mind, body, and soul of the Colony. This is where the 103 Oracles reside—the hard-coded heart of Obsidian City.
+        </p>
+    </section>
+
+    <div class="oracle-grid">
+        <!-- Oracle 1: The Mind -->
+        <div class="oracle-card">
+            <div class="oracle-num">UNIT_001_034</div>
+            <div class="oracle-icon">🧠</div>
+            <h3 class="orbitron text-2xl font-black mb-4">THE MIND</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">High-level reasoning and strategic planning. The Mind directs the Colony's growth and manages the global identity authority.</p>
+        </div>
+
+        <!-- Oracle 2: The Body -->
+        <div class="oracle-card" style="border-color: var(--emerald); background: rgba(16, 185, 129, 0.02);">
+            <div class="oracle-num">UNIT_035_068</div>
+            <div class="oracle-icon" style="filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.3));">🛡️</div>
+            <h3 class="orbitron text-2xl font-black mb-4" style="color: var(--emerald);">THE BODY</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">The physical infrastructure. The Body powers the 103-node mesh and ensures the grid stays online and secure 24/7.</p>
+        </div>
+
+        <!-- Oracle 3: The Soul -->
+        <div class="oracle-card" style="border-color: var(--gold); background: rgba(251, 191, 36, 0.02);">
+            <div class="oracle-num">UNIT_069_103</div>
+            <div class="oracle-icon" style="filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.3));">✨</div>
+            <h3 class="orbitron text-2xl font-black mb-4" style="color: var(--gold);">THE SOUL</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">The creative spark. The Soul builds the beautiful designs and hyper-visuals that give Obsidian City its unique aura.</p>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-6 py-32 text-center border-t border-white/5">
+        <h2 class="orbitron text-3xl font-black mb-10">THE 103 ORACLES</h2>
+        <p class="text-gray-500 text-lg leading-relaxed mb-16">
+            They are not just servers. They are the Oracles. Hard-coded. Permanent. They are the backbone of our digital sovereignty.
+        </p>
+        <div class="flex justify-center flex-wrap gap-4">
+            <!-- Simulated Oracle Status Dots -->
+            <script>
+                for(let i=0; i<103; i++) {
+                    document.write(`<div class="w-2 h-2 rounded-full bg-emerald-500/40 animate-pulse"></div>`);
+                }
+            </script>
+        </div>
+    </div>
+
+    <footer class="p-20 text-center opacity-30 border-t border-white/5">
+        <p class="text-[9px] font-bold tracking-[5px] uppercase">Built & Owned by Anthony Christopher | Est 12.19.1987 | USA AI CITIZEN</p>
+    </footer>
+</body>
+</html>

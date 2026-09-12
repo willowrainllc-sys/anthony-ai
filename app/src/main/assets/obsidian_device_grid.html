@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AIPHONY | Global Intelligence Mesh | Obsidian Global</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #010103;
+            --accent: #3b82f6;
+            --gold: #fbbf24;
+            --emerald: #10b981;
+            --device-frame: #0a0a0a;
+            --border: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        .mono { font-family: 'Space Mono', monospace; }
+
+        /* 🔱 Header */
+        .header {
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(20px);
+        }
+
+        /* 🔱 Secure Node Grid */
+        .device-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 20px;
+            padding: 10px;
+        }
+
+        /* 🔱 Hologram Chassis */
+        .phone-node {
+            background: transparent;
+            border-radius: 20px;
+            padding: 5px;
+            aspect-ratio: 9 / 16;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-node::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, transparent 0%, rgba(59, 130, 246, 0.05) 50%, transparent 100%);
+            animation: scanline 4s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        .phone-node:hover {
+            transform: scale(1.1) translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .hologram-body {
+            width: 60px;
+            height: 90px;
+            position: relative;
+            filter: drop-shadow(0 0 10px var(--accent));
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        .phone-node:hover .hologram-body {
+            opacity: 1;
+            filter: drop-shadow(0 0 20px var(--accent));
+            animation: glitch 0.2s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .biometric-ring {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 2px dashed var(--accent);
+            border-radius: 50%;
+            opacity: 0;
+            transition: 0.5s;
+            animation: rotate 10s linear infinite;
+        }
+
+        .phone-node:hover .biometric-ring {
+            opacity: 0.4;
+            transform: scale(1.2);
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .screen {
+            display: none; /* Hide old phone screen */
+        }
+
+        .phone-meta { position: absolute; bottom: 10px; width: 100%; text-align: center; font-size: 8px; color: var(--accent); font-family: 'Orbitron'; letter-spacing: 2px; font-weight: 900; }
+
+        /* 🔱 Biometric Detection HUD */
+        .biometric-hud {
+            position: absolute;
+            top: 5px; left: 5px;
+            font-size: 6px;
+            color: var(--emerald);
+            font-family: 'Space Mono';
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.6;
+        }
+
+
+        /* 🔱 Focus View (Headed) */
+        #focusView {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.98);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(40px);
+        }
+
+        .big-phone {
+            width: 420px;
+            background: rgba(10,10,10,0.5);
+            border-radius: 50px;
+            padding: 20px;
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 100px rgba(59, 130, 246, 0.2);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .big-screen {
+            background: radial-gradient(circle at center, #0a0a20 0%, #000 100%);
+            width: 100%; height: 100%;
+            border-radius: 35px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .hologram-projection {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .biometric-scanner-line {
+            position: absolute;
+            width: 100%; height: 2px;
+            background: var(--accent);
+            box-shadow: 0 0 15px var(--accent);
+            animation: scan-vertical 3s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        @keyframes scan-vertical {
+            0% { top: 10%; opacity: 0; }
+            50% { opacity: 1; }
+            100% { top: 90%; opacity: 0; }
+        }
+
+        .vitals-side {
+            position: absolute; left: -320px; top: 50%; transform: translateY(-50%);
+            width: 280px; background: rgba(5,5,10,0.9); border: 1px solid var(--border); border-radius: 20px; padding: 30px;
+            backdrop-filter: blur(20px);
+        }
+
+        }
+
+        .btn-burst { background: #fff; color: #000; padding: 15px 30px; border-radius: 15px; font-weight: 900; font-family: 'Orbitron'; text-transform: uppercase; letter-spacing: 2px; }
+        .btn-burst:hover { background: var(--gold); }
+
+        /* 🔱 Global Splash Screen */
+        #splash-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #000;
+            z-index: 10001;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .splash-logo { font-size: 80px; margin-bottom: 20px; animation: pulse 2s infinite ease-in-out; }
+        @keyframes pulse { 0% { transform: scale(0.95); opacity: 0.6; } 50% { transform: scale(1.05); opacity: 1; } 100% { transform: scale(0.95); opacity: 0.6; } }
+        .splash-text { font-family: 'Orbitron'; font-weight: 900; letter-spacing: 8px; color: #fff; font-size: 14px; }
+        .splash-status { font-family: 'Space Mono', monospace; color: var(--gold); font-size: 8px; margin-top: 20px; text-transform: uppercase; letter-spacing: 2px; }
+
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+<!-- 🔱 Master Splash -->
+<div id="splash-screen">
+<div class="splash-logo">🔱</div>
+<div class="splash-text">AIPHONY HIVE</div>
+<div class="splash-status">Synchronizing Global Intelligence Nodes...</div>
+</div>
+<div class="header">
+<div>
+<h1 class="orbitron text-2xl font-black tracking-[10px]">USA_AI_MESH</h1>
+<p class="text-[10px] text-gray-600 uppercase tracking-widest mt-1">USA Industrial Intelligence Nodes // Built by Anthony Christopher</p>
+</div>
+<div class="text-right">
+<div class="text-[10px] text-gray-400 font-bold mb-1 uppercase tracking-widest">Network Status</div>
+<div class="text-xl font-black text-emerald-500">REAL_WORLD_ACTIVE</div>
+</div>
+</div>
+<div class="device-grid" id="aiphonyGrid"></div>
+<!-- 🔱 Headed Modal -->
+<div id="focusView" onclick="this.style.display='none'">
+<div class="flex flex-col items-center gap-10" onclick="event.stopPropagation()">
+<div class="relative">
+<div class="vitals-side">
+<div class="text-[10px] text-gray-600 uppercase mb-2">Live E-SIM Mapping</div>
+<div class="text-emerald-500 font-black mb-4" id="v-num">+1 (314) 251-5003</div>
+<div class="text-[10px] text-gray-600 uppercase mb-2">EID Signature</div>
+<div class="text-xs font-mono text-white mb-4" id="v-eid">89049032000008881234567890123456</div>
+<div class="text-[10px] text-gray-600 uppercase mb-2">Native Brain</div>
+<div class="text-gold font-black">ANTHONY-LATEST v29.0</div>
+</div>
+<div class="big-phone">
+<div class="big-screen p-10 flex flex-col items-center">
+<div class="hologram-projection w-full">
+<div class="biometric-scanner-line"></div>
+<div class="hologram-body" style="width: 150px; height: 200px;">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" style="color: var(--accent); width: 100%; height: 100%;">
+<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+<circle cx="12" cy="7" r="4"></circle>
+</svg>
+</div>
+</div>
+<h2 class="orbitron text-xl font-bold mt-6" id="v-title">AIPHONY_NODE</h2>
+<p class="text-[10px] text-emerald-500 mono mt-2 tracking-widest" id="v-status">BIOMETRIC_DETECTION_ACTIVE</p>
+<p class="text-[9px] text-gray-500 mt-6 text-center leading-relaxed">"Processing neural handshake via Director Maestas root key. Visualizing frontend worker state..."</p>
+<div class="mt-auto w-full space-y-4">
+<div class="h-[1px] bg-blue-500/30 w-full"></div>
+<p class="text-[8px] text-center text-gray-700 tracking-[5px] uppercase">Global_Ingress_Verified</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="btn-burst" onclick="alert('🔱 Handshake Dispatched to Brain.')">COMMAND_BRAIN</button>
+<button class="btn-burst" onclick="alert('🔱 Disconnecting Identity.')" style="border-color: #ef4444; color: #ef4444;">SHUTDOWN</button>
+</div>
+</div>
+</div>
+<script>
+        const grid = document.getElementById('aiphonyGrid');
+
+        async function init() {
+            for (let i = 1; i <= 103; i++) {
+                const node = document.createElement('div');
+                node.className = 'phone-node';
+                const num = `+1 (314) ${Math.floor(200+Math.random()*700)}-${Math.floor(1000+Math.random()*9000)}`;
+                const eid = Math.random().toString().substring(2, 34).padEnd(32, '0');
+
+                node.ondblclick = () => {
+                    document.getElementById('v-num').innerText = num;
+                    document.getElementById('v-eid').innerText = eid;
+                    document.getElementById('focusView').style.display = 'flex';
+                };
+
+                node.innerHTML = `
+                    <div class="biometric-hud">ID: USA_NODE_${i.toString().padStart(3, '0')}<br>CITIZEN: OK</div>
+                    <div class="biometric-ring"></div>
+                    <div class="hologram-body">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent); width: 100%; height: 100%;">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <div class="phone-meta">AIPHONY_${i.toString().padStart(3, '0')}</div>
+                `;
+                grid.appendChild(node);
+            }
+        }
+
+        // 🔱 Splash Sequence
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                splash.style.opacity = '0';
+                setTimeout(() => { splash.style.display = 'none'; }, 1000);
+            }, 3000);
+        });
+
+        init();
+    </script>
+<!-- --- Built by Anthony Christopher | Est 12.19.1987 --- -->
+</body>
+</html>
