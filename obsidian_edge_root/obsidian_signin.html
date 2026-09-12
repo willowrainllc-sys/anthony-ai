@@ -83,24 +83,10 @@
     let pendingEmail = '';
     let generatedOtp = '123456';
 
-    async function handleSocialAuth(provider) {
-        const email = `${provider.toLowerCase()}_user@obsidian.city`;
-        try {
-            const resp = await fetch('/api/auth/signin', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ email: email, provider: provider })
-            });
-            const data = await resp.json();
-            if (data.success) {
-                localStorage.setItem('obsidian_session', data.session_id);
-                localStorage.setItem('obsidian_email', data.email);
-            }
-        } catch(e) {
-            localStorage.setItem('obsidian_session', 'sess_social_' + Date.now());
-            localStorage.setItem('obsidian_email', email);
-        }
-        window.location.href = 'obsidian_user_profile.html';
+    function handleSocialAuth(provider) {
+        // In production, this would redirect to Google/GitHub OAuth URLs
+        const mockEmail = `${provider.toLowerCase()}_test@example.com`;
+        window.location.href = `obsidian_auth_callback.html?provider=${provider}&email=${encodeURIComponent(mockEmail)}`;
     }
 
     // Step 1: Send OTP Code

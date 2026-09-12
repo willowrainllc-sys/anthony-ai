@@ -85,7 +85,8 @@
             name: document.getElementById('custName').value,
             email: document.getElementById('custEmail').value,
             type: type,
-            amount: parseFloat(price)
+            amount: parseFloat(price),
+            session_id: localStorage.getItem('obsidian_session')
         };
 
         try {

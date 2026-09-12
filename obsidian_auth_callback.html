@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Authenticating... | Obsidian City</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background: #030305; color: #fff; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .spinner { width: 40px; height: 40px; border: 3px solid rgba(255,255,255,0.1); border-top-color: #3b82f6; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <div class="spinner mx-auto mb-6"></div>
+        <h1 class="text-xl font-black tracking-tight">Securing Session...</h1>
+        <p class="text-slate-500 text-xs mt-2">Verifying credentials with Obsidian Auth Server.</p>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', async () => {
+            const params = new URLSearchParams(window.location.search);
+            const provider = params.get('provider') || 'social';
+            const email = params.get('email') || `user_${Date.now()}@obsidian.city`;
+
+            try {
+                const resp = await fetch('/api/auth/signin', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ email: email, provider: provider })
+                });
+                const data = await resp.json();
+                if (data.success) {
+                    localStorage.setItem('obsidian_session', data.session_id);
+                    localStorage.setItem('obsidian_email', data.email);
+                }
+            } catch(e) {
+                // Fallback for offline/local testing
+                localStorage.setItem('obsidian_session', 'sess_callback_' + Date.now());
+                localStorage.setItem('obsidian_email', email);
+            }
+
+            setTimeout(() => {
+                window.location.href = 'obsidian_city_dashboard.html';
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
