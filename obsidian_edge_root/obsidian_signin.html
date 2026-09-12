@@ -75,7 +75,7 @@
     </form>
 
     <div class="mt-8 text-center text-xs text-slate-500">
-        <p>Don't have an account? <a href="obsidian_unified_checkout.html" class="text-blue-600 font-bold hover:underline">Create one</a></p>
+        <p>Don't have an account? <a href="/register" class="text-blue-600 font-bold hover:underline">Create one</a></p>
     </div>
 </div>
 
@@ -86,7 +86,7 @@
     function handleSocialAuth(provider) {
         // In production, this would redirect to Google/GitHub OAuth URLs
         const mockEmail = `${provider.toLowerCase()}_test@example.com`;
-        window.location.href = `obsidian_auth_callback.html?provider=${provider}&email=${encodeURIComponent(mockEmail)}`;
+        window.location.href = `/auth/callback?provider=${provider}&email=${encodeURIComponent(mockEmail)}`;
     }
 
     // Step 1: Send OTP Code
@@ -137,7 +137,7 @@
         }
 
         alert("✓ Authentication successful! Redirecting to your dashboard.");
-        window.location.href = 'obsidian_city_dashboard.html';
+        window.location.href = '/dashboard';
     };
 </script>
 </body>

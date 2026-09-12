@@ -40,7 +40,7 @@
     },
     {
       "source": "/airo",
-      "destination": "/obsidian_airo_builder.html"
+      "destination": "/obsidian_leo_builder.html"
     },
     {
       "source": "/nodejs",
@@ -49,6 +49,14 @@
     {
       "source": "/signin",
       "destination": "/obsidian_signin.html"
+    },
+    {
+      "source": "/register",
+      "destination": "/obsidian_register.html"
+    },
+    {
+      "source": "/auth/callback",
+      "destination": "/obsidian_auth_callback.html"
     },
     {
       "source": "/developer",
