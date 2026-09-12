@@ -22,16 +22,19 @@
         .bg-video-wrap {
             position: fixed;
             top: 0; left: 0;
-            width: 100%; height: 100%;
+            width: 100vw; height: 100vh;
             z-index: -1;
             overflow: hidden;
-            opacity: 0.25;
+            pointer-events: none;
         }
         .bg-video-wrap video {
-            min-width: 100%;
-            min-height: 100%;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%; min-height: 100%;
+            width: 100vw; height: 100vh;
             object-fit: cover;
-            filter: brightness(0.6) contrast(1.3);
+            filter: brightness(0.65) contrast(1.2);
         }
 
         /* 🔱 Navigation */
