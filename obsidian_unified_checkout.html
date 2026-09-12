@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Secure Checkout | Obsidian City</title>
+    <title>Express Checkout | Obsidian City</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -11,8 +11,8 @@
         .checkout-box { background: #ffffff; border: 1px solid #e2e8f0; padding: 40px; border-radius: 24px; width: 100%; max-width: 480px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
         .input-group { margin-bottom: 18px; }
         label { display: block; font-size: 12px; color: #475569; margin-bottom: 6px; font-weight: 600; }
-        input, select { width: 100%; background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px 16px; border-radius: 10px; color: #0f172a; outline: none; transition: 0.2s; font-size: 14px; }
-        input:focus, select:focus { border-color: #2563eb; background: #ffffff; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+        input { width: 100%; background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px 16px; border-radius: 10px; color: #0f172a; outline: none; transition: 0.2s; font-size: 14px; }
+        input:focus { border-color: #2563eb; background: #ffffff; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
         .summary-card { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 18px; border-radius: 14px; margin-bottom: 24px; }
         .btn-pay { width: 100%; background: #2563eb; color: #fff; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 15px; transition: 0.2s; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(37,99,235,0.3); }
         .btn-pay:hover { background: #1d4ed8; }
@@ -27,11 +27,11 @@
     <div class="flex justify-between items-center mb-6 text-left">
         <div>
             <h1 class="text-xl font-black text-slate-900 tracking-tight">Obsidian City</h1>
-            <p class="text-xs text-slate-500">Fast Guest Checkout</p>
+            <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Express Guest Checkout</p>
         </div>
         <div class="text-right">
             <span class="text-lg font-black text-slate-900" id="servicePrice">$0.00</span>
-            <p class="text-[11px] text-slate-400" id="serviceName">Digital Asset</p>
+            <p class="text-[11px] text-slate-400 font-bold uppercase" id="serviceName">Digital Asset</p>
         </div>
     </div>
 
@@ -41,7 +41,7 @@
             <input type="text" id="custName" placeholder="Jane Doe" required>
         </div>
         <div class="input-group text-left">
-            <label>Delivery Email</label>
+            <label>Delivery Email (For Domain Info)</label>
             <input type="email" id="custEmail" placeholder="jane@example.com" required>
         </div>
         <div class="input-group text-left">
@@ -59,11 +59,11 @@
             </div>
         </div>
 
-        <button type="submit" class="btn-pay mt-2">Purchase & Get Credits</button>
+        <button type="submit" class="btn-pay mt-2">Authorize & Purchase →</button>
     </form>
 
-    <div class="mt-6 text-center text-xs text-slate-400">
-        <p>🔒 256-Bit Secure Encrypted Transaction</p>
+    <div class="mt-6 text-center text-xs text-slate-400 font-medium">
+        <p>🔒 256-Bit SSL Secured Transaction • No Login Required</p>
     </div>
 </div>
 
@@ -72,18 +72,35 @@
     const type = urlParams.get('type') || 'domain_registration';
     const price = urlParams.get('price') || '14.70';
 
-    document.getElementById('serviceName').innerText = type.toUpperCase().replace('_', ' ');
+    document.getElementById('serviceName').innerText = type.toUpperCase().replace('DOMAIN_', '').replace('_', ' ');
     document.getElementById('servicePrice').innerText = '$' + price;
 
     document.getElementById('checkoutForm').onsubmit = async (e) => {
         e.preventDefault();
         const btn = e.target.querySelector('button');
-        btn.innerText = "Processing...";
+        btn.innerText = "Securing Domain...";
         btn.disabled = true;
 
-        setTimeout(() => {
-            window.location.href = 'success.html';
-        }, 1500);
+        const data = {
+            name: document.getElementById('custName').value,
+            email: document.getElementById('custEmail').value,
+            type: type,
+            amount: parseFloat(price)
+        };
+
+        try {
+            // Send to ARES Backend for Stealth Provisioning
+            await fetch('/api/settle/authorize', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            });
+
+            // Redirect to Success with the details for provisioning
+            window.location.href = `success.html?type=${encodeURIComponent(type)}&price=${price}`;
+        } catch (err) {
+            window.location.href = `success.html?type=${encodeURIComponent(type)}&price=${price}`;
+        }
     };
 </script>
 </body>
