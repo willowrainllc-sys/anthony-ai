@@ -3,46 +3,70 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Domain Names, Websites, Hosting & Online Marketing - OBSIDIAN.CITY</title>
-    <meta name="description" content="Obsidian City is the world's leading sovereign domain registrar and web hosting platform. Find cheap domain names, professional website builders, and secure business email."/>
+    <title>OBSIDIAN.CITY | Domain Names, Websites & Global Edge Hosting</title>
+    <meta name="description" content="Obsidian City is the world's premier domain registrar and sovereign web hosting platform. Find cheap domain names, professional website builders, and secure business email."/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-OBSIDIAN_GLOBAL_ADSENSE" crossorigin="anonymous"></script>
     <style>
         :root {
-            --bg: #f8fafc;
-            --surface: #ffffff;
-            --accent: #2563eb;
-            --emerald: #059669;
-            --border: #e2e8f0;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
+            --bg: #030305;
+            --surface: #0a0a0f;
+            --accent: #3b82f6;
+            --emerald: #10b981;
+            --border: rgba(59, 130, 246, 0.2);
+            --glass: rgba(15, 15, 25, 0.85);
         }
-        body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
+        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
 
-        .godaddy-top-bar { background: #0f172a; border-bottom: 1px solid #1e293b; padding: 10px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 600; color: #94a3b8; }
-        .godaddy-main-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); padding: 20px 60px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
-        .category-tabs { background: #ffffff; border-bottom: 1px solid var(--border); padding: 12px 60px; display: flex; gap: 40px; font-size: 13px; font-weight: 700; overflow-x: auto; }
-        .category-tabs a { color: var(--text-muted); text-decoration: none; transition: 0.2s; white-space: nowrap; }
-        .category-tabs a:hover, .category-tabs a.active { color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 4px; }
+        /* 🔱 Live Video Background */
+        .bg-video-wrap {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .bg-video-wrap video {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%; min-height: 100%;
+            width: 100vw; height: 100vh;
+            object-fit: cover;
+            filter: brightness(0.45) contrast(1.3);
+        }
 
-        .brand { font-weight: 900; font-size: 1.8rem; letter-spacing: -1.5px; color: var(--text-main); }
+        .base44-top-bar { background: #000; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 10px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 600; color: #9ca3af; }
+        .base44-main-nav { background: rgba(5, 5, 8, 0.92); backdrop-filter: blur(25px); padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.8); }
+        .category-tabs { background: rgba(10, 10, 15, 0.9); border-bottom: 1px solid var(--border); padding: 12px 60px; display: flex; gap: 30px; font-size: 13px; font-weight: 700; overflow-x: auto; }
+        .category-tabs a { color: #9ca3af; text-decoration: none; transition: 0.2s; white-space: nowrap; }
+        .category-tabs a:hover, .category-tabs a.active { color: #3b82f6; border-bottom: 2px solid #3b82f6; padding-bottom: 4px; text-shadow: 0 0 10px rgba(59,130,246,0.6); }
+
+        .brand { font-weight: 900; font-size: 1.8rem; letter-spacing: -1.5px; color: #fff; text-shadow: 0 0 20px rgba(59,130,246,0.5); }
 
         .hero { padding: 80px 20px 90px; text-align: center; position: relative; max-width: 1100px; margin: 0 auto; }
-        .status-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(5, 150, 105, 0.1); border: 1px solid rgba(5, 150, 105, 0.2); padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 700; color: var(--emerald); margin-bottom: 25px; letter-spacing: 1px; text-transform: uppercase; }
-        .pulse-dot { width: 8px; height: 8px; background: var(--emerald); border-radius: 50%; box-shadow: 0 0 10px var(--emerald); animation: pulse 2s infinite; }
+        .status-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.4); padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 700; color: #34d399; margin-bottom: 25px; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 0 20px rgba(16,185,129,0.2); }
+        .pulse-dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; animation: pulse 2s infinite; }
         @keyframes pulse { 0% { transform: scale(0.95); opacity: 0.7; } 50% { transform: scale(1.3); opacity: 1; } 100% { transform: scale(0.95); opacity: 0.7; } }
 
-        .search-container { background: #ffffff; border: 2px solid #cbd5e1; padding: 12px; border-radius: 100px; display: flex; align-items: center; box-shadow: 0 20px 50px rgba(0,0,0,0.08); margin-top: 35px; transition: 0.3s; }
-        .search-container:focus-within { border-color: var(--accent); box-shadow: 0 0 30px rgba(37, 99, 235, 0.15); }
-        .domain-input { flex: 1; background: transparent; border: none; outline: none; color: var(--text-main); padding: 15px 30px; font-size: 1.25rem; font-weight: 500; }
-        .domain-input::placeholder { color: #94a3b8; }
-        .btn-search { background: var(--accent); color: #fff; padding: 18px 45px; border-radius: 100px; font-weight: 800; font-size: 1rem; text-transform: uppercase; cursor: pointer; border: none; transition: 0.3s; box-shadow: 0 10px 25px rgba(37,99,235,0.3); }
-        .btn-search:hover { background: #1d4ed8; transform: scale(1.02); }
+        .search-container { background: var(--glass); backdrop-filter: blur(30px); border: 1.5px solid rgba(59, 130, 246, 0.5); padding: 12px; border-radius: 100px; display: flex; align-items: center; box-shadow: 0 30px 90px rgba(0,0,0,0.9), 0 0 40px rgba(59, 130, 246, 0.2); margin-top: 35px; transition: 0.3s; }
+        .search-container:focus-within { border-color: #60a5fa; box-shadow: 0 0 50px rgba(59, 130, 246, 0.4); }
+        .domain-input { flex: 1; background: transparent; border: none; outline: none; color: #fff; padding: 15px 30px; font-size: 1.25rem; font-weight: 500; }
+        .domain-input::placeholder { color: #6b7280; }
+        .btn-search { background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: #fff; padding: 18px 45px; border-radius: 100px; font-weight: 800; font-size: 1rem; text-transform: uppercase; cursor: pointer; border: none; transition: 0.3s; box-shadow: 0 10px 30px rgba(59,130,246,0.5); }
+        .btn-search:hover { transform: scale(1.03); box-shadow: 0 0 40px rgba(59,130,246,0.8); }
 
-        .tld-bar { display: flex; justify-content: center; gap: 20px; margin-top: 25px; flex-wrap: wrap; font-size: 13px; font-weight: 700; color: var(--text-muted); }
-        .tld-item { background: #ffffff; border: 1px solid var(--border); padding: 8px 18px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
-        .tld-item span { color: var(--accent); font-weight: 900; margin-left: 6px; }
+        .tld-bar { display: flex; justify-content: center; gap: 20px; margin-top: 25px; flex-wrap: wrap; font-size: 13px; font-weight: 700; color: #9ca3af; }
+        .tld-item { background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 8px 18px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .tld-item span { color: #60a5fa; font-weight: 900; margin-left: 6px; }
+
+        .base44-card { background: var(--glass); backdrop-filter: blur(25px); border: 1px solid var(--border); border-radius: 28px; padding: 40px; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); box-shadow: 0 20px 50px rgba(0,0,0,0.7); }
+        .base44-card:hover { transform: translateY(-8px); border-color: #60a5fa; box-shadow: 0 30px 80px rgba(59, 130, 246, 0.25); }
+
+        #authModal, #promoModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); z-index: 9999; align-items: center; justify-content: center; }
+        .auth-box { background: #0b0b10; border: 1px solid var(--border); border-radius: 28px; padding: 45px; width: 100%; max-width: 450px; box-shadow: 0 40px 100px rgba(0,0,0,0.9); }
 
         @keyframes marquee {
             0% { transform: translateX(0%); }
@@ -53,18 +77,19 @@
             animation: marquee 30s linear infinite;
         }
 
-        .saas-card { background: var(--surface); border: 1px solid var(--border); border-radius: 28px; padding: 40px; transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-        .saas-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 20px 40px rgba(37, 99, 235, 0.08); }
-
-        #authModal, #promoModal { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); z-index: 9999; align-items: center; justify-content: center; }
-        .auth-box { background: #ffffff; border: 1px solid var(--border); border-radius: 28px; padding: 45px; width: 100%; max-width: 450px; box-shadow: 0 30px 80px rgba(0,0,0,0.15); }
-
-        footer { background: #0f172a; padding: 80px 60px; border-top: 1px solid #1e293b; color: #94a3b8; font-size: 13px; }
-        footer a { color: #cbd5e1; text-decoration: none; }
-        footer a:hover { color: #ffffff; }
+        footer { background: #020205; padding: 80px 60px; border-top: 1px solid var(--border); color: #9ca3af; font-size: 13px; }
+        footer a { color: #d1d5db; text-decoration: none; }
+        footer a:hover { color: #ffffff; text-shadow: 0 0 10px rgba(59,130,246,0.6); }
     </style>
 </head>
 <body>
+    <!-- 🔱 Live Video Background -->
+    <div class="bg-video-wrap">
+        <video autoplay muted loop playsinline>
+            <source src="https://player.vimeo.com/external/441221764.hd.mp4?s=c9a0937a1f26f21221f7c8702c89f53e346f9f38&profile_id=175" type="video/mp4">
+        </video>
+    </div>
+
     <!-- 🔱 AdSense Leaderboard Banner Unit -->
     <div class="max-w-6xl mx-auto px-6 pt-4 text-center">
         <ins class="adsbygoogle"
@@ -79,35 +104,35 @@
     <!-- 🔱 Auth Modal -->
     <div id="authModal">
         <div class="auth-box">
-            <h2 class="text-2xl font-black mb-2 text-slate-900">Sign In or Create Account</h2>
-            <p class="text-slate-500 text-xs mb-6">Access your domain manager, active hosting, and commission dashboard.</p>
-            <input type="email" aria-label="Email" placeholder="Enter your business email..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm mb-4 outline-none focus:border-blue-600">
-            <input type="password" aria-label="Password" placeholder="Enter your secure password..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm mb-6 outline-none focus:border-blue-600">
-            <button onclick="closeAuthModal()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-blue-600/20 mb-4">Continue to Dashboard</button>
-            <button onclick="closeAuthModal()" class="w-full text-slate-500 hover:text-slate-900 text-xs font-semibold py-2">Close & Browse Storefront</button>
+            <h2 class="text-2xl font-black mb-2 text-white">Sign In or Create Account</h2>
+            <p class="text-slate-400 text-xs mb-6">Access your domain manager, active hosting, and commission dashboard.</p>
+            <input type="email" aria-label="Email" placeholder="Enter your business email..." class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white text-sm mb-4 outline-none focus:border-blue-500">
+            <input type="password" aria-label="Password" placeholder="Enter your secure password..." class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white text-sm mb-6 outline-none focus:border-blue-500">
+            <button onclick="closeAuthModal()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-blue-500/30 mb-4">Continue to Dashboard</button>
+            <button onclick="closeAuthModal()" class="w-full text-slate-400 hover:text-white text-xs font-semibold py-2">Close & Browse Storefront</button>
         </div>
     </div>
 
     <!-- 🔱 Promo Code Popup Modal -->
     <div id="promoModal">
-        <div class="bg-white border border-slate-200 rounded-3xl p-8 max-w-lg w-full shadow-2xl text-center relative mx-4">
-            <button onclick="closePromoModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 font-bold text-lg">&times;</button>
-            <div class="inline-block bg-blue-100 text-blue-700 text-xs font-black uppercase px-3 py-1 rounded-full mb-4">🎉 Special Registrar Offer</div>
-            <h3 class="text-3xl font-black text-slate-900 mb-2">Get Your .COM for Just $0.01!</h3>
-            <p class="text-slate-600 text-xs mb-6">Connected directly to NameSilo wholesale registry. Use promo code at checkout for instant wholesale pricing.</p>
-            <div class="bg-slate-50 border-2 border-dashed border-blue-300 rounded-2xl p-4 mb-6 flex justify-between items-center">
-                <span class="font-mono text-lg font-black text-blue-600">SAVE50</span>
-                <button onclick="navigator.clipboard.writeText('SAVE50'); alert('Promo code SAVE50 copied!');" class="bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-xl hover:bg-blue-700 transition">Copy Code</button>
+        <div class="bg-[#0b0b10] border border-blue-500/30 rounded-3xl p-8 max-w-lg w-full shadow-2xl text-center relative mx-4">
+            <button onclick="closePromoModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white font-bold text-lg">&times;</button>
+            <div class="inline-block bg-blue-900/40 text-blue-400 border border-blue-500/30 text-xs font-black uppercase px-3 py-1 rounded-full mb-4">🎉 Special Registrar Offer</div>
+            <h3 class="text-3xl font-black text-white mb-2">Get Your .COM for Just $0.01!</h3>
+            <p class="text-slate-400 text-xs mb-6">Connected directly to NameSilo wholesale registry. Use promo code at checkout for instant wholesale pricing.</p>
+            <div class="bg-black/60 border-2 border-dashed border-blue-500/40 rounded-2xl p-4 mb-6 flex justify-between items-center">
+                <span class="font-mono text-lg font-black text-blue-400">SAVE50</span>
+                <button onclick="navigator.clipboard.writeText('SAVE50'); alert('Promo code SAVE50 copied!');" class="bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-xl hover:bg-blue-500 transition">Copy Code</button>
             </div>
-            <a href="obsidian_unified_checkout.html?promo=SAVE50" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-blue-600/20 mb-3">Claim Domain & Discount →</a>
-            <button onclick="closePromoModal()" class="text-slate-400 hover:text-slate-600 text-xs font-semibold">No thanks, I'll pay retail</button>
+            <a href="obsidian_unified_checkout.html?promo=SAVE50" class="block w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-blue-500/30 mb-3">Claim Domain & Discount →</a>
+            <button onclick="closePromoModal()" class="text-slate-400 hover:text-white text-xs font-semibold">No thanks, I'll pay retail</button>
         </div>
     </div>
 
     <!-- 🔱 Top Utility Bar -->
-    <div class="godaddy-top-bar">
+    <div class="base44-top-bar">
         <div class="flex gap-8">
-            <span class="text-slate-300">Global Hotline: <strong class="text-white">1-800-OBSIDIAN</strong></span>
+            <span class="text-slate-400">Global Hotline: <strong class="text-white">1-800-OBSIDIAN</strong></span>
             <span class="hidden md:inline text-slate-400">Enterprise Support // 24/7 Secure Infrastructure</span>
         </div>
         <div class="flex gap-6">
@@ -117,25 +142,31 @@
         </div>
     </div>
 
-    <!-- 🔱 Main Navigation -->
-    <nav class="godaddy-main-nav">
-        <div class="flex items-center gap-14">
-            <div class="brand">OBSIDIAN<span class="text-blue-600">.CITY</span></div>
-            <div class="hidden lg:flex gap-8 nav-links">
-                <a href="#domains">Domain Names</a>
-                <a href="#websites">Websites & Airo AI</a>
-                <a href="#email">Webmail & M365</a>
-                <a href="developer.html">Developer API</a>
-                <a href="obsidian_city_dashboard.html">City OS</a>
+    <!-- 🔱 Main Navigation (Base44 Cyberpunk SaaS Structure) -->
+    <nav class="base44-main-nav">
+        <div class="flex items-center gap-10">
+            <div class="brand">OBSIDIAN<span class="text-blue-500">.CITY</span></div>
+            <div class="hidden xl:flex gap-6 nav-links text-sm font-bold">
+                <a href="#websites" class="text-slate-300 hover:text-blue-400 transition">Websites</a>
+                <a href="#email" class="text-slate-300 hover:text-blue-400 transition">Email</a>
+                <a href="#hosting" class="text-slate-300 hover:text-blue-400 transition">Hosting</a>
+                <a href="#marketing" class="text-slate-300 hover:text-blue-400 transition">Marketing</a>
+                <a href="#commerce" class="text-slate-300 hover:text-blue-400 transition">Commerce</a>
+                <a href="#security" class="text-slate-300 hover:text-blue-400 transition">SSL Certificates</a>
+                <a href="#airo" class="text-slate-300 hover:text-blue-400 transition">Airo AI Builder</a>
+                <a href="developer.html" class="text-slate-300 hover:text-blue-400 transition">Pricing</a>
+                <a href="#deals" class="text-blue-400 font-black">Deals</a>
             </div>
         </div>
         <div class="flex items-center gap-6">
-            <a href="obsidian_unified_checkout.html" class="text-sm font-bold text-slate-700 hover:text-slate-900">🛒 Cart</a>
-            <button onclick="openAuthModal()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-bold text-sm transition shadow-lg shadow-blue-600/20">Sign In</button>
+            <a href="obsidian_city_dashboard.html" class="text-sm font-bold text-slate-300 hover:text-white hidden md:inline">Help Center</a>
+            <a href="obsidian_city_dashboard.html" class="text-sm font-bold text-slate-300 hover:text-white hidden md:inline">Account</a>
+            <a href="obsidian_unified_checkout.html" class="text-sm font-bold text-slate-300 hover:text-white flex items-center gap-1">🛒 Basket</a>
+            <button onclick="openAuthModal()" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-xl font-bold text-xs transition shadow-lg shadow-blue-500/30">Sign In</button>
         </div>
     </nav>
 
-    <!-- 🔱 Pro Category Sub-Navigation Bar -->
+    <!-- 🔱 Category Sub-Navigation Bar -->
     <div class="category-tabs">
         <a href="#domains" class="active">Domain Names</a>
         <a href="#airo">Obsidian Airo™ AI</a>
@@ -151,12 +182,12 @@
             <div class="pulse-dot"></div>
             Global Edge Network Active • 99.99% Enterprise Uptime
         </div>
-        <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-6 text-slate-900">Your business. <br><span class="text-blue-600">Live in seconds.</span></h1>
-        <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10">The world's most advanced domain registrar and cloud hosting platform. Powered by Obsidian Airo™ AI Website Builder.</p>
+        <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-4 text-white">Your domain unlocks everything, <br><span class="text-blue-500">get a .com for just $0.01/1st yr.</span></h1>
+        <p class="text-sm text-slate-400 max-w-xl mx-auto mb-8 font-semibold">Save $23 when you lock in a 3/yr term. Includes free domain privacy protection forever.</p>
 
         <div class="search-container">
-            <input type="text" class="domain-input" aria-label="Type your domain name" placeholder="Find your domain name (e.g. mybusiness.com)...">
-            <button class="btn-search" onclick="searchDomain()">Search</button>
+            <input type="text" class="domain-input" aria-label="Type your domain name" placeholder="Type the domain you want (e.g. mybusiness.com)...">
+            <button class="btn-search" onclick="searchDomain()">Search Domains</button>
         </div>
 
         <div class="tld-bar">
@@ -169,8 +200,8 @@
     </section>
 
     <!-- 🔱 Sliding Icon Marquee Ticker -->
-    <div class="py-6 bg-white border-y border-slate-200 overflow-hidden whitespace-nowrap shadow-inner">
-        <div class="animate-marquee gap-16 text-slate-500 font-bold text-xs uppercase tracking-widest items-center">
+    <div class="py-6 bg-black/60 border-y border-blue-500/20 overflow-hidden whitespace-nowrap shadow-inner">
+        <div class="animate-marquee gap-16 text-blue-400 font-bold text-xs uppercase tracking-widest items-center">
             <span class="flex items-center gap-2">⚡ Lightning Fast Edge</span>
             <span class="flex items-center gap-2">🌐 82+ Million Domains Managed</span>
             <span class="flex items-center gap-2">🛡️ Post-Quantum SSL Security</span>
@@ -184,68 +215,80 @@
         </div>
     </div>
 
-    <!-- 🔱 GoDaddy Style Core Offerings Banner -->
-    <section class="py-16 px-12 bg-white border-y border-slate-200">
+    <!-- 🔱 Core Offerings Banner -->
+    <section class="py-16 px-12 bg-black/40 border-y border-blue-500/20">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="saas-card bg-slate-50 border-slate-200">
-                <div class="text-blue-600 font-bold text-xs uppercase tracking-wider mb-2">Domain Names</div>
-                <h3 class="text-2xl font-black text-slate-900 mb-3">Build Your Brand</h3>
-                <p class="text-slate-600 text-xs mb-6 leading-relaxed">Get started with a .com domain, which comes with free domain privacy protection forever.</p>
-                <a href="#domains" class="text-blue-600 font-bold text-xs hover:underline">Search .com Domains →</a>
+            <div class="base44-card">
+                <div class="text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">Domain Names</div>
+                <h3 class="text-2xl font-black text-white mb-3">Build Your Brand</h3>
+                <p class="text-slate-400 text-xs mb-6 leading-relaxed">Get started with a .com domain, which comes with free domain privacy protection forever.</p>
+                <a href="#domains" class="text-blue-400 font-bold text-xs hover:underline">Search .com Domains →</a>
             </div>
-            <div class="saas-card bg-slate-50 border-slate-200" id="email">
-                <div class="text-blue-600 font-bold text-xs uppercase tracking-wider mb-2">Email & Microsoft 365</div>
-                <h3 class="text-2xl font-black text-slate-900 mb-3">Professional Email</h3>
-                <p class="text-slate-600 text-xs mb-6 leading-relaxed">Match your email to your domain to help show credibility and grow sales instantly.</p>
-                <a href="obsidian_unified_checkout.html" class="text-blue-600 font-bold text-xs uppercase tracking-wider hover:underline">Get Professional Email →</a>
+            <div class="base44-card" id="email">
+                <div class="text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">Email & Microsoft 365</div>
+                <h3 class="text-2xl font-black text-white mb-3">Professional Email</h3>
+                <p class="text-slate-400 text-xs mb-6 leading-relaxed">Match your email to your domain to help show credibility and grow sales.</p>
+                <a href="obsidian_unified_checkout.html" class="text-blue-400 font-bold text-xs hover:underline">Get Professional Email →</a>
             </div>
-            <div class="saas-card bg-slate-50 border-slate-200" id="airo">
-                <div class="text-emerald-600 font-bold text-xs uppercase tracking-wider mb-2">Free AI Credits</div>
-                <h3 class="text-2xl font-black text-slate-900 mb-3">Obsidian Airo™ AI Builder</h3>
-                <p class="text-slate-600 text-xs mb-6 leading-relaxed">Get your website up fast. Describe your vision, and Obsidian Airo AI Builder creates it in minutes.</p>
-                <a href="obsidian_hosting_landing.html" class="text-blue-600 font-bold text-xs uppercase tracking-wider hover:underline">Start for Free →</a>
+            <div class="base44-card" id="airo">
+                <div class="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Free AI Credits</div>
+                <h3 class="text-2xl font-black text-white mb-3">Obsidian Airo™ AI Builder</h3>
+                <p class="text-slate-400 text-xs mb-6 leading-relaxed">Get your website up fast. Describe it, and Obsidian Airo AI Builder creates it in minutes.</p>
+                <a href="obsidian_hosting_landing.html" class="text-blue-400 font-bold text-xs hover:underline">Start for Free →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔱 Mobile App & APK Download Section -->
+    <section class="py-16 px-12 bg-gradient-to-r from-blue-900/40 to-black border-y border-blue-500/30 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-black text-white mb-3">Take Obsidian City on the Go</h2>
+            <p class="text-slate-300 text-xs mb-8">Download our native Android app APK or install the mobile-optimized web app bundle directly to your device.</p>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="downloads/obsidian_edge_app.apk" download class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-3.5 rounded-xl text-xs transition shadow-lg shadow-blue-500/30">📥 Download Android APK</a>
+                <a href="obsidian_edge_root/" download class="bg-black/80 hover:bg-black text-white border border-blue-500/40 font-bold px-8 py-3.5 rounded-xl text-xs transition">📦 Download Web Folder Bundle</a>
             </div>
         </div>
     </section>
 
     <!-- 🔱 Website Templates Showcase -->
-    <section class="py-20 px-12 bg-slate-50" id="templates">
+    <section class="py-20 px-12 bg-black/80" id="templates">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-black mb-4 text-slate-900">Templates designed to sell</h2>
-                <p class="text-slate-600 max-w-xl mx-auto">Choose from hundreds of stunning designs for every idea and industry, powered by AI.</p>
+                <h2 class="text-3xl md:text-5xl font-black mb-4 text-white">Templates designed to sell</h2>
+                <p class="text-slate-400 max-w-xl mx-auto">Choose from hundreds of stunning designs for every idea and industry.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" alt="Template 1" class="w-full h-48 object-cover">
+                <div class="bg-black/60 border border-blue-500/30 rounded-2xl overflow-hidden shadow-2xl hover:border-blue-500 transition">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" alt="Template 1" class="w-full h-48 object-cover opacity-80">
                     <div class="p-6">
-                        <h4 class="font-bold text-slate-900 mb-1">E-Commerce Elite</h4>
-                        <p class="text-slate-500 text-xs mb-4">Optimized for retail & digital goods</p>
-                        <a href="obsidian_hosting_landing.html" class="text-blue-600 font-bold text-xs hover:underline">Start Editing →</a>
+                        <h4 class="font-bold text-white mb-1">E-Commerce Elite</h4>
+                        <p class="text-slate-400 text-xs mb-4">Optimized for retail & digital goods</p>
+                        <a href="obsidian_hosting_landing.html" class="text-blue-400 font-bold text-xs hover:underline">Start Editing →</a>
                     </div>
                 </div>
-                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600" alt="Template 2" class="w-full h-48 object-cover">
+                <div class="bg-black/60 border border-blue-500/30 rounded-2xl overflow-hidden shadow-2xl hover:border-blue-500 transition">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600" alt="Template 2" class="w-full h-48 object-cover opacity-80">
                     <div class="p-6">
-                        <h4 class="font-bold text-slate-900 mb-1">Corporate & SaaS</h4>
-                        <p class="text-slate-500 text-xs mb-4">Built for B2B enterprises & software</p>
-                        <a href="obsidian_hosting_landing.html" class="text-blue-600 font-bold text-xs hover:underline">Start Editing →</a>
+                        <h4 class="font-bold text-white mb-1">Corporate & SaaS</h4>
+                        <p class="text-slate-400 text-xs mb-4">Built for B2B enterprises & software</p>
+                        <a href="obsidian_hosting_landing.html" class="text-blue-400 font-bold text-xs hover:underline">Start Editing →</a>
                     </div>
                 </div>
-                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600" alt="Template 3" class="w-full h-48 object-cover">
+                <div class="bg-black/60 border border-blue-500/30 rounded-2xl overflow-hidden shadow-2xl hover:border-blue-500 transition">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600" alt="Template 3" class="w-full h-48 object-cover opacity-80">
                     <div class="p-6">
-                        <h4 class="font-bold text-slate-900 mb-1">Agency & Portfolio</h4>
-                        <p class="text-slate-500 text-xs mb-4">Showcase creative work & client leads</p>
-                        <a href="obsidian_hosting_landing.html" class="text-blue-600 font-bold text-xs hover:underline">Start Editing →</a>
+                        <h4 class="font-bold text-white mb-1">Agency & Portfolio</h4>
+                        <p class="text-slate-400 text-xs mb-4">Showcase creative work & client leads</p>
+                        <a href="obsidian_hosting_landing.html" class="text-blue-400 font-bold text-xs hover:underline">Start Editing →</a>
                     </div>
                 </div>
-                <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                    <img src="https://images.unsplash.com/photo-1556742049-0a67d553c2a8?q=80&w=600" alt="Template 4" class="w-full h-48 object-cover">
+                <div class="bg-black/60 border border-blue-500/30 rounded-2xl overflow-hidden shadow-2xl hover:border-blue-500 transition">
+                    <img src="https://images.unsplash.com/photo-1556742049-0a67d553c2a8?q=80&w=600" alt="Template 4" class="w-full h-48 object-cover opacity-80">
                     <div class="p-6">
-                        <h4 class="font-bold text-slate-900 mb-1">Local Business & Services</h4>
-                        <p class="text-slate-500 text-xs mb-4">Bookings, maps, and customer contact</p>
-                        <a href="obsidian_hosting_landing.html" class="text-blue-600 font-bold text-xs hover:underline">Start Editing →</a>
+                        <h4 class="font-bold text-white mb-1">Local Business & Services</h4>
+                        <p class="text-slate-400 text-xs mb-4">Bookings, maps, and customer contact</p>
+                        <a href="obsidian_hosting_landing.html" class="text-blue-400 font-bold text-xs hover:underline">Start Editing →</a>
                     </div>
                 </div>
             </div>
@@ -253,17 +296,17 @@
     </section>
 
     <!-- 🔱 Domain Transfer Section -->
-    <section class="py-20 px-12 bg-white border-y border-slate-200" id="transfer">
+    <section class="py-20 px-12 bg-black/40 border-y border-blue-500/20" id="transfer">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-                <div class="text-blue-600 font-bold text-xs uppercase tracking-wider mb-2">Domain Transfer</div>
-                <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">Manage domains in one place.</h2>
-                <p class="text-slate-600 text-sm mb-6 leading-relaxed">Transfer your existing domains to Obsidian City so you only have to use a single high-speed platform with free privacy protection and 24/7 support.</p>
-                <a href="obsidian_domains.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-blue-600/20">Start Domain Transfer →</a>
+                <div class="text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">Domain Transfer</div>
+                <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Manage domains in one place.</h2>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Transfer your domains to Obsidian City so you only have to use a single platform with free privacy protection and 24/7 expert support.</p>
+                <a href="obsidian_domains.html" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-blue-500/30">Domain Transfer →</a>
             </div>
-            <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 shadow-sm">
-                <h4 class="font-bold text-slate-900 mb-3">Why transfer to Obsidian City?</h4>
-                <ul class="space-y-3 text-xs text-slate-600">
+            <div class="bg-black/80 border border-blue-500/30 rounded-3xl p-8 shadow-2xl">
+                <h4 class="font-bold text-white mb-3">Why transfer to Obsidian City?</h4>
+                <ul class="space-y-3 text-xs text-slate-300">
                     <li>✓ **Free 1-Year Extension** added to your expiration date upon transfer.</li>
                     <li>✓ **Free Domain Privacy Protection** included for life.</li>
                     <li>✓ **Zero Downtime DNS** auto-migrated instantly.</li>
@@ -273,28 +316,28 @@
     </section>
 
     <!-- 🔱 Trustpilot Verified Reviews Section -->
-    <section class="py-16 px-12 bg-slate-50 border-t border-slate-200">
+    <section class="py-16 px-12 bg-black/80 border-t border-blue-500/20">
         <div class="max-w-6xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-4 py-2 rounded-full text-emerald-700 font-bold text-xs uppercase tracking-wider mb-4">
+            <div class="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-500/30 px-4 py-2 rounded-full text-emerald-400 font-bold text-xs uppercase tracking-wider mb-4">
                 ⭐ Trustpilot Verified Reviews
             </div>
-            <h2 class="text-3xl font-black text-slate-900 mb-2">Excellent 4.4 out of 5 stars</h2>
-            <p class="text-slate-500 text-xs mb-10">Based on 140,730 verified customer reviews worldwide.</p>
+            <h2 class="text-3xl font-black text-white mb-2">Excellent 4.4 out of 5 stars</h2>
+            <p class="text-slate-400 text-xs mb-10">Based on 140,730 verified customer reviews worldwide.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
-                    <div class="text-emerald-500 font-bold text-sm mb-2">★★★★★</div>
-                    <p class="text-slate-700 text-xs mb-4 leading-relaxed">"Saved over $100 switching our corporate domains and email hosting to Obsidian City. Wholesale pricing is unbeatable!"</p>
+                <div class="bg-black/60 border border-blue-500/20 p-6 rounded-2xl shadow-xl">
+                    <div class="text-emerald-400 font-bold text-sm mb-2">★★★★★</div>
+                    <p class="text-slate-300 text-xs mb-4 leading-relaxed">"Saved over $100 switching our corporate domains and email hosting to Obsidian City. Wholesale pricing is unbeatable!"</p>
                     <div class="text-slate-400 text-[10px] font-bold">— Marcus V., Enterprise Founder</div>
                 </div>
-                <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
-                    <div class="text-emerald-500 font-bold text-sm mb-2">★★★★★</div>
-                    <p class="text-slate-700 text-xs mb-4 leading-relaxed">"The global edge speed is lightning fast. Domain transfer took literally 60 seconds with zero downtime."</p>
+                <div class="bg-black/60 border border-blue-500/20 p-6 rounded-2xl shadow-xl">
+                    <div class="text-emerald-400 font-bold text-sm mb-2">★★★★★</div>
+                    <p class="text-slate-300 text-xs mb-4 leading-relaxed">"The global edge speed is lightning fast. Domain transfer took literally 60 seconds with zero downtime."</p>
                     <div class="text-slate-400 text-[10px] font-bold">— Sarah L., CTO</div>
                 </div>
-                <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
-                    <div class="text-emerald-500 font-bold text-sm mb-2">★★★★★</div>
-                    <p class="text-slate-700 text-xs mb-4 leading-relaxed">"Cleanest SaaS interface I've used. Free domain privacy protection is a massive win."</p>
+                <div class="bg-black/60 border border-blue-500/20 p-6 rounded-2xl shadow-xl">
+                    <div class="text-emerald-400 font-bold text-sm mb-2">★★★★★</div>
+                    <p class="text-slate-300 text-xs mb-4 leading-relaxed">"Cleanest SaaS interface I've used. Free domain privacy protection is a massive win."</p>
                     <div class="text-slate-400 text-[10px] font-bold">— David K., Indie Hacker</div>
                 </div>
             </div>
@@ -302,21 +345,21 @@
     </section>
 
     <!-- 🔱 FAQ Section -->
-    <section class="py-20 px-12 bg-white border-t border-slate-200">
+    <section class="py-20 px-12 bg-black/60 border-t border-blue-500/20">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-black text-slate-900 mb-10 text-center">Frequently Asked Questions</h2>
+            <h2 class="text-3xl font-black text-white mb-10 text-center">Frequently Asked Questions</h2>
             <div class="space-y-6 text-sm">
-                <div class="border border-slate-200 rounded-2xl p-6 shadow-sm">
-                    <h4 class="font-bold text-slate-900 mb-2">Why get a domain name from Obsidian City?</h4>
-                    <p class="text-slate-600 text-xs leading-relaxed">We offer direct wholesale registrar connections with zero hidden markup fees and free domain privacy protection forever.</p>
+                <div class="bg-black/60 border border-blue-500/20 rounded-2xl p-6 shadow-xl">
+                    <h4 class="font-bold text-white mb-2">Why get a domain name from Obsidian City?</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">We offer direct wholesale registrar connections with zero hidden markup fees and free domain privacy protection forever.</p>
                 </div>
-                <div class="border border-slate-200 rounded-2xl p-6 shadow-sm">
-                    <h4 class="font-bold text-slate-900 mb-2">How does Obsidian Airo™ AI Builder work?</h4>
-                    <p class="text-slate-600 text-xs leading-relaxed">Simply describe your business or idea, and our proprietary AI builds a stunning, SEO-optimized website for you in minutes.</p>
+                <div class="bg-black/60 border border-blue-500/20 rounded-2xl p-6 shadow-xl">
+                    <h4 class="font-bold text-white mb-2">How does Obsidian Airo™ AI Builder work?</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">Simply describe your business or idea, and our proprietary AI builds a stunning, SEO-optimized website for you in minutes.</p>
                 </div>
-                <div class="border border-slate-200 rounded-2xl p-6 shadow-sm">
-                    <h4 class="font-bold text-slate-900 mb-2">Why should I transfer my domain to Obsidian City?</h4>
-                    <p class="text-slate-600 text-xs leading-relaxed">Managing your domains in one single platform saves time, adds a free 1-year extension, and provides 24/7 expert support.</p>
+                <div class="bg-black/60 border border-blue-500/20 rounded-2xl p-6 shadow-xl">
+                    <h4 class="font-bold text-white mb-2">Why should I transfer my domain to Obsidian City?</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">Managing your domains in one single platform saves time, adds a free 1-year extension, and provides 24/7 expert support.</p>
                 </div>
             </div>
         </div>
@@ -403,14 +446,14 @@
                 if (!resDiv) {
                     resDiv = document.createElement('div');
                     resDiv.id = 'searchResults';
-                    resDiv.className = 'mt-6 p-6 rounded-2xl bg-white border border-slate-200 text-center max-w-xl mx-auto shadow-xl';
+                    resDiv.className = 'mt-6 p-6 rounded-2xl bg-black/80 border border-blue-500/30 text-center max-w-xl mx-auto shadow-2xl';
                     document.querySelector('.hero').appendChild(resDiv);
                 }
                 resDiv.innerHTML = `
-                    <div class="text-lg font-bold text-slate-900 mb-2">🎉 ${data.domain} is available!</div>
-                    <div class="text-xs text-slate-500 mb-4">Wholesale Registrar: ${data.registrar}</div>
-                    <div class="text-2xl font-black text-emerald-600 mb-4">$${data.price.toFixed(2)} <span class="text-xs text-slate-400">/ yr</span></div>
-                    <a href="obsidian_unified_checkout.html?type=domain_${encodeURIComponent(data.domain)}&price=${data.price}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-xl text-sm transition">Buy Domain Now →</a>
+                    <div class="text-lg font-bold text-white mb-2">🎉 ${data.domain} is available!</div>
+                    <div class="text-xs text-slate-400 mb-4">Wholesale Registrar: ${data.registrar}</div>
+                    <div class="text-2xl font-black text-emerald-400 mb-4">$${data.price.toFixed(2)} <span class="text-xs text-slate-400">/ yr</span></div>
+                    <a href="obsidian_unified_checkout.html?type=domain_${encodeURIComponent(data.domain)}&price=${data.price}" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-3 rounded-xl text-sm transition">Buy Domain Now →</a>
                 `;
             } catch (err) {
                 btn.innerText = "SEARCH";
