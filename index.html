@@ -7,7 +7,6 @@
     <meta name="description" content="Obsidian City is the world's premier domain registrar and sovereign web hosting platform. Find cheap domain names, professional website builders, and secure PQC business email."/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 🔱 Google AdSense Global Monetization Integration -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-OBSIDIAN_GLOBAL_ADSENSE" crossorigin="anonymous"></script>
     <style>
         :root {
@@ -46,8 +45,8 @@
         .nav-links a:hover { color: #3b82f6; }
         .brand { font-weight: 900; font-size: 1.8rem; letter-spacing: -1.5px; color: #fff; }
 
-        /* 🔱 Hero Domain Search & AI Generator */
-        .hero { padding: 90px 20px 120px; text-align: center; position: relative; max-width: 1100px; margin: 0 auto; }
+        /* 🔱 Hero Domain Search */
+        .hero { padding: 90px 20px 100px; text-align: center; position: relative; max-width: 1100px; margin: 0 auto; }
         .status-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 700; color: #34d399; margin-bottom: 30px; letter-spacing: 1px; text-transform: uppercase; }
         .pulse-dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; animation: pulse 2s infinite; }
         @keyframes pulse { 0% { transform: scale(0.95); opacity: 0.7; } 50% { transform: scale(1.3); opacity: 1; } 100% { transform: scale(0.95); opacity: 0.7; } }
@@ -63,10 +62,10 @@
         .tld-item { background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 8px 18px; border-radius: 12px; }
         .tld-item span { color: #3b82f6; font-weight: 900; margin-left: 6px; }
 
-        /* 🔱 Product Grid */
-        .product-section { padding: 80px 60px; max-width: 1400px; margin: 0 auto; }
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 35px; }
-        .godaddy-card { background: var(--glass); backdrop-filter: blur(25px); border: 1px solid var(--border); border-radius: 28px; padding: 45px; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); position: relative; overflow: hidden; }
+        /* 🔱 Product Grid & Feature Cards */
+        .product-section { padding: 60px; max-width: 1400px; margin: 0 auto; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .godaddy-card { background: var(--glass); backdrop-filter: blur(25px); border: 1px solid var(--border); border-radius: 28px; padding: 40px; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .godaddy-card:hover { transform: translateY(-8px); border-color: #3b82f6; box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 30px rgba(59, 130, 246, 0.15); }
 
         /* 🔱 Auth Modal Gating */
@@ -82,6 +81,17 @@
         <video autoplay muted loop playsinline>
             <source src="https://player.vimeo.com/external/441221764.hd.mp4?s=c9a0937a1f26f21221f7c8702c89f53e346f9f38&profile_id=175" type="video/mp4">
         </video>
+    </div>
+
+    <!-- 🔱 AdSense Leaderboard Banner Unit -->
+    <div class="max-w-6xl mx-auto px-6 pt-4 text-center">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-OBSIDIAN_GLOBAL_ADSENSE"
+             data-ad-slot="9876543210"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
     <!-- 🔱 Auth Gating Modal -->
@@ -103,9 +113,9 @@
             <span class="hidden md:inline text-gray-400">Enterprise Support // 24/7 Secure Infrastructure</span>
         </div>
         <div class="flex gap-6">
-            <a href="#" onclick="openAuthModal(); return false;" class="hover:text-white transition">Domains</a>
-            <a href="#" onclick="openAuthModal(); return false;" class="hover:text-white transition">Cloud Hosting</a>
-            <a href="#" onclick="openAuthModal(); return false;" class="text-blue-400 hover:underline font-bold">City Dashboard</a>
+            <a href="obsidian_domains.html" class="hover:text-white transition">Domains</a>
+            <a href="obsidian_hosting_landing.html" class="hover:text-white transition">Cloud Hosting</a>
+            <a href="developer.html" class="text-blue-400 hover:underline font-bold">Developer Portal</a>
         </div>
     </div>
 
@@ -117,7 +127,8 @@
                 <a href="#domains">Domain Names</a>
                 <a href="#websites">Websites & Hosting</a>
                 <a href="#email">Webmail & Security</a>
-                <a href="#" onclick="openAuthModal(); return false;">City OS</a>
+                <a href="developer.html">Developer API</a>
+                <a href="obsidian_city_dashboard.html">City OS</a>
             </div>
         </div>
         <div class="flex items-center gap-6">
@@ -125,17 +136,6 @@
             <button onclick="openAuthModal()" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-xl font-bold text-sm transition shadow-lg shadow-blue-500/20">Sign In</button>
         </div>
     </nav>
-
-    <!-- 🔱 AdSense Leaderboard Banner Unit -->
-    <div class="max-w-6xl mx-auto px-6 py-6 text-center">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-OBSIDIAN_GLOBAL_ADSENSE"
-             data-ad-slot="9876543210"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
 
     <!-- 🔱 Hero Domain Search -->
     <section class="hero">
@@ -160,6 +160,38 @@
         </div>
     </section>
 
+    <!-- 🔱 Feature Highlights Section (Why Obsidian City?) -->
+    <section class="py-20 px-12 bg-black/50 border-y border-white/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black mb-4">Engineered for Maximum Speed & Privacy</h2>
+                <p class="text-gray-400 max-w-xl mx-auto">Everything you need to launch, scale, and secure your digital presence in one unified ecosystem.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="glass-card p-8">
+                    <div class="text-3xl mb-4">⚡</div>
+                    <h3 class="text-lg font-bold mb-2">Lightning-Fast Edge</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Distributed across 20+ global regions with instant CDN caching and zero latency.</p>
+                </div>
+                <div class="glass-card p-8">
+                    <div class="text-3xl mb-4">🛡️</div>
+                    <h3 class="text-lg font-bold mb-2">Post-Quantum SSL</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Military-grade encryption and automated DDoS defense included free with every domain.</p>
+                </div>
+                <div class="glass-card p-8">
+                    <div class="text-3xl mb-4">💰</div>
+                    <h3 class="text-lg font-bold mb-2">Wholesale Pricing</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Direct registrar connections with zero hidden markup fees or surprise renewal spikes.</p>
+                </div>
+                <div class="glass-card p-8">
+                    <div class="text-3xl mb-4">🔄</div>
+                    <h3 class="text-lg font-bold mb-2">1-Click Migration</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Easily transfer existing domains and websites over to Obsidian City with zero downtime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 🔱 Product Showcase Grid -->
     <section class="product-section" id="domains">
         <div class="card-grid">
@@ -168,7 +200,7 @@
                 <p class="text-gray-400 mb-8 text-sm leading-relaxed">Claim your permanent digital real estate. Includes free privacy protection and instant DNS bridge routing.</p>
                 <div class="flex justify-between items-center">
                     <span class="text-2xl font-black">$0.01 <span class="text-xs text-gray-500">/yr*</span></span>
-                    <button onclick="openAuthModal()" class="text-blue-400 font-bold text-xs uppercase tracking-wider hover:underline bg-transparent border-none cursor-pointer">Search Domains →</button>
+                    <a href="obsidian_domains.html" class="text-blue-400 font-bold text-xs uppercase tracking-wider hover:underline">Search Domains →</a>
                 </div>
             </div>
 
@@ -177,7 +209,7 @@
                 <p class="text-gray-400 mb-8 text-sm leading-relaxed">Deploy high-performance static and dynamic web apps instantly from 20+ global regions with 99.99% uptime.</p>
                 <div class="flex justify-between items-center">
                     <span class="text-2xl font-black">$9.99 <span class="text-xs text-gray-500">/mo</span></span>
-                    <button onclick="openAuthModal()" class="text-blue-400 font-bold text-xs uppercase tracking-wider hover:underline bg-transparent border-none cursor-pointer">Deploy Now →</button>
+                    <a href="obsidian_hosting_landing.html" class="text-blue-400 font-bold text-xs uppercase tracking-wider hover:underline">Deploy Now →</a>
                 </div>
             </div>
 
@@ -186,8 +218,56 @@
                 <p class="text-gray-400 mb-8 text-sm leading-relaxed">Secure your communications with custom @yourbrand mailboxes backed by zero-knowledge encryption.</p>
                 <div class="flex justify-between items-center">
                     <span class="text-2xl font-black">$1.99 <span class="text-xs text-gray-500">/mo</span></span>
-                    <button onclick="openAuthModal()" class="text-blue-400 font-bold text-xs uppercase tracking-wider hover:underline bg-transparent border-none cursor-pointer">Secure Email →</button>
+                    <a href="obsidian_unified_checkout.html" class="text-blue-400 font-bold text-xs uppercase tracking-wider hover:underline">Secure Email →</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔱 Competitive Matrix -->
+    <section class="py-20 px-12 bg-black/60 border-t border-white/10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black mb-4">Why Founders Switch to Obsidian.city</h2>
+                <p class="text-gray-400 max-w-xl mx-auto">See how our wholesale registrar and global edge pricing crushes traditional tech monopolies.</p>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-white/10 text-xs text-gray-400 uppercase tracking-widest">
+                            <th class="pb-6">Feature</th>
+                            <th class="pb-6 text-blue-400 font-bold">Obsidian.city</th>
+                            <th class="pb-6 text-gray-500">GoDaddy</th>
+                            <th class="pb-6 text-gray-500">Squarespace</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5 text-sm">
+                        <tr>
+                            <td class="py-5 font-bold">Domain Privacy Protection</td>
+                            <td class="py-5 text-emerald-400 font-bold">FREE Forever</td>
+                            <td class="py-5 text-gray-400">$9.99 / yr add-on</td>
+                            <td class="py-5 text-gray-400">Included (Higher base)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 font-bold">Hosting Infrastructure</td>
+                            <td class="py-5 text-emerald-400 font-bold">Global Edge (20+ Regions)</td>
+                            <td class="py-5 text-gray-400">Standard Shared Hosting</td>
+                            <td class="py-5 text-gray-400">Proprietary Cloud</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 font-bold">Professional Email</td>
+                            <td class="py-5 text-emerald-400 font-bold">$1.99 / mo</td>
+                            <td class="py-5 text-gray-400">$6.99 / mo</td>
+                            <td class="py-5 text-gray-400">$7.00 / mo</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 font-bold">Total Annual Cost (Est.)</td>
+                            <td class="py-5 text-2xl font-black text-blue-400">$14.00 / yr</td>
+                            <td class="py-5 text-lg font-bold text-gray-400">$150.00+ / yr</td>
+                            <td class="py-5 text-lg font-bold text-gray-400">$240.00+ / yr</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -198,33 +278,33 @@
             <div>
                 <h4 class="text-white font-bold mb-4">About Obsidian</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#" onclick="openAuthModal(); return false;">City OS</a></li>
-                    <li><a href="#" onclick="openAuthModal(); return false;">Marketplace</a></li>
-                    <li><a href="#" onclick="openAuthModal(); return false;">Master Hub</a></li>
+                    <li><a href="obsidian_city_dashboard.html" class="hover:text-white">City OS</a></li>
+                    <li><a href="obsidian_city_landing.html" class="hover:text-white">Marketplace</a></li>
+                    <li><a href="developer.html" class="hover:text-white">Developer Portal</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Support & Ingress</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#" onclick="openAuthModal(); return false;">Help Center</a></li>
-                    <li><a href="#" onclick="openAuthModal(); return false;">Mesh Status</a></li>
-                    <li><a href="#" onclick="openAuthModal(); return false;">Security Audit</a></li>
+                    <li><a href="obsidian_city_dashboard.html" class="hover:text-white">Help Center</a></li>
+                    <li><a href="obsidian_city_dashboard.html" class="hover:text-white">Mesh Status</a></li>
+                    <li><a href="obsidian_city_dashboard.html" class="hover:text-white">Security Audit</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Resources</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#" onclick="openAuthModal(); return false;">Domain Search</a></li>
-                    <li><a href="#" onclick="openAuthModal(); return false;">Edge Hosting</a></li>
-                    <li><a href="#" onclick="openAuthModal(); return false;">SSL Certificates</a></li>
+                    <li><a href="obsidian_domains.html" class="hover:text-white">Domain Search</a></li>
+                    <li><a href="obsidian_hosting_landing.html" class="hover:text-white">Edge Hosting</a></li>
+                    <li><a href="obsidian_unified_checkout.html" class="hover:text-white">SSL Certificates</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Sovereign Empire</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#" onclick="openAuthModal(); return false;">Affiliates</a></li>
-                    <li><a href="#" onclick="openAuthModal(); return false;">Reseller Program</a></li>
-                    <li><a href="#" onclick="openAuthModal(); return false;">The Oracles</a></li>
+                    <li><a href="obsidian_city_dashboard.html" class="hover:text-white">Affiliates</a></li>
+                    <li><a href="obsidian_city_dashboard.html" class="hover:text-white">Reseller Program</a></li>
+                    <li><a href="developer.html" class="hover:text-white">Developer API</a></li>
                 </ul>
             </div>
         </div>
@@ -241,33 +321,6 @@
             document.getElementById('authModal').style.display = 'none';
         }
 
-        // 🔱 Dynamic Pexels Live Video Background Streamer (St. Charles & Missouri Riverfront Aerials)
-        async function fetchLivePexelsVideo() {
-            const pexelsKey = 'qWDIVVoR27MYlXxWil4roFhwgBTVovgX5GnXqpEtbzHIxj2rNAu1APFd';
-            try {
-                const response = await fetch('https://api.pexels.com/videos/search?query=missouri+river+historic+aerial+drone+4k&per_page=1', {
-                    headers: { Authorization: pexelsKey }
-                });
-                const data = await response.json();
-                if (data.videos && data.videos.length > 0) {
-                    const videoFiles = data.videos[0].video_files;
-                    const bestFile = videoFiles.find(f => f.quality === 'hd') || videoFiles[0];
-                    if (bestFile && bestFile.link) {
-                        const videoEl = document.querySelector('.bg-video-wrap video');
-                        if (videoEl) {
-                            videoEl.src = bestFile.link;
-                            videoEl.load();
-                            videoEl.play().catch(e => console.log('Autoplay active:', e));
-                        }
-                    }
-                }
-            } catch (err) {
-                console.log('Pexels live video stream fallback active:', err);
-            }
-        }
-        window.addEventListener('DOMContentLoaded', fetchLivePexelsVideo);
-
-        // 🔱 Live Wholesale Domain Search Integration
         async function searchDomain() {
             const input = document.querySelector('.domain-input').value.trim();
             if (!input) {
