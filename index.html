@@ -199,16 +199,16 @@
     <!-- 🔱 Sliding Icon Marquee Ticker -->
     <div class="py-6 bg-black/70 border-y border-blue-500/20 overflow-hidden whitespace-nowrap shadow-inner">
         <div class="animate-marquee gap-16 text-blue-400 font-bold text-xs uppercase tracking-widest items-center">
-            <span class="flex items-center gap-2">⚡ Lightning Fast Edge</span>
-            <span class="flex items-center gap-2">🌐 82+ Million Domains Managed</span>
-            <span class="flex items-center gap-2">🛡️ Post-Quantum SSL Security</span>
+            <span class="flex items-center gap-2">⚡ Lightning Fast Global Edge</span>
+            <span class="flex items-center gap-2">⭐ Trustpilot Verified Excellence</span>
+            <span class="flex items-center gap-2">🛡️ Free Lifetime Domain Privacy</span>
             <span class="flex items-center gap-2">🤖 Obsidian Airo™ AI Builder</span>
-            <span class="flex items-center gap-2">💼 Professional M365 Email</span>
-            <span class="flex items-center gap-2">⚡ Lightning Fast Edge</span>
-            <span class="flex items-center gap-2">🌐 82+ Million Domains Managed</span>
-            <span class="flex items-center gap-2">🛡️ Post-Quantum SSL Security</span>
+            <span class="flex items-center gap-2">💼 Secure Business Email</span>
+            <span class="flex items-center gap-2">⚡ Lightning Fast Global Edge</span>
+            <span class="flex items-center gap-2">⭐ Trustpilot Verified Excellence</span>
+            <span class="flex items-center gap-2">🛡️ Free Lifetime Domain Privacy</span>
             <span class="flex items-center gap-2">🤖 Obsidian Airo™ AI Builder</span>
-            <span class="flex items-center gap-2">💼 Professional M365 Email</span>
+            <span class="flex items-center gap-2">💼 Secure Business Email</span>
         </div>
     </div>
 
@@ -435,67 +435,13 @@
             }
         });
 
-        async function searchDomain() {
+        function searchDomain() {
             const input = document.querySelector('.domain-input').value.trim();
             if (!input) {
                 alert('Please enter a domain name or keyword to search.');
                 return;
             }
-            const btn = document.querySelector('.btn-search');
-            btn.innerText = "SEARCHING LIBRARY...";
-
-            let keyword = input.toLowerCase().replace(/[^a-z0-9]/g, '');
-            if (!keyword) keyword = 'mybusiness';
-
-            const tlds = [
-                { tld: '.com', price: 14.70, tag: 'Most Popular' },
-                { tld: '.city', price: 9.99, tag: 'Exclusive' },
-                { tld: '.ai', price: 59.99, tag: 'Trending Tech' },
-                { tld: '.io', price: 19.99, tag: 'Startup Favorite' },
-                { tld: '.net', price: 16.99, tag: 'Classic' },
-                { tld: '.co', price: 11.99, tag: 'Modern Brand' },
-                { tld: '.org', price: 12.99, tag: 'Non-Profit / Trust' }
-            ];
-
-            let resDiv = document.getElementById('searchResults');
-            if (!resDiv) {
-                resDiv = document.createElement('div');
-                resDiv.id = 'searchResults';
-                resDiv.className = 'mt-8 p-8 rounded-3xl bg-white border border-slate-200 text-left max-w-3xl mx-auto shadow-2xl';
-                document.querySelector('.hero').appendChild(resDiv);
-            }
-
-            let html = `
-                <div class="text-xl font-black text-slate-900 mb-2">🔍 Domain Library Results for "${keyword}"</div>
-                <p class="text-xs text-slate-500 mb-6">Willow Rain Company LLC Wholesale Registrar — Instant availability across global registries.</p>
-                <div class="space-y-4">
-            `;
-
-            tlds.forEach(item => {
-                const fullDomain = keyword + item.tld;
-                html += `
-                    <div class="flex justify-between items-center p-4 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-500 transition">
-                        <div>
-                            <div class="flex items-center gap-3">
-                                <span class="text-base font-black text-slate-900">${fullDomain}</span>
-                                <span class="bg-blue-100 text-blue-700 text-[10px] font-bold px-2.5 py-0.5 rounded-full">${item.tag}</span>
-                            </div>
-                            <span class="text-xs text-emerald-600 font-semibold">Available • Free Privacy Protection</span>
-                        </div>
-                        <div class="text-right flex items-center gap-4">
-                            <div>
-                                <div class="text-lg font-black text-slate-900">$${item.price.toFixed(2)}</div>
-                                <div class="text-[10px] text-slate-400">/ yr</div>
-                            </div>
-                            <a href="obsidian_unified_checkout.html?type=domain_${encodeURIComponent(fullDomain)}&price=${item.price}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition shadow-md">Select →</a>
-                        </div>
-                    </div>
-                `;
-            });
-
-            html += `</div>`;
-            resDiv.innerHTML = html;
-            btn.innerText = "SEARCH";
+            window.location.href = `obsidian_domain_results.html?q=${encodeURIComponent(input)}`;
         }
 
         // 🔱 Foolproof Background Video Autoplay Enforcer
