@@ -19,6 +19,10 @@
       "destination": "/obsidian_domains.html"
     },
     {
+      "source": "/search",
+      "destination": "/obsidian_domain_results.html"
+    },
+    {
       "source": "/checkout",
       "destination": "/obsidian_unified_checkout.html"
     },
@@ -53,6 +57,22 @@
     {
       "source": "/compliance",
       "destination": "/compliance.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/obsidian_city_dashboard.html"
+    },
+    {
+      "source": "/help",
+      "destination": "/obsidian_help_center.html"
     }
   ]
 }
