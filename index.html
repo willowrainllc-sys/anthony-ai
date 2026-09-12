@@ -44,7 +44,7 @@
         .hero-video-section {
             position: relative;
             width: 100%;
-            height: 75vh;
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -150,7 +150,7 @@
             margin-top: -60px;
             background: #ffffff;
             border-radius: 40px;
-            padding: 60px;
+            padding: 40px;
             box-shadow: 0 40px 100px rgba(0,0,0,0.1);
             border: 1px solid #e2e8f0;
             max-width: 1000px;
@@ -160,6 +160,12 @@
 
         .mobile-nav { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e2e8f0; padding: 12px 0; display: none; justify-content: space-around; z-index: 100000; box-shadow: 0 -4px 15px rgba(0,0,0,0.05); }
         @media (max-width: 768px) { .mobile-nav { display: flex; } body { padding-bottom: 70px; } }
+
+        #promoModal { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-blur: 8px; z-index: 999999; align-items: center; justify-content: center; }
+        .promo-content { background: #fff; border-radius: 40px; overflow: hidden; max-width: 700px; width: 100%; position: relative; box-shadow: 0 40px 100px rgba(0,0,0,0.3); margin: 20px; }
+        .promo-video-wrap { position: relative; height: 300px; overflow: hidden; }
+        .promo-video-wrap video { width: 100%; height: 100%; object-fit: cover; }
+        .promo-body { padding: 40px; text-align: center; }
     </style>
 </head>
 <body>
@@ -167,29 +173,29 @@
         <div class="base44-top-bar">
             <span>Global Support: <strong>1-800-OBSIDIAN</strong></span>
             <div class="hidden md:flex gap-6">
-                <a href="/domains">Domains</a>
-                <a href="/vps">Hosting</a>
-                <a href="/signin">Sign In</a>
+                <a href="obsidian_domains.html">Domains</a>
+                <a href="obsidian_hosting_landing.html">Hosting</a>
+                <a href="obsidian_signin.html">Sign In</a>
             </div>
         </div>
         <nav class="base44-main-nav">
             <div class="brand">OBSIDIAN<span class="text-blue-600">.CITY</span></div>
             <div class="hidden lg:flex gap-8 font-bold text-sm text-slate-700">
-                <a href="/domains" class="hover:text-blue-600 transition">Domain Names</a>
-                <a href="/vps" class="hover:text-blue-600 transition">Websites & Hosting</a>
-                <a href="/airo" class="hover:text-blue-600 transition">Obsidian Leo™ AI</a>
-                <a href="/developer" class="hover:text-blue-600 transition">API Access</a>
+                <a href="obsidian_domains.html" class="hover:text-blue-600 transition">Domain Names</a>
+                <a href="obsidian_hosting_landing.html" class="hover:text-blue-600 transition">Websites & Hosting</a>
+                <a href="obsidian_leo_builder.html" class="hover:text-blue-600 transition">Obsidian Leo™ AI</a>
+                <a href="developer.html" class="hover:text-blue-600 transition">API Access</a>
             </div>
             <div class="flex gap-4">
-                <a href="/checkout" class="font-bold text-slate-700 mt-2">🛒 Basket</a>
-                <button onclick="location.href='/signin'" class="bg-blue-600 text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg hover:bg-blue-700 transition">Sign In</button>
+                <a href="obsidian_unified_checkout.html" class="font-bold text-slate-700 mt-2">🛒 Basket</a>
+                <button onclick="location.href='obsidian_signin.html'" class="bg-blue-600 text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg hover:bg-blue-700 transition">Sign In</button>
             </div>
         </nav>
         <div class="category-tabs">
-            <a href="/domains" class="active">Search Domains</a>
-            <a href="/vps">Cloud Hosting</a>
-            <a href="/airo">Leo AI Builder</a>
-            <a href="/developer">Wholesale API</a>
+            <a href="obsidian_domains.html" class="active">Search Domains</a>
+            <a href="obsidian_vps_hosting.html">Cloud Hosting</a>
+            <a href="obsidian_leo_builder.html">Leo AI Builder</a>
+            <a href="developer.html">Wholesale API</a>
         </div>
     </header>
 
@@ -223,7 +229,7 @@
             </div>
         </div>
 
-        <div class="py-12 bg-white border-y border-slate-200 overflow-hidden whitespace-nowrap">
+        <div class="py-10 bg-white border-y border-slate-200 overflow-hidden whitespace-nowrap">
             <div class="animate-marquee gap-16 text-slate-400 font-bold text-xs uppercase tracking-widest">
                 <span>⚡ Lightning Fast Global Edge</span>
                 <span>🛡️ Free Lifetime Privacy</span>
@@ -263,62 +269,133 @@
             </div>
         </section>
 
+        <!-- 🔱 Website Templates Showcase -->
+        <section class="py-20 px-12 bg-white border-b border-slate-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-black mb-4 text-slate-900">Templates designed to sell</h2>
+                    <p class="text-slate-600 max-w-xl mx-auto">Choose from stunning designs for every industry, optimized for performance and conversion.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" alt="E-Commerce" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="font-bold text-slate-900 mb-1">E-Commerce Elite</h4>
+                            <a href="obsidian_leo_builder.html" class="text-blue-600 font-bold text-xs hover:underline uppercase tracking-wider">Start Building →</a>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600" alt="Corporate" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="font-bold text-slate-900 mb-1">Corporate & SaaS</h4>
+                            <a href="obsidian_leo_builder.html" class="text-blue-600 font-bold text-xs hover:underline uppercase tracking-wider">Start Building →</a>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600" alt="Agency" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="font-bold text-slate-900 mb-1">Agency & Portfolio</h4>
+                            <a href="obsidian_leo_builder.html" class="text-blue-600 font-bold text-xs hover:underline uppercase tracking-wider">Start Building →</a>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=600" alt="Services" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="font-bold text-slate-900 mb-1">Local Business</h4>
+                            <a href="obsidian_leo_builder.html" class="text-blue-600 font-bold text-xs hover:underline uppercase tracking-wider">Start Building →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <footer>
-            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
                 <div>
-                    <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-[10px]">Company</h4>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Company</h4>
                     <ul class="space-y-2 text-xs">
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/compliance">Compliance</a></li>
-                        <li><a href="/terms">Terms of Service</a></li>
-                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="obsidian_city_dashboard.html">About Us</a></li>
+                        <li><a href="compliance.html">Compliance</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-[10px]">Products</h4>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Products</h4>
                     <ul class="space-y-2 text-xs">
-                        <li><a href="/domains">Domain Search</a></li>
-                        <li><a href="/vps">Cloud Hosting</a></li>
-                        <li><a href="/wordpress">WP Support</a></li>
-                        <li><a href="/airo">Leo AI Builder</a></li>
+                        <li><a href="obsidian_domains.html">Domain Search</a></li>
+                        <li><a href="obsidian_vps_hosting.html">Cloud Hosting</a></li>
+                        <li><a href="obsidian_wordpress_support.html">WP Support</a></li>
+                        <li><a href="obsidian_leo_builder.html">Leo AI Builder</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-[10px]">Support</h4>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Support</h4>
                     <ul class="space-y-2 text-xs">
-                        <li><a href="/help">Help Center</a></li>
-                        <li><a href="/developer">API Docs</a></li>
+                        <li><a href="obsidian_help_center.html">Help Center</a></li>
+                        <li><a href="developer.html">API Docs</a></li>
+                        <li><a href="obsidian_help_center.html">System Status</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-[10px]">Connect</h4>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Connect</h4>
                     <ul class="space-y-2 text-xs">
                         <li><a href="#">X (Twitter)</a></li>
                         <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-slate-800 pt-10 text-center">
-                <p class="text-[10px] uppercase tracking-widest text-slate-500">© 2026 Willow Rain Company LLC (Arkansas). Obsidian City is an Authorized Sovereign Cloud Provider.</p>
+            <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-500">
+                <p>© 2026 Willow Rain Company LLC (Arkansas). Obsidian City is a trademark of Obsidian Cloud Systems.</p>
             </div>
         </footer>
     </main>
 
     <div class="mobile-nav">
-        <a href="/" class="active"><span>🏠</span> Home</a>
-        <a href="/domains"><span>🔍</span> Search</a>
-        <a href="/checkout"><span>🛒</span> Basket</a>
-        <a href="/signin"><span>👤</span> Account</a>
+        <a href="index.html" class="active"><span>🏠</span> Home</a>
+        <a href="obsidian_domains.html"><span>🔍</span> Search</a>
+        <a href="obsidian_unified_checkout.html"><span>🛒</span> Basket</a>
+        <a href="obsidian_signin.html"><span>👤</span> Account</a>
+    </div>
+
+    <!-- 🔱 Promo Modal with 4K Loop Video -->
+    <div id="promoModal">
+        <div class="promo-content">
+            <div class="promo-video-wrap">
+                <video autoplay muted loop playsinline>
+                    <source src="https://player.vimeo.com/external/441221764.hd.mp4?s=c9a0937a1f26f21221f7c8702c89f53e346f9f38&profile_id=175" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-blue-900/40 flex items-center justify-center">
+                    <h3 class="text-4xl font-black text-white px-6 drop-shadow-2xl uppercase italic tracking-tighter">Elite Offer</h3>
+                </div>
+            </div>
+            <div class="promo-body">
+                <button onclick="closePromo()" class="absolute top-4 right-6 text-white text-3xl hover:text-slate-200 transition z-10">&times;</button>
+                <div class="inline-block bg-blue-50 text-blue-600 font-black text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">Verified Wholesale Pricing</div>
+                <h3 class="text-3xl font-black text-slate-900 mb-4 leading-tight">Start Your Empire Today.</h3>
+                <p class="text-slate-500 text-sm mb-8">Get your first .COM domain for just <strong>$0.01</strong> when you lock in a 3-year term. No hidden markups, pure wholesale value.</p>
+                <button onclick="closePromo(); document.getElementById('domainSearch').focus();" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-5 rounded-2xl w-full shadow-xl shadow-blue-600/20 transition-all transform hover:scale-[1.02]">Claim Offer Now</button>
+            </div>
+        </div>
     </div>
 
     <script>
+        function closePromo() { document.getElementById('promoModal').style.display = 'none'; }
+        setTimeout(() => {
+            if(!localStorage.getItem('obsidian_promo_seen')) {
+                document.getElementById('promoModal').style.display = 'flex';
+                localStorage.setItem('obsidian_promo_seen', 'true');
+            }
+        }, 3500);
+
         async function executeLibrarySearch() {
             const input = document.getElementById('domainSearch').value.trim();
             if (!input) return;
             const btn = document.querySelector('.search-btn');
-            btn.innerText = "SEARCHING...";
-
             const library = document.getElementById('searchResultsLibrary');
+
+            btn.innerText = "SEARCHING...";
             library.style.display = 'block';
 
             const keyword = input.toLowerCase().replace(/[^a-z0-9]/g, '') || 'mybrand';
@@ -330,10 +407,10 @@
                 let html = `
                     <div class="flex justify-between items-end mb-12 border-b border-slate-100 pb-8">
                         <div>
-                            <h2 class="text-3xl font-black text-slate-900 tracking-tight">Wholesale Search Results</h2>
-                            <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1">Found ${data.results.length} matched digital assets for "${keyword}"</p>
+                            <h2 class="text-3xl font-black text-slate-900 tracking-tight text-left">Wholesale Search Results</h2>
+                            <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1 text-left">Found ${data.results.length} matched digital assets for "${keyword}"</p>
                         </div>
-                        <button onclick="document.getElementById('searchResultsLibrary').style.display='none'" class="text-[10px] font-black text-slate-400 hover:text-slate-900 uppercase tracking-widest border border-slate-200 px-4 py-2 rounded-full">Close Results &times;</button>
+                        <button onclick="document.getElementById('searchResultsLibrary').style.display='none'" class="text-[10px] font-black text-slate-400 hover:text-slate-900 uppercase tracking-widest border border-slate-200 px-4 py-2 rounded-full transition hover:bg-slate-50">Close Results &times;</button>
                     </div>
                     <div class="space-y-6">
                 `;
@@ -341,7 +418,7 @@
                 data.results.forEach(item => {
                     const isTaken = !item.available;
                     html += `
-                        <div class="flex justify-between items-center p-8 rounded-[32px] ${isTaken ? 'bg-slate-50 border-slate-200' : 'bg-white border-slate-200 shadow-sm'} border hover:border-blue-500 transition-all group">
+                        <div class="flex justify-between items-center p-8 rounded-[32px] ${isTaken ? 'bg-slate-50 border-slate-200 opacity-80' : 'bg-white border-slate-200 shadow-sm'} border hover:border-blue-500 transition-all group">
                             <div class="flex items-center gap-6">
                                 <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center text-2xl shadow-inner">${isTaken ? '🔒' : '🌐'}</div>
                                 <div>
@@ -357,7 +434,7 @@
                                     <div class="text-2xl font-black text-slate-900">$${item.price.toFixed(2)}</div>
                                     <div class="text-[9px] text-slate-400 font-black uppercase tracking-widest">${isTaken ? 'Broker Service Fee' : 'per year'}</div>
                                 </div>
-                                <a href="/checkout?type=domain_${encodeURIComponent(item.domain)}&price=${item.price}" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-5 rounded-2xl text-xs transition shadow-xl shadow-blue-600/20">${isTaken ? 'Hire Broker' : 'Get It →'}</a>
+                                <a href="obsidian_unified_checkout.html?type=domain_${encodeURIComponent(item.domain)}&price=${item.price}" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-5 rounded-2xl text-xs transition shadow-xl shadow-blue-600/20">${isTaken ? 'Hire Broker' : 'Get It →'}</a>
                             </div>
                         </div>
                     `;
@@ -369,7 +446,7 @@
                 library.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } catch (err) {
                 btn.innerText = "SEARCH";
-                alert("Wholesale ingress active. Retrying registry pool handshake.");
+                alert("Wholesale ingress active. Reconnecting to registrar pools.");
             }
         }
     </script>

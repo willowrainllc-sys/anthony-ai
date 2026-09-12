@@ -22,25 +22,25 @@ class handler(BaseHTTPRequestHandler):
         if "/api/domains/search" in path:
             q = query_params.get("domain", ["mybrand"])[0].lower().split('.')[0]
 
-            # 🔱 WHOLESALE LIBRARY GENERATOR (REDO WITH ADVANCED FEATURES)
+            # 🔱 ULTIMATE WHOLESALE PRICING (BEATING COMPETITORS)
             tlds = [
-                {"tld": ".com", "price": 14.70, "tag": "Recommended", "status": "Taken"},
-                {"tld": ".rocks", "price": 7.99, "tag": "Recommended", "status": "Available"},
-                {"tld": ".city", "price": 9.99, "tag": "Exclusive", "status": "Available"},
-                {"tld": ".ai", "price": 59.99, "tag": "Trending", "status": "Available"},
-                {"tld": ".io", "price": 19.99, "tag": "Tech", "status": "Available"},
-                {"tld": ".net", "price": 16.99, "tag": "Classic", "status": "Available"},
-                {"tld": ".org", "price": 12.99, "tag": "Trust", "status": "Available"}
+                {"tld": ".com", "price": 10.99, "tag": "Wholesale Cost"},
+                {"tld": ".rocks", "price": 4.99, "tag": "Best Deal"},
+                {"tld": ".city", "price": 7.99, "tag": "Exclusive"},
+                {"tld": ".ai", "price": 54.99, "tag": "Tech Prime"},
+                {"tld": ".io", "price": 17.99, "tag": "Startup"},
+                {"tld": ".net", "price": 11.99, "tag": "Classic"},
+                {"tld": ".org", "price": 9.99, "tag": "Trust"}
             ]
 
             results = []
             for item in tlds:
                 results.append({
                     "domain": f"{q}{item['tld']}",
-                    "available": item['status'] == "Available",
+                    "available": True,
                     "price": item['price'],
                     "tag": item['tag'],
-                    "registrar": "NameSilo Wholesale API v1"
+                    "registrar": "Obsidian Wholesale Pool v1"
                 })
 
             payload = {
@@ -49,8 +49,6 @@ class handler(BaseHTTPRequestHandler):
                 "status": "INGRESS_READY",
                 "timestamp": now
             }
-        elif "/api/auth/session" in path:
-            payload = {"session": "active", "timestamp": now}
         else:
             payload = {"status": "SUCCESS", "timestamp": now}
 

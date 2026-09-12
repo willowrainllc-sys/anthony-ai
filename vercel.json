@@ -75,6 +75,10 @@
       "destination": "/obsidian_help_center.html"
     },
     {
+      "source": "/status",
+      "destination": "/obsidian_help_center.html"
+    },
+    {
       "source": "/profile",
       "destination": "/obsidian_user_profile.html"
     }

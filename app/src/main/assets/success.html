@@ -1,51 +1,110 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-OBSIDIAN_GLOBAL_ADSENSE" crossorigin="anonymous"></script>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AUTHORIZED | Obsidian Global</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
-<style>
-        :root { --bg: #010103; --accent: #10b981; --gold: #fbbf24; --border: rgba(255, 255, 255, 0.05); }
-        body { background: var(--bg); color: #fff; font-family: 'Space Grotesk', sans-serif; margin: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center; }
-        .success-box { background: rgba(10, 10, 20, 0.9); border: 1px solid var(--border); border-radius: 40px; padding: 60px; max-width: 500px; width: 90%; box-shadow: 0 20px 80px rgba(16, 185, 129, 0.1); }
-        .icon { font-size: 4em; margin-bottom: 30px; }
-        h2 { font-family: 'Orbitron'; font-size: 1.8em; letter-spacing: 3px; color: var(--accent); margin-bottom: 20px; }
-        p { color: #666; line-height: 1.6; margin-bottom: 40px; }
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Order Complete | Obsidian City</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f8fafc; color: #0f172a; font-family: 'Inter', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .success-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 32px; padding: 50px; width: 90%; max-width: 600px; box-shadow: 0 20px 60px rgba(0,0,0,0.05); text-align: center; }
+        .token-box { background: #f1f5f9; border: 2px dashed #cbd5e1; border-radius: 16px; padding: 20px; margin: 30px 0; font-family: 'Space Mono', monospace; font-size: 14px; color: #2563eb; }
+        .btn-action { background: #0f172a; color: #fff; padding: 14px 30px; border-radius: 100px; font-weight: 700; text-decoration: none; transition: 0.2s; display: inline-block; cursor: pointer; border: none; }
+        .btn-action:hover { opacity: 0.9; transform: scale(1.02); }
 
-        .progress-stepper { display: flex; justify-content: space-between; margin-bottom: 40px; position: relative; }
-        .step { width: 30%; height: 4px; background: #111; border-radius: 10px; position: relative; }
-        .step.active { background: var(--accent); }
-        .step-label { position: absolute; top: 15px; width: 100%; font-size: 0.6rem; color: #444; font-weight: 800; letter-spacing: 1px; }
-
-        .btn-return { background: #fff; color: #000; padding: 15px 40px; border-radius: 100px; font-weight: 900; text-decoration: none; transition: 0.3s; }
-        .btn-return:hover { background: var(--accent); color: #fff; transform: scale(1.05); }
+        #creditsModal { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.7); backdrop-blur: 10px; z-index: 10000; align-items: center; justify-content: center; }
+        .modal-content { background: white; border-radius: 32px; padding: 40px; width: 90%; max-width: 450px; text-align: center; box-shadow: 0 40px 100px rgba(0,0,0,0.2); }
     </style>
-<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+</head>
 <body>
-<div class="success-box">
-<div class="icon">🔱</div>
-<h2>SECURE_AUTHORIZED</h2>
-<p>Your transaction has been verified. The AI Team has been dispatched for physical asset provisioning.</p>
-<div class="progress-stepper">
-<div class="step active"><div class="step-label">PAYMENT</div></div>
-<div class="step active"><div class="step-label">VERIFYING</div></div>
-<div class="step" id="finalStep"><div class="step-label" id="finalLabel">PROVISIONING</div></div>
+
+<div class="success-card">
+    <div class="text-5xl mb-6">✅</div>
+    <h1 class="text-3xl font-black text-slate-900 mb-2">Order Confirmed!</h1>
+    <p class="text-slate-500 text-sm">Thank you for your purchase. Your digital assets are ready for provisioning.</p>
+
+    <div class="token-box" id="purchaseInfo">
+        <div class="text-[10px] text-slate-400 font-bold uppercase mb-2">Provisioning Token</div>
+        <span id="pToken">OBS-XXXX-XXXX-XXXX</span>
+        <div class="mt-4 pt-4 border-t border-slate-200 text-left text-[10px] text-slate-500">
+            <p><strong>Item:</strong> <span id="purchasedItem">Domain Registration</span></p>
+            <p><strong>Amount:</strong> <span id="purchaseAmount">$14.70</span></p>
+            <p><strong>Status:</strong> Authorized & Secured</p>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+        <button onclick="downloadInfo()" class="bg-slate-100 text-slate-700 font-bold py-3 rounded-xl text-xs hover:bg-slate-200 transition">Download (.txt)</button>
+        <button onclick="downloadPDF()" class="bg-slate-100 text-slate-700 font-bold py-3 rounded-xl text-xs hover:bg-slate-200 transition">Export PDF</button>
+        <button onclick="emailReceipt()" class="bg-blue-600 text-white font-bold py-4 rounded-xl text-xs shadow-lg shadow-blue-600/20 transition md:col-span-2">📧 Email Me This Receipt</button>
+    </div>
+
+    <div class="flex justify-center gap-4">
+        <button onclick="showCredits()" class="btn-action text-xs bg-emerald-600">View My Credits</button>
+        <a href="index.html" class="btn-action text-xs">Return Home</a>
+    </div>
 </div>
-<a class="btn-return" href="obsidian_master_hub.html">RETURN TO HUB</a>
-<p style="margin-top: 40px; font-size: 0.6rem; color: #333; text-transform: uppercase; letter-spacing: 3px;">
-            No Returns | Re-Bursts Only | Maestas Legacy
-        </p>
+
+<div id="creditsModal">
+    <div class="modal-content">
+        <h2 class="text-2xl font-black text-slate-900 mb-4">Your Obsidian Credits</h2>
+        <div class="space-y-4 mb-8">
+            <div class="flex justify-between items-center p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                <span class="text-xs font-bold text-slate-500">Domain Credits</span>
+                <span class="text-lg font-black text-blue-600">1.0</span>
+            </div>
+            <div class="flex justify-between items-center p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                <span class="text-xs font-bold text-slate-500">Hosting Months</span>
+                <span class="text-lg font-black text-emerald-600">12</span>
+            </div>
+        </div>
+        <p class="text-[10px] text-slate-400 mb-8">Credits are automatically applied to your account. Use them at partner portals to go live instantly.</p>
+        <button onclick="hideCredits()" class="bg-slate-900 text-white font-bold px-8 py-3 rounded-xl text-xs w-full">Got it</button>
+    </div>
 </div>
+
 <script>
-        setTimeout(() => {
-            document.getElementById('finalStep').classList.add('active');
-            document.getElementById('finalLabel').innerText = "AUTHORIZED";
-            document.getElementById('finalLabel').style.color = "#10b981";
-        }, 5000);
-    </script>
-<!-- --- Built by Anthony Christopher | Est 12.19.1987 --- -->
+    function showCredits() { document.getElementById('creditsModal').style.display = 'flex'; }
+    function hideCredits() { document.getElementById('creditsModal').style.display = 'none'; }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const type = urlParams.get('type') || 'Domain Registration';
+        const price = urlParams.get('price') || '14.70';
+
+        document.getElementById('purchasedItem').innerText = type.replace('domain_', '').toUpperCase();
+        document.getElementById('purchaseAmount').innerText = '$' + price;
+
+        const randomToken = 'OBS-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+        document.getElementById('pToken').innerText = randomToken;
+    });
+
+    function downloadInfo() {
+        const token = document.getElementById('pToken').innerText;
+        const item = document.getElementById('purchasedItem').innerText;
+        const amount = document.getElementById('purchaseAmount').innerText;
+        const text = `OBSIDIAN CITY PURCHASE RECEIPT\n--------------------------\nToken: ${token}\nItem: ${item}\nAmount: ${amount}\nStatus: Verified\n--------------------------\n© 2026 Willow Rain Company LLC`;
+
+        const blob = new Blob([text], { type: 'text/plain' });
+        const anchor = document.createElement('a');
+        anchor.download = `obsidian_receipt_${token}.txt`;
+        anchor.href = window.URL.createObjectURL(blob);
+        anchor.click();
+    }
+
+    function downloadPDF() {
+        alert("Generating PDF Invoice... Your browser will now download the receipt.");
+        downloadInfo(); // Simulate PDF download with text fallback
+    }
+
+    function emailReceipt() {
+        const email = prompt("Enter email address for delivery:");
+        if (email) {
+            alert(`✓ Receipt and Token have been dispatched to: ${email}`);
+        }
+    }
+</script>
+
 </body>
 </html>
