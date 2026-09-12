@@ -11,15 +11,15 @@
     <style>
         :root {
             --bg: #030305;
-            --surface: #0a0a0f;
+            --surface: rgba(15, 15, 25, 0.85);
             --accent: #3b82f6;
             --emerald: #10b981;
-            --border: rgba(59, 130, 246, 0.2);
-            --glass: rgba(15, 15, 25, 0.85);
+            --border: rgba(59, 130, 246, 0.25);
+            --glass: rgba(10, 10, 18, 0.88);
         }
         body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
 
-        /* 🔱 Live Video Background */
+        /* 🔱 Live 4K Video Background */
         .bg-video-wrap {
             position: fixed;
             top: 0; left: 0;
@@ -35,12 +35,12 @@
             min-width: 100%; min-height: 100%;
             width: 100vw; height: 100vh;
             object-fit: cover;
-            filter: brightness(0.45) contrast(1.3);
+            filter: brightness(0.5) contrast(1.3);
         }
 
         .base44-top-bar { background: #000; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 10px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 600; color: #9ca3af; position: sticky; top: 0; z-index: 1002; }
-        .base44-main-nav { background: rgba(5, 5, 8, 0.92); backdrop-filter: blur(25px); padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 37px; z-index: 1001; box-shadow: 0 10px 40px rgba(0,0,0,0.8); }
-        .category-tabs { background: rgba(10, 10, 15, 0.9); border-bottom: 1px solid var(--border); padding: 12px 60px; display: flex; gap: 30px; font-size: 13px; font-weight: 700; overflow-x: auto; }
+        .base44-main-nav { background: rgba(5, 5, 10, 0.90); backdrop-filter: blur(25px); padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 37px; z-index: 1001; box-shadow: 0 10px 40px rgba(0,0,0,0.8); }
+        .category-tabs { background: rgba(10, 10, 18, 0.90); border-bottom: 1px solid var(--border); padding: 12px 60px; display: flex; gap: 30px; font-size: 13px; font-weight: 700; overflow-x: auto; }
         .category-tabs a { color: #9ca3af; text-decoration: none; transition: 0.2s; white-space: nowrap; }
         .category-tabs a:hover, .category-tabs a.active { color: #3b82f6; border-bottom: 2px solid #3b82f6; padding-bottom: 4px; text-shadow: 0 0 10px rgba(59,130,246,0.6); }
 
@@ -83,7 +83,7 @@
     </style>
 </head>
 <body>
-    <!-- 🔱 Live Video Background -->
+    <!-- 🔱 Live 4K Video Background -->
     <div class="bg-video-wrap">
         <video autoplay muted loop playsinline>
             <source src="https://player.vimeo.com/external/441221764.hd.mp4?s=c9a0937a1f26f21221f7c8702c89f53e346f9f38&profile_id=175" type="video/mp4">
@@ -91,7 +91,7 @@
     </div>
 
     <!-- 🔱 AdSense Leaderboard Banner Unit -->
-    <div class="max-w-6xl mx-auto px-6 pt-4 text-center">
+    <div class="max-w-6xl mx-auto px-6 pt-4 text-center relative z-10">
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-OBSIDIAN_GLOBAL_ADSENSE"
@@ -142,7 +142,7 @@
         </div>
     </div>
 
-    <!-- 🔱 Main Navigation (Base44 Cyberpunk SaaS Structure) -->
+    <!-- 🔱 Main Navigation -->
     <nav class="base44-main-nav">
         <div class="flex items-center gap-10">
             <div class="brand">OBSIDIAN<span class="text-blue-500">.CITY</span></div>
@@ -166,7 +166,7 @@
         </div>
     </nav>
 
-    <!-- 🔱 Category Sub-Navigation Bar -->
+    <!-- 🔱 Pro Category Sub-Navigation Bar -->
     <div class="category-tabs">
         <a href="#domains" class="active">Domain Names</a>
         <a href="#airo">Obsidian Airo™ AI</a>
@@ -183,7 +183,7 @@
             Global Edge Network Active • 99.99% Enterprise Uptime
         </div>
         <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-4 text-white">Your domain unlocks everything, <br><span class="text-blue-500">get a .com for just $0.01/1st yr.</span></h1>
-        <p class="text-sm text-slate-400 max-w-xl mx-auto mb-8 font-semibold">Save $23 when you lock in a 3/yr term. Includes free domain privacy protection forever.</p>
+        <p class="text-sm text-slate-300 max-w-xl mx-auto mb-8 font-semibold">Save $23 when you lock in a 3/yr term. Includes free domain privacy protection forever.</p>
 
         <div class="search-container">
             <input type="text" class="domain-input" aria-label="Type your domain name" placeholder="Type the domain you want (e.g. mybusiness.com)...">
@@ -200,7 +200,7 @@
     </section>
 
     <!-- 🔱 Sliding Icon Marquee Ticker -->
-    <div class="py-6 bg-black/60 border-y border-blue-500/20 overflow-hidden whitespace-nowrap shadow-inner">
+    <div class="py-6 bg-black/70 border-y border-blue-500/20 overflow-hidden whitespace-nowrap shadow-inner">
         <div class="animate-marquee gap-16 text-blue-400 font-bold text-xs uppercase tracking-widest items-center">
             <span class="flex items-center gap-2">⚡ Lightning Fast Edge</span>
             <span class="flex items-center gap-2">🌐 82+ Million Domains Managed</span>
@@ -216,7 +216,7 @@
     </div>
 
     <!-- 🔱 Core Offerings Banner -->
-    <section class="py-16 px-12 bg-black/40 border-y border-blue-500/20">
+    <section class="py-16 px-12 bg-black/50 border-y border-blue-500/20">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="base44-card">
                 <div class="text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">Domain Names</div>
@@ -235,18 +235,6 @@
                 <h3 class="text-2xl font-black text-white mb-3">Obsidian Airo™ AI Builder</h3>
                 <p class="text-slate-400 text-xs mb-6 leading-relaxed">Get your website up fast. Describe it, and Obsidian Airo AI Builder creates it in minutes.</p>
                 <a href="obsidian_hosting_landing.html" class="text-blue-400 font-bold text-xs hover:underline">Start for Free →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 🔱 Mobile App & APK Download Section -->
-    <section class="py-16 px-12 bg-gradient-to-r from-blue-900/40 to-black border-y border-blue-500/30 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-black text-white mb-3">Take Obsidian City on the Go</h2>
-            <p class="text-slate-300 text-xs mb-8">Download our native Android app APK or install the mobile-optimized web app bundle directly to your device.</p>
-            <div class="flex justify-center gap-4 flex-wrap">
-                <a href="downloads/obsidian_edge_app.apk" download class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-3.5 rounded-xl text-xs transition shadow-lg shadow-blue-500/30">📥 Download Android APK</a>
-                <a href="obsidian_edge_root/" download class="bg-black/80 hover:bg-black text-white border border-blue-500/40 font-bold px-8 py-3.5 rounded-xl text-xs transition">📦 Download Web Folder Bundle</a>
             </div>
         </div>
     </section>
@@ -365,7 +353,7 @@
         </div>
     </section>
 
-    <!-- 🔱 Massive GoDaddy-Style Footer Directory -->
+    <!-- 🔱 Massive GoDaddy Style Footer Directory -->
     <footer>
         <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
             <div>
