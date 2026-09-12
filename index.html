@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* 🔱 Global Scroll & Layout Reset */
         html { scroll-behavior: smooth; }
         body {
             margin: 0;
@@ -46,6 +47,7 @@
             z-index: 999999 !important;
             background-color: #ffffff !important;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+            transform: none !important;
         }
         .base44-top-bar { background: #0f172a; border-bottom: 1px solid #1e293b; padding: 10px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 600; color: #94a3b8; }
         .base44-main-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(25px); padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; }
@@ -54,7 +56,7 @@
         .category-tabs a:hover, .category-tabs a.active { color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 4px; }
         .brand { font-weight: 900; font-size: 1.8rem; letter-spacing: -1.5px; color: #0f172a; }
 
-        /* 🔱 4K Video Background Hero */
+        /* 🔱 4K St. Charles Video Hero */
         .hero-video-section {
             position: relative;
             width: 100%;
@@ -80,6 +82,7 @@
         .hero-inner { position: relative; z-index: 3; text-align: center; max-width: 900px; padding: 0 20px; }
         .hero-inner h1 { color: #ffffff; font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; text-shadow: 0 2px 8px rgba(0,0,0,0.4); line-height: 1.1; }
         .hero-inner h1 span { color: #60a5fa; }
+
         .search-box-wrapper { background: #fff; padding: 8px; border-radius: 50px; display: flex; box-shadow: 0 20px 50px rgba(0,0,0,0.3); max-width: 700px; margin: 0 auto; }
         .search-box-wrapper input { flex: 1; border: none; background: transparent; padding: 15px 30px; font-size: 1.1rem; outline: none; color: #0f172a; font-weight: 600; }
         .search-btn { background: #2563eb; color: white; border: none; padding: 15px 40px; border-radius: 40px; font-weight: 800; cursor: pointer; transition: 0.2s; text-transform: uppercase; }
@@ -99,6 +102,7 @@
         footer a { color: #cbd5e1; text-decoration: none; }
         footer a:hover { color: #ffffff; }
 
+        /* 🔱 Search Results Library */
         #searchResultsLibrary {
             display: none;
             position: relative;
@@ -127,6 +131,7 @@
     </style>
 </head>
 <body>
+    <!-- 🔱 Splash Screen -->
     <div id="splashScreen">
         <div class="splash-logo">OBSIDIAN<span class="text-blue-500">.CITY</span></div>
         <div class="text-[10px] text-slate-500 font-bold uppercase tracking-[4px] mt-4">Authorized Wholesale Registrar</div>
@@ -140,7 +145,7 @@
             <span>Global Support: <strong>1-800-OBSIDIAN</strong></span>
             <div class="hidden md:flex gap-6">
                 <a href="obsidian_domains.html">Domains</a>
-                <a href="obsidian_vps_hosting.html">Hosting</a>
+                <a href="obsidian_hosting_landing.html">Hosting</a>
                 <a href="obsidian_signin.html">Sign In</a>
             </div>
         </div>
@@ -168,8 +173,8 @@
     <main>
         <section class="hero-video-section">
             <video autoplay muted loop playsinline class="bg-video">
+                <!-- 🔱 St. Charles Aerial Loop -->
                 <source src="https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175" type="video/mp4">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-city-traffic-at-night-11-large.mp4" type="video/mp4">
             </video>
             <div class="video-overlay"></div>
             <div class="hero-inner">
@@ -188,8 +193,11 @@
             </div>
         </section>
 
+        <!-- 🔱 Search Results Library -->
         <div class="max-w-7xl mx-auto px-6">
-            <div id="searchResultsLibrary"></div>
+            <div id="searchResultsLibrary">
+                <!-- Injected via JS -->
+            </div>
         </div>
 
         <div class="py-10 bg-white border-y border-slate-200 overflow-hidden whitespace-nowrap">
@@ -232,49 +240,10 @@
             </div>
         </section>
 
-        <section class="py-20 px-12 bg-white">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-5xl font-black mb-4 text-slate-900">Templates designed to sell</h2>
-                    <p class="text-slate-600 max-w-xl mx-auto">Choose from stunning designs for every industry, optimized for speed.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                    <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" alt="E-Commerce" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="font-bold text-slate-900 mb-1">E-Commerce Elite</h4>
-                            <a href="obsidian_leo_builder.html" class="text-blue-600 font-bold text-xs hover:underline uppercase tracking-wider">Start Building →</a>
-                        </div>
-                    </div>
-                    <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600" alt="Corporate" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="font-bold text-slate-900 mb-1">Corporate & SaaS</h4>
-                            <a href="obsidian_leo_builder.html" class="text-blue-600 font-bold text-xs hover:underline uppercase tracking-wider">Start Building →</a>
-                        </div>
-                    </div>
-                    <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600" alt="Agency" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="font-bold text-slate-900 mb-1">Agency & Portfolio</h4>
-                            <a href="obsidian_leo_builder.html" class="text-blue-600 font-bold text-xs hover:underline uppercase tracking-wider">Start Building →</a>
-                        </div>
-                    </div>
-                    <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=600" alt="Services" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="font-bold text-slate-900 mb-1">Local Business</h4>
-                            <a href="obsidian_leo_builder.html" class="text-blue-600 font-bold text-xs hover:underline uppercase tracking-wider">Start Building →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <footer>
             <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
                 <div>
-                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Company</h4>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Registry</h4>
                     <ul class="space-y-2 text-xs">
                         <li><a href="obsidian_city_dashboard.html">About Us</a></li>
                         <li><a href="compliance.html">Compliance</a></li>
@@ -283,7 +252,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Products</h4>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Cloud</h4>
                     <ul class="space-y-2 text-xs">
                         <li><a href="obsidian_domains.html">Domain Search</a></li>
                         <li><a href="obsidian_vps_hosting.html">Cloud Hosting</a></li>
@@ -300,9 +269,9 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Connect</h4>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Network</h4>
                     <ul class="space-y-2 text-xs">
-                        <li><a href="#">X / Twitter</a></li>
+                        <li><a href="#">X (Twitter)</a></li>
                         <li><a href="#">GitHub</a></li>
                     </ul>
                 </div>
@@ -326,7 +295,6 @@
             <div class="promo-video-wrap">
                 <video autoplay muted loop playsinline>
                     <source src="https://player.vimeo.com/external/441221764.hd.mp4?s=c9a0937a1f26f21221f7c8702c89f53e346f9f38&profile_id=175" type="video/mp4">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-hand-holding-a-smartphone-at-night-with-city-lights-34444-large.mp4" type="video/mp4">
                 </video>
                 <div class="absolute inset-0 bg-blue-900/40 flex items-center justify-center">
                     <h3 class="text-4xl font-black text-white px-6 drop-shadow-2xl uppercase italic tracking-tighter">Elite Offer</h3>
@@ -383,40 +351,33 @@
             const keyword = input.toLowerCase().replace(/[^a-z0-9]/g, '') || 'mybrand';
 
             try {
-                // 🔱 FAIL-SAFE CLIENT SIDE LIBRARY GENERATOR
-                const tlds = [
-                    {"tld": ".com", "price": 10.99, "tag": "Wholesale Cost"},
-                    {"tld": ".rocks", "price": 4.99, "tag": "Best Deal"},
-                    {"tld": ".city", "price": 7.99, "tag": "Exclusive"},
-                    {"tld": ".ai", "price": 54.99, "tag": "Tech Prime"},
-                    {"tld": ".io", "price": 17.99, "tag": "Startup"},
-                    {"tld": ".net", "price": 11.99, "tag": "Classic"},
-                    {"tld": ".org", "price": 9.99, "tag": "Trust"}
-                ];
+                // 🔱 REAL WHOLESALE API CONNECTION
+                const resp = await fetch(`/api/domains/search?domain=${encodeURIComponent(keyword)}`);
+                const data = await resp.json();
 
                 let html = `
                     <div class="flex justify-between items-end mb-12 border-b border-slate-100 pb-8">
                         <div>
                             <h2 class="text-3xl font-black text-slate-900 tracking-tight text-left">Wholesale Search Results</h2>
-                            <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1 text-left">Found ${tlds.length} matched digital assets for "${keyword}"</p>
+                            <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1 text-left">Found ${data.results.length} matched digital assets for "${keyword}"</p>
                         </div>
                         <button onclick="document.getElementById('searchResultsLibrary').style.display='none'" class="text-[10px] font-black text-slate-400 hover:text-slate-900 uppercase tracking-widest border border-slate-200 px-4 py-2 rounded-full transition hover:bg-slate-50">Close Results &times;</button>
                     </div>
                     <div class="space-y-6">
                 `;
 
-                tlds.forEach(item => {
-                    const fullDomain = keyword + item.tld;
+                data.results.forEach(item => {
+                    const isTaken = !item.available;
                     html += `
                         <div class="flex justify-between items-center p-8 rounded-[32px] bg-white border border-slate-200 shadow-sm border hover:border-blue-500 transition-all group">
                             <div class="flex items-center gap-6">
                                 <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center text-2xl shadow-inner">🌐</div>
                                 <div>
                                     <div class="flex items-center gap-3">
-                                        <span class="text-xl font-black text-slate-900">${fullDomain}</span>
+                                        <span class="text-xl font-black text-slate-900">${item.domain}</span>
                                         <span class="bg-blue-50 text-blue-600 text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full border border-blue-100">${item.tag}</span>
                                     </div>
-                                    <span class="text-[10px] text-emerald-600 font-black uppercase tracking-widest mt-1 block">● Available • Free Privacy Protection</span>
+                                    <span class="text-[10px] text-emerald-600 font-black uppercase tracking-widest mt-1 block">● ${isTaken ? 'Taken • Broker Service Available' : 'Available • Free Privacy Protection'}</span>
                                 </div>
                             </div>
                             <div class="text-right flex items-center gap-10">
@@ -424,7 +385,7 @@
                                     <div class="text-2xl font-black text-slate-900">$${item.price.toFixed(2)}</div>
                                     <div class="text-[9px] text-slate-400 font-black uppercase tracking-widest">per year</div>
                                 </div>
-                                <a href="obsidian_unified_checkout.html?type=domain_${encodeURIComponent(fullDomain)}&price=${item.price}" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-5 rounded-2xl text-xs transition shadow-xl shadow-blue-600/20">Get It →</a>
+                                <a href="obsidian_unified_checkout.html?type=domain_${encodeURIComponent(item.domain)}&price=${item.price}" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-5 rounded-2xl text-xs transition shadow-xl shadow-blue-600/20">${isTaken ? 'Hire Broker' : 'Get It →'}</a>
                             </div>
                         </div>
                     `;
