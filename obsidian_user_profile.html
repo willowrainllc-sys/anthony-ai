@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>My Profile | Obsidian City</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f8fafc; color: #0f172a; font-family: 'Inter', sans-serif; margin: 0; }
+        .nav-header { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .profile-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 24px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+    </style>
+</head>
+<body>
+    <!-- 🔱 Navigation Header -->
+    <nav class="nav-header">
+        <div class="flex items-center gap-10">
+            <a href="index.html" class="font-black text-2xl tracking-tighter text-slate-900">OBSIDIAN<span class="text-blue-600">.CITY</span></a>
+        </div>
+        <div class="flex items-center gap-6 text-sm font-bold text-slate-600">
+            <a href="obsidian_city_dashboard.html" class="hover:text-blue-600">Dashboard</a>
+            <a href="obsidian_help_center.html" class="hover:text-blue-600">Help Center</a>
+            <button onclick="handleLogout()" class="bg-slate-100 text-slate-700 px-5 py-2 rounded-xl font-bold text-xs transition">Log Out</button>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto px-6 py-16">
+        <div class="profile-card">
+            <div class="flex items-center gap-6 mb-10">
+                <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center text-white text-3xl font-black shadow-lg">
+                    <span id="initials">U</span>
+                </div>
+                <div>
+                    <h1 class="text-3xl font-black text-slate-900 mb-1" id="userName">Authorized User</h1>
+                    <p class="text-slate-500 text-sm font-medium" id="userEmailDisplay">user@example.com</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 border-t border-slate-100 pt-10">
+                <div>
+                    <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-6">Security & Login</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Primary Email</label>
+                            <p class="text-sm font-bold text-slate-900" id="detailEmail">user@example.com</p>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Two-Factor Auth</label>
+                            <span class="bg-emerald-100 text-emerald-700 text-[10px] font-black px-2.5 py-1 rounded-full uppercase">Enabled (Email OTP)</span>
+                        </div>
+                        <button onclick="alert('Session security reset triggered.')" class="text-blue-600 font-bold text-xs hover:underline">Change Password or Security Keys →</button>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-6">Subscription & Tier</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Wholesale Tier</label>
+                            <p class="text-sm font-bold text-slate-900">Tier 1 Elite Business</p>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Payment Status</label>
+                            <p class="text-sm font-bold text-slate-900">Current (Auto-Renew Active)</p>
+                        </div>
+                        <a href="obsidian_unified_checkout.html" class="text-blue-600 font-bold text-xs hover:underline">Manage Billing & Payment Methods →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const email = localStorage.getItem('obsidian_email') || 'user@example.com';
+            document.getElementById('userEmailDisplay').innerText = email;
+            document.getElementById('detailEmail').innerText = email;
+            document.getElementById('initials').innerText = email.charAt(0).toUpperCase();
+
+            const name = email.split('@')[0];
+            document.getElementById('userName').innerText = name.charAt(0).toUpperCase() + name.slice(1);
+        });
+
+        function handleLogout() {
+            localStorage.removeItem('obsidian_session');
+            localStorage.removeItem('obsidian_email');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

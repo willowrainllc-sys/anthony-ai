@@ -1,3 +1,4 @@
+# --- Built by Anthony Christopher | Est 12.19.1987 ---
 # --- VERCEL SERVERLESS API GATEWAY FOR OBSIDIAN CITY ---
 import time
 import json
@@ -19,61 +20,39 @@ class handler(BaseHTTPRequestHandler):
         query_params = urllib.parse.parse_qs(parsed_path.query)
 
         if "/api/domains/search" in path:
-            domain_query = query_params.get("domain", ["example.com"])[0].lower()
-            # Wholesale pricing logic (NameSilo wholesale + 40% margin)
-            wholesale_price = 10.50
-            retail_price = 14.70 if domain_query.endswith(".com") else 19.99
-            payload = {
-                "domain": domain_query,
-                "available": True,
-                "price": retail_price,
-                "wholesale_cost": wholesale_price,
-                "registrar": "NameSilo Wholesale API v1",
-                "status": "INGRESS_READY"
-            }
-        elif "/news/brief" in path:
-            payload = {
-                "status": "success",
-                "headline": "DAILY INTEL: Obsidian City Marketplace Live",
-                "brief": "Industrial-grade consumer ecosystem active. Deploy your identity on the global grid instantly.",
-                "persona": "Obsidian City Director"
-            }
-        elif "/dashboard" in path:
-            payload = [
-                {
-                    "title": "🔥 TODAY'S TRENDING INVESTIGATIONS",
-                    "videos": [
-                        {
-                            "title": "The Awakening: Initial Discovery in Sci-Fi",
-                            "views": "142K views",
-                            "posted": "Just Now",
-                            "thumbnail": "https://images.unsplash.com/photo-1506318137071-a8e063b4b4bf?q=80&w=600",
-                            "video_url": "https://youtube.com/shorts/KdgJYtiCvLQ"
-                        },
-                        {
-                            "title": "A Military Pilot Locked Radar onto a Metallic Sphere Moving at Mach 4",
-                            "views": "289K views",
-                            "posted": "10m ago",
-                            "thumbnail": "https://images.unsplash.com/photo-1545143333-14387679366a?q=80&w=600",
-                            "video_url": "https://youtube.com/shorts/Ii2TM2-Q1f0"
-                        }
-                    ]
-                }
+            q = query_params.get("domain", ["mybrand"])[0].lower().split('.')[0]
+
+            # 🔱 WHOLESALE LIBRARY GENERATOR (REDO WITH ADVANCED FEATURES)
+            tlds = [
+                {"tld": ".com", "price": 14.70, "tag": "Recommended", "status": "Taken"},
+                {"tld": ".rocks", "price": 7.99, "tag": "Recommended", "status": "Available"},
+                {"tld": ".city", "price": 9.99, "tag": "Exclusive", "status": "Available"},
+                {"tld": ".ai", "price": 59.99, "tag": "Trending", "status": "Available"},
+                {"tld": ".io", "price": 19.99, "tag": "Tech", "status": "Available"},
+                {"tld": ".net", "price": 16.99, "tag": "Classic", "status": "Available"},
+                {"tld": ".org", "price": 12.99, "tag": "Trust", "status": "Available"}
             ]
-        else:
+
+            results = []
+            for item in tlds:
+                results.append({
+                    "domain": f"{q}{item['tld']}",
+                    "available": item['status'] == "Available",
+                    "price": item['price'],
+                    "tag": item['tag'],
+                    "registrar": "NameSilo Wholesale API v1"
+                })
+
             payload = {
-                "temporal": {"status": "QUANTUM_LOCK", "drift": 0.0012},
-                "queue": {"pending_tasks": 0, "active_jobs": 1},
-                "last_burst": {"node": "YOUTUBE", "time": now - 120},
-                "missions": [
-                    {"title": "QUANTUM GRID SYNCHRONIZED", "channel": "YOUTUBE", "priority": 90}
-                ],
-                "crypto_bets": [
-                    {"asset": "BTC/USD", "amount": round(64250.00 + random.uniform(-150, 250), 2), "timestamp": now},
-                    {"asset": "ETH/USD", "amount": round(3480.00 + random.uniform(-20, 30), 2), "timestamp": now}
-                ],
+                "query": q,
+                "results": results,
+                "status": "INGRESS_READY",
                 "timestamp": now
             }
+        elif "/api/auth/session" in path:
+            payload = {"session": "active", "timestamp": now}
+        else:
+            payload = {"status": "SUCCESS", "timestamp": now}
 
         self.wfile.write(json.dumps(payload).encode('utf-8'))
 
@@ -89,14 +68,12 @@ class handler(BaseHTTPRequestHandler):
         path = self.path
 
         if "/api/auth/signin" in path:
-            email = payload.get("email", "director@obsidian.city")
+            email = payload.get("email", "user@example.com")
             session_id = f"sess_{int(time.time())}_{random.randint(1000,9999)}"
-            response = {"success": True, "session_id": session_id, "email": email, "message": "Session authorized and saved."}
-        elif "/api/domains/register" in path:
-            response = {"success": True, "message": f"Identity [{payload.get('domain')}] secured via NameSilo wholesale gateway."}
+            response = {"success": True, "session_id": session_id, "email": email}
         elif "/api/settle/authorize" in path:
-            response = {"success": True, "status": "AUTHORIZED_PULSE", "txid": "TX-VERCEL-EDGE"}
+            response = {"success": True, "status": "AUTHORIZED", "txid": f"TX-{int(time.time())}"}
         else:
-            response = {"status": "SUCCESS", "message": "Pulse received."}
+            response = {"status": "SUCCESS"}
 
         self.wfile.write(json.dumps(response).encode('utf-8'))
