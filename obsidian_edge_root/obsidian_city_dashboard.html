@@ -11,7 +11,7 @@
     <script>
         // 🔱 Strict Frontend Route Guard
         if (!localStorage.getItem('obsidian_session')) {
-            window.location.href = 'obsidian_signin.html';
+            window.location.href = 'signin';
         }
     </script>
     <style>
@@ -29,7 +29,7 @@
         </div>
         <div class="flex items-center gap-6 text-sm font-bold text-slate-600">
             <a href="index.html" class="hover:text-blue-600">Storefront</a>
-            <a href="obsidian_unified_checkout.html" class="hover:text-blue-600">Billing</a>
+            <a href="checkout" class="hover:text-blue-600">Billing</a>
             <a href="index.html" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl text-xs transition shadow-md">Exit to Home</a>
         </div>
     </nav>
@@ -69,7 +69,7 @@
         <div class="dashboard-card mb-12">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-xl font-bold text-slate-900">Your Products & Services</h2>
-                <a href="obsidian_domains.html" class="text-blue-600 hover:underline text-xs font-bold uppercase tracking-wider">+ Register New Domain</a>
+                <a href="domains" class="text-blue-600 hover:underline text-xs font-bold uppercase tracking-wider">+ Register New Domain</a>
             </div>
 
             <div class="overflow-x-auto">
@@ -115,12 +115,12 @@
                 <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
                     <h4 class="font-bold text-slate-900 mb-1">Domain Transfer Guide</h4>
                     <p class="text-slate-500 text-xs mb-4">How to transfer existing domains to Obsidian City.</p>
-                    <a href="obsidian_domains.html" class="text-blue-600 font-bold text-xs hover:underline">Read Guide →</a>
+                    <a href="domains" class="text-blue-600 font-bold text-xs hover:underline">Read Guide →</a>
                 </div>
                 <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
                     <h4 class="font-bold text-slate-900 mb-1">SSL & Security Setup</h4>
                     <p class="text-slate-500 text-xs mb-4">Enabling post-quantum SSL certificates.</p>
-                    <a href="obsidian_unified_checkout.html" class="text-blue-600 font-bold text-xs hover:underline">Learn More →</a>
+                    <a href="checkout" class="text-blue-600 font-bold text-xs hover:underline">Learn More →</a>
                 </div>
                 <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
                     <h4 class="font-bold text-slate-900 mb-1">Contact Support</h4>
