@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val mainViewModel: MainViewModel = viewModel()
-            var currentScreen by remember { mutableStateOf("splash") }
+            var currentScreen by remember { mutableStateOf("voyager") }
             
             // --- BACKEND SERVICES ---
             val currentContext = this@MainActivity
@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
             }
             val tts = remember { TtsManager(currentContext) }
             
-            var browserUrl by remember { mutableStateOf("https://obsidian.city") }
+            var browserUrl by remember { mutableStateOf("file:///android_asset/index.html") }
             
             voiceRecognizerManager = vrm
             ttsManager = tts
@@ -69,10 +69,10 @@ class MainActivity : ComponentActivity() {
             Obsidian_GlobalTheme {
                 when (currentScreen) {
                     "splash" -> {
-                        ObsidianSplashScreen { currentScreen = "cloak" }
+                        ObsidianSplashScreen { currentScreen = "feed" }
                     }
                     "cloak" -> {
-                        CloakedClockScreen(onUnlock = { currentScreen = "login" }) {
+                        CloakedClockScreen(onUnlock = { currentScreen = "feed" }) {
                             currentScreen = "feed"
                         }
                     }
