@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OBSIDIAN OBSIDIAN_TITAN | Global Browser | Anthony Christopher</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        :root { --bg: #000; --accent: #3b82f6; --text: #fff; --border: #222; --gold: #fbbf24; }
+        body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Space Mono', monospace; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+        /* 🔱 Browser Chrome: Industrial Style */
+        .browser-header { background: #111; padding: 12px 25px; display: flex; align-items: center; border-bottom: 1px solid var(--border); gap: 20px; }
+        .controls { display: flex; gap: 10px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+
+        .address-bar { flex: 1; background: #000; border: 1px solid #333; border-radius: 30px; padding: 8px 25px; display: flex; align-items: center; gap: 15px; }
+        .address-input { background: transparent; border: none; color: #fff; width: 100%; outline: none; font-size: 0.9em; }
+        .lock-icon { color: #10b981; font-size: 14px; }
+
+        /* 🔱 Navigation Buttons */
+        .btn-nav { color: #555; cursor: pointer; font-size: 1.2em; transition: 0.2s; }
+        .btn-nav:hover { color: #fff; }
+
+        /* 🔱 Viewport Area */
+        .viewport { flex: 1; position: relative; background: #fff; }
+        iframe { width: 100%; height: 100%; border: none; }
+
+        /* 🔱 Global HUD Ticker */
+        .Global-hud {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            background: rgba(0,0,0,0.9);
+            color: var(--gold);
+            padding: 8px 30px;
+            font-family: 'Orbitron';
+            font-size: 10px;
+            z-index: 1000;
+            border-top: 1px solid var(--gold);
+            display: flex;
+            justify-content: space-between;
+            letter-spacing: 3px;
+            pointer-events: none;
+        }
+
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+<div class="browser-header">
+<div class="controls">
+<div class="dot red"></div>
+<div class="dot yellow"></div>
+<div class="dot green"></div>
+</div>
+<div class="flex gap-4">
+<span class="btn-nav" onclick="history.back()">⟵</span>
+<span class="btn-nav" onclick="history.forward()">⟶</span>
+<span class="btn-nav" onclick="location.reload()">↻</span>
+</div>
+<div class="address-bar">
+<span class="lock-icon">🔒</span>
+<input class="address-input" id="urlInput" onkeydown="if(event.key==='Enter') navigate()" type="text" value="https://obsidian-global.io"/>
+</div>
+<div class="orbitron text-[10px] text-blue-500 font-black tracking-widest">OBSIDIAN_TITAN_v1.2</div>
+</div>
+<div class="viewport">
+<iframe id="webFrame" src="index.html"></iframe>
+<div class="Global-hud">
+<span>OBSIDIAN_TITAN_ACTIVE | REAL_WORLD_INGRESS</span>
+<span>GRID_NODES: GRID_SECURED</span>
+<span>BY ANTHONY CHRISTOPHER</span>
+</div>
+</div>
+<script>
+        // --- Built by Anthony Christopher | Est 12.19.1987 ---
+        const frame = document.getElementById('webFrame');
+        const input = document.getElementById('urlInput');
+
+        function navigate() {
+            let url = input.value.trim();
+            if (!url.startsWith('http')) {
+                url = 'https://' + url;
+            }
+            frame.src = url;
+            input.value = url;
+        }
+
+        // Handle parameters from the grid
+        const params = new URLSearchParams(window.location.search);
+        const target = params.get('url');
+        if (target) {
+            input.value = target;
+            navigate();
+        }
+    </script>
+</body>
+</html>

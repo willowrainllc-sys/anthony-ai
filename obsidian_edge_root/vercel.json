@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.py"
+    },
+    {
+      "source": "/dashboard",
+      "destination": "/obsidian_city_dashboard.html"
+    },
+    {
+      "source": "/marketplace",
+      "destination": "/obsidian_city_landing.html"
+    },
+    {
+      "source": "/domains",
+      "destination": "/obsidian_domains.html"
+    },
+    {
+      "source": "/checkout",
+      "destination": "/obsidian_unified_checkout.html"
+    }
+  ]
+}

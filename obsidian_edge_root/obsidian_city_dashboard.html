@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dashboard | Obsidian City Domain & Hosting Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg: #050505;
+            --surface: #0f0f0f;
+            --accent: #3b82f6;
+            --border: rgba(255, 255, 255, 0.08);
+            --glass: rgba(20, 20, 25, 0.85);
+        }
+        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
+        .glass-card { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 20px; }
+        nav { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); background: #050505; }
+        .brand { font-weight: 900; font-size: 1.4rem; letter-spacing: -1px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="brand">OBSIDIAN<span class="text-blue-500">.CITY</span> // ACCOUNT MANAGER</div>
+        <div class="flex items-center gap-6">
+            <a href="index.html" class="text-sm font-semibold text-gray-400 hover:text-white">Storefront</a>
+            <a href="obsidian_unified_checkout.html" class="text-sm font-semibold text-gray-400 hover:text-white">Billing</a>
+            <button onclick="window.location.href='index.html'" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-xl text-xs font-bold transition">Exit to Home</button>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="mb-10">
+            <h1 class="text-3xl font-black mb-2">Welcome back, Director</h1>
+            <p class="text-gray-400 text-sm">Manage your registered domains, active websites, professional email, and cloud hosting nodes.</p>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+            <div class="glass-card p-6">
+                <div class="text-xs text-gray-400 uppercase tracking-widest mb-2">Active Domains</div>
+                <div class="text-2xl font-black text-blue-400">obsidian.city</div>
+                <div class="text-[10px] text-emerald-400 mt-2">● DNS Active & Secured</div>
+            </div>
+            <div class="glass-card p-6">
+                <div class="text-xs text-gray-400 uppercase tracking-widest mb-2">Active Websites</div>
+                <div class="text-2xl font-black">1 Deployed</div>
+                <div class="text-[10px] text-emerald-400 mt-2">● Vercel Edge Live</div>
+            </div>
+            <div class="glass-card p-6">
+                <div class="text-xs text-gray-400 uppercase tracking-widest mb-2">Professional Email</div>
+                <div class="text-2xl font-black">admin@obsidian.city</div>
+                <div class="text-[10px] text-emerald-400 mt-2">● Secure IMAP/SMTP</div>
+            </div>
+            <div class="glass-card p-6">
+                <div class="text-xs text-gray-400 uppercase tracking-widest mb-2">Account Balance</div>
+                <div class="text-2xl font-black">$0.00</div>
+                <div class="text-[10px] text-gray-400 mt-2">Wholesale Tier 1</div>
+            </div>
+        </div>
+
+        <!-- Domain & Hosting Management Section -->
+        <div class="glass-card p-8 mb-8">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-bold">Your Products & Services</h2>
+                <a href="obsidian_domains.html" class="text-blue-400 hover:underline text-xs font-bold uppercase tracking-wider">+ Register New Domain</a>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-white/10 text-xs text-gray-400 uppercase">
+                            <th class="pb-4">Product / Domain</th>
+                            <th class="pb-4">Type</th>
+                            <th class="pb-4">Status</th>
+                            <th class="pb-4">Renewal Date</th>
+                            <th class="pb-4 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5 text-sm">
+                        <tr>
+                            <td class="py-4 font-bold">obsidian.city</td>
+                            <td class="py-4 text-gray-400">Domain Name</td>
+                            <td class="py-4"><span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-xs font-bold">Active</span></td>
+                            <td class="py-4 text-gray-400">2027-09-12</td>
+                            <td class="py-4 text-right">
+                                <button onclick="alert('DNS settings managed via Cloudflare / Vercel Edge.')" class="text-blue-400 hover:underline font-semibold text-xs">Manage DNS</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 font-bold">Obsidian Edge Hosting (Vercel)</td>
+                            <td class="py-4 text-gray-400">Web Hosting</td>
+                            <td class="py-4"><span class="bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full text-xs font-bold">Live</span></td>
+                            <td class="py-4 text-gray-400">Auto-Renew</td>
+                            <td class="py-4 text-right">
+                                <a href="https://vercel.com" target="_blank" class="text-blue-400 hover:underline font-semibold text-xs">View Deployment</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

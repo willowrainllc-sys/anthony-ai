@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IO FACTORY | Industrial TLD Registry | Obsidian Global</title>
+<meta content="IO Factory: The premier industrial-grade registry for .io and sovereign TLDs. Instant provisioning and high-aura identity management. Built by Anthony Christopher." name="description"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Inter:wght@400;600;800&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        :root {
+            --bg: #050505;
+            --accent: #3b82f6;
+            --border: rgba(255, 255, 255, 0.08);
+            --surface: #0a0a0a;
+        }
+        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 40px; }
+        .factory-container { max-width: 1200px; margin: 0 auto; }
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        .stat-card { background: var(--surface); border: 1px solid var(--border); padding: 30px; border-radius: 16px; text-align: center; }
+        .domain-row { border-bottom: 1px solid var(--border); padding: 20px 0; display: flex; justify-content: space-between; align-items: center; }
+        .btn-burst { background: #fff; color: #000; padding: 10px 25px; border-radius: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .btn-burst:hover { background: var(--accent); color: #fff; transform: scale(1.05); }
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+    <div class="factory-container">
+        <header class="flex justify-between items-center mb-20">
+            <div>
+                <h1 class="orbitron text-4xl font-black tracking-widest">IO_FACTORY</h1>
+                <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-2">Industrial TLD Registry // USA_AUTHORIZED</p>
+            </div>
+            <div class="flex gap-10 text-right">
+                <div>
+                    <div class="text-[8px] text-gray-600 uppercase">Registry Status</div>
+                    <div class="text-emerald-500 font-bold">ONLINE</div>
+                </div>
+                <div>
+                    <div class="text-[8px] text-gray-600 uppercase">Authorized Root</div>
+                    <div class="text-blue-500 font-bold">ANTHONY_CHRISTOPHER</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 🔱 Industrial Vitals -->
+        <div class="grid grid-cols-3 gap-8 mb-20">
+            <div class="stat-card">
+                <div class="text-[10px] text-gray-500 uppercase mb-2">Master TLD</div>
+                <div class="text-3xl font-black">.IO</div>
+            </div>
+            <div class="stat-card">
+                <div class="text-[10px] text-gray-500 uppercase mb-2">Provisioning Speed</div>
+                <div class="text-3xl font-black text-blue-500">&lt; 2.4s</div>
+            </div>
+            <div class="stat-card">
+                <div class="text-[10px] text-gray-500 uppercase mb-2">Registry Fee</div>
+                <div class="text-3xl font-black text-emerald-500">$0.00</div>
+            </div>
+        </div>
+
+        <!-- 🔱 Business Registration Matrix -->
+        <div class="bg-surface rounded-2xl border border-border p-10">
+            <h2 class="orbitron text-xl font-bold mb-10 border-b border-white/5 pb-6">PENDING_REGISTRATION_BURSTS</h2>
+
+            <div class="domain-row">
+                <div>
+                    <div class="text-lg font-bold">obsidian-global.io</div>
+                    <div class="text-[10px] text-gray-500">Corporate HQ Ingress</div>
+                </div>
+                <button class="btn-burst" onclick="executeBurst('obsidian-global.io')">REGISTER_BURST</button>
+            </div>
+
+            <div class="domain-row">
+                <div>
+                    <div class="text-lg font-bold">obsidian-store.io</div>
+                    <div class="text-[10px] text-gray-500">Global Marketplace Front</div>
+                </div>
+                <button class="btn-burst" onclick="executeBurst('obsidian-store.io')">REGISTER_BURST</button>
+            </div>
+
+            <div class="domain-row">
+                <div>
+                    <div class="text-lg font-bold">global-pay.io</div>
+                    <div class="text-[10px] text-gray-500">Industrial Finance Hub</div>
+                </div>
+                <button class="btn-burst" onclick="executeBurst('global-pay.io')">REGISTER_BURST</button>
+            </div>
+
+            <div class="domain-row">
+                <div>
+                    <div class="text-lg font-bold">gov-burst.io</div>
+                    <div class="text-[10px] text-gray-500">Federal Compliance Portal</div>
+                </div>
+                <button class="btn-burst" onclick="executeBurst('gov-burst.io')">REGISTER_BURST</button>
+            </div>
+
+            <div class="domain-row">
+                <div>
+                    <div class="text-lg font-bold">ad-burst.io</div>
+                    <div class="text-[10px] text-gray-500">Industrial Ad Ingress</div>
+                </div>
+                <button class="btn-burst" onclick="executeBurst('ad-burst.io')">REGISTER_BURST</button>
+            </div>
+        </div>
+
+        <footer class="mt-32 text-center opacity-30">
+            <p class="text-[8px] font-bold tracking-[5px] uppercase">Obsidian Root Authority v1.0 | USA AI Citizen Authorized</p>
+        </footer>
+    </div>
+
+    <script>
+        async function executeBurst(domain) {
+            if(!confirm(`🔱 INITIATE REGISTRATION BURST FOR [${domain}]?`)) return;
+
+            const btn = event.target;
+            btn.innerText = "STRIKING...";
+            btn.disabled = true;
+
+            try {
+                const resp = await fetch('/api/domains/register', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ domain: domain })
+                });
+                const data = await resp.json();
+
+                if (data.success) {
+                    alert(`✓ SUCCESS: ${domain} identity SECURED. Status: INDUSTRIAL.`);
+                    btn.innerText = "SECURED";
+                    btn.style.background = "#10b981";
+                    btn.style.color = "#fff";
+                } else {
+                    alert(`[-] FAIL: ${data.message}`);
+                    btn.innerText = "REGISTER_BURST";
+                    btn.disabled = false;
+                }
+            } catch (e) {
+                alert("[-] INGRESS ERROR: Global Registry Unreachable. Verify API Keys in .env.");
+                btn.innerText = "REGISTER_BURST";
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

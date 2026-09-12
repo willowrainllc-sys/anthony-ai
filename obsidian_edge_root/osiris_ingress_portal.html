@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OSIRIS NETWORK | Global OSINT Command | Anthony Christopher</title>
+<meta content="OSIRIS: Automated Intelligence Gathering and Spectral SIGINT. Built on the Obsidian VDC. Built by Anthony Christopher Maestas. Unrestricted." name="description"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Space+Mono&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #000000;
+            --accent: #00ff41; /* Phosphor Green */
+            --intel: #8b5cf6;  /* Intelligence Violet */
+            --glass: rgba(10, 10, 15, 0.95);
+            --border: rgba(0, 255, 65, 0.1);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            display: grid;
+            grid-template-areas:
+                "nav nav nav"
+                "stats overview tools"
+                "footer footer footer";
+            grid-template-columns: 350px 1fr 400px;
+            grid-template-rows: 80px 1fr 60px;
+            height: 100vh;
+        }
+
+        /* 🔱 Navigation */
+        nav {
+            grid-area: nav;
+            background: #000;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        .logo { font-family: 'Orbitron'; font-weight: 900; letter-spacing: 10px; color: var(--accent); font-size: 1.5em; }
+
+        /* 🔱 Left Sidebar: Live Stats */
+        .stats-sidebar {
+            grid-area: stats;
+            border-right: 1px solid var(--border);
+            padding: 30px;
+            background: rgba(0,0,0,0.5);
+            overflow-y: auto;
+        }
+        .intel-card { background: var(--glass); border: 1px solid var(--border); padding: 20px; border-radius: 20px; margin-bottom: 20px; }
+        .label { font-size: 0.6em; color: #444; text-transform: uppercase; letter-spacing: 3px; }
+        .value { font-size: 1.6em; font-weight: 900; margin-top: 5px; color: var(--accent); font-family: 'Space Mono'; }
+
+        /* 🔱 Threat Intelligence Overview Area */
+        .threat-overview {
+            grid-area: overview;
+            position: relative;
+            background: radial-gradient(circle at center, #0a1f0a 0%, #000 80%);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            padding: 60px;
+        }
+        .intel-item { border-left: 2px solid var(--accent); padding-left: 20px; }
+
+        /* 🔱 Right Sidebar: Tools & Paywall */
+        .tools-sidebar {
+            grid-area: tools;
+            border-left: 1px solid var(--border);
+            background: #000;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .btn-burst { width: 100%; padding: 15px; border-radius: 12px; font-weight: 900; cursor: pointer; border: none; text-transform: uppercase; letter-spacing: 2px; }
+        .btn-green { background: var(--accent); color: #000; }
+        .btn-violet { background: var(--intel); color: #fff; }
+
+        /* 🔱 Footer */
+        footer {
+            grid-area: footer;
+            background: #000;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            font-size: 0.7em;
+            color: #333;
+            letter-spacing: 2px;
+        }
+
+        .scan-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--accent); box-shadow: 0 0 20px var(--accent); animation: scan 5s infinite linear; }
+        @keyframes scan { from { top: 0; } to { top: 100%; } }
+
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+<nav>
+<div class="logo">OSIRIS</div>
+<div style="text-align: right;">
+<div class="label">Status</div>
+<div style="color: var(--accent); font-weight: 800;">RECON_ACTIVE</div>
+</div>
+</nav>
+<div class="stats-sidebar">
+<div class="intel-card">
+<div class="label">SIGINT Intercepts</div>
+<div class="value">142,822</div>
+</div>
+<div class="intel-card">
+<div class="label">Vulnerability Index</div>
+<div class="value">99.4%</div>
+</div>
+<div class="intel-card" style="border-color: var(--intel);">
+<div class="label">Active OSINT Nodes</div>
+<div class="value" style="color: var(--intel);">5,103</div>
+</div>
+</div>
+<div class="threat-overview">
+<div class="scan-line"></div>
+<div class="intel-item">
+<h4 class="label">Global Recon</h4>
+<p style="font-size: 0.9em; line-height: 1.6; margin-top: 10px;">Automated OSINT gathering active across global fiber backhaul. Monitoring 5,103 Ghost-Nodes in real-time.</p>
+</div>
+<div class="intel-item" style="border-color: var(--intel);">
+<h4 class="label" style="color: var(--intel);">Defense Matrix</h4>
+<p style="font-size: 0.9em; line-height: 1.6; margin-top: 10px;">Proactive Poison Pill payloads ready for deployment against unauthorized corporate scrapers.</p>
+</div>
+<div class="intel-item">
+<h4 class="label">Data Liquidation</h4>
+<p style="font-size: 0.9em; line-height: 1.6; margin-top: 10px;">Verified identities and PII metadata being provisioned for secure authorized settlement.</p>
+</div>
+<div class="intel-item" style="border-color: var(--intel);">
+<h4 class="label" style="color: var(--intel);">Privacy Shield</h4>
+<p style="font-size: 0.9em; line-height: 1.6; margin-top: 10px;">Advanced Kyber-1024 encryption locked. Metadata obfuscation at maximum level for Mabelvale Ops.</p>
+</div>
+</div>
+<div class="tools-sidebar">
+<h3 style="font-family: 'Orbitron'; color: var(--intel);">TACTICAL TOOLS</h3>
+<button class="btn-burst btn-green" onclick="alert('🔱 Executing World Network Scrape... Secure.')">START INTEL SYNC</button>
+<button class="btn-burst btn-violet">Global Domain Lock</button>
+<div style="flex:1"></div>
+<div class="intel-card" style="background: rgba(139, 92, 246, 0.05); border-color: var(--intel);">
+<h4 style="margin-top:0;">ELITE INTELLIGENCE</h4>
+<p style="font-size:0.7em; color:#666;">Get real-time access to the Director's raw SIGINT feed. Pay in BTC.</p>
+<div style="font-size:1.5em; font-weight:900; margin:10px 0;">$499 / mo</div>
+<button class="btn-burst btn-violet" onclick="window.location.href='obsidian_incorporator.html'" style="font-size:0.7em;">Incorporate Now</button>
+</div>
+</div>
+<footer>
+        DIRECTOR: ANTHONY CHRISTOPHER MAESTAS | COORDINATES: 38.27 N / 90.48 W | MOTO: GOD, FAMILY, BUSINESS.
+    </footer>
+</body>
+</html>

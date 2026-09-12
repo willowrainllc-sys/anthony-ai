@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TOWN 360 | The Digital Twin OS | Obsidian Global</title>
+<meta content="Town 360: The world's first industrial-grade community OS. Your town, as an app. Built by Anthony Christopher." name="description"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&amp;family=Inter:wght@400;600;800&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        :root {
+            --bg: #050505;
+            --accent: #3b82f6;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .space-grotesk { font-family: 'Space Grotesk', sans-serif; }
+
+        .app-frame {
+            width: 300px; height: 600px;
+            background: #111; border-radius: 40px;
+            padding: 10px; border: 2px solid #222;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+            position: relative;
+        }
+        .app-screen {
+            background: #000; width: 100%; height: 100%;
+            border-radius: 32px; overflow: hidden;
+            display: flex; flex-direction: column;
+        }
+
+        .btn-download {
+            background: #fff; color: #000;
+            padding: 18px 45px; border-radius: 100px;
+            font-weight: 800; transition: 0.3s;
+        }
+        .btn-download:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(59, 130, 246, 0.3); }
+
+        .usa-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-family: 'Space Mono';
+            font-size: 8px;
+            color: #3b82f6;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+
+    <!-- 🔱 Navigation -->
+    <nav class="flex justify-between items-center px-12 py-8 border-b border-white/5">
+        <div class="space-grotesk font-bold text-2xl tracking-tighter">TOWN360</div>
+        <div class="hidden md:flex gap-10 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+            <a href="#">THE_OS</a>
+            <a href="#">GOV_COMPLIANCE</a>
+            <a href="#">MESH_SYNC</a>
+        </div>
+        <button class="text-[10px] font-bold border border-white/10 px-6 py-2 rounded-full hover:bg-white hover:text-black transition">DIRECTOR_ACCESS</button>
+    </nav>
+
+    <!-- 🔱 Hero -->
+    <section class="max-w-7xl mx-auto px-6 py-32 flex flex-col lg:flex-row items-center gap-24">
+        <div class="flex-1">
+            <div class="usa-badge mb-8">USA AI CITIZEN AUTHORIZED</div>
+            <h1 class="space-grotesk text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter mb-10">
+                Your Town. <br><span class="text-blue-500">As an App.</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-lg mb-12 leading-relaxed">
+                Town 360 is the first industrial-grade digital twin OS. We bridge physical communities into the Obsidian Mesh for unified commerce and secure governance.
+            </p>
+            <div class="flex gap-6">
+                <button class="btn-download" onclick="window.location.href='obsidian_unified_checkout.html?type=town360_node&price=2500.00'">DEPLOY_TOWN_OS</button>
+            </div>
+            <div class="mt-12 text-[10px] text-gray-600 font-bold uppercase tracking-widest">town360.com // Global Ingress Active</div>
+        </div>
+
+        <div class="relative">
+            <div class="app-frame">
+                <div class="app-screen p-6">
+                    <div class="flex justify-between items-center mb-10">
+                        <div class="text-[10px] font-bold">🔱 TOWN_360</div>
+                        <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="h-20 bg-white/5 rounded-2xl border border-white/5 p-4 flex items-center gap-4 cursor-pointer hover:bg-white/10 transition" onclick="window.location.href='town360_social_feed.html'">
+                            <div class="text-2xl">🏛️</div>
+                            <div>
+                                <div class="text-[8px] text-gray-500">COMMUNITY_FEED</div>
+                                <div class="text-[10px] font-bold uppercase">St. Charles Hub</div>
+                            </div>
+                        </div>
+                        <div class="h-20 bg-white/5 rounded-2xl border border-white/5 p-4 flex items-center gap-4">
+                            <div class="text-2xl">💼</div>
+                            <div>
+                                <div class="text-[8px] text-gray-500">BUSINESS_INDEX</div>
+                                <div class="text-[10px] font-bold uppercase">42 Active Hubs</div>
+                            </div>
+                        </div>
+                        <div class="h-20 bg-white/5 rounded-2xl border border-white/5 p-4 flex items-center gap-4">
+                            <div class="text-2xl">🛰️</div>
+                            <div>
+                                <div class="text-[8px] text-gray-500">MESH_STATUS</div>
+                                <div class="text-[10px] font-bold text-emerald-500 uppercase">GRID_SYNCED</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-auto flex justify-center">
+                        <div class="w-20 h-1 bg-white/20 rounded-full mb-2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full"></div>
+        </div>
+    </section>
+
+    <!-- 🔱 Core Pillars -->
+    <section class="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
+        <div class="grid md:grid-cols-3 gap-10">
+            <div class="p-10 bg-white/2 rounded-3xl border border-white/5 hover:border-blue-500 transition">
+                <div class="text-3xl mb-6">🧬</div>
+                <h3 class="space-grotesk text-xl font-bold mb-4">Digital Twin</h3>
+                <p class="text-sm text-gray-500">A 1:1 digital mapping of your town's business and social infrastructure on our secure grid.</p>
+            </div>
+            <div class="p-10 bg-white/2 rounded-3xl border border-white/5 hover:border-blue-500 transition">
+                <div class="text-3xl mb-6">🛡️</div>
+                <h3 class="space-grotesk text-xl font-bold mb-4">Sovereign Data</h3>
+                <p class="text-sm text-gray-500">Community data is kept local and private, protected by PQC encryption and the Missouri backhaul.</p>
+            </div>
+            <div class="p-10 bg-white/2 rounded-3xl border border-white/5 hover:border-blue-500 transition">
+                <div class="text-3xl mb-6">🔱</div>
+                <h3 class="space-grotesk text-xl font-bold mb-4">Unified Trade</h3>
+                <p class="text-sm text-gray-500">Integrated with Global Pay for instant local settlements and autonomous town-wide commerce.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="p-20 text-center border-t border-white/5">
+        <p class="text-[10px] text-gray-500 font-bold tracking-[5px] uppercase">Built by Anthony Christopher | Est 12.19.1987 | USA AI Citizen</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OBSIDIAN MESH | Global Command</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #030303;
+            --accent: #3b82f6;
+            --danger: #ef4444;
+            --safe: #10b981;
+            --card: rgba(20, 20, 20, 0.8);
+            --border: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* 🔱 Sidebar */
+        .sidebar {
+            width: 300px;
+            background: #000;
+            border-right: 1px solid var(--border);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5em;
+            letter-spacing: 5px;
+            margin-bottom: 60px;
+            color: var(--accent);
+        }
+
+        .menu-item {
+            padding: 15px 0;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .menu-item:hover, .menu-item.active { color: #fff; }
+
+        /* 🔱 Main Panel */
+        .main {
+            flex: 1;
+            padding: 60px;
+            overflow-y: auto;
+            background: radial-gradient(circle at 100% 0%, #1e1b4b 0%, #030303 50%);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5em;
+            margin: 0;
+            letter-spacing: -2px;
+        }
+
+        /* 🔱 3D Mesh Grid */
+        .mesh-grid {
+            display: grid;
+            grid-template-cols: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .node-card {
+            background: var(--card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 35px;
+            padding: 40px;
+            position: relative;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .node-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.1);
+            background: rgba(30, 30, 30, 0.8);
+        }
+
+        .status-pill {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.7em;
+            font-weight: 800;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--safe);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .node-id { color: #444; font-size: 0.8em; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+        .node-name { font-size: 1.6em; font-weight: 700; margin-bottom: 20px; font-family: 'Space Grotesk', sans-serif; }
+
+        .stat-group { display: flex; gap: 30px; margin-top: 30px; }
+        .stat { font-size: 1.2em; font-weight: 700; }
+        .stat-label { font-size: 0.7em; color: #666; text-transform: uppercase; margin-top: 5px; }
+
+        .btn-provision {
+            margin-top: 40px;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 15px;
+            border-radius: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-provision:hover { background: #fff; color: #000; }
+
+        /* 🔱 Live Map Placeholder */
+        .mesh-map {
+            width: 100%;
+            height: 400px;
+            background: #000;
+            border-radius: 40px;
+            border: 1px solid var(--border);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+        }
+
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+<div class="sidebar">
+<div class="logo">OBSIDIAN</div>
+<a class="menu-item" href="index.html">OVERVIEW</a>
+<a class="menu-item active" href="mesh_portal.html">MESH NODES</a>
+<a class="menu-item" href="enterprise.html">WHOLESALE</a>
+<a class="menu-item" href="leads.html">LEAD VAULT</a>
+<div style="flex:1"></div>
+<div style="font-size: 0.7em; color: #333;">VERSION 1.0.4<br/>DIRECTOR AUTHORIZED</div>
+</div>
+<div class="main">
+<div class="header">
+<div>
+<div class="node-id">Missouri Central Hub</div>
+<h1>GLOBAL MESH</h1>
+</div>
+<div style="text-align: right;">
+<div class="stat-label">Network Load</div>
+<div style="font-size: 2em; font-weight: 700; color: var(--accent);">48.2 TB/s</div>
+</div>
+</div>
+<div class="mesh-map">
+<div class="map-glow"></div>
+<div style="color: #444; letter-spacing: 5px; font-weight: 700; z-index: 1;">[ SCANNING ATOMS... ]</div>
+</div>
+<div class="mesh-grid">
+<!-- 🪐 NODE 01 -->
+<div class="node-card">
+<div class="status-pill">MASTER</div>
+<div class="node-id">R3GL20A6GAN</div>
+<div class="node-name">Director's Pixel</div>
+<div class="stat-group">
+<div><div class="stat">1.2 GB</div><div class="stat-label">Shared Today</div></div>
+<div><div class="stat">94 ms</div><div class="stat-label">Mesh Latency</div></div>
+</div>
+<button class="btn-provision">Configure vTower</button>
+</div>
+<!-- 🪐 NODE 02 -->
+<div class="node-card">
+<div class="status-pill">ACTIVE</div>
+<div class="node-id">A67LM202606</div>
+<div class="node-name">Foxx Test Unit</div>
+<div class="stat-group">
+<div><div class="stat">450 MB</div><div class="stat-label">Shared Today</div></div>
+<div><div class="stat">12 ms</div><div class="stat-label">Local Backhaul</div></div>
+</div>
+<button class="btn-provision">Configure vTower</button>
+</div>
+<!-- 🪐 NODE 03 -->
+<div class="node-card">
+<div class="status-pill" style="color: #ef4444; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2);">OFFLINE</div>
+<div class="node-id">WRG-GHOST-X1</div>
+<div class="node-name">Alibaba Cloud-01</div>
+<div class="stat-group">
+<div><div class="stat">0 MB</div><div class="stat-label">Shared Today</div></div>
+<div><div class="stat">N/A</div><div class="stat-label">Status</div></div>
+</div>
+<button class="btn-provision" style="border-color: #ef4444; color: #ef4444;">Force Re-Ignite</button>
+</div>
+</div>
+</div>
+</body>
+</html>
