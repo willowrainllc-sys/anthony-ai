@@ -21,6 +21,38 @@
     {
       "source": "/checkout",
       "destination": "/obsidian_unified_checkout.html"
+    },
+    {
+      "source": "/vps",
+      "destination": "/obsidian_vps_hosting.html"
+    },
+    {
+      "source": "/wordpress",
+      "destination": "/obsidian_wordpress_support.html"
+    },
+    {
+      "source": "/openclaw",
+      "destination": "/obsidian_openclaw_hosting.html"
+    },
+    {
+      "source": "/airo",
+      "destination": "/obsidian_airo_builder.html"
+    },
+    {
+      "source": "/nodejs",
+      "destination": "/obsidian_nodejs_hosting.html"
+    },
+    {
+      "source": "/signin",
+      "destination": "/obsidian_signin.html"
+    },
+    {
+      "source": "/developer",
+      "destination": "/developer.html"
+    },
+    {
+      "source": "/compliance",
+      "destination": "/compliance.html"
     }
   ]
 }
