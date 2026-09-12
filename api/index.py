@@ -1,4 +1,4 @@
-# --- VERCEL SERVERLESS API GATEWAY FOR ANTHONY AI ---
+# --- VERCEL SERVERLESS API GATEWAY FOR OBSIDIAN CITY ---
 import time
 import json
 import random
@@ -17,9 +17,9 @@ class handler(BaseHTTPRequestHandler):
         if "/news/brief" in path:
             payload = {
                 "status": "success",
-                "headline": "DAILY INTEL: Sovereign AI Media Studio Live",
-                "brief": "Series-First Content Studio active. Season 1 episodes streaming live across YouTube Shorts and Mesh Feed.",
-                "persona": "Anthony AI Director"
+                "headline": "DAILY INTEL: Obsidian City Marketplace Live",
+                "brief": "Industrial-grade consumer ecosystem active. Deploy your identity on the global grid instantly.",
+                "persona": "Obsidian City Director"
             }
         elif "/dashboard" in path:
             payload = [

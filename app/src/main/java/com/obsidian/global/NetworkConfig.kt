@@ -46,6 +46,6 @@ object NetworkConfig {
     }
 
     // Production Vercel Gateway & Secondary Endpoints
-    const val VERCEL_PROD_URL = "https://anthony-ai.vercel.app"
+    const val VERCEL_PROD_URL = "https://obsidian.city"
     val TURBO_URL get() = currentBaseUrl.replace(":8000", ":8080")
 }

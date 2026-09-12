@@ -12,7 +12,8 @@ load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
 
 VERCEL_TOKEN = os.getenv("VERCEL_TOKEN")
 VERCEL_TEAM_ID = os.getenv("VERCEL_TEAM_ID")
-PROJECT_NAME = "anthony-ai" # From .env VERCEL_URL
+PROJECT_NAME = "obsidian-city" # Updated to reflect Obsidian City brand
+
 
 PORTAL_DIR = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\willow_rain_global\wholesale_portal")
 
