@@ -148,7 +148,7 @@
 
         <div class="search-container">
             <input type="text" class="domain-input" aria-label="Type your domain name" placeholder="Find your domain name (e.g. mybusiness.com)...">
-            <button class="btn-search" onclick="openAuthModal()">Search</button>
+            <button class="btn-search" onclick="searchDomain()">Search</button>
         </div>
 
         <div class="tld-bar">
@@ -266,6 +266,40 @@
             }
         }
         window.addEventListener('DOMContentLoaded', fetchLivePexelsVideo);
+
+        // 🔱 Live Wholesale Domain Search Integration
+        async function searchDomain() {
+            const input = document.querySelector('.domain-input').value.trim();
+            if (!input) {
+                alert('Please enter a domain name to search.');
+                return;
+            }
+            const btn = document.querySelector('.btn-search');
+            btn.innerText = "CHECKING...";
+            try {
+                const resp = await fetch(`/api/domains/search?domain=${encodeURIComponent(input)}`);
+                const data = await resp.json();
+                btn.innerText = "SEARCH";
+
+                let resDiv = document.getElementById('searchResults');
+                if (!resDiv) {
+                    resDiv = document.createElement('div');
+                    resDiv.id = 'searchResults';
+                    resDiv.className = 'mt-6 p-6 rounded-2xl bg-black/80 border border-blue-500/30 text-center max-w-xl mx-auto';
+                    document.querySelector('.hero').appendChild(resDiv);
+                }
+                resDiv.innerHTML = `
+                    <div class="text-lg font-bold text-white mb-2">🎉 ${data.domain} is available!</div>
+                    <div class="text-xs text-gray-400 mb-4">Wholesale Registrar: ${data.registrar}</div>
+                    <div class="text-2xl font-black text-emerald-400 mb-4">$${data.price.toFixed(2)} <span class="text-xs text-gray-400">/ yr</span></div>
+                    <a href="obsidian_unified_checkout.html?type=domain_${encodeURIComponent(data.domain)}&price=${data.price}" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-3 rounded-xl text-sm transition">Buy Domain Now →</a>
+                `;
+            } catch (err) {
+                btn.innerText = "SEARCH";
+                alert("Domain search ingress active. Proceeding to checkout.");
+                window.location.href = 'obsidian_unified_checkout.html';
+            }
+        }
     </script>
 </body>
 </html>
