@@ -14,7 +14,7 @@
             --accent: #3b82f6;
             --emerald: #10b981;
             --border: rgba(255, 255, 255, 0.08);
-            --glass: rgba(15, 15, 22, 0.85);
+            --glass: rgba(15, 15, 22, 0.90);
         }
         body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
 
@@ -34,12 +34,12 @@
             min-width: 100%; min-height: 100%;
             width: 100vw; height: 100vh;
             object-fit: cover;
-            filter: brightness(0.65) contrast(1.2);
+            filter: brightness(0.6) contrast(1.25);
         }
 
         /* 🔱 Navigation */
         .godaddy-top-bar { background: #000; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 10px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 600; color: #9ca3af; }
-        .godaddy-main-nav { background: rgba(5,5,7,0.92); backdrop-filter: blur(20px); padding: 20px 60px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+        .godaddy-main-nav { background: rgba(5,5,7,0.95); backdrop-filter: blur(20px); padding: 20px 60px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
         .nav-links a { color: #d1d5db; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.2s; }
         .nav-links a:hover { color: #3b82f6; }
         .brand { font-weight: 900; font-size: 1.8rem; letter-spacing: -1.5px; color: #fff; }
@@ -65,9 +65,11 @@
         .product-section { padding: 80px 60px; max-width: 1400px; margin: 0 auto; }
         .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 35px; }
         .godaddy-card { background: var(--glass); backdrop-filter: blur(25px); border: 1px solid var(--border); border-radius: 28px; padding: 45px; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); position: relative; overflow: hidden; }
-        .godaddy-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, #3b82f6, transparent); opacity: 0; transition: 0.3s; }
         .godaddy-card:hover { transform: translateY(-8px); border-color: #3b82f6; box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 30px rgba(59, 130, 246, 0.15); }
-        .godaddy-card:hover::before { opacity: 1; }
+
+        /* 🔱 Auth Modal Gating */
+        #authModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 9999; align-items: center; justify-content: center; }
+        .auth-box { background: #0f0f14; border: 1px solid rgba(255,255,255,0.15); border-radius: 28px; padding: 45px; width: 100%; max-width: 450px; box-shadow: 0 40px 100px rgba(0,0,0,0.9); }
 
         footer { background: #020203; padding: 80px 60px; border-top: 1px solid var(--border); color: #9ca3af; font-size: 14px; }
     </style>
@@ -80,6 +82,18 @@
         </video>
     </div>
 
+    <!-- 🔱 Auth Gating Modal -->
+    <div id="authModal">
+        <div class="auth-box">
+            <h2 class="text-2xl font-black mb-2 text-white">Sign In or Create Account</h2>
+            <p class="text-gray-400 text-xs mb-6">Access your domain manager, active hosting, and commission dashboard.</p>
+            <input type="email" aria-label="Email" placeholder="Enter your business email..." class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white text-sm mb-4 outline-none focus:border-blue-500">
+            <input type="password" aria-label="Password" placeholder="Enter your secure password..." class="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white text-sm mb-6 outline-none focus:border-blue-500">
+            <button onclick="closeAuthModal()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-blue-500/30 mb-4">Continue to Dashboard</button>
+            <button onclick="closeAuthModal()" class="w-full text-gray-400 hover:text-white text-xs font-semibold py-2">Close & Browse Storefront</button>
+        </div>
+    </div>
+
     <!-- 🔱 Top Utility Bar -->
     <div class="godaddy-top-bar">
         <div class="flex gap-8">
@@ -87,9 +101,9 @@
             <span class="hidden md:inline text-gray-400">Enterprise Support // 24/7 Secure Infrastructure</span>
         </div>
         <div class="flex gap-6">
-            <a href="obsidian_domains.html" class="hover:text-white transition">Domains</a>
-            <a href="obsidian_hosting_landing.html" class="hover:text-white transition">Cloud Hosting</a>
-            <a href="obsidian_city_dashboard.html" class="text-blue-400 hover:underline font-bold">City Dashboard</a>
+            <a href="#" onclick="openAuthModal(); return false;" class="hover:text-white transition">Domains</a>
+            <a href="#" onclick="openAuthModal(); return false;" class="hover:text-white transition">Cloud Hosting</a>
+            <a href="#" onclick="openAuthModal(); return false;" class="text-blue-400 hover:underline font-bold">City Dashboard</a>
         </div>
     </div>
 
@@ -101,16 +115,16 @@
                 <a href="#domains">Domain Names</a>
                 <a href="#websites">Websites & Hosting</a>
                 <a href="#email">Webmail & Security</a>
-                <a href="obsidian_city_dashboard.html">City OS</a>
+                <a href="#" onclick="openAuthModal(); return false;">City OS</a>
             </div>
         </div>
         <div class="flex items-center gap-6">
             <a href="obsidian_unified_checkout.html" class="text-sm font-bold text-gray-300 hover:text-white">🛒 Cart</a>
-            <a href="obsidian_city_dashboard.html" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-xl font-bold text-sm transition shadow-lg shadow-blue-500/20">Sign In</a>
+            <button onclick="openAuthModal()" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-xl font-bold text-sm transition shadow-lg shadow-blue-500/20">Sign In</button>
         </div>
     </nav>
 
-    <!-- 🔱 Hero Domain Search (GoDaddy + Vercel Elite Hybrid) -->
+    <!-- 🔱 Hero Domain Search -->
     <section class="hero">
         <div class="status-pill">
             <div class="pulse-dot"></div>
@@ -121,7 +135,7 @@
 
         <div class="search-container">
             <input type="text" class="domain-input" aria-label="Type your domain name" placeholder="Find your domain name (e.g. mybusiness.com)...">
-            <button class="btn-search" onclick="alert('Domain availability search initiated.')">Search</button>
+            <button class="btn-search" onclick="openAuthModal()">Search</button>
         </div>
 
         <div class="tld-bar">
@@ -136,82 +150,31 @@
     <!-- 🔱 Product Showcase Grid -->
     <section class="product-section" id="domains">
         <div class="card-grid">
-            <!-- Domains -->
             <div class="godaddy-card" id="domains-card">
                 <h3 class="text-2xl font-black mb-4">Domain Names</h3>
                 <p class="text-gray-400 mb-8 text-sm leading-relaxed">Claim your permanent digital real estate. Includes free privacy protection and instant DNS bridge routing.</p>
                 <div class="flex justify-between items-center">
                     <span class="text-2xl font-black">$0.01 <span class="text-xs text-gray-500">/yr*</span></span>
-                    <a href="obsidian_domains.html" class="text-blue-400 font-bold text-xs uppercase tracking-wider hover:underline">Search Domains →</a>
+                    <button onclick="openAuthModal()" class="text-blue-400 font-bold text-xs uppercase tracking-wider hover:underline bg-transparent border-none cursor-pointer">Search Domains →</button>
                 </div>
             </div>
 
-            <!-- Websites -->
             <div class="godaddy-card" id="websites">
                 <h3 class="text-2xl font-black mb-4">Websites & Global Edge</h3>
                 <p class="text-gray-400 mb-8 text-sm leading-relaxed">Deploy high-performance static and dynamic web apps instantly from 20+ global regions with 99.99% uptime.</p>
                 <div class="flex justify-between items-center">
                     <span class="text-2xl font-black">$9.99 <span class="text-xs text-gray-500">/mo</span></span>
-                    <a href="obsidian_hosting_landing.html" class="text-blue-400 font-bold text-xs uppercase tracking-wider hover:underline">Deploy Now →</a>
+                    <button onclick="openAuthModal()" class="text-blue-400 font-bold text-xs uppercase tracking-wider hover:underline bg-transparent border-none cursor-pointer">Deploy Now →</button>
                 </div>
             </div>
 
-            <!-- Email & Security -->
             <div class="godaddy-card" id="email">
                 <h3 class="text-2xl font-black mb-4">Encrypted Email & SSL</h3>
                 <p class="text-gray-400 mb-8 text-sm leading-relaxed">Secure your communications with custom @yourbrand mailboxes backed by zero-knowledge encryption.</p>
                 <div class="flex justify-between items-center">
                     <span class="text-2xl font-black">$1.99 <span class="text-xs text-gray-500">/mo</span></span>
-                    <a href="obsidian_unified_checkout.html" class="text-blue-400 font-bold text-xs uppercase tracking-wider hover:underline">Secure Email →</a>
+                    <button onclick="openAuthModal()" class="text-blue-400 font-bold text-xs uppercase tracking-wider hover:underline bg-transparent border-none cursor-pointer">Secure Email →</button>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 🔱 Competitive Matrix: Outsmarting Competitors -->
-    <section class="py-24 px-12 bg-black/60 border-t border-white/10">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-black mb-4">Why Founders Switch to Obsidian.city</h2>
-                <p class="text-gray-400 max-w-xl mx-auto">See how our wholesale registrar and global edge pricing crushes traditional tech monopolies.</p>
-            </div>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="border-b border-white/10 text-xs text-gray-400 uppercase tracking-widest">
-                            <th class="pb-6">Feature</th>
-                            <th class="pb-6 text-blue-400 font-bold">Obsidian.city</th>
-                            <th class="pb-6 text-gray-500">GoDaddy</th>
-                            <th class="pb-6 text-gray-500">Squarespace</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-white/5 text-sm">
-                        <tr>
-                            <td class="py-5 font-bold">Domain Privacy Protection</td>
-                            <td class="py-5 text-emerald-400 font-bold">FREE Forever</td>
-                            <td class="py-5 text-gray-400">$9.99 / yr add-on</td>
-                            <td class="py-5 text-gray-400">Included (Higher base)</td>
-                        </tr>
-                        <tr>
-                            <td class="py-5 font-bold">Hosting Infrastructure</td>
-                            <td class="py-5 text-emerald-400 font-bold">Global Edge (20+ Regions)</td>
-                            <td class="py-5 text-gray-400">Standard Shared Hosting</td>
-                            <td class="py-5 text-gray-400">Proprietary Cloud</td>
-                        </tr>
-                        <tr>
-                            <td class="py-5 font-bold">Professional Email</td>
-                            <td class="py-5 text-emerald-400 font-bold">$1.99 / mo</td>
-                            <td class="py-5 text-gray-400">$6.99 / mo</td>
-                            <td class="py-5 text-gray-400">$7.00 / mo</td>
-                        </tr>
-                        <tr>
-                            <td class="py-5 font-bold">Total Annual Cost (Est.)</td>
-                            <td class="py-5 text-2xl font-black text-blue-400">$14.00 / yr</td>
-                            <td class="py-5 text-lg font-bold text-gray-400">$150.00+ / yr</td>
-                            <td class="py-5 text-lg font-bold text-gray-400">$240.00+ / yr</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </section>
@@ -222,39 +185,48 @@
             <div>
                 <h4 class="text-white font-bold mb-4">About Obsidian</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="obsidian_city_dashboard.html" class="hover:text-white">City OS</a></li>
-                    <li><a href="obsidian_city_landing.html" class="hover:text-white">Marketplace</a></li>
-                    <li><a href="obsidian_master_hub.html" class="hover:text-white">Master Hub</a></li>
+                    <li><a href="#" onclick="openAuthModal(); return false;">City OS</a></li>
+                    <li><a href="#" onclick="openAuthModal(); return false;">Marketplace</a></li>
+                    <li><a href="#" onclick="openAuthModal(); return false;">Master Hub</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Support & Ingress</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="obsidian_city_dashboard.html" class="hover:text-white">Help Center</a></li>
-                    <li><a href="obsidian_city_dashboard.html" class="hover:text-white">Mesh Status</a></li>
-                    <li><a href="obsidian_city_dashboard.html" class="hover:text-white">Security Audit</a></li>
+                    <li><a href="#" onclick="openAuthModal(); return false;">Help Center</a></li>
+                    <li><a href="#" onclick="openAuthModal(); return false;">Mesh Status</a></li>
+                    <li><a href="#" onclick="openAuthModal(); return false;">Security Audit</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Resources</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="obsidian_domains.html" class="hover:text-white">Domain Search</a></li>
-                    <li><a href="obsidian_hosting_landing.html" class="hover:text-white">Edge Hosting</a></li>
-                    <li><a href="obsidian_unified_checkout.html" class="hover:text-white">SSL Certificates</a></li>
+                    <li><a href="#" onclick="openAuthModal(); return false;">Domain Search</a></li>
+                    <li><a href="#" onclick="openAuthModal(); return false;">Edge Hosting</a></li>
+                    <li><a href="#" onclick="openAuthModal(); return false;">SSL Certificates</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Sovereign Empire</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="obsidian_city_dashboard.html" class="hover:text-white">Affiliates</a></li>
-                    <li><a href="obsidian_city_dashboard.html" class="hover:text-white">Reseller Program</a></li>
-                    <li><a href="obsidian_city_dashboard.html" class="hover:text-white">The Oracles</a></li>
+                    <li><a href="#" onclick="openAuthModal(); return false;">Affiliates</a></li>
+                    <li><a href="#" onclick="openAuthModal(); return false;">Reseller Program</a></li>
+                    <li><a href="#" onclick="openAuthModal(); return false;">The Oracles</a></li>
                 </ul>
             </div>
         </div>
         <div class="border-t border-white/10 pt-8 text-center text-xs text-gray-500">
-            <p>Copyright © 2026 OBSIDIAN.CITY Registrar & Edge Network. All Rights Reserved. Built by Anthony Christopher.</p>
+            <p>Copyright © 2026 Willow Rain Company LLC (Arkansas). All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function openAuthModal() {
+            document.getElementById('authModal').style.display = 'flex';
+        }
+        function closeAuthModal() {
+            document.getElementById('authModal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
