@@ -80,7 +80,7 @@ class ObsidianWhiteLabelManager:
             "reseller_id": reseller_id,
             "status": "ARMED",
             "installer_cmd": installer_cmd,
-            "portal_url": f"https://obsidian-ai.vercel.app/partners/{reseller_id}"
+            "portal_url": f"https://obsidian.city/partners/{reseller_id}"
         }
 
     async def calculate_network_splits(self, total_burst_yield: float) -> dict:

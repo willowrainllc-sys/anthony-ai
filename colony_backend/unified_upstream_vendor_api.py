@@ -57,7 +57,7 @@ class UnifiedUpstreamVendorApiEngine:
         current_gb = round(random.uniform(3000.0, 4500.0), 2)
         projected_usd = round(current_gb * metrics.target_clean_rate_per_gb_usd, 2)
 
-        unified_api = "https://obsidian-ai.vercel.app/api/v1/upstream/vendor_feed"
+        unified_api = "https://obsidian.city/api/v1/upstream/vendor_feed"
         socks5_ep = "socks5://obsidian_upstream:pipe_token_a85f2910@47.85.50.46:8000"
 
         feed = UnifiedUpstreamVendorFeed(

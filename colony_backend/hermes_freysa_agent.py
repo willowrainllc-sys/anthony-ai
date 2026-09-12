@@ -17,13 +17,13 @@ load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
 SECURE_DIR = Path(r"D:\ObsidianAi_Colony\Secure_Assets")
 GMAIL_USER = "obsidian.global.holdings@gmail.com"
 SQUARE_LOC = os.getenv("SQUARE_LOCATION_ID", "LDCKH8QA4MVA4")
-VERCEL_URL = os.getenv("VERCEL_URL", "https://obsidian-ai.vercel.app")
+VERCEL_URL = os.getenv("VERCEL_URL", "https://obsidian.city")
 
 class HermesFreysaAgentStack:
     """
     HERMES & FREYSA AUTONOMOUS AGENT STACK v1.0:
     1. Email Mailbox Agent: Signs up, listens for verification OTPs/confirmation links, and auto-verifies.
-    2. Web & App Deployer: Publishes live work to shareable Vercel URLs (https://obsidian-ai.vercel.app).
+    2. Web & App Deployer: Publishes live work to shareable Vercel URLs (https://obsidian.city).
     3. Local Task Delegation: Points agents at local files and directories (D:\\ObsidianAi_Colony\\Secure_Assets).
     4. Virtual Machine Worker: Runs long jobs (rendering, survey runs, bandwidth sharing) 24/7 in background.
     5. Multi-Chain Wallet & Bank Bridge: Polygon MYST, Crypto, and Square Merchant (Willow Rain Company LLC).

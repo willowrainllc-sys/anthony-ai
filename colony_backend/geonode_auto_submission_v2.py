@@ -66,7 +66,7 @@ class GeonodeSalesSubmitBot:
                     # Fill Company / Website
                     web_input = page.get_by_placeholder(re.compile(r"website|company", re.I)).first
                     if await web_input.is_visible():
-                        await web_input.fill("https://obsidian-ai.vercel.app")
+                        await web_input.fill("https://obsidian.city")
 
                     # Fill Message (The Proposal)
                     msg_input = page.get_by_placeholder(re.compile(r"message|how can we help|details", re.I)).first

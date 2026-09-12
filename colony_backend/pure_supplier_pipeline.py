@@ -87,7 +87,7 @@ class PureSupplierPipelineEngine:
         record_count = len(intel) * 5000 + random.randint(10000, 50000)
         payout = round(record_count * 0.08, 2) # $0.08 per structured record
 
-        endpoint = f"https://obsidian-ai.vercel.app/api/v1/data_feed?vendor_token={uuid.uuid4().hex[:12]}"
+        endpoint = f"https://obsidian.city/api/v1/data_feed?vendor_token={uuid.uuid4().hex[:12]}"
 
         colony_log(f"PURE_SUPPLIER: Compiling {record_count} structured records for [{buyer_aggregator}]...", node="SUPPLIER")
 

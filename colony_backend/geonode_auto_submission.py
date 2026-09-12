@@ -65,7 +65,7 @@ class GeonodeAutoSubmitBot:
                     # Fill common contact fields
                     await page.get_by_label(re.compile(r"name", re.I)).first.fill("Obsidian Christopher Maestas")
                     await page.get_by_label(re.compile(r"email", re.I)).first.fill("obsidian.global.holdings@gmail.com")
-                    await page.get_by_label(re.compile(r"website", re.I)).first.fill("https://obsidian-ai.vercel.app")
+                    await page.get_by_label(re.compile(r"website", re.I)).first.fill("https://obsidian.city")
 
                     colony_log("GEONODE_SUBMIT: Form data populated. Ready for submission.", node="GEONODE_BOT")
 

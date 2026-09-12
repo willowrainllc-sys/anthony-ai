@@ -22,5 +22,12 @@
         "description": "New velocity detected in High-Stakes Arbitrage. High retention potential.",
         "brand": "GRID",
         "reality_score": 90
+    },
+    {
+        "title": "MILESTONE: OBSIDIAN.CITY 200 OK LIVE",
+        "description": "Successfully deployed and verified 200 OK response on https://obsidian.city with GoDaddy-style domain reseller & hosting storefront.",
+        "brand": "OBSIDIAN_CITY",
+        "reality_score": 100,
+        "status": "LIVE_PRODUCTION"
     }
 ]

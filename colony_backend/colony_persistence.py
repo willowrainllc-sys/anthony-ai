@@ -3,6 +3,7 @@ import sqlite3
 import json
 import time
 import os
+import random
 from pathlib import Path
 
 # SHARED ABSOLUTE PATH
@@ -93,7 +94,45 @@ class EmpireDatabase:
                     timestamp REAL
                 )
             """)
+
+            # 6. USER SESSIONS & TOKENS (Secure Auth Tracker)
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS user_sessions (
+                    session_id TEXT PRIMARY KEY,
+                    email TEXT,
+                    token_hash TEXT,
+                    ip_address TEXT,
+                    created_at REAL,
+                    expires_at REAL,
+                    status TEXT DEFAULT 'ACTIVE'
+                )
+            """)
             conn.commit()
+
+    def register_user_session(self, email: str, token_hash: str, ip_address: str = "127.0.0.1") -> str:
+        session_id = f"sess_{int(time.time())}_{random.randint(1000,9999)}"
+        created_at = time.time()
+        expires_at = created_at + 86400 * 7 # 7 days
+        try:
+            with self._get_connection() as conn:
+                conn.execute("""
+                    INSERT OR REPLACE INTO user_sessions (session_id, email, token_hash, ip_address, created_at, expires_at, status)
+                    VALUES (?, ?, ?, ?, ?, ?, 'ACTIVE')
+                """, (session_id, email, token_hash, ip_address, created_at, expires_at))
+                conn.commit()
+            return session_id
+        except Exception as e:
+            print(f"[-] SESSION REGISTER ERROR: {e}")
+            return None
+
+    def verify_user_session(self, session_id: str) -> dict:
+        try:
+            with self._get_connection() as conn:
+                row = conn.execute("SELECT email, token_hash, expires_at, status FROM user_sessions WHERE session_id=?", (session_id,)).fetchone()
+                if row and row[3] == 'ACTIVE' and row[2] > time.time():
+                    return {"valid": True, "email": row[0]}
+        except: pass
+        return {"valid": False}
 
     def push_task(self, channel, payload, priority=10, idempotency_key=None):
         """Dispatches a new task into the empire's queue."""
