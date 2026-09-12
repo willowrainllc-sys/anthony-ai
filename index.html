@@ -86,6 +86,22 @@
         </div>
     </div>
 
+    <!-- 🔱 GoDaddy Style Promo Code Popup Modal -->
+    <div id="promoModal" style="display:none;" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4">
+        <div class="bg-white border border-slate-200 rounded-3xl p-8 max-w-lg w-full shadow-2xl text-center relative">
+            <button onclick="closePromoModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 font-bold text-lg">&times;</button>
+            <div class="inline-block bg-blue-100 text-blue-700 text-xs font-black uppercase px-3 py-1 rounded-full mb-4">🎉 Special Registrar Offer</div>
+            <h3 class="text-3xl font-black text-slate-900 mb-2">Get Your .COM for Just $0.01!</h3>
+            <p class="text-slate-600 text-xs mb-6">Connected directly to NameSilo wholesale registry. Use promo code at checkout for instant wholesale pricing.</p>
+            <div class="bg-slate-50 border-2 border-dashed border-blue-300 rounded-2xl p-4 mb-6 flex justify-between items-center">
+                <span class="font-mono text-lg font-black text-blue-600">SAVE50</span>
+                <button onclick="navigator.clipboard.writeText('SAVE50'); alert('Promo code SAVE50 copied!');" class="bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-xl hover:bg-blue-700 transition">Copy Code</button>
+            </div>
+            <a href="obsidian_unified_checkout.html?promo=SAVE50" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl text-sm transition shadow-lg shadow-blue-600/20 mb-3">Claim Domain & Discount →</a>
+            <button onclick="closePromoModal()" class="text-slate-400 hover:text-slate-600 text-xs font-semibold">No thanks, I'll pay retail</button>
+        </div>
+    </div>
+
     <!-- 🔱 Top Utility Bar -->
     <div class="godaddy-top-bar">
         <div class="flex gap-8">
@@ -329,6 +345,18 @@
         function closeAuthModal() {
             document.getElementById('authModal').style.display = 'none';
         }
+
+        function openPromoModal() {
+            document.getElementById('promoModal').style.display = 'flex';
+        }
+        function closePromoModal() {
+            document.getElementById('promoModal').style.display = 'none';
+        }
+
+        // Auto-show promo modal after 2.5 seconds for visitor engagement
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(openPromoModal, 2500);
+        });
 
         async function searchDomain() {
             const input = document.querySelector('.domain-input').value.trim();
