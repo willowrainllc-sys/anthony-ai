@@ -439,6 +439,15 @@
 
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(openPromoModal, 2500);
+
+            // Auto-Detect Device Locale & Region
+            const userLang = navigator.language || navigator.userLanguage || 'en-US';
+            console.log(`[LOCALE] Detected User Language: ${userLang}`);
+            if (userLang.startsWith('es')) {
+                document.querySelector('.hero h1').innerHTML = `Tu dominio lo desbloquea todo, <br><span class="text-blue-500">consigue un .com por $0.01/1er año.</span>`;
+            } else if (userLang.startsWith('fr')) {
+                document.querySelector('.hero h1').innerHTML = `Votre domaine débloque tout, <br><span class="text-blue-500">obtenez un .com pour 0,01$/1ère an.</span>`;
+            }
         });
 
         async function searchDomain() {
