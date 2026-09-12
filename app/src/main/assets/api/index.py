@@ -5,14 +5,29 @@ import json
 import random
 import os
 import urllib.parse
-import httpx
 from http.server import BaseHTTPRequestHandler
 
-# 🔱 WHOLESALE CREDENTIALS & SETTINGS
-NAMESILO_KEY = os.environ.get("NAMESILO_API_KEY", "cert_O6RAXSvTTLkhX1TlQcQt9wpA")
-SQUARE_TOKEN = os.environ.get("SQUARE_ACCESS_TOKEN", "EAAAl66bPEfbMG8HrWqH0ywIu32fO_19UsXDReI_UvxwSBD6j6Qmat-5AkXcSrnU")
+# 🔱 PROFIT MODEL: Wholesale (Registry Cost) vs Retail (Our Price)
+WHOLESALE_COSTS = {
+    ".com": 10.50,
+    ".rocks": 4.99,
+    ".city": 6.50,
+    ".ai": 45.00,
+    ".io": 15.00,
+    ".net": 12.00,
+    ".org": 9.50
+}
 
-# 🔱 SESSION STORAGE (Simulated)
+RETAIL_PRICES = {
+    ".com": 14.70,
+    ".rocks": 7.99,
+    ".city": 9.99,
+    ".ai": 59.99,
+    ".io": 19.99,
+    ".net": 16.99,
+    ".org": 12.99
+}
+
 SESSIONS = {}
 
 class handler(BaseHTTPRequestHandler):
@@ -28,28 +43,18 @@ class handler(BaseHTTPRequestHandler):
         query_params = urllib.parse.parse_qs(parsed_path.query)
 
         if "/api/domains/search" in path:
-            q = query_params.get("domain", ["mybrand"])[0].lower().split('.')[0]
-
-            # 🔱 PROFIT MODEL: Wholesale Cost + 40% Margin
-            tlds = [
-                {"tld": ".com", "cost": 10.50, "retail": 14.70, "tag": "Best Value"},
-                {"tld": ".ai", "cost": 45.00, "retail": 59.99, "tag": "Trending"},
-                {"tld": ".io", "cost": 15.00, "retail": 19.99, "tag": "Tech"},
-                {"tld": ".city", "cost": 6.50, "retail": 9.99, "tag": "Exclusive"},
-                {"tld": ".rocks", "cost": 5.00, "retail": 7.99, "tag": "Recommended"},
-                {"tld": ".net", "cost": 12.00, "retail": 16.99, "tag": "Classic"},
-                {"tld": ".org", "cost": 9.50, "retail": 12.99, "tag": "Trust"}
-            ]
+            q = query_params.get("domain", ["mybrand"])[0].lower().split('.')[0].replace(/[^a-z0-9]/g, '')
 
             results = []
-            for item in tlds:
+            for tld, retail in RETAIL_PRICES.items():
+                cost = WHOLESALE_COSTS[tld]
                 results.append({
-                    "domain": f"{q}{item['tld']}",
+                    "domain": f"{q}{tld}",
                     "available": True,
-                    "price": item['retail'],
-                    "wholesale_cost": item['cost'],
-                    "margin": round(item['retail'] - item['cost'], 2),
-                    "tag": item['tag'],
+                    "price": retail,
+                    "wholesale_cost": cost,
+                    "margin": round(retail - cost, 2),
+                    "tag": "Wholesale Cost" if retail == min(RETAIL_PRICES.values()) else "Recommended",
                     "registrar": "Obsidian Wholesale Pool v1"
                 })
 
@@ -84,14 +89,6 @@ class handler(BaseHTTPRequestHandler):
             SESSIONS[sid] = {"email": email, "last_active": time.time()}
             response = {"success": True, "session_id": sid, "email": email}
         elif "/api/settle/authorize" in path:
-            # 🔱 ARES SETTLEMENT LOGIC (SQUARE + NAMESILO PROVISIONING)
-            email = payload.get("email")
-            item = payload.get("type")
-            amount = payload.get("amount")
-
-            # Record profit telemetry for the Boss
-            print(f"[ARES REVENUE] {email} settled ${amount} for {item}")
-
             response = {
                 "success": True,
                 "status": "AUTHORIZED",
