@@ -2,6 +2,7 @@ package com.obsidian.global.ui
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
+import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.compose.animation.AnimatedVisibility
@@ -100,6 +101,10 @@ fun ObsidianTitanBrowserScreen(
                         }
                         settings.javaScriptEnabled = true
                         settings.domStorageEnabled = true
+                        settings.loadWithOverviewMode = true
+                        settings.useWideViewPort = true
+                        settings.cacheMode = WebSettings.LOAD_NO_CACHE
+                        clearCache(true)
                         setBackgroundColor(0xFF000000.toInt())
                         
                         // 🔱 SOVEREIGN INGRESS RESOLVER
