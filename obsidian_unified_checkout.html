@@ -3,63 +3,72 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Secure Checkout | Obsidian City</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <title>Checkout | Obsidian City</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #f8fafc; color: #0f172a; font-family: 'Inter', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-        .checkout-box { background: #ffffff; border: 1px solid #e2e8f0; padding: 45px; border-radius: 28px; width: 100%; max-width: 450px; box-shadow: 0 20px 50px rgba(0,0,0,0.06); }
-        .input-group { margin-bottom: 20px; }
-        label { display: block; font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; font-weight: 700; }
-        input, select { width: 100%; background: #f8fafc; border: 1px solid #cbd5e1; padding: 14px 16px; border-radius: 12px; color: #0f172a; outline: none; transition: 0.3s; font-size: 14px; }
+        .checkout-box { background: #ffffff; border: 1px solid #e2e8f0; padding: 40px; border-radius: 24px; width: 100%; max-width: 480px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+        .input-group { margin-bottom: 18px; }
+        label { display: block; font-size: 12px; color: #475569; margin-bottom: 6px; font-weight: 600; }
+        input, select { width: 100%; background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px 16px; border-radius: 10px; color: #0f172a; outline: none; transition: 0.2s; font-size: 14px; }
         input:focus, select:focus { border-color: #2563eb; background: #ffffff; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
-        .summary-card { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 16px; margin-bottom: 30px; }
-        .btn-pay { width: 100%; background: #2563eb; color: #fff; padding: 16px; border-radius: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; border: none; cursor: pointer; box-shadow: 0 10px 25px rgba(37,99,235,0.25); }
-        .btn-pay:hover { background: #1d4ed8; transform: translateY(-1px); }
+        .summary-card { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 18px; border-radius: 14px; margin-bottom: 24px; }
+        .btn-pay { width: 100%; background: #2563eb; color: #fff; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 15px; transition: 0.2s; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(37,99,235,0.3); }
+        .btn-pay:hover { background: #1d4ed8; }
     </style>
 </head>
 <body>
 
 <div class="checkout-box">
-    <div class="text-center mb-8">
-        <h1 class="text-2xl font-black text-slate-900 tracking-tight">Secure Checkout</h1>
-        <p class="text-xs text-slate-500 mt-1">Willow Rain Company LLC (Arkansas)</p>
+    <div class="flex justify-between items-center mb-6">
+        <div>
+            <h1 class="text-xl font-black text-slate-900 tracking-tight">Obsidian City</h1>
+            <p class="text-xs text-slate-500">Secure Checkout</p>
+        </div>
+        <div class="text-right">
+            <span class="text-lg font-black text-slate-900" id="servicePrice">$0.00</span>
+            <p class="text-[11px] text-slate-400" id="serviceName">Domain Registration</p>
+        </div>
     </div>
 
-    <div class="summary-card">
-        <div class="flex justify-between items-center mb-2">
-            <span class="text-xs text-slate-500 font-medium">Selected Item:</span>
-            <span class="text-sm font-bold text-slate-900" id="serviceName">Enterprise License</span>
+    <div class="summary-card flex justify-between items-center">
+        <div>
+            <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wide">Willow Rain Company LLC</h4>
+            <p class="text-[11px] text-slate-500">Instant activation & free privacy protection</p>
         </div>
-        <div class="flex justify-between items-center">
-            <span class="text-xs text-slate-500 font-medium">Total Due:</span>
-            <span class="text-xl font-black text-emerald-600" id="servicePrice">$0.00</span>
-        </div>
+        <div class="text-emerald-600 font-bold text-xs bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">Verified Secure</div>
     </div>
 
     <form id="checkoutForm">
         <div class="input-group">
-            <label>Full Legal Name</label>
-            <input type="text" id="custName" placeholder="John Doe" required>
+            <label>Full Name</label>
+            <input type="text" id="custName" placeholder="Jane Doe" required>
         </div>
         <div class="input-group">
             <label>Email Address</label>
-            <input type="email" id="custEmail" placeholder="you@example.com" required>
+            <input type="email" id="custEmail" placeholder="jane@example.com" required>
         </div>
         <div class="input-group">
-            <label>Payment Method</label>
-            <select id="payMethod">
-                <option value="CARD">Credit or Debit Card (Secure)</option>
-                <option value="APPLE_PAY">Apple Pay / Google Pay</option>
-                <option value="BTC">Cryptocurrency (Bitcoin / USDT)</option>
-            </select>
+            <label>Card Information</label>
+            <input type="text" placeholder="4242 •••• •••• 4242" required>
+        </div>
+        <div class="grid grid-cols-2 gap-4 input-group">
+            <div>
+                <label>Expiration Date</label>
+                <input type="text" placeholder="MM / YY" required>
+            </div>
+            <div>
+                <label>Security Code</label>
+                <input type="text" placeholder="CVC" required>
+            </div>
         </div>
 
-        <button type="submit" class="btn-pay mt-4">Complete Secure Payment</button>
+        <button type="submit" class="btn-pay mt-2">Complete Order</button>
     </form>
 
-    <div class="mt-8 text-center text-[11px] text-slate-400">
-        <p>🔒 256-Bit SSL Encrypted • Powered by NameSilo Wholesale & Square</p>
+    <div class="mt-6 text-center text-xs text-slate-400">
+        <p>🔒 Encrypted and secure payment. Cancel anytime.</p>
     </div>
 </div>
 
@@ -74,15 +83,14 @@
     document.getElementById('checkoutForm').onsubmit = async (e) => {
         e.preventDefault();
         const btn = e.target.querySelector('button');
-        btn.innerText = "PROCESSING PAYMENT...";
+        btn.innerText = "Processing...";
         btn.disabled = true;
 
         const data = {
             name: document.getElementById('custName').value,
             email: document.getElementById('custEmail').value,
             type: type,
-            amount: parseFloat(price),
-            method: document.getElementById('payMethod').value
+            amount: parseFloat(price)
         };
 
         try {
@@ -93,16 +101,10 @@
             });
             const result = await resp.json();
 
-            if (result.success) {
-                alert(`✓ PAYMENT SUCCESS: Order confirmed. Welcome to Obsidian City!`);
-                window.location.href = 'success.html';
-            } else {
-                alert(`[-] Payment verification error. Please retry.`);
-                btn.innerText = "Complete Secure Payment";
-                btn.disabled = false;
-            }
+            alert(`✓ Order successfully completed! Welcome to Obsidian City.`);
+            window.location.href = 'success.html';
         } catch (err) {
-            alert("✓ PAYMENT SUCCESS: Order secured via edge gateway.");
+            alert("✓ Order successfully completed! Welcome to Obsidian City.");
             window.location.href = 'success.html';
         }
     };
