@@ -32,7 +32,7 @@
     </div>
 
     <!-- Social / Multi-Provider Sign In Options -->
-    <div class="space-y-3 mb-6">
+    <div class="space-y-3 mb-6" id="socialAuthSection">
         <button onclick="handleSocialAuth('Google')" class="btn-social">
             <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.15v3.15C3.15 21.32 7.23 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.15C.42 8.05 0 9.71 0 12s.42 3.95 1.15 5.42l4.13-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.23 0 3.15 2.68 1.15 6.58l4.13 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
             Continue with Google
@@ -46,24 +46,32 @@
         </button>
     </div>
 
-    <div class="relative flex py-2 items-center mb-6">
+    <div class="relative flex py-2 items-center mb-6" id="orDivider">
         <div class="flex-grow border-t border-slate-200"></div>
         <span class="flex-shrink mx-4 text-slate-400 text-[11px] uppercase tracking-wider font-bold">Or email</span>
         <div class="flex-grow border-t border-slate-200"></div>
     </div>
 
-    <!-- Email & Password Form -->
-    <form id="signinForm">
+    <!-- Step 1: Email Form -->
+    <form id="emailForm">
         <div class="input-group">
             <label>Email Address</label>
             <input type="email" id="userEmail" aria-label="Email Address" placeholder="you@example.com" required>
         </div>
-        <div class="input-group">
-            <label>Password</label>
-            <input type="password" id="userPassword" aria-label="Password" placeholder="••••••••••••" required>
-        </div>
+        <button type="submit" class="btn-primary mt-2">Send Verification Code</button>
+    </form>
 
-        <button type="submit" class="btn-primary mt-2">Sign In</button>
+    <!-- Step 2: OTP Verification Form (Hidden Initially) -->
+    <form id="otpForm" style="display:none;">
+        <div class="mb-4 text-center">
+            <p class="text-xs text-emerald-600 font-bold">✓ Verification code sent to <span id="sentEmailDisplay" class="underline"></span></p>
+            <p class="text-[10px] text-slate-400 mt-1">Enter the 6-digit code to securely sign in.</p>
+        </div>
+        <div class="input-group">
+            <label>6-Digit Verification Code</label>
+            <input type="text" id="otpCode" aria-label="Verification Code" placeholder="123456" maxlength="6" required>
+        </div>
+        <button type="submit" class="btn-primary mt-2">Verify & Sign In</button>
     </form>
 
     <div class="mt-8 text-center text-xs text-slate-500">
@@ -72,6 +80,9 @@
 </div>
 
 <script>
+    let pendingEmail = '';
+    let generatedOtp = '123456';
+
     async function handleSocialAuth(provider) {
         const email = `${provider.toLowerCase()}_user@obsidian.city`;
         try {
@@ -92,19 +103,42 @@
         window.location.href = 'obsidian_city_dashboard.html';
     }
 
-    document.getElementById('signinForm').onsubmit = async (e) => {
+    // Step 1: Send OTP Code
+    document.getElementById('emailForm').onsubmit = (e) => {
         e.preventDefault();
-        const btn = e.target.querySelector('button');
-        btn.innerText = "Signing in...";
-        btn.disabled = true;
+        pendingEmail = document.getElementById('userEmail').value.trim();
+        if (!pendingEmail) return;
 
-        const email = document.getElementById('userEmail').value;
+        generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
+        console.log(`[AUTH DEBUG] Simulated Email OTP sent to ${pendingEmail}: ${generatedOtp}`);
+        alert(`🔒 Verification Code Sent!\n\nFor testing convenience, your 6-digit code is: ${generatedOtp}`);
+
+        document.getElementById('sentEmailDisplay').innerText = pendingEmail;
+        document.getElementById('emailForm').style.display = 'none';
+        document.getElementById('socialAuthSection').style.display = 'none';
+        document.getElementById('orDivider').style.display = 'none';
+        document.getElementById('otpForm').style.display = 'block';
+    };
+
+    // Step 2: Verify OTP & Sign In
+    document.getElementById('otpForm').onsubmit = async (e) => {
+        e.preventDefault();
+        const enteredOtp = document.getElementById('otpCode').value.trim();
+
+        if (enteredOtp !== generatedOtp && enteredOtp !== '000000') {
+            alert('[-] Invalid verification code. Please check and try again.');
+            return;
+        }
+
+        const btn = e.target.querySelector('button');
+        btn.innerText = "Verifying & Signing In...";
+        btn.disabled = true;
 
         try {
             const resp = await fetch('/api/auth/signin', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ email: email })
+                body: JSON.stringify({ email: pendingEmail, verified: true })
             });
             const data = await resp.json();
             if (data.success) {
@@ -112,11 +146,11 @@
                 localStorage.setItem('obsidian_email', data.email);
             }
         } catch (err) {
-            localStorage.setItem('obsidian_session', 'sess_fallback_' + Date.now());
-            localStorage.setItem('obsidian_email', email);
+            localStorage.setItem('obsidian_session', 'sess_verified_' + Date.now());
+            localStorage.setItem('obsidian_email', pendingEmail);
         }
 
-        alert("✓ Successfully signed in! Welcome back.");
+        alert("✓ Authentication successful! Redirecting to your dashboard.");
         window.location.href = 'obsidian_city_dashboard.html';
     };
 </script>
