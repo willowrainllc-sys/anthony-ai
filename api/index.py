@@ -5,15 +5,7 @@ import json
 import random
 import os
 import urllib.parse
-import httpx
 from http.server import BaseHTTPRequestHandler
-
-# 🔱 WHOLESALE CREDENTIALS & SETTINGS
-NAMESILO_KEY = os.environ.get("NAMESILO_API_KEY", "cert_O6RAXSvTTLkhX1TlQcQt9wpA")
-SQUARE_TOKEN = os.environ.get("SQUARE_ACCESS_TOKEN", "EAAAl66bPEfbMG8HrWqH0ywIu32fO_19UsXDReI_UvxwSBD6j6Qmat-5AkXcSrnU")
-
-# 🔱 SESSION STORAGE (Simulated)
-SESSIONS = {}
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -27,10 +19,13 @@ class handler(BaseHTTPRequestHandler):
         path = parsed_path.path
         query_params = urllib.parse.parse_qs(parsed_path.query)
 
-        if "/api/domains/search" in path:
-            q = query_params.get("domain", ["mybrand"])[0].lower().split('.')[0]
+        # 🔱 LOGGING INGRESS
+        print(f"[INGRESS] GET {path} | Query: {query_params}")
 
-            # 🔱 PROFIT MODEL: Wholesale Cost + 40% Margin
+        if "/api/domains/search" in path or "/search" in path:
+            q = query_params.get("domain", query_params.get("q", ["mybrand"]))[0].lower().split('.')[0]
+
+            # 🔱 WHOLESALE LIBRARY GENERATOR (ULTIMATE PROFIT MODEL)
             tlds = [
                 {"tld": ".com", "cost": 10.50, "retail": 14.70, "tag": "Best Value"},
                 {"tld": ".ai", "cost": 45.00, "retail": 59.99, "tag": "Trending"},
@@ -48,7 +43,6 @@ class handler(BaseHTTPRequestHandler):
                     "available": True,
                     "price": item['retail'],
                     "wholesale_cost": item['cost'],
-                    "margin": round(item['retail'] - item['cost'], 2),
                     "tag": item['tag'],
                     "registrar": "Obsidian Wholesale Pool v1"
                 })
@@ -59,9 +53,6 @@ class handler(BaseHTTPRequestHandler):
                 "status": "INGRESS_READY",
                 "timestamp": now
             }
-        elif "/api/auth/session" in path:
-            sid = query_params.get("sid", [None])[0]
-            payload = {"active": sid in SESSIONS, "user": SESSIONS.get(sid)}
         else:
             payload = {"status": "SUCCESS", "timestamp": now}
 
@@ -78,20 +69,13 @@ class handler(BaseHTTPRequestHandler):
         payload = json.loads(post_data) if post_data else {}
         path = self.path
 
+        print(f"[INGRESS] POST {path} | Payload: {payload}")
+
         if "/api/auth/signin" in path:
             email = payload.get("email", "user@example.com")
             sid = f"sess_{int(time.time())}_{random.randint(1000,9999)}"
-            SESSIONS[sid] = {"email": email, "last_active": time.time()}
             response = {"success": True, "session_id": sid, "email": email}
         elif "/api/settle/authorize" in path:
-            # 🔱 ARES SETTLEMENT LOGIC (SQUARE + NAMESILO PROVISIONING)
-            email = payload.get("email")
-            item = payload.get("type")
-            amount = payload.get("amount")
-
-            # Record profit telemetry for the Boss
-            print(f"[ARES REVENUE] {email} settled ${amount} for {item}")
-
             response = {
                 "success": True,
                 "status": "AUTHORIZED",
