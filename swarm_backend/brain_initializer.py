@@ -64,7 +64,7 @@ def seed():
         conn.execute("INSERT OR IGNORE INTO neural_disciples (id, name, aura) VALUES ('BOT_FORGE_ARCH', 'Forge Architect', 'AI Tooling & Production Strategy')")
 
         conn.commit()
-    print("[🚀] Brain Initialized with P-E-W Heretic & AI Mesh.")
+    print("[[STRIKE]] Brain Initialized with P-E-W Heretic & AI Mesh.")
 
 if __name__ == "__main__":
     seed()

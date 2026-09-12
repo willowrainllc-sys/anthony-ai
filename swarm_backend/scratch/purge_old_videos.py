@@ -7,11 +7,11 @@ from supabase import create_client
 def purge_all():
     print("=== PURGING ALL OLD LOCAL VIDEO FILES & CACHE ===")
     dirs_to_clear = [
-        r"D:\AnthonyAi_Swarm\Renderings",
-        r"C:\AnthonyAi_Swarm\Renderings",
-        r"D:\AnthonyAi_Swarm\Secure_Assets\source_videos",
-        r"D:\AnthonyAi_Swarm\Temp",
-        r"C:\AnthonyAi_Swarm\Temp"
+        r"D:\ObsidianAi_Swarm\Renderings",
+        r"C:\ObsidianAi_Swarm\Renderings",
+        r"D:\ObsidianAi_Swarm\Secure_Assets\source_videos",
+        r"D:\ObsidianAi_Swarm\Temp",
+        r"C:\ObsidianAi_Swarm\Temp"
     ]
 
     for d in dirs_to_clear:
@@ -28,7 +28,7 @@ def purge_all():
                     print(f"Error purging {f}: {e}")
 
     print("=== PURGING ALL OLD DB RECORDS ===")
-    for db_path in [r"C:\AnthonyAi_Swarm\Empire_Vault.db", r"D:\AnthonyAi_Swarm\Empire_Vault.db"]:
+    for db_path in [r"C:\ObsidianAi_Swarm\Empire_Vault.db", r"D:\ObsidianAi_Swarm\Empire_Vault.db"]:
         if os.path.exists(db_path):
             try:
                 conn = sqlite3.connect(db_path)

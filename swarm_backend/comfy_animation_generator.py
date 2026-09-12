@@ -10,7 +10,7 @@ from swarm_logger import swarm_log
 
 # Configuration
 COMFY_SERVER_URL = os.getenv("COMFYUI_URL", "http://127.0.0.1:8188")
-OUTPUT_DIR = Path(r"D:\AnthonyAi_Swarm\Renderings")
+OUTPUT_DIR = Path(r"D:\ObsidianAi_Swarm\Renderings")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 class ComfyAnimationGenerator:
@@ -92,7 +92,7 @@ class ComfyAnimationGenerator:
                 res = await client.post(f"{self.server_address}/prompt", json={"prompt": workflow_prompt})
                 if res.status_code == 200:
                     prompt_id = res.json().get("prompt_id")
-                    swarm_log(f"✓ COMFYUI: Prompt queued with ID [{prompt_id}]. Waiting for render...", node="COMFY")
+                    swarm_log(f" COMFYUI: Prompt queued with ID [{prompt_id}]. Waiting for render...", node="COMFY")
                     return prompt_id
         except Exception as e:
             swarm_log(f"[-] COMFYUI Render Error: {e}", node="COMFY")

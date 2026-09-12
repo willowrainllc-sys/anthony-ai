@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUANTUM VISION HUB | Obsidian Global</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #020205;
+            --purple: #8b5cf6;
+            --blue: #3b82f6;
+            --glass: rgba(10, 10, 15, 0.8);
+            --border: rgba(139, 92, 246, 0.2);
+        }
+
+        body {
+            background: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            display: grid;
+            grid-template-areas:
+                "nav header"
+                "nav content";
+            grid-template-columns: 300px 1fr;
+            grid-template-rows: 100px 1fr;
+            height: 100vh;
+        }
+
+        /* 🔱 3D Holographic Background */
+        .hologram-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            transform: perspective(500px) rotateX(60deg) translateY(-200px);
+            opacity: 0.5;
+            animation: moveGrid 20s linear infinite;
+        }
+
+        @keyframes moveGrid { from { background-position: 0 0; } to { background-position: 0 1000px; } }
+
+        /* 🔱 Sidebar */
+        .sidebar {
+            grid-area: nav;
+            background: #000;
+            border-right: 1px solid var(--border);
+            padding: 40px 20px;
+        }
+
+        .logo { font-family: 'Orbitron'; font-weight: 900; font-size: 1.5em; letter-spacing: 5px; color: var(--purple); margin-bottom: 50px; }
+
+        /* 🔱 Header */
+        header {
+            grid-area: header;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        /* 🔱 Content Area: The Mosaic */
+        .main-content {
+            grid-area: content;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            overflow-y: auto;
+        }
+
+        /* 🔱 Live Node Mosaic */
+        .mosaic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .node-view {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .node-view img {
+            width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: 0.3s;
+        }
+
+        .node-view:hover img { opacity: 1; transform: scale(1.05); }
+
+        .node-label {
+            position: absolute; bottom: 10px; left: 10px;
+            font-size: 0.6em; font-weight: bold; color: var(--purple);
+            text-transform: uppercase; letter-spacing: 1px;
+            background: rgba(0,0,0,0.8); padding: 4px 8px; border-radius: 5px;
+        }
+
+        /* 🔱 ASI Thoughts Stream */
+        .thoughts-panel {
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: inset 0 0 50px rgba(139, 92, 246, 0.1);
+        }
+
+        .thoughts-panel h2 { font-family: 'Orbitron'; font-size: 1.2em; margin-top: 0; color: var(--purple); }
+
+        .thought-stream {
+            flex: 1; overflow-y: auto; font-family: monospace; font-size: 0.9em; line-height: 1.6; color: #94a3b8;
+        }
+
+        .thought-item { margin-bottom: 15px; border-left: 2px solid var(--purple); padding-left: 15px; }
+        .thought-time { font-size: 0.7em; color: #475569; }
+
+        /* 🔱 Night Mode Indicator */
+        .night-indicator {
+            display: flex; align-items: center; gap: 10px;
+            font-family: 'Orbitron'; font-size: 0.8em; color: #64748b;
+        }
+        .pulse-dot { width: 8px; height: 8px; background: #fbbf24; border-radius: 50%; box-shadow: 0 0 10px #fbbf24; animation: blink 2s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+
+    </style>
+</head>
+<body>
+    <div class="hologram-overlay"></div>
+
+    <nav class="sidebar">
+        <div class="logo">OBSIDIAN</div>
+        <div style="color: #444; font-size: 0.7em; margin-bottom: 30px;">QUANTUM VISION v1.0</div>
+        <!-- Menu links would go here -->
+    </nav>
+
+    <header>
+        <h2 style="font-family: 'Orbitron'; letter-spacing: 3px;">QUANTUM VISION HUB</h2>
+        <div class="night-indicator">
+            <div class="pulse-dot"></div> NIGHT MODE ACTIVE
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="mosaic-grid" id="nodeMosaic">
+            <!-- Nodes will be injected here -->
+        </div>
+
+        <div class="thoughts-panel">
+            <h2>🧠 ASI THOUGHTS</h2>
+            <div class="thought-stream" id="thoughtStream">
+                <div class="thought-item">
+                    <div class="thought-time">00:01:24</div>
+                    Analyzing Missouri Matrix congestion... Routing optimized.
+                </div>
+                <div class="thought-item">
+                    <div class="thought-time">00:02:10</div>
+                    Whale signal detected on BTC/USD. Arming HFT scalp strike.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 🔱 Live Mosaic Injection
+        const mosaic = document.getElementById('nodeMosaic');
+        for (let i = 1080; i <= 1095; i++) {
+            const div = document.createElement('div');
+            div.className = 'node-view';
+            div.innerHTML = `
+                <img src="file:///D:/AnthonyAi_Swarm/Secure_Assets/Ghost_Vision/node_${i}_live.png" onerror="this.src='https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=400'">
+                <div class="node-label">NODE: ${i}</div>
+            `;
+            mosaic.appendChild(div);
+        }
+
+        // 🔱 Real-Time Thought Injection
+        const stream = document.getElementById('thoughtStream');
+        const thoughts = [
+            "Quantum Ingest: Entropy levels stabilized.",
+            "Dark Energy Sniper: 15 injections neutralized.",
+            "Identity Harvester: 50 new Missouri leads scored.",
+            "Grid Monitor: 103 heartbeats synchronized.",
+            "Obsidian-OS: Kernel build at 84% completion.",
+            "Treasury: Watching for $9,000 settlement pulse."
+        ];
+
+        setInterval(() => {
+            const div = document.createElement('div');
+            div.className = 'thought-item';
+            const time = new Date().toLocaleTimeString();
+            div.innerHTML = `<div class="thought-time">${time}</div>${thoughts[Math.floor(Math.random() * thoughts.length)]}`;
+            stream.prepend(div);
+            if (stream.children.length > 20) stream.lastChild.remove();
+        }, 4000);
+    </script>
+</body>
+</html>

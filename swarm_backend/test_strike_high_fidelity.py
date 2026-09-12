@@ -12,7 +12,7 @@ from swarm_logger import swarm_log
 from mobile_social_agent import MobileSocialAgent as MobileAgent
 
 # MISSION PAYLOAD
-TARGET_VIDEO = Path(r"C:\AnthonyAi_Swarm\Renderings\remix_hyper_stock_9573667f.mp4")
+TARGET_VIDEO = Path(r"C:\ObsidianAi_Swarm\Renderings\remix_hyper_stock_9573667f.mp4")
 PAGE_ID = "1370890679430214" # Willow Rain Company LLC
 
 async def execute_moderna_strike():
@@ -21,7 +21,7 @@ async def execute_moderna_strike():
         print("[!] No device detected.")
         return
 
-    swarm_log(f"🔱 TEST STRIKE: Moderna High-Fidelity mission for {TARGET_VIDEO.name}...", node="MOBILE")
+    swarm_log(f"[SUPREME] TEST STRIKE: Moderna High-Fidelity mission for {TARGET_VIDEO.name}...", node="MOBILE")
 
     # 1. PUSH
     if not TARGET_VIDEO.exists():
@@ -80,10 +80,10 @@ async def execute_moderna_strike():
         # 6. CAPTION (Moderna Niche / Matching Topic)
         # Niche: Heavy Hauling / Industrial Muscle
         caption = (
-            "🔱 MODERNA INDUSTRIAL SERIES: EPISODE 04 🔱\n\n"
+            "[SUPREME] MODERNA INDUSTRIAL SERIES: EPISODE 04 [SUPREME]\n\n"
             "Witness the pure power of heavy hauling. Synchronized movement in the urban grid. "
-            "High-fidelity production for the Alpha Spectrum.\n\n"
-            "#HeavyMachinery #IndustrialMuscle #HighFidelity #WillowRain #AlphaGrid #Sovereignty"
+            "High-fidelity production for the Alpha Obsidian Global.\n\n"
+            "#HeavyMachinery #IndustrialMuscle #HighFidelity #WillowRain #AlphaGrid #Obsidianty"
         )
 
         agent.tap(360, 400)

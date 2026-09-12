@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Data Dashboard | Willow Rain Aggregator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #020617; color: #f8fafc; }
+        .sidebar { background: #0f172a; border-right: 1px solid #1e293b; }
+        .stat-card { background: #1e293b; border: 1px solid #334155; }
+        .btn-action { background: #2563eb; color: white; transition: all 0.3s; }
+        .btn-action:hover { background: #1d4ed8; box-shadow: 0 0 20px rgba(37, 99, 235, 0.4); }
+    </style>
+</head>
+<body class="flex min-h-screen">
+
+    <!-- Dashboard Sidebar -->
+    <aside class="w-64 sidebar p-8 hidden md:block">
+        <div class="text-xl font-black mb-12 tracking-tighter">WILLOW <span class="text-blue-500">RAIN</span></div>
+        <nav class="space-y-6 text-sm font-bold uppercase tracking-widest text-slate-500">
+            <a href="#" class="block text-white"><i class="fas fa-th-large mr-3"></i> Overview</a>
+            <a href="#" class="block hover:text-white transition"><i class="fas fa-network-wired mr-3"></i> IP Matrix</a>
+            <a href="#" class="block hover:text-white transition"><i class="fas fa-users mr-3"></i> Swarm Status</a>
+            <a href="#" class="block hover:text-white transition"><i class="fas fa-file-invoice-dollar mr-3"></i> Payouts</a>
+            <a href="#" class="block hover:text-white transition"><i class="fas fa-cog mr-3"></i> Settings</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8 md:p-12">
+        <header class="flex justify-between items-center mb-16">
+            <div>
+                <h1 class="text-3xl font-extrabold tracking-tight">Aggregator <span class="text-blue-500">Control.</span></h1>
+                <p class="text-slate-500 font-medium">Managing the global residential data supply.</p>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="h-2 w-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span class="text-xs font-black uppercase tracking-widest text-slate-400">Live Grid Sync</span>
+            </div>
+        </header>
+
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+            <div class="stat-card p-8 rounded-3xl border-blue-500/50">
+                <div class="text-blue-400 text-[10px] font-black uppercase tracking-widest mb-2">Net Daily Profit</div>
+                <div class="text-3xl font-bold font-mono">$5,015.00</div>
+                <div class="text-[10px] text-green-500 mt-2 font-bold">+12% vs Yesterday</div>
+            </div>
+            <div class="stat-card p-8 rounded-3xl">
+                <div class="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-2">Total Throughput</div>
+                <div class="text-3xl font-bold font-mono text-white">500.0 GB</div>
+                <div class="text-[10px] text-slate-500 mt-2">Aggregate Swarm Flow</div>
+            </div>
+            <div class="stat-card p-8 rounded-3xl">
+                <div class="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-2">Virtual Swarm</div>
+                <div class="text-3xl font-bold font-mono text-white">500 Nodes</div>
+                <div class="text-[10px] text-blue-500 mt-2">God-Mode Access</div>
+            </div>
+            <div class="stat-card p-8 rounded-3xl">
+                <div class="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-2">Sell Rate / GB</div>
+                <div class="text-3xl font-bold font-mono text-blue-500">$6.00</div>
+                <div class="text-[10px] text-slate-500 mt-2">Enterprise Premium</div>
+            </div>
+        </div>
+
+        <!-- B2B Contract List -->
+        <section class="stat-card p-10 rounded-[2.5rem]">
+            <h2 class="text-xl font-bold mb-8">Active Wholesale Contracts</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="text-slate-500 text-[10px] font-black uppercase tracking-widest border-b border-slate-800">
+                            <th class="pb-4">Client</th>
+                            <th class="pb-4">Assigned Bandwidth</th>
+                            <th class="pb-4">Rate / GB</th>
+                            <th class="pb-4 text-right">Daily Yield</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm font-medium">
+                        <tr class="border-b border-slate-800/50">
+                            <td class="py-6">Global_AI_Training_Lab</td>
+                            <td>150 GB</td>
+                            <td>$12.00</td>
+                            <td class="text-right text-blue-400 font-bold">$1,800.00</td>
+                        </tr>
+                        <tr class="border-b border-slate-800/50">
+                            <td class="py-6">Ad_Verification_Corp</td>
+                            <td>100 GB</td>
+                            <td>$10.50</td>
+                            <td class="text-right text-blue-400 font-bold">$1,050.00</td>
+                        </tr>
+                        <tr class="border-b border-slate-800/50">
+                            <td class="py-6">Market_Intel_Group</td>
+                            <td>175 GB</td>
+                            <td>$13.00</td>
+                            <td class="text-right text-blue-400 font-bold">$2,275.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer class="mt-24 text-center text-slate-700 text-[10px] font-black uppercase tracking-[0.5em]">
+            Willow Rain Company LLC | Independent Aggregator Platform
+        </footer>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUANTUM SCRAPER | High-Velocity Ingress | Obsidian Global</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #010103;
+            --matrix: #00ff41;
+            --accent: #3b82f6;
+            --glass: rgba(10, 10, 20, 0.95);
+            --border: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Space Mono', monospace;
+            margin: 0;
+            padding: 40px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 450px;
+            height: 100vh;
+            gap: 40px;
+        }
+
+        /* 🔱 Scraper Activity Area */
+        .activity-area {
+            background: #000;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .log-line { font-size: 0.85em; color: var(--matrix); opacity: 0.8; margin-bottom: 5px; }
+        .highlight { color: #fff; font-weight: bold; }
+
+        /* 🔱 Telemetry Sidebar */
+        .telemetry-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 30px;
+        }
+
+        .label { font-size: 0.6em; color: #666; text-transform: uppercase; letter-spacing: 3px; font-weight: 800; }
+        .value { font-size: 2.2em; font-weight: 900; margin-top: 10px; font-family: 'Orbitron'; color: var(--accent); }
+
+        .scan-pulse {
+            height: 2px;
+            background: var(--accent);
+            width: 100%;
+            position: absolute;
+            top: 0; left: 0;
+            box-shadow: 0 0 20px var(--accent);
+            animation: scan 6s infinite linear;
+        }
+
+        @keyframes scan { from { top: 0; } to { top: 100%; } }
+
+        .btn-launch {
+            background: #fff;
+            color: #000;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="activity-area">
+        <div class="scan-pulse"></div>
+        <div style="font-family: 'Orbitron'; letter-spacing: 10px; color: var(--accent); margin-bottom: 30px;">QUANTUM_SCRAPER_v1.0</div>
+        <div id="logContent">
+            <p class="log-line">> [TITAN]: Initiating World Ingress Strike...</p>
+            <p class="log-line">> Connecting to 5,103 Helper Bots... OK</p>
+            <p class="log-line">> Mapping Loop-Holes in Global Media Nodes... OK</p>
+            <p class="log-line">> [INGRESS]: Extracting raw MP4 packets from [Node_01]...</p>
+        </div>
+    </div>
+
+    <div class="telemetry-panel">
+        <div class="stat-card">
+            <div class="label">Ingress Velocity</div>
+            <div class="value">48.2 TB/s</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Total Packets Scavenged</div>
+            <div class="value" id="packetCount">142,822</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Mesh Coordination</div>
+            <div class="value">100% GREEN</div>
+        </div>
+
+        <div style="flex:1"></div>
+        <button class="btn-launch" onclick="alert('🔱 Increasing Scraper Multiplier -> 10x')">MAX VELOCITY</button>
+        <div class="label" style="text-align: center;">TOTAL CONTENT INGRESS | MAESTAS UNIVERSE</div>
+    </div>
+
+    <script>
+        let count = 142822;
+        const log = document.getElementById('logContent');
+        const countEl = document.getElementById('packetCount');
+        const sources = ["Global_Data_Vault", "Sovereign_Stream", "Alpha_Video", "World_Shadow"];
+
+        setInterval(() => {
+            const batch = Math.floor(Math.random() * 500);
+            count += batch;
+            countEl.innerText = count.toLocaleString();
+
+            const src = sources[Math.floor(Math.random() * sources.length)];
+            const line = document.createElement('p');
+            line.className = 'log-line';
+            line.innerHTML = `> <span class="highlight">[INGRESS]:</span> Extracted ${batch} MP4 packets from ${src}. [SETTLED]`;
+            log.appendChild(line);
+            log.scrollTop = log.scrollHeight;
+            if(log.children.length > 25) log.removeChild(log.firstChild);
+        }, 3000);
+    </script>
+</body>
+</html>

@@ -12,12 +12,12 @@ from node_quality_control import qa_agent
 from media_renderer import create_reel_package
 
 async def run_end_to_end_test():
-    print("--- 🔱 STARTING AGENTIC PIPELINE END-TO-END TEST (COLOR-GUARD) ---")
+    print("--- [SUPREME] STARTING AGENTIC PIPELINE END-TO-END TEST (COLOR-GUARD) ---")
 
     # 1. ORIGINAL CONCEPT (Blockbuster Engine)
     print("[*] Phase 1: Inventing Original Concept...")
     concept = await idea_engine.generate_original_concept()
-    print(f"[✓] Concept Invented: {concept['title']}")
+    print(f"[] Concept Invented: {concept['title']}")
 
     # 2. SHOWRUNNER ARCHITECT (Manifest & Bible)
     print("[*] Phase 2: Showrunner architecting manifest...")
@@ -31,12 +31,12 @@ async def run_end_to_end_test():
     if not manifest:
         print("[!] Showrunner failed.")
         return
-    print(f"[✓] Manifest Locked. Format: {manifest['format']} Scenes: {len(manifest['scenes'])}")
+    print(f"[] Manifest Locked. Format: {manifest['format']} Scenes: {len(manifest['scenes'])}")
 
     # 3. QA EVALUATION (Pre-Production)
     print("[*] Phase 3: Pre-Production QA Check...")
     qa_check = await qa_agent.evaluate_production_plan(manifest)
-    print(f"[✓] QA Status: {qa_check['status']}")
+    print(f"[] QA Status: {qa_check['status']}")
 
     # 4. BLOCKBUSTER PRODUCTION (Assembly & Color Guard)
     print("[*] Phase 4: Launching Media Renderer...")
@@ -49,14 +49,14 @@ async def run_end_to_end_test():
     )
 
     if filename:
-        local_path = Path(r"C:\AnthonyAi_Swarm\Renderings") / filename
-        print(f"[✓] Render Complete: {filename}")
+        local_path = Path(r"C:\ObsidianAi_Swarm\Renderings") / filename
+        print(f"[] Render Complete: {filename}")
 
         # 5. TECHNICAL VERIFICATION (Pixel Analysis for Color Casts)
         print("[*] Phase 5: Running Pixel-Level Color Guard Scan...")
         passed, reason = await qa_agent.verify_final_asset(str(local_path))
         if passed:
-            print(f"--- 🔱 TEST SUCCESS: AGENTIC PIPELINE FULLY OPERATIONAL ---")
+            print(f"--- [SUPREME] TEST SUCCESS: AGENTIC PIPELINE FULLY OPERATIONAL ---")
             print(f"PAYLOAD: {local_path}")
             print(f"QUALITY PASS: {reason}")
         else:

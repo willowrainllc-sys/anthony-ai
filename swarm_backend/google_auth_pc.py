@@ -25,7 +25,7 @@ async def open_google_login():
         # 2. Wait for login to complete (look for account page)
         while True:
             if "myaccount.google.com" in page.url or "youtube.com" in page.url:
-                print("[✓] Login detected. Redirecting to YouTube Advanced Features...")
+                print("[] Login detected. Redirecting to YouTube Advanced Features...")
                 # Jump to Advanced Features
                 await page.goto("https://studio.youtube.com/channel/UC/editing/settings/feature_eligibility")
                 break

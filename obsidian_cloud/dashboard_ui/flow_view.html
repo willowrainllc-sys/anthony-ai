@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsidian Flow | Visual Grid Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #0d1117; --node: #161b22; --border: #30363d; --primary: #58a6ff; --accent: #238636; }
+        body { background: var(--bg); color: #c9d1d9; font-family: 'Inter', sans-serif; margin: 0; display: flex; height: 100vh; overflow: hidden; }
+
+        /* 🔱 Canvas Grid (n8n Style) */
+        .canvas { flex: 1; position: relative; background-image: radial-gradient(var(--border) 1px, transparent 1px); background-size: 30px 30px; cursor: grab; }
+        .canvas:active { cursor: grabbing; }
+
+        /* 🔱 Node Container Block */
+        .node {
+            position: absolute;
+            width: 180px;
+            background: var(--node);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .node:hover { border-color: var(--primary); transform: scale(1.02); }
+        .node-title { font-size: 0.8em; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 8px; }
+        .node-status { display: flex; align-items: center; font-size: 0.75em; color: #8b949e; }
+        .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); margin-right: 6px; }
+
+        /* 🔱 Connection Lines (SVG) */
+        svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+        line { stroke: var(--border); stroke-width: 2; marker-end: url(#arrowhead); }
+
+        /* 🔱 Toolbar */
+        .toolbar { width: 300px; background: #010409; border-left: 1px solid var(--border); padding: 30px; z-index: 10; }
+        .btn-deploy { background: var(--accent); color: #fff; padding: 12px; width: 100%; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="canvas" id="canvas">
+        <svg id="connections"></svg>
+
+        <!-- 🪐 THE INPUT NODE -->
+        <div class="node" style="top: 200px; left: 100px;">
+            <div class="node-title">Local Ingress</div>
+            <div class="node-status"><div class="status-dot"></div>103 Family Devices</div>
+        </div>
+
+        <!-- 🪐 THE BRAIN NODE -->
+        <div class="node" style="top: 200px; left: 400px;">
+            <div class="node-title">Obsidian Core</div>
+            <div class="node-status"><div class="status-dot"></div>Autonomous (Agent v5)</div>
+        </div>
+
+        <!-- 🪐 THE MINING NODE -->
+        <div class="node" style="top: 100px; left: 700px;">
+            <div class="node-title">Penta-Stack</div>
+            <div class="node-status"><div class="status-dot"></div>Mining 5 Apps</div>
+        </div>
+
+        <!-- 🪐 THE CASHOUT NODE -->
+        <div class="node" style="top: 300px; left: 700px;">
+            <div class="node-title">BTC Bridge</div>
+            <div class="node-status"><div class="status-dot"></div>To Cash App</div>
+        </div>
+    </div>
+
+    <div class="toolbar">
+        <h2 style="margin-top:0;">Deployment</h2>
+        <p style="font-size:0.9em; color: #8b949e;">Packaged for user download. Each block represents an isolated secure container.</p>
+        <div style="margin-bottom: 30px;">
+            <div style="font-size: 0.8em; color: #58a6ff; margin-bottom: 5px;">ACTIVE PORTABLE UNIT</div>
+            <div style="background: #161b22; padding: 10px; border-radius: 5px; font-family: monospace;">obsidian_global_v1.zip</div>
+        </div>
+        <button class="btn-deploy">DOWNLOAD ZIP (Windows)</button>
+        <button class="btn-deploy" style="background: #3182ce; margin-top: 10px;">DOWNLOAD APK (Android)</button>
+    </div>
+
+    <script>
+        // Simple connection line rendering
+        const svg = document.getElementById('connections');
+        const drawLine = (x1, y1, x2, y2) => {
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', x1); line.setAttribute('y1', y1);
+            line.setAttribute('x2', x2); line.setAttribute('y2', y2);
+            svg.appendChild(line);
+        }
+        // Connect Ingress to Core
+        drawLine(280, 240, 400, 240);
+        // Connect Core to Mining
+        drawLine(580, 240, 700, 140);
+        // Connect Core to Cashout
+        drawLine(580, 240, 700, 340);
+    </script>
+</body>
+</html>

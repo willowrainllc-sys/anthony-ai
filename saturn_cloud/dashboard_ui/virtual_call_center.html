@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIRTUAL CALL CENTER | Obsidian Global</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030303;
+            --accent: #10b981; /* Call Success Green */
+            --glass: rgba(15, 15, 20, 0.95);
+            --border: rgba(255, 255, 255, 0.05);
+            --gold: #fbbf24;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .brand { font-family: 'Orbitron'; font-weight: 900; letter-spacing: 5px; color: var(--gold); }
+
+        .call-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+            overflow: hidden;
+        }
+
+        /* 🔱 Live Call Stream */
+        .live-stream {
+            background: #000;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 30px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .call-log { font-family: 'Space Mono', monospace; font-size: 0.9em; margin-bottom: 10px; opacity: 0.8; }
+        .success { color: var(--accent); }
+        .outgoing { color: #3b82f6; }
+
+        /* 🔱 Stats Sidebar */
+        .stats-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 25px;
+        }
+
+        .label { font-size: 0.6em; color: #666; text-transform: uppercase; letter-spacing: 2px; }
+        .value { font-size: 2em; font-weight: 900; margin-top: 5px; }
+
+        .pulse-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; display: inline-block; margin-right: 10px; animation: blink 1s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.2; } 100% { opacity: 1; } }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <div class="brand">OBSIDIAN VOICE</div>
+            <p style="font-size: 0.7em; color: #444; letter-spacing: 2px;">VIRTUAL B2B CALL CENTER v1.0</p>
+        </div>
+        <div style="text-align: right;">
+            <span class="pulse-dot"></span> <span style="color: var(--accent); font-weight: 800;">HUB_ST_CHARLES ACTIVE</span>
+        </div>
+    </div>
+
+    <div class="call-grid">
+        <div class="live-stream" id="callStream">
+            <div class="call-log outgoing">> [DIRECTOR]: Initiating Missouri Outbound Strike...</div>
+            <div class="call-log outgoing">> [NOVA]: Connected to St. Louis Direct Marketing (Procurement).</div>
+            <div class="call-log success">> [VERA]: Handshake Successful. 5,000 Verified Leads Delivered.</div>
+            <div class="call-log">> [CIPHER]: Logging $6,250.00 Commission Proposal.</div>
+            <div class="call-log outgoing">> [NOVA]: Ringing Elite Outbound Solutions...</div>
+        </div>
+
+        <div class="stats-panel">
+            <div class="stat-card">
+                <div class="label">Today's Connects</div>
+                <div class="value">42 / 100</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Closing Aura</div>
+                <div class="value" style="color: var(--gold);">94.8%</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">B2B Conversion</div>
+                <div class="value">$0.00</div>
+            </div>
+            <div style="flex:1"></div>
+            <div class="label" style="text-align: center;">MAESTAS BPO | UNTOUCHABLE.</div>
+        </div>
+    </div>
+
+    <script>
+        const stream = document.getElementById('callStream');
+        const companies = ["Central Data Labs", "Missouri Inbound", "Legacy Solutions", "Director's Network"];
+
+        setInterval(() => {
+            const co = companies[Math.floor(Math.random() * companies.length)];
+            const line = document.createElement('div');
+            line.className = 'call-log success';
+            line.innerText = `> [NOVA]: Handshake complete with ${co}. Status: PROPOSAL_SENT.`;
+            stream.appendChild(line);
+            stream.scrollTop = stream.scrollHeight;
+            if(stream.children.length > 20) stream.removeChild(stream.firstChild);
+        }, 5000);
+    </script>
+</body>
+</html>

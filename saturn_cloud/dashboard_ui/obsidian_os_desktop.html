@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBSIDIAN OS | Sovereign Universe Console</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg: #010103;
+            --accent: #3b82f6;
+            --emerald: #10b981;
+            --gold: #fbbf24;
+            --glass: rgba(15, 15, 20, 0.75);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .desktop-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, #010103 95%);
+            z-index: 1;
+        }
+
+        /* 🔱 Desktop Icon Grid */
+        .icon-grid {
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 110px);
+            grid-template-rows: repeat(auto-fill, 130px);
+            gap: 25px;
+            padding: 50px;
+            height: calc(100vh - 60px);
+        }
+
+        .app-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .app-icon:hover { transform: scale(1.15) translateY(-5px); }
+
+        .icon-box {
+            width: 75px; height: 75px;
+            background: var(--glass);
+            border: 1.5px solid var(--border);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5em;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            position: relative;
+        }
+
+        .icon-box::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 20px; background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%); pointer-events: none; }
+
+        .icon-label { font-size: 9px; font-weight: 800; margin-top: 12px; text-transform: uppercase; letter-spacing: 2px; color: #fff; font-family: 'Orbitron'; text-shadow: 0 2px 10px #000; }
+
+        /* 🔱 Taskbar: OS 1.0 Style */
+        .taskbar {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            height: 60px;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(30px);
+            border-top: 1px solid var(--border);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .start-btn { font-family: 'Orbitron'; font-weight: 900; color: var(--gold); font-size: 1.1em; cursor: pointer; letter-spacing: 4px; display: flex; align-items: center; gap: 10px; }
+        .start-btn:hover { text-shadow: 0 0 15px var(--gold); }
+        .brand-logo { width: 12px; height: 12px; background: var(--emerald); border-radius: 2px; }
+
+        .sys-info { margin-left: 40px; display: flex; gap: 30px; }
+        .info-pill { font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+        .clock { margin-left: auto; font-family: 'Space Mono'; font-size: 0.9em; color: #666; }
+
+        /* 🔱 Window Manager (Headed View) */
+        #windowLayer {
+            position: absolute;
+            top: 50%; left: 55%; transform: translate(-50%, -50%);
+            width: 85%; height: 80%;
+            background: #000;
+            border: 2px solid var(--border);
+            border-radius: 24px;
+            z-index: 100;
+            display: none;
+            overflow: hidden;
+            box-shadow: 0 60px 120px rgba(0,0,0,0.9);
+            animation: winOpen 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        @keyframes winOpen { from { opacity: 0; transform: translate(-50%, -45%) scale(0.95); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+
+        .window-header {
+            height: 45px; background: #0a0a0a; border-bottom: 1px solid #1a1a1a;
+            display: flex; align-items: center; justify-content: space-between; padding: 0 24px;
+        }
+        .window-controls { display: flex; gap: 10px; }
+        .control-dot { width: 12px; height: 12px; border-radius: 50%; cursor: pointer; }
+        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+
+        /* 🔱 Sovereign Splash Screen */
+        #splash-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #000;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .splash-logo { font-size: 80px; margin-bottom: 20px; animation: pulse 2s infinite ease-in-out; }
+        @keyframes pulse { 0% { transform: scale(0.95); opacity: 0.6; } 50% { transform: scale(1.05); opacity: 1; } 100% { transform: scale(0.95); opacity: 0.6; } }
+        .splash-text { font-family: 'Orbitron'; font-weight: 900; letter-spacing: 8px; color: #fff; font-size: 14px; }
+        .splash-status { font-family: 'Space Mono', monospace; color: #10b981; font-size: 8px; margin-top: 20px; text-transform: uppercase; letter-spacing: 2px; }
+
+    </style>
+</head>
+<body>
+    <!-- 🔱 Master Splash -->
+    <div id="splash-screen">
+        <div class="splash-logo">🔱</div>
+        <div class="splash-text">OBSIDIAN OS</div>
+        <div class="splash-status">Booting Sovereign Kernel...</div>
+    </div>
+    <div class="desktop-overlay"></div>
+
+    <!-- 🔱 App Grid -->
+    <div class="icon-grid">
+        <div class="app-icon" onclick="openApp('../../willow_rain_global/wholesale_portal/obsidian_master_hub.html')">
+            <div class="icon-box" style="border-color: var(--gold); color: var(--gold);">🔱</div>
+            <div class="icon-label">UNIVERSE</div>
+        </div>
+        <div class="app-icon" onclick="openApp('obsidian_device_grid.html')">
+            <div class="icon-box" style="border-color: var(--accent); color: var(--accent);">📱</div>
+            <div class="icon-label">THE HIVE</div>
+        </div>
+        <div class="app-icon" onclick="openApp('../../willow_rain_global/wholesale_portal/obsidian_tax_pro_dashboard.html')">
+            <div class="icon-box" style="border-color: var(--emerald); color: var(--emerald);">🏦</div>
+            <div class="icon-label">TAX PRO</div>
+        </div>
+        <div class="app-icon" onclick="openApp('../../willow_rain_global/wholesale_portal/black_hole_video.html')">
+            <div class="icon-box" style="border-color: #ff9900; color: #ff9900;">🎬</div>
+            <div class="icon-label">MEDIA</div>
+        </div>
+        <div class="app-icon" onclick="openApp('obsidian_spy_globe.html')">
+            <div class="icon-box" style="border-color: #ef4444; color: #ef4444;">👁️</div>
+            <div class="icon-label">GLOBAL EYE</div>
+        </div>
+        <div class="app-icon" onclick="openApp('../../willow_rain_global/wholesale_portal/obsidian_esign_notary.html')">
+            <div class="icon-box">⚖️</div>
+            <div class="icon-label">NOTARY</div>
+        </div>
+        <div class="app-icon" onclick="openApp('../../willow_rain_global/wholesale_portal/ancient_tech_sphere.html')">
+            <div class="icon-box" style="border-color: var(--accent); color: var(--accent);">⚛️</div>
+            <div class="icon-label">THE SPHERE</div>
+        </div>
+        <div class="app-icon" onclick="openApp('../../willow_rain_global/wholesale_portal/obsidian_scraper_login.html')">
+            <div class="icon-box" style="border-color: var(--emerald);">🧬</div>
+            <div class="icon-label">TITAN NET</div>
+        </div>
+    </div>
+
+    <!-- 🔱 OS Window -->
+    <div id="windowLayer">
+        <div class="window-header">
+            <div class="window-controls">
+                <div class="control-dot red" onclick="closeApp()"></div>
+                <div class="control-dot yellow"></div>
+                <div class="control-dot green"></div>
+            </div>
+            <div id="windowTitle" class="orbitron text-[9px] tracking-[5px] text-gray-500 uppercase">SYSTEM_NODE_01</div>
+            <div></div> <!-- Spacer -->
+        </div>
+        <iframe id="appFrame" style="width: 100%; height: calc(100% - 45px); border: none;"></iframe>
+    </div>
+
+    <!-- 🔱 Taskbar -->
+    <div class="taskbar">
+        <div class="start-btn"><div class="brand-logo"></div> OBSIDIAN</div>
+
+        <div class="sys-info">
+            <div class="info-pill text-emerald-500">NETWORK: 48.2 TB/S</div>
+            <div class="info-pill text-blue-500">ASI: v29.0_TITAN</div>
+            <div class="info-pill text-gold">LIQUIDITY: $0.00</div>
+        </div>
+
+        <div class="clock" id="clock">12:19:00 PM</div>
+    </div>
+
+    <script>
+        function openApp(url) {
+            const frame = document.getElementById('appFrame');
+            const win = document.getElementById('windowLayer');
+            document.getElementById('windowTitle').innerText = url.split('/').pop().toUpperCase().replace('.HTML', '');
+            frame.src = url;
+            win.style.display = 'block';
+        }
+
+        function closeApp() {
+            document.getElementById('windowLayer').style.display = 'none';
+            document.getElementById('appFrame').src = '';
+        }
+
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toLocaleTimeString();
+        }, 1000);
+
+        // 🔱 Splash Sequence
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                splash.style.opacity = '0';
+                setTimeout(() => { splash.style.display = 'none'; }, 1000);
+            }, 3000);
+        });
+    </script>
+    <!-- --- Built by Anthony Christopher | Est 12.19.1987 --- -->
+</body>
+</html>

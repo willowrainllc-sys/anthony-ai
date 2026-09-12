@@ -9,8 +9,8 @@ from pathlib import Path
 from swarm_logger import swarm_log
 from swarm_persistence import db
 
-SECURE_DIR = Path(r"D:\AnthonyAi_Swarm\Secure_Assets")
-PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault")
+SECURE_DIR = Path(r"D:\ObsidianAi_Swarm\Secure_Assets")
+PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault")
 COOKIE_MONSTER_DIR = PERSONA_VAULT / "cookie_monster"
 COOKIE_MONSTER_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -34,7 +34,7 @@ class CookieMonsterVault:
                 json.dump(storage_state, f, indent=4)
 
             cookies_count = len(storage_state.get("cookies", []))
-            swarm_log(f"🍪 COOKIE MONSTER: Ate & vaulted {cookies_count} session cookies for [{portal_id.upper()}]!", node="COOKIE_MONSTER")
+            swarm_log(f" COOKIE MONSTER: Ate & vaulted {cookies_count} session cookies for [{portal_id.upper()}]!", node="COOKIE_MONSTER")
 
             db.log_event("COOKIE_MONSTER", "COOKIES_VAULTED", {
                 "portal_id": portal_id,
@@ -60,7 +60,7 @@ class CookieMonsterVault:
 
     def sweep_and_eat_all_local_cookies(self) -> int:
         """Scans all local persona directories and merges/vaults all session cookie files."""
-        swarm_log("🍪 COOKIE MONSTER: Sweeping local vault for fresh session cookies...", node="COOKIE_MONSTER")
+        swarm_log(" COOKIE MONSTER: Sweeping local vault for fresh session cookies...", node="COOKIE_MONSTER")
         found_files = list(PERSONA_VAULT.glob("**/*.json"))
         eaten_count = 0
 
@@ -75,7 +75,7 @@ class CookieMonsterVault:
                         eaten_count += 1
             except: pass
 
-        swarm_log(f"🍪 COOKIE MONSTER: Sweep complete. Vaulted {eaten_count} session files.", node="COOKIE_MONSTER")
+        swarm_log(f" COOKIE MONSTER: Sweep complete. Vaulted {eaten_count} session files.", node="COOKIE_MONSTER")
         return eaten_count
 
 cookie_monster = CookieMonsterVault()

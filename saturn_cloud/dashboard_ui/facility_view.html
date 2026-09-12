@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facility Command | Obsidian Global</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #030303; --accent: #3b82f6; --card: rgba(20, 20, 20, 0.9); --border: rgba(255, 255, 255, 0.05); }
+        body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 40px; }
+        .facility-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
+        .facility-header h1 { font-family: 'Space Grotesk'; font-size: 3.5em; margin: 0; letter-spacing: -2px; }
+        .facility-grid { display: grid; grid-template-cols: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; }
+        .facility-card { background: var(--card); border: 1px solid var(--border); border-radius: 40px; padding: 50px; position: relative; overflow: hidden; backdrop-filter: blur(20px); }
+        .server-room { height: 200px; background: #000; border-radius: 20px; margin-top: 20px; display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; padding: 20px; }
+        .server-node { background: #111; border-radius: 2px; }
+        .server-node.active { background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+        .status-dot { width: 10px; height: 10px; background: #10b981; border-radius: 50%; display: inline-block; margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <div class="facility-header">
+        <div>
+            <p style="color: var(--accent); letter-spacing: 5px; font-weight: 700;">INFRASTRUCTURE COMMAND</p>
+            <h1>SERVER FACILITIES</h1>
+        </div>
+        <div style="text-align: right;">
+            <div style="color: #666; font-size: 0.8em; letter-spacing: 2px;">TOTAL CAPACITY</div>
+            <div style="font-size: 2em; font-weight: 800;">48.2 TB/s</div>
+        </div>
+    </div>
+
+    <div class="facility-grid">
+        <!-- 🔱 FACILITY 01: MISSOURI -->
+        <div class="facility-card">
+            <div style="color: #444; font-size: 0.8em; letter-spacing: 2px;">PRIMARY_HUB_MO</div>
+            <h2 style="font-family: 'Space Grotesk'; font-size: 2em;">MISSOURI CENTRAL</h2>
+            <p style="color: #666;">Physical Server Farm. Hosting the 103 Root Nodes.</p>
+            <div class="server-room" id="moServers"></div>
+            <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+                <span><div class="status-dot"></div> ACTIVE</span>
+                <span style="color: var(--accent);">103 Nodes</span>
+            </div>
+        </div>
+
+        <!-- 🔱 FACILITY 02: ALIBABA -->
+        <div class="facility-card">
+            <div style="color: #444; font-size: 0.8em; letter-spacing: 2px;">VIRTUAL_DC_ASIA</div>
+            <h2 style="font-family: 'Space Grotesk'; font-size: 2em;">ALIBABA GHOST</h2>
+            <p style="color: #666;">Virtual Data Center. Provisioning 5,000 IPs.</p>
+            <div class="server-room" id="aliServers"></div>
+            <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+                <span><div class="status-dot" style="background: #fbbf24;"></div> PROVISIONING</span>
+                <span style="color: #fbbf24;">5,000 Nodes</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function fillServers(id, count, activeCount) {
+            const room = document.getElementById(id);
+            for (let i = 0; i < count; i++) {
+                const node = document.createElement('div');
+                node.className = 'server-node' + (i < activeCount ? ' active' : '');
+                room.appendChild(node);
+            }
+        }
+        fillServers('moServers', 50, 48);
+        fillServers('aliServers', 50, 12);
+    </script>
+</body>
+</html>

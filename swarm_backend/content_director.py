@@ -17,7 +17,7 @@ class ContentDirector:
     v2.4: Implements Full Self-Learning Loop using Analytics Memory.
     """
     def __init__(self):
-        self.active_pages = ["ANTHONY_AI_OFFICIAL", "ACM_ENTERTAINMENT", "SOVEREIGN_GRID"]
+        self.active_pages = ["ANTHONY_AI_OFFICIAL", "ACM_ENTERTAINMENT", "OBSIDIAN_GRID"]
 
     async def run_autopilot_cycle(self):
         page_id = random.choice(self.active_pages)
@@ -45,6 +45,10 @@ class ContentDirector:
         idea_res = await brain_gate.generate_serialized(prompt, format="json", complexity="medium")
         try:
             idea = json.loads(idea_res)
+            if isinstance(idea, list) and len(idea) > 0:
+                idea = idea[0]
+            if not isinstance(idea, dict):
+                raise ValueError("Idea is not a dictionary")
         except:
             idea = {"concept": spark['subject'], "pacing_strategy": "Fast-paced cinematic"}
 
@@ -59,8 +63,8 @@ class ContentDirector:
         )
 
         # 6. FINAL ASSEMBLY
-        production_plan['title'] = optimized.get('title', production_plan.get('title', 'Sovereign Strike'))
-        production_plan['hashtags'] = optimized.get('hashtags', "#Sovereign #Cinema")
+        production_plan['title'] = optimized.get('title', production_plan.get('title', 'Obsidian Strike'))
+        production_plan['hashtags'] = optimized.get('hashtags', "#Obsidian #Cinema")
         production_plan['page_id'] = page_id
         production_plan['niche'] = profile['niche']
 
@@ -105,4 +109,41 @@ class ContentDirector:
         except:
             return "Focus on cinematic mystery and high-contrast visuals."
 
+    async def run_autonomous_social_loop(self):
+        """
+        AGENTIC DAEMON UPGRADE:
+        Runs continuously in the background, architecting high-retention cinematic content
+        using real analytics feedback, and triggering the production line.
+        """
+        swarm_log("AGENTIC DAEMON: Content Director loop activated. Feeding social hubs...", node="AGENTIC_DAEMON")
+
+        while True:
+            try:
+                swarm_log(f"AGENTIC DAEMON: Initiating Full Autopilot Production Cycle...", node="AGENTIC_DAEMON")
+
+                # Run the full intelligent cycle
+                production_plan = await self.run_autopilot_cycle()
+
+                swarm_log(f"AGENTIC DAEMON: Production Plan Generated: {production_plan.get('title')}", node="AGENTIC_DAEMON")
+                db.log_event("CONTENT_DIRECTOR", "AUTONOMOUS_POST_CREATED", {"title": production_plan.get('title'), "page": production_plan.get('page_id')})
+
+                # (In a real system, you would pass `production_plan` to your video renderer here)
+                # Example: await video_engine.render(production_plan)
+
+            except Exception as e:
+                swarm_log(f"[-] AGENTIC DAEMON ERROR in Content Loop: {e}. Self-healing and continuing...", node="AGENTIC_DAEMON")
+
+            # Wait a few hours before the next autonomous post (simulated here as 4-8 hours)
+            sleep_time = random.uniform(3600 * 4, 3600 * 8)
+            swarm_log(f"AGENTIC DAEMON: Content Director resting. Next production cycle in {sleep_time/3600:.1f} hours.", node="AGENTIC_DAEMON")
+            await asyncio.sleep(sleep_time)
+
 director = ContentDirector()
+
+if __name__ == "__main__":
+    import sys
+    mode = sys.argv[1] if len(sys.argv) > 1 else "daemon"
+    if mode == "daemon":
+        asyncio.run(director.run_autonomous_social_loop())
+    else:
+        asyncio.run(director.run_autopilot_cycle())

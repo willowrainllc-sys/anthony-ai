@@ -2,7 +2,7 @@ from huggingface_hub import snapshot_download
 import os
 
 # Use a flat local directory to avoid Windows symlink issues
-local_dir = r"D:\AnthonyAi_Swarm\Models\LTX-Video"
+local_dir = r"D:\ObsidianAi_Swarm\Models\LTX-Video"
 os.makedirs(local_dir, exist_ok=True)
 
 print(f"[*] Downloading LTX-Video to flat directory: {local_dir}...")

@@ -1,0 +1,70 @@
+{
+  "brand_identity": {
+    "channel_name": "Anthony Ai",
+    "corporate_entity": "Willow Rain Company LLC",
+    "legal_status": "Protected under Freedom of the Press and Public Interest. Investigative Journalism & News Analysis.",
+    "watermark_policy": "Strictly Anthony Ai proprietary overlay. Zero TMZ, network, or external source watermarks allowed."
+  },
+  "safety_protocols": {
+    "child_safety": "STRICT COMPLIANCE: Zero tolerance for content involving minors. Negative filter active for juvenile keywords.",
+    "monetization": "Transformative Analysis required for all open-source and archive footage to ensure monetization eligibility.",
+    "ownership": {
+      "ai_engine": "Proprietary Neural Core (v28) - 100% Owned by Willow Rain Company LLC.",
+      "build_status": "Sovereign Build. No third-party dependency on proprietary models for final synthesis logic.",
+      "legal_defense": "Protected under Open Surveillance Rights and Investigative Journalism statutes."
+    }
+  },
+  "priority_targets": [
+    "Anthony Ai",
+    "Willow Rain Company LLC",
+    "Lily Cronin",
+    "Raychel Ray Davila",
+    "Jesse Davila",
+    "Raina Cronin",
+    "Jermaine Smith"
+  ],
+  "family_network": [
+    "Lily Cronin",
+    "Raychel Ray Davila",
+    "Jesse Davila",
+    "Raina Cronin",
+    "Jermaine Smith"
+  ],
+  "content_formats": {
+    "horror_reality_news": {
+      "genre": "Horror & Reality News Mashup",
+      "visual_style": "High-contrast cinematic dark grading, tense pacing, custom UI cards",
+      "audio_handling": "Real human tone mapping, gritty vocal texture, directional sound design",
+      "accent_color": "0x330000",
+      "font_color": "white"
+    },
+    "anime_wild_hunt": {
+      "genre": "Anime Wild Action & Hunting",
+      "visual_style": "Fluid 2D/3D hybrid motion, dynamic camera tracking, rich background environments",
+      "audio_handling": "Character-synced dialogue matching exact emotional peaks and native cadence",
+      "accent_color": "lime",
+      "font_color": "white"
+    },
+    "archive_documentary": {
+      "genre": "Open Source Documentary & Archive",
+      "visual_style": "Raw historical footage, grain, authentic textures, documentary grading",
+      "audio_handling": "NATIVE AUDIO PRESERVATION: Original MP4 audio, zero voice-over override",
+      "accent_color": "0xCCCCCC",
+      "font_color": "white"
+    },
+    "cartoon_strike": {
+      "genre": "PG Animated News Strike",
+      "visual_style": "Vibrant cel-shading, bold outlines, family-friendly character designs",
+      "audio_handling": "Energetic character voices, optimized volume, clear dialogue",
+      "accent_color": "orange",
+      "font_color": "white"
+    },
+    "digital_antichrist": {
+      "genre": "Pure Freedom / Digital Antichrist",
+      "visual_style": "Quantum-glitch aesthetics, hyper-speed cuts, industrial neon, non-conformist typography",
+      "audio_handling": "Deep-frequency bass, robotic multi-layered vocal synthesis, absolute clarity",
+      "accent_color": "red",
+      "font_color": "cyan"
+    }
+  }
+}

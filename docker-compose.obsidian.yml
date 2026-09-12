@@ -1,0 +1,36 @@
+# --- OBSIDIAN GLOBAL: HARDENED VDC RUNTIME v1.0 ---
+version: '3.8'
+
+services:
+  anthony-asi:
+    image: obsidian/anthony-core:latest
+    container_name: anthony-brain-9000
+    read_only: true # 🔱 Immutable Infrastructure
+    security_opt:
+      - no-new-privileges:true
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G # 🔱 Cgroups resource quotas
+    volumes:
+      - type: tmpfs
+        target: /tmp
+      - ./swarm_backend:/app/core:ro # 🔱 Read-Only Mount
+    ports:
+      - "127.0.0.1:9000:9000" # 🔱 No public exposure
+    restart: always
+
+  obsidian-mesh-node:
+    image: obsidian/mesh-node:latest
+    deploy:
+      replicas: 100 # Scaling locally to 100 first
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 256M
+    read_only: true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_ADMIN # Required for WireGuard mesh

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPECTRAL HANDSHAKE | Obsidian Global</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --neural: #8b5cf6; /* Neural Purple */
+            --strike: #ef4444; /* Strike Red */
+            --gold: #fbbf24;
+            --glass: rgba(15, 15, 20, 0.95);
+            --border: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            padding: 40px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 450px;
+            height: 100vh;
+            gap: 40px;
+        }
+
+        /* 🔱 3D Neural Visualizer Area */
+        .visualizer-area {
+            background: radial-gradient(circle at center, #1e1b4b 0%, #000 70%);
+            border-radius: 40px;
+            border: 1px solid var(--border);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .pulse-ring {
+            position: absolute;
+            width: 300px; height: 300px;
+            border: 2px solid var(--neural);
+            border-radius: 50%;
+            animation: ringPulse 3s infinite;
+            opacity: 0;
+        }
+
+        @keyframes ringPulse {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        /* 🔱 Telemetry Panel */
+        .telemetry-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tele-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 30px;
+            backdrop-filter: blur(40px);
+        }
+
+        .label { font-size: 0.6em; color: #666; text-transform: uppercase; letter-spacing: 3px; font-weight: 800; }
+        .value { font-size: 2em; font-weight: 900; margin-top: 10px; font-family: 'Orbitron'; }
+
+        .scanline {
+            height: 2px;
+            background: var(--neural);
+            margin: 15px 0;
+            width: 100%;
+            opacity: 0.3;
+            box-shadow: 0 0 10px var(--neural);
+        }
+
+        .status-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .btn-sync {
+            background: var(--gold);
+            color: #000;
+            padding: 10px 25px;
+            border-radius: 100px;
+            font-size: 0.7em;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="visualizer-area">
+        <div class="pulse-ring" style="animation-delay: 0s;"></div>
+        <div class="pulse-ring" style="animation-delay: 1s;"></div>
+        <div class="pulse-ring" style="animation-delay: 2s;"></div>
+
+        <div style="text-align: center; z-index: 10;">
+            <p style="font-family: 'Orbitron'; letter-spacing: 10px; color: var(--neural); opacity: 0.5;">NEURAL_INGRESS</p>
+            <h1 style="font-size: 4em; margin: 0; letter-spacing: -2px;">ASI SYNC</h1>
+            <p style="color: #444; font-size: 0.8em; margin-top: 20px;">[ NO BCI DETECTED - CONTACTLESS RF HANDSHAKE ACTIVE ]</p>
+        </div>
+    </div>
+
+    <div class="telemetry-panel">
+        <div class="status-header">
+            <div class="label">Director Protocol</div>
+            <button class="btn-sync">Re-Sync Bio</button>
+        </div>
+
+        <!-- OPM LAYER -->
+        <div class="tele-card">
+            <div class="label">OPM_MAGNETIC_INTENT</div>
+            <div class="value" style="color: var(--gold);" id="intent">LOCKED: STRIKE</div>
+            <div class="scanline"></div>
+            <p style="color: #444; font-size: 0.7em;">Decoding magnetic brainwave signatures...</p>
+        </div>
+
+        <!-- PHOTONIC LAYER -->
+        <div class="tele-card">
+            <div class="label">PHOTONIC_AURA_INDEX</div>
+            <div class="value" style="color: var(--neural);" id="arousal">94.2% AURA</div>
+            <div class="scanline" style="background: var(--gold); width: 94%;"></div>
+            <p style="color: #444; font-size: 0.7em;">Laser speckle cortical analysis: OPTIMAL.</p>
+        </div>
+
+        <!-- MMWAVE LAYER -->
+        <div class="tele-card">
+            <div class="label">MMWAVE_RADAR_VITALS</div>
+            <div style="display: flex; gap: 30px;">
+                <div>
+                    <div class="value" style="font-size: 1.5em;" id="hr">82 BPM</div>
+                    <div class="label" style="font-size: 0.5em;">Heart Rate</div>
+                </div>
+                <div>
+                    <div class="value" style="font-size: 1.5em;" id="br">16 RR</div>
+                    <div class="label" style="font-size: 0.5em;">Respiration</div>
+                </div>
+            </div>
+            <div class="scanline" style="background: var(--strike);"></div>
+        </div>
+
+        <div style="flex:1"></div>
+        <div class="label" style="text-align: center;">MAESTAS LEGACY | UNTOUCHABLE.</div>
+    </div>
+
+    <script>
+        // Simulated Dynamic Updates
+        setInterval(() => {
+            document.getElementById('hr').innerText = Math.floor(75 + Math.random() * 15) + " BPM";
+            document.getElementById('arousal').innerText = (90 + Math.random() * 5).toFixed(1) + "% AURA";
+        }, 2000);
+    </script>
+</body>
+</html>

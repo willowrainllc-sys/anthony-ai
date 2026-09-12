@@ -1,24 +1,27 @@
-# Core Backend
-fastapi
-uvicorn[standard]
-pydantic
-requests
-apscheduler
+# --- OBSIDIAN GLOBAL: SOVEREIGN REQUIREMENTS ---
+# Terminated dependencies on FastAPI, Supabase, and Ollama.
+# Only Native Python libraries and Industrial Kernels allowed.
+
+# HTTP & Auth
 httpx
 python-dotenv
-supabase
-cursor
-keyboard
+pytz
 
-# Video Automation Dependencies
-moviepy
-ffmpeg-python
-openai-whisper
-opencv-python
+# Data & Math
+pandas
+numpy
+pydantic
+psutil
+
+# Browser & Stealth
 playwright
+fake-useragent
 
-# ML (CPU-Stable)
---extra-index-url https://download.pytorch.org/whl/cpu
+# Quantum IQ
+pennylane
+
+# Native Inference
 torch
-torchvision
-torchaudio
+transformers
+accelerate
+sentencepiece

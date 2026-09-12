@@ -49,7 +49,7 @@ VIRAL_MASTER_LIBRARY = [
             },
             {
                 "timestamp": "00:10-00:20",
-                "spoken_script": "Because those who ignored the warning came back days later with completely blank memories—or didn't come back at all.",
+                "spoken_script": "Because those who ignored the warning came back days later with completely blank memoriesor didn't come back at all.",
                 "visual_prompt": "Flickering silhouette of a hiker walking away into a heavy dark pine forest fog 4k",
                 "on_screen_text": "MEMORIES ERASED"
             }

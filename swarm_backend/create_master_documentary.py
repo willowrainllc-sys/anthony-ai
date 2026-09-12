@@ -6,6 +6,7 @@ import json
 import uuid
 import random
 import time
+import shutil
 from pathlib import Path
 import httpx
 
@@ -16,7 +17,6 @@ from swarm_persistence import db
 from pipeline import build_storyline_video, generate_neural_narration
 from faceless_niches_engine import generate_faceless_package, FACELESS_20_NICHES
 from node_youtube import publish_to_youtube_api
-from supabase import create_client, Client
 from dotenv import load_dotenv
 
 load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
@@ -54,27 +54,25 @@ async def create_and_dispatch_documentary(niche_key: str = None, duration_tier: 
 
     output_path = res_dict["output_path"]
 
-    # 2. UPLOAD TO SUPABASE STORAGE WITH VIDEO/MP4 MIME TYPE
-    swarm_log(f"MASTER ENGINE: Uploading [{filename}] to Supabase Storage...", node="MASTER")
-    storage_path = f"renders/master_{filename}"
-    with open(output_path, "rb") as f:
-        supabase.storage.from_("ai-videos").upload(
-            storage_path,
-            f,
-            file_options={"content-type": "video/mp4", "upsert": "true"}
-        )
+    # 2. VAULT TO LOCAL SOVEREIGN STORAGE
+    swarm_log(f"MASTER ENGINE: Vaulting [{filename}] to Sovereign Storage...", node="MASTER")
+    vault_dir = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\willow_rain_global\wholesale_portal\renders")
+    vault_dir.mkdir(parents=True, exist_ok=True)
 
-    public_url = supabase.storage.from_("ai-videos").get_public_url(storage_path)
+    vault_path = vault_dir / filename
+    shutil.copy2(output_path, vault_path)
 
-    # 3. REGISTER IN SUPABASE VIDEOS FEED (APP FEED)
-    swarm_log("MASTER ENGINE: Registering in Supabase Videos feed...", node="MASTER")
-    supabase.table("videos").insert({
-        "title": clean_title,
-        "description": description_text,
-        "video_url": public_url,
-        "creator": "Anthony AI",
-        "posted": "Just Now"
-    }).execute()
+    # Generate the public URL pointing to our native web server
+    public_url = f"http://obsidian-global.io/ui/renders/{filename}"
+
+    # 3. REGISTER IN NATIVE SQLITE VIDEOS FEED
+    swarm_log("MASTER ENGINE: Registering in Native SQLite Videos feed...", node="MASTER")
+    with db._get_connection() as conn:
+        conn.execute("""
+            INSERT INTO ai_videos (id, title, description, video_url, thumbnail_url, created_at)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, (uuid.uuid4().hex[:8], clean_title, description_text, public_url, "", time.time()))
+        conn.commit()
 
     # 4. DISPATCH LIVE STRICTLY TO YOUTUBE SHORTS (ONLY ACTIVE CHANNEL FOR TESTING)
     swarm_log("MASTER ENGINE: Dispatching strictly to YouTube Shorts for Quality Inspection...", node="MASTER")
@@ -93,7 +91,7 @@ async def create_and_dispatch_documentary(niche_key: str = None, duration_tier: 
         "reference_handle": faceless_pkg["reference_handle"]
     })
 
-    swarm_log(f"🔱 MASTER STRIKE COMPLETE! YouTube Live: {yt_url}", node="MASTER")
+    swarm_log(f"[SUPREME] MASTER STRIKE COMPLETE! YouTube Live: {yt_url}", node="MASTER")
 
     return {
         "status": "success",

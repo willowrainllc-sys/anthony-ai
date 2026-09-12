@@ -1,5 +1,4 @@
 # --- EMPIRE GHOST PROTOCOL: GIT IGNORE ---
-# Use this to keep the Sovereign Mind hidden from the public Git.
 
 # 1. Environment & Secrets
 .env
@@ -8,6 +7,12 @@ rh_private.key
 empire_api_budget.json
 post_state.json
 meta_hibernation.json
+local.properties
+.gradle/
+.idea/
+.artifacts/
+build/
+app/build/
 
 # 2. THE VAULT (Database)
 *.db
@@ -18,7 +23,6 @@ Bunker_Cold_Storage/
 Queue/
 
 # 3. HIGH-QUANTA NODES (The Ghost Mind)
-# These files are hidden from the open-source build.
 node_*.py
 generative_strike_node.py
 script_synthesizer.py

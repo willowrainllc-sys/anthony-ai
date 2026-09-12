@@ -11,8 +11,8 @@ from swarm_persistence import db
 LAWS_OF_POWER_MATRIX = {
     "law_01": {
         "law": "Law 1: Never Outshine the Master",
-        "directive": "Sovereign Master Protocol",
-        "application": "All 65 Swarm Bots, 57 Disciples, and AI Director nodes explicitly defer authority to Anthony AI & Willow Rain Company LLC.",
+        "directive": "Obsidian Master Protocol",
+        "application": "All 65 Swarm Bots, 57 Disciples, and AI Director nodes explicitly defer authority to Obsidian AI & Willow Rain Company LLC.",
         "content_hook": "The quiet strategist who stayed behind the curtain while controlling a multi-billion dollar empire."
     },
     "law_03": {
@@ -49,7 +49,7 @@ LAWS_OF_POWER_MATRIX = {
         "law": "Law 48: Assume Formlessness",
         "directive": "Dynamic Faceless Niche Adaptation",
         "application": "Fluidly adapts content across 16 niches (True Crime, Heists, NatGeo Nature, Sci-Fi, Dark Fantasy, Psychology) to exploit algorithm momentum.",
-        "content_hook": "Like water conforming to the vessel, the sovereign network adapts to every algorithmic shift in real time."
+        "content_hook": "Like water conforming to the vessel, the obsidian network adapts to every algorithmic shift in real time."
     }
 }
 

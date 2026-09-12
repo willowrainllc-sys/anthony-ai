@@ -6,8 +6,8 @@ import uuid
 import sqlite3
 from swarm_logger import swarm_log
 
-DB_PATH = r"C:\AnthonyAi_Swarm\Empire_Vault.db"
-PERSONA_VAULT = r"C:\Users\willo/OneDrive/Desktop/Anthony_Ai\secure_assets\persona_vault"
+DB_PATH = r"C:\ObsidianAi_Swarm\Empire_Vault.db"
+PERSONA_VAULT = r"C:\Users\willo/OneDrive/Desktop/Obsidian_Ai\secure_assets\persona_vault"
 
 async def launch_facebook_linker():
     """
@@ -57,7 +57,7 @@ async def launch_facebook_linker():
 
         # Capturing the full state (Cookies, LocalStorage, etc.)
         await context.storage_state(path=auth_file)
-        swarm_log(f"✓ VAULTED: Facebook session secured for {bot_id}.", node="BROWSER")
+        swarm_log(f" VAULTED: Facebook session secured for {bot_id}.", node="BROWSER")
 
         # Register in DB
         try:

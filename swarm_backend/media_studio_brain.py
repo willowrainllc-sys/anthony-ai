@@ -30,7 +30,7 @@ SUPPORTED_CATEGORIES = {
             "When the noise of the world grows loud, retreat into your quiet determination and let your results speak."
         ],
         "story_climaxes": [
-            "Keep moving forward. Your future self is depending on the choice you make right now.",
+            "Keep moving forward. Your future self is denegotiating on the choice you make right now.",
             "Master your discipline, and you will master your destiny."
         ]
     },

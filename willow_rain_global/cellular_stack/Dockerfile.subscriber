@@ -1,0 +1,19 @@
+# --- SATURN GLOBAL: ISOLATED SUBSCRIBER CONTAINER v1.0 ---
+FROM python:3.11-slim
+
+# 1. Install Networking Tools
+RUN apt-get update && apt-get install -y iproute2 curl wireguard-tools procps && rm -rf /var/lib/apt/lists/*
+
+# 2. Setup Saturn Environment
+WORKDIR /app
+COPY swarm_backend/swarm_logger.py .
+COPY willow_rain_global/cellular_stack/node_cellular_agent.py .
+COPY swarm_backend/sovereign_ghost_dna.py .
+
+# 3. Environment Variables (Injected by Orchestrator)
+ENV MSISDN=""
+ENV PROXY_PORT=""
+ENV DIRECTOR_IP="192.168.1.214"
+
+# 4. Entry Point: Launch the Agent in a loop
+CMD ["python", "-u", "node_cellular_agent.py"]

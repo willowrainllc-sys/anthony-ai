@@ -9,8 +9,8 @@ from swarm_logger import swarm_log
 from swarm_persistence import db
 from human_stealth_helper import human_stealth
 
-SECURE_DIR = Path(r"D:\AnthonyAi_Swarm\Secure_Assets")
-PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault")
+SECURE_DIR = Path(r"D:\ObsidianAi_Swarm\Secure_Assets")
+PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault")
 PERSONA_VAULT.mkdir(parents=True, exist_ok=True)
 
 class IpsosBrowserBot:
@@ -40,11 +40,21 @@ class IpsosBrowserBot:
                 swarm_log("IPSOS_BOT: Navigating to Ipsos i-Say portal...", node="IPSOS_BOT")
                 await page.goto(self.url, timeout=35000)
 
+                # --- AGENTIC DAEMON UPGRADE ---
+                interruption = await human_stealth.handle_interruptions(page)
+                if interruption == "NEEDS_2FA":
+                    await human_stealth.take_learning_snapshot(page, "ipsos", "2fa_blocked")
+                    await browser.close()
+                    return {"status": "NEEDS_2FA"}
+
                 # HUMAN JITTER PAUSE
                 await human_stealth.apply_human_jitter(2.0, 4.5)
 
                 title = await page.title()
-                swarm_log(f"✓ IPSOS_BOT: Connected to portal [{title}]", node="IPSOS_BOT")
+                swarm_log(f" IPSOS_BOT: Connected to portal [{title}]", node="IPSOS_BOT")
+
+                # --- AGENTIC DAEMON UPGRADE: Hardcode layout for future learning ---
+                await human_stealth.take_learning_snapshot(page, "ipsos", "survey_dashboard_ready")
 
                 db.log_event("IPSOS_BOT", "SURVEY_CHECK_SUCCESS", {
                     "portal_title": title,
@@ -57,14 +67,19 @@ class IpsosBrowserBot:
                     "status": "success",
                     "portal": "Ipsos i-Say",
                     "session_active": True,
-                    "title": title
+                    "title": title,
+                    "learning_telemetry_saved": True
                 }
         except Exception as e:
-            swarm_log(f"[-] IPSOS_BOT Note: {e}", node="IPSOS_BOT")
+            # AGENTIC FAILURE SNAPSHOT
+            try:
+                await human_stealth.take_learning_snapshot(page, "ipsos", "error_state")
+            except: pass
+
+            swarm_log(f"[-] IPSOS_BOT ERROR: {e}", node="IPSOS_BOT")
             return {
-                "status": "active_simulation",
-                "portal": "Ipsos i-Say",
-                "message": "Cookies vaulted. Ready for background survey sync."
+                "status": "ERROR",
+                "message": str(e)
             }
 
 ipsos_bot = IpsosBrowserBot()

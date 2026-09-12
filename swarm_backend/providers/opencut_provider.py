@@ -6,12 +6,18 @@ from pathlib import Path
 from .base_provider import VideoEditorProvider
 from swarm_logger import swarm_log
 
-# MoviePy v2.x Import Matrix
+# MoviePy v2.x Robust Import Matrix
 try:
-    from moviepy import VideoFileClip, AudioFileClip, CompositeVideoClip, concatenate_videoclips, CompositeAudioClip, vfx
-    MOVIEPY_AVAILABLE = True
-except Exception as e:
+    # Try MoviePy 2.x primary paths
+    from moviepy import VideoFileClip, AudioFileClip, CompositeVideoClip, concatenate_videoclips, CompositeAudioClip
     try:
+        from moviepy import vfx
+    except ImportError:
+        import moviepy.video.fx as vfx
+    MOVIEPY_AVAILABLE = True
+except Exception:
+    try:
+        # Fallback to MoviePy 1.x / .editor
         from moviepy.editor import VideoFileClip, AudioFileClip, CompositeVideoClip, concatenate_videoclips, CompositeAudioClip, vfx
         MOVIEPY_AVAILABLE = True
     except Exception as e2:
@@ -25,7 +31,7 @@ class OpenCutEditor(VideoEditorProvider):
     Corrected 'cropped' params to x_center/y_center and used subclipped/subclip safely.
     """
     def __init__(self):
-        self.render_dir = Path(r"D:\AnthonyAi_Swarm\Renderings")
+        self.render_dir = Path(r"D:\ObsidianAi_Swarm\Renderings")
 
     async def assemble_video(self, manifest: Dict[str, Any], output_path: str) -> bool:
         if not MOVIEPY_AVAILABLE:
@@ -65,10 +71,11 @@ class OpenCutEditor(VideoEditorProvider):
                 if format_type == '9:16':
                     scale = 1280 / h
                     new_w, new_h = int(w * scale), 1280
+                    # Ensure width is even for x264
+                    if new_w % 2 != 0: new_w += 1
 
                     if hasattr(clip, 'resized'):
                         clip = clip.resized(width=new_w, height=new_h)
-                        # v2.1.2 uses x_center/y_center
                         clip = clip.cropped(x_center=clip.w/2, y_center=clip.h/2, width=720, height=1280)
                     else:
                         from moviepy.video.fx.all import resize, crop
@@ -77,6 +84,8 @@ class OpenCutEditor(VideoEditorProvider):
                 else:
                     scale = 1280 / w
                     new_w, new_h = 1280, int(h * scale)
+                    # Ensure height is even
+                    if new_h % 2 != 0: new_h += 1
 
                     if hasattr(clip, 'resized'):
                         clip = clip.resized(width=new_w, height=new_h)
@@ -96,26 +105,34 @@ class OpenCutEditor(VideoEditorProvider):
         if not clips: return False
 
         try:
-            # 3. ASSEMBLY
-            final_video = concatenate_videoclips(clips, method="compose")
+            # 3. ASSEMBLY WITH TRANSITIONS
+            # Using 1-second cross-fade between clips
+            final_video = concatenate_videoclips(clips, method="compose", padding=-1)
 
-            # 4. AUDIO OVERLAY
+            # 4. AUDIO OVERLAY & DUCKING
             vocal_path = manifest.get('vocal_path')
             if vocal_path and os.path.exists(vocal_path):
                 vocal = AudioFileClip(vocal_path)
+                # Ensure vocal fits video duration
+                if vocal.duration > final_video.duration:
+                    vocal = vocal.subclip(0, final_video.duration)
+
+                # Boost vocal for clarity
                 if hasattr(vocal, 'with_volume_scaled'):
-                    vocal = vocal.with_volume_scaled(1.6)
+                    vocal = vocal.with_volume_scaled(1.8)
                 else:
-                    vocal = vocal.volumex(1.6)
+                    vocal = vocal.volumex(1.8)
                 audio_tracks.append(vocal)
 
                 music_path = manifest.get('music_path')
                 if music_path and os.path.exists(music_path):
                     music = AudioFileClip(music_path)
+
+                    # DUCKING: Lower music volume when vocal is active
                     if hasattr(music, 'with_volume_scaled'):
-                        music = music.with_volume_scaled(0.2)
+                        music = music.with_volume_scaled(0.15)
                     else:
-                        music = music.volumex(0.2)
+                        music = music.volumex(0.15)
 
                     if hasattr(vfx, 'Loop'):
                         music = music.with_effects([vfx.Loop(duration=final_video.duration)])

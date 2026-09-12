@@ -1,4 +1,4 @@
-package com.example.anthony_ai
+package com.obsidian.global
 
 import org.junit.Test
 

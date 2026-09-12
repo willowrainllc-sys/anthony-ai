@@ -1,620 +1,620 @@
 {
     "MUSTANG_001": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "73% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "92% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_002": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "86% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "85% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_003": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "98% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "30% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_004": {
         "status": "ACTIVE",
-        "mission": "SOCIAL_GROWTH",
-        "load": "40% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "22% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_005": {
         "status": "ACTIVE",
         "mission": "AD_YIELD",
-        "load": "32% CPU",
-        "last_strike": "15:01:04"
+        "load": "48% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_006": {
         "status": "ACTIVE",
-        "mission": "SOCIAL_GROWTH",
-        "load": "18% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "42% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_007": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "80% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "44% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_008": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "19% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "77% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_009": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "22% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "69% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_010": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "39% CPU",
-        "last_strike": "15:01:04"
+        "mission": "MINING_BTC",
+        "load": "22% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_011": {
         "status": "ACTIVE",
-        "mission": "SOCIAL_GROWTH",
-        "load": "96% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "53% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_012": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "48% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "54% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_013": {
         "status": "ACTIVE",
         "mission": "AD_YIELD",
-        "load": "81% CPU",
-        "last_strike": "15:01:04"
+        "load": "62% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_014": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "63% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "25% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_015": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "86% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "72% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_016": {
         "status": "ACTIVE",
         "mission": "SOCIAL_GROWTH",
-        "load": "82% CPU",
-        "last_strike": "15:01:04"
+        "load": "37% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_017": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "80% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "79% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_018": {
         "status": "ACTIVE",
-        "mission": "SOCIAL_GROWTH",
-        "load": "94% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "45% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_019": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "93% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "59% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_020": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "51% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "75% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_021": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "79% CPU",
-        "last_strike": "15:01:04"
+        "mission": "MINING_BTC",
+        "load": "37% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_022": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "27% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "95% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_023": {
         "status": "ACTIVE",
         "mission": "SOCIAL_GROWTH",
-        "load": "57% CPU",
-        "last_strike": "15:01:04"
+        "load": "12% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_024": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "17% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "98% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_025": {
         "status": "ACTIVE",
-        "mission": "SOCIAL_GROWTH",
-        "load": "37% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "89% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_026": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "77% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "33% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_027": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "10% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "40% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_028": {
         "status": "ACTIVE",
         "mission": "MINING_BTC",
-        "load": "90% CPU",
-        "last_strike": "15:01:04"
+        "load": "15% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_029": {
         "status": "ACTIVE",
         "mission": "WEB_SCAVENGE",
-        "load": "72% CPU",
-        "last_strike": "15:01:04"
+        "load": "87% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_030": {
         "status": "ACTIVE",
         "mission": "SOCIAL_GROWTH",
-        "load": "15% CPU",
-        "last_strike": "15:01:04"
+        "load": "64% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_031": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "89% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "84% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_032": {
         "status": "ACTIVE",
         "mission": "AD_YIELD",
-        "load": "34% CPU",
-        "last_strike": "15:01:04"
+        "load": "90% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_033": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "36% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "85% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_034": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "34% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "17% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_035": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "52% CPU",
-        "last_strike": "15:01:04"
+        "mission": "MINING_BTC",
+        "load": "11% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_036": {
         "status": "ACTIVE",
         "mission": "WEB_SCAVENGE",
-        "load": "31% CPU",
-        "last_strike": "15:01:04"
+        "load": "72% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_037": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "77% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "78% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_038": {
         "status": "ACTIVE",
         "mission": "SOCIAL_GROWTH",
-        "load": "85% CPU",
-        "last_strike": "15:01:04"
+        "load": "39% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_039": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "90% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "99% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_040": {
         "status": "ACTIVE",
         "mission": "SOCIAL_GROWTH",
-        "load": "22% CPU",
-        "last_strike": "15:01:04"
+        "load": "46% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_041": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "90% CPU",
-        "last_strike": "15:01:04"
+        "mission": "MINING_BTC",
+        "load": "24% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_042": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "91% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "71% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_043": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "10% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "50% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_044": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "43% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "76% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_045": {
         "status": "ACTIVE",
         "mission": "WEB_SCAVENGE",
-        "load": "89% CPU",
-        "last_strike": "15:01:04"
+        "load": "78% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_046": {
         "status": "ACTIVE",
         "mission": "AD_YIELD",
-        "load": "36% CPU",
-        "last_strike": "15:01:04"
+        "load": "89% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_047": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "93% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "49% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_048": {
         "status": "ACTIVE",
         "mission": "AD_YIELD",
-        "load": "87% CPU",
-        "last_strike": "15:01:04"
+        "load": "18% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_049": {
         "status": "ACTIVE",
         "mission": "SOCIAL_GROWTH",
-        "load": "12% CPU",
-        "last_strike": "15:01:04"
+        "load": "11% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_050": {
         "status": "ACTIVE",
         "mission": "SOCIAL_GROWTH",
-        "load": "24% CPU",
-        "last_strike": "15:01:04"
+        "load": "38% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_051": {
         "status": "ACTIVE",
         "mission": "AD_YIELD",
-        "load": "96% CPU",
-        "last_strike": "15:01:04"
+        "load": "19% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_052": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "89% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "29% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_053": {
         "status": "ACTIVE",
         "mission": "MINING_BTC",
-        "load": "19% CPU",
-        "last_strike": "15:01:04"
+        "load": "26% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_054": {
         "status": "ACTIVE",
-        "mission": "SOCIAL_GROWTH",
-        "load": "55% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "80% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_055": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "68% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "81% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_056": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "44% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "68% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_057": {
         "status": "ACTIVE",
         "mission": "MINING_BTC",
-        "load": "51% CPU",
-        "last_strike": "15:01:04"
+        "load": "94% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_058": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "10% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "81% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_059": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "64% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "96% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_060": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "81% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "23% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_061": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "31% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "25% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_062": {
         "status": "ACTIVE",
         "mission": "WEB_SCAVENGE",
-        "load": "80% CPU",
-        "last_strike": "15:01:04"
+        "load": "68% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_063": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "22% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "26% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_064": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "60% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "26% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_065": {
         "status": "ACTIVE",
         "mission": "WEB_SCAVENGE",
-        "load": "75% CPU",
-        "last_strike": "15:01:04"
+        "load": "90% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_066": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "73% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "72% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_067": {
         "status": "ACTIVE",
         "mission": "AD_YIELD",
-        "load": "31% CPU",
-        "last_strike": "15:01:04"
+        "load": "26% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_068": {
         "status": "ACTIVE",
-        "mission": "SOCIAL_GROWTH",
-        "load": "14% CPU",
-        "last_strike": "15:01:04"
+        "mission": "MINING_BTC",
+        "load": "23% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_069": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "39% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "40% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_070": {
         "status": "ACTIVE",
         "mission": "WEB_SCAVENGE",
-        "load": "76% CPU",
-        "last_strike": "15:01:04"
+        "load": "30% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_071": {
         "status": "ACTIVE",
         "mission": "SOCIAL_GROWTH",
-        "load": "14% CPU",
-        "last_strike": "15:01:04"
+        "load": "29% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_072": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "44% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "81% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_073": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "62% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "43% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_074": {
         "status": "ACTIVE",
         "mission": "MINING_BTC",
-        "load": "85% CPU",
-        "last_strike": "15:01:04"
+        "load": "49% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_075": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "23% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "37% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_076": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "57% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "81% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_077": {
         "status": "ACTIVE",
-        "mission": "SOCIAL_GROWTH",
-        "load": "48% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "38% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_078": {
         "status": "ACTIVE",
         "mission": "WEB_SCAVENGE",
-        "load": "96% CPU",
-        "last_strike": "15:01:04"
+        "load": "98% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_079": {
         "status": "ACTIVE",
-        "mission": "SOCIAL_GROWTH",
-        "load": "58% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "65% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_080": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "70% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "61% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_081": {
         "status": "ACTIVE",
         "mission": "MINING_BTC",
-        "load": "79% CPU",
-        "last_strike": "15:01:04"
+        "load": "95% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_082": {
         "status": "ACTIVE",
-        "mission": "SOCIAL_GROWTH",
-        "load": "14% CPU",
-        "last_strike": "15:01:04"
+        "mission": "MINING_BTC",
+        "load": "23% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_083": {
         "status": "ACTIVE",
-        "mission": "SOCIAL_GROWTH",
-        "load": "37% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "91% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_084": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "57% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "38% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_085": {
         "status": "ACTIVE",
         "mission": "WEB_SCAVENGE",
-        "load": "67% CPU",
-        "last_strike": "15:01:04"
+        "load": "21% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_086": {
         "status": "ACTIVE",
         "mission": "SOCIAL_GROWTH",
-        "load": "64% CPU",
-        "last_strike": "15:01:04"
+        "load": "28% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_087": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "56% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "64% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_088": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "60% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "45% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_089": {
         "status": "ACTIVE",
         "mission": "SOCIAL_GROWTH",
-        "load": "26% CPU",
-        "last_strike": "15:01:04"
+        "load": "87% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_090": {
         "status": "ACTIVE",
         "mission": "SOCIAL_GROWTH",
-        "load": "42% CPU",
-        "last_strike": "15:01:04"
+        "load": "17% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_091": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "71% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "52% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_092": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "13% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "95% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_093": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "60% CPU",
-        "last_strike": "15:01:04"
+        "mission": "MINING_BTC",
+        "load": "96% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_094": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "27% CPU",
-        "last_strike": "15:01:04"
+        "mission": "SOCIAL_GROWTH",
+        "load": "54% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_095": {
         "status": "ACTIVE",
-        "mission": "SOCIAL_GROWTH",
-        "load": "32% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "83% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_096": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "95% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "45% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_097": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "76% CPU",
-        "last_strike": "15:01:04"
+        "mission": "MINING_BTC",
+        "load": "53% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_098": {
         "status": "ACTIVE",
-        "mission": "WEB_SCAVENGE",
-        "load": "20% CPU",
-        "last_strike": "15:01:04"
+        "mission": "MINING_BTC",
+        "load": "99% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_099": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "50% CPU",
-        "last_strike": "15:01:04"
+        "mission": "AD_YIELD",
+        "load": "63% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_100": {
         "status": "ACTIVE",
-        "mission": "MINING_BTC",
-        "load": "18% CPU",
-        "last_strike": "15:01:04"
+        "mission": "WEB_SCAVENGE",
+        "load": "14% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_101": {
         "status": "ACTIVE",
-        "mission": "AD_YIELD",
-        "load": "19% CPU",
-        "last_strike": "15:01:04"
+        "mission": "MINING_BTC",
+        "load": "34% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_102": {
         "status": "ACTIVE",
         "mission": "MINING_BTC",
-        "load": "62% CPU",
-        "last_strike": "15:01:04"
+        "load": "64% CPU",
+        "last_strike": "22:11:49"
     },
     "MUSTANG_103": {
         "status": "ACTIVE",
         "mission": "AD_YIELD",
-        "load": "91% CPU",
-        "last_strike": "15:01:04"
+        "load": "14% CPU",
+        "last_strike": "22:11:49"
     }
 }

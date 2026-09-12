@@ -16,17 +16,22 @@ from metadata_engine import metadata_engine
 from providers.audio_provider import audio_provider
 from providers.video_provider import video_provider
 from providers.opencut_provider import opencut_editor
+from obsidian_daemon_base import ObsidianDaemon
 
-class ProductionWorker:
+class ProductionWorker(ObsidianDaemon):
     """
     BUSINESS NODE: The Executioner.
     v1.4: Implements Asset Registry check to prevent redundant generations.
     """
+    def __init__(self):
+        super().__init__("PRODUCTION_WORKER")
+
     async def run_worker_loop(self):
         swarm_log("WORKER: Autonomous Production Swarm active.", node="WORKER")
         self._reset_stalled_jobs()
         while True:
             try:
+                self.send_heartbeat(status="POLLING")
                 job = await self._fetch_next_job()
                 if job:
                     await self._execute_production_plan(job)
@@ -101,13 +106,30 @@ class ProductionWorker:
                 await asyncio.gather(*visual_tasks)
 
             # 3. OPENCUT ASSEMBLY
-            self._update_job_status(job_id, "EDITING", progress=80)
-            final_path = str(Path(r"D:\AnthonyAi_Swarm\Renderings") / f"final_{job_id}.mp4")
-            success = await opencut_editor.assemble_video(manifest, final_path)
+            self._update_job_status(job_id, "EDITING", progress=70)
+            render_path = str(Path(r"D:\ObsidianAi_Swarm\Renderings") / f"render_{job_id}.mp4")
+            success = await opencut_editor.assemble_video(manifest, render_path)
 
-            if success and os.path.exists(final_path):
-                # 4. QUALITY CONTROL
-                self._update_job_status(job_id, "QC", progress=90)
+            if success and os.path.exists(render_path):
+                # 3.5 KINETIC CAPTIONS (QUALITY UPGRADE)
+                self._update_job_status(job_id, "EDITING", stage="BURNING_CAPTIONS", progress=85)
+                from kinetic_captions import caption_engine
+                final_path = str(Path(r"D:\ObsidianAi_Swarm\Renderings") / f"final_{job_id}.mp4")
+
+                swarm_log(f"WORKER: Burning kinetic captions into [{job_id}]...", node="WORKER")
+                captioned_path = await caption_engine.generate_captions(render_path, final_path)
+
+                if not captioned_path:
+                    swarm_log("[-] WORKER: Caption burn failed. Using raw render.", node="WORKER")
+                    final_path = render_path
+
+                # 4. QUALITY CONTROL & LEGAL SHIELD
+                self._update_job_status(job_id, "QC", progress=95)
+
+                # Fair Use Audit
+                from legal_compliance_shield import legal_shield
+                legal_shield.perform_fair_use_audit(render_path, final_path)
+
                 is_valid, q_msg = await qc_node.verify_strike_readiness(final_path, manifest)
 
                 if is_valid:
@@ -144,10 +166,34 @@ class ProductionWorker:
     async def _generate_scene_and_register(self, scene, bible, key, job_id, index):
         prompt = scene.get('visual_prompt', 'cinematic high fidelity')
         duration = scene.get('duration', 15)
+
+        # 1. Try standard video provider
         path = await video_provider.generate_video(prompt, duration, bible=bible)
+
+        # 2. VidBee Fallback: Snipe from 1,000+ sites if standard fails
+        if not path or not os.path.exists(path):
+            swarm_log(f"WORKER: Standard provider miss. Engaging VidBee Global Sniper for Scene {index}...", node="WORKER")
+            from vidbee_sniping_engine import vidbee_engine
+            res = await vidbee_engine.snipe_global_asset(prompt)
+            if res.get("status") == "SUCCESS":
+                path = res["path"]
+
+        # 3. OpenViking Fallback: Semantic Search in Obsidian Library (viking:// protocol)
+        if not path or not os.path.exists(path):
+            swarm_log(f"WORKER: Snipe miss. Engaging OpenViking Semantic Fallback for Scene {index}...", node="WORKER")
+            from viking_context_engine import viking_engine
+            path = await viking_engine.find_semantic_match(prompt)
+
         if path:
             scene['path'] = path
             self._register_asset(key, job_id, f"SCENE_{index}", path)
+
+            # Index new asset into OpenViking for future fallback use
+            try:
+                from viking_context_engine import viking_engine
+                await viking_engine.ingest_video_to_viking(path, {"prompt": prompt, "duration": duration})
+            except: pass
+
         return path
 
     def _check_registry(self, asset_id):

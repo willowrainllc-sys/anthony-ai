@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHALE STRIKE | HFT Crypto Extraction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #020205;
+            --whale: #3b82f6;
+            --profit: #10b981;
+            --glass: rgba(10, 10, 20, 0.95);
+            --border: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Space Mono', monospace;
+            margin: 0;
+            padding: 40px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            height: 100vh;
+            gap: 30px;
+        }
+
+        .chart-area {
+            background: #000;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            position: relative;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stats-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 25px;
+            backdrop-filter: blur(20px);
+        }
+
+        .label { font-size: 0.6em; color: #666; text-transform: uppercase; letter-spacing: 3px; font-weight: 800; }
+        .value { font-size: 2em; font-weight: 900; margin-top: 10px; font-family: 'Orbitron'; }
+
+        .trade-log {
+            flex: 1;
+            margin-top: 30px;
+            overflow-y: auto;
+            font-size: 0.8em;
+            color: var(--profit);
+        }
+
+        .hft-pulse {
+            height: 100px;
+            width: 100%;
+            background: repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(59, 130, 246, 0.1) 41px);
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+        }
+
+        .whale-icon {
+            font-size: 5em;
+            opacity: 0.1;
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            filter: grayscale(1);
+        }
+
+        .btn-strike {
+            background: var(--profit);
+            color: #000;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-area">
+        <div class="whale-icon">🐋</div>
+        <div style="font-family: 'Orbitron'; letter-spacing: 10px; color: var(--whale);">WHALE_STRIKE_HFT</div>
+        <h1 style="font-size: 3em; margin: 10px 0;">BTC / USD</h1>
+
+        <div style="flex: 1; border-left: 2px solid var(--whale); margin: 40px 0; position: relative;">
+             <!-- Simulated Candlestick Chart -->
+             <div id="chart-data"></div>
+        </div>
+
+        <div class="trade-log" id="log">
+            > [SYSTEM]: Initializing Quantum Alpha Strike...<br>
+            > [SINK]: Verified bc1qk4ass5xsanvth2tz7jsapscy8ld25yr6ze5yzx<br>
+            > [POOL]: $11,051.25 Locked.
+        </div>
+        <div class="hft-pulse"></div>
+    </div>
+
+    <div class="stats-sidebar">
+        <div class="stat-card">
+            <div class="label">Total Liquidity</div>
+            <div class="value">$11,051.25</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Total PnL (Alpha)</div>
+            <div class="value" style="color: var(--profit);" id="pnl">+$0.00</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Strike Velocity</div>
+            <div class="value">450ms</div>
+        </div>
+
+        <div style="flex:1"></div>
+        <button class="btn-strike">Emergency Liquidation</button>
+        <div class="label" style="text-align: center;">MAESTAS CAPITAL | UNTOUCHABLE.</div>
+    </div>
+
+    <script>
+        let pnl = 0;
+        const log = document.getElementById('log');
+        const pnlEl = document.getElementById('pnl');
+
+        setInterval(() => {
+            const profit = (Math.random() * 15).toFixed(2);
+            pnl += parseFloat(profit);
+            pnlEl.innerText = "+$" + pnl.toLocaleString(undefined, {minimumFractionDigits: 2});
+
+            const line = document.createElement('div');
+            line.innerHTML = `> [STRIKE]: Captured $${profit} Alpha via Quantum Scalp. [${new Date().toLocaleTimeString()}]`;
+            log.appendChild(line);
+            log.scrollTop = log.scrollHeight;
+            if(log.children.length > 15) log.removeChild(log.firstChild);
+        }, 3000);
+    </script>
+</body>
+</html>

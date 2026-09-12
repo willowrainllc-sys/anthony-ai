@@ -5,7 +5,7 @@ from pathlib import Path
 
 # --- CENTRALIZED HARDENED LOGGING ---
 # Standardize all logs to the USB D: Drive
-LOG_DIR = Path(r"D:\AnthonyAi_Swarm\Logs")
+LOG_DIR = Path(r"D:\ObsidianAi_Swarm\Logs")
 LOG_DIR.mkdir(exist_ok=True, parents=True)
 LOG_DIR.mkdir(exist_ok=True, parents=True)
 MASTER_LOG = LOG_DIR / "empire_master.log"

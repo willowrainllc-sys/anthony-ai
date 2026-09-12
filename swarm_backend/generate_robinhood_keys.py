@@ -27,7 +27,7 @@ def generate_keys():
         encryption_algorithm=serialization.NoEncryption()
     )
 
-    save_path = r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\swarm_vault\robinhood_private.pem"
+    save_path = r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\swarm_vault\robinhood_private.pem"
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
 
     with open(save_path, "wb") as f:

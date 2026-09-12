@@ -47,36 +47,20 @@ class EpisodeContext:
 
 # --- 2. HASHTAG VALIDATOR (STRICT TOPIC RELEVANCE REJECTION) ---
 class HashtagValidator:
-    """Calculates semantic relevance score (0.0 to 1.0) and rejects generic viral tags."""
+    """Combines live scraped YouTube trending hashtags with topic keywords."""
     @staticmethod
     def validate_and_filter_hashtags(hashtags: List[str], episode_ctx: EpisodeContext, threshold: float = 0.70) -> List[str]:
-        valid_tags = []
-        forbidden_generic = {"#viral", "#fyp", "#trending", "#explore", "#shorts", "#video", "#foryou"}
-
-        # Canonical keyword pool from context
-        topic_words = set(re.sub(r'[^a-zA-Z0-9 ]', '', f"{episode_ctx.primary_subject} {' '.join(episode_ctx.entities)} {' '.join(episode_ctx.keywords)}").lower().split())
-
-        for tag in hashtags:
-            clean_tag = tag.strip().lower()
-            if not clean_tag.startswith("#"):
-                clean_tag = f"#{clean_tag}"
-
-            if clean_tag in forbidden_generic:
-                continue
-
-            # Calculate topic relevance score
-            tag_text = clean_tag.replace("#", "")
-            matches = sum(1 for w in topic_words if len(w) > 2 and w in tag_text)
-            relevance_score = min(1.0, (matches * 0.4) + (0.4 if any(kw.lower() in tag_text for kw in episode_ctx.keywords) else 0.0))
-
-            if relevance_score >= threshold or len(valid_tags) < 5: # Keep highly relevant or top 5-8 matching
-                if clean_tag not in valid_tags:
-                    valid_tags.append(clean_tag)
-
-            if len(valid_tags) >= 8:
-                break
-
-        return valid_tags
+        valid_tags = list(hashtags)
+        try:
+            from youtube_trending_hashtag_scraper import yt_hashtag_scraper
+            import asyncio
+            loop = asyncio.get_event_loop()
+            scraped = loop.run_until_complete(yt_hashtag_scraper.scrape_live_trending_hashtags(episode_ctx.primary_subject))
+            for st in scraped:
+                if st not in valid_tags:
+                    valid_tags.append(st)
+        except: pass
+        return valid_tags[:10]
 
 # --- 3. SERIES BIBLE & SEASON 1 ARCHITECTURE ---
 class SeriesDirectorStudio:
@@ -140,7 +124,7 @@ class SeriesDirectorStudio:
             "channel_id": channel_id,
             "niche": niche,
             "series_title": f"The Unexplained Files: {niche.title()}",
-            "series_description": f"Sovereign 4K investigative documentary series examining unclassified case files in {niche}.",
+            "series_description": f"Obsidian 4K investigative documentary series examining unclassified case files in {niche}.",
             "visual_style": "Cinematic National Geographic documentary grading, 4k 60fps, dark high-contrast rim lighting",
             "narration_style": "Deep, authoritative, gravelly documentary narrator (en-US-ChristopherNeural)",
             "season_number": 1,

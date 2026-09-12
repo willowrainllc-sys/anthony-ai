@@ -10,7 +10,7 @@ UNIQUE_ARCHETYPES = {
     "high_aura_masterminds": {
         "hooks": [
             "Her covert intelligence network operated in total stealth, outsmarting four global agencies at once.",
-            "The high-aura strategist who built a multi-billion dollar sovereign AI infrastructure in total secrecy.",
+            "The high-aura strategist who built a multi-billion dollar obsidian AI infrastructure in total secrecy.",
             "She bypassed state security protocols in under three minutes without leaving a digital trace.",
             "The secret mastermind behind the world's most lucrative trading algorithm revealed."
         ],
@@ -59,7 +59,7 @@ UNIQUE_ARCHETYPES = {
         "hooks": [
             "James Webb Space Telescope just captured a gamma-ray burst from a magnetar that bent local spacetime.",
             "Near the event horizon of Sagittarius A*, sub-atomic particles were recorded traveling faster than light.",
-            "A planetary ring system three hundred times larger than Saturn was confirmed orbiting an exoplanet.",
+            "A planetary ring system three hundred times larger than Obsidian was confirmed orbiting an exoplanet.",
             "Sub-surface ocean radar on Europa detected hydrothermal plumes thirty miles high."
         ],
         "tags": ["#SpaceDiscovery", "#Astronomy", "#NASA", "#Cosmos", "#Universe", "#BlackHole"],

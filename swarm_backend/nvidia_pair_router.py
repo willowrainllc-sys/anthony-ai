@@ -49,12 +49,12 @@ class NvidiaPairRouter:
                     resp = await client.post(self.pair_endpoint, json=payload, headers=headers)
                     if resp.status_code == 200:
                         content = resp.json()['choices'][0]['message']['content'].strip()
-                        swarm_log("✓ NVIDIA PAIR: Hardware-accelerated response received.", node="PAIR")
+                        swarm_log(" NVIDIA PAIR: Hardware-accelerated response received.", node="PAIR")
                         return content
             except Exception as e:
                 swarm_log(f"[-] NVIDIA PAIR Exception: {e}", node="PAIR")
 
-        # 2. Sovereign Central Brain Fallback via Local/OpenRouter
+        # 2. Obsidian Central Brain Fallback via Local/OpenRouter
         from swarm_brain import brain_gate
         try:
             return await brain_gate.generate_serialized(

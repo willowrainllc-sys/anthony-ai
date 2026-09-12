@@ -12,11 +12,11 @@ class GridSentinel:
     Auto-cleans disk space and monitors RAM to prevent grid crashes.
     """
     def __init__(self):
-        self.render_dir = r"C:\AnthonyAi_Swarm\Renderings"
+        self.render_dir = r"C:\ObsidianAi_Swarm\Renderings"
         self.hf_cache = r"C:\Users\willo\huggingface_cache"
 
     async def run_defense_loop(self):
-        swarm_log("🔱 GRID SENTINEL: Disk & RAM Defense ACTIVE.", node="SENTINEL")
+        swarm_log("[SUPREME] GRID SENTINEL: Disk & RAM Defense ACTIVE.", node="SENTINEL")
 
         while True:
             try:

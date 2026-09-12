@@ -18,7 +18,7 @@ class ZskyAiAdapter:
         prompt = f"Enhance this visual prompt into an ultra-realistic 4K documentary shot description: {visual_cue}"
         try:
             async with httpx.AsyncClient(timeout=10.0) as client:
-                resp = await client.post(self.endpoint, json={"model": "anthony-brain:latest", "prompt": prompt, "stream": False})
+                resp = await client.post(self.endpoint, json={"model": "Obsidian-Christopher-latest", "prompt": prompt, "stream": False})
                 if resp.status_code == 200:
                     enhanced = resp.json().get("response", "").strip().replace('"', '')
                     if len(enhanced) > 10:

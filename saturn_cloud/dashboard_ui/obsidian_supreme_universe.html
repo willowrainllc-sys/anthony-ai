@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBSIDIAN UNIVERSE | Supreme Command</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #010103;
+            --primary: #ffffff;
+            --accent: #3b82f6;
+            --gold: #fbbf24;
+            --neural: #8b5cf6;
+            --strike: #ef4444;
+            --glass: rgba(10, 10, 15, 0.95);
+            --border: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-areas:
+                "nav nav nav"
+                "sidebar content charts"
+                "footer footer footer";
+            grid-template-columns: 350px 1fr 400px;
+            grid-template-rows: 80px 1fr 50px;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* 🔱 Navigation: The Crown */
+        nav {
+            grid-area: nav;
+            background: #000;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        .brand { font-family: 'Orbitron'; font-weight: 900; letter-spacing: 5px; color: var(--gold); font-size: 1.2em; }
+        .motto { font-size: 0.7em; color: #444; letter-spacing: 3px; }
+
+        /* 🔱 Sidebar: The Vitals */
+        .sidebar {
+            grid-area: sidebar;
+            border-right: 1px solid var(--border);
+            padding: 40px 30px;
+            background: rgba(0,0,0,0.5);
+            overflow-y: auto;
+        }
+        .vital-card { background: var(--glass); border: 1px solid var(--border); padding: 25px; border-radius: 25px; margin-bottom: 20px; }
+        .label { font-size: 0.6em; color: #666; text-transform: uppercase; letter-spacing: 3px; }
+        .value { font-size: 1.4em; font-weight: 900; margin-top: 5px; color: var(--accent); }
+
+        /* 🔱 Main Content: The Matrix */
+        .main-content {
+            grid-area: content;
+            position: relative;
+            background: radial-gradient(circle at center, #0a0a20 0%, #010103 80%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .universe-hub {
+            width: 80%; height: 80%;
+            background: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=1000') center/cover;
+            border-radius: 50%;
+            box-shadow: 0 0 100px rgba(139, 92, 246, 0.2);
+            position: relative;
+            border: 2px solid rgba(139, 92, 246, 0.1);
+        }
+
+        /* 🔱 Charts: Whale Strike */
+        .charts-area {
+            grid-area: charts;
+            border-left: 1px solid var(--border);
+            background: #000;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .mini-chart { height: 150px; background: #050505; border-radius: 20px; border: 1px solid rgba(255,255,255,0.02); }
+
+        /* 🔱 Footer */
+        footer {
+            grid-area: footer;
+            background: #000;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            font-size: 0.7em;
+            color: #333;
+            letter-spacing: 2px;
+        }
+
+        .pulse { animation: neonBlink 2s infinite alternate; }
+        @keyframes neonBlink { from { opacity: 0.4; } to { opacity: 1; } }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <div class="brand">OBSIDIAN UNIVERSE</div>
+            <div class="motto">God, Family, Business.</div>
+        </div>
+        <div style="text-align: right;">
+            <div class="label">Director Protocol</div>
+            <div style="font-weight: 800; font-size: 0.9em; color: var(--gold);">ANTHONY CHRISTOPHER MAESTAS</div>
+        </div>
+    </nav>
+
+    <div class="sidebar">
+        <div class="vital-card">
+            <div class="label">Treasury Sink</div>
+            <div class="value">Stride Bank (...9729)</div>
+            <div style="font-size: 0.7em; color: #10b981; margin-top: 5px;">STATUS: VERIFIED</div>
+        </div>
+        <div class="vital-card" style="border-color: var(--neural);">
+            <div class="label">Neural Sync</div>
+            <div class="value" style="color: var(--neural);">ENTANGLED (94.2%)</div>
+        </div>
+        <div class="vital-card">
+            <div class="label">Grid Mesh</div>
+            <div class="value">5,103 Nodes</div>
+        </div>
+        <div class="vital-card" style="border-color: var(--strike);">
+            <div class="label">Total Negotiating</div>
+            <div class="value" style="color: var(--gold);">$0.00</div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="universe-hub">
+            <div style="position: absolute; bottom: -60px; width: 100%; text-align: center;">
+                <h2 style="font-family: 'Orbitron'; letter-spacing: 10px; font-size: 1em; color: #444;">[ THE CORE ORGANISM ]</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="charts-area">
+        <div class="label">WHALE_STRIKE: BTC / USD</div>
+        <div class="mini-chart" style="padding: 20px;">
+            <div style="color: #10b981; font-weight: 900; font-size: 1.5em;">+$1,428.50</div>
+            <div class="label" style="margin-top: 10px;">Current HFT Alpha</div>
+        </div>
+        <div class="label">VORTEX: THROUGHPUT</div>
+        <div class="mini-chart"></div>
+        <div class="label">GHOST_VAULT: LEADS</div>
+        <div class="mini-chart"></div>
+    </div>
+
+    <footer>
+        DIRECTOR IDENTIFIED: MUSTANG_PIXEL_PRO | LOCATION: PUEBLO-MO CORRIDOR | ACCESS: SUPREME_UNRESTRICTED
+    </footer>
+</body>
+</html>

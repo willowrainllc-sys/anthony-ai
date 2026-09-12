@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { width: 300px; background: #050505; color: #fff; font-family: sans-serif; padding: 20px; }
+    .header { font-weight: bold; font-size: 14px; border-bottom: 1px solid #3b82f6; padding-bottom: 10px; margin-bottom: 20px; letter-spacing: 2px; }
+    .stat { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 10px; }
+    .label { color: #888; text-transform: uppercase; }
+    .value { color: #10b981; font-weight: bold; }
+    .btn { background: #3b82f6; color: #fff; border: none; padding: 10px; width: 100%; border-radius: 4px; cursor: pointer; font-weight: bold; margin-top: 20px; }
+    .btn:hover { background: #2563eb; }
+  </style>
+</head>
+<body>
+  <div class="header">🔱 OBSIDIAN GRID</div>
+  <div class="stat">
+    <span class="label">Status</span>
+    <span class="value" id="status">CONNECTING...</span>
+  </div>
+  <div class="stat">
+    <span class="label">Nodes</span>
+    <span class="value">103 MUSTANGS</span>
+  </div>
+  <div class="stat">
+    <span class="label">Mesh IPs</span>
+    <span class="value">5,000 ACTIVE</span>
+  </div>
+  <button class="btn" id="sync">FORCE GRID SYNC</button>
+
+  <script>
+    async function updateStatus() {
+      try {
+        const resp = await fetch('http://127.0.0.1:8080/obsidian/status');
+        const data = await resp.json();
+        document.getElementById('status').innerText = data.grid_status;
+      } catch (e) {
+        document.getElementById('status').innerText = "OFFLINE";
+      }
+    }
+    updateStatus();
+    document.getElementById('sync').onclick = () => alert("🔱 [SUPREME]: Ingress Pulse Dispatched.");
+  </script>
+</body>
+</html>

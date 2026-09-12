@@ -43,8 +43,8 @@ def scrub_sensitive_info(text):
 
     # 3. Strip Backend Developer Keywords
     dev_words = [
-        "SOVEREIGN STRIKE:", "SOVEREIGN LIVE STRIKE:", "ALPHA GRID:",
-        "SIGNAL ", "SOVEREIGN", "STRIKE", "GRID", "DISCIPLE_",
+        "OBSIDIAN STRIKE:", "OBSIDIAN LIVE STRIKE:", "ALPHA GRID:",
+        "SIGNAL ", "OBSIDIAN", "STRIKE", "GRID", "DISCIPLE_",
         "AUTOPILOT_", "MISSION LOG", "SPECTRUM", "BREACH"
     ]
     for dw in dev_words:

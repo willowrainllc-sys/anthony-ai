@@ -48,7 +48,7 @@ async def generate_disciple_comment(post_title: str, disciple: dict) -> str:
     try:
         async with httpx.AsyncClient(timeout=10.0) as client:
             resp = await client.post("http://localhost:11434/api/generate", json={
-                "model": "anthony-brain:latest",
+                "model": "Obsidian-Christopher-latest",
                 "prompt": prompt,
                 "stream": False
             })
@@ -109,7 +109,7 @@ async def boost_live_post(post_url: str, post_title: str, platform: str):
 
 async def monitor_empire_signals():
     """Listens for live STRIKE_SUCCESS events and triggers the Disciple Swarm Boost."""
-    swarm_log("🟢 Disciple Swarm Engine: Active Signal Monitor online.", node="SWARM")
+    swarm_log(" Disciple Swarm Engine: Active Signal Monitor online.", node="SWARM")
 
     with db._get_connection() as conn:
         res = conn.execute("SELECT MAX(id) FROM empire_events").fetchone()
@@ -128,7 +128,7 @@ async def monitor_empire_signals():
                     last_checked_id = r_id
                     meta = json.loads(meta_str) if meta_str else {}
                     post_url = meta.get("post_url") or meta.get("video_url")
-                    title = meta.get("title", "Sovereign Drop")
+                    title = meta.get("title", "Obsidian Drop")
 
                     if post_url and str(post_url).startswith("http"):
                         asyncio.create_task(boost_live_post(post_url, title, platform))

@@ -27,13 +27,13 @@ DOCUMENTARY_NICHES = {
         "The colossal squid hunting grounds in the Mariana Trench",
         "Prehistoric microbial life thriving inside volcanic crust",
         "Submarine sonar tracking unidentified underwater crafts",
-        "The cavernous liquid methane lakes of Saturn's moon Titan"
+        "The cavernous liquid methane lakes of Obsidian's moon Titan"
     ],
     "FUTURE_CYBER_TECH": [
         "Autonomous drone swarms communicating through neural mesh",
         "The dark side of high-frequency AI stock market arbitrage",
         "Neural lace interfaces replacing physical smartphones by 2028",
-        "Quantum encryption collapse and the race for sovereign data",
+        "Quantum encryption collapse and the race for obsidian data",
         "Synthetic biological supercomputers grown from DNA"
     ],
     "UNEXPLAINED_OSINT": [
@@ -71,7 +71,7 @@ class TrendEngine:
 
         # Dynamic variation modifier
         timestamp = time.strftime("%M:%S")
-        modifiers = ["Unclassified Investigation", "Decoded Signals", "Deep Dive", "Sovereign Briefing", "Hidden Truth"]
+        modifiers = ["Unclassified Investigation", "Decoded Signals", "Deep Dive", "Obsidian Briefing", "Hidden Truth"]
         mod = random.choice(modifiers)
 
         spark_title = f"{base_topic} ({mod})"

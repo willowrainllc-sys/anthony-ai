@@ -1,0 +1,17 @@
+{
+  "project": "robinhood-agent-bridge",
+  "version": "1.0.0",
+  "mcp": {
+    "endpoint": "https://agent.robinhood.com/mcp/trading",
+    "transport": "sse",
+    "auth_cache_dir": "~/.mcp-auth",
+    "safety_guards": {
+      "restricted_accounts": [
+        "main",
+        "ira",
+        "crypto_primary"
+      ],
+      "require_human_approval_over": 50.00
+    }
+  }
+}

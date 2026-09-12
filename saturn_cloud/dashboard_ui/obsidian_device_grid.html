@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXEL CLONE | 103 Humanoid Nodes | Obsidian Global</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;800&family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #010103;
+            --accent: #3b82f6;
+            --gold: #fbbf24;
+            --emerald: #10b981;
+            --border: rgba(255, 255, 255, 0.05);
+            --phone-frame: #0a0a0a;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+
+        /* 🔱 Header */
+        .header {
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(20px);
+        }
+
+        /* 🔱 103 Phone Grid */
+        .device-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 20px;
+            padding: 10px;
+        }
+
+        /* 🔱 Pixel Chassis */
+        .phone-node {
+            background: var(--phone-frame);
+            border-radius: 18px;
+            padding: 5px;
+            aspect-ratio: 9 / 19;
+            border: 1.5px solid var(--border);
+            transition: 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .phone-node:hover {
+            transform: scale(1.1) translateZ(50px);
+            border-color: var(--accent);
+            z-index: 100;
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.2);
+        }
+
+        .screen {
+            background: #000;
+            width: 100%;
+            height: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=400');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Status Bar */
+        .status-bar { height: 14px; padding: 0 8px; display: flex; justify-content: space-between; align-items: center; font-size: 5px; color: #fff; font-weight: 800; z-index: 10; }
+
+        .mini-app-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            padding: 15px 10px;
+            z-index: 10;
+        }
+
+        .mini-app { width: 100%; aspect-ratio: 1/1; background: rgba(0,0,0,0.4); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; border: 0.5px solid rgba(255,255,255,0.05); }
+
+        /* 🔱 Headed Focus Modal: Complete Phone Clone */
+        #focusModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.98);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(40px);
+        }
+
+        .big-phone {
+            width: 380px;
+            background: #111;
+            border-radius: 50px;
+            padding: 12px;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 100px rgba(59, 130, 246, 0.2);
+            position: relative;
+            aspect-ratio: 9 / 19;
+        }
+
+        .big-screen {
+            background: #000;
+            width: 100%;
+            height: 100%;
+            border-radius: 40px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=600');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .app-drawer { flex: 1; padding: 50px 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-content: start; z-index: 10; background: rgba(0,0,0,0.4); }
+        .app-icon { display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: 0.2s; }
+        .app-icon:hover { transform: scale(1.15); }
+        .icon-sq { width: 60px; height: 60px; background: rgba(255,255,255,0.08); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); }
+        .app-label { font-size: 9px; font-weight: 800; margin-top: 10px; color: #fff; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 2px 10px #000; }
+
+        .side-vitals {
+            position: absolute; left: -320px; top: 50%; transform: translateY(-50%);
+            width: 280px; background: rgba(10,10,10,0.9); border: 1px solid var(--border); border-radius: 24px; padding: 30px;
+        }
+
+        .btn-strike { background: #fff; color: #000; padding: 15px 30px; border-radius: 15px; font-weight: 900; font-family: 'Orbitron'; text-transform: uppercase; letter-spacing: 2px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div>
+            <h1 class="orbitron text-2xl font-black tracking-[10px]">PIXEL_HIVE</h1>
+            <p class="text-[10px] text-gray-600 uppercase tracking-widest mt-1">103 Complete Phone Clones // ASI_v30.0 Root // Private Secure Ingress</p>
+        </div>
+        <div class="text-right">
+            <div class="text-[10px] text-gray-600 font-bold mb-1 uppercase tracking-widest">Access Control</div>
+            <div class="text-xl font-black text-[#3b82f6]">LOCKED_TO_DIRECTOR</div>
+        </div>
+    </div>
+
+    <div class="device-grid" id="hiveGrid"></div>
+
+    <!-- 🔱 Complete Clone Focus Modal -->
+    <div id="focusModal" onclick="this.style.display='none'">
+        <div class="flex flex-col items-center gap-10" onclick="event.stopPropagation()">
+            <div class="relative">
+                <div class="side-vitals">
+                    <div class="text-[10px] text-gray-500 uppercase mb-2">Clone Identity</div>
+                    <div class="text-blue-500 font-black text-lg mb-6" id="v-node-id">MUSTANG_001</div>
+
+                    <div class="text-[10px] text-gray-500 uppercase mb-2">IMEI / EID</div>
+                    <div class="text-[10px] font-mono text-white mb-6" id="v-imei">35492...0942</div>
+
+                    <div class="text-[10px] text-gray-500 uppercase mb-2">System Stack</div>
+                    <div class="text-emerald-500 font-bold text-xs mb-6">ANDROID_37_PIXEL_SYNC</div>
+
+                    <div class="text-[10px] text-gray-500 uppercase mb-2">Authorized Apps</div>
+                    <div class="text-gray-400 text-[9px] leading-relaxed">
+                        ● OBSIDIAN CORE v5.0<br>
+                        ● GMAIL / CHROME<br>
+                        ● ROBINHOOD / CASHAPP<br>
+                        ● HONEYGAIN v1.2
+                    </div>
+                </div>
+
+                <div class="big-phone">
+                    <div class="big-screen" id="phoneScreen">
+                        <div class="status-bar" style="height: 30px; font-size: 10px; padding: 0 25px; z-index: 20;">
+                            <span>12:19</span>
+                            <span>5G_GHOST 📶 🔋 100%</span>
+                        </div>
+
+                        <!-- 🔱 The App Drawer (Pixel Clone) -->
+                        <div class="app-drawer">
+                            <div class="app-icon" onclick="window.location.href='../../willow_rain_global/wholesale_portal/obsidian_master_hub.html'">
+                                <div class="icon-sq" style="background: #000; border-color: var(--gold);">🔱</div>
+                                <div class="app-label">Obsdn</div>
+                            </div>
+                            <div class="app-icon" onclick="window.open('../../willow_rain_global/wholesale_portal/obsidian_web_voyager.html', '_blank')">
+                                <div class="icon-sq" style="background: #fff; color: #000;">🌐</div>
+                                <div class="app-label">Chrome</div>
+                            </div>
+                            <div class="app-icon" onclick="alert('🔱 Opening Gmail Secure Ingress...')">
+                                <div class="icon-sq" style="background: #ea4335;">📧</div>
+                                <div class="app-label">Gmail</div>
+                            </div>
+                            <div class="app-icon" onclick="window.open('https://robinhood.com/crypto', '_blank')">
+                                <div class="icon-sq" style="background: #10b981;">💹</div>
+                                <div class="app-label">Robinhood</div>
+                            </div>
+                            <div class="app-icon" onclick="alert('🔱 Opening CashApp Settlement...')">
+                                <div class="icon-sq" style="background: #00d64f;">💰</div>
+                                <div class="app-label">CashApp</div>
+                            </div>
+                            <div class="app-icon" onclick="alert('🔱 Monitoring Honeygain Yield...')">
+                                <div class="icon-sq" style="background: #fbbf24;">🐝</div>
+                                <div class="app-label">Honey</div>
+                            </div>
+                            <div class="app-icon" onclick="inject('MINE_BTC')">
+                                <div class="icon-sq" style="background: #ff9900;">₿</div>
+                                <div class="app-label">Miner</div>
+                            </div>
+                            <div class="app-icon" onclick="alert('🔱 Opening Facebook Social Strike...')">
+                                <div class="icon-sq" style="background: #1877f2;">🔗</div>
+                                <div class="app-label">Social</div>
+                            </div>
+                        </div>
+
+                        <!-- Pixel Nav -->
+                        <div class="mt-auto h-20 flex justify-center items-center z-20">
+                            <div class="w-14 h-1.5 rounded-full bg-white/40 cursor-pointer" onclick="closeFocus()"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-4">
+                <button class="btn-strike" style="background: #3b82f6; color: #fff;" onclick="alert('🔱 Initiating Full System Sync with Pixel Device...')">SYNC CLONE</button>
+                <button class="btn-strike" onclick="closeFocus()" style="border-color: #ef4444; color: #ef4444; background: transparent;">DISCONNECT</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const grid = document.getElementById('hiveGrid');
+
+        for (let i = 1; i <= 103; i++) {
+            const node = document.createElement('div');
+            node.className = 'phone-node';
+            const nodeId = `MUSTANG_${i.toString().padStart(3, '0')}`;
+            const imei = Math.floor(Math.random() * 900000000000000 + 100000000000000).toString();
+
+            node.ondblclick = () => {
+                document.getElementById('v-node-id').innerText = nodeId;
+                document.getElementById('v-imei').innerText = imei;
+                document.getElementById('focusModal').style.display = 'flex';
+            };
+
+            node.innerHTML = `
+                <div class="screen">
+                    <div class="status-bar"><span>5G_GHOST</span><span>12:19</span></div>
+                    <div class="mini-app-grid">
+                        <div class="mini-app">🔱</div>
+                        <div class="mini-app">🌐</div>
+                        <div class="mini-app">📧</div>
+                        <div class="mini-app">💹</div>
+                        <div class="mini-app">💰</div>
+                        <div class="mini-app">🐝</div>
+                    </div>
+                </div>
+                <div style="position:absolute; bottom:-18px; width:100%; text-align:center; font-size:7px; color:#333; font-weight:900;" class="orbitron">${nodeId}</div>
+            `;
+            grid.appendChild(node);
+        }
+
+        function closeFocus() { document.getElementById('focusModal').style.display = 'none'; }
+        function inject(type) { alert(`🔱 [TITAN_INJECTOR]: Command [${type}] Dispatched to Clone. Secure Authorized.`); }
+    </script>
+    <!-- --- Built by Anthony Christopher | Est 12.19.1987 --- -->
+</body>
+</html>

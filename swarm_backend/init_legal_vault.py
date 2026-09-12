@@ -24,7 +24,7 @@ def provision():
 create table if not exists public.production_batches (
     id uuid default uuid_generate_v4() primary key,
     batch_month text not null,
-    status text default 'pending_review',
+    status text default 'negotiating_review',
     created_at timestamp with time zone default timezone('utc'::text, now()) not null,
     review_deadline timestamp with time zone not null
 );

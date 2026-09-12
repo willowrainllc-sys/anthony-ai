@@ -41,7 +41,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Anthony_Ai"
+        android:theme="@style/Theme.Obsidian_Global"
         android:usesCleartextTraffic="true">
         <meta-data android:name="com.google.ar.core" android:value="optional" />
         <meta-data android:name="com.google.android.ar.vps.apiKey" android:value="qgTZgOhbrDPqtN8JoG1a" />
@@ -50,7 +50,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Anthony_Ai"
+            android:theme="@style/Theme.Obsidian_Global"
             android:windowSoftInputMode="adjustResize"
             android:supportsPictureInPicture="true"
             android:launchMode="singleTop"
@@ -80,10 +80,20 @@
         </receiver>
 
         <service
-            android:name=".SovereignAutopilotService"
+            android:name=".ObsidianAutopilotService"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="dataSync" />
+
+        <service
+            android:name=".ObsidianCarrierService"
+            android:label="Obsidian Carrier Service"
+            android:permission="android.permission.BIND_CARRIER_SERVICES"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.carrier.CarrierService" />
+            </intent-filter>
+        </service>
 
         <activity android:name=".StorageManagerActivity" android:exported="false" />
     </application>

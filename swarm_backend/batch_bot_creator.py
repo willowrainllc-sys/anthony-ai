@@ -7,8 +7,8 @@ import httpx
 import sqlite3
 from swarm_logger import swarm_log
 
-DB_PATH = r"C:\AnthonyAi_Swarm\Empire_Vault.db"
-PERSONA_VAULT = r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault"
+DB_PATH = r"C:\ObsidianAi_Swarm\Empire_Vault.db"
+PERSONA_VAULT = r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault"
 
 async def generate_sexy_bot_persona():
     """Generates a high-fidelity 'Alpha' woman persona."""
@@ -28,7 +28,7 @@ async def generate_sexy_bot_persona():
     """
     try:
         async with httpx.AsyncClient(timeout=30.0) as client:
-            resp = await client.post("http://localhost:11434/api/generate", json={"model": "anthony-brain:latest", "prompt": prompt, "stream": False})
+            resp = await client.post("http://localhost:11434/api/generate", json={"model": "Obsidian-Christopher-latest", "prompt": prompt, "stream": False})
             if resp.status_code == 200:
                 import json
                 text = resp.json().get("response", "").strip()

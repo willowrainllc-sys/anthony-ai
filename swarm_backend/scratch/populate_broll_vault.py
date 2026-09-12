@@ -8,7 +8,7 @@ import imageio_ffmpeg
 FFMPEG_EXE = imageio_ffmpeg.get_ffmpeg_exe() or "ffmpeg"
 FFMPEG_DIR = os.path.dirname(FFMPEG_EXE)
 
-LIBRARY_DIR = Path(r"D:\AnthonyAi_Swarm\Secure_Assets\local_broll_library")
+LIBRARY_DIR = Path(r"D:\ObsidianAi_Swarm\Secure_Assets\local_broll_library")
 LIBRARY_DIR.mkdir(parents=True, exist_ok=True)
 
 BROLL_SEED_QUERIES = [

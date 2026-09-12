@@ -1,0 +1,55 @@
+# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- OBSIDIAN GLOBAL: ABSOLUTE AUTONOMY COMPOSE v1.0 ---
+# This file keeps the system alive 24/7 on a remote Ghost Node.
+
+version: '3.8'
+
+services:
+  # 🔱 1. THE BRAIN: Anthony-Latest v30.0
+  titan_brain:
+    build:
+      context: .
+      dockerfile: swarm_backend/Dockerfile.brain
+    container_name: obsidian_brain_port9000
+    restart: always
+    ports:
+      - "9000:9000"
+    environment:
+      - MISSION_KERNEL=LOCKED
+
+  # 🔱 2. THE GATEWAY: Sovereign Web Server
+  web_gateway:
+    build:
+      context: .
+      dockerfile: swarm_backend/Dockerfile.web
+    container_name: obsidian_web_port80
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - titan_brain
+    volumes:
+      - ./willow_rain_global/wholesale_portal:/app/portal
+      - ./saturn_cloud/dashboard_ui:/app/ui
+
+  # 🔱 3. THE TUNNEL: Ghost Ingress (Cloudflare)
+  ghost_tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: obsidian_tunnel
+    restart: always
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+
+  # 🔱 4. THE HIVE: 103 Aiphony Nodes
+  # Spawning 103 instances of the Android 37 Docker image
+  aiphony_node_1:
+    image: obsidian-os-titan:v30
+    restart: always
+    networks:
+      - mesh_net
+    # ... Repeated for 103 nodes via dynamic generator script
+
+networks:
+  mesh_net:
+    driver: bridge

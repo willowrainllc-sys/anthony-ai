@@ -8,8 +8,8 @@ from pathlib import Path
 from swarm_logger import swarm_log
 from swarm_persistence import db
 
-SECURE_DIR = Path(r"D:\AnthonyAi_Swarm\Secure_Assets")
-PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault")
+SECURE_DIR = Path(r"D:\ObsidianAi_Swarm\Secure_Assets")
+PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault")
 PERSONA_VAULT.mkdir(parents=True, exist_ok=True)
 
 class PawnsBrowserBot:
@@ -37,7 +37,7 @@ class PawnsBrowserBot:
                 await asyncio.sleep(3)
 
                 title = await page.title()
-                swarm_log(f"✓ PAWNS_BOT: Connected to portal [{title}]", node="PAWNS_BOT")
+                swarm_log(f" PAWNS_BOT: Connected to portal [{title}]", node="PAWNS_BOT")
 
                 db.log_event("PAWNS_BOT", "PAWNS_CHECK_SUCCESS", {
                     "portal_title": title,

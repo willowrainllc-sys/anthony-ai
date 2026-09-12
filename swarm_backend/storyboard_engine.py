@@ -53,9 +53,9 @@ MASTER_STORYBOARD_LIBRARY = [
             {
                 "scene": 3,
                 "duration": 5,
-                "spoken_script": "By the time the breach was detected, the high-aura founder had already built an unbreachable sovereign AI grid.",
+                "spoken_script": "By the time the breach was detected, the high-aura founder had already built an unbreachable obsidian AI grid.",
                 "visual_prompt": "High-aura female creator standing before holographic data feeds 8k",
-                "on_screen_text": "SOVEREIGN AI GRID"
+                "on_screen_text": "OBSIDIAN AI GRID"
             }
         ],
         "tags": ["#Masterminds", "#HighAura", "#Biography", "#Documentary", "#LuxuryTech", "#Power"]
@@ -120,7 +120,7 @@ def build_synchronized_package(niche_key=None):
                 {
                     "scene": 3,
                     "duration": 5,
-                    "spoken_script": "The unclassified archives are now open. Follow Anthony AI to unlock phase two.",
+                    "spoken_script": "The unclassified archives are now open. Follow Obsidian AI to unlock phase two.",
                     "visual_prompt": prompts[2] if len(prompts) > 2 else f"{niche} discovery 4k",
                     "on_screen_text": "DECLASSIFIED"
                 }

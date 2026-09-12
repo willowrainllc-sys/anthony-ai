@@ -13,7 +13,7 @@ dotenv_path = Path(__file__).resolve().parent.parent / ".env"
 load_dotenv(dotenv_path=dotenv_path)
 
 YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
-CHANNEL_URL = "https://youtube.com/@willowrainco"
+CHANNEL_URL = "https://youtube.com/@obsidianco"
 
 async def run_youtube_legacy_jitter():
     swarm_log("JITTER: Initiating YouTube Boost for Willow Rain Co / XIX...", node="YOUTUBE")

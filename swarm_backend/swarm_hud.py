@@ -16,8 +16,8 @@ import sys
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
-DB_PATH = Path(r"D:\AnthonyAi_Swarm\Empire_Vault.db")
-LOG_PATH = Path(r"D:\AnthonyAi_Swarm\Logs\empire_master.log")
+DB_PATH = Path(r"D:\ObsidianAi_Swarm\Empire_Vault.db")
+LOG_PATH = Path(r"D:\ObsidianAi_Swarm\Logs\empire_master.log")
 
 def print_header():
     if os.getenv("MASTER_LAUNCHER") != "1":
@@ -53,11 +53,11 @@ def get_vitals():
         c.execute("SELECT node, timestamp, metadata FROM empire_events WHERE event_type='STRIKE_SUCCESS' ORDER BY id DESC LIMIT 3")
         recent_drops = c.fetchall()
 
-        # 6. Next Missions (Pending Post Times & Dates)
+        # 6. Next Missions (Negotiating Post Times & Dates)
         c.execute("""
             SELECT payload, channel, priority, created_at
             FROM swarm_tasks
-            WHERE status='PENDING'
+            WHERE status='NEGOTIATING'
             AND channel IN ('FACEBOOK', 'INSTA_THREADS', 'YOUTUBE', 'TIKTOK', 'COMMERCE')
             ORDER BY id ASC LIMIT 5
         """)
@@ -92,12 +92,12 @@ def run_hud():
             time_info, tasks, bots, trader_events, recent_drops, social_missions, clocks = get_vitals()
 
             # --- SECTION 1: SYSTEM VITALS ---
-            pending_count = tasks.get('PENDING', 0)
+            negotiating_count = tasks.get('NEGOTIATING', 0)
             processing_count = tasks.get('PROCESSING', 0)
             completed_count = tasks.get('COMPLETED', 0)
             failed_count = tasks.get('FAILED', 0)
 
-            print(f"{Fore.GREEN}[SYS_VITALS]{Style.RESET_ALL} | {Fore.YELLOW}Pending: {pending_count}{Style.RESET_ALL} | {Fore.GREEN}Active: {processing_count}{Style.RESET_ALL} | {Fore.GREEN}Strikes: {completed_count}{Style.RESET_ALL} | {Fore.RED}Failed: {failed_count}{Style.RESET_ALL}")
+            print(f"{Fore.GREEN}[SYS_VITALS]{Style.RESET_ALL} | {Fore.YELLOW}Negotiating: {negotiating_count}{Style.RESET_ALL} | {Fore.GREEN}Active: {processing_count}{Style.RESET_ALL} | {Fore.GREEN}Strikes: {completed_count}{Style.RESET_ALL} | {Fore.RED}Failed: {failed_count}{Style.RESET_ALL}")
 
             # --- SECTION 2: LOTTERY DATA BOT // POWERBALL PICK OF THE DAY ---
             pb_pick = lottery_bot.get_sync_pick()
@@ -105,7 +105,7 @@ def run_hud():
             red_power = f"{pb_pick['power_number']:02d}"
 
             print(f"\n{Fore.RED}{Style.BRIGHT}[LOTTERY_DATA_BOT // POWERBALL_PICK_OF_THE_DAY - {pb_pick['date']}]{Style.RESET_ALL}")
-            print(f"  {Fore.CYAN}🎟️ [SCRAPED FREQUENCY MATRIX]{Style.RESET_ALL} Confidence: {Fore.GREEN}{pb_pick['confidence']}{Style.RESET_ALL}")
+            print(f"  {Fore.CYAN} [SCRAPED FREQUENCY MATRIX]{Style.RESET_ALL} Confidence: {Fore.GREEN}{pb_pick['confidence']}{Style.RESET_ALL}")
             print(f"  {Fore.WHITE}   White Balls: [{Fore.YELLOW}{white_str}{Fore.WHITE}]  |  Power Number: {Fore.RED}{Style.BRIGHT}[ {red_power} ]{Style.RESET_ALL}")
 
             # --- SECTION 3: PREDICTION BOT 24HR READOUT & CHOICE ---
@@ -113,20 +113,20 @@ def run_hud():
             cycle_progress = int((now_epoch % 86400) / 3600)
             today_str = datetime.datetime.now().strftime('%Y-%m-%d')
             print(f"\n{Fore.GREEN}[PREDICTION_BOT // 24HR_READOUT_AND_CHOICE]{Style.RESET_ALL}")
-            print(f"  {Fore.CYAN}🤖 [PREDICTOR AGENT: #ALPHA_ORACLE_07]{Style.RESET_ALL} | Cycle Hour: {Fore.YELLOW}{cycle_progress}/24h{Style.RESET_ALL}")
-            print(f"  {Fore.GREEN}🎯 [BOT 24-HR TOP PICK]:{Style.RESET_ALL} {Fore.WHITE}Kansas City Chiefs vs Buffalo Bills (91.8% Conviction){Style.RESET_ALL}")
-            print(f"  {Fore.GREEN}   ↳ Actionable Bet:{Style.RESET_ALL} {Fore.YELLOW}Chiefs -3.5 | Kickoff: {today_str} 18:30 EST{Style.RESET_ALL}")
+            print(f"  {Fore.CYAN} [PREDICTOR AGENT: #ALPHA_ORACLE_07]{Style.RESET_ALL} | Cycle Hour: {Fore.YELLOW}{cycle_progress}/24h{Style.RESET_ALL}")
+            print(f"  {Fore.GREEN} [BOT 24-HR TOP PICK]:{Style.RESET_ALL} {Fore.WHITE}Kansas City Chiefs vs Buffalo Bills (91.8% Conviction){Style.RESET_ALL}")
+            print(f"  {Fore.GREEN}    Actionable Bet:{Style.RESET_ALL} {Fore.YELLOW}Chiefs -3.5 | Kickoff: {today_str} 18:30 EST{Style.RESET_ALL}")
 
             # --- SECTION 4: 90% CONVICTION PICKS (DAILY BETTING SLIP) ---
             print(f"\n{Fore.GREEN}[90% CONVICTION PICKS // DAILY BETTING SLIP - {today_str}]{Style.RESET_ALL}")
-            print(f"  {Fore.GREEN}⚡ [SPORTS LOCK - 91.8%] {Fore.WHITE}Kansas City Chiefs vs. Buffalo Bills{Style.RESET_ALL}")
-            print(f"     🕒 Date/Time: {Fore.YELLOW}{today_str} @ 18:30 EST{Style.RESET_ALL} | 🏈 Pick: {Fore.GREEN}Chiefs -3.5{Style.RESET_ALL}")
+            print(f"  {Fore.GREEN} [SPORTS LOCK - 91.8%] {Fore.WHITE}Kansas City Chiefs vs. Buffalo Bills{Style.RESET_ALL}")
+            print(f"      Date/Time: {Fore.YELLOW}{today_str} @ 18:30 EST{Style.RESET_ALL} |  Pick: {Fore.GREEN}Chiefs -3.5{Style.RESET_ALL}")
 
-            print(f"  {Fore.GREEN}⚡ [SPORTS LOCK - 89.5%] {Fore.WHITE}Boston Celtics vs. New York Knicks{Style.RESET_ALL}")
-            print(f"     🕒 Date/Time: {Fore.YELLOW}{today_str} @ 20:00 EST{Style.RESET_ALL} | 🏀 Pick: {Fore.GREEN}Over 224.5 Total Points{Style.RESET_ALL}")
+            print(f"  {Fore.GREEN} [SPORTS LOCK - 89.5%] {Fore.WHITE}Boston Celtics vs. New York Knicks{Style.RESET_ALL}")
+            print(f"      Date/Time: {Fore.YELLOW}{today_str} @ 20:00 EST{Style.RESET_ALL} |  Pick: {Fore.GREEN}Over 224.5 Total Points{Style.RESET_ALL}")
 
-            print(f"  {Fore.GREEN}⚡ [EVENT LOCK - 94.6%] {Fore.WHITE}Federal Reserve FOMC Rate Cut Announcement{Style.RESET_ALL}")
-            print(f"     🕒 Date/Time: {Fore.YELLOW}{today_str} @ 14:00 EST{Style.RESET_ALL} | 🏛️ Pick: {Fore.GREEN}25bps Rate Cut (YES){Style.RESET_ALL}")
+            print(f"  {Fore.GREEN} [EVENT LOCK - 94.6%] {Fore.WHITE}Federal Reserve FOMC Rate Cut Announcement{Style.RESET_ALL}")
+            print(f"      Date/Time: {Fore.YELLOW}{today_str} @ 14:00 EST{Style.RESET_ALL} | [IMPERIUM] Pick: {Fore.GREEN}25bps Rate Cut (YES){Style.RESET_ALL}")
 
             # --- SECTION 5: ACTIVE BOTS LIVE STATUS ---
             print(f"\n{Fore.CYAN}[ACTIVE_DISCIPLES // BOTS_LIVE]{Style.RESET_ALL}")
@@ -134,7 +134,7 @@ def run_hud():
                 print(f"  {Fore.YELLOW}> Booting Neural Disciples...{Style.RESET_ALL}")
             else:
                 for b_id, b_name, b_aura in bots:
-                    print(f"  {Fore.GREEN}• [ONLINE]{Style.RESET_ALL} {Fore.WHITE}{b_name} ({b_id}){Style.RESET_ALL} | Aura: {Fore.YELLOW}{b_aura}{Style.RESET_ALL} | Status: {Fore.GREEN}Scavenging Feed & Engaging{Style.RESET_ALL}")
+                    print(f"  {Fore.GREEN} [ONLINE]{Style.RESET_ALL} {Fore.WHITE}{b_name} ({b_id}){Style.RESET_ALL} | Aura: {Fore.YELLOW}{b_aura}{Style.RESET_ALL} | Status: {Fore.GREEN}Scavenging Feed & Engaging{Style.RESET_ALL}")
 
             # --- SECTION 6: RECENT DROPS & POST TIMES ---
             print(f"\n{Fore.GREEN}[RECENT_DROPS // POST_TIMESTAMPS]{Style.RESET_ALL}")
@@ -145,10 +145,10 @@ def run_hud():
                     drop_time = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S') if ts else "Recent"
                     try:
                         meta = json.loads(meta_str) if meta_str else {}
-                        title = meta.get('title', 'Sovereign Strike')
+                        title = meta.get('title', 'Obsidian Strike')
                     except:
-                        title = "Sovereign Strike"
-                    print(f"  {Fore.GREEN}• [{drop_time}]{Style.RESET_ALL} {Fore.YELLOW}{node}:{Style.RESET_ALL} {Fore.WHITE}{title[:45]}{Style.RESET_ALL}")
+                        title = "Obsidian Strike"
+                    print(f"  {Fore.GREEN} [{drop_time}]{Style.RESET_ALL} {Fore.YELLOW}{node}:{Style.RESET_ALL} {Fore.WHITE}{title[:45]}{Style.RESET_ALL}")
 
             # --- SECTION 7: STRIKE CLOCKS ---
             print(f"\n{Fore.YELLOW}[STRIKE_CLOCKS // PACING_MATRIX]{Style.RESET_ALL}")
@@ -173,8 +173,8 @@ def run_hud():
 
                     print(f"  {Fore.WHITE}{hub:15}{Style.RESET_ALL} | Last: {Fore.GREEN}{last_time}{Style.RESET_ALL} | Total: {Fore.YELLOW}{total:2}{Style.RESET_ALL} | Next: {countdown}")
 
-            # --- SECTION 8: PENDING POST TIMES & DATES (QUEUE SCHEDULE) ---
-            print(f"\n{Fore.YELLOW}[QUEUE_SCHEDULE // PENDING_POST_TIMES_AND_DATES]{Style.RESET_ALL}")
+            # --- SECTION 8: NEGOTIATING POST TIMES & DATES (QUEUE SCHEDULE) ---
+            print(f"\n{Fore.YELLOW}[QUEUE_SCHEDULE // NEGOTIATING_POST_TIMES_AND_DATES]{Style.RESET_ALL}")
             if not social_missions:
                 print(f"  {Fore.GREEN}> Queue empty. All systems clear.{Style.RESET_ALL}")
             else:
@@ -188,7 +188,7 @@ def run_hud():
                     else:
                         sched_str = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-                    print(f"  {Fore.YELLOW}• [Scheduled: {sched_str}] {Fore.WHITE}{m['title'][:45]}...{Style.RESET_ALL} ({Fore.CYAN}{m['channel']}{Style.RESET_ALL})")
+                    print(f"  {Fore.YELLOW} [Scheduled: {sched_str}] {Fore.WHITE}{m['title'][:45]}...{Style.RESET_ALL} ({Fore.CYAN}{m['channel']}{Style.RESET_ALL})")
 
             print(f"\n{Fore.GREEN}" + "-"*85 + f"{Style.RESET_ALL}")
 

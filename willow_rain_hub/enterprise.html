@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Solutions | Willow Rain Company LLC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #111827; }
+        .hero-bg { background-color: #f9fafb; border-bottom: 1px solid #e5e7eb; }
+        .btn-enterprise { background-color: #111827; color: #ffffff; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; transition: all 0.2s; }
+        .btn-enterprise:hover { background-color: #374151; }
+        .card-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Professional Nav -->
+    <nav class="max-w-7xl mx-auto w-full px-6 py-8 flex justify-between items-center border-b border-gray-100">
+        <div class="text-xl font-bold tracking-tight text-gray-900">WILLOW RAIN <span class="text-blue-600">ENTERPRISE</span></div>
+        <div class="hidden md:flex space-x-10 text-sm font-semibold text-gray-500">
+            <a href="index.html" class="hover:text-blue-600">Home</a>
+            <a href="#solutions" class="hover:text-blue-600">Solutions</a>
+            <a href="#compliance" class="hover:text-blue-600">Compliance</a>
+            <a href="portal.html" class="hover:text-blue-600">Login</a>
+        </div>
+        <a href="mailto:sales@willowrain.co" class="btn-enterprise">Contact Sales</a>
+    </nav>
+
+    <!-- Executive Hero -->
+    <section class="hero-bg py-24 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-8 tracking-tight">Reliable Data Infrastructure for the <span class="text-blue-600">Fortune 500.</span></h1>
+            <p class="text-xl text-gray-600 mb-12 leading-relaxed">
+                Willow Rain Company LLC delivers ethically sourced, residential IP networks and high-fidelity datasets designed to meet the rigorous standards of global enterprise AI and security teams.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="portal.html" class="btn-enterprise text-lg py-4 px-10">Access Dashboard</a>
+                <a href="#solutions" class="bg-white text-gray-900 border border-gray-300 py-4 px-10 rounded-lg text-lg font-bold hover:bg-gray-50 transition">Explore Solutions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By -->
+    <div class="py-12 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-8">Integrated with Global Industry Standards</p>
+            <div class="flex flex-wrap justify-center gap-12 opacity-40">
+                <span class="text-2xl font-black italic">OpenAI</span>
+                <span class="text-2xl font-black italic">Bright Data</span>
+                <span class="text-2xl font-black italic">CrowdStrike</span>
+                <span class="text-2xl font-black italic">Bloomberg</span>
+                <span class="text-2xl font-black italic">Oxylabs</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solution Grid -->
+    <section id="solutions" class="max-w-7xl mx-auto px-6 py-24 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white p-8 rounded-2xl card-shadow border border-gray-100">
+                <div class="w-12 h-12 bg-blue-100 text-blue-600 flex items-center justify-center rounded-xl mb-6 text-xl">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-3">DaaS</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Custom-refined datasets for AI model training. High-fidelity labeling and provenance verification included.
+                </p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl card-shadow border border-gray-100">
+                <div class="w-12 h-12 bg-green-100 text-green-600 flex items-center justify-center rounded-xl mb-6 text-xl">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-3">Residential IP</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Access our 100/100 reputation residential matrix for ad verification and price monitoring.
+                </p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl card-shadow border border-gray-100">
+                <div class="w-12 h-12 bg-purple-100 text-purple-600 flex items-center justify-center rounded-xl mb-6 text-xl">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-3">Threat Intel</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Real-time global signal monitoring for early detection of credential leaks and grid anomalies.
+                </p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl card-shadow border border-gray-100">
+                <div class="w-12 h-12 bg-orange-100 text-orange-600 flex items-center justify-center rounded-xl mb-6 text-xl">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-3">IaaS / VDC</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Scalable Virtual Data Center slices with dedicated compute resources for intense processing.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance Section -->
+    <section id="compliance" class="bg-gray-900 py-24 px-6 text-white">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl font-bold mb-6 tracking-tight">Unmatched Compliance & <span class="text-blue-500">Security.</span></h2>
+                <p class="text-gray-400 mb-8 leading-relaxed">
+                    At the enterprise level, trust is the only currency. Willow Rain Company LLC prioritizes legal and ethical standards above all else.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-blue-500"></i>
+                        <span class="font-semibold">GDPR & CCPA Compliant</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-blue-500"></i>
+                        <span class="font-semibold">Ethically Sourced IP Pool</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-check-circle text-blue-500"></i>
+                        <span class="font-semibold">99.99% SLA Uptime Guarantee</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-10 border border-gray-800 rounded-3xl bg-gray-800/50">
+                <h3 class="text-xl font-bold mb-6">Security Audit Status</h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between text-xs font-bold uppercase mb-2">
+                            <span>Encryption Tier</span>
+                            <span class="text-blue-400 text-sm font-mono">AES-256-GCM</span>
+                        </div>
+                        <div class="h-1 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-full bg-blue-500 w-full"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-bold uppercase mb-2">
+                            <span>Reputation Rating</span>
+                            <span class="text-green-400 text-sm font-mono">100/100 (ISP)</span>
+                        </div>
+                        <div class="h-1 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-full bg-green-500 w-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Lead Capture -->
+    <section id="contact" class="max-w-4xl mx-auto py-24 px-6 text-center">
+        <h2 class="text-3xl font-bold mb-8">Request Enterprise Access</h2>
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+            <input type="text" placeholder="Company Name" class="p-4 border border-gray-200 rounded-lg focus:border-blue-500 outline-none">
+            <input type="email" placeholder="Corporate Email" class="p-4 border border-gray-200 rounded-lg focus:border-blue-500 outline-none">
+            <select class="p-4 border border-gray-200 rounded-lg md:col-span-2 focus:border-blue-500 outline-none">
+                <option>Residential Proxy Access (100 GB+)</option>
+                <option>Custom AI Dataset Procurement</option>
+                <option>Infrastructure Leasing (IaaS)</option>
+            </select>
+            <button class="md:col-span-2 btn-enterprise text-lg py-4">Submit RFP</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-gray-100 text-center text-gray-500 text-sm">
+        <p class="mb-4">&copy; 2026 Willow Rain Company LLC. All Rights Reserved. Missouri, USA.</p>
+        <div class="flex justify-center space-x-8 font-bold uppercase tracking-widest text-[10px]">
+            <a href="privacy.html" class="hover:text-blue-600 transition">Privacy Policy</a>
+            <a href="tos.html" class="hover:text-blue-600 transition">Terms of Service</a>
+            <a href="enterprise.html" class="hover:text-blue-600 transition">Enterprise Hub</a>
+        </div>
+    </footer>
+
+</body>
+</html>

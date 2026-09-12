@@ -7,7 +7,7 @@ from swarm_brain import brain_gate
 class SovereignLLMProvider(LLMProvider):
     """
     Adapter for the Central Brain reasoning gateway.
-    Uses local 'anthony-brain' with cloud failover.
+    Uses local 'obsidian-brain' with cloud failover.
     """
     async def generate_text(self, prompt: str, system_msg: str = "", format: str = "text") -> str:
         # Route to brain_gate which already handles routing and parse hardening

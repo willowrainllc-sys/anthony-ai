@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FACILITY COMMAND | Obsidian Global</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #010103;
+            --primary: #ffffff;
+            --accent: #3b82f6;
+            --glass: rgba(15, 15, 20, 0.9);
+            --border: rgba(255, 255, 255, 0.05);
+            --neon: #8b5cf6;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            height: 100vh;
+        }
+
+        /* 🔱 Sidebar: Industrial Design */
+        .sidebar {
+            background: #000;
+            border-right: 1px solid var(--border);
+            padding: 50px 30px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 20px 0 50px rgba(0,0,0,0.5);
+        }
+
+        .brand { font-family: 'Orbitron'; font-weight: 900; letter-spacing: 5px; font-size: 1.5em; color: var(--neon); margin-bottom: 80px; }
+
+        .vitals-grid { display: grid; gap: 20px; }
+        .vital-card { background: var(--glass); border: 1px solid var(--border); padding: 20px; border-radius: 20px; }
+        .vital-label { font-size: 0.6em; color: #444; text-transform: uppercase; letter-spacing: 2px; }
+        .vital-value { font-size: 1.4em; font-weight: 700; margin-top: 5px; color: var(--accent); }
+
+        /* 🔱 Main Command Deck */
+        .command-deck {
+            padding: 60px;
+            position: relative;
+            background: radial-gradient(circle at top right, #1e1b4b 0%, #010103 60%);
+            overflow-y: auto;
+        }
+
+        .header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 80px; }
+        .header h1 { font-size: 4em; margin: 0; letter-spacing: -3px; font-weight: 700; }
+
+        /* 🔱 3D Server Blocks */
+        .facility-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
+        .facility-card {
+            background: rgba(10, 10, 15, 0.5);
+            backdrop-filter: blur(40px);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            padding: 50px;
+            position: relative;
+            transition: 0.5s;
+        }
+        .facility-card:hover { transform: scale(1.02); border-color: var(--neon); box-shadow: 0 0 50px rgba(139, 92, 246, 0.15); }
+
+        .server-rack {
+            height: 180px; background: #000; border-radius: 25px; margin: 30px 0;
+            display: grid; grid-template-columns: repeat(20, 1fr); gap: 4px; padding: 15px;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+        .node { background: #111; border-radius: 2px; }
+        .node.active { background: var(--accent); animation: blink 2s infinite alternate; }
+        .node.mining { background: var(--neon); }
+
+        @keyframes blink { from { opacity: 0.5; } to { opacity: 1; } }
+
+        .status-badge {
+            position: absolute; top: 40px; right: 40px; font-size: 0.7em; font-weight: 800;
+            letter-spacing: 2px; color: #10b981; background: rgba(16, 185, 129, 0.1);
+            padding: 6px 16px; border-radius: 100px; border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        /* 🔱 Holographic Overlay */
+        .hologram { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; opacity: 0.3; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139, 92, 246, 0.05) 3px); }
+
+    </style>
+</head>
+<body>
+    <div class="hologram"></div>
+    <div class="sidebar">
+        <div class="brand">OBSIDIAN</div>
+
+        <div class="vitals-grid">
+            <div class="vital-card">
+                <div class="vital-label">Grid Security</div>
+                <div class="vital-value">PQC ARMED</div>
+            </div>
+            <div class="vital-card">
+                <div class="vital-label">Network Load</div>
+                <div class="vital-value">48.2 TB/s</div>
+            </div>
+            <div class="vital-card">
+                <div class="vital-label">Director Status</div>
+                <div class="vital-value" style="color: var(--neon);">SUPERINTENDENT</div>
+            </div>
+        </div>
+
+        <div style="flex:1"></div>
+        <div style="font-size: 0.7em; color: #333; line-height: 1.8;">
+            COORDINATES: 38.27 N / 92.56 W<br>
+            FACILITY_v2.0_AUTOPILOT<br>
+            © 2026 OBSIDIAN GLOBAL
+        </div>
+    </div>
+
+    <div class="command-deck">
+        <div class="header">
+            <div>
+                <p style="color: var(--accent); letter-spacing: 8px; font-weight: 700; margin-bottom: 10px;">INDUSTRIAL MESHINING</p>
+                <h1>SERVER FACILITIES</h1>
+            </div>
+            <div style="text-align: right;">
+                <p class="vital-label">Total Node Count</p>
+                <p style="font-size: 3em; font-weight: 900; margin: 0;">5,103</p>
+            </div>
+        </div>
+
+        <div class="facility-grid">
+            <!-- 🪐 FACILITY 01: MISSOURI -->
+            <div class="facility-card">
+                <div class="status-badge">PRIMARY</div>
+                <h2 style="font-family: 'Orbitron'; font-size: 1.2em; letter-spacing: 3px;">MISSOURI CENTRAL</h2>
+                <div class="server-rack" id="rack1"></div>
+                <p style="color: #666; font-size: 0.9em;">Hardware Host: Anthony Christopher Desk Matrix. 102 Ports routing.</p>
+            </div>
+
+            <!-- 🪐 FACILITY 02: SINGAPORE GHOST -->
+            <div class="facility-card">
+                <div class="status-badge" style="color: #fbbf24; background: rgba(251, 191, 36, 0.1); border-color: rgba(251, 191, 36, 0.2);">PROVISIONING</div>
+                <h2 style="font-family: 'Orbitron'; font-size: 1.2em; letter-spacing: 3px;">ALIBABA GHOST VDC</h2>
+                <div class="server-rack" id="rack2"></div>
+                <p style="color: #666; font-size: 0.9em;">Cloud Ingress: 5,000 Ghost IPs joining the mesh.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function populateRack(id, active, total) {
+            const rack = document.getElementById(id);
+            for (let i = 0; i < total; i++) {
+                const node = document.createElement('div');
+                node.className = 'node' + (i < active ? ' active' : '') + (i % 3 == 0 ? ' mining' : '');
+                rack.appendChild(node);
+            }
+        }
+        populateRack('rack1', 80, 100);
+        populateRack('rack2', 25, 100);
+    </script>
+</body>
+</html>

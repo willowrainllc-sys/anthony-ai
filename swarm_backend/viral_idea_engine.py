@@ -64,7 +64,7 @@ class ViralIdeaEngine:
         ]
 
     async def generate_original_concept(self, specific_niche: str = None):
-        """Generates a high-velocity original concept using the Anthony-Brain."""
+        """Generates a high-velocity original concept using the Obsidian-Brain."""
         niche = specific_niche or random.choice(self.niches)
 
         prompt = f"""
@@ -97,7 +97,7 @@ class ViralIdeaEngine:
                 return json.loads(raw_resp)
             except: pass
 
-        # FINAL SOVEREIGN FAILSAFE (The 'Elite Vault')
+        # FINAL OBSIDIAN FAILSAFE (The 'Elite Vault')
         # This only triggers if Local and Cloud are BOTH offline.
         return random.choice(FANTASY_VAULT)
 

@@ -131,7 +131,7 @@ class MasterStudioFactory:
                 "title": title,
                 "description": description,
                 "video_url": public_url,
-                "creator": "Anthony AI",
+                "creator": "Obsidian AI",
                 "posted": "Just Now"
             }).execute()
         except Exception as e:
@@ -153,7 +153,7 @@ class MasterStudioFactory:
             "youtube_url": yt_url
         })
 
-        swarm_log(f"🔱 A-ROLL + B-ROLL PRODUCTION COMPLETE! YouTube Live: {yt_url}", node="STUDIO")
+        swarm_log(f"[SUPREME] A-ROLL + B-ROLL PRODUCTION COMPLETE! YouTube Live: {yt_url}", node="STUDIO")
 
         return {
             "status": "success",

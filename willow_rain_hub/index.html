@@ -3,80 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willow Rain Hub | Alpha Spectrum</title>
+    <title>Willow Rain Security | Industrial Data Integrity & Intelligence</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #e5e5e5; }
-        .alpha-gradient { background: linear-gradient(90deg, #ff0000 0%, #000000 100%); }
-        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #020617; color: #f8fafc; }
+        .bg-mesh {
+            background: radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.15) 0, transparent 50%),
+                        radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.1) 0, transparent 50%);
+        }
+        .glass { background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(51, 65, 85, 0.5); backdrop-filter: blur(12px); }
+        .text-gradient { background: linear-gradient(to right, #60a5fa, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .btn-premium { background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .btn-premium:hover { transform: scale(1.02); box-shadow: 0 0 25px rgba(37, 99, 235, 0.4); }
     </style>
 </head>
-<body class="p-6">
-    <div class="max-w-4xl mx-auto">
-        <!-- Header -->
-        <header class="flex justify-between items-center mb-12">
-            <h1 class="text-3xl font-bold tracking-tighter text-white">WILLOW RAIN <span class="text-red-600">COMPANY</span></h1>
-            <div class="px-3 py-1 bg-red-900/30 border border-red-500 rounded text-red-500 text-xs font-mono uppercase">Grid 4.0 Synchronized</div>
-        </header>
+<body class="min-h-screen bg-mesh">
 
-        <!-- Main Bio -->
-        <section id="bio" class="glass-card p-8 rounded-2xl mb-8">
-            <h2 class="text-xl font-semibold mb-4 text-white uppercase tracking-widest border-l-4 border-red-600 pl-4">About the Empire</h2>
-            <p class="text-lg leading-relaxed text-gray-400">
-                Willow Rain Company LLC is the architect of the <span class="text-white italic">Alpha Spectrum</span>.
-                We deploy autonomous neural swarms to harvest, refine, and broadcast high-fidelity intelligence across the global grid.
-                Our mission is total media sovereignty.
-            </p>
-        </section>
+    <!-- Sleek Nav -->
+    <nav class="max-w-7xl mx-auto px-8 py-8 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                <i class="fas fa-droplet text-white text-xs"></i>
+            </div>
+            <span class="text-xl font-extrabold tracking-tight uppercase">Willow Rain</span>
+        </div>
+        <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-slate-400">
+            <a href="enterprise.html" class="text-white hover:text-blue-400 transition">Enterprise</a>
+            <a href="network.html" class="hover:text-white transition">Network</a>
+            <a href="earner.html" class="hover:text-white transition">Earn</a>
+            <a href="portal.html" class="hover:text-white transition">Clients</a>
+        </div>
+        <button class="text-xs font-bold uppercase tracking-widest px-6 py-2 border border-slate-700 rounded-full hover:bg-white hover:text-black transition">Login</button>
+    </nav>
 
-        <!-- Social Network -->
-        <section id="network" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div class="glass-card p-6 rounded-xl hover:border-red-600 transition-colors">
-                <h3 class="text-white font-bold mb-2">ANTHONY AI</h3>
-                <p class="text-sm text-gray-500 mb-4">Sovereign Intel Broadcast Node</p>
-                <div class="flex space-x-3">
-                    <a href="https://facebook.com/willowraincompanyllc" class="text-xs bg-white text-black px-3 py-1 rounded hover:bg-gray-300">FACEBOOK</a>
-                    <a href="https://threads.net/@willowraincompanyllc" class="text-xs bg-white text-black px-3 py-1 rounded hover:bg-gray-300">THREADS</a>
-                    <a href="https://tiktok.com/@anthonyai" class="text-xs bg-white text-black px-3 py-1 rounded hover:bg-gray-300">TIKTOK</a>
+    <!-- Master Hero -->
+    <main class="max-w-7xl mx-auto px-8 py-20 lg:py-32">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div>
+                <h1 class="text-6xl lg:text-8xl font-extrabold mb-8 leading-[1] tracking-tight">
+                    Powering the <br><span class="text-gradient">Next Grid.</span>
+                </h1>
+                <p class="text-lg text-slate-400 max-w-lg mb-12 leading-relaxed">
+                    Willow Rain Company LLC is an independent data infrastructure provider. We architect resilient networks for AI model training, market research, and global media syndication.
+                </p>
+                <div class="flex items-center space-x-6">
+                    <a href="network.html" class="btn-premium px-10 py-5 rounded-2xl font-bold shadow-xl">Explore Infrastructure</a>
+                    <a href="earner.html" class="text-sm font-bold uppercase tracking-widest border-b-2 border-blue-500 pb-1">Start Earning →</a>
                 </div>
             </div>
-            <div class="glass-card p-6 rounded-xl hover:border-blue-600 transition-colors">
-                <h3 class="text-white font-bold mb-2">ACM ENTERTAINMENT</h3>
-                <p class="text-sm text-gray-500 mb-4">High-Velocity Viral Engine</p>
-                <div class="flex space-x-3">
-                    <a href="#" class="text-xs bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-500 uppercase">Archive</a>
-                    <a href="#" class="text-xs bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-500 uppercase">Direct</a>
-                </div>
-            </div>
-        </section>
 
-        <!-- Dynamic Feed Area -->
-        <section id="feed" class="glass-card p-8 rounded-2xl">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-lg font-semibold text-white uppercase tracking-widest">Live Spectrum Feed</h2>
-                <div class="h-2 w-2 bg-green-500 rounded-full animate-pulse"></div>
+            <!-- Dashboard Graphic -->
+            <div class="glass p-1 rounded-3xl overflow-hidden shadow-2xl">
+                <div class="bg-slate-950 p-10 rounded-[1.4rem]">
+                    <div class="flex justify-between items-center mb-12">
+                        <div>
+                            <div class="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-1">Grid Throughput</div>
+                            <div class="text-4xl font-mono font-bold tracking-tighter">148.48 <span class="text-blue-500">TB</span></div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-1">Status</div>
+                            <div class="text-green-500 font-bold flex items-center justify-end text-sm">
+                                <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span> SOVEREIGN
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-8">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="p-6 bg-slate-900/50 rounded-2xl border border-slate-800">
+                                <div class="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-2">Network Health</div>
+                                <div class="text-xl font-bold">100/100</div>
+                            </div>
+                            <div class="p-6 bg-slate-900/50 rounded-2xl border border-slate-800">
+                                <div class="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-2">Active Flows</div>
+                                <div class="text-xl font-bold">1,000+</div>
+                            </div>
+                        </div>
+                        <div class="h-24 bg-gradient-to-t from-blue-600/20 to-transparent border-b border-blue-500/30 rounded-xl flex items-end px-6 pb-4">
+                            <div class="w-full flex justify-between items-end space-x-1">
+                                <div class="w-2 bg-blue-500/40 h-8 rounded-t"></div>
+                                <div class="w-2 bg-blue-500/60 h-12 rounded-t"></div>
+                                <div class="w-2 bg-blue-500/40 h-16 rounded-t"></div>
+                                <div class="w-2 bg-blue-500/80 h-20 rounded-t"></div>
+                                <div class="w-2 bg-blue-600 h-14 rounded-t"></div>
+                                <div class="w-2 bg-blue-500/60 h-10 rounded-t"></div>
+                                <div class="w-2 bg-blue-500/40 h-18 rounded-t"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="space-y-4">
-                <div class="p-4 bg-black/50 border-l-2 border-red-600 rounded">
-                    <div class="text-xs font-mono text-gray-600 mb-1">STRIKE_SUCCESS | 0.4s AGO</div>
-                    <div class="text-sm font-medium">Alpha Deep Dive: Neural Grid Expansion complete in Southeast Asia.</div>
-                </div>
-                <div class="p-4 bg-black/50 border-l-2 border-gray-800 rounded opacity-50">
-                    <div class="text-xs font-mono text-gray-600 mb-1">HARVEST_COMPLETE | 5m AGO</div>
-                    <div class="text-sm font-medium">NASA Discovery Feed processed. 20 high-fidelity items indexed.</div>
-                </div>
-                <!-- Placeholder for dynamic JS loading -->
-                <div id="dynamic-content" class="text-center py-8 text-gray-700 font-mono text-xs italic">
-                    [WAITING FOR SWARM SYNCHRONIZATION...]
-                </div>
-            </div>
-        </section>
+        </div>
+    </main>
 
-        <!-- Footer -->
-        <footer class="mt-12 text-center text-xs text-gray-600 font-mono tracking-widest uppercase">
-            &copy; 2026 Willow Rain Company LLC | All Rights Reserved | Non-Conformist Entity
-        </footer>
-    </div>
+    <!-- Pillar Section -->
+    <section class="max-w-7xl mx-auto px-8 py-32 border-t border-slate-900">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold">Direct B2B</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Lease private residential proxy ports directly from our Midwestern fiber matrix. Perfect for high-frequency data collection.
+                </p>
+            </div>
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold">Media Production</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    High-retention 4K documentaries and social content syndication for global markets. Automated storytelling at scale.
+                </p>
+            </div>
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold">HFT Ingress</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Ultra low-latency residential gateways for high-frequency trading and financial data arbitrage. NYSE/Binance optimized.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Queen Bee's Vault -->
+    <section class="max-w-7xl mx-auto px-8 py-32 border-t border-slate-900 text-center">
+        <h2 class="text-3xl font-bold mb-6">The Queen Bee's Vault</h2>
+        <p class="text-slate-400 mb-12 max-w-xl mx-auto">Exclusive access to unclassified deep-lore and grid intelligence. Join the inner circle of the Willow Rain Empire.</p>
+        <a href="portal.html" class="px-12 py-5 rounded-2xl bg-white text-black font-black hover:bg-slate-200 transition">Enter the Vault ($99/mo)</a>
+    </section>
+
+    <!-- Corporate Footer -->
+    <footer class="mt-auto bg-black py-20 px-8 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
+            <div class="text-slate-500 text-xs font-bold uppercase tracking-[0.2em]">
+                © 2026 Willow Rain Company LLC. Missouri, USA.
+            </div>
+            <div class="flex space-x-12 mt-8 md:mt-0 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <a href="privacy.html" class="hover:text-blue-500 transition">Privacy</a>
+                <a href="#" class="hover:text-blue-500 transition">Compliance</a>
+                <a href="portal.html" class="hover:text-blue-500 transition">Portal</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>

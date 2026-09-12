@@ -25,14 +25,29 @@ class MetadataEngine:
         """
 
         res = await brain_gate.generate_serialized(prompt, complexity="medium", format="json")
+        if not res or len(res) < 5:
+            swarm_log("METADATA: Brain returned empty. Using safe defaults.", node="METADATA")
+            return {
+                "title": original_title,
+                "hashtags": "#Discovery #Mystery #Truth",
+                "thumbnail_concept": "Cinematic visual of subject",
+                "platforms": {}
+            }
+
         try:
             package = json.loads(res)
+            if isinstance(package, list) and len(package) > 0:
+                package = package[0]
+            if not isinstance(package, dict):
+                raise ValueError("Package is not a dictionary")
+
             # Pick best title from pool
             best_title = await self._score_and_select_title(package.get('titles', [original_title]), niche)
+            if not best_title: best_title = original_title
 
             return {
                 "title": best_title,
-                "hashtags": package.get('hashtags', "#Sovereign #AI #Cinema"),
+                "hashtags": package.get('hashtags', "#Obsidian #AI #Cinema"),
                 "thumbnail_concept": package.get('thumbnail_concept', "Cinematic high-contrast shot of subject"),
                 "platforms": package.get('platforms', {
                     "tiktok": {"hook": "Strong immediately", "body": "Fast-paced summary"},
@@ -40,7 +55,8 @@ class MetadataEngine:
                     "facebook": {"hook": "Context-heavy", "body": "Full narrative arc"}
                 })
             }
-        except:
+        except Exception as e:
+            swarm_log(f"METADATA: Parse error [{e}]. Using safe defaults.", node="METADATA")
             return {"title": original_title, "hashtags": "#AI #Empire", "thumbnail_concept": "Cinematic visual", "platforms": {}}
 
     async def _score_and_select_title(self, titles: list, niche: str):

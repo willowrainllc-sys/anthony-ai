@@ -15,9 +15,9 @@ class EdgeTTSProvider(AudioProvider):
     Adapter for Microsoft Edge TTS and Local Music Assets.
     """
     def __init__(self):
-        self.output_dir = Path(r"D:\AnthonyAi_Swarm\Renderings")
+        self.output_dir = Path(r"D:\ObsidianAi_Swarm\Renderings")
         self.output_dir.mkdir(exist_ok=True, parents=True)
-        self.music_dir = Path(r"D:\AnthonyAi_Swarm\Secure_Assets\brand_music")
+        self.music_dir = Path(r"D:\ObsidianAi_Swarm\Secure_Assets\brand_music")
 
     async def generate_speech(self, text: str, voice: str) -> str:
         job_id = uuid.uuid4().hex[:8]

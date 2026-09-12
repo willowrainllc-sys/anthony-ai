@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBSIDIAN-PARTY | Secret Session</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { background: #020617; color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 20px; overflow: hidden; }
+        .aura { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #020617 70%); z-index: -1; filter: blur(60px); }
+        .header { display: flex; align-items: center; margin-bottom: 20px; }
+        .title { font-family: 'Orbitron', sans-serif; font-size: 1.5em; letter-spacing: 4px; color: #fff; }
+        .tagline { font-size: 0.7em; color: #64748b; letter-spacing: 2px; margin-top: 5px; }
+        .guests { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 20px; }
+        .guest { min-width: 80px; text-align: center; }
+        .avatar { width: 50px; height: 50px; border-radius: 50%; border: 2px solid rgba(139, 92, 246, 0.3); background: rgba(139, 92, 246, 0.1); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; }
+        .guest-name { font-size: 0.6em; font-weight: bold; }
+        .terminal { background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 20px; height: 300px; overflow-y: auto; font-family: monospace; font-size: 0.8em; }
+        .log { margin-bottom: 8px; color: #94a3b8; }
+        .log span { color: #8b5cf6; margin-right: 10px; }
+        .strike-btn { background: #8b5cf6; color: #fff; width: 100%; padding: 15px; border: none; border-radius: 12px; font-weight: bold; margin-top: 20px; box-shadow: 0 0 20px rgba(139, 92, 246, 0.4); cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="aura"></div>
+    <div class="header">
+        <div>
+            <div class="title">OBSIDIAN-PARTY</div>
+            <div class="tagline">SECRET SESSION // NOVUS ORDO SECLORUM</div>
+        </div>
+    </div>
+
+    <div class="guests">
+        <div class="guest"><div class="avatar" style="color:#8b5cf6">🌀</div><div class="guest-name">ANTHONY</div></div>
+        <div class="guest"><div class="avatar" style="color:#f43f5e">🔥</div><div class="guest-name">RIDER</div></div>
+        <div class="guest"><div class="avatar" style="color:#10b981">🕸️</div><div class="guest-name">MASTER</div></div>
+        <div class="guest"><div class="avatar" style="color:#fbbf24">₿</div><div class="guest-name">CASH</div></div>
+    </div>
+
+    <div class="terminal" id="terminal">
+        <div class="log"><span>></span> Initializing Ghost Connection...</div>
+        <div class="log"><span>></span> Saturn Grid Synced.</div>
+    </div>
+
+    <button class="strike-btn">DISPATCH GLOBAL STRIKE</button>
+
+    <script>
+        const logs = [
+            "Port 9000: Neural Pulse Verified.",
+            "BTC Bridge: 980/1000 Credits.",
+            "Ghost Rider: Intruder Scan Clean.",
+            "Shadow Lead: Proposal Dispatched.",
+            "Node-1085: Ingress Optimized."
+        ];
+        const terminal = document.getElementById('terminal');
+        setInterval(() => {
+            const div = document.createElement('div');
+            div.className = 'log';
+            div.innerHTML = `<span>></span> ${logs[Math.floor(Math.random() * logs.length)]}`;
+            terminal.appendChild(div);
+            terminal.scrollTop = terminal.scrollHeight;
+        }, 3000);
+    </script>
+</body>
+</html>

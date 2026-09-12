@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anthony AI | Sovereign Studio</title>
+    <title>Obsidian AI | Sovereign Studio</title>
     <style>
         :root {
             --primary: #e50914;
@@ -158,8 +158,8 @@
     </div>
 
     <div class="row">
-        <div class="row-title">Pending Legal Review <span class="badge-alpha">LLC PROTECTED</span></div>
-        <div class="slider" id="pending-row">
+        <div class="row-title">Negotiating Legal Review <span class="badge-alpha">LLC PROTECTED</span></div>
+        <div class="slider" id="negotiating-row">
             <!-- Dynamic project cards -->
         </div>
     </div>
@@ -181,7 +181,7 @@
     <div id="legal-modal">
         <div class="modal-content">
             <h2>MONTHLY BATCH SIGN-OFF</h2>
-            <p>I, <strong>Anthony Christopher Maestas</strong>, verify that I have reviewed, curated, and authorized this monthly production block under <strong>Willow Rain Company LLC</strong>.</p>
+            <p>I, <strong>Obsidian Christopher Maestas</strong>, verify that I have reviewed, curated, and authorized this monthly production block under <strong>Willow Rain Company LLC</strong>.</p>
             <div id="modal-project-list" style="max-height: 300px; overflow-y: auto; margin-bottom: 20px; font-family: monospace; font-size: 0.8rem;"></div>
             <button class="btn btn-play" onclick="executeSignOff()">[ CRYPTOGRAPHIC SIGN & LOCK ]</button>
             <button class="btn btn-info" onclick="closeLegal()">Cancel</button>
@@ -221,13 +221,13 @@
             });
             document.getElementById('strikes-row').innerHTML = strikesHtml;
 
-            // Load pending for legal
+            // Load negotiating for legal
             const legalRes = await fetch('http://localhost:8002/api/v1/batch/active');
             if (legalRes.ok) {
                 const legalData = await legalRes.json();
-                let pendingHtml = '';
+                let negotiatingHtml = '';
                 legalData.projects.forEach(p => {
-                    pendingHtml += `
+                    negotiatingHtml += `
                         <div class="card" onclick="showLegal()">
                             <div class="card-info">
                                 <strong>${p.title}</strong><br>
@@ -236,7 +236,7 @@
                         </div>
                     `;
                 });
-                document.getElementById('pending-row').innerHTML = pendingHtml;
+                document.getElementById('negotiating-row').innerHTML = negotiatingHtml;
             }
         }
 

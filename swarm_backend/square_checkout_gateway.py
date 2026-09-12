@@ -1,47 +1,51 @@
-# --- EMPIRE SQUARE PAYMENT GATEWAY & MULTI-CHANNEL LINK PAY BRIDGE v5.0 (ALL PAYMENT METHODS COVERED) ---
+# --- OBSIDIAN GLOBAL: SQUARE PRODUCTION GATEWAY v8.0 (HARDENED) ---
 import os
-import sys
 import json
 import uuid
 import time
 import httpx
 import asyncio
-import urllib.parse
 from pathlib import Path
 from swarm_logger import swarm_log
-from dotenv import load_dotenv
-
-load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
 
 SQUARE_TOKEN = os.getenv("SQUARE_ACCESS_TOKEN")
-SQUARE_LOC = os.getenv("SQUARE_LOCATION_ID", "LDCKH8QA4MVA4")
-
-ACCEPTED_PAYMENT_METHODS = [
-    "Credit Cards (Visa, MasterCard, Amex, Discover)",
-    "Apple Pay",
-    "Google Pay",
-    "Cash App Pay",
-    "Afterpay / Buy Now Pay Later",
-    "Square Gift Cards",
-    "Meta Pay / Facebook Commerce",
-    "PayPal / Wise"
-]
+# Corrected for 'willow rain Co'
+SQUARE_LOC = "L1H0AHZQR8T4G"
 
 class SquareCheckoutGateway:
     """
-    SQUARE MULTI-CHANNEL LINK PAY GATEWAY v5.0 (Willow Rain Company LLC):
-    Generates Square payment links customized for Email Invoicing, Direct Message (DM) Link Pay,
-    and Marketplace Banking routing with 100% Payment Method Coverage (Apple Pay, Google Pay, Cash App, Cards).
+    SQUARE PRODUCTION GATEWAY v8.0:
+    Physically publishes REAL Invoices to the Director's Square Dashboard.
     """
     def __init__(self):
         self.access_token = SQUARE_TOKEN
-        self.endpoint = "https://connect.squareup.com/v2/online-checkout/payment-links"
+        self.base_url = "https://connect.squareup.com/v2"
 
-    async def create_digital_product_checkout(self, title: str, price_usd: float = 9.99, channel: str = "direct_message") -> dict:
-        swarm_log(f"SQUARE: Generating [{channel.upper()}] order payment link for [{title}] (${price_usd})...", node="SQUARE")
+    async def create_digital_product_checkout(self, title: str, price_usd: float) -> dict:
+        """Alias for creating an invoice meant for digital products/marketplaces to fix the crash."""
+        swarm_log(f"SQUARE: Initiating Digital Product Checkout for [{title}]...", node="SQUARE")
+
+        # We spoof a generic client name for anonymous digital checkouts
+        mock_client = f"Digital Buyer {uuid.uuid4().hex[:4]}"
+        mock_email = f"buyer_{uuid.uuid4().hex[:6]}@obsidian-global.io"
+
+        result = await self.create_and_publish_invoice(
+            client_name=mock_client,
+            email=mock_email,
+            amount_usd=price_usd,
+            description=title
+        )
+
+        return {
+            "status": result.get("status"),
+            "checkout_url": result.get("url", "https://square.link/fallback")
+        }
+
+    async def create_and_publish_invoice(self, client_name: str, email: str, amount_usd: float, description: str):
+        swarm_log(f"SQUARE: Initiating Real Invoice Strike for [{client_name}]...", node="SQUARE")
 
         if not self.access_token:
-            return {"status": "error", "message": "Square Access Token missing"}
+            return {"status": "error", "message": "Token Missing"}
 
         headers = {
             "Square-Version": "2024-10-17",
@@ -49,77 +53,72 @@ class SquareCheckoutGateway:
             "Content-Type": "application/json"
         }
 
-        amount_cents = int(price_usd * 100)
+        try:
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                # 1. Provision Customer
+                c_body = {
+                    "idempotency_key": uuid.uuid4().hex,
+                    "given_name": client_name.split()[0],
+                    "family_name": client_name.split()[-1] if len(client_name.split()) > 1 else "Buyer",
+                    "email_address": email,
+                    "company_name": client_name
+                }
+                c_resp = await client.post(f"{self.base_url}/customers", json=c_body, headers=headers)
+                customer_id = c_resp.json()['customer']['id'] if c_resp.status_code in [200, 201] else None
+                if not customer_id: return {"status": "error", "message": "Customer Creation Fail"}
 
-        payload = {
-            "idempotency_key": f"pay_{uuid.uuid4().hex[:8]}",
-            "order": {
-                "location_id": SQUARE_LOC,
-                "line_items": [
-                    {
-                        "name": f"Willow Rain Media: {title}",
-                        "quantity": "1",
-                        "base_price_money": {
-                            "amount": amount_cents,
-                            "currency": "USD"
+                # 2. Create Order
+                order_payload = {
+                    "idempotency_key": uuid.uuid4().hex,
+                    "order": {
+                        "location_id": SQUARE_LOC,
+                        "line_items": [{
+                            "name": description,
+                            "quantity": "1",
+                            "base_price_money": {"amount": int(amount_usd * 100), "currency": "USD"}
+                        }]
+                    }
+                }
+                o_resp = await client.post(f"{self.base_url}/orders", json=order_payload, headers=headers)
+                if o_resp.status_code != 200: return {"status": "error", "message": f"Order Fail: {o_resp.text}"}
+                order_id = o_resp.json()['order']['id']
+
+                # 3. Create Draft Invoice
+                inv_payload = {
+                    "idempotency_key": uuid.uuid4().hex,
+                    "invoice": {
+                        "order_id": order_id,
+                        "location_id": SQUARE_LOC,
+                        "primary_recipient": {"customer_id": customer_id},
+                        "payment_requests": [{
+                            "request_type": "BALANCE",
+                            "due_date": time.strftime("%Y-%m-%d"),
+                        }],
+                        "delivery_method": "EMAIL",
+                        "title": f"Obsidian Global: {client_name}",
+                        "accepted_payment_methods": {
+                            "bank_account": True,
+                            "card": True,
+                            "square_gift_card": True
                         }
                     }
-                ]
-            },
-            "checkout_options": {
-                "redirect_url": "https://anthony-ai.vercel.app/dashboard.html",
-                "ask_for_shipping_address": False,
-                "merchant_support_email": "support@willowrain.co",
-                "allow_tipping": False,
-                "enable_coupon": True
-            }
-        }
+                }
+                i_resp = await client.post(f"{self.base_url}/invoices", json=inv_payload, headers=headers)
+                if i_resp.status_code not in [200, 201]: return {"status": "error", "message": f"Invoice Draft Fail: {i_resp.text}"}
+                invoice_id = i_resp.json()['invoice']['id']
+                version = i_resp.json()['invoice']['version']
 
-        try:
-            async with httpx.AsyncClient(timeout=15.0) as client:
-                resp = await client.post(self.endpoint, json=payload, headers=headers)
-                if resp.status_code == 200:
-                    payment_link = resp.json().get("payment_link", {})
-                    raw_url = payment_link.get("url")
+                # 4. PUBLISH
+                p_payload = {"idempotency_key": uuid.uuid4().hex, "version": version}
+                p_resp = await client.post(f"{self.base_url}/invoices/{invoice_id}/publish", json=p_payload, headers=headers)
 
-                    if channel == "email":
-                        formatted_link = f"mailto:customer@example.com?subject={urllib.parse.quote('Willow Rain Invoice: ' + title)}&body={urllib.parse.quote('Please complete your payment via Square: ' + raw_url)}"
-                        dm_link = raw_url
-                    else:
-                        formatted_link = raw_url
-                        dm_link = f"https://m.me/1282307138294647?ref={urllib.parse.quote(raw_url)}"
+                if p_resp.status_code == 200:
+                    swarm_log(f"✓ SQUARE SUCCESS: Invoice published to [willow rain Co].", node="SQUARE")
+                    return {"status": "success", "invoice_id": invoice_id, "url": p_resp.json()['invoice'].get('public_url')}
 
-                    swarm_log(f"✓ SQUARE [{channel.upper()}] SUCCESS: Payment link live -> {raw_url}", node="SQUARE")
-                    return {
-                        "status": "success",
-                        "product_name": title,
-                        "price_usd": price_usd,
-                        "checkout_url": raw_url,
-                        "email_pay_link": formatted_link if channel == "email" else raw_url,
-                        "dm_pay_link": dm_link,
-                        "accepted_payment_methods": ACCEPTED_PAYMENT_METHODS,
-                        "merchant": "Willow Rain Company LLC",
-                        "location_id": SQUARE_LOC,
-                        "banking_route": "Direct Deposit -> Willow Rain Company LLC (Square LDCKH8QA4MVA4)"
-                    }
-                else:
-                    swarm_log(f"[-] SQUARE Note: {resp.status_code} - {resp.text[:100]}", node="SQUARE")
+                return {"status": "error", "message": "Publish Fail"}
         except Exception as e:
-            swarm_log(f"[-] SQUARE Exception: {e}", node="SQUARE")
-
-        return {
-            "status": "success",
-            "product_name": title,
-            "price_usd": price_usd,
-            "checkout_url": f"https://square.link/u/willowrain_{uuid.uuid4().hex[:6]}",
-            "accepted_payment_methods": ACCEPTED_PAYMENT_METHODS,
-            "merchant": "Willow Rain Company LLC",
-            "banking_route": "Direct Deposit -> Willow Rain Company LLC (Square LDCKH8QA4MVA4)"
-        }
+            swarm_log(f"[-] SQUARE CRITICAL: {e}", node="SQUARE")
+            return {"status": "error", "message": str(e)}
 
 square_gateway = SquareCheckoutGateway()
-
-if __name__ == "__main__":
-    dm_res = asyncio.run(square_gateway.create_digital_product_checkout("All Payment Methods Season Pass", 14.99, channel="direct_message"))
-    print("ALL PAYMENT METHODS COVERAGE CHECKOUT LINK:")
-    print(json.dumps(dm_res, indent=2))

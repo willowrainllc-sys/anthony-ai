@@ -24,7 +24,7 @@ SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY) if SUPABASE_URL and SUPABASE_KEY else None
 
-TEMP_DIR = Path(r"D:\AnthonyAi_Swarm\Temp")
+TEMP_DIR = Path(r"D:\ObsidianAi_Swarm\Temp")
 TEMP_DIR.mkdir(exist_ok=True, parents=True)
 
 from swarm_tasks import TaskQueue
@@ -137,13 +137,13 @@ async def publish_to_facebook(task, token, page_id, video_url, title):
                         "upload_phase": "finish",
                         "video_id": vid,
                         "video_state": "PUBLISHED",
-                        "description": f"{title}\n\n#Sovereign #Documentary #AnthonyAI",
+                        "description": f"{title}\n\n#Obsidian #Documentary #ObsidianAI",
                         "access_token": token
                     })
                     if fin_res.status_code == 200:
                         post_id = fin_res.json().get('post_id') or vid
                         post_url = f"https://www.facebook.com/reels/{vid}/"
-                        swarm_log(f"🔱 SUCCESS: Facebook Reel Live! URL: {post_url}", node="CORE")
+                        swarm_log(f"[SUPREME] SUCCESS: Facebook Reel Live! URL: {post_url}", node="CORE")
                         return post_url
                     else:
                         swarm_log(f"[-] FB Finish Fail: {fin_res.text}", node="CORE")
@@ -162,7 +162,7 @@ async def publish_to_insta(task, token, ig_business_id, video_url, title, descri
             swarm_log(f"STRIKE: Launching IG Reel on Business ID {ig_business_id}...", node="CORE")
             media_url = f"https://graph.facebook.com/v21.0/{ig_business_id}/media"
 
-            caption = f"{title}\n\n{description}\n\n#Sovereign #HighFidelity"
+            caption = f"{title}\n\n{description}\n\n#Obsidian #HighFidelity"
 
             res = await client.post(media_url, params={
                 "caption": caption,
@@ -187,7 +187,7 @@ async def publish_to_insta(task, token, ig_business_id, video_url, title, descri
                                             params={"creation_id": cid, "access_token": token})
 
                 if pub_resp.status_code == 200:
-                    swarm_log("🔱 SUCCESS: IG Reel Published.", node="CORE")
+                    swarm_log("[SUPREME] SUCCESS: IG Reel Published.", node="CORE")
                     return True
             else:
                 swarm_log(f"[-] IG Init Fail: {res.text}", node="CORE")
@@ -205,7 +205,7 @@ async def publish_to_threads(video_url, title, description=""):
     try:
         async with httpx.AsyncClient(timeout=180.0) as client:
             swarm_log(f"STRIKE: Launching Threads Video Drop on ID {threads_id}...", node="CORE")
-            caption = f"{title}\n\n{description}\n\n#Sovereign #HighFidelity #AnthonyAI"
+            caption = f"{title}\n\n{description}\n\n#Obsidian #HighFidelity #ObsidianAI"
             t_url = f"https://graph.threads.net/v1.0/{threads_id}/threads"
             t_res = await client.post(t_url, params={
                 "text": caption,
@@ -220,7 +220,7 @@ async def publish_to_threads(video_url, title, description=""):
                 pub_res = await client.post(f"https://graph.threads.net/v1.0/{threads_id}/threads_publish",
                                             params={"creation_id": tid, "access_token": threads_token})
                 if pub_res.status_code == 200:
-                    swarm_log("🔱 SUCCESS: Threads Strike Live.", node="CORE")
+                    swarm_log("[SUPREME] SUCCESS: Threads Strike Live.", node="CORE")
                     return True
                 else:
                     swarm_log(f"[-] Threads Publish Fail: {pub_res.text}", node="CORE")
@@ -239,7 +239,7 @@ async def process_channel_loop(channel):
                 await asyncio.sleep(60); continue
 
             payload = task['payload']
-            title = payload.get('title', 'Sovereign Intel')
+            title = payload.get('title', 'Obsidian Intel')
             video_url = payload.get('video_url', '')
 
             # --- DUPLICATION SHIELD ---
@@ -252,7 +252,7 @@ async def process_channel_loop(channel):
                 swarm_log(f"STRIKE: No video URL for [{title[:20]}]. Generating cinematic package...", node="CORE")
                 filename = await create_reel_package(title, json.dumps(payload))
                 if filename:
-                    video_url = str(Path(r"D:\AnthonyAi_Swarm\Renderings") / filename)
+                    video_url = str(Path(r"D:\ObsidianAi_Swarm\Renderings") / filename)
                 else:
                     db.fail(task['id'], "Rendering engine failed to produce asset.")
                     continue
@@ -272,11 +272,11 @@ async def process_channel_loop(channel):
                         "title": title,
                         "description": payload.get('description', ''),
                         "video_url": public_url,
-                        "creator": "Anthony AI",
+                        "creator": "Obsidian AI",
                         "posted": "Just Now"
                     }).execute()
                     success = True
-                    final_post_url = "https://app.anthonyai.grid/feed"
+                    final_post_url = "https://app.obsidianai.grid/feed"
 
             elif channel == "YOUTUBE":
                 from node_youtube import publish_to_youtube_api
@@ -303,7 +303,7 @@ async def process_channel_loop(channel):
                 threads_ok = await publish_to_threads(public_url, title, payload.get('description', ''))
                 if ig_ok or threads_ok:
                     success = True
-                    final_post_url = "https://www.instagram.com/anthony_ai_/"
+                    final_post_url = "https://www.instagram.com/obsidian_ai_/"
 
             elif channel == "TIKTOK":
                 # For TikTok, we use the specialized node logic (Playwright) if available
@@ -320,7 +320,7 @@ async def process_channel_loop(channel):
                     "video_url": public_url,
                     "post_url": final_post_url or public_url
                 })
-                swarm_log(f"🔱 STRIKE COMPLETE: [{title[:30]}] on {channel}", node="CORE")
+                swarm_log(f"[SUPREME] STRIKE COMPLETE: [{title[:30]}] on {channel}", node="CORE")
                 await asyncio.sleep(120) # 2 min cooling instead of 10
             else:
                 db.fail(task['id'], "API rejection or sync failure")
@@ -336,9 +336,9 @@ async def main():
     try:
         from swarm_persistence import db
         with db._get_connection() as conn:
-            conn.execute("UPDATE swarm_tasks SET status='PENDING' WHERE status='PROCESSING'")
+            conn.execute("UPDATE swarm_tasks SET status='NEGOTIATING' WHERE status='PROCESSING'")
             conn.commit()
-            swarm_log("GRID: Stalled tasks reset to PENDING.", node="CORE")
+            swarm_log("GRID: Stalled tasks reset to NEGOTIATING.", node="CORE")
     except Exception as e:
         swarm_log(f"[-] Reset Fail: {e}", node="CORE")
 

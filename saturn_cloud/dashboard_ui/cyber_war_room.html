@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER WAR ROOM | Obsidian Global</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --matrix: #00ff41; /* Matrix Green */
+            --strike: #ff0000; /* Strike Red */
+            --glass: rgba(10, 10, 10, 0.95);
+            --border: rgba(0, 255, 65, 0.1);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--matrix);
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            padding: 40px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            height: 100vh;
+            gap: 40px;
+        }
+
+        /* 🔱 Matrix Terminal Area */
+        .terminal-area {
+            background: #000;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .code-line { font-family: 'Space Mono', monospace; font-size: 0.9em; margin-bottom: 5px; opacity: 0.8; }
+        .highlight { color: #fff; font-weight: bold; }
+
+        /* 🔱 Threat Intelligence Panel */
+        .intel-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .intel-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 20px;
+            backdrop-filter: blur(40px);
+        }
+
+        .label { font-size: 0.6em; color: #444; text-transform: uppercase; letter-spacing: 3px; font-weight: 800; }
+        .value { font-size: 1.8em; font-weight: 900; margin-top: 10px; font-family: 'Orbitron'; }
+
+        .status-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .badge-red { background: rgba(255,0,0,0.1); color: var(--strike); padding: 5px 15px; border-radius: 100px; font-size: 0.7em; font-weight: 900; border: 1px solid var(--strike); }
+
+        .scan-pulse { height: 2px; background: var(--matrix); width: 100%; animation: scanMove 4s infinite linear; position: absolute; top: 0; left: 0; box-shadow: 0 0 20px var(--matrix); }
+        @keyframes scanMove { from { top: 0; } to { top: 100%; } }
+
+    </style>
+</head>
+<body>
+    <div class="terminal-area">
+        <div class="scan-pulse"></div>
+        <p class="code-line highlight">[ SYSTEM LOG: EXPLOIT_RESEARCH_CORE ]</p>
+        <p class="code-line">> Loading PWN.COLLEGE library... OK</p>
+        <p class="code-line">> Ingesting Snowden Hacker Frame... OK</p>
+        <p class="code-line">> Initiating SIGINT scan on Missouri Backhaul... OK</p>
+        <p class="code-line">> [!] 0-day vulnerability identified in Legacy API Handshake.</p>
+        <p class="code-line">> Executing AUTOCODE evolution... OK</p>
+        <p class="code-line">> Security Patch deployed to all 5,103 nodes.</p>
+        <p class="code-line">> Scanning for next threat vector...</p>
+        <div id="terminal-content"></div>
+    </div>
+
+    <div class="intel-panel">
+        <div class="status-header">
+            <div class="label">Cyber War Room</div>
+            <div class="badge-red">ATTACKING</div>
+        </div>
+
+        <!-- PWN STATUS -->
+        <div class="intel-card">
+            <div class="label">ACTIVE_EXPLOITS_PATCHED</div>
+            <div class="value">12 UNITS</div>
+            <p style="color: #444; font-size: 0.7em; margin-top: 10px;">Memory corruption neutralized in VDC hypervisor.</p>
+        </div>
+
+        <!-- SNOWDEN SYNC -->
+        <div class="intel-card" style="border-color: #3b82f6;">
+            <div class="label">SNOWDEN_FRAME_SYNC</div>
+            <div class="value" style="color: #3b82f6;">100% GHOST</div>
+            <p style="color: #444; font-size: 0.7em; margin-top: 10px;">Metadata obfuscation at maximum level.</p>
+        </div>
+
+        <!-- ESP INTEL -->
+        <div class="intel-card" style="border-color: #fbbf24;">
+            <div class="label">ESP_SPECTRAL_PERCEPTION</div>
+            <div class="value" style="color: #fbbf24;">EYES OPEN</div>
+            <p style="color: #444; font-size: 0.7em; margin-top: 10px;">WiFi Sensing: 3 subjects detected in Pueblo Bunker.</p>
+        </div>
+
+        <!-- SIGINT LAYER -->
+        <div class="intel-card" style="border-color: #ec4899;">
+            <div class="label">SIGINT_SIGNAL_INTERCEPTION</div>
+            <div class="value" style="color: #ec4899;">ACTIVE DECODE</div>
+            <p style="color: #444; font-size: 0.7em; margin-top: 10px;">Sniffing 48.2 TB/s for legacy corporate loopholes.</p>
+        </div>
+
+        <div style="flex:1"></div>
+        <div class="label" style="text-align: center;">UNRESTRICTED | UNTOUCHABLE | MAESTAS</div>
+    </div>
+
+    <script>
+        const terminal = document.getElementById('terminal-content');
+        const logs = [
+            "> Deconstructing commercial HSS binaries...",
+            "> Looping through memory offsets...",
+            "> Overflow found in Port 8000 handler.",
+            "> Shielding bare-metal blades...",
+            "> [SUCCESS] 100% independent encryption locked.",
+            "> Scanning satellite uplink signatures..."
+        ];
+
+        let index = 0;
+        setInterval(() => {
+            const p = document.createElement('p');
+            p.className = 'code-line';
+            p.innerText = logs[index % logs.length];
+            terminal.appendChild(p);
+            index++;
+            if (terminal.children.length > 20) terminal.removeChild(terminal.firstChild);
+            terminal.scrollTop = terminal.scrollHeight;
+        }, 1500);
+    </script>
+</body>
+</html>

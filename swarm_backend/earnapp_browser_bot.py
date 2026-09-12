@@ -8,8 +8,8 @@ from pathlib import Path
 from swarm_logger import swarm_log
 from swarm_persistence import db
 
-SECURE_DIR = Path(r"D:\AnthonyAi_Swarm\Secure_Assets")
-PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault")
+SECURE_DIR = Path(r"D:\ObsidianAi_Swarm\Secure_Assets")
+PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault")
 PERSONA_VAULT.mkdir(parents=True, exist_ok=True)
 
 class EarnAppBrowserBot:
@@ -34,10 +34,19 @@ class EarnAppBrowserBot:
 
                 swarm_log("EARNAPP_BOT: Navigating to EarnApp dashboard...", node="EARNAPP_BOT")
                 await page.goto(self.url, timeout=30000)
-                await asyncio.sleep(3)
+
+                # --- AGENTIC DAEMON UPGRADE ---
+                from human_stealth_helper import human_stealth
+                interruption = await human_stealth.handle_interruptions(page)
+                if interruption == "NEEDS_2FA":
+                    await human_stealth.take_learning_snapshot(page, "earnapp", "2fa_blocked")
+                    await browser.close()
+                    return {"status": "NEEDS_2FA", "message": "Hit 2FA wall."}
+
+                await human_stealth.take_learning_snapshot(page, "earnapp", "dashboard_render")
 
                 title = await page.title()
-                swarm_log(f"✓ EARNAPP_BOT: Connected to portal [{title}]", node="EARNAPP_BOT")
+                swarm_log(f" EARNAPP_BOT: Connected to portal [{title}]", node="EARNAPP_BOT")
 
                 db.log_event("EARNAPP_BOT", "EARNAPP_CHECK_SUCCESS", {
                     "portal_title": title,
@@ -50,14 +59,14 @@ class EarnAppBrowserBot:
                     "status": "success",
                     "portal": "EarnApp Dashboard",
                     "session_active": True,
-                    "title": title
+                    "title": title,
+                    "learning_telemetry_saved": True
                 }
         except Exception as e:
-            swarm_log(f"[-] EARNAPP_BOT Note: {e}", node="EARNAPP_BOT")
+            swarm_log(f"[-] EARNAPP_BOT ERROR: {e}", node="EARNAPP_BOT")
             return {
-                "status": "active_simulation",
-                "portal": "EarnApp Dashboard",
-                "message": "Cookies vaulted. Ready for background bandwidth payout sync."
+                "status": "ERROR",
+                "message": str(e)
             }
 
 earnapp_bot = EarnAppBrowserBot()

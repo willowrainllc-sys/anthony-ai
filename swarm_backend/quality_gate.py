@@ -45,7 +45,7 @@ class QualityGate:
         Checks for duplicates, bad audio, and file integrity.
         """
         if not os.path.exists(file_path):
-            alt_path = os.path.join(r"D:\AnthonyAi_Swarm\Renderings", os.path.basename(file_path))
+            alt_path = os.path.join(r"D:\ObsidianAi_Swarm\Renderings", os.path.basename(file_path))
             if os.path.exists(alt_path):
                 file_path = alt_path
             else:

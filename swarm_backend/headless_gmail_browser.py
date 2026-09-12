@@ -6,8 +6,8 @@ import uuid
 import sqlite3
 from swarm_logger import swarm_log
 
-DB_PATH = r"C:\AnthonyAi_Swarm\Empire_Vault.db"
-PERSONA_VAULT = r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault"
+DB_PATH = r"C:\ObsidianAi_Swarm\Empire_Vault.db"
+PERSONA_VAULT = r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault"
 
 async def launch_auth_browser():
     """
@@ -54,7 +54,7 @@ async def launch_auth_browser():
 
                 # Check if we moved to a dev-ready state
                 if "feature_eligibility" in page.url:
-                    swarm_log("✓ REACHED: Dev Feature Eligibility.", node="BROWSER")
+                    swarm_log(" REACHED: Dev Feature Eligibility.", node="BROWSER")
 
                 await asyncio.sleep(2)
             except:
@@ -62,7 +62,7 @@ async def launch_auth_browser():
 
         # Capture session
         await context.storage_state(path=auth_file)
-        swarm_log(f"✓ VAULTED: Session secured for {bot_id}.", node="BROWSER")
+        swarm_log(f" VAULTED: Session secured for {bot_id}.", node="BROWSER")
 
         # Register
         try:

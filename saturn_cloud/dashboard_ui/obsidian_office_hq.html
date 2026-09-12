@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBSIDIAN HQ | Virtual Office Lobby | Anthony Christopher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg: #030303;
+            --surface: #0a0a0a;
+            --accent-emerald: #50C878;
+            --accent-gold: #D4AF37;
+            --border: rgba(255, 255, 255, 0.05);
+        }
+        body { background-color: var(--bg); color: #fff; font-family: 'Space Grotesk', sans-serif; margin: 0; }
+
+        .lobby-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #050505 0%, #000 100%);
+            z-index: -1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            transition: 0.3s;
+        }
+
+        .staff-avatar {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-emerald) 0%, transparent 70%);
+            border: 1px solid var(--accent-emerald);
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(80, 200, 120, 0.2);
+        }
+
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-emerald); animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+    </style>
+</head>
+<body class="p-10">
+    <div class="lobby-bg"></div>
+
+    <div class="max-w-7xl mx-auto">
+        <header class="flex justify-between items-end mb-20 border-b border-white/5 pb-10">
+            <div>
+                <h1 class="orbitron text-4xl font-black tracking-[10px]">OBSIDIAN_HQ</h1>
+                <p class="text-xs text-gray-500 uppercase tracking-widest mt-2">St. Charles Headquarters // Mabelvale Operations</p>
+            </div>
+            <div class="text-right">
+                <div class="text-[10px] text-gray-600 font-bold uppercase tracking-widest mb-1">Director Protocol</div>
+                <div class="text-xl font-black text-white">ACM_AUTHORIZED</div>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- 🔱 NOVA: RECEPTIONIST -->
+            <div class="glass-card flex flex-col items-center text-center hover:border-emerald-500/50">
+                <div class="staff-avatar" style="background: radial-gradient(circle, #3b82f6 0%, transparent 70%); border-color: #3b82f6;"></div>
+                <h3 class="orbitron text-lg font-bold text-white mb-1">NOVA</h3>
+                <p class="text-[10px] text-blue-400 font-black tracking-widest mb-4">RECEPTIONIST_ASI</p>
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="status-dot"></div>
+                    <span class="text-[10px] font-bold text-emerald-500">AUTHORIZED_INGRESS</span>
+                </div>
+                <p class="text-xs text-gray-500 italic">"Routing B2B proposals for the 314 cluster. Negotiating $22k today."</p>
+            </div>
+
+            <!-- 🔱 NEXUS: IT_SENTINEL -->
+            <div class="glass-card flex flex-col items-center text-center hover:border-emerald-500/50">
+                <div class="staff-avatar"></div>
+                <h3 class="orbitron text-lg font-bold text-white mb-1">NEXUS</h3>
+                <p class="text-[10px] text-emerald-400 font-black tracking-widest mb-4">IT_SENTINEL_ASI</p>
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="status-dot"></div>
+                    <span class="text-[10px] font-bold text-emerald-500">MESH_STABLE</span>
+                </div>
+                <p class="text-xs text-gray-500 italic">"103 Mustang nodes verified. Hypervisor hardening at 100.0%."</p>
+            </div>
+
+            <!-- 🔱 CIPHER: OFFICE_ADMIN -->
+            <div class="glass-card flex flex-col items-center text-center hover:border-emerald-500/50">
+                <div class="staff-avatar" style="background: radial-gradient(circle, #8b5cf6 0%, transparent 70%); border-color: #8b5cf6;"></div>
+                <h3 class="orbitron text-lg font-bold text-white mb-1">CIPHER</h3>
+                <p class="text-[10px] text-purple-400 font-black tracking-widest mb-4">OFFICE_ADMIN_ASI</p>
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="status-dot"></div>
+                    <span class="text-[10px] font-bold text-emerald-500">ORCHESTRATING</span>
+                </div>
+                <p class="text-xs text-gray-500 italic">"Syncing Arkansas bunker with Missouri shield. Director's path clear."</p>
+            </div>
+
+            <!-- 🔱 VERA: TREASURY -->
+            <div class="glass-card flex flex-col items-center text-center hover:border-emerald-500/50">
+                <div class="staff-avatar" style="background: radial-gradient(circle, #fbbf24 0%, transparent 70%); border-color: #fbbf24;"></div>
+                <h3 class="orbitron text-lg font-bold text-white mb-1">VERA</h3>
+                <p class="text-[10px] text-yellow-400 font-black tracking-widest mb-4">TREASURY_STEWARD_ASI</p>
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="status-dot"></div>
+                    <span class="text-[10px] font-bold text-emerald-500">SETTLING_SINK</span>
+                </div>
+                <p class="text-xs text-gray-500 italic">"Stride Bank handshake verified. BTC bridge authorized for $8,044."</p>
+            </div>
+        </div>
+
+        <div class="mt-20 glass-card p-12 flex justify-between items-center bg-emerald-500/5">
+            <div>
+                <h4 class="orbitron text-xl font-bold mb-2">VIRTUAL FRONT DESK</h4>
+                <p class="text-gray-400 max-w-xl">"Welcome, Director. Your virtual staff is processing global ingress. All systems are green."</p>
+            </div>
+            <button class="bg-white text-black px-10 py-4 rounded-full font-black text-sm hover:scale-105 transition" onclick="alert('🔱 Handshake Dispatched to Staff.')">TALK TO NOVA</button>
+        </div>
+    </div>
+
+    <footer class="mt-20 text-center text-[10px] text-gray-700 uppercase tracking-[5px]">
+        # --- Built by Anthony Christopher | Est 12.19.1987 ---
+    </footer>
+</body>
+</html>

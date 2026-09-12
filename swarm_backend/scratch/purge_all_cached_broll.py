@@ -5,10 +5,10 @@ from pathlib import Path
 def purge_broll():
     print("=== PURGING ALL CACHED B-ROLL & STOCK FOOTAGE ===")
     dirs = [
-        Path(r"D:\AnthonyAi_Swarm\Secure_Assets\source_videos"),
-        Path(r"D:\AnthonyAi_Swarm\Secure_Assets\local_broll_library"),
-        Path(r"D:\AnthonyAi_Swarm\Renderings"),
-        Path(r"C:\AnthonyAi_Swarm\Renderings")
+        Path(r"D:\ObsidianAi_Swarm\Secure_Assets\source_videos"),
+        Path(r"D:\ObsidianAi_Swarm\Secure_Assets\local_broll_library"),
+        Path(r"D:\ObsidianAi_Swarm\Renderings"),
+        Path(r"C:\ObsidianAi_Swarm\Renderings")
     ]
     total_removed = 0
     for d in dirs:

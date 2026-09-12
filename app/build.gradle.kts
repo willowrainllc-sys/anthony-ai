@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.anthony_ai"
+    namespace = "com.obsidian.global"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.example.anthony_ai"
+        applicationId = "com.obsidian.global"
         minSdk = 26
         targetSdk = 37
         versionCode = 1
@@ -25,8 +25,6 @@ android {
             localProperties.load(localPropertiesFile.inputStream())
         }
 
-        buildConfigField("String", "SUPABASE_URL", "\"${localProperties.getProperty("SUPABASE_URL") ?: ""}\"")
-        buildConfigField("String", "SUPABASE_KEY", "\"${localProperties.getProperty("SUPABASE_KEY") ?: ""}\"")
         buildConfigField("String", "AMAZON_AFFILIATE_ID", "\"${localProperties.getProperty("AMAZON_AFFILIATE_ID") ?: ""}\"")
         buildConfigField("String", "AMAZON_APP_ID", "\"${localProperties.getProperty("AMAZON_APP_ID") ?: ""}\"")
         buildConfigField("String", "AMAZON_RELEASE_ID", "\"${localProperties.getProperty("AMAZON_RELEASE_ID") ?: ""}\"")
@@ -74,9 +72,6 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
     implementation(libs.okhttp.logging)
-    implementation(platform(libs.supabase.bom))
-    implementation(libs.supabase.postgrest)
-    implementation(libs.supabase.auth)
     implementation(libs.ktor.client.android)
     implementation(libs.androidx.camera.core)
     implementation(libs.androidx.camera.camera2)
@@ -84,6 +79,7 @@ dependencies {
     implementation(libs.androidx.camera.view)
     implementation(libs.androidx.biometric)
     implementation(libs.play.services.location)
+    implementation(libs.play.services.code.scanner)
     implementation(libs.coil.compose)
     implementation(libs.androidx.media3.exoplayer)
     implementation(libs.androidx.media3.ui)

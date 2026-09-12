@@ -1,4 +1,4 @@
-# --- ANTHONY AI: MASTER SOVEREIGN ORCHESTRATOR v1.7 (EMPIRE & GROWTH) ---
+# --- ANTHONY AI: MASTER OBSIDIAN ORCHESTRATOR v1.7 (EMPIRE & GROWTH) ---
 import subprocess
 import sys
 import os
@@ -16,7 +16,7 @@ PYTHON_EXE = sys.executable
 NODES = [
     {"name": "MIND_SERVER", "script": "nexus_core.py"},
     {"name": "STRIKE_WORKER", "script": "execute_live_strikes.py"},
-    {"name": "DIRECTOR_ENGINE", "script": "anthony_video_publisher.py"},
+    {"name": "DIRECTOR_ENGINE", "script": "obsidian_video_publisher.py"},
     {"name": "PRODUCTION_WORKER", "script": "production_worker.py"},
     {"name": "ANALYTICS_RADAR", "script": "analytics_node.py"},
     {"name": "OSINT_WATCHDOG", "script": "node_osint_watchdog.py"},
@@ -42,7 +42,7 @@ signal.signal(signal.SIGTERM, cleanup)
 
 def run_swarm():
     print("="*60)
-    print("  ANTHONY AI // SOVEREIGN EMPIRE MASTER LAUNCHER v1.7")
+    print("  ANTHONY AI // OBSIDIAN EMPIRE MASTER LAUNCHER v1.7")
     print(f"  LOCATION: {BASE_DIR.drive} (PORTABLE MODE)")
     print("="*60)
 
@@ -62,7 +62,7 @@ def run_swarm():
         processes[node['name']] = p
         time.sleep(2.5)
 
-    print("\n[🚀] ALL NODES OPERATIONAL. EMPIRE IS LIVE.")
+    print("\n[[STRIKE]] ALL NODES OPERATIONAL. EMPIRE IS LIVE.")
     print("[!] Monitor your Pixel 10 for revenue vitals and global drops.")
     print("[!] OSINT Watchdog, Tactical Monitor, Revenue Sync & Growth Engine active.")
     print("[!] Press CTRL+C to terminate.\n")

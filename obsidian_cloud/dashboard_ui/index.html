@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBSIDIAN GLOBAL | The Master Universe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #020617;
+            --card: #0f172a;
+            --primary: #8b5cf6; /* Obsidian Purple */
+            --secondary: #3b82f6; /* Global Blue */
+            --accent: #10b981; /* Mining Green */
+            --text: #f8fafc;
+            --border: #1e293b;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* 🔱 Sidebar Navigation */
+        .sidebar {
+            width: 280px;
+            background: #000;
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+        }
+
+        .brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5em;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+
+        .nav-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: var(--card);
+            color: #fff;
+            border: 1px solid var(--border);
+        }
+
+        .nav-item .icon {
+            margin-right: 15px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        /* 🔱 Main Content Space */
+        .main {
+            flex: 1;
+            padding: 50px;
+            overflow-y: auto;
+            background: radial-gradient(circle at top right, #1e1b4b 0%, #020617 60%);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3em;
+            margin: 0;
+            background: linear-gradient(to bottom right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 🔱 The World Grid */
+        .world-grid {
+            display: grid;
+            grid-template-cols: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .world-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .world-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .world-card h2 {
+            font-family: 'Orbitron', sans-serif;
+            margin-top: 0;
+            font-size: 1.8em;
+            letter-spacing: 2px;
+        }
+
+        .world-card .stat {
+            font-size: 2.5em;
+            font-weight: 900;
+            margin: 20px 0;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .world-card .label {
+            color: #64748b;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            letter-spacing: 2px;
+        }
+
+        /* 🔱 World Decor */
+        .card-glow {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, var(--primary) 0%, transparent 40%);
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.7em;
+            font-weight: bold;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        /* 🔱 Animating Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.3;
+            z-index: -2;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+
+    <div class="sidebar">
+        <div class="brand">OBSIDIAN</div>
+        <div class="nav-item active"><div class="icon"></div>MASTER UNIVERSE</div>
+        <div class="nav-item"><div class="icon"></div>GRID NODES</div>
+        <div class="nav-item"><div class="icon"></div>CELLULAR CORE</div>
+        <div class="nav-item"><div class="icon"></div>MEDIA ENGINE</div>
+        <div class="nav-item"><div class="icon"></div>CLOUD DATABASE</div>
+        <div class="nav-item"><div class="icon" style="background: var(--primary);"></div>GOD MODE</div>
+    </div>
+
+    <div class="main">
+        <div class="header">
+            <div>
+                <p style="color: var(--primary); font-weight: 800; letter-spacing: 5px; margin-bottom: 10px;">DIRECTOR'S TERMINAL</p>
+                <h1>THE MASTER UNIVERSE</h1>
+            </div>
+            <div style="text-align: right;">
+                <div class="label">Total Empire Yield</div>
+                <div style="font-size: 2.5em; font-weight: 900; color: #fff;">$16,094.48</div>
+            </div>
+        </div>
+
+        <div class="world-grid">
+            <!-- 🪐 WORLD 1: THE MINING GRID -->
+            <div class="world-card" style="border-bottom: 5px solid var(--accent);">
+                <div class="status-badge">GATHERING</div>
+                <div class="card-glow" style="background: radial-gradient(circle at center, var(--accent) 0%, transparent 40%);"></div>
+                <div class="label">Independent Swarm</div>
+                <h2>OBSIDIAN INGRESS</h2>
+                <div class="stat" style="color: var(--accent);">50,000</div>
+                <div class="label">Sovereign Supply Nodes</div>
+            </div>
+
+            <!-- 🪐 WORLD 2: THE CELLULAR CORE -->
+            <div class="world-card" style="border-bottom: 5px solid var(--secondary);">
+                <div class="status-badge">ROUTING</div>
+                <div class="card-glow" style="background: radial-gradient(circle at center, var(--secondary) 0%, transparent 40%);"></div>
+                <div class="label">Private MNO</div>
+                <h2>OBSIDIAN 5G</h2>
+                <div class="stat" style="color: var(--secondary);">103</div>
+                <div class="label">Isolated SIMs</div>
+            </div>
+
+            <!-- 🪐 WORLD 3: THE MEDIA ENGINE -->
+            <div class="world-card" style="border-bottom: 5px solid #f43f5e;">
+                <div class="status-badge">VIRAL</div>
+                <div class="card-glow" style="background: radial-gradient(circle at center, #f43f5e 0%, transparent 40%);"></div>
+                <div class="label">Social Influence</div>
+                <h2>OBSIDIAN MEDIA</h2>
+                <div class="stat" style="color: #f43f5e;">1.2M</div>
+                <div class="label">Collective Views</div>
+            </div>
+
+            <!-- 🪐 WORLD 4: THE CLOUD DATABASE -->
+            <div class="world-card" style="border-bottom: 5px solid var(--primary);">
+                <div class="status-badge">SYNCED</div>
+                <div class="card-glow"></div>
+                <div class="label">Sovereign DBaaS</div>
+                <h2>OBSIDIAN CLOUD</h2>
+                <div class="stat" style="color: var(--primary);">0.8ms</div>
+                <div class="label">Query Latency</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 50px; display: flex; gap: 20px;">
+            <div class="world-card" style="flex: 2; height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <div class="label">BITCOIN SETTLEMENT BRIDGE</div>
+                <div class="stat" style="font-size: 1.2em; color: #fbbf24;">bc1qk4ass5xsanvth2tz7jsapscy8ld25yr6ze5yzx</div>
+                <p style="color: #64748b; font-size: 0.9em;">Verified on-chain. Destination: Cash App.</p>
+            </div>
+            <div class="world-card" style="flex: 1; text-align: center;">
+                <div class="label">AUTOPILOT DAEMONS</div>
+                <div class="stat" style="color: var(--accent);">100%</div>
+                <div class="label">Process Health</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

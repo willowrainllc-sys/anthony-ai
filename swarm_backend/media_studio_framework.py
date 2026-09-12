@@ -1,4 +1,4 @@
-# --- EMPIRE GENERAL-PURPOSE FACELESS AI MEDIA STUDIO FRAMEWORK v1.0 ---
+# --- EMPIRE GENERAL-PURPOSE FACELESS AI MEDIA STUDIO FRAMEWORK v4.0 (BLOCKBUSTER & NATGEO THEMES) ---
 import os
 import sys
 import json
@@ -7,31 +7,61 @@ import time
 import random
 import re
 from pathlib import Path
-from dataclasses import dataclass, asdict, field
+from dataclasses import dataclass, asdict
 from typing import List, Dict, Any, Optional
 
 from swarm_logger import swarm_log
 from swarm_persistence import db
 
-# --- 1. SUPPORTED CONTENT MODES & NICHES ---
+# --- 1. BLOCKBUSTER & NATIONAL GEOGRAPHIC THEMED NICHES ---
 CONTENT_MODES = [
     "FICTION", "DOCUMENTARY", "EDUCATIONAL", "COMMENTARY",
     "MYSTERY", "STORYTELLING", "MOTIVATIONAL", "ENTERTAINMENT", "NEWS_EXPLAINER"
 ]
 
 SUPPORTED_NICHES = {
-    "fantasy": {"mode": "FICTION", "style": "Cinematic dark fantasy 8k render, epic lighting"},
-    "anime_scifi": {"mode": "FICTION", "style": "Stylized 2D/3D anime aesthetic, glowing cyberpunk neon"},
-    "horror": {"mode": "STORYTELLING", "style": "Atmospheric dark horror, fog drenched shadows, 4k"},
-    "mythology": {"mode": "FICTION", "style": "Ancient mythical gods and creatures, cinematic National Geographic style"},
-    "scifi": {"mode": "FICTION", "style": "Futuristic space exploration, James Webb nebula cosmic renders"},
-    "mystery": {"mode": "MYSTERY", "style": "Classified dossier, dark obsidian matrix, high-contrast studio"},
-    "finance": {"mode": "EDUCATIONAL", "style": "Motion graphics, high-end Wall Street terminal visuals, luxury dark theme"},
-    "psychology": {"mode": "EDUCATIONAL", "style": "Mind matrix, glowing neural network, high-contrast human portraits"},
-    "history": {"mode": "DOCUMENTARY", "style": "Historical archival 4k, parchment maps, dramatic lighting"},
-    "motivation": {"mode": "MOTIVATIONAL", "style": "Inspiring mountain peaks, intense cinematic training footage"},
-    "gaming_lore": {"mode": "STORYTELLING", "style": "Unreal Engine 5.4 3D environment, high-res gaming render"},
-    "sports_stories": {"mode": "DOCUMENTARY", "style": "High-octane stadium lights, slow-motion athletic cinematography"}
+    "natgeo_expeditions": {
+        "mode": "DOCUMENTARY",
+        "title": "National Geographic Deep Ocean & Abyss Enigmas",
+        "style": "National Geographic IMAX 4k 60fps nature cinematography, abyssal trench 8k lighting",
+        "theme": "Deep-sea research submersibles mapping 10,000 meters below sea level"
+    },
+    "blockbuster_scifi": {
+        "mode": "FICTION",
+        "title": "Hollywood Sci-Fi Spectacle & Cosmic Anomalies",
+        "style": "Hollywood IMAX Blockbuster Sci-Fi, Unreal Engine 5.4 Lumen 8k ray-traced lighting",
+        "theme": "Quantum event horizons, interstellar wormholes, and planetary defense"
+    },
+    "badass_heists": {
+        "mode": "STORYTELLING",
+        "title": "High-Aura Masterminds & Great Vault Heists",
+        "style": "Sleek IMAX thriller, neon terminal laser grid, high-aura cinematic 4k",
+        "theme": "Covert intelligence networks bypassing triple-layer state security"
+    },
+    "badass_military": {
+        "mode": "DOCUMENTARY",
+        "title": "Declassified Military Operations & Defense Files",
+        "style": "FLIR thermal radar telemetry, declassified military dossier, night vision 4k",
+        "theme": "Unclassified radar tracking logs and supersonic aerial intercepts"
+    },
+    "natgeo_history": {
+        "mode": "DOCUMENTARY",
+        "title": "National Geographic Lost Empires & Ancient Monoliths",
+        "style": "National Geographic archaeological 4k drone shot, ancient stone ruins golden hour",
+        "theme": "Subterranean pyramids, acoustic levitation, and forgotten civilization archives"
+    },
+    "badass_horror": {
+        "mode": "STORYTELLING",
+        "title": "Visceral Urban Legends & Dark Folklore",
+        "style": "Atmospheric dark horror IMAX, foggy pine forest shadows, eerie 4k",
+        "theme": "Isolated wilderness staircases and late-night national park encounters"
+    },
+    "natgeo_space": {
+        "mode": "DOCUMENTARY",
+        "title": "National Geographic Deep Space & Lunar Frontiers",
+        "style": "National Geographic deep space telescope cosmic nebula IMAX 8k",
+        "theme": "Far-side lunar radar scans and magnetar gamma-ray bursts"
+    }
 }
 
 # --- 2. CANONICAL CONTENT CONTEXT (SINGLE SOURCE OF TRUTH) ---
@@ -58,7 +88,8 @@ class ContentContext:
     keywords: List[str]
     story_summary: str
     hook: str
-    evidence_or_climax: str
+    body_evidence: str
+    climax_payoff: str
     unresolved_questions: str
     previous_episode_summary: str
     next_episode_tease: str
@@ -71,8 +102,8 @@ class ContentContext:
 # --- 3. NICHE & SERIES DIRECTOR ---
 class NicheDirectorStudio:
     """
-    GENERAL-PURPOSE AI MEDIA STUDIO:
-    Converts any niche request into a persistent Series Bible, Season 1 Arc, and Episode Plan.
+    CANONICAL BLOCKBUSTER & NATGEO MEDIA STUDIO:
+    Constructs high-octane IMAX-quality storyboards for Blockbuster, NatGeo, and Badass themes.
     """
     def __init__(self):
         self._init_studio_tables()
@@ -105,15 +136,21 @@ class NicheDirectorStudio:
                     primary_subject TEXT,
                     keywords_json TEXT,
                     summary TEXT,
+                    hook TEXT,
+                    climax TEXT,
                     status TEXT DEFAULT 'PLANNED',
                     created_at REAL DEFAULT (strftime('%s', 'now'))
                 )
             """)
+            try:
+                conn.execute("ALTER TABLE studio_episodes ADD COLUMN hook TEXT")
+                conn.execute("ALTER TABLE studio_episodes ADD COLUMN climax TEXT")
+            except: pass
             conn.commit()
 
     async def create_studio_channel_series(self, channel_id: str, niche: str) -> dict:
         niche_key = niche.lower().replace(" ", "_")
-        niche_info = SUPPORTED_NICHES.get(niche_key, {"mode": "DOCUMENTARY", "style": "Cinematic 4k high contrast"})
+        niche_info = SUPPORTED_NICHES.get(niche_key, SUPPORTED_NICHES["natgeo_expeditions"])
         series_id = f"series_{channel_id.lower()}_{niche_key}"
 
         with db._get_connection() as conn:
@@ -125,12 +162,12 @@ class NicheDirectorStudio:
                     "narration_style": row[7], "season_number": row[8], "season_theme": row[9], "season_arc": row[10]
                 }
 
-        swarm_log(f"STUDIO: Creating General-Purpose Series for [{niche.upper()}] (Mode: {niche_info['mode']})...", node="STUDIO")
+        swarm_log(f"STUDIO: Creating Blockbuster/NatGeo Series for [{niche_info['title']}]...", node="STUDIO")
 
-        series_title = f"{niche.title()}: The Complete Chronicles"
-        series_description = f"Sovereign AI Media Studio production exploring {niche} across Season 1."
-        season_theme = f"Season 1: Awakening & First Contact in {niche.title()}"
-        season_arc = f"10-Episode arc detailing origin, escalation, climax, and resolution for {niche}."
+        series_title = f"{niche_info['title']}: Season 1"
+        series_description = f"High-budget IMAX production exploring {niche_info['theme']}."
+        season_theme = f"Season 1: Unclassified Discovery & First Contact in {niche_info['title']}"
+        season_arc = f"10-Episode blockbuster arc detailing discovery, escalation, physical evidence, and final resolution."
 
         series_data = {
             "series_id": series_id,
@@ -140,7 +177,7 @@ class NicheDirectorStudio:
             "series_title": series_title,
             "series_description": series_description,
             "visual_style": niche_info["style"],
-            "narration_style": "Deep, authoritative, gravelly documentary/storyteller narrator (en-US-ChristopherNeural)",
+            "narration_style": "Deep, gravelly, IMAX documentary narrator (en-US-ChristopherNeural)",
             "season_number": 1,
             "season_theme": season_theme,
             "season_arc": season_arc
@@ -153,31 +190,24 @@ class NicheDirectorStudio:
             """, (series_data["series_id"], series_data["channel_id"], series_data["niche"], series_data["content_mode"], series_data["series_title"], series_data["series_description"], series_data["visual_style"], series_data["narration_style"], series_data["season_number"], series_data["season_theme"], series_data["season_arc"]))
             conn.commit()
 
-        # Build 10 Season 1 Episodes
         await self._plan_season_episodes(series_id, "season_01", niche_key)
         return series_data
 
     async def _plan_season_episodes(self, series_id: str, season_id: str, niche_key: str):
         episodes_plan = [
-            (1, "The Awakening", f"Initial discovery and origin event of {niche_key}", [niche_key, "awakening", "origin", "entry"]),
-            (2, "First Shadows", f"Uncovering hidden patterns and early evidence in {niche_key}", [niche_key, "shadows", "evidence", "discovery"]),
-            (3, "The Escalation", f"Conflict and stakes increase dramatically across {niche_key}", [niche_key, "escalation", "stakes", "conflict"]),
-            (4, "The Unseen Force", f"Revealing the mastermind or underlying mechanism", [niche_key, "unseen", "force", "mastermind"]),
-            (5, "Deep Investigation", f"Comprehensive analysis of data and historical logs", [niche_key, "investigation", "analysis", "logs"]),
-            (6, "The Contradiction", f"A major twist or conflicting piece of evidence emerges", [niche_key, "contradiction", "twist", "evidence"]),
-            (7, "The Climax", f"Major confrontation or ultimate discovery in {niche_key}", [niche_key, "climax", "confrontation", "revelation"]),
-            (8, "The Fallout", f"Immediate aftermath and impact on the world", [niche_key, "fallout", "aftermath", "impact"]),
-            (9, "Reconstructing the Truth", f"Putting all pieces together for the final verdict", [niche_key, "truth", "reconstruction", "verdict"]),
-            (10, "Season Conclusion", f"Final resolution and teaser for Season 2", [niche_key, "conclusion", "season 2", "future"])
+            (1, "The Unclassified Discovery", f"Initial high-stakes discovery event in {niche_key}", f"At midnight, deep-sea research submersibles mapped a massive submerged metallic hull ten thousand feet down.", f"Sonar telemetry confirmed zero natural corrosion, suggesting a preserved structure.", ["natgeo", "expedition", "abyss", "discovery"]),
+            (2, "The Mach 4 Radar Intercept", f"Supersonic radar tracks defying atmospheric drag", f"A military pilot locked radar onto a glowing sphere descending from eighty thousand feet in three seconds.", f"FLIR thermal imaging confirmed zero propulsion exhaust or heat signatures.", ["radar", "supersonic", "flir", "military"]),
+            (3, "The 100-Million Vault Heist", f"Covert intelligence network executing a flawless breach", f"They bypassed three layers of state security in under four minutes without setting off alarms.", f"Digital forensics proved zero human code modifications were made for forty days.", ["heist", "mastermind", "stealth", "vault"]),
+            (4, "The Subterranean Monolith", f"Archaeological expedition uncovers forgotten pyramids", f"Satellite imagery unsealed a redacted underground complex beneath the ice sheet.", f"Acoustic levitation frequency pulses were recorded emitting from the central chamber.", ["monolith", "pyramid", "archaeology", "ruins"])
         ]
 
         with db._get_connection() as conn:
-            for ep_num, title, subject, keywords in episodes_plan:
+            for ep_num, title, subject, hook, climax, keywords in episodes_plan:
                 ep_id = f"ep_{series_id}_{season_id}_{ep_num:02d}"
                 conn.execute("""
-                    INSERT OR IGNORE INTO studio_episodes (episode_id, series_id, season_id, episode_number, title, primary_subject, keywords_json, summary)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-                """, (ep_id, series_id, season_id, ep_num, title, subject, json.dumps(keywords), f"Season 1 Episode {ep_num}: {subject}"))
+                    INSERT OR IGNORE INTO studio_episodes (episode_id, series_id, season_id, episode_number, title, primary_subject, keywords_json, summary, hook, climax)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (ep_id, series_id, season_id, ep_num, title, subject, json.dumps(keywords), f"IMAX Documentary investigation into {subject}.", hook, climax))
             conn.commit()
 
     async def get_canonical_context(self, channel_id: str, niche: str, ep_number: int = 1, target_min: int = 12, content_type: str = "LONG_FORM") -> ContentContext:
@@ -187,14 +217,19 @@ class NicheDirectorStudio:
         ep_id = f"ep_{series_id}_{season_id}_{ep_number:02d}"
 
         with db._get_connection() as conn:
-            row = conn.execute("SELECT title, primary_subject, keywords_json, summary FROM studio_episodes WHERE episode_id=?", (ep_id,)).fetchone()
+            row = conn.execute("SELECT title, primary_subject, keywords_json, summary, hook, climax FROM studio_episodes WHERE episode_id=?", (ep_id,)).fetchone()
             if row:
-                title, subject, kw_json, summary = row[0], row[1], row[2], row[3]
-                keywords = json.loads(kw_json)
+                title, subject, kw_json, summary, hook, climax = row[0], row[1], row[2], row[3], row[4], row[5]
+                keywords = json.loads(kw_json) if kw_json else [niche, "investigation"]
             else:
-                title, subject, keywords, summary = f"Episode {ep_number}", f"Investigation into {niche}", [niche, "episode"], f"Episode {ep_number} coverage."
+                title, subject, keywords = f"Episode {ep_number}", f"High-stakes investigation into {niche}", [niche, "episode"]
+                summary = f"IMAX Documentary investigation into {subject}."
+                hook = f"At midnight, research teams unsealed an ancient vault holding preserved evidence regarding {subject}."
+                climax = f"Physical evidence confirmed that the structures had remained untouched for millennia."
 
-        target_sec = (target_min * 60) if content_type == "LONG_FORM" else 90 # Default Short 90s
+        target_sec = (target_min * 60) if content_type == "LONG_FORM" else 90
+
+        body_ev = f"Deep within {niche.replace('_', ' ').title()} Sector 7, team leads recorded unprecedented physical data patterns. Primary subject {subject} maintained a stable trajectory despite adverse conditions."
 
         return ContentContext(
             channel_id=channel_id,
@@ -203,8 +238,8 @@ class NicheDirectorStudio:
             episode_id=ep_id,
             niche=niche,
             content_mode=series_data["content_mode"],
-            audience="High-retention documentary & storytelling enthusiasts",
-            tone="Deep, serious, high-stakes, atmospheric",
+            audience="High-retention IMAX documentary & blockbuster storytelling enthusiasts",
+            tone="Deep, serious, high-stakes, IMAX atmospheric",
             series_title=series_data["series_title"],
             series_theme=series_data["season_theme"],
             season_theme=series_data["season_theme"],
@@ -212,16 +247,17 @@ class NicheDirectorStudio:
             episode_title=title,
             episode_topic=f"{title}: {subject}",
             primary_subject=subject,
-            secondary_subjects=[niche.title(), "Case Analysis", "Unclassified Files"],
-            entities=["Primary Subject", "Investigation Unit", "Archival Intelligence"],
-            locations=[f"{niche.title()} Sector", "Central Archive"],
+            secondary_subjects=[niche.replace('_', ' ').title(), "Case Analysis", "Unclassified Files"],
+            entities=["Primary Subject", "Investigation Unit", "National Geographic Research"],
+            locations=[f"{niche.replace('_', ' ').title()} Sector", "Central Archive"],
             keywords=keywords,
             story_summary=summary,
-            hook=f"In the opening phase of {title}, a major discovery altered our understanding of {subject}.",
-            evidence_or_climax=f"Declassified logs and physical evidence confirm the timeline of {subject}.",
-            unresolved_questions=f"What lies beyond the findings of Episode {ep_number}?",
-            previous_episode_summary=f"Episode {ep_number - 1} introduced the initial evidence." if ep_number > 1 else "Season 1 Premiere.",
-            next_episode_tease=f"In Episode {ep_number + 1}, we explore the deeper consequences.",
+            hook=hook,
+            body_evidence=body_ev,
+            climax_payoff=climax,
+            unresolved_questions="What unclassified logs remain hidden in the deeper archives?",
+            previous_episode_summary="The initial discovery established the baseline evidence.",
+            next_episode_tease="Unlocking the secondary vault reveals the remaining truth.",
             target_duration_sec=target_sec,
             content_type=content_type,
             visual_style=series_data["visual_style"],
@@ -233,9 +269,8 @@ media_studio = NicheDirectorStudio()
 if __name__ == "__main__":
     import asyncio
     async def test():
-        ctx = await media_studio.get_canonical_context("ANTHONY_AI_OFFICIAL", "fantasy", ep_number=1, target_min=12)
-        print("CANONICAL CONTEXT CREATED:")
+        ctx = await media_studio.get_canonical_context("ANTHONY_AI_OFFICIAL", "natgeo_expeditions", ep_number=1, target_min=1)
+        print("NATGEO CONTEXT CREATED:")
         print("Series:", ctx.series_title)
-        print("Episode:", ctx.episode_title, "| Mode:", ctx.content_mode)
-        print("Visual Style:", ctx.visual_style)
+        print("Style:", ctx.visual_style)
     asyncio.run(test())

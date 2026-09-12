@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CITY_DASHBOARD | Industrial Ingress | Obsidian Global</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Inter:wght@400;600;800&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        :root {
+            --city-bg: #050505;
+            --city-accent: #3b82f6;
+            --city-border: rgba(255, 255, 255, 0.08);
+            --city-surface: #0a0a0a;
+        }
+        body { background-color: var(--city-bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; display: flex; height: 100vh; overflow: hidden; }
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        .sidebar { width: 280px; background: var(--city-surface); border-right: 1px solid var(--city-border); padding: 40px 24px; display: flex; flex-direction: column; }
+        .content { flex: 1; display: flex; flex-direction: column; background: #050505; }
+        .bg-radial-center { background: radial-gradient(circle at center, #0a0a20 0%, #050505 100%); }
+        .nav-item { padding: 15px 20px; border-radius: 12px; cursor: pointer; transition: 0.2s; color: #666; font-size: 0.9em; font-weight: 700; display: flex; align-items: center; gap: 12px; }
+        .nav-item:hover, .nav-item.active { background: rgba(255,255,255,0.03); color: #fff; border: 1px solid var(--city-border); }
+        .stat-card { background: var(--city-surface); border: 1px solid var(--city-border); padding: 30px; border-radius: 20px; }
+    </style>
+<link href="/assets/hyper_frame.css" rel="stylesheet"/><script src="/assets/hyper_frame.js"></script></head>
+<body>
+    <aside class="sidebar">
+        <div class="orbitron font-black text-xl mb-12 tracking-widest text-blue-500">CITY_OS</div>
+        <div class="space-y-2">
+            <div class="nav-item active" onclick="loadFrame('overview')">🏙️ OVERVIEW</div>
+            <div class="nav-item" onclick="window.location.href='obsidian_city_landing.html'">🛒 MARKETPLACE</div>
+            <div class="nav-item" onclick="loadFrame('obsidian_city_mesh_control.html')">🛰️ MESH_CONTROL</div>
+            <div class="nav-item" onclick="loadFrame('gov_strike_landing.html')">🏢 GOV_STRIKE</div>
+            <div class="nav-item" onclick="loadFrame('ghost_vault_landing.html')">👤 IDENTITY_VAULT</div>
+        </div>
+        <div class="mt-auto p-6 bg-blue-500/5 rounded-2xl border border-blue-500/10">
+            <div class="text-[8px] text-gray-500 uppercase tracking-widest">Aura Status</div>
+            <div class="text-xs font-bold text-blue-400">AUTHORIZED_CITIZEN</div>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col">
+        <iframe id="dashFrame" src="" class="w-full h-full border-none hidden"></iframe>
+
+        <div id="overview-content" class="p-[60px] overflow-y-auto w-full h-full bg-radial-center">
+            <header class="flex justify-between items-center mb-16">
+                <div>
+                    <h1 class="orbitron text-4xl font-black tracking-widest text-white">CITY_DASHBOARD</h1>
+                    <p class="text-xs text-gray-500 mt-2 uppercase tracking-[5px]">Industrial Community Ingress</p>
+                </div>
+                <div class="flex gap-10 text-right text-white">
+                    <div>
+                        <div class="text-[8px] text-gray-600 uppercase">Population</div>
+                        <div class="text-xl font-bold">103 NODES</div>
+                    </div>
+                    <div>
+                        <div class="text-[8px] text-gray-600 uppercase">Grid Security</div>
+                        <div class="text-xl font-black text-emerald-500">MAXIMUM</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="grid grid-cols-3 gap-8 mb-12">
+                <div class="stat-card">
+                    <div class="text-[10px] text-gray-500 uppercase mb-2">Total Wealth</div>
+                    <div class="text-2xl font-black text-white" id="stat-wealth">$0.00</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-[10px] text-gray-500 uppercase mb-2">Data Routed</div>
+                    <div class="text-2xl font-black text-blue-500" id="stat-data">0.0 GB</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-[10px] text-gray-500 uppercase mb-2">System Load</div>
+                    <div class="text-2xl font-black text-emerald-500" id="stat-status">OPTIMAL</div>
+                </div>
+            </div>
+
+            <div class="bg-surface rounded-3xl border border-city-border p-10">
+                <h2 class="orbitron text-xl font-bold mb-8 text-white">CITIZEN_VECTORS</h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center p-6 bg-white/2 rounded-xl border border-white/5">
+                        <div class="flex items-center gap-4">
+                            <div class="text-2xl">👤</div>
+                            <div class="text-white">
+                                <div class="font-bold">Director Maestas</div>
+                                <div class="text-[10px] text-gray-500">Master Authority // St. Charles</div>
+                            </div>
+                        </div>
+                        <div class="text-[10px] font-bold text-emerald-500 uppercase">ROOT_INGRESS</div>
+                    </div>
+                    <div class="flex justify-between items-center p-6 bg-white/2 rounded-xl border border-white/5">
+                        <div class="flex items-center gap-4">
+                            <div class="text-2xl">🤖</div>
+                            <div class="text-white">
+                                <div class="font-bold">Aiphony Cluster 01</div>
+                                <div class="text-[10px] text-gray-500">103 Nodes // Active Scavenging</div>
+                            </div>
+                        </div>
+                        <div class="text-[10px] font-bold text-blue-500 uppercase">SYNCED</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🔱 Live Construction Feed -->
+            <div class="mt-8 bg-black/40 rounded-3xl border border-white/5 p-10 font-mono">
+                <h2 class="orbitron text-xs font-black tracking-[5px] mb-6 text-gray-500">LIVE_CONSTRUCTION_LOG</h2>
+                <div id="construction-log" class="text-[9px] space-y-2 text-emerald-500/80">
+                    <div>[2026-09-11 16:30] > CLONER: Sniping GoDaddy UI DNA...</div>
+                    <div>[2026-09-11 16:30] > ARCHITECT: Re-skinning buttons to Industrial Dark...</div>
+                    <div>[2026-09-11 16:30] > SUCCESS: Marketplace aligned with Global Grid.</div>
+                    <div class="animate-pulse">_</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function loadFrame(target) {
+            const frame = document.getElementById('dashFrame');
+            const overview = document.getElementById('overview-content');
+
+            if (target === 'overview') {
+                frame.classList.add('hidden');
+                overview.classList.remove('hidden');
+            } else {
+                overview.classList.add('hidden');
+                frame.src = target;
+                frame.classList.remove('hidden');
+            }
+
+            // UI Active State
+            const items = document.querySelectorAll('.nav-item');
+            items.forEach(i => i.classList.remove('active'));
+            if (window.event && window.event.currentTarget) {
+                window.event.currentTarget.classList.add('active');
+            }
+        }
+
+        // 🔱 Real-time Telemetry Sync
+        async function syncCityVitals() {
+            try {
+                // Determine API root based on current host
+                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                const apiRoot = isLocal ? 'http://localhost:8000' : 'https://participant-type-python-manufacturing.trycloudflare.com';
+
+                const resp = await fetch(`${apiRoot}/api/mesh/telemetry`);
+                const data = await resp.json();
+
+                if (data.wholesale) {
+                    document.getElementById('stat-data').innerText = data.wholesale.total_gb_routed_24h.toLocaleString() + ' GB';
+                }
+                // Mock wealth sync for now
+                document.getElementById('stat-wealth').innerText = '$' + (data.timestamp % 1000).toFixed(2);
+                document.getElementById('stat-status').innerText = data.temporal.status;
+            } catch (e) {
+                console.log("[-] Offline Mode: Synced to local cache.");
+            }
+        }
+
+        setInterval(syncCityVitals, 5000);
+        syncCityVitals();
+    </script>
+</body>
+</html>
+

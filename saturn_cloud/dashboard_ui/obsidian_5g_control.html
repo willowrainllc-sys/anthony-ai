@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5G CONTROL PLANE | Obsidian MNO | Anthony Christopher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #020205;
+            --primary: #3b82f6;
+            --accent: #10b981; /* 5G Green */
+            --border: rgba(59, 130, 246, 0.2);
+            --glass: rgba(10, 10, 20, 0.95);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Space Mono', monospace;
+            margin: 0;
+            padding: 40px;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .logo { font-family: 'Orbitron'; font-weight: 900; letter-spacing: 5px; color: var(--primary); }
+
+        .control-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+            overflow: hidden;
+        }
+
+        /* 🔱 Core Monitor */
+        .core-monitor {
+            background: #000;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .signal-wave {
+            height: 150px;
+            width: 100%;
+            background: repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(16, 185, 129, 0.1) 21px);
+            margin: 30px 0;
+            border-radius: 10px;
+            border: 1px solid rgba(16, 185, 129, 0.1);
+        }
+
+        .subscriber-list { flex: 1; overflow-y: auto; }
+        .sub-row { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.03); font-size: 0.8em; }
+        .sub-row:hover { background: rgba(59, 130, 246, 0.05); }
+
+        /* 🔱 Telemetry Sidebar */
+        .vitals-panel { display: flex; flex-direction: column; gap: 20px; }
+        .vital-card { background: var(--glass); border: 1px solid var(--border); padding: 25px; border-radius: 25px; }
+        .label { font-size: 0.6em; color: #444; text-transform: uppercase; letter-spacing: 2px; }
+        .value { font-size: 1.8em; font-weight: 900; margin-top: 5px; color: var(--accent); }
+
+        .pulse-dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; display: inline-block; margin-right: 10px; animation: blink 1s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <div class="logo">5GC_CONTROL</div>
+            <p style="font-size: 0.7em; color: #444; letter-spacing: 3px;">RELEASE-19_SA_INGRESS</p>
+        </div>
+        <div style="text-align: right;">
+            <span class="pulse-dot"></span> <span style="color: var(--accent); font-weight: 800;">PLMN 999-70 ONLINE</span>
+        </div>
+    </div>
+
+    <div class="control-grid">
+        <div class="core-monitor">
+            <div style="font-family: 'Orbitron'; letter-spacing: 10px; color: var(--primary);">ACTIVE_SUBSCRIBERS</div>
+            <div class="signal-wave"></div>
+
+            <div class="subscriber-list" id="subList">
+                <div class="sub-row">
+                    <span>IMSI: 999700000000001</span>
+                    <span>MSISDN: MUSTANG_CORE</span>
+                    <span style="color: var(--accent);">AUTHORIZED</span>
+                </div>
+                <div class="sub-row">
+                    <span>IMSI: 999700000000002</span>
+                    <span>MSISDN: PIXEL_10_PRO</span>
+                    <span style="color: var(--accent);">AUTHORIZED</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="vitals-panel">
+            <div class="vital-card">
+                <div class="label">Mesh Throughput</div>
+                <div class="value">48.2 TB/s</div>
+            </div>
+            <div class="vital-card">
+                <div class="label">SDR Stability</div>
+                <div class="value" style="color: var(--primary);">99.9%</div>
+            </div>
+            <div class="vital-card">
+                <div class="label">Data Policy</div>
+                <div class="value">UNLIMITED</div>
+            </div>
+
+            <div style="flex:1"></div>
+            <div class="label" style="text-align: center;">MAESTAS MNO | PROXMOX HARDENED.</div>
+        </div>
+    </div>
+
+    <script>
+        // --- Built by Anthony Christopher | Est 12.19.1987 ---
+        const list = document.getElementById('subList');
+        setInterval(() => {
+            const imsi = "99970" + Math.floor(Math.random() * 10000000000).toString().padStart(10, '0');
+            const row = document.createElement('div');
+            row.className = 'sub-row';
+            row.innerHTML = `<span>IMSI: ${imsi}</span><span>MSISDN: GHOST_NODE</span><span style="color:var(--accent);">AUTHORIZED</span>`;
+            list.appendChild(row);
+            if(list.children.length > 15) list.removeChild(list.firstChild);
+            list.scrollTop = list.scrollHeight;
+        }, 3000);
+    </script>
+</body>
+</html>
