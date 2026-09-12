@@ -6,8 +6,20 @@
       "destination": "/api/index.py"
     },
     {
-      "source": "/((?!api/).*)",
-      "destination": "/index.html"
+      "source": "/dashboard",
+      "destination": "/obsidian_city_dashboard.html"
+    },
+    {
+      "source": "/marketplace",
+      "destination": "/obsidian_city_landing.html"
+    },
+    {
+      "source": "/domains",
+      "destination": "/obsidian_domains.html"
+    },
+    {
+      "source": "/checkout",
+      "destination": "/obsidian_unified_checkout.html"
     }
   ]
 }
