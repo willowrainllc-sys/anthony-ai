@@ -23,7 +23,7 @@
 
 <div class="auth-card">
     <div class="mb-4">
-        <a href="/index.html" class="text-xs font-bold text-blue-600 hover:underline">← Return to Storefront</a>
+        <a href="index.html" class="text-xs font-bold text-blue-600 hover:underline">← Return to Storefront</a>
     </div>
 
     <div class="text-center mb-8">
@@ -70,16 +70,20 @@
             });
             const data = await resp.json();
             if (data.success) {
-                localStorage.setItem('obsidian_session', data.session_id);
-                localStorage.setItem('obsidian_email', data.email);
+                localStorage.setItem('obsidian_session', JSON.stringify({
+                    session_id: data.session_id,
+                    email: data.email
+                }));
             }
         } catch (err) {
-            localStorage.setItem('obsidian_session', 'sess_reg_' + Date.now());
-            localStorage.setItem('obsidian_email', email);
+            localStorage.setItem('obsidian_session', JSON.stringify({
+                session_id: 'sess_reg_' + Date.now(),
+                email: email
+            }));
         }
 
         alert("✓ Account created successfully!");
-        window.location.href = '/dashboard';
+        window.location.href = 'obsidian_city_dashboard.html';
     };
 </script>
     <script src="assets/obsidian_aura_engine.js"></script>

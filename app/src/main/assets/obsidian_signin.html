@@ -59,7 +59,7 @@
     <form id="emailForm">
         <div class="input-group">
             <label>Email Address</label>
-            <input type="email" id="userEmail" aria-label="Email Address" placeholder="you@example.com" required>
+            <input type="email" id="emailInput" aria-label="Email Address" placeholder="you@example.com" required>
         </div>
         <button type="submit" class="btn-primary mt-2">Send Verification Code</button>
     </form>
@@ -87,15 +87,15 @@
     let generatedOtp = '123456';
 
     function handleSocialAuth(provider) {
-        // In production, this would redirect to Google/GitHub OAuth URLs
-        const mockEmail = `${provider.toLowerCase()}_test@example.com`;
-        window.location.href = `/auth/callback?provider=${provider}&email=${encodeURIComponent(mockEmail)}`;
+        // Redirect to callback page using relative link to prevent 404
+        const mockEmail = `${provider.toLowerCase()}_user@obsidian.city`;
+        window.location.href = `obsidian_auth_callback.html?provider=${provider}&email=${encodeURIComponent(mockEmail)}`;
     }
 
     // Step 1: Send OTP Code
     document.getElementById('emailForm').onsubmit = (e) => {
         e.preventDefault();
-        pendingEmail = document.getElementById('userEmail').value.trim();
+        pendingEmail = document.getElementById('emailInput').value.trim();
         if (!pendingEmail) return;
 
         generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
@@ -131,16 +131,21 @@
             });
             const data = await resp.json();
             if (data.success) {
-                localStorage.setItem('obsidian_session', data.session_id);
-                localStorage.setItem('obsidian_email', data.email);
+                localStorage.setItem('obsidian_session', JSON.stringify({
+                    session_id: data.session_id,
+                    email: data.email
+                }));
             }
         } catch (err) {
-            localStorage.setItem('obsidian_session', 'sess_verified_' + Date.now());
-            localStorage.setItem('obsidian_email', pendingEmail);
+            // Fallback for offline/local environment
+            localStorage.setItem('obsidian_session', JSON.stringify({
+                session_id: 'sess_local_' + Date.now(),
+                email: pendingEmail
+            }));
         }
 
         alert("✓ Authentication successful! Redirecting to your dashboard.");
-        window.location.href = '/dashboard';
+        window.location.href = 'obsidian_city_dashboard.html';
     };
 </script>
     <script src="assets/obsidian_aura_engine.js"></script>
