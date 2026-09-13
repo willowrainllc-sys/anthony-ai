@@ -9,14 +9,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #f8fafc; color: #0f172a; font-family: 'Inter', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-        .checkout-box { background: #ffffff; border: 1px solid #e2e8f0; padding: 40px; border-radius: 24px; width: 100%; max-width: 480px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+        .checkout-box { background: #ffffff; border: 1px solid #e2e8f0; padding: 40px; border-radius: 24px; width: 100%; max-width: 500px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
         .input-group { margin-bottom: 18px; }
-        label { display: block; font-size: 12px; color: #475569; margin-bottom: 6px; font-weight: 600; }
-        input { width: 100%; background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px 16px; border-radius: 10px; color: #0f172a; outline: none; transition: 0.2s; font-size: 14px; }
+        label { display: block; font-size: 11px; color: #475569; margin-bottom: 6px; font-weight: 700; text-transform: uppercase; }
+        input, select { width: 100%; background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px 16px; border-radius: 12px; color: #0f172a; outline: none; transition: 0.2s; font-size: 14px; }
         input:focus { border-color: #2563eb; background: #ffffff; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
-        .summary-card { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 18px; border-radius: 14px; margin-bottom: 24px; }
+        .summary-card { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 20px; border-radius: 18px; margin-bottom: 24px; }
         .btn-pay { width: 100%; background: #2563eb; color: #fff; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 15px; transition: 0.2s; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(37,99,235,0.3); }
         .btn-pay:hover { background: #1d4ed8; }
+        .line-item { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 8px; font-weight: 600; color: #64748b; }
+        .total-item { display: flex; justify-content: space-between; font-size: 16px; font-weight: 900; color: #0f172a; margin-top: 12px; padding-top: 12px; border-top: 1px dashed #cbd5e1; }
     </style>
     <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
     <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
@@ -27,14 +29,25 @@
     <div class="mb-4 text-left">
         <a href="index.html" class="text-xs font-bold text-blue-600 hover:underline">← Back</a>
     </div>
-    <div class="flex justify-between items-center mb-6 text-left">
+
+    <div class="flex justify-between items-center mb-8 text-left">
         <div>
-            <h1 class="text-xl font-black text-slate-900 tracking-tight">Obsidian City</h1>
-            <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">Express Guest Checkout</p>
+            <h1 class="text-xl font-black text-slate-900 tracking-tight">Checkout</h1>
+            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest" id="checkoutType">Express Guest</p>
         </div>
         <div class="text-right">
-            <span class="text-lg font-black text-slate-900" id="servicePrice">$0.00</span>
-            <p class="text-[11px] text-slate-400 font-bold uppercase" id="serviceName">Digital Asset</p>
+            <div class="bg-blue-50 text-blue-600 text-[10px] font-black px-3 py-1 rounded-full uppercase">PQC Secured</div>
+        </div>
+    </div>
+
+    <!-- 🔱 Order Summary Breakdown -->
+    <div class="summary-card" id="summaryCard">
+        <div id="summaryItems">
+            <!-- Items injected by JS -->
+        </div>
+        <div class="total-item">
+            <span>Total Due</span>
+            <span id="finalTotal">$0.00</span>
         </div>
     </div>
 
@@ -44,22 +57,10 @@
             <input type="text" id="custName" placeholder="Jane Doe" required>
         </div>
         <div class="input-group text-left">
-            <label>Delivery Email (For Domain Info)</label>
+            <label>Delivery Email</label>
             <input type="email" id="custEmail" placeholder="jane@example.com" required>
         </div>
-        <div class="input-group text-left">
-            <label>Payment Currency</label>
-            <select id="currencySelect" class="w-full bg-[#f8fafc] border border-[#cbd5e1] p-3 rounded-xl text-sm font-bold text-slate-700 outline-none">
-                <option value="USD">USD - US Dollar</option>
-                <option value="EUR">EUR - Euro</option>
-                <option value="GBP">GBP - British Pound</option>
-                <option value="JPY">JPY - Japanese Yen</option>
-                <option value="AUD">AUD - Australian Dollar</option>
-                <option value="CAD">CAD - Canadian Dollar</option>
-            </select>
-        </div>
 
-        <!-- 🔱 Payment Fields (Hidden for Free Plans) -->
         <div id="paymentFields">
             <div class="input-group text-left">
                 <label>Card Information</label>
@@ -77,30 +78,47 @@
             </div>
         </div>
 
-        <button type="submit" id="submitBtn" class="btn-pay mt-2">Authorize & Purchase →</button>
+        <button type="submit" id="submitBtn" class="btn-pay mt-2">Authorize & Settle →</button>
     </form>
 
-    <div class="mt-6 text-center text-xs text-slate-400 font-medium">
+    <div class="mt-6 text-center text-[10px] text-slate-400 font-medium">
         <p id="securityNote">🔒 256-Bit SSL Secured Transaction • No Login Required</p>
     </div>
 </div>
 
 <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const type = urlParams.get('type') || 'domain_registration';
-    const priceStr = urlParams.get('price') || '14.70';
-    const price = parseFloat(priceStr);
+    const type = urlParams.get('type') or 'domain_registration';
+    const basePrice = parseFloat(urlParams.get('price') or '14.70');
+    const isBundle = urlParams.get('bundle') === 'true';
 
-    document.getElementById('serviceName').innerText = type.toUpperCase().replace('DOMAIN_', '').replace('_', ' ');
-    document.getElementById('servicePrice').innerText = '$' + price.toFixed(2);
+    let total = basePrice;
+    const summaryItems = document.getElementById('summaryItems');
+    let summaryHtml = '';
 
-    // 🔱 Logic for Free vs Paid UI
+    // 🔱 Bundle Breakdown Logic
+    if (type === 'llc_formation') {
+        document.getElementById('checkoutType').innerText = 'Empire Launch Bundle';
+        summaryHtml += `<div class="line-item"><span>LLC Formation Fee</span><span>$39.00</span></div>`;
+        summaryHtml += `<div class="line-item"><span>Registered Agent (1yr)</span><span>$125.00</span></div>`;
+        summaryHtml += `<div class="line-item"><span>State Filing Fee (Est)</span><span>$50.00</span></div>`;
+        summaryHtml += `<div class="line-item text-emerald-600"><span>Bundle: Free Domain</span><span>-$14.70</span></div>`;
+        total = 39.00 + 125.00 + 50.00;
+    } else {
+        const itemName = type.toUpperCase().replace('DOMAIN_', '').replace('_', ' ');
+        summaryHtml += `<div class="line-item"><span>${itemName}</span><span>$${basePrice.toFixed(2)}</span></div>`;
+    }
+
+    summaryItems.innerHTML = summaryHtml;
+    document.getElementById('finalTotal').innerText = '$' + total.toFixed(2);
+
+    // UI Toggles for Free Plan
     const paymentDiv = document.getElementById('paymentFields');
     const submitBtn = document.getElementById('submitBtn');
     const securityNote = document.getElementById('securityNote');
     const cardInputs = [document.getElementById('cardNum'), document.getElementById('cardExp'), document.getElementById('cardCvc')];
 
-    if (price === 0) {
+    if (total === 0) {
         paymentDiv.style.display = 'none';
         submitBtn.innerText = 'Claim Free Credits →';
         securityNote.innerText = '✓ Direct Provisioning • No Payment Required';
@@ -111,29 +129,30 @@
 
     document.getElementById('checkoutForm').onsubmit = async (e) => {
         e.preventDefault();
-        submitBtn.innerText = price === 0 ? "Provisioning..." : "Securing Domain...";
+        submitBtn.innerText = "Authorizing...";
         submitBtn.disabled = true;
 
+        const llcData = localStorage.getItem('pending_llc_data');
         const data = {
             name: document.getElementById('custName').value,
             email: document.getElementById('custEmail').value,
             type: type,
-            amount: price,
+            amount: total,
+            llc_details: llcData ? JSON.parse(llcData) : null,
             session_id: localStorage.getItem('obsidian_session')
         };
 
         try {
-            // Send to ARES Backend for Stealth Provisioning
             await fetch('/api/settle/authorize', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(data)
             });
 
-            // Redirect to Success with the details for provisioning
-            window.location.href = `success.html?type=${encodeURIComponent(type)}&price=${price}`;
+            if(llcData) localStorage.removeItem('pending_llc_data');
+            window.location.href = `success.html?type=${encodeURIComponent(type)}&price=${total}`;
         } catch (err) {
-            window.location.href = `success.html?type=${encodeURIComponent(type)}&price=${price}`;
+            window.location.href = `success.html?type=${encodeURIComponent(type)}&price=${total}`;
         }
     };
 </script>

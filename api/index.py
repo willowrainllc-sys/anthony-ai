@@ -13,6 +13,7 @@ from http.server import BaseHTTPRequestHandler
 NAMESILO_KEY = os.environ.get("NAMESILO_API_KEY", "cert_O6RAXSvTTLkhX1TlQcQt9wpA")
 RC_API_KEY = os.environ.get("RESELLERCLUB_KEY", "mock_key")
 RC_USER_ID = os.environ.get("RESELLERCLUB_ID", "123456")
+PEXELS_KEY = os.environ.get("PEXELS_API_KEY", "qWDIVVoR27MYlXxWil4roFhwgBTVovgX5GnXqpEtbzHIxj2rNAu1APFd")
 
 # 🔱 PROFIT MODEL
 PRICING_MATRIX = {
@@ -24,11 +25,6 @@ PRICING_MATRIX = {
     ".net":   {"cost": 12.00, "retail": 16.99},
     ".org":   {"cost": 9.50,  "retail": 12.99}
 }
-
-# 🔱 IN-MEMORY FAILOVER (Persistent storage via Supabase is in colony_backend)
-# 🔱 API KEYS
-NAMESILO_KEY = os.environ.get("NAMESILO_API_KEY", "cert_O6RAXSvTTLkhX1TlQcQt9wpA")
-PEXELS_KEY = os.environ.get("PEXELS_API_KEY", "qWDIVVoR27MYlXxWil4roFhwgBTVovgX5GnXqpEtbzHIxj2rNAu1APFd")
 
 SESSIONS = {}
 
@@ -54,7 +50,6 @@ class handler(BaseHTTPRequestHandler):
             available_list = []
             source = "Obsidian Local Vault"
 
-            # 🔱 1. WHOLESALE HANDSHAKE
             try:
                 domains_to_check = [f"{q}{tld}" for tld in PRICING_MATRIX.keys()]
                 ns_url = f"https://www.namesilo.com/api/checkRegisterAvailability?version=1&type=xml&key={NAMESILO_KEY}&domains={','.join(domains_to_check)}"
@@ -66,7 +61,6 @@ class handler(BaseHTTPRequestHandler):
                         source = "NameSilo Wholesale"
             except Exception: pass
 
-            # 🔱 2. BUILD RESULTS WITH PROFIT SPLIT
             for tld, prices in PRICING_MATRIX.items():
                 full_domain = f"{q}{tld}"
                 is_avail = (full_domain in available_list) if available_list else True
@@ -82,7 +76,6 @@ class handler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(payload).encode('utf-8'))
 
         elif "/api/aura/video" in path:
-            # 🔱 FETCH TRENDING 4K TECH VIDEO FROM PEXELS
             query = query_params.get("query", ["abstract tech blue"])[0]
             url = f"https://api.pexels.com/videos/search?query={query}&per_page=1&size=large"
             headers = {"Authorization": PEXELS_KEY}
@@ -90,16 +83,13 @@ class handler(BaseHTTPRequestHandler):
                 with httpx.Client(timeout=5.0) as client:
                     resp = client.get(url, headers=headers)
                     data = resp.json()
-                    # Get the link to the largest HD/4K file
                     video_url = data['videos'][0]['video_files'][0]['link']
                     payload = {"success": True, "url": video_url}
             except Exception:
-                # Fallback to St. Charles Aerial
                 payload = {"success": True, "url": "https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175"}
             self.wfile.write(json.dumps(payload).encode('utf-8'))
 
         elif "/api/auth/session" in path:
-            # 🔱 DATA SPLIT: Check session and user identity
             sid = query_params.get("sid", [None])[0]
             session = SESSIONS.get(sid)
             if session:
@@ -130,33 +120,40 @@ class handler(BaseHTTPRequestHandler):
         if "/api/auth/signin" in path:
             email = payload.get("email", "user@example.com")
             sid = f"sess_{int(time.time())}_{random.randint(1000,9999)}"
-            # 🔱 AUTH SEGREGATION: Saving to memory for speed, synced via db_bridge in production
             SESSIONS[sid] = {"email": email, "last_active": time.time(), "ip": self.client_address[0]}
             response = {"success": True, "session_id": sid, "email": email}
 
         elif "/api/settle/authorize" in path:
-            # 🔱 RECORD TRANSACTION DATA
+            # 🔱 TRANSACTION HANDSHAKE: Domain + LLC + Payout
             email = payload.get("email")
+            item_type = payload.get("type")
+            amount = payload.get("amount")
+            llc_details = payload.get("llc_details")
             txid = f"TX-{int(time.time())}"
-            # Logic: If Director, skip cost; if Customer, track margin
+
+            # Simulated Execution Pipeline
+            print(f"[REVENUE] {email} settled ${amount} for {item_type}")
+            if llc_details:
+                print(f"[LLC QUEUE] Filing {llc_details['business_name']} in {llc_details['state']}")
+
             response = {
                 "success": True,
                 "status": "AUTHORIZED",
                 "txid": txid,
-                "provisioning": "QUEUED"
+                "provisioning": "QUEUED",
+                "llc_status": "FILLING_PENDING" if llc_details else "N/A"
             }
+        elif "/api/developer/keygen" in path:
+            key = f"OBS-KEY-{random.randint(100000, 999999)}-{random.randint(100000, 999999)}"
+            response = {"success": True, "api_key": key}
         elif "/api/data/report" in path:
-            # 🔱 BANDWIDTH FEEDER LOGIC
             email = payload.get("email", "anonymous")
             bytes_shared = payload.get("bytes", 0)
             device_id = payload.get("device_id", "unknown")
-
-            # Record bandwidth in empire log
             print(f"[BW FEED] {email} on {device_id} shared {bytes_shared} bytes.")
-
             response = {
                 "success": True,
-                "earned_credits": round(bytes_shared / (1024*1024*1024) * 0.10, 4), # $0.10 per GB
+                "earned_credits": round(bytes_shared / (1024*1024*1024) * 0.10, 4),
                 "status": "FEEDING_ACTIVE"
             }
         else:
