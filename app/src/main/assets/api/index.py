@@ -75,6 +75,30 @@ class handler(BaseHTTPRequestHandler):
             payload = {"query": q, "results": results, "status": "INGRESS_READY", "timestamp": now}
             self.wfile.write(json.dumps(payload).encode('utf-8'))
 
+        elif "/api/llc/state-info" in path:
+            # 🔱 PROGRAMMATIC SEO: Fetch state-specific filing data
+            state_code = query_params.get("state", ["AR"])[0].upper()
+
+            # Use data from the generated states_data.json
+            # (In a real Vercel environment, we'd load this from a file or DB)
+            # Embedding a subset here for the immediate logic
+            states_db = {
+                "AR": {"name": "Arkansas", "fee": 45, "time": "1-2 days"},
+                "WY": {"name": "Wyoming", "fee": 100, "time": "Instant"},
+                "DE": {"name": "Delaware", "fee": 90, "time": "2-3 days"},
+                "TX": {"name": "Texas", "fee": 300, "time": "2-3 days"},
+                "FL": {"name": "Florida", "fee": 125, "time": "2-3 days"}
+            }
+
+            state_data = states_db.get(state_code, states_db["AR"])
+            payload = {
+                "success": True,
+                "state": state_data,
+                "obsidian_fee": 39.00,
+                "total": state_data["fee"] + 39.00 + 125.00 # State + Service + Agent
+            }
+            self.wfile.write(json.dumps(payload).encode('utf-8'))
+
         elif "/api/aura/video" in path:
             query = query_params.get("query", ["abstract tech blue"])[0]
             url = f"https://api.pexels.com/videos/search?query={query}&per_page=1&size=large"

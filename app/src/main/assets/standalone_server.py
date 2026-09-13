@@ -59,6 +59,13 @@ class SovereignHandler(http.server.SimpleHTTPRequestHandler):
         }
 
         clean_path = self.path.split('?')[0].rstrip('/')
+
+        # 🔱 pSEO Dynamic Route Handling (Mocking /start-llc/)
+        if clean_path.startswith("/start-llc/"):
+            state_code = clean_path.split("/")[-1].upper()
+            self.path = f"/obsidian_llc_state.html?state={state_code}"
+            return super().do_GET()
+
         if clean_path in routing:
             self.path = "/" + routing[clean_path]
         elif clean_path == "" or clean_path == "/":

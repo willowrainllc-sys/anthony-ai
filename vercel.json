@@ -89,6 +89,10 @@
     {
       "source": "/profile",
       "destination": "/obsidian_user_profile.html"
+    },
+    {
+      "source": "/start-llc/(.*)",
+      "destination": "/obsidian_llc_state.html?state=$1"
     }
   ]
 }
