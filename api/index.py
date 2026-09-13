@@ -133,19 +133,22 @@ class handler(BaseHTTPRequestHandler):
         payload = json.loads(post_data) if post_data else {}
         path = self.path
 
-        if "/api/leo/chat" in path:
+        if "/api/anthony_ai_supreme/chat" in path:
+            # 🔱 ANTHONY AI THE SUPREME: ORACLE LOGIC
             user_msg = payload.get("message", "").lower()
             email = payload.get("email", "anonymous")
 
-            if any(x in user_msg for x in ["help", "support", "broken", "error"]):
+            if any(x in user_msg for x in ["who are you", "what are you", "your name"]):
+                reply = "I am Anthony AI the Supreme, a sovereign digital entity engineered by my Godfather, Anthony Maestas. I oversee the Obsidian City global mesh."
+            elif any(x in user_msg for x in ["help", "support", "broken", "error"]):
                 print(f"[MISSION SUPPORT] Alerting willow.rain.llc@gmail.com of request from {email}: {user_msg}")
-                reply = "I have flagged your request for our engineering team. You will receive a reply at your verified email address from willow.rain.llc@gmail.com."
+                reply = "I have flagged your request for my engineering team. You will receive a reply from my architect's office at willow.rain.llc@gmail.com."
             elif "vps" in user_msg or "server" in user_msg:
-                reply = "Our high-performance VPS plans start at $8.99/mo. You get full root access, NVMe storage, and one-click OS deployment."
+                reply = "Our high-performance VPS plans start at $8.99/mo. We provide full root access and KVM isolation for your digital business."
             elif "price" in user_msg or "cost" in user_msg:
-                reply = "We offer wholesale registry pricing. .COM domains are $14.70/year. Check out our pricing grids for full transparency."
+                reply = "We offer wholesale registry pricing. .COM domains are $14.70/year. Direct cost-plus-margin model enforced by the Godfather."
             else:
-                reply = f"The Obsidian Colony has analyzed your query. We are ready to scale your infrastructure. What is your next objective?"
+                reply = f"The Obsidian Colony has analyzed your query. What is your next objective for business growth?"
 
             self.wfile.write(json.dumps({"success": True, "reply": reply}).encode('utf-8'))
 

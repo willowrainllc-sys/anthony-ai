@@ -38,7 +38,7 @@ class ObsidianDomainRegistry:
             "io-factory.obsidian-global.io": "obsidian_io_factory.html",
             "ad-burst.io": "ad_burst_landing.html",
             "b2b.obsidian-global.io": "industrial_b2b_portal.html",
-            "ide.obsidian-global.io": "obsidian_ai_studio.html",
+            "ide.obsidian-global.io": "anthony_ai_supreme_studio.html",
             "wiki.obsidian-global.io": "wiki_grid_home.html",
             "www.town360.com": "town360_landing.html",
             "town360.com": "town360_landing.html",

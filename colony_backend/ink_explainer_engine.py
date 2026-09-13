@@ -68,7 +68,7 @@ VIRAL_EXPLAINER_CONCEPTS = [
             "Geological rock stratum layers showing microscopic rare earth element band 4k",
             "Microscopic synthetic plastics preserved in ancient sediment 2d vector",
             "Futuristic satellite mapping Earth geological thermal maximum 4k",
-            "Deep earth excavation site paleocene rock layers 4k",
+            "Deep earth excavation site paanthony_ai_supremecene rock layers 4k",
             "Stylized 2D graphic of industrial city eroding to green forest landscape 4k",
             "Ancient limestone monoliths covered in moss 4k",
             "Massive meteorite impact crater from space perspective 8k",

@@ -14,7 +14,7 @@ def generate_sitemap():
     # 1. Base Pages
     pages = [
         "index.html", "obsidian_domains.html", "obsidian_llc_formation.html",
-        "obsidian_vps_hosting.html", "obsidian_leo_builder.html", "developer.html"
+        "obsidian_vps_hosting.html", "obsidian_anthony_ai_supreme_builder.html", "developer.html"
     ]
 
     # 2. Programmatic State Pages

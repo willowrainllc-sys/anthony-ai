@@ -23,7 +23,7 @@ def seed():
         "description": "Willow Rain Company LLC has successfully activated the Master Cloud Database. All systems are OBSIDIAN.",
         "video_url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         "thumbnail_url": "https://images.unsplash.com/photo-1545143333-14387679366a?q=80&w=600",
-        "creator": "Obsidian AI",
+        "creator": "Anthony AI the Supreme",
         "category": "For you",
         "views": "1.2M",
         "posted": "Just Now"

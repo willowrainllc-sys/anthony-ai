@@ -73,7 +73,7 @@ class CentralBrain:
     3-Layer Architecture:
     - Layer 1: Human Output (Warm, simple, conversational for users)
     - Layer 2: Machine Control (Strict JSON schemas for internal agents)
-    - Layer 3: Task-Based Model Routing (Obsidian AI local fast/deep/vision + Cloud fallback)
+    - Layer 3: Task-Based Model Routing (Anthony AI the Supreme local fast/deep/vision + Cloud fallback)
     """
     def __init__(self):
         self.lock = asyncio.Lock()
@@ -159,7 +159,7 @@ class CentralBrain:
         headers = {
             "Authorization": f"Bearer {OPENROUTER_KEY}",
             "Content-Type": "application/json",
-            "X-Title": "Obsidian AI Obsidian"
+            "X-Title": "Anthony AI the Supreme Obsidian"
         }
         payload = {
             "model": self.cloud_elite,

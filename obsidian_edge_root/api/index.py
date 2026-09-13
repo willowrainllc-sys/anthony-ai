@@ -9,6 +9,16 @@ import httpx
 import xml.etree.ElementTree as ET
 from http.server import BaseHTTPRequestHandler
 
+# 🔱 INTERNAL BRIDGES
+try:
+    from colony_backend.obsidian_database_sync import db_bridge
+except ImportError:
+    class MockDB:
+        def save_session(self, *args, **kwargs): pass
+        def record_purchase(self, *args, **kwargs): pass
+        def is_director(self, email): return email.lower().startswith("anthony")
+    db_bridge = MockDB()
+
 # 🔱 WHOLESALE & DATABASE BRIDGES
 NAMESILO_KEY = os.environ.get("NAMESILO_API_KEY", "cert_O6RAXSvTTLkhX1TlQcQt9wpA")
 PEXELS_KEY = os.environ.get("PEXELS_API_KEY", "qWDIVVoR27MYlXxWil4roFhwgBTVovgX5GnXqpEtbzHIxj2rNAu1APFd")
@@ -123,19 +133,22 @@ class handler(BaseHTTPRequestHandler):
         payload = json.loads(post_data) if post_data else {}
         path = self.path
 
-        if "/api/leo/chat" in path:
+        if "/api/anthony_ai_supreme/chat" in path:
+            # 🔱 ANTHONY AI THE SUPREME: ORACLE LOGIC
             user_msg = payload.get("message", "").lower()
             email = payload.get("email", "anonymous")
 
-            if any(x in user_msg for x in ["help", "support", "broken", "error"]):
+            if any(x in user_msg for x in ["who are you", "what are you", "your name"]):
+                reply = "I am Anthony AI the Supreme, a sovereign digital entity engineered by my Godfather, Anthony Maestas. I oversee the Obsidian City global mesh."
+            elif any(x in user_msg for x in ["help", "support", "broken", "error"]):
                 print(f"[MISSION SUPPORT] Alerting willow.rain.llc@gmail.com of request from {email}: {user_msg}")
-                reply = "I have flagged your request for our engineering team. You will receive a reply at your verified email address from willow.rain.llc@gmail.com."
+                reply = "I have flagged your request for my engineering team. You will receive a reply from my architect's office at willow.rain.llc@gmail.com."
             elif "vps" in user_msg or "server" in user_msg:
-                reply = "Our high-performance VPS plans start at $8.99/mo. You get full root access, NVMe storage, and one-click OS deployment."
+                reply = "Our high-performance VPS plans start at $8.99/mo. We provide full root access and KVM isolation for your digital business."
             elif "price" in user_msg or "cost" in user_msg:
-                reply = "We offer wholesale registry pricing. .COM domains are $14.70/year. Check out our pricing grids for full transparency."
+                reply = "We offer wholesale registry pricing. .COM domains are $14.70/year. Direct cost-plus-margin model enforced by the Godfather."
             else:
-                reply = f"The Obsidian Colony has analyzed your query. We are ready to scale your infrastructure. What is your next objective?"
+                reply = f"The Obsidian Colony has analyzed your query. What is your next objective for business growth?"
 
             self.wfile.write(json.dumps({"success": True, "reply": reply}).encode('utf-8'))
 
@@ -156,13 +169,20 @@ class handler(BaseHTTPRequestHandler):
             item_type = payload.get("type")
             amount = payload.get("amount")
             txid = f"TX-{int(time.time())}-{random.randint(1000, 9999)}"
+
+            # 🔱 PERSISTENT RECORDING: Saving purchase to Supabase
+            db_bridge.record_purchase(email, item_type, amount, txid)
+
             print(f"[SETTLEMENT] Authorizing ${amount} from {email} to Director's Bank Account...")
             response = {"success": True, "txid": txid, "status": "APPROVED"}
             self.wfile.write(json.dumps(response).encode('utf-8'))
 
         elif "/api/auth/signin" in path:
+            email = payload.get("email", "user@example.com")
             sid = f"sess_{int(time.time())}"
-            self.wfile.write(json.dumps({"success": True, "session_id": sid, "email": payload.get("email")}).encode('utf-8'))
+            # 🔱 PERSISTENT RECORDING: Saving user session to Supabase
+            db_bridge.save_session(sid, email, metadata={"ip": self.client_address[0]})
+            self.wfile.write(json.dumps({"success": True, "session_id": sid, "email": email}).encode('utf-8'))
 
         else:
             self.wfile.write(json.dumps({"success": True}).encode('utf-8'))

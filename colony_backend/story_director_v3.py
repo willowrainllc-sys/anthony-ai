@@ -55,7 +55,7 @@ MASSIVE_RANDOM_TOPIC_POOL = [
     "The 3:00 AM museum vault heist that bypassed thermal laser grids in under 180 seconds.",
     "The unsealed 1974 interrogation tapes where the suspect's heart rate dropped under pressure.",
     "The 1968 abyssal acoustic pulse recorded 12,000 feet beneath the Atlantic trench.",
-    "The missing 1641 treasure galleon preserved impeccably on the ocean floor.",
+    "The missing 1641 treasure galanthony_ai_supremen preserved impeccably on the ocean floor.",
 
     # 4. PSYCHOLOGY & HUMAN BEHAVIOR
     "The 2-millisecond micro-expression twitches that reveal deceit before words are spoken.",

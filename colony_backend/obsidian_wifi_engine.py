@@ -18,7 +18,7 @@ class ObsidianWifiEngine:
     """
     def __init__(self):
         self.ssid = "Obsidian_Sovereign"
-        self.password = "lilyanthonyleowillow"
+        self.password = "lilyanthonyanthony_ai_supremewillow"
         self.is_active = False
 
     async def ignite_hotspot(self):

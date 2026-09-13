@@ -4,210 +4,312 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-OBSIDIAN_GLOBAL_ADSENSE" crossorigin="anonymous"></script>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Obsidian Leo™ AI | Prompt to App Builder</title>
-    <meta name="description" content="Build your digital business with Obsidian Leo™ AI. Prompt-to-App technology that generates full-stack websites and backends in seconds."/>
+    <title>Anthony AI the Supreme AI | Elite Design Workspace</title>
+    <meta name="description" content="Build world-class apps and websites with Anthony AI the Supreme AI. The industrial-grade design agent for sovereign founders."/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #030305; color: #fff; font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
-        .nav-header { background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .pricing-card { background: rgba(20, 20, 25, 0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 35px; backdrop-filter: blur(20px); transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
-        .pricing-card:hover { border-color: #3b82f6; transform: translateY(-5px); box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1); }
-        .mono { font-family: 'Space Mono', monospace; }
+        :root {
+            --bg-deep: #030305;
+            --glass-bg: rgba(18, 20, 24, 0.75);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --accent-blue: #3b82f6;
+            --accent-emerald: #10b981;
+        }
 
-        /* 🔱 Leo Builder Workspace Styles */
-        #builderWorkspace { display: none; position: fixed; inset: 0; background: #030305; z-index: 2000; flex-direction: column; }
-        .workspace-header { padding: 15px 30px; border-bottom: 1px solid #1e293b; display: flex; justify-content: space-between; align-items: center; background: #000; }
-        .editor-container { display: flex; flex: 1; overflow: hidden; }
-        .sidebar { width: 350px; background: #0a0a0f; border-right: 1px solid #1e293b; padding: 25px; display: flex; flex-direction: column; gap: 20px; }
-        .preview-window { flex: 1; background: #111; position: relative; display: flex; flex-direction: column; }
-        .preview-frame { flex: 1; border: none; background: white; border-radius: 12px 12px 0 0; margin: 20px; margin-bottom: 0; box-shadow: 0 30px 60px rgba(0,0,0,0.5); overflow: hidden; }
-        .terminal { height: 200px; background: #000; border-top: 1px solid #1e293b; padding: 15px; font-family: 'Space Mono', monospace; font-size: 11px; color: #10b981; overflow-y: auto; }
+        body {
+            background-color: var(--bg-deep);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+        }
 
-        .prompt-input { background: #111; border: 1px solid #334155; border-radius: 12px; padding: 15px; color: #fff; outline: none; font-size: 13px; resize: none; transition: 0.2s; }
-        .prompt-input:focus { border-color: #3b82f6; }
+        /* 🔱 Immersive Design System */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-subtle);
+        }
 
-        .btn-leo { background: #2563eb; color: #fff; padding: 12px; border-radius: 10px; font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; transition: 0.2s; text-align: center; cursor: pointer; }
-        .btn-leo:hover { background: #1d4ed8; transform: scale(1.02); }
+        .ambient-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
 
-        /* Pulse Animation for "Building" */
-        @keyframes pulse-emerald { 0% { color: #10b981; } 50% { color: #34d399; } 100% { color: #10b981; } }
-        .building-text { animation: pulse-emerald 2s infinite; }
+        /* 🔱 Split-Pane Workspace */
+        #builderWorkspace {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--bg-deep);
+            z-index: 2000;
+            flex-direction: column;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .workspace-header {
+            height: 64px;
+            padding: 0 24px;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.4);
+            z-index: 10;
+        }
+
+        .editor-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .sidebar {
+            width: 360px;
+            background: rgba(8, 8, 12, 0.95);
+            border-right: 1px solid var(--border-subtle);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s;
+            z-index: 20;
+        }
+
+        .sidebar.collapsed {
+            width: 0;
+            padding: 0;
+            transform: translateX(-100%);
+        }
+
+        .canvas-area {
+            flex: 1;
+            background: #0a0a0f;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .preview-canvas {
+            flex: 1;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 🔱 Advanced Input UX */
+        .command-box {
+            position: relative;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 12px;
+            transition: 0.2s;
+        }
+
+        .command-box:focus-within {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        .prompt-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #fff;
+            outline: none;
+            font-size: 14px;
+            resize: none;
+            min-height: 80px;
+            padding: 8px;
+        }
+
+        .btn-send {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            width: 36px;
+            height: 36px;
+            background: var(--accent-blue);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-send:hover { transform: scale(1.05); background: #2563eb; }
+
+        .chip {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-subtle);
+            padding: 6px 12px;
+            border-radius: 100px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .chip:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+        /* 🔱 Status & Micro-animations */
+        .status-node {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+            font-size: 11px;
+        }
+
+        .pulse-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-emerald);
+            box-shadow: 0 0 10px var(--accent-emerald);
+            animation: pulse-ring 2s infinite;
+        }
+
+        @keyframes pulse-ring { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.2); } 100% { opacity: 1; transform: scale(1); } }
+
+        .terminal-stream {
+            font-family: 'Space Mono', monospace;
+            font-size: 10px;
+            color: #10b981;
+            padding: 15px;
+            height: 120px;
+            overflow-y: auto;
+            background: rgba(0,0,0,0.5);
+            border-radius: 12px;
+            margin-top: auto;
+        }
+
+        /* 🔱 Landing Page Styles */
+        .nav-header-landing { background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle); padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; }
+        .hero-title { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 0.9; font-weight: 900; letter-spacing: -0.04em; }
     </style>
-    <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
-    <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
 </head>
 <body>
-    <nav class="nav-header">
+    <!-- 🔱 Landing Navigation -->
+    <nav class="nav-header-landing">
         <div class="flex items-center gap-10">
             <a href="index.html" class="font-black text-2xl tracking-tighter text-white">OBSIDIAN<span class="text-blue-600">.CITY</span></a>
-            <div class="hidden md:flex gap-6 text-sm font-bold text-gray-400">
-                <a href="obsidian_domains.html" class="hover:text-white transition">Domains</a>
-                <a href="obsidian_vps_hosting.html" class="hover:text-white transition">Hosting</a>
-                <a href="obsidian_leo_builder.html" class="text-blue-500 font-bold">Leo AI</a>
-                <a href="developer.html" class="hover:text-white transition">API</a>
-            </div>
         </div>
         <div class="flex items-center gap-4">
-            <a href="obsidian_unified_checkout.html" class="text-sm font-bold text-gray-400 hover:text-white transition">🛒 Basket</a>
-            <button onclick="openBuilder()" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl font-bold text-xs transition shadow-lg">Start Building</button>
+            <a href="obsidian_city_dashboard.html" class="text-sm font-bold text-gray-400 hover:text-white transition">Dashboard</a>
+            <button onclick="openBuilder()" class="glass text-white px-6 py-2.5 rounded-full font-bold text-xs transition hover:bg-white/10">Launch Workspace</button>
         </div>
     </nav>
 
-    <!-- 🔱 Hero Section -->
-    <div class="relative py-24 px-12 text-center overflow-hidden">
+    <!-- 🔱 Landing Hero -->
+    <main class="relative pt-24 pb-40 px-12 text-center">
+        <div class="ambient-glow" style="top: -100px; left: 50%; transform: translateX(-50%);"></div>
         <div class="relative z-10">
-            <div class="inline-block bg-blue-500/20 text-blue-400 border border-blue-500/30 text-[10px] font-black uppercase px-4 py-1.5 rounded-full mb-6">🤖 Next-Gen Prompt-to-App Engine</div>
-            <h1 class="text-4xl md:text-7xl font-black mb-6 tracking-tighter">Clone Reality. <br><span class="text-blue-500">Build Your Empire.</span></h1>
-            <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-12 font-medium">Describe any website, business model, or app idea. Obsidian Leo™ AI constructs the full stack, provisions the domain, and deploys to the edge in seconds.</p>
-            <div class="flex flex-wrap justify-center gap-6">
-                <button onclick="openBuilder()" class="bg-blue-600 hover:bg-blue-500 text-white font-black px-12 py-5 rounded-2xl text-sm transition shadow-2xl shadow-blue-600/30">Open AI Workspace →</button>
-                <a href="#plans" class="bg-white/5 border border-white/10 text-white font-black px-12 py-5 rounded-2xl text-sm transition hover:bg-white/10">View Pricing</a>
+            <div class="inline-block glass px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-blue-400 mb-8">
+                🦾 Advanced Design Agent v1.4
             </div>
+            <h1 class="hero-title mb-8">
+                Build what matters.<br>
+                <span class="text-blue-500">Fast as thought.</span>
+            </h1>
+            <p class="text-gray-400 text-lg max-w-xl mx-auto mb-12 font-medium leading-relaxed">
+                Anthony AI the Supreme is an industrial-grade AI agent that cloner-engineers full-stack digital assets from simple natural language commands.
+            </p>
+            <button onclick="openBuilder()" class="bg-white text-black font-black px-12 py-5 rounded-2xl text-sm transition hover:scale-105 shadow-2xl">
+                Enter AI Workspace →
+            </button>
         </div>
-    </div>
+    </main>
 
-    <!-- 🔱 Build Preview / Features -->
-    <div class="max-w-7xl mx-auto px-6 py-20">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="pricing-card">
-                <div class="text-3xl mb-6">⚡</div>
-                <h3 class="text-xl font-black mb-2">Instant Generation</h3>
-                <p class="text-gray-400 text-xs leading-relaxed">No more coding. Leo AI understands your business logic and generates clean, production-ready React/Tailwind code instantly.</p>
-            </div>
-            <div class="pricing-card">
-                <div class="text-3xl mb-6">🧬</div>
-                <h3 class="text-xl font-black mb-2">Clone Technology</h3>
-                <p class="text-gray-400 text-xs leading-relaxed">Show Leo a URL or a screenshot, and he will reverse-engineer the UI/UX components to build your own sovereign version.</p>
-            </div>
-            <div class="pricing-card">
-                <div class="text-3xl mb-6">🌍</div>
-                <h3 class="text-xl font-black mb-2">Edge Deployment</h3>
-                <p class="text-gray-400 text-xs leading-relaxed">Integrated one-click deployment to Obsidian VPS nodes and Vercel Edge. Your site goes global immediately.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 🔱 Pricing Tiers -->
-    <div class="max-w-7xl mx-auto px-6 py-24" id="plans">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-black mb-4">Choose Your Power Level</h2>
-            <p class="text-gray-400 text-sm">Scale from a single idea to a global automated agency.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <!-- Free -->
-            <div class="pricing-card">
-                <div>
-                    <h3 class="text-xl font-black mb-2 text-white">Free</h3>
-                    <div class="text-3xl font-black mb-6">$0 <span class="text-xs text-gray-500">/mo</span></div>
-                    <ul class="space-y-4 text-xs text-gray-400 mb-8 border-t border-white/5 pt-6">
-                        <li>✓ 50 AI Credits / mo</li>
-                        <li>✓ Shared Domain Hosting</li>
-                        <li>✓ Community Templates</li>
-                    </ul>
-                </div>
-                <button onclick="openBuilder()" class="btn-leo bg-gray-800 hover:bg-gray-700">Start Free</button>
-            </div>
-            <!-- Starter -->
-            <div class="pricing-card">
-                <div>
-                    <h3 class="text-xl font-black mb-2 text-blue-400">Starter</h3>
-                    <div class="text-3xl font-black mb-6">$9.99 <span class="text-xs text-gray-500">/mo</span></div>
-                    <ul class="space-y-4 text-xs text-gray-400 mb-8 border-t border-white/5 pt-6">
-                        <li>✓ 150 AI Credits / mo</li>
-                        <li>✓ Custom Domain Link</li>
-                        <li>✓ Premium Support</li>
-                    </ul>
-                </div>
-                <a href="obsidian_unified_checkout.html?type=leo_starter&price=9.99" class="btn-leo">Select Plan</a>
-            </div>
-            <!-- Professional -->
-            <div class="pricing-card border-blue-500 border-2">
-                <div>
-                    <h3 class="text-xl font-black mb-2 text-blue-500">Professional</h3>
-                    <div class="text-3xl font-black mb-6">$24.99 <span class="text-xs text-gray-500">/mo</span></div>
-                    <ul class="space-y-4 text-xs text-gray-400 mb-8 border-t border-white/5 pt-6">
-                        <li>✓ 300 AI Credits / mo</li>
-                        <li>✓ Publish 10 Sites</li>
-                        <li>✓ Advanced SEO Tools</li>
-                    </ul>
-                </div>
-                <a href="obsidian_unified_checkout.html?type=leo_pro&price=24.99" class="btn-leo">Select Plan</a>
-            </div>
-            <!-- Ultimate -->
-            <div class="pricing-card">
-                <div>
-                    <h3 class="text-xl font-black mb-2 text-purple-500">Ultimate</h3>
-                    <div class="text-3xl font-black mb-6">$99.99 <span class="text-xs text-gray-500">/mo</span></div>
-                    <ul class="space-y-4 text-xs text-gray-400 mb-8 border-t border-white/5 pt-6">
-                        <li>✓ 750 AI Credits / mo</li>
-                        <li>✓ Publish 50 Sites</li>
-                        <li>✓ Agency White-label</li>
-                    </ul>
-                </div>
-                <a href="obsidian_unified_checkout.html?type=leo_ultimate&price=99.99" class="btn-leo">Select Plan</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- 🔱 LEO BUILDER WORKSPACE (Hidden by default) -->
+    <!-- 🔱 LEO WORKSPACE (Canva/ElevenLabs Style) -->
     <div id="builderWorkspace">
         <div class="workspace-header">
             <div class="flex items-center gap-4">
-                <div class="text-blue-500 text-xl">🤖</div>
-                <div class="orbitron font-black text-sm tracking-widest">OBSIDIAN LEO<span class="text-blue-600">™</span> // AI WORKSPACE</div>
+                <button onclick="toggleSidebar()" class="p-2 hover:bg-white/5 rounded-lg transition">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+                <div class="font-black text-sm tracking-widest uppercase text-gray-400 flex items-center gap-2">
+                    <span class="text-blue-500">🦾</span> LEO AI WORKSPACE
+                </div>
             </div>
-            <button onclick="closeBuilder()" class="text-gray-500 hover:text-white text-2xl">&times;</button>
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-2 px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full">
+                    <span class="text-[10px] font-black text-blue-400">CREDITS:</span>
+                    <span id="availableCredits" class="text-[10px] font-black">50.0</span>
+                </div>
+                <button onclick="closeBuilder()" class="text-gray-500 hover:text-white text-2xl font-light">&times;</button>
+            </div>
         </div>
 
         <div class="editor-container">
-            <div class="sidebar">
-                <div>
-                    <label class="block text-[10px] font-black text-blue-500 uppercase tracking-widest mb-4">Command Input</label>
-                    <textarea id="buildPrompt" class="prompt-input w-full h-32" placeholder="e.g. Build me a premium domain shop for luxury cars with dark mode and emerald accents..."></textarea>
-                    <button onclick="executeBuild()" class="btn-leo w-full mt-4">Initiate Build Protocol</button>
-                </div>
+            <!-- Collapsible Sidebar -->
+            <div id="sidebar" class="sidebar">
+                <section>
+                    <label class="block text-[10px] font-black text-gray-500 uppercase tracking-[3px] mb-4">Command Ingress</label>
+                    <div class="command-box">
+                        <textarea id="buildPrompt" class="prompt-input" placeholder="Describe your empire node..."></textarea>
+                        <div class="btn-send" onclick="executeBuild()">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="chip" onclick="setPrompt('Build a premium crypto dashboard')">+ Crypto App</span>
+                        <span class="chip" onclick="setPrompt('Design a luxury real estate landing page')">+ Property Node</span>
+                        <span class="chip" onclick="setPrompt('Create a high-aura SaaS storefront')">+ SaaS Hub</span>
+                    </div>
+                </section>
 
-                <div class="mt-10">
-                    <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-4">Active Modules</label>
+                <section>
+                    <label class="block text-[10px] font-black text-gray-500 uppercase tracking-[3px] mb-4">Core Modules</label>
                     <div class="space-y-3">
-                        <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
-                            <span class="text-[10px] font-bold">React Architecture</span>
-                            <span class="text-[9px] text-emerald-500 font-bold">READY</span>
+                        <div class="status-node">
+                            <span class="font-bold text-gray-400">Design Engine</span>
+                            <div class="flex items-center gap-2"><span class="pulse-dot"></span><span class="text-emerald-500 font-black">ACTIVE</span></div>
                         </div>
-                        <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
-                            <span class="text-[10px] font-bold">Tailwind Styling</span>
-                            <span class="text-[9px] text-emerald-500 font-bold">READY</span>
+                        <div class="status-node">
+                            <span class="font-bold text-gray-400">Code Synthesis</span>
+                            <span class="text-gray-600 font-black">STANDBY</span>
                         </div>
-                        <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
-                            <span class="text-[10px] font-bold">Database Linking</span>
-                            <span class="text-[9px] text-gray-500 font-bold">WAITING</span>
+                        <div id="dbStatus" class="status-node">
+                            <span class="font-bold text-gray-400">Edge Registry</span>
+                            <span class="text-gray-600 font-black">LOCKED</span>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div class="mt-auto">
-                    <div class="bg-blue-500/10 border border-blue-500/20 p-4 rounded-2xl">
-                        <div class="text-[10px] font-black text-blue-400 uppercase mb-1">Available Credits</div>
-                        <div class="text-xl font-black" id="availableCredits">50.0</div>
-                    </div>
+                <div class="terminal-stream" id="anthony_ai_supremeTerminal">
+                    <div class="opacity-50">> ARES Nexus Linked...</div>
+                    <div class="opacity-50">> Waiting for Command...</div>
                 </div>
             </div>
 
-            <div class="preview-window">
-                <div class="preview-frame" id="renderZone">
-                    <div class="flex items-center justify-center h-full text-gray-300">
-                        <div class="text-center">
-                            <div class="text-5xl mb-6">✨</div>
-                            <h3 class="font-black text-xl text-slate-900">Your Preview is Waiting</h3>
-                            <p class="text-slate-400 text-xs mt-2">Enter a prompt to start the building process.</p>
+            <!-- Preview Canvas Area -->
+            <div class="canvas-area">
+                <div class="preview-canvas" id="renderZone">
+                    <div class="flex items-center justify-center h-full text-center bg-[#0a0a0f]">
+                        <div class="aura-fade-up visible">
+                            <div class="text-6xl mb-8">✨</div>
+                            <h3 class="text-2xl font-black text-white">Interactive Preview</h3>
+                            <p class="text-gray-500 text-sm mt-2">Enter a design prompt to initiate construction.</p>
                         </div>
                     </div>
-                </div>
-                <div class="terminal" id="leoTerminal">
-                    <div class="text-gray-500">> Obsidian Leo™ Ingress System Ready...</div>
-                    <div class="text-gray-500">> Handshaking with sovereign API nodes...</div>
                 </div>
             </div>
         </div>
@@ -216,75 +318,68 @@
     <script>
         function openBuilder() { document.getElementById('builderWorkspace').style.display = 'flex'; }
         function closeBuilder() { document.getElementById('builderWorkspace').style.display = 'none'; }
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('collapsed'); }
+        function setPrompt(txt) { document.getElementById('buildPrompt').value = txt; }
 
         async function executeBuild() {
-            const prompt = document.getElementById('buildPrompt').value.trim();
-            if(!prompt) return alert("Please enter a command for Leo AI.");
+            const promptInput = document.getElementById('buildPrompt');
+            const prompt = promptInput.value.trim();
+            if(!prompt) return;
 
-            const term = document.getElementById('leoTerminal');
+            const term = document.getElementById('anthony_ai_supremeTerminal');
             const zone = document.getElementById('renderZone');
 
-            term.innerHTML += `<div class="text-blue-400 mt-2">> COMMAND RECEIVED: "${prompt}"</div>`;
-            term.innerHTML += `<div class="text-emerald-500">> Authenticating Supreme Ingress Protocol...</div>`;
-            term.scrollTop = term.scrollHeight;
+            term.innerHTML = `<div class="text-blue-400">> INGRESS RECEIVED: "${prompt}"</div>`;
+            term.innerHTML += `<div class="text-blue-500">> Initiating Clone Protocol...</div>`;
 
-            // Simulate the "Building" experience
+            // Step-by-step progress tracking
             const steps = [
-                "> Analyzing site architecture...",
-                "> Scraping visual component library...",
-                "> Synthesizing Tailwind design system...",
-                "> Injecting post-quantum security layers...",
-                "> Compiling React components...",
-                "> Deploying to global edge nodes..."
+                { msg: "> Scaffolding architecture...", target: null },
+                { msg: "> Synthesizing visual DNA...", target: "Design Engine" },
+                { msg: "> Compiling React modules...", target: "Code Synthesis" },
+                { msg: "> Finalizing Edge handshake...", target: "Edge Registry" }
             ];
 
             for(let step of steps) {
-                await new Promise(r => setTimeout(r, 1200));
-                term.innerHTML += `<div class="text-gray-400">${step}</div>`;
+                await new Promise(r => setTimeout(r, 1000));
+                term.innerHTML += `<div class="text-gray-500">${step.msg}</div>`;
                 term.scrollTop = term.scrollHeight;
             }
 
-            // 🔱 Handshake with Backend to register build
+            // Real Handshake with Revenue API
             try {
                 await fetch('/api/settle/authorize', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        type: 'leo_build_execution',
-                        prompt: prompt,
-                        session_id: localStorage.getItem('obsidian_session')
-                    })
+                    body: JSON.stringify({ type: 'anthony_ai_supreme_build_execution', prompt: prompt })
                 });
-            } catch (e) { console.warn("Local mode build logging."); }
+            } catch (e) {}
 
-            // Show a "Simulated" build result in the iframe (using a placeholder template)
+            // Reveal Built UI with Animation
             zone.innerHTML = `
-                <div class="h-full flex flex-col">
-                    <div class="bg-black p-4 flex justify-between items-center text-white">
-                        <div class="font-black text-sm tracking-tighter">Your New App</div>
+                <div class="h-full flex flex-col bg-white animate-fadeIn">
+                    <nav class="p-6 border-b flex justify-between items-center bg-gray-50">
+                        <div class="font-black text-black">PROJECT_NODE_BETA</div>
                         <div class="flex gap-2">
-                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                            <div class="w-3 h-3 bg-amber-500 rounded-full"></div>
-                            <div class="w-3 h-3 bg-emerald-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                            <div class="w-3 h-3 bg-emerald-400 rounded-full"></div>
                         </div>
-                    </div>
-                    <div class="flex-1 p-12 bg-slate-50 flex items-center justify-center">
-                        <div class="text-center">
-                            <h1 class="text-3xl font-black text-slate-900">Empire Built Successfully.</h1>
-                            <p class="text-slate-500 text-sm mt-4">Your sovereign digital asset is now live on the edge.</p>
-                            <button class="bg-blue-600 text-white font-bold px-6 py-3 rounded-xl text-xs mt-8">Launch Project</button>
+                    </nav>
+                    <div class="flex-1 flex items-center justify-center p-12">
+                        <div class="max-w-md text-center">
+                            <h2 class="text-4xl font-black text-black leading-tight">Your vision is now sovereign.</h2>
+                            <p class="text-gray-500 mt-4">The build has been deployed to a temporary edge endpoint. Link your domain to go live.</p>
+                            <button class="mt-10 bg-black text-white px-8 py-4 rounded-2xl font-bold text-sm">Launch Production</button>
                         </div>
                     </div>
                 </div>
             `;
 
-            term.innerHTML += `<div class="text-blue-500 font-bold mt-2">> BUILD COMPLETE. Redirecting to edge endpoint...</div>`;
-            term.scrollTop = term.scrollHeight;
-
-            // Update Credits UI
+            // Update Credits
             const creditEl = document.getElementById('availableCredits');
-            let current = parseFloat(creditEl.innerText);
-            creditEl.innerText = (current - 1.0).toFixed(1);
+            creditEl.innerText = (parseFloat(creditEl.innerText) - 1.0).toFixed(1);
+
+            term.innerHTML += `<div class="text-emerald-500 font-bold mt-2">> DEPLOYMENT SUCCESSFUL.</div>`;
         }
     </script>
     <script src="assets/obsidian_aura_engine.js"></script>

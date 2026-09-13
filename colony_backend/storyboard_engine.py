@@ -120,7 +120,7 @@ def build_synchronized_package(niche_key=None):
                 {
                     "scene": 3,
                     "duration": 5,
-                    "spoken_script": "The unclassified archives are now open. Follow Obsidian AI to unlock phase two.",
+                    "spoken_script": "The unclassified archives are now open. Follow Anthony AI the Supreme to unlock phase two.",
                     "visual_prompt": prompts[2] if len(prompts) > 2 else f"{niche} discovery 4k",
                     "on_screen_text": "DECLASSIFIED"
                 }

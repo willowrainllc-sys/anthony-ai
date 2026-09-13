@@ -4,7 +4,7 @@ from pathlib import Path
 from colony_logger import colony_log
 
 def purge_legacy_references():
-    colony_log("PURGE: Stripping all remaining Obsidian City and Leo references across the empire...", node="SUPREME")
+    colony_log("PURGE: Stripping all remaining Obsidian City and Anthony AI the Supreme references across the empire...", node="SUPREME")
     root = Path(__file__).resolve().parent.parent
 
     file_count = 0
@@ -22,9 +22,9 @@ def purge_legacy_references():
                 content = content.replace("Obsidian City", "Obsidian City").replace("obsidian city", "obsidian city").replace("OBSIDIAN CITY", "OBSIDIAN CITY")
                 changed = True
 
-            # Replace Leo variants (if any linger outside backend)
-            if "Leo" in content or "LEO" in content or "leo" in content:
-                content = content.replace("Leo", "Leo").replace("LEO", "LEO").replace("leo", "leo")
+            # Replace Anthony AI the Supreme variants (if any linger outside backend)
+            if "Anthony AI the Supreme" in content or "LEO" in content or "anthony_ai_supreme" in content:
+                content = content.replace("Anthony AI the Supreme", "Anthony AI the Supreme").replace("LEO", "LEO").replace("anthony_ai_supreme", "anthony_ai_supreme")
                 changed = True
 
             if changed:

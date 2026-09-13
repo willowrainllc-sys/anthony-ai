@@ -36,7 +36,7 @@ class ObsidianArchitecture(BaseModel):
 
 class ObsidianSystemManifest(BaseModel):
     manifest_id: str
-    owner: str = "Obsidian AI / Willow Rain Company LLC"
+    owner: str = "Anthony AI the Supreme / Willow Rain Company LLC"
     timestamp: float = Field(default_factory=time.time)
     keys: ObsidianKeys
     architecture: ObsidianArchitecture

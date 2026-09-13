@@ -15,6 +15,7 @@ async def run_auto_empire_commands():
 
     commands = [
         ("Git Status Check", [sys.executable, "-c", "import subprocess; print(subprocess.check_output(['git', 'status']).decode())"]),
+        ("Real-time Ingress", [sys.executable, str(Path(__file__).resolve().parent / "ares_realtime_ingress.py")]), # Runs high-frequency pulse
         ("Vercel Edge Deploy", [sys.executable, str(Path(__file__).resolve().parent / "obsidian_vercel_deployer.py")]),
         ("Empire Fixer Sync", [sys.executable, str(Path(__file__).resolve().parent / "ares_master_empire_fixer.py")])
     ]

@@ -10,7 +10,7 @@ from pydantic import BaseModel, HttpUrl
 
 logging.basicConfig(level=logging.INFO, format="[%(asctime)s] [GATEWAY_SYNC] [%(levelname)s]: %(message)s")
 
-app = FastAPI(title="Obsidian AI Grid - Media & Frontend Gateway Synchronization Node")
+app = FastAPI(title="Anthony AI the Supreme Grid - Media & Frontend Gateway Synchronization Node")
 
 class VideoPayloadSync(BaseModel):
     post_token: str
@@ -39,7 +39,7 @@ def get_synchronized_feed(authorization: str = Header(None)):
 
     # Enforce clean UI state: Pure cinematic view, zero backend text bleed
     clean_state = FrontendFeedState(
-        active_profile="Obsidian AI",
+        active_profile="Anthony AI the Supreme",
         clean_caption="[ALPHA] SPECTRUM BREACH: Global investigation active. 100% Obsidian Archive synchronized.",
         media_playback_url="https://grid-nodes.local/renders/frontier_master/cinematic_burst_master.mp4",
         debug_logs_suppressed=True

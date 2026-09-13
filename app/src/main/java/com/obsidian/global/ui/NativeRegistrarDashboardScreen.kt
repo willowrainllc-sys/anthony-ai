@@ -148,12 +148,12 @@ fun NativeRegistrarDashboardScreen(
                             colors = CardDefaults.cardColors(containerColor = Color(0xFF0F0F17)),
                             modifier = Modifier
                                 .weight(1f)
-                                .clickable { onNavigateBrowser("https://obsidian.city/obsidian_airo_builder.html") }
+                                .clickable { onNavigateBrowser("https://obsidian.city/anthony_ai_supremero_builder.html") }
                         ) {
                             Column(modifier = Modifier.padding(16.dp)) {
-                                Text("🤖", fontSize = 24.sp)
+                                Text("🦾", fontSize = 24.sp)
                                 Spacer(modifier = Modifier.height(8.dp))
-                                Text("Obsidian Leo AI", color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Bold)
+                                Text("Anthony AI the Supreme AI", color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Bold)
                                 Text("Prompt to App", color = Color(0xFF3B82F6), fontSize = 11.sp, fontWeight = FontWeight.SemiBold)
                             }
                         }

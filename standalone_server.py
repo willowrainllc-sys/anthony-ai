@@ -50,7 +50,7 @@ class SovereignHandler(http.server.SimpleHTTPRequestHandler):
             "/search": "obsidian_domain_results.html",
             "/checkout": "obsidian_unified_checkout.html",
             "/vps": "obsidian_vps_hosting.html",
-            "/leo": "obsidian_leo_builder.html",
+            "/anthony_ai_supreme": "obsidian_anthony_ai_supreme_builder.html",
             "/signin": "obsidian_signin.html",
             "/register": "obsidian_register.html",
             "/profile": "obsidian_user_profile.html",

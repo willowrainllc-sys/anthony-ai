@@ -6,7 +6,7 @@ from pathlib import Path
 ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
 PORTAL_DIR = ROOT / "willow_rain_global" / "wholesale_portal"
 TEMP_BUNDLE = ROOT / "secure_assets" / "ai_studio_bundle"
-ZIP_DEST = ROOT / "willow_rain_global" / "wholesale_portal" / "obsidian_ai_studio_v1.zip"
+ZIP_DEST = ROOT / "willow_rain_global" / "wholesale_portal" / "anthony_ai_supreme_studio_v1.zip"
 
 def create_bundle():
     if TEMP_BUNDLE.exists():
@@ -15,7 +15,7 @@ def create_bundle():
 
     # 1. Copy essential IDE files
     essential_files = [
-        "obsidian_ai_studio.html",
+        "anthony_ai_supreme_studio.html",
         "titan_landing.html",
         "index.html",
         "assets/hyper_frame.css",

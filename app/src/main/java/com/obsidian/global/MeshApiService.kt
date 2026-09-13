@@ -169,7 +169,7 @@ interface MeshApiService {
         @Query("timestamp") timestamp: Long
     ): HandshakeResponse
 
-    @GET("/api/mesh/obsidian_ai-status")
+    @GET("/api/mesh/anthony_ai_supreme-status")
     suspend fun getObsidianAIStatus(): HandshakeResponse
 
     @GET("/dashboard")

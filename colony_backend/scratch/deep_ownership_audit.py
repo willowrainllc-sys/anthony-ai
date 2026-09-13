@@ -6,7 +6,7 @@ DIRS = [ROOT / "colony_backend", ROOT / "willow_rain_global", ROOT / "app"]
 
 # Legacy terms to find
 LEGACY_TARGETS = [
-    "obsidian_ingress", "obsidian_bridge", "obsidian_ai", "obsidian_global", "obsidian_grid",
+    "obsidian_ingress", "obsidian_bridge", "anthony_ai_supreme", "obsidian_global", "obsidian_grid",
     "obsidian_comm", "obsidian_comm", "obsidian_rewards", "obsidian_rewards", "obsidian_rewards"
 ]
 

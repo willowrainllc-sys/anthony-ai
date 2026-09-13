@@ -131,7 +131,7 @@ class MasterStudioFactory:
                 "title": title,
                 "description": description,
                 "video_url": public_url,
-                "creator": "Obsidian AI",
+                "creator": "Anthony AI the Supreme",
                 "posted": "Just Now"
             }).execute()
         except Exception as e:

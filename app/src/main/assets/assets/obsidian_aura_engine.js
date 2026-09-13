@@ -1,5 +1,5 @@
 /* 🔱 OBSIDIAN AURA ENGINE v1.3 */
-/* Integrated Leo Chat Agent + Dynamic 4K Backgrounds + Monetization */
+/* Integrated Anthony AI the Supreme Chat Agent + Dynamic 4K Backgrounds + Monetization */
 
 const FALLBACK_VIDEO = "https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175";
 
@@ -7,54 +7,55 @@ const AURA_OFFERS = [
     { label: '.COM EXCLUSIVE', price: '$14.70', url: 'obsidian_domains.html', img: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=300' },
     { label: 'DELAWARE LLC', price: '$39.00', url: 'obsidian_llc_formation.html', img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=300' },
     { label: 'GLOBAL MESH', price: 'EARN $', url: 'obsidian_data_sharing.html', img: 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=300' },
-    { label: 'LEO AI BUILDER', price: 'FREE', url: 'obsidian_leo_builder.html', img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=300' }
+    { label: 'LEO AI BUILDER', price: 'FREE', url: 'obsidian_anthony_ai_supreme_builder.html', img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=300' }
 ];
 
 /**
  * 🔱 LEO CHAT AGENT UI
  */
-function initLeoChat() {
+function initObsidianAIChat() {
     // 1. Create Floating Trigger
     const trigger = document.createElement('div');
-    trigger.className = 'leo-chat-trigger';
-    trigger.innerHTML = '🤖';
-    trigger.onclick = toggleLeoChat;
+    trigger.className = 'anthony_ai_supreme-chat-trigger';
+    // 🔱 High-Aura "Godfather" Thumbnail Mascot
+    trigger.innerHTML = `<img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=200&h=200&auto=format&fit=crop" style="width:100%; height:100%; border-radius:50%; object-fit:cover; border: 2px solid #3b82f6; box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);">`;
+    trigger.onclick = toggleObsidianAIChat;
     document.body.appendChild(trigger);
 
     // 2. Create Chat Window
     const win = document.createElement('div');
-    win.id = 'leoChatWindow';
-    win.className = 'leo-chat-window';
+    win.id = 'anthony_ai_supremeChatWindow';
+    win.className = 'anthony_ai_supreme-chat-window';
     win.innerHTML = `
         <div class="chat-header">
             <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-sm">🤖</div>
+                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-sm">🦾</div>
                 <div>
-                    <div class="text-[11px] font-black text-white uppercase tracking-widest">Obsidian Leo™</div>
+                    <div class="text-[11px] font-black text-white uppercase tracking-widest">Anthony AI the Supreme</div>
                     <div class="text-[8px] text-emerald-400 font-bold uppercase">Enterprise AI Node Active</div>
                 </div>
             </div>
-            <button onclick="toggleLeoChat()" class="text-gray-500 hover:text-white text-xl">&times;</button>
+            <button onclick="toggleAnthony AI the SupremeChat()" class="text-gray-500 hover:text-white text-xl">&times;</button>
         </div>
-        <div class="chat-body" id="leoChatBody">
-            <div class="msg msg-leo">Greetings. I am Leo, your AI Business Assistant. How can I assist your business growth today?</div>
+        <div class="chat-body" id="anthony_ai_supremeChatBody">
+            <div class="msg msg-anthony_ai_supreme">Greetings. I am Anthony AI the Supreme, your AI Business Assistant. How can I assist your business growth today?</div>
         </div>
         <div class="chat-footer">
-            <input type="text" id="leoChatInput" class="chat-input" placeholder="Ask Leo anything..." onkeypress="handleChatKey(event)">
+            <input type="text" id="anthony_ai_supremeChatInput" class="chat-input" placeholder="Ask Anthony AI the Supreme anything..." onkeypress="handleChatKey(event)">
         </div>
     `;
     document.body.appendChild(win);
 }
 
-function toggleLeoChat() {
-    const win = document.getElementById('leoChatWindow');
+function toggleAnthony AI the SupremeChat() {
+    const win = document.getElementById('anthony_ai_supremeChatWindow');
     const isVisible = win.style.display === 'flex';
     win.style.display = isVisible ? 'none' : 'flex';
 }
 
 async function handleChatKey(e) {
     if (e.key === 'Enter') {
-        const input = document.getElementById('leoChatInput');
+        const input = document.getElementById('anthony_ai_supremeChatInput');
         const text = input.value.trim();
         if (!text) return;
 
@@ -62,21 +63,21 @@ async function handleChatKey(e) {
         input.value = '';
 
         try {
-            const resp = await fetch('/api/leo/chat', {
+            const resp = await fetch('/api/anthony_ai_supreme/chat', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ message: text, page: window.location.pathname })
             });
             const data = await resp.json();
-            appendMessage('leo', data.reply);
+            appendMessage('anthony_ai_supreme', data.reply);
         } catch (err) {
-            appendMessage('leo', "My uplink to the ARES core is currently throttled. Please try again or contact tech support at willow.rain.llc@gmail.com.");
+            appendMessage('anthony_ai_supreme', "My uplink to the ARES core is currently throttled. Please try again or contact tech support at willow.rain.llc@gmail.com.");
         }
     }
 }
 
 function appendMessage(role, text) {
-    const body = document.getElementById('leoChatBody');
+    const body = document.getElementById('anthony_ai_supremeChatBody');
     const msg = document.createElement('div');
     msg.className = `msg msg-${role}`;
     msg.innerText = text;
@@ -173,10 +174,81 @@ function handleScrollAnimations() {
     });
 }
 
+/**
+ * 🔱 INJECT NEWS TICKER
+ */
+function injectNewsTicker() {
+    const ticker = document.createElement('div');
+    ticker.className = 'obsidian-news-ticker';
+
+    const newsItems = [
+        "Anthony AI the Supreme AI builds 1,000th empire node this hour",
+        "St. Charles Global HQ confirms 99.9% uptime for Edge Mesh",
+        ".COM wholesale prices holding steady at $14.70",
+        "New LLC formation protocol reduces state filing time by 40%",
+        "ARES strike engine neutralizes 502 Bad Gateway desync"
+    ];
+
+    let itemsHtml = '';
+    newsItems.forEach(item => {
+        itemsHtml += `<div class="news-item"><span class="news-tag">BREAKING</span> ${item}</div>`;
+    });
+
+    ticker.innerHTML = `<div class="news-scroll">${itemsHtml}${itemsHtml}</div>`;
+
+    const header = document.querySelector('header');
+    if (header) header.after(ticker);
+}
+
+/**
+ * 🔱 INJECT SPONSORED CONTENT
+ */
+function injectSponsoredContent() {
+    const footer = document.querySelector('footer');
+    if (!footer) return;
+
+    const grid = document.createElement('div');
+    grid.className = 'obsidian-sponsored-grid aura-fade-up';
+
+    const partners = [
+        { title: "Scale Your Real Estate Portfolio via Sniping", label: "Obsidian Estates", img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=400" },
+        { title: "Get Industrial Ad Ingress with Ad Burst", label: "Partner Offer", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" },
+        { title: "The Sovereign Guide to Post-Quantum Identity", label: "Empire Reading", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=400" }
+    ];
+
+    let cardsHtml = '';
+    partners.forEach(p => {
+        cardsHtml += `
+            <div class="sponsored-card" onclick="window.location.href='index.html'">
+                <img src="${p.img}" class="sponsored-img" alt="Sponsor">
+                <div class="sponsored-info">
+                    <span class="sponsored-label">${p.label}</span>
+                    <h4 class="sponsored-title">${p.title}</h4>
+                </div>
+            </div>
+        `;
+    });
+
+    grid.innerHTML = `
+        <div class="w-full mb-10">
+            <h3 class="text-xl font-black text-slate-900 tracking-tighter">RECOMMENDED FOR YOUR EMPIRE</h3>
+        </div>
+        ${cardsHtml}
+    `;
+    footer.before(grid);
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     initAuraVideo();
     injectMonetization();
+    injectNewsTicker();
+    injectSponsoredContent();
     handleScrollAnimations();
-    initLeoChat();
-    setInterval(spawnAuraAd, 25000);
+    initAnthony AI the SupremeChat();
+
+    // 🔱 Restricted Ads: Only spawn pop-ups on the Main Storefront
+    const page = window.location.pathname.split('/').pop();
+    if (page === 'index.html' || page === '') {
+        setInterval(spawnAuraAd, 25000);
+    }
 });

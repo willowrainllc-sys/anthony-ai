@@ -31,7 +31,7 @@ class AresPlatformAuditor:
             "obsidian_vps_hosting.html",
             "obsidian_openclaw_hosting.html",
             "obsidian_wordpress_support.html",
-            "obsidian_airo_builder.html",
+            "anthony_ai_supremero_builder.html",
             "obsidian_nodejs_hosting.html",
             "obsidian_domain_results.html",
             "obsidian_premium_domains.html",

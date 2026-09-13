@@ -4,7 +4,7 @@ root = Path(r'C:\Users\willo\OneDrive\Desktop\Anthony_Ai')
 mappings = {
     'href="/domains"': 'href="obsidian_domains.html"',
     'href="/vps"': 'href="obsidian_vps_hosting.html"',
-    'href="/leo"': 'href="obsidian_leo_builder.html"',
+    'href="/anthony_ai_supreme"': 'href="obsidian_anthony_ai_supreme_builder.html"',
     'href="/llc"': 'href="obsidian_llc_formation.html"',
     'href="/signin"': 'href="obsidian_signin.html"',
     'href="/checkout"': 'href="obsidian_unified_checkout.html"',

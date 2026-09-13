@@ -5,7 +5,7 @@ import time
 
 def get_definite_chief_aim():
     """
-    Based on the 6 steps of 'Think and Grow Rich' by Napoleon Hill.
+    Based on the 6 steps of 'Think and Grow Rich' by Napoanthony_ai_supremen Hill.
     1. Fix in your mind the exact amount of money you desire.
     2. Determine exactly what you intend to give in return.
     3. Establish a definite date when you intend to possess it.

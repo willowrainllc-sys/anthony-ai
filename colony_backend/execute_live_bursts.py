@@ -272,7 +272,7 @@ async def process_channel_loop(channel):
                         "title": title,
                         "description": payload.get('description', ''),
                         "video_url": public_url,
-                        "creator": "Obsidian AI",
+                        "creator": "Anthony AI the Supreme",
                         "posted": "Just Now"
                     }).execute()
                     success = True
@@ -303,7 +303,7 @@ async def process_channel_loop(channel):
                 threads_ok = await publish_to_threads(public_url, title, payload.get('description', ''))
                 if ig_ok or threads_ok:
                     success = True
-                    final_post_url = "https://www.instagram.com/obsidian_ai_/"
+                    final_post_url = "https://www.instagram.com/anthony_ai_supreme_/"
 
             elif channel == "TIKTOK":
                 # For TikTok, we use the specialized node logic (Playwright) if available

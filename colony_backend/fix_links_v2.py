@@ -7,7 +7,7 @@ root = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
 mappings = {
     "/domains": "obsidian_domains.html",
     "/vps": "obsidian_vps_hosting.html",
-    "/leo": "obsidian_leo_builder.html",
+    "/anthony_ai_supreme": "obsidian_anthony_ai_supreme_builder.html",
     "/llc": "obsidian_llc_formation.html",
     "/signin": "obsidian_signin.html",
     "/register": "obsidian_register.html",

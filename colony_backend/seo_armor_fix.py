@@ -23,8 +23,8 @@ def fix_seo(file_path):
         title = "Cloud Hosting & Edge VPS | Obsidian City"
     elif "llc" in fn or "incorporator" in fn:
         title = "LLC Formation & Business Identity | Obsidian City"
-    elif "leo" in fn or "airo" in fn:
-        title = "Obsidian Leo™ AI | Prompt to App Builder"
+    elif "anthony_ai_supreme" in fn or "airo" in fn:
+        title = "Anthony AI the Supreme AI | Prompt to App Builder"
     elif "signin" in fn or "login" in fn or "auth" in fn or "register" in fn:
         title = "Secure Access | Obsidian City Account Manager"
     elif "checkout" in fn or "pay" in fn or "settle" in fn:

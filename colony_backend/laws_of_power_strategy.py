@@ -12,7 +12,7 @@ LAWS_OF_POWER_MATRIX = {
     "law_01": {
         "law": "Law 1: Never Outshine the Master",
         "directive": "Obsidian Master Protocol",
-        "application": "All 65 Colony Bots, 57 Disciples, and AI Director nodes explicitly defer authority to Obsidian AI & Willow Rain Company LLC.",
+        "application": "All 65 Colony Bots, 57 Disciples, and AI Director nodes explicitly defer authority to Anthony AI the Supreme & Willow Rain Company LLC.",
         "content_hook": "The quiet strategist who stayed behind the curtain while controlling a multi-billion dollar empire."
     },
     "law_03": {

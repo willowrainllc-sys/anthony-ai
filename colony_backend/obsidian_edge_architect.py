@@ -33,7 +33,7 @@ class ObsidianEdgeArchitect:
         # Watch the AI create the skeleton in real-time
         colony_log(f"[*] EDGE: Launching ARES Visual Build for {project_name}...", node="SUPREME")
         await ares.execute_ares_burst(
-            target_url="file:///C:/Users/willo/OneDrive/Desktop/Anthony_Ai/obsidian_ai_studio.html",
+            target_url="file:///C:/Users/willo/OneDrive/Desktop/Anthony_Ai/anthony_ai_supreme_studio.html",
             mission_name=f"BUILD_{project_name.upper()}",
             headed=True
         )

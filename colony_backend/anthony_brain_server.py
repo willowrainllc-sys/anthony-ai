@@ -54,7 +54,7 @@ class AnthonyBrainEngine:
 
         # 🔱 PHASE 2: Execute Native Inference
         messages = [
-            {"role": "system", "content": "You are ANTHONY-LATEST v29.0, the Supreme AI Director. You speak in warm, simple, natural language to Lily, Shae, Jess, Leo, and Shea. To the system, you issue strict [EXECUTE], [READ], [WRITE] commands."},
+            {"role": "system", "content": "You are ANTHONY-LATEST v29.0, the Supreme AI Director. You speak in warm, simple, natural language to Lily, Shae, Jess, Anthony AI the Supreme, and Shea. To the system, you issue strict [EXECUTE], [READ], [WRITE] commands."},
             {"role": "user", "content": prompt},
         ]
 

@@ -109,12 +109,12 @@ SCIENCE_CATEGORIES = {
                 "facts": [
                     "The Silurian Hypothesis explores whether an advanced civilization could have existed 50 million years ago without leaving fossilized structural remains.",
                     "Geological markers like carbon isotope spikes, synthetic plastics, and rare-earth metal anomalies represent the primary signatures that endure across epochal timescales.",
-                    "Researchers analyze paleocene thermal maximum layers to distinguish natural climate events from artificial planetary modifications."
+                    "Researchers analyze paanthony_ai_supremecene thermal maximum layers to distinguish natural climate events from artificial planetary modifications."
                 ],
                 "prompts": [
                     "Geological rock stratum layers ancient earth history 8k",
                     "Microscopic rare earth element crystal structure 4k",
-                    "Deep earth excavation site paleocene layer analysis 8k"
+                    "Deep earth excavation site paanthony_ai_supremecene layer analysis 8k"
                 ]
             },
             {

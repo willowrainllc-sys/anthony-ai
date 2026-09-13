@@ -15,8 +15,8 @@ REPLACEMENTS = {
     "Obsidian Bridge": "Obsidian Bridge",
     "OBSIDIAN_BRIDGE": "OBSIDIAN_BRIDGE",
 
-    "obsidian_ai": "obsidian_ai",
-    "Obsidian AI": "Obsidian AI",
+    "anthony_ai_supreme": "anthony_ai_supreme",
+    "Anthony AI the Supreme": "Anthony AI the Supreme",
 
     "obsidian_global": "obsidian_global",
     "Obsidian Global": "Obsidian Global",

@@ -111,7 +111,7 @@ SUPPORTED_CATEGORIES = {
             "In pitch-black waters two miles down, high-frequency sonar arrays picked up a series of rhythmic metallic pulses repeating every sixteen seconds."
         ],
         "story_bodies": [
-            "Subsea cameras illuminated a galleon that sank in 1641 carrying forty tons of gold bullion, preserved impeccably by cold pressure.",
+            "Subsea cameras illuminated a galanthony_ai_supremen that sank in 1641 carrying forty tons of gold bullion, preserved impeccably by cold pressure.",
             "Marine biologists cross-referenced the acoustic pulses with oceanographic records stretching back fifty years."
         ],
         "story_climaxes": [

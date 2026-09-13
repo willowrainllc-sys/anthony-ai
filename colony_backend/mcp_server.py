@@ -104,7 +104,7 @@ async def trigger_capital_sweep(destination: str = "BITCOIN_CASH_APP") -> str:
 @mcp.tool()
 async def get_definite_chief_aim() -> dict:
     """
-    Returns the Definite Chief Aim based on Napoleon Hill's 'Think and Grow Rich'.
+    Returns the Definite Chief Aim based on Napoanthony_ai_supremen Hill's 'Think and Grow Rich'.
     Used for focus and alignment of the Master Mind alliance.
     """
     from obsidian_definite_chief_aim import get_definite_chief_aim

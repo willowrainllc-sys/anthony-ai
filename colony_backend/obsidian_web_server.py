@@ -44,8 +44,8 @@ class SovereignWebHandler(BaseHTTPRequestHandler):
             self._serve_file(PORTAL_DIR / "downloads" / "titan_browser_win_x64.zip", as_attachment=True, filename="titan_browser_win.zip")
             return
 
-        if url.path == "/download/obsidian_ai_studio.zip":
-            self._serve_file(PORTAL_DIR / "obsidian_ai_studio_v1.zip", as_attachment=True, filename="obsidian_ai_studio.zip")
+        if url.path == "/download/anthony_ai_supreme_studio.zip":
+            self._serve_file(PORTAL_DIR / "anthony_ai_supreme_studio_v1.zip", as_attachment=True, filename="anthony_ai_supreme_studio.zip")
             return
 
         if url.path == "/download/obsidian.apk":
