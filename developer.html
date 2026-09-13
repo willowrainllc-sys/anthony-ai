@@ -18,10 +18,9 @@
 </head>
 <body>
     <nav class="p-8 border-b border-white/10 flex justify-between items-center bg-black">
-        <div class="font-black text-xl tracking-tighter">OBSIDIAN<span class="text-blue-500">.CITY</span> // DEVELOPER PORTAL</div>
+        <div class="font-black text-xl tracking-tighter text-blue-500">OBSIDIAN // DEVELOPER PORTAL</div>
         <div class="flex gap-6 items-center">
             <a href="index.html" class="text-xs font-bold text-gray-400 hover:text-white transition">← Back to Storefront</a>
-            <a href="obsidian_city_dashboard.html" class="bg-white text-black font-bold px-5 py-2 rounded-xl text-xs hover:bg-gray-200 transition">Console</a>
         </div>
     </nav>
 
@@ -61,7 +60,7 @@
 
         <!-- API Status Widget -->
         <div class="glass-card mb-12">
-            <h3 class="text-sm font-black text-gray-500 uppercase tracking-[4px] mb-8">System Infrastructure Status</h3>
+            <h3 class="text-sm font-black text-gray-500 uppercase tracking-[4px] mb-8 text-center">System Infrastructure Status</h3>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div>
                     <div class="text-[10px] text-gray-400 uppercase font-bold mb-1">Registrar Pool</div>
@@ -94,6 +93,12 @@
             </div>
         </div>
 
+        <div class="glass-card text-center">
+            <h3 class="text-lg font-bold mb-2">Ready to Scale?</h3>
+            <p class="text-gray-400 text-xs mb-6">Our technical guides are ready to assist your deployment.</p>
+            <a href="obsidian_signin.html" class="inline-block bg-white text-black font-bold px-8 py-3 rounded-xl text-xs hover:bg-gray-200 transition">Create Business Account</a>
+        </div>
+
         <div class="text-center py-8">
             <p class="text-[10px] text-gray-500 uppercase tracking-widest">Built for Willow Rain Company LLC (Arkansas Corporate Entity)</p>
         </div>
@@ -110,7 +115,7 @@
             <div class="space-y-8">
                 <div>
                     <h4 class="text-blue-400 font-bold text-xs uppercase mb-2">Endpoint Configuration</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed">Send a JSON payload to our authorized authorization endpoint to initiate domain registration and payment settlement.</p>
+                    <p class="text-gray-400 text-xs leading-relaxed">Send a JSON payload to our authorized endpoint to initiate provisioning.</p>
                 </div>
 
                 <div class="bg-black p-6 rounded-2xl border border-gray-800">
@@ -122,11 +127,6 @@
   "action": "PROVISION"
 }
                     </pre>
-                </div>
-
-                <div>
-                    <h4 class="text-blue-400 font-bold text-xs uppercase mb-2">Response Handshake</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed">Our system will return a verified transaction ID and queue the domain for immediate provisioning via our wholesale registrar pool.</p>
                 </div>
             </div>
 
@@ -141,10 +141,7 @@
             btn.disabled = true;
 
             try {
-                const resp = await fetch('/api/developer/keygen', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'}
-                });
+                const resp = await fetch('/api/developer/keygen', { method: 'POST' });
                 const data = await resp.json();
                 if (data.success) {
                     document.getElementById('apiKeyDisplay').innerText = data.api_key;
@@ -152,7 +149,6 @@
                     btn.innerText = "Key Generated ✓";
                 }
             } catch (err) {
-                // Fallback for local
                 const mockKey = `OBS-KEY-${Math.floor(Math.random()*1000000)}-${Math.floor(Math.random()*1000000)}`;
                 document.getElementById('apiKeyDisplay').innerText = mockKey;
                 document.getElementById('apiKeySection').style.display = 'block';
