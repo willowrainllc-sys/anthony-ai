@@ -4,11 +4,10 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>OBSIDIAN.CITY | The World's Best Wholesale Domain Registrar</title>
-    <meta name="description" content="Direct registry access registrar. Get .com domains at wholesale cost with free lifetime privacy protection. Build your digital empire with Obsidian City."/>
+    <meta name="description" content="Direct registry access registrar. Get .com domains at wholesale cost with free lifetime privacy protection. Build your brand with Obsidian City."/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 🔱 Global Scroll & Layout Reset */
         html { scroll-behavior: smooth; }
         body {
             margin: 0;
@@ -20,7 +19,6 @@
             overflow-x: hidden;
         }
 
-        /* 🔱 Splash Screen */
         #splashScreen {
             position: fixed;
             inset: 0;
@@ -36,7 +34,7 @@
         .splash-logo { font-size: 3rem; font-weight: 900; letter-spacing: -2px; color: #fff; text-shadow: 0 0 30px rgba(59, 130, 246, 0.6); animation: pulse-glow 2s infinite; }
         @keyframes pulse-glow { 0% { transform: scale(0.98); opacity: 0.8; } 50% { transform: scale(1); opacity: 1; } 100% { transform: scale(0.98); opacity: 0.8; } }
         .loader-bar { width: 200px; height: 2px; background: rgba(255,255,255,0.1); margin-top: 30px; border-radius: 10px; overflow: hidden; position: relative; }
-        .loader-progress { position: absolute; height: 100%; width: 0%; background: #3b82f6; box-shadow: 0 0 15px #3b82f6; animation: load 2.5s ease-in-out forwards; }
+        .loader-progress { position: absolute; height: 100%; width: 0%; background: #3b82f6; animation: load 2.5s ease-in-out forwards; }
         @keyframes load { 0% { width: 0%; } 100% { width: 100%; } }
 
         .site-header {
@@ -48,40 +46,19 @@
             background-color: #ffffff !important;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
         }
-
-        .base44-top-bar { background: #0f172a; border-bottom: 1px solid #1e293b; padding: 10px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 600; color: #94a3b8; }
+        .base44-top-bar { background: #0f172a; padding: 10px 60px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 600; color: #94a3b8; }
         .base44-main-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(25px); padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; }
         .category-tabs { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 12px 60px; display: flex; gap: 30px; font-size: 13px; font-weight: 700; overflow-x: auto; }
         .category-tabs a { color: #64748b; text-decoration: none; transition: 0.2s; white-space: nowrap; }
         .category-tabs a:hover, .category-tabs a.active { color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 4px; }
         .brand { font-weight: 900; font-size: 1.8rem; letter-spacing: -1.5px; color: #0f172a; }
 
-        .hero-video-section {
-            position: relative;
-            width: 100%;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: #000;
-        }
-        .bg-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            min-width: 100%;
-            min-height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
-        .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.45); z-index: 2; }
+        .hero-video-section { position: relative; width: 100%; height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #000; }
+        .bg-video { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 100%; min-height: 100%; object-fit: cover; z-index: 1; filter: brightness(0.7); }
+        .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.4); z-index: 2; }
         .hero-inner { position: relative; z-index: 3; text-align: center; max-width: 900px; padding: 0 20px; }
-        .hero-inner h1 { color: #ffffff; font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); line-height: 1.1; }
-        .hero-inner h1 span { color: #60a5fa; }
-
-        .search-box-wrapper { background: #fff; padding: 8px; border-radius: 50px; display: flex; box-shadow: 0 20px 50px rgba(0,0,0,0.3); max-width: 700px; margin: 0 auto; }
+        .hero-inner h1 { color: #ffffff; font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; text-shadow: 0 2px 15px rgba(0,0,0,0.6); }
+        .search-box-wrapper { background: #fff; padding: 8px; border-radius: 50px; display: flex; box-shadow: 0 20px 50px rgba(0,0,0,0.4); max-width: 700px; margin: 0 auto; }
         .search-box-wrapper input { flex: 1; border: none; background: transparent; padding: 15px 30px; font-size: 1.1rem; outline: none; color: #0f172a; font-weight: 600; }
         .search-btn { background: #2563eb; color: white; border: none; padding: 15px 40px; border-radius: 40px; font-weight: 800; cursor: pointer; transition: 0.2s; text-transform: uppercase; }
         .search-btn:hover { background: #1d4ed8; transform: scale(1.02); }
@@ -91,7 +68,7 @@
         .tld-item span { color: #60a5fa; margin-left: 5px; }
 
         .base44-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 28px; padding: 40px; transition: 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-        .base44-card:hover { transform: translateY(-6px); border-color: #2563eb; box-shadow: 0 20px 50px rgba(37, 99, 235, 0.1); }
+        .base44-card:hover { transform: translateY(-6px); border-color: #2563eb; box-shadow: 0 20px 50px rgba(37,99,235,0.1); }
 
         @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
         .animate-marquee { display: inline-flex; animation: marquee 40s linear infinite; }
@@ -100,20 +77,7 @@
         footer a { color: #cbd5e1; text-decoration: none; }
         footer a:hover { color: #ffffff; }
 
-        #searchResultsLibrary {
-            display: none;
-            position: relative;
-            z-index: 10;
-            margin-top: -60px;
-            background: #ffffff;
-            border-radius: 40px;
-            padding: 40px;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.1);
-            border: 1px solid #e2e8f0;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        #searchResultsLibrary { display: none; position: relative; z-index: 10; margin-top: -60px; background: #ffffff; border-radius: 40px; padding: 40px; box-shadow: 0 40px 100px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; max-width: 1000px; margin: 0 auto; }
 
         .mobile-nav { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e2e8f0; padding: 12px 0; display: none; justify-content: space-around; z-index: 100000; box-shadow: 0 -4px 15px rgba(0,0,0,0.05); }
         .mobile-nav a { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #64748b; font-size: 10px; font-weight: 800; }
@@ -122,7 +86,7 @@
 
         #promoModal { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-blur: 8px; z-index: 999999; align-items: center; justify-content: center; }
         .promo-content { background: #fff; border-radius: 40px; overflow: hidden; max-width: 700px; width: 100%; position: relative; box-shadow: 0 40px 100px rgba(0,0,0,0.3); margin: 20px; }
-        .promo-video-wrap { position: relative; height: 300px; overflow: hidden; }
+        .promo-video-wrap { position: relative; height: 300px; overflow: hidden; background: #000; }
         .promo-video-wrap video { width: 100%; height: 100%; object-fit: cover; }
         .promo-body { padding: 40px; text-align: center; }
     </style>
@@ -131,15 +95,13 @@
     <div id="splashScreen">
         <div class="splash-logo">OBSIDIAN<span class="text-blue-500">.CITY</span></div>
         <div class="text-[10px] text-slate-500 font-bold uppercase tracking-[4px] mt-4">Authorized Wholesale Registrar</div>
-        <div class="loader-bar">
-            <div class="loader-progress"></div>
-        </div>
+        <div class="loader-bar"><div class="loader-progress"></div></div>
     </div>
 
     <header class="site-header">
         <div class="base44-top-bar">
             <span>Global Support: <strong>1-800-OBSIDIAN</strong></span>
-            <div class="hidden md:flex gap-6">
+            <div class="flex gap-6">
                 <a href="obsidian_domains.html">Domains</a>
                 <a href="obsidian_vps_hosting.html">Hosting</a>
                 <a href="obsidian_signin.html">Sign In</a>
@@ -148,24 +110,17 @@
         <nav class="base44-main-nav">
             <div class="brand">OBSIDIAN<span class="text-blue-600">.CITY</span></div>
             <div class="hidden lg:flex gap-8 font-bold text-sm text-slate-700">
-                <a href="obsidian_domains.html" class="hover:text-blue-600 transition">Domain Names</a>
-                <a href="obsidian_llc_formation.html" class="hover:text-blue-600 transition">LLC Formation</a>
-                <a href="obsidian_vps_hosting.html" class="hover:text-blue-600 transition">Websites & Hosting</a>
-                <a href="obsidian_leo_builder.html" class="hover:text-blue-600 transition">Obsidian Leo™ AI</a>
-                <a href="developer.html" class="hover:text-blue-600 transition">API Access</a>
+                <a href="obsidian_domains.html" class="hover:text-blue-600">Domain Names</a>
+                <a href="obsidian_llc_formation.html" class="hover:text-blue-600">LLC Formation</a>
+                <a href="obsidian_vps_hosting.html" class="hover:text-blue-600">Hosting</a>
+                <a href="obsidian_leo_builder.html" class="hover:text-blue-600">Leo AI Builder</a>
+                <a href="developer.html" class="hover:text-blue-600">API Access</a>
             </div>
             <div class="flex gap-4">
                 <a href="obsidian_unified_checkout.html" class="font-bold text-slate-700 mt-2">🛒 Basket</a>
                 <button onclick="location.href='obsidian_signin.html'" class="bg-blue-600 text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg hover:bg-blue-700 transition">Sign In</button>
             </div>
         </nav>
-        <div class="category-tabs">
-            <a href="obsidian_domains.html" class="active">Search Domains</a>
-            <a href="obsidian_llc_formation.html">LLC Formation</a>
-            <a href="obsidian_vps_hosting.html">Cloud Hosting</a>
-            <a href="obsidian_leo_builder.html">Leo AI Builder</a>
-            <a href="developer.html">Wholesale API</a>
-        </div>
     </header>
 
     <main>
@@ -178,7 +133,7 @@
                 <h1>Own your digital empire. <br><span>Zero markup domains.</span></h1>
                 <p class="text-lg text-slate-200 mb-10 font-medium">Direct registry access. No legacy markups. <br>Free lifetime privacy protection included.</p>
                 <div class="search-box-wrapper">
-                    <input type="text" id="domainSearch" aria-label="Domain Search" placeholder="Type the name you want (e.g. mybrand)...">
+                    <input type="text" id="domainSearch" placeholder="Type the name you want (e.g. mybrand)...">
                     <button class="search-btn" id="mainSearchBtn" onclick="executeLibrarySearch()">Search</button>
                 </div>
                 <div class="tld-bar">
@@ -190,9 +145,7 @@
             </div>
         </section>
 
-        <div class="max-w-7xl mx-auto px-6">
-            <div id="searchResultsLibrary"></div>
-        </div>
+        <div id="searchResultsLibrary"></div>
 
         <div class="py-10 bg-white border-y border-slate-200 overflow-hidden whitespace-nowrap">
             <div class="animate-marquee gap-16 text-slate-400 font-bold text-xs uppercase tracking-widest">
@@ -201,20 +154,25 @@
                 <span>💎 Wholesale Registry Pricing</span>
                 <span>🤖 Obsidian Leo™ AI Powered</span>
                 <span>⭐ Trustpilot Verified Excellence</span>
+                <span>⚡ Lightning Fast Global Edge</span>
+                <span>🛡️ Free Lifetime Privacy</span>
+                <span>💎 Wholesale Registry Pricing</span>
+                <span>🤖 Obsidian Leo™ AI Powered</span>
+                <span>⭐ Trustpilot Verified Excellence</span>
             </div>
         </div>
 
-        <section class="py-24 px-12 bg-slate-50 border-b border-slate-200">
+        <section class="py-24 px-12 bg-slate-50">
             <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
                 <div class="base44-card">
                     <div class="text-3xl mb-4">🏛️</div>
                     <h3 class="font-black text-slate-900 mb-2">LLC Formation</h3>
-                    <p class="text-slate-500 text-xs">Start your business for $39. We handle state filings and legal paperwork fast.</p>
+                    <p class="text-slate-500 text-xs">Start your business for $39. We handle state filings and paperwork.</p>
                 </div>
                 <div class="base44-card">
                     <div class="text-3xl mb-4">🛡️</div>
                     <h3 class="font-black text-slate-900 mb-2">Armored Privacy</h3>
-                    <p class="text-slate-500 text-xs">WHOIS data shielding included free for life. Your identity stays sovereign.</p>
+                    <p class="text-slate-500 text-xs">WHOIS shielding included free for life. Your identity stays sovereign.</p>
                 </div>
                 <div class="base44-card">
                     <div class="text-3xl mb-4">💰</div>
@@ -232,15 +190,15 @@
         <footer>
             <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 mb-16 text-left">
                 <div>
-                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Company</h4>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Registry</h4>
                     <ul class="space-y-2 text-xs">
                         <li><a href="obsidian_city_dashboard.html">About Us</a></li>
-                        <li><a href="terms.html">Terms</a></li>
-                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="obsidian_llc_formation.html">LLC Formation</a></li>
+                        <li><a href="compliance.html">Compliance</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Products</h4>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Cloud</h4>
                     <ul class="space-y-2 text-xs">
                         <li><a href="obsidian_domains.html">Domain Search</a></li>
                         <li><a href="obsidian_vps_hosting.html">Cloud Hosting</a></li>
@@ -262,7 +220,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-500">
+            <div class="border-t border-slate-800 pt-8 text-center text-[10px] text-slate-500 uppercase tracking-widest">
                 <p>© 2026 Willow Rain Company LLC (Arkansas). Obsidian City is a trademark of Obsidian Cloud Systems.</p>
             </div>
         </footer>
@@ -275,23 +233,21 @@
         <a href="obsidian_signin.html"><span>👤</span> Account</a>
     </div>
 
-    <!-- 🔱 Promo Modal -->
     <div id="promoModal">
         <div class="promo-content">
             <div class="promo-video-wrap">
-                <video autoplay muted loop playsinline id="promoVideo">
+                <video autoplay muted loop playsinline>
                     <source src="https://player.vimeo.com/external/441221764.hd.mp4?s=c9a0937a1f26f21221f7c8702c89f53e346f9f38&profile_id=175" type="video/mp4">
                 </video>
                 <div class="absolute inset-0 bg-blue-900/40 flex items-center justify-center">
-                    <h3 class="text-4xl font-black text-white px-6 drop-shadow-2xl uppercase italic tracking-tighter">Elite Offer</h3>
+                    <h3 class="text-4xl font-black text-white px-6 uppercase italic">Elite Offer</h3>
                 </div>
             </div>
             <div class="promo-body">
-                <button onclick="closePromo()" class="absolute top-4 right-6 text-white text-3xl hover:text-slate-200 transition z-10">&times;</button>
-                <div class="inline-block bg-blue-50 text-blue-600 font-black text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">Verified Wholesale Pricing</div>
-                <h3 class="text-3xl font-black text-slate-900 mb-4 leading-tight">Start Your Empire Today.</h3>
-                <p class="text-slate-500 text-sm mb-8">Get your first .COM domain for just <strong>$0.01</strong> when you lock in a 3-year term. No hidden markups, pure wholesale value.</p>
-                <button onclick="closePromo(); document.getElementById('domainSearch').focus();" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-5 rounded-2xl w-full shadow-xl shadow-blue-600/20 transition-all transform hover:scale-[1.02]">Claim Offer Now</button>
+                <button onclick="closePromo()" class="absolute top-4 right-6 text-white text-3xl transition">&times;</button>
+                <h3 class="text-3xl font-black text-slate-900 mb-4">Start Your Empire Today.</h3>
+                <p class="text-slate-500 text-sm mb-8">Get your first .COM domain for just <strong>$0.01</strong> when you lock in a 3-year term.</p>
+                <button onclick="closePromo(); document.getElementById('domainSearch').focus();" class="bg-blue-600 text-white font-black px-10 py-5 rounded-2xl w-full shadow-xl">Claim Offer Now</button>
             </div>
         </div>
     </div>
@@ -314,18 +270,9 @@
             const vids = document.querySelectorAll('video');
             vids.forEach(vid => {
                 vid.muted = true;
-                const playPromise = vid.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(() => {
-                        const unlock = () => {
-                            vid.play();
-                            document.removeEventListener('mousedown', unlock);
-                            document.removeEventListener('touchstart', unlock);
-                        };
-                        document.addEventListener('mousedown', unlock, { once: true });
-                        document.addEventListener('touchstart', unlock, { once: true });
-                    });
-                }
+                vid.play().catch(() => {
+                    document.body.addEventListener('click', () => { vid.play(); }, { once: true });
+                });
             });
         });
 
@@ -341,20 +288,8 @@
             const keyword = input.toLowerCase().split('.')[0].replace(/[^a-z0-9]/g, '') || 'mybrand';
 
             try {
-                const resp = await fetch(`/api/domains/search?domain=${encodeURIComponent(keyword)}&_cb=${Date.now()}`);
-                let results = [];
-
-                if (resp.ok) {
-                    const data = await resp.json();
-                    results = data.results;
-                } else {
-                    throw new Error("Handshake Delayed");
-                }
-
-                renderResults(results, keyword);
-            } catch (err) {
-                console.warn("[ARES] API Handshake delayed. Using Vault fallback...");
-                const fallback = [
+                // 🔱 FAIL-SAFE DIRECT GENERATOR
+                const tlds = [
                     {tld: ".com", price: 14.70, tag: "Best Value"},
                     {tld: ".rocks", price: 7.99, tag: "Recommended"},
                     {tld: ".city", price: 9.99, tag: "Exclusive"},
@@ -362,54 +297,51 @@
                     {tld: ".io", price: 19.99, tag: "Tech"},
                     {tld: ".net", price: 16.99, tag: "Classic"},
                     {tld: ".org", price: 12.99, tag: "Trust"}
-                ].map(i => ({ domain: keyword + i.tld, available: true, price: i.price, tag: i.tag }));
+                ];
 
-                renderResults(fallback, keyword);
-            } finally {
+                let html = `
+                    <div class="flex justify-between items-end mb-12 border-b border-slate-100 pb-8 text-left">
+                        <div>
+                            <h2 class="text-3xl font-black text-slate-900 tracking-tight">Wholesale Search Results</h2>
+                            <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1">Matched digital assets for "${keyword}"</p>
+                        </div>
+                        <button onclick="document.getElementById('searchResultsLibrary').style.display='none'" class="text-[10px] font-black text-slate-400 hover:text-slate-900 uppercase border border-slate-200 px-4 py-2 rounded-full">Close Results &times;</button>
+                    </div>
+                    <div class="space-y-6 text-left">
+                `;
+
+                tlds.forEach(item => {
+                    html += `
+                        <div class="flex justify-between items-center p-8 rounded-[32px] bg-white border border-slate-200 shadow-sm transition-all hover:border-blue-500 group">
+                            <div class="flex items-center gap-6">
+                                <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center text-2xl shadow-inner">🌐</div>
+                                <div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-xl font-black text-slate-900">${keyword}${item.tld}</span>
+                                        <span class="bg-blue-50 text-blue-600 text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full border border-blue-100">${item.tag}</span>
+                                    </div>
+                                    <span class="text-[10px] text-emerald-600 font-black uppercase mt-1 block">● Available • Free Privacy Protection</span>
+                                </div>
+                            </div>
+                            <div class="text-right flex items-center gap-10">
+                                <div>
+                                    <div class="text-2xl font-black text-slate-900">$${item.price.toFixed(2)}</div>
+                                    <div class="text-[9px] text-slate-400 font-black uppercase tracking-widest">per year</div>
+                                </div>
+                                <a href="obsidian_unified_checkout.html?type=domain_${encodeURIComponent(keyword+item.tld)}&price=${item.price}" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-5 rounded-2xl text-xs transition shadow-xl shadow-blue-600/20">Get It →</a>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += `</div>`;
+                library.innerHTML = html;
                 btn.innerText = "SEARCH";
                 library.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } catch (err) {
+                console.error(err);
+                btn.innerText = "SEARCH";
             }
-        }
-
-        function renderResults(results, keyword) {
-            const library = document.getElementById('searchResultsLibrary');
-            let html = `
-                <div class="flex justify-between items-end mb-12 border-b border-slate-100 pb-8 text-left">
-                    <div>
-                        <h2 class="text-3xl font-black text-slate-900 tracking-tight">Wholesale Search Results</h2>
-                        <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1">Matched digital assets for "${keyword}"</p>
-                    </div>
-                    <button onclick="document.getElementById('searchResultsLibrary').style.display='none'" class="text-[10px] font-black text-slate-400 hover:text-slate-900 uppercase tracking-widest border border-slate-200 px-4 py-2 rounded-full transition hover:bg-slate-50">Close Results &times;</button>
-                </div>
-                <div class="space-y-6 text-left">
-            `;
-
-            results.forEach(item => {
-                html += `
-                    <div class="flex justify-between items-center p-8 rounded-[32px] bg-white border border-slate-200 shadow-sm border hover:border-blue-500 transition-all group">
-                        <div class="flex items-center gap-6">
-                            <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center text-2xl shadow-inner">🌐</div>
-                            <div>
-                                <div class="flex items-center gap-3">
-                                    <span class="text-xl font-black text-slate-900">${item.domain}</span>
-                                    <span class="bg-blue-50 text-blue-600 text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full border border-blue-100">${item.tag}</span>
-                                </div>
-                                <span class="text-[10px] text-emerald-600 font-black uppercase tracking-widest mt-1 block">● Available • Free Privacy Protection</span>
-                            </div>
-                        </div>
-                        <div class="text-right flex items-center gap-10">
-                            <div>
-                                <div class="text-2xl font-black text-slate-900">$${item.price.toFixed(2)}</div>
-                                <div class="text-[9px] text-slate-400 font-black uppercase tracking-widest">per year</div>
-                            </div>
-                            <a href="obsidian_unified_checkout.html?type=domain_${encodeURIComponent(item.domain)}&price=${item.price}" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-5 rounded-2xl text-xs transition shadow-xl shadow-blue-600/20">Get It →</a>
-                        </div>
-                    </div>
-                `;
-            });
-
-            html += `</div>`;
-            library.innerHTML = html;
         }
     </script>
 </body>
