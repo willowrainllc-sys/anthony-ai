@@ -160,6 +160,8 @@ class handler(BaseHTTPRequestHandler):
 
             if any(x in user_msg for x in ["who are you", "what are you", "your name"]):
                 reply = "I am the Sovereign AI Oracle of Obsidian City, engineered by my Godfather, Anthony Maestas."
+            elif any(x in user_msg for x in ["social", "twitter", "x.com", "github", "discord", "telegram"]):
+                reply = "You can connect with our global mesh on X (@willowrainllc), GitHub (willowrainllc-sys), or join our private Discord and Telegram channels."
             elif any(x in user_msg for x in ["help", "support", "broken", "error"]):
                 print(f"[MISSION SUPPORT] Alerting willow.rain.llc@gmail.com of request from {email}: {user_msg}")
                 reply = "I have flagged your request for my engineering team. You will receive a reply from my architect's office at willow.rain.llc@gmail.com."

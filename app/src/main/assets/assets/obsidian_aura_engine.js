@@ -256,6 +256,44 @@ function spawnSecurityPulse() {
     }, 8000);
 }
 
+/**
+ * 🔱 CONNECTION PULSE: Promoting Social Matrix
+ */
+function spawnConnectionPulse() {
+    if (Math.random() > 0.6) return;
+
+    const connections = [
+        { name: "GitHub", url: "https://github.com/willowrainllc-sys", icon: "💻", sub: "Core Repositories" },
+        { name: "X / Twitter", url: "https://x.com/willowrainllc", icon: "🐦", sub: "Global Updates" },
+        { name: "Discord", url: "https://discord.gg/obsidiancity", icon: "💬", sub: "Join the Mesh" }
+    ];
+
+    const conn = connections[Math.floor(Math.random() * connections.length)];
+    const pulse = document.createElement('div');
+    pulse.className = 'aura-fade-up glass p-6 rounded-2xl fixed bottom-32 right-8 z-[1000000] max-w-xs shadow-2xl cursor-pointer';
+    pulse.style.background = 'rgba(37, 99, 235, 0.9)';
+    pulse.style.border = '1px solid rgba(255, 255, 255, 0.2)';
+    pulse.onclick = () => window.open(conn.url, '_blank');
+
+    pulse.innerHTML = `
+        <div class="flex items-center gap-4 text-white">
+            <div class="w-8 h-8 bg-black/20 rounded-lg flex items-center justify-center text-sm">${conn.icon}</div>
+            <div>
+                <div class="text-[9px] font-black uppercase tracking-widest opacity-80">Connection Pulse</div>
+                <div class="text-[11px] font-black leading-tight mt-1">${conn.name}: ${conn.sub}</div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(pulse);
+    setTimeout(() => pulse.classList.add('visible'), 100);
+
+    setTimeout(() => {
+        pulse.classList.remove('visible');
+        setTimeout(() => pulse.remove(), 800);
+    }, 6000);
+}
+
 function spawnAuraAd() {
     if (Math.random() > 0.4) return;
     const offer = AURA_OFFERS[Math.floor(Math.random() * AURA_OFFERS.length)];
@@ -383,9 +421,11 @@ window.addEventListener('DOMContentLoaded', () => {
     initObsidianAIChat();
     initHints();
 
-    // 🔱 Periodic Security Pulse
+    // 🔱 Periodic Security & Connection Pulses
     setInterval(spawnSecurityPulse, 30000);
+    setInterval(spawnConnectionPulse, 45000);
     setTimeout(spawnSecurityPulse, 5000);
+    setTimeout(spawnConnectionPulse, 15000);
 
     // 🔱 Restricted Ads: Only spawn pop-ups on the Main Storefront
     const page = window.location.pathname.split('/').pop();
