@@ -9,6 +9,16 @@ import httpx
 import xml.etree.ElementTree as ET
 from http.server import BaseHTTPRequestHandler
 
+# 🔱 INTERNAL BRIDGES
+try:
+    from colony_backend.obsidian_database_sync import db_bridge
+except ImportError:
+    class MockDB:
+        def save_session(self, *args, **kwargs): pass
+        def record_purchase(self, *args, **kwargs): pass
+        def is_director(self, email): return email.lower().startswith("anthony")
+    db_bridge = MockDB()
+
 # 🔱 WHOLESALE & DATABASE BRIDGES
 NAMESILO_KEY = os.environ.get("NAMESILO_API_KEY", "cert_O6RAXSvTTLkhX1TlQcQt9wpA")
 PEXELS_KEY = os.environ.get("PEXELS_API_KEY", "qWDIVVoR27MYlXxWil4roFhwgBTVovgX5GnXqpEtbzHIxj2rNAu1APFd")
@@ -156,13 +166,20 @@ class handler(BaseHTTPRequestHandler):
             item_type = payload.get("type")
             amount = payload.get("amount")
             txid = f"TX-{int(time.time())}-{random.randint(1000, 9999)}"
+
+            # 🔱 PERSISTENT RECORDING: Saving purchase to Supabase
+            db_bridge.record_purchase(email, item_type, amount, txid)
+
             print(f"[SETTLEMENT] Authorizing ${amount} from {email} to Director's Bank Account...")
             response = {"success": True, "txid": txid, "status": "APPROVED"}
             self.wfile.write(json.dumps(response).encode('utf-8'))
 
         elif "/api/auth/signin" in path:
+            email = payload.get("email", "user@example.com")
             sid = f"sess_{int(time.time())}"
-            self.wfile.write(json.dumps({"success": True, "session_id": sid, "email": payload.get("email")}).encode('utf-8'))
+            # 🔱 PERSISTENT RECORDING: Saving user session to Supabase
+            db_bridge.save_session(sid, email, metadata={"ip": self.client_address[0]})
+            self.wfile.write(json.dumps({"success": True, "session_id": sid, "email": email}).encode('utf-8'))
 
         else:
             self.wfile.write(json.dumps({"success": True}).encode('utf-8'))
