@@ -34,7 +34,7 @@ class ObsidianQuantumScraper:
 
                 # 2. Feed the Portal (Direct Ingress)
                 # In production, this pushes to https://api.obsidian-global.io/feed
-                colony_log(f" FEED: Pushing {extraction_chunk:.2f} MB of high-aura data to Portal.", node="INGRESS")
+                colony_log(f" FEED: Pushing {extraction_chunk:.2f} MB of high-performance data to Portal.", node="INGRESS")
 
                 db.log_event("INGRESS", "VELOCITY_PULSE", {
                     "node": self.node_id,

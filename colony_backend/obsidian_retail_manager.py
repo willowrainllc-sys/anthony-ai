@@ -30,7 +30,7 @@ class ObsidianRetailManager:
                 self.book_queue -= 5
 
                 # 2. Forge Printful Design
-                colony_log(f"[*] RETAIL: Pushing High-Aura design to {self.design_target}...", node="MEDIA")
+                colony_log(f"[*] RETAIL: Pushing High-Performance design to {self.design_target}...", node="MEDIA")
 
                 db.log_event("RETAIL", "COMMERCE_BURST_COMPLETED", {
                     "units_listed": 5,

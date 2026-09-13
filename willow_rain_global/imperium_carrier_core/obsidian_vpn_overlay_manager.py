@@ -19,7 +19,7 @@ class ObsidianVpnOverlayManager:
         self.overlay_name = "OBSIDIAN-CORE-DARK"
 
     def ignite_sovereign_overlay(self):
-        colony_log(" VPN_OVERLAY: Initiating Sovereign Mesh Handshake...", node="SECURITY")
+        colony_log(" VPN_OVERLAY: Initiating Global Edge Network Handshake...", node="SECURITY")
 
         # Simulated Key Generation
         colony_log(f"VPN_OVERLAY: Fabric [{self.overlay_name}] is online. Mapping tunnels...", node="SECURITY")

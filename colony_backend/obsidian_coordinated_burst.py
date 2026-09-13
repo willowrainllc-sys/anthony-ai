@@ -19,7 +19,7 @@ async def execute_coordinated_empire_burst():
     Executes the next level of scaling across all million-dollar pillars:
     1. B2B HANDSHAKE: Generates and dispatches a new Elite Provider Proposal.
     2. CLOUD HUB: Refreshes B2B leases and audits monthly yield.
-    3. MEDIA STUDIO: Initiates a 15-Minute High-Aura Documentary production.
+    3. MEDIA STUDIO: Initiates a 15-Minute High-Performance Documentary production.
     4. SETTLEMENT: Verifies multi-sig sweep readiness.
     """
     colony_log("[SUPREME] OBSIDIAN BURST: Initiating Coordinated Empire Burst...", node="BURST")

@@ -62,7 +62,7 @@ class ObsidianRootAuthority:
         return True, "PROVISIONED"
 
     def issue_gov_key(self, agency_name):
-        """Generates a high-aura RSA keypair for a government contract."""
+        """Generates a high-performance RSA keypair for a government contract."""
         colony_log(f"ORA: Issuing GOV_DIRECT keys for [{agency_name}]...", node="SUPREME")
 
         # 🔱 The 'Cash Cow' Keys:

@@ -10,14 +10,14 @@ UNIQUE_ARCHETYPES = {
     "high_aura_masterminds": {
         "hooks": [
             "Her covert intelligence network operated in total stealth, outsmarting four global agencies at once.",
-            "The high-aura strategist who built a multi-billion dollar obsidian AI infrastructure in total secrecy.",
+            "The high-performance strategist who built a multi-billion dollar obsidian AI infrastructure in total secrecy.",
             "She bypassed state security protocols in under three minutes without leaving a digital trace.",
             "The secret mastermind behind the world's most lucrative trading algorithm revealed."
         ],
         "tags": ["#Masterminds", "#HighAura", "#Biography", "#Documentary", "#LuxuryTech", "#Power"],
         "visual_themes": ["glamour_cyber_glow", "high_contrast_studio", "cinematic_noir_portrait"],
         "prompts": [
-            "Cinematic 4k shot of beautiful high-aura woman wearing futuristic neural visor reviewing holographic data in luxury studio",
+            "Cinematic 4k shot of beautiful high-performance woman wearing futuristic neural visor reviewing holographic data in luxury studio",
             "Elegant female strategist walking through rainy illuminated Neo-Tokyo boulevard cinematic 4k",
             "High-profile female tech founder standing before massive glowing glass server array 8k",
             "Glamorous woman in dark tailored suit looking at financial telemetry displays 4k"

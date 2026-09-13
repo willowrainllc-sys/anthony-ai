@@ -31,7 +31,7 @@ class ObsidianTreasuryWatchdog:
 
                 for p in payments:
                     amount = p['amount_money']['amount'] / 100
-                    if amount >= 100.0: # Only track high-aura payments
+                    if amount >= 100.0: # Only track high-performance payments
                         colony_log(f"[SUPREME] TREASURY: New Settlement Detected! ${amount:,.2f} from {p.get('source_type')}", node="FINANCE")
                         db.log_event("FINANCE", "SETTLEMENT_CONFIRMED", {"amount": amount, "id": p['id']})
 

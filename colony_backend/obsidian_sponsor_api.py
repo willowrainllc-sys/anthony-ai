@@ -22,7 +22,7 @@ SPONSORS = [
 
 @app.get("/v1/next-sponsor")
 async def get_sponsor():
-    """Returns the next high-aura sponsor message for the ASI Thinking state."""
+    """Returns the next high-performance sponsor message for the ASI Thinking state."""
     return random.choice(SPONSORS)
 
 if __name__ == "__main__":

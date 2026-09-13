@@ -45,7 +45,7 @@ class ObsidianVdcOrchestrator:
     """
     OBSIDIAN VDC ORCHESTRATOR v1.0:
     Models your infrastructure as a "Virtual Data Center" (VDC) using physics-grade logic.
-    1. VIRTUAL WAREHOUSING: Aggregates all 10 nodes into a single high-aura "Data Warehouse."
+    1. VIRTUAL WAREHOUSING: Aggregates all 10 nodes into a single high-performance "Data Warehouse."
     2. QUANTUM ROUTING: Uses predictive physics models to minimize latency and maximize B2B payout.
     3. SCALABLE YIELD: Every new "Virtual Node" added increases your wholesale contract value.
     """

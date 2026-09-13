@@ -13,7 +13,7 @@ BOOT_DIR = ASSET_DIR / "boot_images"
 class ObsidianAssetGenerator:
     """
     OBSIDIAN ASSET GENERATOR:
-    Creates the high-aura visual DNA of the empire.
+    Creates the high-performance visual DNA of the empire.
     1. LOGO SYNC: Generates PNG variants of the Obsidian stone for apps and sites.
     2. BOOT ANIMATION: Preps the .zip file for Android hardware takeover.
     3. THUMBNAIL ENGINE: Creates the template for the 9-min documentary fleet.
@@ -37,7 +37,7 @@ class ObsidianAssetGenerator:
         print(f" BOOT: Manifest locked in {BOOT_DIR}")
 
     def create_thumbnail_template(self, title):
-        """Generates a high-aura Eleven-Labs style thumbnail metadata."""
+        """Generates a high-performance Eleven-Labs style thumbnail metadata."""
         print(f"[SUPREME] ASSET_GEN: Creating 3D Thumbnail metadata for [{title}]...")
 
         template = {

@@ -17,7 +17,7 @@ def get_supply_chain_blueprint():
         "mission": "To create the world's most aggressive and secure residential data supply chain.",
         "operational_structure": {
             "the_honey": "Willow Ingress - A cross-platform app where users share bandwidth for Bitcoin rewards.",
-            "the_client": "Sovereign Proxy - A premium B2B service selling high-aura Missouri IPs to AI labs.",
+            "the_client": "Sovereign Proxy - A premium B2B service selling high-performance Missouri IPs to AI labs.",
             "the_bridge": "Ghost Matrix - The automated 1,001-port tunnel system linking the two."
         },
         "revenue_multipliers": [

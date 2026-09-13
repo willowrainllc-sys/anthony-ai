@@ -31,13 +31,13 @@ function initLeoChat() {
                 <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-sm">🤖</div>
                 <div>
                     <div class="text-[11px] font-black text-white uppercase tracking-widest">Obsidian Leo™</div>
-                    <div class="text-[8px] text-emerald-400 font-bold uppercase">ARES Intel Node Active</div>
+                    <div class="text-[8px] text-emerald-400 font-bold uppercase">Enterprise AI Node Active</div>
                 </div>
             </div>
             <button onclick="toggleLeoChat()" class="text-gray-500 hover:text-white text-xl">&times;</button>
         </div>
         <div class="chat-body" id="leoChatBody">
-            <div class="msg msg-leo">Greetings. I am Leo, your Sovereign AI Oracle. How can I assist your empire expansion today?</div>
+            <div class="msg msg-leo">Greetings. I am Leo, your AI Business Assistant. How can I assist your business growth today?</div>
         </div>
         <div class="chat-footer">
             <input type="text" id="leoChatInput" class="chat-input" placeholder="Ask Leo anything..." onkeypress="handleChatKey(event)">

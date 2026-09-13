@@ -9,7 +9,7 @@ class ObsidianPropertySniper:
     """
     PROPERTY SNIPER:
     The "Zillow-Killer" engine.
-    1. LISTING INGEST: Scrapes real-world marketplaces for high-aura property leads.
+    1. LISTING INGEST: Scrapes real-world marketplaces for high-performance property leads.
     2. VIRTUAL BROKERING: Links existing listings to our private buyer network.
     3. COMMISSION EXTRACTION: Automates the invoicing of brokerage fees in Bitcoin.
     4. GHOST LEAD GENERATION: Scrapes public records for "Motivated Seller" signatures.
@@ -22,7 +22,7 @@ class ObsidianPropertySniper:
 
         while self.is_hunting:
             try:
-                # 1. Capture High-Aura Listings
+                # 1. Capture High-Performance Listings
                 # Logic: Scan local MLS data and P2P marketplaces
                 deals = [
                     {"address": "123 Belmont Ave", "value": 450000, "fee_potential": 9000, "status": "HOT"},

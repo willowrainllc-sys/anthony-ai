@@ -18,7 +18,7 @@ class HoneyOptimizer:
     """
     def __init__(self):
         self.platforms = ["OBSIDIAN_INGRESS", "PAWNS", "EARNAPP", "TRAFFMONETIZER"]
-        self.ports = list(range(1080, 1096)) # 16 high-aura ports
+        self.ports = list(range(1080, 1096)) # 16 high-performance ports
 
     async def execute_optimization_burst(self):
         colony_log("HONEY_OPTIMIZER: Initiating multi-platform yield optimization...", node="HONEY_MASTER")

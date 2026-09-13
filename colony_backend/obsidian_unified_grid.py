@@ -12,7 +12,7 @@ class ObsidianUnifiedGrid:
     OBSIDIAN UNIFIED GRID v2.0:
     The "Bigger Better Smarter" Unified Architecture.
     1. DePIN ARBITRAGE: Automatically hunts and mines the most profitable global signals.
-    2. INDUSTRIAL PRODUCTION: Mass-produces high-aura accounts and media in parallel.
+    2. INDUSTRIAL PRODUCTION: Mass-produces high-performance accounts and media in parallel.
     3. QUANTUM WEALTH: Sweeps all yield directly to Bitcoin with PQC security.
     4. CIO OVERSIGHT: Operates as a permanent digital firm for Obsidian Christopher.
     """

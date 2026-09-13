@@ -106,9 +106,9 @@ def create_high_aura_cover(title: str, sub: str, genre_key: str) -> str:
 class DigitalPublishingEngine:
     """
     ELITE DIGITAL PUBLISHING ENGINE v6.0:
-    Generates professional, high-aura field guides with color pages, visuals, and luxury branding.
+    Generates professional, high-performance field guides with color pages, visuals, and luxury branding.
     - 20-Page Full-Color Layout
-    - Catchy High-Aura Covers
+    - Catchy High-Performance Covers
     - Direct-to-Bank Square Monetization
     """
     async def generate_catchy_ebook(self, category_key: str = "cozy_girl_bold_easy", price_usd: float = 14.99) -> dict:

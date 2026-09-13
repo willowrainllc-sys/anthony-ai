@@ -43,7 +43,7 @@ async def force_strike():
             "order": {
                 "location_id": LOC_ID,
                 "line_items": [{
-                    "name": "Wholesale Obsidian Matrix: 5,000 GB High-Aura Ingress",
+                    "name": "Wholesale Obsidian Matrix: 5,000 GB High-Performance Ingress",
                     "quantity": "1",
                     "base_price_money": {"amount": 900000, "currency": "USD"}
                 }]
@@ -67,7 +67,7 @@ async def force_strike():
                     "due_date": time.strftime("%Y-%m-%d")
                 }],
                 "delivery_method": "EMAIL",
-                "title": "OBSIDIAN GLOBAL: Wholesale Ingress Retainer",
+                "title": "OBSIDIAN GLOBAL: Wholesale Access Retainer",
                 "accepted_payment_methods": {"bank_account": True, "card": True, "square_gift_card": True}
             }
         }

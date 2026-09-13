@@ -16,7 +16,7 @@ from playwright_stealth_factory import stealth_factory
 JMPT_SESSION = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault\cookie_monster\cookie_monster_obsidian_bridge.json")
 
 async def troubleshoot():
-    print("🔱 PAYOUT_TROUBLESHOOT: Starting high-aura audit...")
+    print("🔱 PAYOUT_TROUBLESHOOT: Starting high-performance audit...")
 
     if not JMPT_SESSION.exists():
         print("Error: No session keys.")

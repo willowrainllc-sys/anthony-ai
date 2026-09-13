@@ -20,7 +20,7 @@ class ObsidianNumberMarketplace:
     Wholesales 10-digit Missouri numbers to external firms.
     1. BULK PROVISIONING: Uses the MVNO gateway to buy batches of numbers.
     2. API ACCESS: Clients can fetch their purchased numbers via REST.
-    3. REVENUE EXTRACTION: Charges a premium markup for 'High-Aura' Missouri numbers.
+    3. REVENUE EXTRACTION: Charges a premium markup for 'High-Performance' Missouri numbers.
     """
     def __init__(self):
         from willow_rain_global.ingress_api.obsidian_mvno_gateway import mvno_gateway

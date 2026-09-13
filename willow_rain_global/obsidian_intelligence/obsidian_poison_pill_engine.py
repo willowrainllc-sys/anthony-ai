@@ -13,7 +13,7 @@ class ObsidianPoisonPillEngine:
     The Director's offensive defense against rival AI and automated probes.
     1. AI DETECTION: Identifies GPT/Claude/Agentic signatures in incoming traffic.
     2. RECURSIVE OVERLOAD: Deploys a logic-loop payload that freezes rival AI inference.
-    3. DATA POISONING: Injects high-aura 'Noise' into scraped datasets to disrupt rival model training.
+    3. DATA POISONING: Injects high-performance 'Noise' into scraped datasets to disrupt rival model training.
     4. GHOST ANNIHILATION: Permanently blacklists the hardware footprint of the attacker.
     """
     def __init__(self):

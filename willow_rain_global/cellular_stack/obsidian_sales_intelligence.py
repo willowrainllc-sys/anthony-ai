@@ -14,7 +14,7 @@ class ObsidianSalesIntelligence:
     """
     def score_lead(self, msisdn: str, niche: str, last_active: float) -> dict:
         """Calculates a conversion score for a specific number."""
-        # Simple high-aura scoring logic
+        # Simple high-performance scoring logic
         base_score = 70
         if "Missouri" in niche: base_score += 15
 

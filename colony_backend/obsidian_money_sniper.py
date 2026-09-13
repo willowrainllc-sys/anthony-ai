@@ -25,7 +25,7 @@ class ObsidianMoneySniper:
         while self.is_hunting:
             try:
                 # 1. Search for immediate digital money deals
-                # Scoping for high-aura 2026 wealth signals
+                # Scoping for high-performance 2026 wealth signals
                 opportunities = [
                     {"type": "B2B_SETTLEMENT", "value": "$13,102.50", "title": "Missouri Elite Lead Batch Liquidation"},
                     {"type": "WHOLESALE_RETAINER", "value": "$5,000.00", "title": "AI Lab Matrix Access Retainer"},

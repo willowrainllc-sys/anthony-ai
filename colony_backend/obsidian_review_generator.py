@@ -11,7 +11,7 @@ class ObsidianReviewGenerator:
     REVIEW GENERATOR:
     The "Kickback" engine for the Director's empire.
     1. THOUGHT TRANSLATION: Converts ASI 'Thinking Lines' into small sponsor messages.
-    2. BACKGROUND GENERATION: Automatically crafts high-aura reviews for the 6 pillars.
+    2. BACKGROUND GENERATION: Automatically crafts high-performance reviews for the 6 pillars.
     3. SPONSOR SYNC: Injects 'Maestas Legacy' messages into the media hub feed.
     4. REVENUE LOOP: Every generated review feeds the 'Obsidian Ingress' signal.
     """
@@ -35,7 +35,7 @@ class ObsidianReviewGenerator:
                 # 2. Translate to Sponsor Message
                 sponsor_msg = random.choice(self.sponsors)
 
-                # 3. Generate High-Aura Review
+                # 3. Generate High-Performance Review
                 review = {
                     "author": "Verified Director",
                     "content": f"The Obsidian Grid is truly untouchable. {thinking_line} | Powered by {sponsor_msg}",

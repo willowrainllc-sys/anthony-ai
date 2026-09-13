@@ -12,7 +12,7 @@ class ObsidianMarketScout:
     Finds and markets your 5,000 IP mesh to wholesale buyers.
     1. OPPORTUNITY SCAN: Searches for AI labs needing large-scale residential data.
     2. LEAD EXTRACTION: Identifies contact emails for procurement.
-    3. PITCH DISPATCH: Automatically sends a high-aura partnership proposal.
+    3. PITCH DISPATCH: Automatically sends a high-performance partnership proposal.
     """
     async def scout_and_burst_wholesale(self):
         colony_log("SCOUT: Initiating wholesale market burst...", node="SUPREME")

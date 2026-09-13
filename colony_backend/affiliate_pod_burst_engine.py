@@ -55,7 +55,7 @@ class AffiliatePodBurstEngine:
     3. REVENUE LOOP: Injects affiliate links directly into YouTube descriptions & Square storefronts.
     """
     async def execute_merch_design_burst(self) -> MerchConcept:
-        """Generates a high-aura merch concept based on the latest viral spark."""
+        """Generates a high-performance merch concept based on the latest viral spark."""
         spark = await trend_engine.get_fresh_creative_spark()
         colony_log(f"POD_BURST: Architecting original merch for [{spark['subject']}]...", node="AFFILIATE_ENG")
 

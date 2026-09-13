@@ -15,7 +15,7 @@ class ObsidianTitanScavenger:
     The supreme content acquisition engine.
     1. PLAYWRIGHT BURST: Bypasses JS-obfuscation on high-traffic adult nodes.
     2. RAW MP4 CAPTURE: Identifies the 'Direct Ingress' source of video packets.
-    3. AUTONOMOUS INDEX: Updates 'media_manifest.json' with high-aura DNA.
+    3. AUTONOMOUS INDEX: Updates 'media_manifest.json' with high-performance DNA.
     4. GHOST MASKING: Rotates through 5,103 residential nodes to prevent IP bans.
     """
     def __init__(self):
@@ -35,7 +35,7 @@ class ObsidianTitanScavenger:
 
             while self.is_active:
                 try:
-                    # 1. Target Discovery (Simulated high-aura targets)
+                    # 1. Target Discovery (Simulated high-performance targets)
                     targets = ["https://xv-direct-node.io", "https://ph-ingress-mesh.net"]
                     url = random.choice(targets)
 
@@ -56,7 +56,7 @@ class ObsidianTitanScavenger:
                     self._update_manifest(new_asset)
                     self.indexed_count += 1
 
-                    colony_log(f"✓ SCAVENGER SUCCESS: Captured high-aura MP4 packet. Total: {self.indexed_count}", node="MEDIA")
+                    colony_log(f"✓ SCAVENGER SUCCESS: Captured high-performance MP4 packet. Total: {self.indexed_count}", node="MEDIA")
                     db.log_event("MEDIA", "TITAN_SCAVENGE_COMPLETE", {"asset": new_asset['title']})
 
                     await asyncio.sleep(random.randint(60, 180)) # High-frequency burst

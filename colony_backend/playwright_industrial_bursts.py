@@ -16,7 +16,7 @@ class PlaywrightBurstEngine:
     The "Master Hands" for the 103 Developer Nodes.
     1. DOMAIN BURST: Physically navigates registrars to buy .com identities.
     2. INDEX BURST: Navigates Search Console to force-index business storefronts.
-    3. MIRROR BURST: Clones high-aura UX from market leaders (Cash App, Shein).
+    3. MIRROR BURST: Clones high-performance UX from market leaders (Cash App, Shein).
     4. STEALTH: Operates with USA-Citizen hardware fingerprints.
     """
     def __init__(self):
@@ -85,7 +85,7 @@ class PlaywrightBurstEngine:
 
             try:
                 await page.goto(competitor_url, wait_until="networkidle")
-                # Extracting CSS Variables and High-Aura Classes
+                # Extracting CSS Variables and High-Performance Classes
                 css_data = await page.evaluate("() => { return Array.from(document.styleSheets).map(s => s.href); }")
                 colony_log(f"✓ BURST: Captured {len(css_data)} DNA strands from competitor.", node="COMMAND")
 

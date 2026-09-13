@@ -85,7 +85,7 @@ class ObsidianLeadGenerator:
         return package
 
     async def draft_outreach_email(self, lead: B2BLead) -> str:
-        """Drafts a professional, high-aura outreach email for a specific lead."""
+        """Drafts a professional, high-performance outreach email for a specific lead."""
         colony_log(f"LEAD_GEN: Drafting outreach for [{lead.company_name}]...", node="LEAD_GEN")
 
         prompt = f"""

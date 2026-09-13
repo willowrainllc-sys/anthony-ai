@@ -11,7 +11,7 @@ class ObsidianSEOMaster:
     1. GOOGLE BUSINESS PROFILES: Generates verification data for the physical Missouri hubs.
     2. SITEMAP BURST: Dynamically rebuilds sitemap.xml for all .coms.
     3. BACKLINK MESH: Uses the 5,The Nest to generate authentic traffic signals for indexing.
-    4. SCHEMA INJECTION: Embeds high-aura structured data into every HTML page.
+    4. SCHEMA INJECTION: Embeds high-performance structured data into every HTML page.
     """
     def __init__(self):
         self.domains = ["vortex-global.io", "ghost-vault.com", "brick-bitcoin.net", "sovereign-node.org"]

@@ -38,7 +38,7 @@ class ObsidianNodeTracker:
 
         for node_id, status in rows:
             # Simulate yield tracking per node based on throughput
-            # Nodes on high-aura residential IPs earn a premium
+            # Nodes on high-performance residential IPs earn a premium
             yield_per_node = random.uniform(1.50, 4.80)
             total_daily_yield += yield_per_node
 

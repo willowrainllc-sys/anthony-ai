@@ -40,7 +40,7 @@ class ObsidianNewsEngine:
     Intercepts live IPTV signals to create "Instant Viral News" bursts.
     1. SIGNAL INTERCEPT: Detects 'Breaking' keywords in IPTV news categories.
     2. MEDIA CLIPPING: Captures 15-30s of live broadcast via FFmpeg.
-    3. OBSIDIAN NARRATION: The Brain writes a 'High-Aura' analysis of the event.
+    3. OBSIDIAN NARRATION: The Brain writes a 'High-Performance' analysis of the event.
     4. INSTANT DISPATCH: Pushes the bulletin to X, YouTube, and the Android App.
     """
     async def execute_breaking_news_burst(self) -> Optional[NewsBulletin]:
@@ -58,7 +58,7 @@ class ObsidianNewsEngine:
         # 2. Clip Media Signal
         clip_path = await iptv_harvester.clip_media_signal(target.stream_id, duration_sec=15)
         if not clip_path:
-            colony_log(f"[-] NEWS_ENGINE: Live clip failed. Using high-aura stock fallback for [{target.name}]", node="NEWS_HUB")
+            colony_log(f"[-] NEWS_ENGINE: Live clip failed. Using high-performance stock fallback for [{target.name}]", node="NEWS_HUB")
             # Pull a relevant stock video from the vault
             from providers.video_provider import video_provider
             clip_path = await video_provider.generate_video(f"breaking news background {target.category}", 15)
@@ -66,7 +66,7 @@ class ObsidianNewsEngine:
 
         # 3. Brain-Driven Analysis
         colony_log(f"NEWS_ENGINE: Analyzing signal from [{target.name}] for Obsidian Bulletin...", node="NEWS_HUB")
-        prompt = f"Write a 15-second high-aura breaking news bulletin for a channel called Willow Rain OS. Event: Breaking news on {target.name}. Focus on 'The Truth' and 'Grid Intelligence'."
+        prompt = f"Write a 15-second high-performance breaking news bulletin for a channel called Willow Rain OS. Event: Breaking news on {target.name}. Focus on 'The Truth' and 'Grid Intelligence'."
         script = await brain_gate.generate_serialized(prompt, format="text", complexity="medium")
 
         # 4. Synthesize Obsidian Voiceover

@@ -39,7 +39,7 @@ class ObsidianGhostFactory:
         self.device_pool = ["Galaxy S22", "iPhone 15 Pro", "Windows 11 PC", "MacBook Pro M3", "Pixel 8"]
 
     def generate_ghost_identity(self) -> GhostIdentity:
-        """Generates a high-aura virtual identity with VALID manufacturer OUIs."""
+        """Generates a high-performance virtual identity with VALID manufacturer OUIs."""
         identity_id = f"GHOST-{uuid.uuid4().hex[:6].upper()}"
 
         # 1. Use VALID OUIs (Apple: 00:0A:95 | Samsung: 00:07:AB | Google: 00:1A:11)

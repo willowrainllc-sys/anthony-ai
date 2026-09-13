@@ -15,7 +15,7 @@ class ObsidianRealScout:
     Identifies actual businesses in Pueblo, CO and St. Louis, MO for B2B ingress.
     1. MARKET SCAVENGE: Searches for law firms, real estate agencies, and tech startups.
     2. VULNERABILITY AUDIT: Scans public business listings for 'Legacy' tech fingerprints.
-    3. PROPOSAL GENERATION: Crafts high-aura PDF 'Bursts' for Sovereign services.
+    3. PROPOSAL GENERATION: Crafts high-performance PDF 'Bursts' for Sovereign services.
     4. SINK SYNC: Bridges potential contracts to the Negotiating Capital matrix.
     """
     def __init__(self):
@@ -32,7 +32,7 @@ class ObsidianRealScout:
                 territory = random.choice(self.target_territories)
                 query = f"law firms in {territory} or real estate agencies"
 
-                colony_log(f"[*] SCOUT: Scavenging {territory} for high-aura prospects...", node="SALES")
+                colony_log(f"[*] SCOUT: Scavenging {territory} for high-performance prospects...", node="SALES")
                 results = await web_search.search_live_web(query, max_results=3)
 
                 for r in results:

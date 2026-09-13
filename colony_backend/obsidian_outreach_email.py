@@ -10,7 +10,7 @@ class ObsidianOutreachEmail:
     """
     OUTREACH DISPATCHER:
     The 'Voice' of the Industrial Sales fleet.
-    1. PITCH SYNTHESIS: Generates high-aura B2B proposals for Mesh and Scraper access.
+    1. PITCH SYNTHESIS: Generates high-performance B2B proposals for Mesh and Scraper access.
     2. GHOST DELIVERY: Routes emails through authorized Director SMTP (Gmail App Password).
     3. TRACKING: Logs every 'Burst' in the Commerce Registry.
     4. USA AUTHENTICATED: All outreach carries the Director's verified industrial signature.

@@ -50,7 +50,7 @@ class ObsidianLeadExtractor:
                 writer.writerow([scored["msisdn"], scored["niche"], r[2], scored["score"], scored["tier"]])
 
         db.log_event("CARRIER", "SALES_LEAD_LIST_GENERATED", {"count": len(rows), "niche": target_niche, "path": str(file_path)})
-        colony_log(f" LEADS SUCCESS: Exported {len(rows)} high-aura Missouri leads.", node="CARRIER")
+        colony_log(f" LEADS SUCCESS: Exported {len(rows)} high-performance Missouri leads.", node="CARRIER")
         return file_path
 
 import time

@@ -14,7 +14,7 @@ class WillowIngressClient:
     WILLOW INGRESS CLIENT v1.0:
     The direct competitor to the Obsidian Ingress Android/PC app.
     1. GHOST AUTH: Automatically registers with the WRG Hive using a physical phone identity.
-    2. DATA RELAY: Routes high-aura residential traffic through our 1,001-port matrix.
+    2. DATA RELAY: Routes high-performance residential traffic through our 1,001-port matrix.
     3. BTC MINING: Tracks every MB shared and converts it into 'Willow Nectar' credits.
     """
     def __init__(self, master_email: str):

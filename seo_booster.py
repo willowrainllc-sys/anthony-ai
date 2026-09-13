@@ -7,7 +7,7 @@ class SEOBooster:
     """
     SEO BOOSTER v1.0:
     Hard-wires the site for maximum Google search authority.
-    1. SCHEMA.ORG: Injects JSON-LD structured data for high-aura search results.
+    1. SCHEMA.ORG: Injects JSON-LD structured data for high-performance search results.
     2. KEYWORD INJECTION: Targets 'passive income', 'saturn_ingress alternative', and 'earn bitcoin'.
     3. SITEMAP GENERATOR: Ensures Google crawlers index every profit-loop page.
     """
@@ -23,7 +23,7 @@ class SEOBooster:
         print("✓ SITEMAP: Generated and ready for Google Search Console.")
 
     def get_structured_data(self):
-        """JSON-LD for Google high-aura ranking."""
+        """JSON-LD for Google high-performance ranking."""
         return {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",

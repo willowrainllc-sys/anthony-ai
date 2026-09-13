@@ -38,7 +38,7 @@ class ObsidianCapitalArbitrage:
                 await asyncio.sleep(60)
 
     async def _search_for_capital_deals(self):
-        """Scouts the web for high-aura capital opportunities."""
+        """Scouts the web for high-performance capital opportunities."""
         queries = [
             "undervalued Amazon gift card bulk lots 2026",
             "luxury travel error fares St. Louis 2026",

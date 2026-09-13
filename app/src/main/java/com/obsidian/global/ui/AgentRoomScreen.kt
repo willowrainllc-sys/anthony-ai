@@ -121,7 +121,7 @@ fun ObsidianAgentBlock(agent: AgentStatus) {
             modifier = Modifier.padding(24.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // High-Aura Icon with Glow
+            // High-Performance Icon with Glow
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier

@@ -40,8 +40,8 @@ class DubbingJob(BaseModel):
 class ObsidianLocalizationEngine:
     """
     OBSIDIAN LOCALIZATION ENGINE v1.0:
-    Multiplies reach by 10x by automatically dubbing high-aura content into global languages.
-    1. AI TRANSLATION: Translates 3,000-word scripts while preserving 'High-Aura' tone.
+    Multiplies reach by 10x by automatically dubbing high-performance content into global languages.
+    1. AI TRANSLATION: Translates 3,000-word scripts while preserving 'High-Performance' tone.
     2. GLOBAL DUBBING: Synthesizes multi-language VO using Edge-TTS.
     3. MARKET SYNDICATION: Prepares localized metadata for global YouTube/TikTok channels.
     """
@@ -54,7 +54,7 @@ class ObsidianLocalizationEngine:
             colony_log(f"LOCALIZATION: Translating to [{target['lang']}]...", node="LOCAL_ENG")
 
             # 1. Translate Script via Brain
-            prompt = f"Translate the following documentary script into fluent, high-aura {target['lang']}. Preserve the cinematic tone.\n\nScript: {original_script[:1000]}"
+            prompt = f"Translate the following documentary script into fluent, high-performance {target['lang']}. Preserve the cinematic tone.\n\nScript: {original_script[:1000]}"
             translated_text = await brain_gate.generate_serialized(prompt, format="text", complexity="medium")
 
             # 2. Synthesize Dubbed Audio

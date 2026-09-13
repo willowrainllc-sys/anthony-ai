@@ -30,7 +30,7 @@ class ObsidianWaveKernel:
                 # Logic: Capturing 5G, LTE, and Satellite backhaul packets.
 
                 # 🔱 2. Light Wave Modulation
-                # Using the Director's photonic mesh for high-aura synchronization.
+                # Using the Director's photonic mesh for high-performance synchronization.
 
                 colony_log(f"⚛️ WAVE_SYNC: Connected to Radio/Light spectrum. Intensity: {random.uniform(99.4, 100.0):.2f}%", node="SECURITY")
 

@@ -23,7 +23,7 @@ LAWS_OF_POWER_MATRIX = {
     },
     "law_06": {
         "law": "Law 6: Court Attention at All Costs",
-        "directive": "High-Aura Visual Slap",
+        "directive": "High-Performance Visual Slap",
         "application": "0s-3s scroll-stopping opening hook with high-contrast 1080p visuals and low-frequency bass drops.",
         "content_hook": "The three-minute vault job that baffled federal investigators and left zero forensic fingerprints."
     },
@@ -37,7 +37,7 @@ LAWS_OF_POWER_MATRIX = {
         "law": "Law 15: Crush Your Enemy Totally",
         "directive": "Multi-Platform Omnipresence",
         "application": "Simultaneous auto-publishing across YouTube Shorts, Facebook Reels, Instagram Shops, Vercel, Printful, and Amazon KDP.",
-        "content_hook": "How one high-aura brand dominated six global marketplaces simultaneously without taking a single loan."
+        "content_hook": "How one high-performance brand dominated six global marketplaces simultaneously without taking a single loan."
     },
     "law_28": {
         "law": "Law 28: Enter Action with Boldness",

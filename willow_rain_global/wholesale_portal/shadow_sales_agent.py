@@ -13,7 +13,7 @@ class ShadowSalesAgent:
     The "Double Down" machine for lead liquidation.
     1. TARGET DISCOVERY: Searches for high-volume outbound call centers in the USA.
     2. DATA PACKAGING: Automatically generates CSV samples for specific regions (e.g., Missouri).
-    3. PITCH DISPATCH: Sends an autonomous, high-aura proposal to procurement heads.
+    3. PITCH DISPATCH: Sends an autonomous, high-performance proposal to procurement heads.
     4. REVENUE TRACKING: Monitors the Square inbox for settlement confirmation.
     """
     def __init__(self):

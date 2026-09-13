@@ -11,7 +11,7 @@ class ObsidianWikiLibrary:
     """
     OBSIDIAN WIKI LIBRARY:
     The public 'Industrial Knowledge Base' for the empire.
-    1. ENTRY GENERATION: Produces high-aura documentation for each business unit.
+    1. ENTRY GENERATION: Produces high-performance documentation for each business unit.
     2. PUBLIC VERSIONING: Tracks updates to the 'Attractive' frontend logic.
     3. REPO SYNC: Automatically links Wiki entries to public code repositories.
     4. OBFUSCATION: Ensures 'Secret Sauce' remains internal and untraceable.
@@ -47,7 +47,7 @@ class ObsidianWikiLibrary:
             },
             "AD_BURST": {
                 "title": "Ad Burst",
-                "summary": "Industrial ad selling and mediation platform for high-aura publishers.",
+                "summary": "Industrial ad selling and mediation platform for high-performance publishers.",
                 "niche": "Advertising / Monetization"
             },
             "TOWN_360": {

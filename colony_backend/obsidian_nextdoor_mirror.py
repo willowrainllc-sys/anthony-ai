@@ -16,7 +16,7 @@ class NextdoorMirrorBurst:
     NEXTDOOR MIRROR BURST:
     1. DNA EXTRACTION: Captures the 'Neighborhood Feed' and 'Local Connect' layouts.
     2. REBRANDING: Translates 'Nextdoor' signatures into 'Obsidian Town' (TOWN 360).
-    3. FRONTEND BUILD: Generates high-aura HTML/CSS for the social layer.
+    3. FRONTEND BUILD: Generates high-performance HTML/CSS for the social layer.
     4. TEAM SYNC: Vaults the layouts for the 103 Developer Nodes to optimize.
     """
     def __init__(self):

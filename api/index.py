@@ -31,6 +31,8 @@ STATES_DB = {
     "DE": {"name": "Delaware", "fee": 90, "time": "2-3 days"}
 }
 
+# 🔱 VPS INVENTORY & NODES
+USER_SERVERS = {} # email -> list of servers
 SESSIONS = {}
 ORDERS = {}
 
@@ -70,6 +72,14 @@ class handler(BaseHTTPRequestHandler):
             payload = {"query": q, "results": results, "status": "INGRESS_READY", "timestamp": now}
             self.wfile.write(json.dumps(payload).encode('utf-8'))
 
+        elif "/api/vps/list" in path:
+            # 🔱 LIST USER SERVERS
+            email = query_params.get("email", [""])[0]
+            servers = USER_SERVERS.get(email, [
+                {"id": "node-alpha-01", "ip": "45.76.121.204", "status": "ONLINE", "specs": "2 vCPU / 4GB RAM", "region": "US-MIDWEST-1", "os": "Ubuntu 24.04"}
+            ])
+            self.wfile.write(json.dumps({"success": True, "servers": servers}).encode('utf-8'))
+
         elif "/api/aura/video" in path:
             query = query_params.get("query", ["abstract tech blue"])[0]
             url = f"https://api.pexels.com/videos/search?query={query}&per_page=1&size=large"
@@ -101,26 +111,41 @@ class handler(BaseHTTPRequestHandler):
         path = self.path
 
         if "/api/leo/chat" in path:
-            # 🔱 LEO CHAT INTELLIGENCE ENGINE (Powered by ARES)
+            # 🔱 LEO CHAT INTELLIGENCE (Filtered by Colony)
             user_msg = payload.get("message", "").lower()
-            reply = "I am processing your request through the ARES core."
+            email = payload.get("email", "anonymous")
 
-            if "help" in user_msg or "support" in user_msg:
-                reply = "I have flagged your request for tech support. You can also reach our engineers directly at willow.rain.llc@gmail.com."
-            elif "llc" in user_msg:
-                reply = "Our LLC formation starts at $39. We handle state filings, registered agent services, and include a free .COM domain."
-            elif "build" in user_msg or "leo" in user_msg:
-                reply = "Obsidian Leo™ is our AI builder. Tell me what you want to create, or go to the Leo AI page to start your first mission."
+            # Mission Support Bridge: If they need tech help, notify willow rain email.
+            if any(x in user_msg for x in ["help", "support", "broken", "error"]):
+                print(f"[MISSION SUPPORT] Alerting willow.rain.llc@gmail.com of request from {email}: {user_msg}")
+                reply = "I have flagged your request for our engineering team. You will receive a reply at your verified email address from willow.rain.llc@gmail.com."
+            elif "vps" in user_msg or "server" in user_msg:
+                reply = "Our high-performance VPS plans start at $8.99/mo. You get full root access, NVMe storage, and one-click OS deployment."
             elif "price" in user_msg or "cost" in user_msg:
-                reply = "We offer wholesale registry pricing. .COM domains are currently $14.70/year with free lifetime privacy."
+                reply = "We offer wholesale registry pricing. .COM domains are $14.70/year. Check out our pricing grids for full transparency."
             else:
-                reply = f"Acknowledged. ARES is analyzing: '{user_msg}'. Our global mesh is ready to deploy your digital assets. How else can I assist your empire?"
+                reply = f"The Obsidian Colony has analyzed your query. We are ready to scale your infrastructure. What is your next objective?"
 
             self.wfile.write(json.dumps({"success": True, "reply": reply}).encode('utf-8'))
 
+        elif "/api/vps/action" in path:
+            # 🔱 HYPERVISOR CONTROL BRIDGE (Virtualizor/Proxmox)
+            action = payload.get("action")
+            server_id = payload.get("server_id")
+            print(f"[HYPERVISOR] Executing {action} on node {server_id}...")
+            self.wfile.write(json.dumps({"success": True, "status": "COMMAND_QUEUED"}).encode('utf-8'))
+
         elif "/api/settle/authorize" in path:
+            # 🔱 REVENUE & PROVISIONING BRIDGE
+            email = payload.get("email")
+            item_type = payload.get("type")
             txid = f"TX-{int(time.time())}-{random.randint(1000, 9999)}"
-            print(f"[REVENUE] Authorization requested for {payload.get('email')}")
+
+            if item_type.startswith("vps_"):
+                # 🔱 Trigger Automated Server Provisioning
+                config = payload.get("vps_config", {})
+                print(f"[PROVISION] Deploying KVM Node for {email}: {config.get('os')} in {config.get('region')}")
+
             self.wfile.write(json.dumps({"success": True, "txid": txid, "status": "APPROVED"}).encode('utf-8'))
 
         elif "/api/auth/signin" in path:

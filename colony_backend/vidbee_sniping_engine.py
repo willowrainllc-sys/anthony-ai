@@ -17,7 +17,7 @@ class VidBeeSnipingEngine:
     """
     VIDBEE ASSET SNIPER v1.0:
     Powered by the Open-Source VidBee/yt-dlp core.
-    Snipes high-aura 4K B-Roll from over 1,000 sites (Bilibili, TikTok, Twitch, etc.).
+    Snipes high-performance 4K B-Roll from over 1,000 sites (Bilibili, TikTok, Twitch, etc.).
     Provides a deep-reservoir of unique visual content for the 15-Minute Media Bursts.
     """
     def __init__(self):
@@ -67,7 +67,7 @@ class VidBeeSnipingEngine:
 
                 return {"status": "SUCCESS", "path": str(output_path), "size_mb": size_mb}
             else:
-                colony_log(f"[-] VIDBEE: No high-aura matches found for [{query}]", node="VIDBEE")
+                colony_log(f"[-] VIDBEE: No high-performance matches found for [{query}]", node="VIDBEE")
                 return {"status": "NOT_FOUND"}
 
         except Exception as e:

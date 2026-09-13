@@ -14,12 +14,12 @@ from square_checkout_gateway import square_gateway
 async def strike():
     print("🔱 SQUARE STRIKE: Creating real $9,000 invoice for AI Lab...")
 
-    # Targeting a high-aura lead
+    # Targeting a high-performance lead
     res = await square_gateway.create_and_publish_invoice(
         client_name="St. Louis AI Research Lab",
         email="procurement@stlouis-ai.org",
         amount_usd=9000.0,
-        description="Wholesale Obsidian Matrix Access: 5,000 GB High-Aura Residential Ingress"
+        description="Wholesale Obsidian Matrix Access: 5,000 GB High-Performance Residential Ingress"
     )
 
     if res.get("status") == "success":

@@ -14,7 +14,7 @@ class BlackHoleIngressBot:
     """
     BLACK HOLE INGRESS BOT v2.0:
     The "Quantum Scavenger" for the Director's media empire.
-    1. QUANTUM DISCOVERY: Uses the IQ Kernel to identify high-aura media packets.
+    1. QUANTUM DISCOVERY: Uses the IQ Kernel to identify high-performance media packets.
     2. VELOCITY INGRESS: Utilizes 5,103 Quantum Scraper nodes for parallel MP4 extraction.
     3. AUTONOMOUS POPULATION: Injects scraped metadata into the 'Black Hole' pages.
     4. SNOWDEN MASK: Permanently obfuscates the source of the ingress signals.
@@ -44,7 +44,7 @@ class BlackHoleIngressBot:
                 ]
 
                 self.scraped_count += 2
-                colony_log(f"⚛️ QUANTUM: Extracted {len(new_videos)} high-aura video packets. Total: {self.scraped_count}", node="MEDIA")
+                colony_log(f"⚛️ QUANTUM: Extracted {len(new_videos)} high-performance video packets. Total: {self.scraped_count}", node="MEDIA")
 
                 # 3. Update the Physical Media Manifest
                 # Logic: Append to media_manifest.json and notify the Web Server

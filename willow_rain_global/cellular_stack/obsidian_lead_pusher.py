@@ -18,7 +18,7 @@ class ObsidianLeadPusher:
         self.buyer_endpoint = os.getenv("LEAD_BUYER_WEBHOOK")
 
     async def push_lead_to_dialer(self, lead_data: dict):
-        """Pushes a single high-aura lead to a buyer's dialer system."""
+        """Pushes a single high-performance lead to a buyer's dialer system."""
         colony_log(f"LEAD_PUSHER: Dispatching lead [{lead_data['msisdn']}] to buyer...", node="CARRIER")
 
         if not self.buyer_endpoint:

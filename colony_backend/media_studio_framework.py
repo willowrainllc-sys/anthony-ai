@@ -34,8 +34,8 @@ SUPPORTED_NICHES = {
     },
     "badass_heists": {
         "mode": "STORYTELLING",
-        "title": "High-Aura Masterminds & Great Vault Heists",
-        "style": "Sleek IMAX thriller, neon terminal laser grid, high-aura cinematic 4k",
+        "title": "High-Performance Masterminds & Great Vault Heists",
+        "style": "Sleek IMAX thriller, neon terminal laser grid, high-performance cinematic 4k",
         "theme": "Covert intelligence networks bypassing triple-layer state security"
     },
     "badass_military": {

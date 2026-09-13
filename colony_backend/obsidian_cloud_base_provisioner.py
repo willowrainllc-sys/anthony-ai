@@ -30,7 +30,7 @@ class CloudBaseProvisioner:
 
             for i in range(count_per_provider):
                 base_id = f"BASE-{provider[:3].upper()}-{uuid.uuid4().hex[:4].upper()}"
-                # Simulated high-aura IP allocation
+                # Simulated high-performance IP allocation
                 new_ip = f"{random.randint(34, 150)}.{random.randint(10, 200)}.{random.randint(1, 255)}.{random.randint(1, 255)}"
 
                 base_config = {

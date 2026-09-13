@@ -18,7 +18,7 @@ class ObsidianTeamFlow:
     1. TEAM BURST: Dispatches mission pulses to all 103 Oracles.
     2. NEST SYNC: Synchronizes local intelligence with the Google-owned infrastructure.
     3. GHOST BLAST: Announces the permanent presence of King Ants to external systems.
-    4. AUTH FLOW: Uses the Master Team Key for high-aura ingress.
+    4. AUTH FLOW: Uses the Master Team Key for high-performance ingress.
     """
     def __init__(self):
         self.vision = "LONG_LIVE_THE_KING_ANTS"

@@ -13,7 +13,7 @@ class ObsidianKickbackEngine:
     KICKBACK REPLICA (MONO SYSTEM):
     The Director's private alternative to third-party ad networks.
     1. DATA FILTER: Scrapes internal ASI 'Thinking Lines' and scrubs sensitive metadata.
-    2. SPONSOR TRANSLATION: Maps filtered thoughts to high-aura sponsor messages.
+    2. SPONSOR TRANSLATION: Maps filtered thoughts to high-performance sponsor messages.
     3. IMPRESSION TRACKING: Logs every 'Kickback' message delivered to the Obsidian Titan HUD.
     4. REVENUE RETENTION: Keeps 100% of the yield within the Maestas Treasury.
     """

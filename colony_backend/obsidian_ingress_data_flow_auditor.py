@@ -13,7 +13,7 @@ class ObsidianIngressDataFlowAuditor:
     Polices the flow of data across the Nest-node mesh.
     1. THROUGHPUT AUDIT: Ensures every node is physically sharing data.
     2. STALL DETECTION: Auto-restarts nodes that haven't pulsed in 300s.
-    3. REPUTATION LOCK: Shields high-aura IPs from being blacklisted.
+    3. REPUTATION LOCK: Shields high-performance IPs from being blacklisted.
     """
     def __init__(self):
         self.is_active = True

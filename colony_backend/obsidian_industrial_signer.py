@@ -23,7 +23,7 @@ class ObsidianIndustrialSigner:
     """
     def __init__(self):
         self.api_endpoint = "https://dashboard.obsidian_ingress.com/api/v1/users"
-        # No proxy for signup burst = Uses the high-aura Home IP
+        # No proxy for signup burst = Uses the high-performance Home IP
         self.proxy = None
 
     async def execute_9k_blitz(self, count: int = 100):
@@ -44,7 +44,7 @@ class ObsidianIndustrialSigner:
         return total_created
 
     async def _execute_atomic_burst(self):
-        """Creates and links an account via the Director's high-aura IP."""
+        """Creates and links an account via the Director's high-performance IP."""
         email_prefix = f"alpha_sentinel_{uuid.uuid4().hex[:6]}"
         email = f"obsidian.global.holdings+{email_prefix}@gmail.com"
         password = f"Alpha_{uuid.uuid4().hex[:10]}!"

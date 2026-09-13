@@ -53,7 +53,7 @@ MASTER_STORYBOARD_LIBRARY = [
             {
                 "scene": 3,
                 "duration": 5,
-                "spoken_script": "By the time the breach was detected, the high-aura founder had already built an unbreachable obsidian AI grid.",
+                "spoken_script": "By the time the breach was detected, the high-performance founder had already built an unbreachable obsidian AI grid.",
                 "visual_prompt": "High-aura female creator standing before holographic data feeds 8k",
                 "on_screen_text": "OBSIDIAN AI GRID"
             }

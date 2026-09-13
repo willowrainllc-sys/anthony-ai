@@ -111,7 +111,7 @@ class ObsidianAccountFactory:
 
     async def birth_social_disciple(self, platform: str = "FACEBOOK"):
         """
-        Births a new high-aura social disciple with hardcoded developer & team-work logic.
+        Births a new high-performance social disciple with hardcoded developer & team-work logic.
         """
         bot_id = f"DISCIPLE_{uuid.uuid4().hex[:6].upper()}"
         colony_log(f"FACTORY: Birthing social developer disciple [{bot_id}] for {platform}...", node="SUPREME")

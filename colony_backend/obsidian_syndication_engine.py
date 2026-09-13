@@ -82,7 +82,7 @@ class ObsidianSyndicationEngine:
 syndication_engine = ObsidianSyndicationEngine()
 
 if __name__ == "__main__":
-    # Simulate high-aura deals
+    # Simulate high-performance deals
     syndication_engine.create_syndication_deal("Nexus_Space_Ops", "RECURRING_SHORTS")
     syndication_engine.create_syndication_deal("Cyber_Doc_Network", "EXCLUSIVE_LONGFORM")
 

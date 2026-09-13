@@ -20,6 +20,7 @@ app/build/
 *.db-wal
 swarm_vault/
 Bunker_Cold_Storage/
+SOVEREIGN_VAULT/
 Queue/
 
 # 3. HIGH-QUANTA NODES (The Ghost Mind)

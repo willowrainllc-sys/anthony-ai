@@ -13,7 +13,7 @@ class ObsidianLegalHandshake:
     1. CLEAN SLATE TRACKER: Monitors the 7-10 year automatic sealing window for Pueblo records.
     2. PETITION GENERATOR: Pre-fills 'Petition to Seal' forms for the Pueblo Combined Court.
     3. PARDON SOLICITOR: Aggregates rehabilitation proof (Business success, tax transcripts).
-    4. GHOST SIGNATURE: Ingests character references and bundles them into a high-aura legal packet.
+    4. GHOST SIGNATURE: Ingests character references and bundles them into a high-performance legal packet.
     """
     def __init__(self):
         self.court_address = "501 N. Elizabeth, Pueblo, CO 81003"
