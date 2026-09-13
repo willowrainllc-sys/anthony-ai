@@ -132,6 +132,19 @@ class handler(BaseHTTPRequestHandler):
                             results.append({"category": category, "title": a})
             self.wfile.write(json.dumps({"success": True, "results": results[:5]}).encode('utf-8'))
 
+        elif "/api/ares/spatial/predict" in path:
+            # 🔱 ARES SPATIAL INTEL: Fetching latest LLM predictions
+            from colony_backend.ares_spatial_oracle import AresSpatialOracle
+            oracle = AresSpatialOracle()
+
+            # Use asyncio to run the async prediction
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            predictions = loop.run_until_complete(oracle.predict_expansion_vector())
+            loop.close()
+
+            self.wfile.write(json.dumps({"success": True, "predictions": predictions}).encode('utf-8'))
+
         elif "/api/fintech/balance" in path:
             # 🔱 PLAID INGRESS: Fetching real-time bank balance
             email = query_params.get("email", [""])[0]

@@ -122,6 +122,37 @@
             </div>
         </div>
 
+        <!-- 🔱 SPATIAL INTELLIGENCE CORE -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div class="lg:col-span-2 hub-card border-blue-500/20">
+                <div class="flex justify-between items-center mb-8">
+                    <div>
+                        <h3 class="orbitron text-sm font-black tracking-[3px] text-blue-400 uppercase">Spatial Intelligence Engine</h3>
+                        <p class="text-[9px] text-gray-500 font-bold uppercase mt-1">ARES + ORACLE Predictive Analysis</p>
+                    </div>
+                    <button onclick="fetchSpatialIntel()" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Run Prediction</button>
+                </div>
+
+                <div id="spatialIntelGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-5 bg-white/5 rounded-2xl border border-white/5 text-center italic text-gray-500 text-[10px]">
+                        Awaiting Global Ingress...
+                    </div>
+                </div>
+            </div>
+
+            <div class="hub-card bg-gradient-to-br from-blue-900/20 to-transparent border-blue-500/10">
+                <h3 class="text-[10px] font-black text-white uppercase tracking-widest mb-6">Director's Global Aim</h3>
+                <p class="text-[11px] text-gray-400 leading-relaxed italic mb-8">
+                    "Predicting where the mesh needs to grow before the load hits. ARES analyzes latency patterns across the Missouri-to-Global bridge."
+                </p>
+                <div class="p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
+                    <div class="text-[9px] font-black text-blue-400 uppercase mb-2">Priority Expansion</div>
+                    <div class="text-xl font-black text-white">DUBAI / UAE</div>
+                    <div class="text-[8px] text-emerald-400 font-bold mt-1">ESTIMATED YIELD: +18%</div>
+                </div>
+            </div>
+        </div>
+
         <!-- 🔱 Fleet Telemetry -->
         <div class="hub-card">
             <div class="flex justify-between items-center mb-8 border-b border-white/5 pb-6">
@@ -275,6 +306,35 @@
                 }
                 btn.innerText = originalText;
                 btn.disabled = false;
+            }
+        }
+
+        async function fetchSpatialIntel() {
+            const grid = document.getElementById('spatialIntelGrid');
+            grid.innerHTML = '<div class="col-span-3 text-center py-4 text-blue-400 font-bold animate-pulse text-[10px]">> ORACLE HANDSHAKE IN PROGRESS...</div>';
+
+            try {
+                const resp = await fetch(getApiUrl('/api/ares/spatial/predict'));
+                const data = await resp.json();
+
+                if (data.success && data.predictions) {
+                    grid.innerHTML = '';
+                    data.predictions.forEach(p => {
+                        grid.innerHTML += `
+                            <div class="p-5 bg-white/5 rounded-2xl border border-white/10 hover:border-blue-500 transition-all">
+                                <div class="text-[9px] font-black text-blue-400 uppercase mb-2">${p.city}</div>
+                                <div class="text-xl font-black text-white">${p.predicted_roi}</div>
+                                <p class="text-[8px] text-gray-500 mt-2 leading-tight">${p.reasoning}</p>
+                            </div>
+                        `;
+                    });
+                    speak(`Godfather, ARES has received the spatial intelligence. Growth vectors for ${data.predictions[0].city} are confirmed high yield.`);
+                } else {
+                    grid.innerHTML = '<div class="col-span-3 text-center py-4 text-red-400 font-bold text-[10px]">[-] Prediction Terminated: Ingress Throttled.</div>';
+                }
+            } catch (err) {
+                console.error(err);
+                grid.innerHTML = '<div class="col-span-3 text-center py-4 text-red-400 font-bold text-[10px]">[-] Handshake Failed: System Offline.</div>';
             }
         }
 
