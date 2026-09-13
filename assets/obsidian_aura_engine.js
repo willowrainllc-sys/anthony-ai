@@ -46,7 +46,7 @@ function initObsidianAIChat() {
                     <div class="text-[8px] text-emerald-400 font-bold uppercase">Enterprise AI Node Active</div>
                 </div>
             </div>
-            <button onclick="toggleObsidian AIChat()" class="text-gray-500 hover:text-white text-xl">&times;</button>
+            <button onclick="toggleObsidianAIChat()" class="text-gray-500 hover:text-white text-xl">&times;</button>
         </div>
         <div class="chat-body" id="obsidian_aiChatBody">
             <div class="msg msg-obsidian_ai">Greetings. I am Obsidian AI, your AI Business Assistant. How can I assist your business growth today?</div>
@@ -68,11 +68,9 @@ function toggleObsidianAIChat() {
  * 🔱 AURA HINTS: Tooltip system for key features
  */
 const AURA_HINTS = {
-    "domainSearch": "Pro Tip: Register multiple extensions (.com, .city, .ai) to protect your brand globally.",
     "sharingToggle": "Director's Note: Every GB shared strengthens the Global Mesh and earns you direct credits.",
     "custEmail": "Security First: We use PQC encryption to deliver your assets to this verified inbox.",
-    "buildPrompt": "Empire Logic: Describe your business once, and Obsidian AI generates your landing page and backend.",
-    "searchTermInput": "Global Ingress: Searching across all 1,200+ top-level domain registries simultaneously."
+    "buildPrompt": "Empire Logic: Describe your business once, and Obsidian AI generates your landing page and backend."
 };
 
 function initHints() {
