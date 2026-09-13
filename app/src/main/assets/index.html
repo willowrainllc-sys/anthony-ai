@@ -65,23 +65,23 @@
         .hero-video-section {
             position: relative;
             width: 100%;
-            height: 80vh;
+            height: 90vh; /* Increased height */
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: #030305; /* Darker base for globe contrast */
+            background: radial-gradient(circle at center, #0f172a 0%, #030305 100%); /* Improved depth */
         }
 
         .hero-globe-wrapper {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -40%); /* Positioned behind content */
-            width: 1200px;
-            height: 1200px;
+            transform: translate(-50%, -50%); /* Centered properly */
+            width: 1000px;
+            height: 1000px;
             z-index: 1;
-            opacity: 0.6;
+            opacity: 0.8; /* Increased visibility */
             pointer-events: none;
         }
 
@@ -378,6 +378,34 @@
             </div>
         </section>
 
+        <!-- 🔱 Empire Vitals & Real-time Stats (Filling the Gap) -->
+        <section class="py-12 bg-[#030305] border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-12">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="text-2xl mb-2">⚡</div>
+                        <div class="text-blue-500 font-black text-xl">24ms</div>
+                        <div class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Global Edge Latency</div>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="text-2xl mb-2">💎</div>
+                        <div class="text-emerald-500 font-black text-xl">1.2M</div>
+                        <div class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Assets Provisioned</div>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="text-2xl mb-2">🔐</div>
+                        <div class="text-purple-500 font-black text-xl">PQC</div>
+                        <div class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Post-Quantum Secure</div>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="text-2xl mb-2">🌍</div>
+                        <div class="text-amber-500 font-black text-xl">140+</div>
+                        <div class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Countries Reached</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <footer>
             <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 mb-16 text-left">
                 <div>
@@ -589,26 +617,66 @@
             const container = document.getElementById('heroGlobe');
             if (!container) return;
 
+            const hq = { lat: 38.627, lng: -90.199, name: 'St. Charles HQ' };
+            const nodes = [
+                hq,
+                { lat: 48.856, lng: 2.352, name: 'Paris' },
+                { lat: 1.352, lng: 103.82, name: 'Singapore' },
+                { lat: -33.86, lng: 151.21, name: 'Sydney' },
+                { lat: 51.507, lng: -0.127, name: 'London' },
+                { lat: 35.676, lng: 139.650, name: 'Tokyo' },
+                { lat: -23.550, lng: -46.633, name: 'São Paulo' },
+                { lat: 25.204, lng: 55.270, name: 'Dubai' }
+            ];
+
+            // Create Light Bridges (Arcs) from HQ to all nodes
+            const arcs = nodes.slice(1).map(node => ({
+                startLat: hq.lat,
+                startLng: hq.lng,
+                endLat: node.lat,
+                endLng: node.lng,
+                color: ['rgba(59, 130, 246, 0.6)', 'rgba(16, 185, 129, 0.6)']
+            }));
+
             const globe = Globe()
                 (container)
                 .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
                 .backgroundColor('rgba(0,0,0,0)')
                 .showAtmosphere(true)
                 .atmosphereColor('#3b82f6')
-                .atmosphereAltitude(0.15);
+                .atmosphereAltitude(0.2);
 
             globe.controls().autoRotate = true;
-            globe.controls().autoRotateSpeed = 1.2;
+            globe.controls().autoRotateSpeed = 1.5;
             globe.controls().enableZoom = false;
 
-            // Add Mesh Nodes (Missouri HQ + Global Satellites)
-            const nodes = [
-                { lat: 38.627, lng: -90.199, name: 'St. Charles HQ' },
-                { lat: 48.856, lng: 2.352, name: 'Paris' },
-                { lat: 1.352, lng: 103.82, name: 'Singapore' },
-                { lat: -33.86, lng: 151.21, name: 'Sydney' }
-            ];
-            globe.pointsData(nodes).pointColor(() => '#60a5fa').pointRadius(0.6);
+            // 🔱 Apply Mesh Nodes & Light Bridges
+            globe
+                .pointsData(nodes)
+                .pointColor(() => '#60a5fa')
+                .pointRadius(0.8)
+                .arcsData(arcs)
+                .arcColor('color')
+                .arcDashLength(0.4)
+                .arcDashGap(4)
+                .arcDashAnimateTime(1500)
+                .arcStroke(0.5);
+
+            // 🔱 Add "Sovereign Satellite" AI Observer
+            const satellite = { lat: 0, lng: 0, name: 'Obsidian Sentinel' };
+            globe.ringsData([satellite])
+                .ringColor(() => '#3b82f6')
+                .ringMaxRadius(10)
+                .ringPropagationSpeed(3);
+
+            // Orbit the Satellite
+            let angle = 0;
+            setInterval(() => {
+                angle += 0.05;
+                satellite.lat = 40 * Math.sin(angle);
+                satellite.lng = 180 * Math.cos(angle);
+                globe.ringsData([satellite]);
+            }, 50);
         }
 
         // 🔱 TLD CATEGORY TOGGLE

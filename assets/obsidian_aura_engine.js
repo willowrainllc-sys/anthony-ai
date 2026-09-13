@@ -58,10 +58,56 @@ function initObsidianAIChat() {
     document.body.appendChild(win);
 }
 
-function toggleObsidian AIChat() {
+function toggleObsidianAIChat() {
     const win = document.getElementById('obsidian_aiChatWindow');
     const isVisible = win.style.display === 'flex';
     win.style.display = isVisible ? 'none' : 'flex';
+}
+
+/**
+ * 🔱 AURA HINTS: Tooltip system for key features
+ */
+const AURA_HINTS = {
+    "domainSearch": "Pro Tip: Register multiple extensions (.com, .city, .ai) to protect your brand globally.",
+    "sharingToggle": "Director's Note: Every GB shared strengthens the Global Mesh and earns you direct credits.",
+    "custEmail": "Security First: We use PQC encryption to deliver your assets to this verified inbox.",
+    "buildPrompt": "Empire Logic: Describe your business once, and Obsidian AI generates your landing page and backend.",
+    "searchTermInput": "Global Ingress: Searching across all 1,200+ top-level domain registries simultaneously."
+};
+
+function initHints() {
+    const card = document.createElement('div');
+    card.className = 'aura-hint-card glass';
+    card.id = 'auraHintCard';
+    document.body.appendChild(card);
+
+    Object.keys(AURA_HINTS).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            const btn = document.createElement('div');
+            btn.className = 'aura-hint-btn';
+            btn.innerText = '?';
+
+            // Adjust position
+            btn.style.top = '-12px';
+            btn.style.right = '-12px';
+
+            if (getComputedStyle(el.parentElement).position === 'static') {
+                el.parentElement.style.position = 'relative';
+            }
+            el.parentElement.appendChild(btn);
+
+            btn.onmouseenter = () => {
+                card.innerHTML = `
+                    <div class="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-2">Director's Insight</div>
+                    <p class="text-white text-xs font-medium leading-relaxed">${AURA_HINTS[id]}</p>
+                `;
+                card.style.display = 'block';
+            };
+
+            btn.onmouseleave = () => { card.style.display = 'none'; };
+        }
+    });
 }
 
 async function handleChatKey(e) {
@@ -311,7 +357,12 @@ window.addEventListener('DOMContentLoaded', () => {
     injectNewsTicker();
     injectSponsoredContent();
     handleScrollAnimations();
-    initObsidian AIChat();
+    initObsidianAIChat();
+    initHints();
+
+    // 🔱 Periodic Security Pulse
+    setInterval(spawnSecurityPulse, 30000);
+    setTimeout(spawnSecurityPulse, 5000);
 
     // 🔱 Restricted Ads: Only spawn pop-ups on the Main Storefront
     const page = window.location.pathname.split('/').pop();
