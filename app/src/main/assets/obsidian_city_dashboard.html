@@ -1,163 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-OBSIDIAN_GLOBAL_ADSENSE" crossorigin="anonymous"></script>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Account Dashboard | Obsidian City Manager</title>
-    <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        // 🔱 Strict Frontend Route Guard
-        if (!localStorage.getItem('obsidian_session')) {
-            window.location.href = 'signin';
-        }
-    </script>
     <style>
         body { background-color: #f8fafc; color: #0f172a; font-family: 'Inter', sans-serif; margin: 0; }
-        .nav-header { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
-        .dashboard-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 24px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: 0.2s; }
-        .dashboard-card:hover { border-color: #2563eb; box-shadow: 0 15px 40px rgba(37,99,235,0.08); }
+        .nav-header { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .dashboard-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 24px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .status-pill { padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 800; text-transform: uppercase; }
+        .status-processing { background: #eff6ff; color: #2563eb; }
+        .status-approved { background: #ecfdf5; color: #059669; }
     </style>
     <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
     <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
 </head>
 <body>
-    <!-- 🔱 Navigation Header -->
     <nav class="nav-header">
-        <div class="flex items-center gap-10">
-            <a href="index.html" class="font-black text-2xl tracking-tighter text-slate-900">OBSIDIAN<span class="text-blue-600">.CITY</span> // ACCOUNT MANAGER</a>
-        </div>
-        <div class="flex items-center gap-6 text-sm font-bold text-slate-600">
-            <a href="index.html" class="hover:text-blue-600">Storefront</a>
-            <a href="checkout" class="hover:text-blue-600">Billing</a>
-            <a href="index.html" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl text-xs transition shadow-md">Exit to Home</a>
+        <a href="index.html" class="font-black text-2xl tracking-tighter text-slate-900">OBSIDIAN<span class="text-blue-600">.CITY</span></a>
+        <div class="flex items-center gap-6">
+            <span id="userEmail" class="text-xs font-bold text-slate-500">...</span>
+            <button onclick="logout()" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-xl font-bold text-xs">Log Out</button>
         </div>
     </nav>
 
-    <!-- 🔱 Dashboard Content Area -->
-    <div class="max-w-7xl mx-auto px-6 py-12">
-        <div class="mb-10">
-            <h1 class="text-3xl font-black text-slate-900 mb-2">Welcome back, Entrepreneur</h1>
-            <p class="text-slate-600 text-sm">Manage your registered domains, active websites, professional email, and cloud hosting nodes.</p>
+    <div class="max-w-6xl mx-auto px-6 py-12">
+        <div class="mb-12">
+            <h1 class="text-4xl font-black text-slate-900 tracking-tight">Welcome Back</h1>
+            <p class="text-slate-500 text-sm mt-1">Manage your business entities and digital assets.</p>
         </div>
 
-        <!-- Stats Overview -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div class="dashboard-card">
-                <div class="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">Active Domains</div>
-                <div class="text-2xl font-black text-blue-600">mybusiness.city</div>
-                <div class="text-[10px] text-emerald-600 font-bold mt-2">● DNS Active & Secured</div>
+                <h3 class="text-xs text-slate-400 uppercase font-black mb-4">Account Balance</h3>
+                <div class="text-3xl font-black text-slate-900">$0.00</div>
             </div>
             <div class="dashboard-card">
-                <div class="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">Active Websites</div>
-                <div class="text-2xl font-black text-slate-900">1 Deployed</div>
-                <div class="text-[10px] text-emerald-600 font-bold mt-2">● Vercel Edge Live</div>
+                <h3 class="text-xs text-slate-400 uppercase font-black mb-4">Active Domains</h3>
+                <div id="domainCount" class="text-3xl font-black text-slate-900">0</div>
             </div>
             <div class="dashboard-card">
-                <div class="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">Professional Email</div>
-                <div class="text-lg font-black text-slate-900 truncate" id="userEmailDisplay">admin@mybusiness.com</div>
-                <div class="text-[10px] text-emerald-600 font-bold mt-2">● Secure IMAP/SMTP</div>
-            </div>
-            <div class="dashboard-card relative overflow-hidden group">
-                <div class="absolute -right-4 -top-4 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all"></div>
-                <div class="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold flex items-center gap-2">
-                    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-                    Data Sharing
-                </div>
-                <div class="text-2xl font-black text-slate-900" id="sharingStatus">Active Pool</div>
-                <a href="obsidian_data_sharing.html" class="text-[10px] text-blue-600 font-bold mt-2 uppercase hover:underline flex items-center gap-1">
-                    <span>🌐</span> View Global Mesh →
-                </a>
-            </div>
-            <div class="dashboard-card">
-                <div class="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">Account Balance</div>
-                <div class="text-2xl font-black text-slate-900">$0.00</div>
-                <div class="text-[10px] text-slate-500 mt-2 font-bold">Wholesale Tier 1</div>
+                <h3 class="text-xs text-slate-400 uppercase font-black mb-4">Pending Filings</h3>
+                <div id="filingCount" class="text-3xl font-black text-slate-900">0</div>
             </div>
         </div>
 
-        <!-- Domain & Hosting Management Section -->
         <div class="dashboard-card mb-12">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-xl font-bold text-slate-900">Your Products & Services</h2>
-                <a href="domains" class="text-blue-600 hover:underline text-xs font-bold uppercase tracking-wider">+ Register New Domain</a>
-            </div>
-
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="border-b border-slate-200 text-xs text-slate-400 uppercase tracking-wider">
-                            <th class="pb-4">Product / Domain</th>
-                            <th class="pb-4">Type</th>
-                            <th class="pb-4">Status</th>
-                            <th class="pb-4">Renewal Date</th>
-                            <th class="pb-4 text-right">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-100 text-sm">
-                        <tr>
-                            <td class="py-4 font-bold text-slate-900">mybusiness.city</td>
-                            <td class="py-4 text-slate-600">Domain Name</td>
-                            <td class="py-4"><span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold">Active</span></td>
-                            <td class="py-4 text-slate-600">2027-09-12</td>
-                            <td class="py-4 text-right">
-                                <button onclick="alert('DNS settings managed via Cloudflare / Vercel Edge.')" class="text-blue-600 hover:underline font-semibold text-xs">Manage DNS</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 font-bold text-slate-900">Obsidian Edge Hosting (Vercel)</td>
-                            <td class="py-4 text-slate-600">Web Hosting</td>
-                            <td class="py-4"><span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold">Live</span></td>
-                            <td class="py-4 text-slate-600">Auto-Renew</td>
-                            <td class="py-4 text-right">
-                                <a href="https://vercel.com" target="_blank" class="text-blue-600 hover:underline font-semibold text-xs">View Deployment</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Help Center Section -->
-        <div class="dashboard-card">
-            <h2 class="text-xl font-bold text-slate-900 mb-4">Help Center & Support Desk</h2>
-            <p class="text-slate-600 text-sm mb-6">Need assistance with your domain, SSL certificates, or cloud hosting nodes? Our 24/7 technical guides are ready to assist.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
-                    <h4 class="font-bold text-slate-900 mb-1">Domain Transfer Guide</h4>
-                    <p class="text-slate-500 text-xs mb-4">How to transfer existing domains to Obsidian City.</p>
-                    <a href="domains" class="text-blue-600 font-bold text-xs hover:underline">Read Guide →</a>
-                </div>
-                <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
-                    <h4 class="font-bold text-slate-900 mb-1">SSL & Security Setup</h4>
-                    <p class="text-slate-500 text-xs mb-4">Enabling post-quantum SSL certificates.</p>
-                    <a href="checkout" class="text-blue-600 font-bold text-xs hover:underline">Learn More →</a>
-                </div>
-                <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
-                    <h4 class="font-bold text-slate-900 mb-1">Contact Support</h4>
-                    <p class="text-slate-500 text-xs mb-4">Call 1-800-OBSIDIAN or open a priority ticket.</p>
-                    <a href="#" onclick="alert('Priority support ticket created.'); return false;" class="text-blue-600 font-bold text-xs hover:underline">Open Ticket →</a>
-                </div>
+            <h2 class="text-xl font-black text-slate-900 mb-6">Recent Orders & Activity</h2>
+            <div id="ordersList" class="space-y-4">
+                <div class="text-center py-10 text-slate-400 text-sm italic">Loading your empire data...</div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-16 px-12 mt-20 text-xs">
-        <div class="max-w-7xl mx-auto text-center">
-            <p>Copyright © 1999 - 2026 Willow Rain Company LLC (Arkansas). All Rights Reserved. Account Manager & Help Center.</p>
-        </div>
-    </footer>
     <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const email = localStorage.getItem('obsidian_email');
-            if (email) {
-                const el = document.getElementById('userEmailDisplay');
-                if (el) el.innerText = email;
+        const session = JSON.parse(localStorage.getItem('obsidian_session') || '{}');
+        if (!session.email) window.location.href = 'obsidian_signin.html';
+        document.getElementById('userEmail').innerText = session.email;
+
+        async function loadOrders() {
+            try {
+                const resp = await fetch(`/api/orders/status?email=${session.email}`);
+                const data = await resp.json();
+                const list = document.getElementById('ordersList');
+
+                if (data.orders && data.orders.length > 0) {
+                    list.innerHTML = '';
+                    let filingCount = 0;
+                    let domainCount = 0;
+
+                    data.orders.forEach(order => {
+                        if (order.type === 'llc_formation') filingCount++;
+                        if (order.type.startsWith('domain')) domainCount++;
+
+                        const itemHtml = `
+                            <div class="flex justify-between items-center p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                                <div>
+                                    <div class="font-bold text-slate-900">${order.type.toUpperCase().replace('_', ' ')}</div>
+                                    <div class="text-[10px] text-slate-400 font-mono">${order.id}</div>
+                                </div>
+                                <div class="flex items-center gap-6">
+                                    <div class="text-right">
+                                        <div class="text-sm font-black text-slate-900">$${order.amount.toFixed(2)}</div>
+                                        <div class="text-[9px] text-slate-400 uppercase font-bold">${new Date(order.timestamp * 1000).toLocaleDateString()}</div>
+                                    </div>
+                                    <span class="status-pill status-processing">${order.status}</span>
+                                </div>
+                            </div>
+                        `;
+                        list.innerHTML += itemHtml;
+                    });
+
+                    document.getElementById('filingCount').innerText = filingCount;
+                    document.getElementById('domainCount').innerText = domainCount;
+                } else {
+                    list.innerHTML = '<div class="text-center py-10 text-slate-400 text-sm">No active orders found. Start building below!</div>';
+                }
+            } catch (err) {
+                console.error(err);
             }
-        });
+        }
+
+        function logout() {
+            localStorage.removeItem('obsidian_session');
+            window.location.href = 'index.html';
+        }
+
+        window.addEventListener('DOMContentLoaded', loadOrders);
     </script>
     <script src="assets/obsidian_aura_engine.js"></script>
 </body>

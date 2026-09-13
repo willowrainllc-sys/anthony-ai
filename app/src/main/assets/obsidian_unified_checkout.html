@@ -88,22 +88,22 @@
 
 <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const type = urlParams.get('type') or 'domain_registration';
-    const basePrice = parseFloat(urlParams.get('price') or '14.70');
+    const type = urlParams.get('type') || 'domain_registration';
+    const basePrice = parseFloat(urlParams.get('price') || '14.70');
+    const stateFee = parseFloat(urlParams.get('state_fee') || '0.00');
     const isBundle = urlParams.get('bundle') === 'true';
 
-    let total = basePrice;
+    let total = basePrice + stateFee;
     const summaryItems = document.getElementById('summaryItems');
     let summaryHtml = '';
 
     // 🔱 Bundle Breakdown Logic
     if (type === 'llc_formation') {
         document.getElementById('checkoutType').innerText = 'Empire Launch Bundle';
-        summaryHtml += `<div class="line-item"><span>LLC Formation Fee</span><span>$39.00</span></div>`;
+        summaryHtml += `<div class="line-item"><span>LLC Formation (Obsidian)</span><span>$39.00</span></div>`;
         summaryHtml += `<div class="line-item"><span>Registered Agent (1yr)</span><span>$125.00</span></div>`;
-        summaryHtml += `<div class="line-item"><span>State Filing Fee (Est)</span><span>$50.00</span></div>`;
-        summaryHtml += `<div class="line-item text-emerald-600"><span>Bundle: Free Domain</span><span>-$14.70</span></div>`;
-        total = 39.00 + 125.00 + 50.00;
+        summaryHtml += `<div class="line-item"><span>State Filing Fee</span><span>$${stateFee.toFixed(2)}</span></div>`;
+        summaryHtml += `<div class="line-item text-emerald-600"><span>Bundle: Free .COM Domain</span><span>-$14.70</span></div>`;
     } else {
         const itemName = type.toUpperCase().replace('DOMAIN_', '').replace('_', ' ');
         summaryHtml += `<div class="line-item"><span>${itemName}</span><span>$${basePrice.toFixed(2)}</span></div>`;

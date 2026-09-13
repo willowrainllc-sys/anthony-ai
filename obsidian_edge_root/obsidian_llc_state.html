@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <a id="ctaBtn" href="obsidian_llc_intake.html" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-black px-12 py-5 rounded-2xl text-sm transition shadow-2xl shadow-blue-600/30">Start My <span class="state-short">...</span> LLC Now →</a>
+            <button onclick="startSpecificLLC()" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-black px-12 py-5 rounded-2xl text-sm transition shadow-2xl shadow-blue-600/20">Start My <span class="state-short">...</span> LLC Now →</button>
         </div>
     </div>
 
@@ -75,24 +75,24 @@
             <h2 class="text-3xl font-black text-slate-900 mb-6">Compliance Checklist for <span id="stateName2">...</span></h2>
             <div class="space-y-6">
                 <div class="flex gap-4 p-6 bg-white border border-slate-200 rounded-2xl">
-                    <div class="text-2xl">✅</div>
+                    <div class="text-2xl text-blue-600">01</div>
                     <div>
-                        <h4 class="font-bold text-slate-900">Name Reservation</h4>
-                        <p class="text-slate-500 text-xs mt-1">We verify availability in the <span class="state-full">...</span> Secretary of State database.</p>
+                        <h4 class="font-bold text-slate-900">Articles of Organization</h4>
+                        <p class="text-slate-500 text-xs mt-1">We programmatically generate and file your formation docs with the <span class="state-full">...</span> Secretary of State.</p>
                     </div>
                 </div>
                 <div class="flex gap-4 p-6 bg-white border border-slate-200 rounded-2xl">
-                    <div class="text-2xl">✅</div>
+                    <div class="text-2xl text-blue-600">02</div>
                     <div>
                         <h4 class="font-bold text-slate-900">Registered Agent Service</h4>
-                        <p class="text-slate-500 text-xs mt-1">Sovereign privacy protection included to keep your personal address off the record.</p>
+                        <p class="text-slate-500 text-xs mt-1">Sovereign privacy protection included to keep your personal address off the public record.</p>
                     </div>
                 </div>
                 <div class="flex gap-4 p-6 bg-white border border-slate-200 rounded-2xl">
-                    <div class="text-2xl">✅</div>
+                    <div class="text-2xl text-blue-600">03</div>
                     <div>
-                        <h4 class="font-bold text-slate-900">Operating Agreement</h4>
-                        <p class="text-slate-500 text-xs mt-1">Custom-generated legal framework for your new <span class="state-full">...</span> enterprise.</p>
+                        <h4 class="font-bold text-slate-900">Digital Empire Tokens</h4>
+                        <p class="text-slate-500 text-xs mt-1">Instant delivery of your corporate binder PDF and free domain provisioning token.</p>
                     </div>
                 </div>
             </div>
@@ -104,12 +104,15 @@
     </footer>
 
     <script>
+        let currentState = 'AR';
+
         async function loadStateData() {
             const urlParams = new URLSearchParams(window.location.search);
-            const state = urlParams.get('state') || 'AR';
+            // Handle both ?state=AR and paths like /start-llc/ar (via vercel.json rewrite)
+            currentState = urlParams.get('state') || window.location.pathname.split('/').pop().toUpperCase() || 'AR';
 
             try {
-                const resp = await fetch(`/api/llc/state-info?state=${state}`);
+                const resp = await fetch(`/api/llc/state-info?state=${currentState}`);
                 const data = await resp.json();
 
                 if (data.success) {
@@ -120,22 +123,22 @@
                     document.getElementById('processingTime').innerText = s.time;
 
                     document.querySelectorAll('.state-full').forEach(el => el.innerText = s.name);
-                    document.querySelectorAll('.state-short').forEach(el => el.innerText = state.toUpperCase());
+                    document.querySelectorAll('.state-short').forEach(el => el.innerText = currentState);
 
                     // Update Metadata for SEO
                     document.title = `Start an LLC in ${s.name} | Obsidian City`;
                     document.getElementById('pageTitle').innerText = `Start an LLC in ${s.name} | Obsidian City`;
                     document.getElementById('pageDesc').setAttribute('content', `Form your ${s.name} LLC for just $39. Official state filing and free domain included.`);
-
-                    // Update Schema
-                    const schema = JSON.parse(document.getElementById('schemaProduct').innerHTML);
-                    schema.name = `${s.name} LLC Formation Service`;
-                    schema.description = `Start your business in ${s.name} today.`;
-                    document.getElementById('schemaProduct').innerHTML = JSON.stringify(schema);
                 }
             } catch (err) {
                 console.warn("pSEO Engine: Local fallback active.");
             }
+        }
+
+        function startSpecificLLC() {
+            // Save state to intake session
+            localStorage.setItem('preselected_state', currentState);
+            window.location.href = 'obsidian_llc_intake.html';
         }
 
         window.addEventListener('DOMContentLoaded', loadStateData);

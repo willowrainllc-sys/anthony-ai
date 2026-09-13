@@ -73,6 +73,8 @@
     <script>
         async function loadStates() {
             const select = document.getElementById('formationState');
+            const preselected = localStorage.getItem('preselected_state');
+
             try {
                 const resp = await fetch('/api/llc/states');
                 const data = await resp.json();
@@ -81,6 +83,7 @@
                         const opt = document.createElement('option');
                         opt.value = code;
                         opt.innerText = info.name;
+                        if (code === preselected) opt.selected = true;
                         select.appendChild(opt);
                     });
                 }
@@ -91,11 +94,19 @@
 
         window.addEventListener('DOMContentLoaded', loadStates);
 
-        document.getElementById('llcForm').onsubmit = (e) => {
+        document.getElementById('llcForm').onsubmit = async (e) => {
             e.preventDefault();
+            const stateCode = document.getElementById('formationState').value;
+
+            // Fetch live state fee for total calculation
+            const feeResp = await fetch(`/api/llc/state-info?state=${stateCode}`);
+            const feeData = await feeResp.json();
+            const stateFee = feeData.success ? feeData.state.fee : 50.00;
+
             const data = {
                 business_name: document.getElementById('businessName').value,
-                state: document.getElementById('formationState').value,
+                state: stateCode,
+                state_fee: stateFee,
                 type: document.getElementById('businessType').value,
                 purpose: document.getElementById('businessPurpose').value
             };
@@ -103,8 +114,10 @@
             // Save to temporary storage for checkout session
             localStorage.setItem('pending_llc_data', JSON.stringify(data));
 
-            // Redirect to unified checkout with LLC pricing
-            window.location.href = `obsidian_unified_checkout.html?type=llc_formation&price=39.00&bundle=true`;
+            // Redirect to unified checkout with LLC pricing bundle
+            // Bundle: $39 (Service) + $125 (Agent) + State Fee
+            const totalService = 39.00 + 125.00;
+            window.location.href = `obsidian_unified_checkout.html?type=llc_formation&price=${totalService}&state_fee=${stateFee}&bundle=true`;
         };
     </script>
     <script src="assets/obsidian_aura_engine.js"></script>
