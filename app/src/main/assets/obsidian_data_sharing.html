@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Obsidian Data Sharing | Monetize Your Bandwidth</title>
+    <meta name="description" content="Share your unused bandwidth with the Obsidian City mesh and earn credits or direct payouts. Secure, private, and autonomous."/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f8fafc; color: #0f172a; font-family: 'Inter', sans-serif; margin: 0; }
+        .nav-header { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .glass-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 24px; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .stat-value { font-size: 2.5rem; font-weight: 900; letter-spacing: -1px; }
+        .toggle-switch { position: relative; display: inline-block; width: 60px; height: 34px; }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #cbd5e1; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #2563eb; }
+        input:checked + .slider:before { transform: translateX(26px); }
+    </style>
+</head>
+<body>
+    <nav class="nav-header">
+        <div class="flex items-center gap-10">
+            <a href="index.html" class="font-black text-2xl tracking-tighter text-slate-900">OBSIDIAN<span class="text-blue-600">.CITY</span></a>
+        </div>
+        <div class="flex items-center gap-6 text-sm font-bold text-slate-600">
+            <a href="obsidian_city_dashboard.html" class="hover:text-blue-600 transition">Dashboard</a>
+            <a href="index.html" class="hover:text-blue-600 transition">Storefront</a>
+            <button onclick="handleLogout()" class="bg-slate-100 text-slate-700 px-5 py-2 rounded-xl font-bold text-xs transition">Log Out</button>
+        </div>
+    </nav>
+
+    <div class="max-w-6xl mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
+            <div>
+                <h1 class="text-4xl font-black text-slate-900 mb-2">Data Sharing Dashboard</h1>
+                <p class="text-slate-500 text-sm font-medium">Turn your unused bandwidth into Obsidian Credits or USD payouts.</p>
+            </div>
+            <div class="bg-blue-50 border border-blue-100 p-6 rounded-3xl flex items-center gap-6">
+                <div>
+                    <div class="text-[10px] text-blue-600 font-black uppercase tracking-widest mb-1">Sharing Status</div>
+                    <div class="text-lg font-black text-slate-900" id="statusLabel">Inactive</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="sharingToggle" onchange="toggleSharing()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="glass-card">
+                <div class="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-4">Total Data Shared</div>
+                <div class="stat-value text-blue-600" id="totalData">0.00 <span class="text-sm text-slate-400">GB</span></div>
+                <div class="text-[10px] text-emerald-600 font-bold mt-2">● Real-time Sync Active</div>
+            </div>
+            <div class="glass-card">
+                <div class="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-4">Total Earnings</div>
+                <div class="stat-value text-slate-900" id="totalEarnings">$0.00</div>
+                <div class="text-[10px] text-slate-500 font-bold mt-2">Payable via Square / PQC Wallet</div>
+            </div>
+            <div class="glass-card">
+                <div class="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-4">Active Devices</div>
+                <div class="stat-value text-slate-900" id="activeDevices">0</div>
+                <div class="text-[10px] text-slate-500 font-bold mt-2">Max Capacity: Unlimited</div>
+            </div>
+        </div>
+
+        <!-- Real-time Flow Map Simulation -->
+        <div class="glass-card mb-12 overflow-hidden relative" style="height: 300px; background: #0f172a;">
+            <div class="absolute inset-0 opacity-20" id="meshBackground">
+                <!-- SVG Grid for Mesh Look -->
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" />
+                </svg>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center">
+                    <div class="text-[10px] text-blue-400 font-black uppercase tracking-[4px] mb-4">Global Edge Network Pulse</div>
+                    <div class="flex gap-4 items-end h-24" id="pulseGraph">
+                        <!-- Bars injected by JS -->
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-6 right-8 text-[9px] text-gray-500 font-bold uppercase tracking-widest">
+                Nodes active in: St. Louis, Arkansas, Chicago, Dallas
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass-card">
+                <h3 class="text-xl font-black text-slate-900 mb-4">How it works</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                    Obsidian City uses a **DePIN (Decentralized Physical Infrastructure Network)** model. By sharing your bandwidth, you are helping global companies perform market research, ad verification, and SEO monitoring.
+                </p>
+                <ul class="space-y-4 text-xs text-slate-500 font-medium">
+                    <li class="flex gap-3">
+                        <span class="text-blue-600">✓</span>
+                        <span>**100% Private**: We never access your personal files or browser history.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-blue-600">✓</span>
+                        <span>**Encrypted**: All data traffic is wrapped in PQC (Post-Quantum Cryptography).</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-blue-600">✓</span>
+                        <span>**Passive Income**: Simply keep the toggle ON to accumulate credits.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="glass-card">
+                <h3 class="text-xl font-black text-slate-900 mb-4">Payout Settings</h3>
+                <div class="space-y-4">
+                    <button onclick="alert('Settlement scheduled for next batch.')" class="w-full bg-slate-900 text-white font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition hover:bg-black">Request USD Payout (Square)</button>
+                    <button onclick="alert('Credits added to your account balance.')" class="w-full bg-blue-600 text-white font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition hover:bg-blue-700">Convert to Obsidian Credits</button>
+                    <p class="text-[10px] text-center text-slate-400 mt-4 font-bold">Minimum Payout: $20.00 • Processing Fee: 0%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-slate-900 text-slate-400 py-16 px-12 mt-20 text-xs">
+        <div class="max-w-7xl mx-auto text-center">
+            <p>© 2026 Willow Rain Company LLC. Obsidian Data Sharing is powered by the Sovereign Cloud Mesh.</p>
+        </div>
+    </footer>
+
+    <script>
+        let isSharing = false;
+        let dataCount = 0;
+        let earnings = 0;
+
+        function toggleSharing() {
+            isSharing = document.getElementById('sharingToggle').checked;
+            document.getElementById('statusLabel').innerText = isSharing ? 'ACTIVE & FEEDING' : 'Inactive';
+            document.getElementById('statusLabel').style.color = isSharing ? '#10b981' : '#0f172a';
+
+            if(isSharing) {
+                startSimulation();
+            }
+        }
+
+        function startSimulation() {
+            if(!isSharing) return;
+
+            // Increment data every 2 seconds
+            dataCount += Math.random() * 0.05;
+            earnings = dataCount * 0.10; // $0.10 per GB (Wholesale Rate)
+
+            document.getElementById('totalData').innerHTML = `${dataCount.toFixed(2)} <span class="text-sm text-slate-400">GB</span>`;
+            document.getElementById('totalEarnings').innerText = `$${earnings.toFixed(2)}`;
+            document.getElementById('activeDevices').innerText = "1";
+
+            // Pulse graph
+            const graph = document.getElementById('pulseGraph');
+            graph.innerHTML = '';
+            for(let i=0; i<15; i++) {
+                const h = Math.random() * 80 + 20;
+                const bar = document.createElement('div');
+                bar.className = 'w-2 bg-blue-500/40 rounded-t-lg transition-all duration-500';
+                bar.style.height = `${h}%`;
+                graph.appendChild(bar);
+            }
+
+            setTimeout(startSimulation, 2000);
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('obsidian_session');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
