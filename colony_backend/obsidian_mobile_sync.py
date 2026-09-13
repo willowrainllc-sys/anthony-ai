@@ -10,12 +10,17 @@ def inject_mobile_assets(file_path):
     with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
         content = f.read()
 
-    # 1. Inject CSS link if missing
-    css_tag = '<link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>'
-    if css_tag not in content:
-        if '</head>' in content:
-            content = content.replace('</head>', f'    {css_tag}\n</head>')
-            print(f"✓ Injected Mobile CSS: {file_path}")
+    # 1. Inject CSS & JS links if missing
+    css_mobile = '<link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>'
+    css_aura = '<link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>'
+    js_aura = '<script src="assets/obsidian_aura_engine.js"></script>'
+
+    if css_mobile not in content:
+        content = content.replace('</head>', f'    {css_mobile}\n</head>')
+    if css_aura not in content:
+        content = content.replace('</head>', f'    {css_aura}\n</head>')
+    if js_aura not in content:
+        content = content.replace('</body>', f'    {js_aura}\n</body>')
 
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(content)
@@ -35,7 +40,9 @@ def run_sync():
         os.path.join(root_dir, "obsidian_edge_root")
     ]
 
-    src_css = os.path.join(root_dir, "assets", "obsidian_mobile_core.css")
+    src_css_mobile = os.path.join(root_dir, "assets", "obsidian_mobile_core.css")
+    src_css_aura = os.path.join(root_dir, "assets", "obsidian_aura_ui.css")
+    src_js_aura = os.path.join(root_dir, "assets", "obsidian_aura_engine.js")
 
     for t in targets:
         if os.path.exists(t):
@@ -43,8 +50,10 @@ def run_sync():
             t_assets = os.path.join(t, "assets")
             os.makedirs(t_assets, exist_ok=True)
 
-            # Copy CSS
-            shutil.copy2(src_css, os.path.join(t_assets, "obsidian_mobile_core.css"))
+            # Copy Assets
+            shutil.copy2(src_css_mobile, os.path.join(t_assets, "obsidian_mobile_core.css"))
+            shutil.copy2(src_css_aura, os.path.join(t_assets, "obsidian_aura_ui.css"))
+            shutil.copy2(src_js_aura, os.path.join(t_assets, "obsidian_aura_engine.js"))
 
             # Sync all HTML files to target root
             for hf in html_files:

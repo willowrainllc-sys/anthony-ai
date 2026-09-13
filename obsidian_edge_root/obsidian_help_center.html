@@ -5,59 +5,80 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Support Desk & Help Center | Obsidian City</title>
-    <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
+    <meta name="description" content="Get 24/7 expert support for your domain, hosting, and business identity. Search our global knowledge base or connect with an Obsidian Guide."/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
+    <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
     <style>
         body { background-color: #f8fafc; color: #0f172a; font-family: 'Inter', sans-serif; margin: 0; }
         .nav-header { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
-        .help-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 24px; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: 0.2s; }
-        .help-card:hover { border-color: #2563eb; box-shadow: 0 20px 50px rgba(37,99,235,0.1); transform: translateY(-3px); }
+        .help-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 32px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: 0.3s; }
+        .help-card:hover { border-color: #2563eb; box-shadow: 0 20px 60px rgba(37,99,235,0.1); transform: translateY(-5px); }
+        .search-hero-inner { background: #0f172a; color: #fff; padding: 100px 20px; border-radius: 0 0 60px 60px; }
     </style>
-    <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
 </head>
 <body>
     <!-- 🔱 Navigation Header -->
     <nav class="nav-header">
         <div class="flex items-center gap-10">
-            <a href="index.html" class="font-black text-2xl tracking-tighter text-slate-900">OBSIDIAN<span class="text-blue-600">.CITY</span> // HELP CENTER</a>
+            <a href="index.html" class="font-black text-2xl tracking-tighter text-slate-900">OBSIDIAN<span class="text-blue-600">.CITY</span></a>
         </div>
         <div class="flex items-center gap-6 text-sm font-bold text-slate-600">
-            <a href="index.html" class="hover:text-blue-600">Storefront</a>
-            <a href="signin" class="hover:text-blue-600">Sign In</a>
-            <a href="index.html" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl text-xs transition shadow-md">Exit to Home</a>
+            <a href="index.html" class="hover:text-blue-600 transition">Storefront</a>
+            <a href="obsidian_signin.html" class="hover:text-blue-600 transition">Sign In</a>
+            <a href="index.html" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl font-bold text-xs transition shadow-md">Exit to Home</a>
         </div>
     </nav>
 
-    <!-- 🔱 Help Center Content Area -->
-    <div class="max-w-6xl mx-auto px-6 py-16">
-        <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-black text-slate-900 mb-4">How can we help you today?</h1>
-            <p class="text-slate-600 text-sm max-w-xl mx-auto">Search our knowledge base or get 24/7 expert support from Obsidian Guides.</p>
-            <div class="mt-8 max-w-xl mx-auto flex gap-3">
-                <input type="text" aria-label="Search Help Center" placeholder="Search for domains, DNS, hosting, or billing..." class="flex-1 bg-white border border-slate-300 px-6 py-3.5 rounded-full text-sm outline-none focus:border-blue-600 shadow-sm">
-                <button onclick="alert('Searching knowledge base...')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3.5 rounded-full text-xs transition shadow-md">Search</button>
+    <!-- 🔱 Search Hero -->
+    <div class="search-hero-inner text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-black mb-6">How can we help?</h1>
+            <p class="text-slate-400 text-lg mb-10 font-medium">Search the global knowledge base or open a priority ticket.</p>
+
+            <div class="bg-white p-2 rounded-full flex shadow-2xl max-w-2xl mx-auto mb-6">
+                <input type="text" id="helpSearchInput" aria-label="Search Knowledge Base" placeholder="Search domains, DNS, VPS, or billing..." class="flex-1 bg-transparent px-6 py-4 text-slate-900 font-bold outline-none">
+                <button onclick="alert('Querying global support nodes...')" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-4 rounded-full text-xs uppercase transition">Search</button>
+            </div>
+            <div class="flex justify-center gap-6 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                <span>● 24/7 Priority Support</span>
+                <span>● Average Response: 12m</span>
+                <span>● Worldwide Node Coverage</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔱 Support Categories -->
+    <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
+            <div class="help-card text-center">
+                <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">🌐</div>
+                <h3 class="text-xl font-black text-slate-900 mb-3">Domain Management</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-8">Nameserver configuration, WHOIS privacy, and transfer protocols.</p>
+                <a href="obsidian_domains.html" class="inline-block bg-slate-900 text-white font-bold px-8 py-3 rounded-xl text-xs transition hover:bg-black">Browse Guides</a>
+            </div>
+            <div class="help-card text-center">
+                <div class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">🖥️</div>
+                <h3 class="text-xl font-black text-slate-900 mb-3">Hosting & Edge</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-8">Managing your VPS nodes, Node.js apps, and Vercel edge deployments.</p>
+                <a href="obsidian_vps_hosting.html" class="inline-block bg-slate-900 text-white font-bold px-8 py-3 rounded-xl text-xs transition hover:bg-black">Browse Guides</a>
+            </div>
+            <div class="help-card text-center">
+                <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">💰</div>
+                <h3 class="text-xl font-black text-slate-900 mb-3">Billing & Payments</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-8">Subscription management, Square settlements, and credit conversions.</p>
+                <a href="obsidian_unified_checkout.html" class="inline-block bg-slate-900 text-white font-bold px-8 py-3 rounded-xl text-xs transition hover:bg-black">Browse Guides</a>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            <div class="help-card">
-                <div class="text-2xl mb-4">🌐</div>
-                <h3 class="text-xl font-black text-slate-900 mb-2">Domains & DNS</h3>
-                <p class="text-slate-600 text-xs mb-6">Manage nameservers, domain transfers, WHOIS privacy, and DNS records.</p>
-                <a href="domains" class="text-blue-600 font-bold text-xs hover:underline">Browse Guides →</a>
-            </div>
-            <div class="help-card">
-                <div class="text-2xl mb-4">⚡</div>
-                <h3 class="text-xl font-black text-slate-900 mb-2">Websites & Hosting</h3>
-                <p class="text-slate-600 text-xs mb-6">Deploying via Vercel Edge, Node.js hosting, and Obsidian Leo AI builder.</p>
-                <a href="obsidian_hosting_landing.html" class="text-blue-600 font-bold text-xs hover:underline">Browse Guides →</a>
-            </div>
-            <div class="help-card">
-                <div class="text-2xl mb-4">🔒</div>
-                <h3 class="text-xl font-black text-slate-900 mb-2">SSL & Security</h3>
-                <p class="text-slate-600 text-xs mb-6">Enabling free SSL certificates, DDoS protection, and domain privacy.</p>
-                <a href="checkout" class="text-blue-600 font-bold text-xs hover:underline">Browse Guides →</a>
+        <!-- Contact Options -->
+        <div class="bg-white border border-slate-200 rounded-[40px] p-12 shadow-sm text-center">
+            <h2 class="text-3xl font-black text-slate-900 mb-4">Still need assistance?</h2>
+            <p class="text-slate-600 text-sm mb-10">Our global team of Obsidian Guides is available around the clock.</p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <button onclick="alert('Priority Ticket #OBS-' + Date.now() + ' has been opened.')" class="bg-blue-600 text-white font-black px-10 py-5 rounded-2xl text-xs uppercase tracking-widest shadow-xl shadow-blue-600/20 transition hover:bg-blue-700">Open Support Ticket</button>
+                <a href="tel:1800OBSIDIAN" class="bg-slate-100 text-slate-900 font-black px-10 py-5 rounded-2xl text-xs uppercase tracking-widest transition hover:bg-slate-200">Call 1-800-OBSIDIAN</a>
             </div>
         </div>
     </div>
@@ -65,8 +86,9 @@
     <!-- Footer -->
     <footer class="bg-slate-900 text-slate-400 py-16 px-12 text-xs">
         <div class="max-w-7xl mx-auto text-center">
-            <p>Copyright © 1999 - 2026 Willow Rain Company LLC (Arkansas). All Rights Reserved. 24/7 Support Desk.</p>
+            <p>© 2026 Willow Rain Company LLC (Arkansas). Obsidian City is the platform built for independent founders.</p>
         </div>
     </footer>
+    <script src="assets/obsidian_aura_engine.js"></script>
 </body>
 </html>

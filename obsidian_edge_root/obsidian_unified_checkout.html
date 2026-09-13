@@ -19,6 +19,7 @@
         .btn-pay:hover { background: #1d4ed8; }
     </style>
     <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
+    <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
 </head>
 <body>
 
@@ -45,6 +46,17 @@
         <div class="input-group text-left">
             <label>Delivery Email (For Domain Info)</label>
             <input type="email" id="custEmail" placeholder="jane@example.com" required>
+        </div>
+        <div class="input-group text-left">
+            <label>Payment Currency</label>
+            <select id="currencySelect" class="w-full bg-[#f8fafc] border border-[#cbd5e1] p-3 rounded-xl text-sm font-bold text-slate-700 outline-none">
+                <option value="USD">USD - US Dollar</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="JPY">JPY - Japanese Yen</option>
+                <option value="AUD">AUD - Australian Dollar</option>
+                <option value="CAD">CAD - Canadian Dollar</option>
+            </select>
         </div>
 
         <!-- 🔱 Payment Fields (Hidden for Free Plans) -->
@@ -125,5 +137,6 @@
         }
     };
 </script>
+    <script src="assets/obsidian_aura_engine.js"></script>
 </body>
 </html>
