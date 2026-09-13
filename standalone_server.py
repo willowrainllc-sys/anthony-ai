@@ -1,5 +1,5 @@
 # --- Built by Anthony Christopher | Est 12.19.1987 ---
-# --- OBSIDIAN CITY SOVEREIGN HOSTING SERVER v1.1 ---
+# --- OBSIDIAN CITY SOVEREIGN HOSTING SERVER v1.2 ---
 import http.server
 import socketserver
 import os
@@ -10,11 +10,9 @@ import json
 # 🔱 Import your existing Vercel API logic
 sys.path.append(os.path.join(os.path.dirname(__file__), 'api'))
 try:
-    from index import handler
+    from index import handler as APIHandler
 except ImportError:
-    class handler:
-        def do_GET(self): pass
-        def do_POST(self): pass
+    APIHandler = None
 
 PORT = 8080
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
@@ -25,13 +23,27 @@ class SovereignHandler(http.server.SimpleHTTPRequestHandler):
     """
     def do_GET(self):
         # 1. Route API calls to your index.py logic
-        if self.path.startswith('/api/'):
-            # Create a mock instance of your handler
-            from index import handler as APIHandler
-            api_instance = APIHandler(self.request, self.client_address, self.server)
-            return
+        if self.path.startswith('/api/') and APIHandler:
+             # Manually trigger the API handler do_GET without re-parsing the socket
+             api_instance = APIHandler.__new__(APIHandler)
+             api_instance.request = self.request
+             api_instance.client_address = self.client_address
+             api_instance.server = self.server
+             api_instance.rfile = self.rfile
+             api_instance.wfile = self.wfile
+             api_instance.headers = self.headers
+             api_instance.path = self.path
+             api_instance.command = self.command
+             api_instance.close_connection = True # Ensure connection closes after API call
 
-        # 2. Clean URL Routing (Mirroring vercel.json for local environment)
+             try:
+                 api_instance.do_GET()
+             except Exception as e:
+                 print(f"[-] API Bridge Error: {e}")
+                 self.send_error(500, f"API Error: {e}")
+             return
+
+        # 2. Clean URL Routing
         routing = {
             "/dashboard": "obsidian_city_dashboard.html",
             "/domains": "obsidian_domains.html",
@@ -46,33 +58,43 @@ class SovereignHandler(http.server.SimpleHTTPRequestHandler):
             "/llc": "obsidian_llc_formation.html"
         }
 
-        # Strip query params for routing check
         clean_path = self.path.split('?')[0].rstrip('/')
-
         if clean_path in routing:
             self.path = "/" + routing[clean_path]
         elif clean_path == "" or clean_path == "/":
             self.path = "/index.html"
 
-        # 3. Serve Static Files
         return super().do_GET()
 
     def do_POST(self):
-        if self.path.startswith('/api/'):
-            from index import handler as APIHandler
-            api_instance = APIHandler(self.request, self.client_address, self.server)
-            return
+        if self.path.startswith('/api/') and APIHandler:
+             api_instance = APIHandler.__new__(APIHandler)
+             api_instance.request = self.request
+             api_instance.client_address = self.client_address
+             api_instance.server = self.server
+             api_instance.rfile = self.rfile
+             api_instance.wfile = self.wfile
+             api_instance.headers = self.headers
+             api_instance.path = self.path
+             api_instance.command = self.command
+             api_instance.close_connection = True
+
+             try:
+                 api_instance.do_POST()
+             except Exception as e:
+                 print(f"[-] API Bridge Error (POST): {e}")
+                 self.send_error(500, f"API Error: {e}")
+             return
         self.send_error(405, "Method not allowed")
 
 if __name__ == "__main__":
     os.chdir(DIRECTORY)
-    # Enable reuse of address to avoid "Address already in use" errors on restart
     socketserver.TCPServer.allow_reuse_address = True
     with socketserver.TCPServer(("", PORT), SovereignHandler) as httpd:
         print(f"\n" + "="*50)
-        print(f"🔱 OBSIDIAN CITY SOVEREIGN HOSTING ACTIVE")
+        print(f"🔱 OBSIDIAN CITY SOVEREIGN HOSTING v1.2 ACTIVE")
         print(f"[*] URL: http://localhost:{PORT}")
-        print(f"[*] Update Mode: UNLIMITED (Direct File Serving)")
+        print(f"[*] API Bridge: NameSilo + Pexels 4K Active")
         print("="*50 + "\n")
         try:
             httpd.serve_forever()
