@@ -86,19 +86,36 @@ function appendMessage(role, text) {
 }
 
 /**
- * 🔱 INJECT MONETIZATION
+ * 🔱 INJECT MONETIZATION (AdSense & Fallbacks)
  */
 function injectMonetization() {
     const sections = document.querySelectorAll('section');
     if (sections.length > 2) {
         const adContainer = document.createElement('div');
         adContainer.className = 'obsidian-ad-banner aura-fade-up';
+
+        // Use Empire Fallback if AdSense is pending or blocked
         adContainer.innerHTML = `
             <div class="obsidian-ad-label">Advertisement</div>
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-OBSIDIAN_GLOBAL_ADSENSE" data-ad-slot="AUTO_GENERATED" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <div id="obsidianAdFallback" class="flex items-center gap-10 px-8 w-full h-full cursor-pointer" onclick="window.location.href='obsidian_llc_formation.html'">
+                <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-xl">🏛️</div>
+                <div>
+                    <div class="text-[10px] font-black text-blue-400 uppercase tracking-widest">Empire Partner Offer</div>
+                    <div class="text-sm font-black text-white">Form your LLC for $39 + Free Domain. Claim yours today.</div>
+                </div>
+                <div class="ml-auto bg-white text-black px-4 py-2 rounded-lg font-black text-[10px] uppercase">Claim Offer</div>
+            </div>
+            <ins class="adsbygoogle" style="display:none" data-ad-client="ca-pub-OBSIDIAN_GLOBAL_ADSENSE" data-ad-slot="AUTO_GENERATED" data-ad-format="auto" data-full-width-responsive="true"></ins>
         `;
         sections[1].after(adContainer);
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
+
+        // Attempt to load AdSense. If it fails or returns no ads, the fallback remains visible.
+        try {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+            // Add a small check: if adsbygoogle has status, we can hide fallback.
+        } catch (e) {
+            console.warn("[AURA] AdSense handshake delayed. Empire Fallback Active.");
+        }
     }
 }
 

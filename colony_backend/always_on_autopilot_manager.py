@@ -102,7 +102,12 @@ class AlwaysOnAutopilotManager:
             asyncio.create_task(reward_agent.harvest_swagbucks("obsidian.global.holdings@gmail.com", "Alpha_Maestas19@"))
             asyncio.create_task(whatnot_agent.run_scavenge_loop())
 
-            colony_log(" ALWAYS_ON: Business Moto, Social, SEO, and Reward Scavenging loops ACTIVATED.", node="ALWAYS_ON")
+            # Wake up the Key Rotation Sentinel to guard production keys
+            from key_rotation_sentinel import KeyRotationSentinel
+            sentinel = KeyRotationSentinel()
+            asyncio.create_task(sentinel.run_rotation_daemon())
+
+            colony_log(" ALWAYS_ON: Business Moto, Social, SEO, and Key Rotation loops ACTIVATED.", node="ALWAYS_ON")
         except Exception as e:
             colony_log(f"[-] ALWAYS_ON: Failed to trigger autonomous social/broker loop: {e}", node="ALWAYS_ON")
 

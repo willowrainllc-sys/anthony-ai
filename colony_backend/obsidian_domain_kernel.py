@@ -13,9 +13,13 @@ from colony_persistence import db
 load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
 
 # 🔱 NAMESILO CONFIGURATION (Wholesale Registrar)
-NAMESILO_API_KEY = os.getenv("NAMESILO_API_KEY")
-# Strictly Industrial Production: Sandbox Bypass Terminated
-NAMESILO_BASE_URL = "https://www.namesilo.com/api"
+NAMESILO_API_KEY = os.getenv("NAMESILO_API_KEY", "")
+# Strictly Industrial Production: Sandbox Bypass
+if NAMESILO_API_KEY.startswith("cert_"):
+    NAMESILO_BASE_URL = "https://www.namesilo.com/api_test" # Sandbox Environment
+    colony_log("[*] DOMAIN_KERNEL: Operating in NAMESILO SANDBOX MODE.", node="FINANCE")
+else:
+    NAMESILO_BASE_URL = "https://www.namesilo.com/api" # Production Environment
 
 
 
