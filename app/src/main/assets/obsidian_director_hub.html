@@ -246,7 +246,8 @@
             const email = session.email || 'anthony@obsidian.city';
 
             try {
-                const resp = await fetch('/api/director/payout', {
+                // Using Aura API Helper (from obsidian_aura_engine.js)
+                const resp = await fetch(getApiUrl('/api/director/payout'), {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({ email: email })
@@ -262,7 +263,12 @@
                 }
             } catch (err) {
                 console.error(err);
-                alert("[-] Handshake Failed: Settlement Engine Offline.");
+                const isLocal = window.location.protocol === 'file:';
+                if (isLocal) {
+                    alert("[-] Handshake Failed: You are viewing a local file. Please ensure 'standalone_server.py' is running on port 8080.");
+                } else {
+                    alert("[-] Handshake Failed: Settlement Engine Offline.");
+                }
                 btn.innerText = originalText;
                 btn.disabled = false;
             }

@@ -11,6 +11,17 @@ const AURA_OFFERS = [
 ];
 
 /**
+ * 🔱 AURA API HELPER:
+ * Automatically resolves endpoint based on environment (Local File vs Server).
+ */
+function getApiUrl(endpoint) {
+    const isLocalFile = window.location.protocol === 'file:';
+    const base = isLocalFile ? 'http://localhost:8080' : '';
+    return base + endpoint;
+}
+
+
+/**
  * 🔱 LEO CHAT AGENT UI
  */
 function initObsidianAIChat() {
@@ -63,7 +74,7 @@ async function handleChatKey(e) {
         input.value = '';
 
         try {
-            const resp = await fetch('/api/obsidian_ai/chat', {
+            const resp = await fetch(getApiUrl('/api/obsidian_ai/chat'), {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ message: text, page: window.location.pathname })
@@ -71,7 +82,7 @@ async function handleChatKey(e) {
             const data = await resp.json();
             appendMessage('obsidian_ai', data.reply);
         } catch (err) {
-            appendMessage('obsidian_ai', "My uplink to the ARES core is currently throttled. Please try again or contact tech support at willow.rain.llc@gmail.com.");
+            appendMessage('obsidian_ai', "My uplink to the ARES core is currently throttled. Please ensure the Sovereign Server is running or contact tech support.");
         }
     }
 }
@@ -149,7 +160,7 @@ async function initAuraVideo() {
 
     try {
         const page = window.location.pathname.split('/').pop() || 'business';
-        const resp = await fetch(`/api/aura/video?query=${encodeURIComponent(page + ' people office tech blue')}`);
+        const resp = await fetch(getApiUrl(`/api/aura/video?query=${encodeURIComponent(page + ' people office tech blue')}`));
         const data = await resp.json();
         if (data.success) {
             const newSource = document.createElement('source');
