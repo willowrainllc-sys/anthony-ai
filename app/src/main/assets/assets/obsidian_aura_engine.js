@@ -173,6 +173,45 @@ async function initAuraVideo() {
     video.onloadeddata = () => { video.style.opacity = '1'; };
 }
 
+/**
+ * 🔱 SECURITY PULSE: Floating Hacking & Safety Tips
+ */
+const SECURITY_TIPS = [
+    "Tip: Use hardware security keys (FIDO2) for absolute identity sovereignty.",
+    "Fact: 95% of breaches start with phishing. Always verify the sender's origin.",
+    "Tip: Enable PQC (Post-Quantum Cryptography) for long-term data protection.",
+    "Fact: Public Wi-Fi is a major ingress point for sniffers. Use the Obsidian Mesh.",
+    "Tip: Rotate your backend API keys every 90 days to minimize exposure."
+];
+
+function spawnSecurityPulse() {
+    if (Math.random() > 0.5) return;
+
+    const tip = SECURITY_TIPS[Math.floor(Math.random() * SECURITY_TIPS.length)];
+    const pulse = document.createElement('div');
+    pulse.className = 'aura-fade-up glass p-6 rounded-2xl fixed bottom-32 left-8 z-[1000000] max-w-xs shadow-2xl';
+    pulse.style.background = 'rgba(15, 23, 42, 0.9)';
+    pulse.style.border = '1px solid rgba(59, 130, 246, 0.3)';
+
+    pulse.innerHTML = `
+        <div class="flex items-center gap-4">
+            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-sm shadow-lg">🛡️</div>
+            <div>
+                <div class="text-[9px] font-black text-blue-400 uppercase tracking-widest">Security Pulse</div>
+                <div class="text-[11px] text-white font-medium leading-tight mt-1">${tip}</div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(pulse);
+    setTimeout(() => pulse.classList.add('visible'), 100);
+
+    setTimeout(() => {
+        pulse.classList.remove('visible');
+        setTimeout(() => pulse.remove(), 800);
+    }, 8000);
+}
+
 function spawnAuraAd() {
     if (Math.random() > 0.4) return;
     const offer = AURA_OFFERS[Math.floor(Math.random() * AURA_OFFERS.length)];

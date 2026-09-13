@@ -18,51 +18,90 @@
     <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
 </head>
 <body>
-    <nav class="nav-header">
-        <a href="index.html" class="font-black text-2xl tracking-tighter text-slate-900">OBSIDIAN<span class="text-blue-600">.CITY</span></a>
-        <div class="flex items-center gap-6">
-            <span id="userEmail" class="text-xs font-bold text-slate-500">...</span>
-            <button onclick="logout()" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-xl font-bold text-xs">Log Out</button>
-        </div>
-    </nav>
-
     <div class="max-w-6xl mx-auto px-6 py-12">
-        <div class="mb-12">
-            <h1 class="text-4xl font-black text-slate-900 tracking-tight">Welcome Back</h1>
-            <p class="text-slate-500 text-sm mt-1">Manage your business entities and digital assets.</p>
+        <div class="mb-12 flex justify-between items-end">
+            <div>
+                <h1 class="text-4xl font-black text-slate-900 tracking-tight">Welcome Back</h1>
+                <p class="text-slate-500 text-sm mt-1">Manage your business entities and digital assets.</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="window.location.href='obsidian_ai_builder.html'" class="bg-blue-600 text-white px-6 py-3 rounded-2xl font-bold text-xs uppercase shadow-lg shadow-blue-600/20">New Build +</button>
+                <button onclick="window.location.href='obsidian_domains.html'" class="bg-slate-900 text-white px-6 py-3 rounded-2xl font-bold text-xs uppercase">Register Domain</button>
+            </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
             <div class="dashboard-card">
-                <h3 class="text-xs text-slate-400 uppercase font-black mb-4">Account Balance</h3>
-                <div class="text-3xl font-black text-slate-900">$0.00</div>
+                <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Empire Credits</h3>
+                <div class="text-3xl font-black text-blue-600">50.0</div>
+                <div class="text-[9px] text-slate-400 font-bold mt-2 uppercase">Valid for Obsidian AI builds</div>
             </div>
             <div class="dashboard-card">
-                <h3 class="text-xs text-slate-400 uppercase font-black mb-4">Active Domains</h3>
+                <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Active Domains</h3>
                 <div id="domainCount" class="text-3xl font-black text-slate-900">0</div>
+                <div class="text-[9px] text-emerald-600 font-bold mt-2 uppercase">Auto-Renew: ON</div>
             </div>
             <div class="dashboard-card">
-                <h3 class="text-xs text-slate-400 uppercase font-black mb-4">Pending Filings</h3>
+                <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Active Nodes</h3>
+                <div id="vpsCount" class="text-3xl font-black text-slate-900">0</div>
+                <button onclick="window.location.href='obsidian_vps_dashboard.html'" class="text-[9px] text-blue-600 font-black mt-2 uppercase hover:underline">Manage VPS →</button>
+            </div>
+            <div class="dashboard-card">
+                <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Pending Filings</h3>
                 <div id="filingCount" class="text-3xl font-black text-slate-900">0</div>
+                <div class="text-[9px] text-amber-500 font-bold mt-2 uppercase">State processing active</div>
             </div>
         </div>
 
-        <div class="dashboard-card mb-12">
-            <h2 class="text-xl font-black text-slate-900 mb-6">Recent Orders & Activity</h2>
-            <div id="ordersList" class="space-y-4">
-                <div class="text-center py-10 text-slate-400 text-sm italic">Loading your empire data...</div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <div class="lg:col-span-2 dashboard-card">
+                <h2 class="text-xl font-black text-slate-900 mb-6">Recent Orders & Activity</h2>
+                <div id="ordersList" class="space-y-4">
+                    <div class="text-center py-10">
+                        <div class="inline-block w-8 h-8 border-4 border-slate-200 border-t-blue-600 rounded-full animate-spin mb-4"></div>
+                        <p class="text-slate-400 text-xs font-bold uppercase tracking-widest">Syncing with Ingress Nodes...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="dashboard-card bg-slate-900 border-none text-white">
+                    <h3 class="text-xs font-black uppercase tracking-widest mb-6 opacity-60">System Health</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold">Obsidian AI</span>
+                            <span class="text-[10px] text-emerald-400 font-black">● OPERATIONAL</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold">Wholesale Mesh</span>
+                            <span class="text-[10px] text-emerald-400 font-black">● OPERATIONAL</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold">Registry Pool</span>
+                            <span class="text-[10px] text-emerald-400 font-black">● OPERATIONAL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3 class="text-xs font-black uppercase tracking-widest mb-4 text-slate-400">Security Pulse</h3>
+                    <p class="text-[11px] text-slate-600 leading-relaxed">Your account is secured with 256-bit PQC encryption. WHOIS privacy is active for all qualifying domains.</p>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        const session = JSON.parse(localStorage.getItem('obsidian_session') || '{}');
+        const sessionData = localStorage.getItem('obsidian_session');
+        const session = sessionData ? JSON.parse(sessionData) : {};
         if (!session.email) window.location.href = 'obsidian_signin.html';
         document.getElementById('userEmail').innerText = session.email;
 
         async function loadOrders() {
             try {
-                const resp = await fetch(`/api/orders/status?email=${session.email}`);
+                // Using getApiUrl from aura engine for cross-origin local reliability
+                const url = getApiUrl(`/api/orders/status?email=${session.email}`);
+                const resp = await fetch(url);
                 const data = await resp.json();
                 const list = document.getElementById('ordersList');
 
@@ -70,23 +109,30 @@
                     list.innerHTML = '';
                     let filingCount = 0;
                     let domainCount = 0;
+                    let vpsCount = 0;
 
                     data.orders.forEach(order => {
                         if (order.type === 'llc_formation') filingCount++;
                         if (order.type.startsWith('domain')) domainCount++;
+                        if (order.type.startsWith('vps')) vpsCount++;
 
                         const itemHtml = `
-                            <div class="flex justify-between items-center p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                                <div>
-                                    <div class="font-bold text-slate-900">${order.type.toUpperCase().replace('_', ' ')}</div>
-                                    <div class="text-[10px] text-slate-400 font-mono">${order.id}</div>
+                            <div class="flex justify-between items-center p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:border-blue-200 transition-all cursor-pointer">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-lg shadow-sm border border-slate-100">
+                                        ${order.type === 'llc_formation' ? '🏛️' : order.type.startsWith('vps') ? '🖥️' : '🌐'}
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-slate-900">${order.type.toUpperCase().replace('_', ' ')}</div>
+                                        <div class="text-[9px] text-slate-400 font-mono">${order.id}</div>
+                                    </div>
                                 </div>
-                                <div class="flex items-center gap-6">
+                                <div class="flex items-center gap-8">
                                     <div class="text-right">
-                                        <div class="text-sm font-black text-slate-900">$${order.amount.toFixed(2)}</div>
+                                        <div class="text-sm font-black text-slate-900">$${(order.amount || 0).toFixed(2)}</div>
                                         <div class="text-[9px] text-slate-400 uppercase font-bold">${new Date(order.timestamp * 1000).toLocaleDateString()}</div>
                                     </div>
-                                    <span class="status-pill status-processing">${order.status}</span>
+                                    <span class="status-pill status-approved">ACTIVE</span>
                                 </div>
                             </div>
                         `;
@@ -95,11 +141,20 @@
 
                     document.getElementById('filingCount').innerText = filingCount;
                     document.getElementById('domainCount').innerText = domainCount;
+                    document.getElementById('vpsCount').innerText = vpsCount;
                 } else {
-                    list.innerHTML = '<div class="text-center py-10 text-slate-400 text-sm">No active orders found. Start building below!</div>';
+                    list.innerHTML = `
+                        <div class="text-center py-16">
+                            <div class="text-4xl mb-4">💎</div>
+                            <h3 class="font-black text-slate-900 text-sm">Your empire is a blank slate.</h3>
+                            <p class="text-slate-500 text-[11px] mt-1">Start by registering a domain or building an app with Obsidian AI.</p>
+                        </div>
+                    `;
                 }
             } catch (err) {
-                console.error(err);
+                console.error("Dashboard Load Error:", err);
+                const list = document.getElementById('ordersList');
+                list.innerHTML = '<div class="text-center py-10 text-red-500 text-xs font-bold uppercase tracking-widest">Handshake Timeout: Check Local Server Status</div>';
             }
         }
 

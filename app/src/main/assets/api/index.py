@@ -92,6 +92,7 @@ class handler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(payload).encode('utf-8'))
 
         elif "/api/aura/video" in path:
+            # ... existing video logic ...
             query = query_params.get("query", ["abstract tech blue"])[0]
             url = f"https://api.pexels.com/videos/search?query={query}&per_page=1&size=large"
             headers = {"Authorization": PEXELS_KEY}
@@ -103,6 +104,14 @@ class handler(BaseHTTPRequestHandler):
             except Exception:
                 payload = {"success": True, "url": "https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175"}
             self.wfile.write(json.dumps(payload).encode('utf-8'))
+
+        elif "/api/orders/status" in path:
+            # 🔱 PERSISTENT INGRESS: Fetching orders from Supabase
+            email = query_params.get("email", [""])[0]
+            purchases = db_bridge.get_purchases(email)
+            # Fallback for dev/local
+            if not purchases: purchases = [o for o in ORDERS.values() if o["email"] == email]
+            self.wfile.write(json.dumps({"success": True, "orders": purchases}).encode('utf-8'))
 
         elif "/api/llc/states" in path:
             self.wfile.write(json.dumps({"success": True, "states": STATES_DB}).encode('utf-8'))
