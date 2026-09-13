@@ -43,6 +43,14 @@ class ObsidianDatabase:
             return True
         except Exception: return False
 
+    def get_purchases(self, email):
+        """Retrieves user order history from Supabase."""
+        if not self.active: return []
+        try:
+            res = self.client.table("purchases").select("*").eq("email", email).order("created_at", desc=True).execute()
+            return res.data
+        except Exception: return []
+
     def is_director(self, email):
         # 🔱 SUPREME OVERRIDE: Identify the Boss
         boss_email = "google_user@obsidian.city" # Simulated boss login

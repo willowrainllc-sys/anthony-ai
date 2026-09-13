@@ -151,15 +151,15 @@
             const container = document.getElementById('globeContainer');
             world = Globe()
                 (container)
-                .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-night.jpg')
+                .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
                 .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
                 .backgroundColor('rgba(0,0,0,0)')
                 .showAtmosphere(true)
-                .atmosphereColor('#3b82f6')
-                .atmosphereAltitude(0.15);
+                .atmosphereColor('#60a5fa')
+                .atmosphereAltitude(0.25);
 
             world.controls().autoRotate = true;
-            world.controls().autoRotateSpeed = 0.5;
+            world.controls().autoRotateSpeed = 0.8;
             world.controls().enableZoom = false;
 
             // Add some "Nodes"
@@ -169,7 +169,13 @@
                 { lat: 41.8781, lng: -87.6298, name: 'Chicago' },
                 { lat: 32.7767, lng: -96.7970, name: 'Dallas' },
                 { lat: 51.5074, lng: -0.1278, name: 'London' },
-                { lat: 35.6762, lng: 139.6503, name: 'Tokyo' }
+                { lat: 35.6762, lng: 139.6503, name: 'Tokyo' },
+                { lat: 48.8566, lng: 2.3522, name: 'Paris' },
+                { lat: 1.3521, lng: 103.8198, name: 'Singapore' },
+                { lat: -33.8688, lng: 151.2093, name: 'Sydney' },
+                { lat: 55.7558, lng: 37.6173, name: 'Moscow' },
+                { lat: -23.5505, lng: -46.6333, name: 'São Paulo' },
+                { lat: 28.6139, lng: 77.2090, name: 'New Delhi' }
             ];
 
             world.pointsData(nodes)
@@ -197,18 +203,35 @@
             }
         }
 
-        function startSimulation() {
+        async function startSimulation() {
             if(!isSharing) return;
 
             // Increment data every 2 seconds
-            dataCount += Math.random() * 0.05;
+            const increment = Math.random() * 0.05;
+            dataCount += increment;
             earnings = dataCount * 0.10; // $0.10 per GB (Wholesale Rate)
 
             document.getElementById('totalData').innerHTML = `${dataCount.toFixed(2)} <span class="text-sm text-slate-400">GB</span>`;
             document.getElementById('totalEarnings').innerText = `$${earnings.toFixed(2)}`;
             document.getElementById('activeDevices').innerText = "1";
 
-            setTimeout(startSimulation, 2000);
+            // 🔱 REAL-TIME HANDSHAKE: Report bandwidth to backend
+            try {
+                const session = JSON.parse(localStorage.getItem('obsidian_session') || '{}');
+                await fetch(getApiUrl('/api/data/report'), {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        email: session.email || 'anonymous',
+                        bytes: increment * 1024 * 1024 * 1024,
+                        device_id: 'BROWSER_NODE_01'
+                    })
+                });
+            } catch (err) {
+                console.warn("[AURA] Mesh reporting offline.");
+            }
+
+            setTimeout(startSimulation, 5000);
         }
 
         function handleLogout() {

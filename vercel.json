@@ -40,7 +40,11 @@
     },
     {
       "source": "/airo",
-      "destination": "/obsidian_leo_builder.html"
+      "destination": "/obsidian_ai_builder.html"
+    },
+    {
+      "source": "/builder",
+      "destination": "/obsidian_ai_builder.html"
     },
     {
       "source": "/nodejs",
