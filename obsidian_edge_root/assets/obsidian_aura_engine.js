@@ -1,5 +1,5 @@
-/* 🔱 OBSIDIAN AURA ENGINE v1.2 */
-/* Dynamic 4K Video Backgrounds with Real People & Monetization Hub */
+/* 🔱 OBSIDIAN AURA ENGINE v1.3 */
+/* Integrated Leo Chat Agent + Dynamic 4K Backgrounds + Monetization */
 
 const FALLBACK_VIDEO = "https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175";
 
@@ -11,7 +11,81 @@ const AURA_OFFERS = [
 ];
 
 /**
- * 🔱 INJECT ADSENSE CONTAINERS
+ * 🔱 LEO CHAT AGENT UI
+ */
+function initLeoChat() {
+    // 1. Create Floating Trigger
+    const trigger = document.createElement('div');
+    trigger.className = 'leo-chat-trigger';
+    trigger.innerHTML = '🤖';
+    trigger.onclick = toggleLeoChat;
+    document.body.appendChild(trigger);
+
+    // 2. Create Chat Window
+    const win = document.createElement('div');
+    win.id = 'leoChatWindow';
+    win.className = 'leo-chat-window';
+    win.innerHTML = `
+        <div class="chat-header">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-sm">🤖</div>
+                <div>
+                    <div class="text-[11px] font-black text-white uppercase tracking-widest">Obsidian Leo™</div>
+                    <div class="text-[8px] text-emerald-400 font-bold uppercase">ARES Intel Node Active</div>
+                </div>
+            </div>
+            <button onclick="toggleLeoChat()" class="text-gray-500 hover:text-white text-xl">&times;</button>
+        </div>
+        <div class="chat-body" id="leoChatBody">
+            <div class="msg msg-leo">Greetings. I am Leo, your Sovereign AI Oracle. How can I assist your empire expansion today?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="leoChatInput" class="chat-input" placeholder="Ask Leo anything..." onkeypress="handleChatKey(event)">
+        </div>
+    `;
+    document.body.appendChild(win);
+}
+
+function toggleLeoChat() {
+    const win = document.getElementById('leoChatWindow');
+    const isVisible = win.style.display === 'flex';
+    win.style.display = isVisible ? 'none' : 'flex';
+}
+
+async function handleChatKey(e) {
+    if (e.key === 'Enter') {
+        const input = document.getElementById('leoChatInput');
+        const text = input.value.trim();
+        if (!text) return;
+
+        appendMessage('user', text);
+        input.value = '';
+
+        try {
+            const resp = await fetch('/api/leo/chat', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ message: text, page: window.location.pathname })
+            });
+            const data = await resp.json();
+            appendMessage('leo', data.reply);
+        } catch (err) {
+            appendMessage('leo', "My uplink to the ARES core is currently throttled. Please try again or contact tech support at willow.rain.llc@gmail.com.");
+        }
+    }
+}
+
+function appendMessage(role, text) {
+    const body = document.getElementById('leoChatBody');
+    const msg = document.createElement('div');
+    msg.className = `msg msg-${role}`;
+    msg.innerText = text;
+    body.appendChild(msg);
+    body.scrollTop = body.scrollHeight;
+}
+
+/**
+ * 🔱 INJECT MONETIZATION
  */
 function injectMonetization() {
     const sections = document.querySelectorAll('section');
@@ -20,12 +94,7 @@ function injectMonetization() {
         adContainer.className = 'obsidian-ad-banner aura-fade-up';
         adContainer.innerHTML = `
             <div class="obsidian-ad-label">Advertisement</div>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-OBSIDIAN_GLOBAL_ADSENSE"
-                 data-ad-slot="AUTO_GENERATED"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-OBSIDIAN_GLOBAL_ADSENSE" data-ad-slot="AUTO_GENERATED" data-ad-format="auto" data-full-width-responsive="true"></ins>
         `;
         sections[1].after(adContainer);
         (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -33,7 +102,7 @@ function injectMonetization() {
 }
 
 /**
- * 🔱 INITIALIZE VIDEO REEL (Horizontal Background)
+ * 🔱 INITIALIZE VIDEO BACKGROUND
  */
 async function initAuraVideo() {
     document.body.style.backgroundColor = 'transparent';
@@ -47,6 +116,12 @@ async function initAuraVideo() {
     video.loop = true;
     video.playsInline = true;
 
+    // Reliability Sources
+    const sourceVimeo = document.createElement('source');
+    sourceVimeo.src = FALLBACK_VIDEO;
+    sourceVimeo.type = 'video/mp4';
+    video.appendChild(sourceVimeo);
+
     const overlay = document.createElement('div');
     overlay.className = 'aura-video-overlay';
 
@@ -55,17 +130,17 @@ async function initAuraVideo() {
     document.body.prepend(container);
 
     try {
-        // Search specifically for real people doing professional work/lifestyle
         const page = window.location.pathname.split('/').pop() || 'business';
-        const query = `${page} people working office tech blue`;
-        const resp = await fetch(`/api/aura/video?query=${encodeURIComponent(query)}`);
+        const resp = await fetch(`/api/aura/video?query=${encodeURIComponent(page + ' people office tech blue')}`);
         const data = await resp.json();
-
-        video.src = data.success ? data.url : FALLBACK_VIDEO;
-    } catch (e) {
-        video.src = FALLBACK_VIDEO;
-    }
-
+        if (data.success) {
+            const newSource = document.createElement('source');
+            newSource.src = data.url;
+            newSource.type = 'video/mp4';
+            video.prepend(newSource);
+            video.load();
+        }
+    } catch (e) {}
     video.onloadeddata = () => { video.style.opacity = '1'; };
 }
 
@@ -85,21 +160,13 @@ function spawnAuraAd() {
     `;
     ad.onclick = () => { window.location.href = offer.url; };
     document.body.appendChild(ad);
-    setTimeout(() => {
-        ad.style.opacity = '0';
-        setTimeout(() => ad.remove(), 500);
-    }, 12000);
+    setTimeout(() => { ad.style.opacity = '0'; setTimeout(() => ad.remove(), 500); }, 12000);
 }
 
 function handleScrollAnimations() {
     const observers = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entries[0].isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.aura-fade-up, .base44-card').forEach(el => {
         el.classList.add('aura-fade-up');
         observers.observe(el);
@@ -110,5 +177,6 @@ window.addEventListener('DOMContentLoaded', () => {
     initAuraVideo();
     injectMonetization();
     handleScrollAnimations();
+    initLeoChat();
     setInterval(spawnAuraAd, 25000);
 });

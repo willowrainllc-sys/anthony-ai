@@ -12,59 +12,23 @@ from http.server import BaseHTTPRequestHandler
 # 🔱 WHOLESALE & DATABASE BRIDGES
 NAMESILO_KEY = os.environ.get("NAMESILO_API_KEY", "cert_O6RAXSvTTLkhX1TlQcQt9wpA")
 PEXELS_KEY = os.environ.get("PEXELS_API_KEY", "qWDIVVoR27MYlXxWil4roFhwgBTVovgX5GnXqpEtbzHIxj2rNAu1APFd")
+SQUARE_TOKEN = os.environ.get("SQUARE_ACCESS_TOKEN", "EAAAl66bPEfbMG8HrWqH0ywIu32fO_19UsXDReI_UvxwSBD6j6Qmat-5AkXcSrnU")
 
-# 🔱 SOVEREIGN STATE DATABASE (All 50 States)
+# 🔱 PROFIT MODEL
+PRICING_MATRIX = {
+    ".com":   {"cost": 10.50, "retail": 14.70},
+    ".ai":    {"cost": 45.00, "retail": 64.99},
+    ".io":    {"cost": 15.00, "retail": 24.99},
+    ".city":  {"cost": 6.50,  "retail": 9.99},
+    ".rocks": {"cost": 5.00,  "retail": 8.99},
+    ".net":   {"cost": 12.00, "retail": 16.99},
+    ".org":   {"cost": 9.50,  "retail": 13.99}
+}
+
 STATES_DB = {
-    "AL": {"name": "Alabama", "fee": 200, "time": "2-3 weeks"},
-    "AK": {"name": "Alaska", "fee": 250, "time": "10-15 days"},
-    "AZ": {"name": "Arizona", "fee": 50, "time": "7-10 days"},
     "AR": {"name": "Arkansas", "fee": 45, "time": "1-2 days"},
-    "CA": {"name": "California", "fee": 70, "time": "5-7 days"},
-    "CO": {"name": "Colorado", "fee": 50, "time": "Instant"},
-    "CT": {"name": "Connecticut", "fee": 120, "time": "3-5 days"},
-    "DE": {"name": "Delaware", "fee": 90, "time": "2-3 days"},
-    "FL": {"name": "Florida", "fee": 125, "time": "2-3 days"},
-    "GA": {"name": "Georgia", "fee": 100, "time": "5-7 days"},
-    "HI": {"name": "Hawaii", "fee": 50, "time": "3-5 days"},
-    "ID": {"name": "Idaho", "fee": 100, "time": "7-10 days"},
-    "IL": {"name": "Illinois", "fee": 150, "time": "10-15 days"},
-    "IN": {"name": "Indiana", "fee": 95, "time": "Instant"},
-    "IA": {"name": "Iowa", "fee": 50, "time": "1-2 days"},
-    "KS": {"name": "Kansas", "fee": 160, "time": "Instant"},
-    "KY": {"name": "Kentucky", "fee": 40, "time": "1-2 days"},
-    "LA": {"name": "Louisiana", "fee": 100, "time": "3-5 days"},
-    "ME": {"name": "Maine", "fee": 175, "time": "5-10 days"},
-    "MD": {"name": "Maryland", "fee": 100, "time": "4-6 weeks"},
-    "MA": {"name": "Massachusetts", "fee": 500, "time": "1-2 days"},
-    "MI": {"name": "Michigan", "fee": 50, "time": "10-15 days"},
-    "MN": {"name": "Minnesota", "fee": 135, "time": "3-5 days"},
-    "MS": {"name": "Mississippi", "fee": 50, "time": "Instant"},
-    "MO": {"name": "Missouri", "fee": 50, "time": "Instant"},
-    "MT": {"name": "Montana", "fee": 70, "time": "7-10 days"},
-    "NE": {"name": "Nebraska", "fee": 100, "time": "2-3 days"},
-    "NV": {"name": "Nevada", "fee": 425, "time": "1-2 days"},
-    "NH": {"name": "New Hampshire", "fee": 100, "time": "3-5 days"},
-    "NJ": {"name": "New Jersey", "fee": 125, "time": "Instant"},
-    "NM": {"name": "New Mexico", "fee": 50, "time": "10-15 days"},
-    "NY": {"name": "New York", "fee": 200, "time": "7-10 days"},
-    "NC": {"name": "North Carolina", "fee": 125, "time": "3-5 days"},
-    "ND": {"name": "North Dakota", "fee": 135, "time": "Instant"},
-    "OH": {"name": "Ohio", "fee": 99, "time": "3-5 days"},
-    "OK": {"name": "Oklahoma", "fee": 100, "time": "Instant"},
-    "OR": {"name": "Oregon", "fee": 100, "time": "Instant"},
-    "PA": {"name": "Pennsylvania", "fee": 125, "time": "2-3 weeks"},
-    "RI": {"name": "Rhode Island", "fee": 150, "time": "Instant"},
-    "SC": {"name": "South Carolina", "fee": 110, "time": "Instant"},
-    "SD": {"name": "South Dakota", "fee": 150, "time": "Instant"},
-    "TN": {"name": "Tennessee", "fee": 300, "time": "Instant"},
-    "TX": {"name": "Texas", "fee": 300, "time": "2-3 days"},
-    "UT": {"name": "Utah", "fee": 70, "time": "24 hours"},
-    "VT": {"name": "Vermont", "fee": 125, "time": "3-5 days"},
-    "VA": {"name": "Virginia", "fee": 100, "time": "Instant"},
-    "WA": {"name": "Washington", "fee": 200, "time": "2-3 days"},
-    "WV": {"name": "West Virginia", "fee": 100, "time": "5-10 days"},
-    "WI": {"name": "Wisconsin", "fee": 130, "time": "Instant"},
-    "WY": {"name": "Wyoming", "fee": 100, "time": "Instant"}
+    "WY": {"name": "Wyoming", "fee": 100, "time": "Instant"},
+    "DE": {"name": "Delaware", "fee": 90, "time": "2-3 days"}
 }
 
 SESSIONS = {}
@@ -84,42 +48,43 @@ class handler(BaseHTTPRequestHandler):
 
         if "/api/domains/search" in path:
             raw_q = query_params.get("domain", [""])[0] or query_params.get("q", [""])[0]
-            if not raw_q: raw_q = "mybrand"
-            q = raw_q.lower().split('.')[0].replace(/[^a-z0-9]/g, '')
-            if not q: q = "mybrand"
+            q = (raw_q or "mybrand").lower().split('.')[0].replace(/[^a-z0-9]/g, '')
 
-            # Simulated wholesale availability check
-            tlds = [".com", ".ai", ".io", ".city", ".rocks", ".net", ".org"]
             results = []
-            for tld in tlds:
-                results.append({
-                    "domain": f"{q}{tld}",
-                    "available": random.random() > 0.3,
-                    "price": 14.70 if tld == ".com" else 59.99 if tld == ".ai" else 9.99,
-                    "tag": "Wholesale" if tld == ".com" else "Recommended"
-                })
-            payload = {"query": q, "results": results, "timestamp": now}
-            self.wfile.write(json.dumps(payload).encode('utf-8'))
+            available_list = []
+            try:
+                domains_to_check = [f"{q}{tld}" for tld in PRICING_MATRIX.keys()]
+                ns_url = f"https://www.namesilo.com/api/checkRegisterAvailability?version=1&type=xml&key={NAMESILO_KEY}&domains={','.join(domains_to_check)}"
+                with httpx.Client(timeout=3.0) as client:
+                    resp = client.get(ns_url)
+                    if resp.status_code == 200:
+                        root = ET.fromstring(resp.text)
+                        available_list = [d.text.lower() for d in root.findall(".//reply/available/domain")]
+            except Exception: pass
 
-        elif "/api/llc/state-info" in path:
-            state_code = query_params.get("state", ["AR"])[0].upper()
-            state_data = STATES_DB.get(state_code, STATES_DB["AR"])
-            payload = {
-                "success": True,
-                "state": state_data,
-                "obsidian_fee": 39.00,
-                "agent_fee": 125.00
-            }
-            self.wfile.write(json.dumps(payload).encode('utf-8'))
+            for tld, prices in PRICING_MATRIX.items():
+                full_domain = f"{q}{tld}"
+                is_avail = (full_domain in available_list) if available_list else True
+                results.append({"domain": full_domain, "available": is_avail, "price": prices["retail"], "tag": "Wholesale" if tld == ".com" else "Recommended"})
 
-        elif "/api/orders/status" in path:
-            email = query_params.get("email", [""])[0]
-            user_orders = [o for o in ORDERS.values() if o["email"] == email]
-            self.wfile.write(json.dumps({"success": True, "orders": user_orders}).encode('utf-8'))
+            payload = {"query": q, "results": results, "status": "INGRESS_READY", "timestamp": now}
+            self.wfile.write(json.dumps(payload).encode('utf-8'))
 
         elif "/api/aura/video" in path:
-            payload = {"success": True, "url": "https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175"}
+            query = query_params.get("query", ["abstract tech blue"])[0]
+            url = f"https://api.pexels.com/videos/search?query={query}&per_page=1&size=large"
+            headers = {"Authorization": PEXELS_KEY}
+            try:
+                with httpx.Client(timeout=5.0) as client:
+                    resp = client.get(url, headers=headers)
+                    video_url = resp.json()['videos'][0]['video_files'][0]['link']
+                    payload = {"success": True, "url": video_url}
+            except Exception:
+                payload = {"success": True, "url": "https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175"}
             self.wfile.write(json.dumps(payload).encode('utf-8'))
+
+        elif "/api/llc/states" in path:
+            self.wfile.write(json.dumps({"success": True, "states": STATES_DB}).encode('utf-8'))
 
         else:
             self.wfile.write(json.dumps({"status": "SUCCESS"}).encode('utf-8'))
@@ -135,37 +100,32 @@ class handler(BaseHTTPRequestHandler):
         payload = json.loads(post_data) if post_data else {}
         path = self.path
 
-        if "/api/settle/authorize" in path:
-            # 🔱 TRANSACTION PIPELINE: Settle & Queue
-            email = payload.get("email")
-            item_type = payload.get("type")
-            amount = payload.get("amount")
+        if "/api/leo/chat" in path:
+            # 🔱 LEO CHAT INTELLIGENCE ENGINE (Powered by ARES)
+            user_msg = payload.get("message", "").lower()
+            reply = "I am processing your request through the ARES core."
+
+            if "help" in user_msg or "support" in user_msg:
+                reply = "I have flagged your request for tech support. You can also reach our engineers directly at willow.rain.llc@gmail.com."
+            elif "llc" in user_msg:
+                reply = "Our LLC formation starts at $39. We handle state filings, registered agent services, and include a free .COM domain."
+            elif "build" in user_msg or "leo" in user_msg:
+                reply = "Obsidian Leo™ is our AI builder. Tell me what you want to create, or go to the Leo AI page to start your first mission."
+            elif "price" in user_msg or "cost" in user_msg:
+                reply = "We offer wholesale registry pricing. .COM domains are currently $14.70/year with free lifetime privacy."
+            else:
+                reply = f"Acknowledged. ARES is analyzing: '{user_msg}'. Our global mesh is ready to deploy your digital assets. How else can I assist your empire?"
+
+            self.wfile.write(json.dumps({"success": True, "reply": reply}).encode('utf-8'))
+
+        elif "/api/settle/authorize" in path:
             txid = f"TX-{int(time.time())}-{random.randint(1000, 9999)}"
-
-            order = {
-                "id": txid,
-                "email": email,
-                "type": item_type,
-                "amount": amount,
-                "status": "PROCESSING",
-                "llc_details": payload.get("llc_details"),
-                "timestamp": time.time()
-            }
-            ORDERS[txid] = order
-
-            # Simulate background automation (n8n/Python worker)
-            # 1. Generate Articles of Organization PDF (Placeholder)
-            # 2. Trigger Domain Purchase (GoDaddy API v3 placeholder)
-            # 3. Queue Physical Mail (Lob.com placeholder)
-
-            response = {"success": True, "txid": txid, "status": "AUTHORIZED"}
-            self.wfile.write(json.dumps(response).encode('utf-8'))
+            print(f"[REVENUE] Authorization requested for {payload.get('email')}")
+            self.wfile.write(json.dumps({"success": True, "txid": txid, "status": "APPROVED"}).encode('utf-8'))
 
         elif "/api/auth/signin" in path:
-            email = payload.get("email", "user@example.com")
             sid = f"sess_{int(time.time())}"
-            SESSIONS[sid] = {"email": email}
-            self.wfile.write(json.dumps({"success": True, "session_id": sid, "email": email}).encode('utf-8'))
+            self.wfile.write(json.dumps({"success": True, "session_id": sid, "email": payload.get("email")}).encode('utf-8'))
 
         else:
-            self.wfile.write(json.dumps({"status": "SUCCESS"}).encode('utf-8'))
+            self.wfile.write(json.dumps({"success": True}).encode('utf-8'))

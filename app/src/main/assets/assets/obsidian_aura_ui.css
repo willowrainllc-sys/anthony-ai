@@ -1,4 +1,4 @@
-/* 🔱 OBSIDIAN AURA UI v1.2 */
+/* 🔱 OBSIDIAN AURA UI v1.3 */
 
 /* 🔱 Global Cinematic Video Backgrounds */
 .aura-video-container {
@@ -33,103 +33,70 @@
     z-index: 1;
 }
 
-/* 🔱 Horizontal Video Reel (Mobile/App Specific) */
-.aura-video-reel {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 15px;
-    padding: 20px;
-    scrollbar-width: none;
-}
-.aura-video-reel::-webkit-scrollbar { display: none; }
-
-.aura-reel-item {
-    flex: 0 0 300px;
-    height: 170px;
-    border-radius: 24px;
-    overflow: hidden;
-    scroll-snap-align: start;
-    position: relative;
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-.aura-reel-item video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* 🔱 AdSense & Monetization Banners */
-.obsidian-ad-banner {
-    width: 100%;
-    max-width: 970px;
-    height: 90px;
-    background: rgba(255,255,255,0.03);
-    border: 1px dashed rgba(255,255,255,0.1);
-    margin: 40px auto;
+/* 🔱 Floating Leo Chat UI */
+.leo-chat-trigger {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background: #2563eb;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+    z-index: 1000000;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid rgba(255,255,255,0.1);
 }
+.leo-chat-trigger:hover { transform: scale(1.1) rotate(5deg); background: #1d4ed8; }
 
-.obsidian-ad-label {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    font-size: 8px;
-    font-weight: 900;
-    color: #475569;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+.leo-chat-window {
+    position: fixed;
+    bottom: 110px;
+    right: 30px;
+    width: 380px;
+    height: 550px;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 32px;
+    z-index: 1000000;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    animation: chat-slide 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
+@keyframes chat-slide { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.chat-header { padding: 25px; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; }
+.chat-body { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; scrollbar-width: none; }
+.chat-body::-webkit-scrollbar { display: none; }
+.chat-footer { padding: 20px; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2); }
+
+.msg { max-width: 85%; padding: 12px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; line-height: 1.5; }
+.msg-leo { background: rgba(59, 130, 246, 0.1); color: #fff; align-self: flex-start; border-bottom-left-radius: 4px; border: 1px solid rgba(59, 130, 246, 0.2); }
+.msg-user { background: #2563eb; color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+
+.chat-input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 12px 20px; border-radius: 100px; color: #fff; outline: none; font-size: 13px; }
+.chat-input:focus { border-color: #2563eb; }
+
+/* 🔱 AdSense & Banners */
+.obsidian-ad-banner { width: 100%; max-width: 970px; height: 90px; background: rgba(255,255,255,0.03); border: 1px dashed rgba(255,255,255,0.1); margin: 40px auto; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; border-radius: 16px; }
+.obsidian-ad-label { position: absolute; top: 5px; right: 10px; font-size: 8px; font-weight: 900; color: #475569; text-transform: uppercase; letter-spacing: 2px; }
 
 /* Floating In-Ad Icons */
-.aura-ad-icon {
-    position: fixed;
-    width: 110px;
-    height: 110px;
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 28px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
-    z-index: 99999;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    animation: aura-float 6s ease-in-out infinite;
-    overflow: hidden;
-}
-
-.aura-ad-icon:hover {
-    transform: scale(1.1) rotate(2deg);
-    border-color: #3b82f6;
-}
-
+.aura-ad-icon { position: fixed; width: 110px; height: 110px; background: white; border: 1px solid #e2e8f0; border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 20px 45px rgba(0,0,0,0.15); z-index: 99999; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); animation: aura-float 6s ease-in-out infinite; overflow: hidden; }
+.aura-ad-icon:hover { transform: scale(1.1) rotate(2deg); border-color: #3b82f6; }
 .aura-ad-img { width: 100%; height: 65%; object-fit: cover; }
 .aura-ad-info { height: 35%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: white; }
 .aura-ad-price { font-size: 13px; font-weight: 900; color: #2563eb; }
 .aura-ad-label-sub { font-size: 8px; font-weight: 800; text-transform: uppercase; color: #64748b; }
 
-@keyframes aura-float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
-}
-
-/* GSAP-like entrance animations */
-.aura-fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.aura-fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+@keyframes aura-float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+.aura-fade-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+.aura-fade-up.visible { opacity: 1; transform: translateY(0); }

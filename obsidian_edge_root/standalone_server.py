@@ -55,7 +55,9 @@ class SovereignHandler(http.server.SimpleHTTPRequestHandler):
             "/register": "obsidian_register.html",
             "/profile": "obsidian_user_profile.html",
             "/help": "obsidian_help_center.html",
-            "/llc": "obsidian_llc_formation.html"
+            "/llc": "obsidian_llc_formation.html",
+            "/llc-intake": "obsidian_llc_intake.html",
+            "/start-llc": "obsidian_llc_state.html"
         }
 
         clean_path = self.path.split('?')[0].rstrip('/')
