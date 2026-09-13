@@ -81,6 +81,27 @@
         </div>
     </div>
 
+    <!-- 🔱 A-Z Wholesale Domain Catalog -->
+    <div class="max-w-7xl mx-auto px-6 pb-20">
+        <div class="bg-white border border-slate-200 rounded-[40px] p-10 shadow-sm">
+            <div class="flex justify-between items-center mb-8 border-b border-slate-100 pb-6">
+                <div>
+                    <h2 class="text-xl font-black text-slate-900 tracking-tight uppercase">Registry Catalog</h2>
+                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Available Wholesale Assets A-Z</p>
+                </div>
+                <div class="flex gap-2" id="azPicker">
+                    <!-- A-Z buttons injected by JS -->
+                </div>
+            </div>
+
+            <div class="h-[400px] overflow-y-auto scrollbar-hide pr-4" id="domainCatalog">
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4" id="catalogGrid">
+                    <!-- Domain items injected by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 🔱 Footer -->
     <footer class="bg-slate-900 text-slate-400 py-16 px-12 text-xs">
         <div class="max-w-7xl mx-auto text-center">
@@ -92,11 +113,47 @@
         function handleSearch() {
             const q = document.getElementById('domainInput').value.trim();
             if (q) {
-                // Ensure keyword parsing is consistent with index.html
                 const cleanKey = q.toLowerCase().split('.')[0].replace(/[^a-z0-9]/g, '') || 'mybrand';
                 window.location.href = `obsidian_domain_results.html?q=${encodeURIComponent(cleanKey)}`;
             }
         }
+
+        // 🔱 A-Z CATALOG GENERATION
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+        const picker = document.getElementById('azPicker');
+        const grid = document.getElementById('catalogGrid');
+
+        letters.forEach(char => {
+            const btn = document.createElement('button');
+            btn.className = 'w-8 h-8 rounded-lg bg-slate-50 text-[10px] font-black text-slate-400 hover:bg-blue-600 hover:text-white transition';
+            btn.innerText = char;
+            btn.onclick = () => filterCatalog(char);
+            picker.appendChild(btn);
+        });
+
+        function filterCatalog(char) {
+            grid.innerHTML = '';
+            // Simulated Domain List for each letter
+            const suffixes = ['hq', 'hub', 'pro', 'inc', 'app', 'node', 'labs', 'global'];
+            suffixes.forEach(s => {
+                const name = (char + 'empire' + s).toLowerCase() + '.com';
+                const item = document.createElement('div');
+                item.className = 'p-4 bg-slate-50 rounded-2xl border border-slate-100 hover:border-blue-300 transition-all cursor-pointer';
+                item.innerHTML = `
+                    <div class="text-[10px] font-bold text-slate-800 mb-1">${name}</div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-[9px] font-black text-blue-600">$14.70</span>
+                        <a href="obsidian_unified_checkout.html?type=domain_${name}&price=14.70" class="text-[8px] font-black bg-white px-2 py-1 rounded-md shadow-sm uppercase">Secure</a>
+                    </div>
+                `;
+                grid.appendChild(item);
+            });
+        }
+
+        // Initial Load
+        window.addEventListener('DOMContentLoaded', () => {
+            filterCatalog('A');
+        });
     </script>
     <script src="assets/obsidian_aura_engine.js"></script>
 </body>
