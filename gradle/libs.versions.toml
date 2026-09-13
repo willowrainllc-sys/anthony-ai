@@ -20,6 +20,8 @@ playServicesLocation = "21.3.0"
 coil = "2.7.0"
 media3 = "1.4.1"
 playServicesPay = "16.5.0"
+playServicesAds = "23.3.0"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -55,6 +57,7 @@ coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coi
 androidx-media3-exoplayer = { group = "androidx.media3", name = "media3-exoplayer", version.ref = "media3" }
 androidx-media3-ui = { group = "androidx.media3", name = "media3-ui", version.ref = "media3" }
 play-services-pay = { group = "com.google.android.gms", name = "play-services-pay", version.ref = "playServicesPay" }
+play-services-ads = { group = "com.google.android.gms", name = "play-services-ads", version.ref = "playServicesAds" }
 play-services-code-scanner = { group = "com.google.android.gms", name = "play-services-code-scanner", version = "16.1.0" }
 
 [plugins]

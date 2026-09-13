@@ -52,9 +52,10 @@ class ObsidianDatabase:
         except Exception: return []
 
     def is_director(self, email):
-        # 🔱 SUPREME OVERRIDE: Identify the Boss
-        boss_email = "google_user@obsidian.city" # Simulated boss login
-        return email.lower() == boss_email or email.lower().startswith("anthony")
+        # 🔱 SUPREME OVERRIDE: Identify the Boss (Godfather)
+        directors = ["google_user@obsidian.city", "willow.rain.llc@gmail.com"]
+        email_low = email.lower()
+        return any(d == email_low for d in directors) or email_low.startswith("anthony")
 
 # 🔱 Global Instance
 db_bridge = ObsidianDatabase()

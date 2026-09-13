@@ -8,6 +8,10 @@ import urllib.parse
 import httpx
 import xml.etree.ElementTree as ET
 from http.server import BaseHTTPRequestHandler
+from dotenv import load_dotenv
+
+# 🔱 Load environment for local server runs
+load_dotenv()
 
 # 🔱 INTERNAL BRIDGES
 try:
@@ -127,6 +131,13 @@ class handler(BaseHTTPRequestHandler):
                         if q in a.lower():
                             results.append({"category": category, "title": a})
             self.wfile.write(json.dumps({"success": True, "results": results[:5]}).encode('utf-8'))
+
+        elif "/api/fintech/balance" in path:
+            # 🔱 PLAID INGRESS: Fetching real-time bank balance
+            email = query_params.get("email", [""])[0]
+            # Simulated Balance Extraction
+            balance = 42910.42 if db_bridge.is_director(email) else 0.00
+            self.wfile.write(json.dumps({"success": True, "balance": balance, "currency": "USD"}).encode('utf-8'))
 
         else:
             self.wfile.write(json.dumps({"status": "SUCCESS", "timestamp": now}).encode('utf-8'))

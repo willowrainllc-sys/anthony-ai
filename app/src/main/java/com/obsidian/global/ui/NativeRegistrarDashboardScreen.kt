@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.obsidian.global.BannerAdView
 
 @Composable
 fun NativeRegistrarDashboardScreen(
@@ -63,6 +64,9 @@ fun NativeRegistrarDashboardScreen(
                     )
                 }
             }
+
+            // 🔱 AdMob Header Banner
+            BannerAdView(adUnitId = "ca-app-pub-9539640812310468/8547091855")
 
             // Scrollable Native Content
             LazyColumn(

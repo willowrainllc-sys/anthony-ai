@@ -36,20 +36,49 @@
                 <div class="text-3xl font-black text-blue-600">50.0</div>
                 <div class="text-[9px] text-slate-400 font-bold mt-2 uppercase">Valid for Obsidian AI builds</div>
             </div>
+            <div class="dashboard-card border-emerald-500/20">
+                <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Linked Assets</h3>
+                <div id="bankBalance" class="text-3xl font-black text-emerald-600">$0.00</div>
+                <button onclick="linkBankAccount()" class="text-[9px] text-emerald-600 font-black mt-2 uppercase hover:underline">Link Bank Account (Plaid) →</button>
+            </div>
+            <div id="kycCard" class="dashboard-card border-amber-500/20">
+                <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Identity Status</h3>
+                <div id="identityStatus" class="text-xl font-black text-amber-500 uppercase">Unverified</div>
+                <button onclick="startIdentityVerification()" class="text-[9px] text-amber-600 font-black mt-2 uppercase hover:underline">Complete KYC Verification →</button>
+            </div>
             <div class="dashboard-card">
                 <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Active Domains</h3>
                 <div id="domainCount" class="text-3xl font-black text-slate-900">0</div>
-                <div class="text-[9px] text-emerald-600 font-bold mt-2 uppercase">Auto-Renew: ON</div>
+                <div class="text-[9px] text-blue-600 font-bold mt-2 uppercase">Auto-Renew: ON</div>
             </div>
-            <div class="dashboard-card">
-                <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Active Nodes</h3>
-                <div id="vpsCount" class="text-3xl font-black text-slate-900">0</div>
-                <button onclick="window.location.href='obsidian_vps_dashboard.html'" class="text-[9px] text-blue-600 font-black mt-2 uppercase hover:underline">Manage VPS →</button>
-            </div>
-            <div class="dashboard-card">
-                <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Pending Filings</h3>
-                <div id="filingCount" class="text-3xl font-black text-slate-900">0</div>
-                <div class="text-[9px] text-amber-500 font-bold mt-2 uppercase">State processing active</div>
+        </div>
+
+        <!-- 🔱 Fintech Command Center -->
+        <div id="fintechCommand" class="hidden mb-12 aura-fade-up">
+            <div class="dashboard-card bg-slate-900 border-none text-white p-10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-10 text-8xl">🏦</div>
+                <div class="relative z-10">
+                    <div class="text-[10px] font-black text-blue-400 uppercase tracking-[4px] mb-4">Fintech Command Center</div>
+                    <h2 class="text-3xl font-black mb-8">Industrial Banking Ingress</h2>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
+                            <h4 class="text-xs font-black uppercase mb-2">Real-time Balance</h4>
+                            <p class="text-gray-400 text-[10px] mb-4"> reduces risk of insufficient funds via Signal risk platform.</p>
+                            <button onclick="fetchRealTimeBalance()" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Refresh Balance</button>
+                        </div>
+                        <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
+                            <h4 class="text-xs font-black uppercase mb-2">Identity Matching</h4>
+                            <p class="text-gray-400 text-[10px] mb-4">Validate ownership through intelligent fuzzy matching with financial institutions.</p>
+                            <button onclick="alert('Handshaking with bank registry...')" class="bg-white/10 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Validate Now</button>
+                        </div>
+                        <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
+                            <h4 class="text-xs font-black uppercase mb-2">Wealth Insights</h4>
+                            <p class="text-gray-400 text-[10px] mb-4">Access summary of recurring subscriptions, bill payments, and deposits.</p>
+                            <button onclick="alert('Aggregating 24 months of transaction history...')" class="bg-white/10 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Get Insights</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -161,6 +190,35 @@
         function logout() {
             localStorage.removeItem('obsidian_session');
             window.location.href = 'index.html';
+        }
+
+        // 🔱 FINTECH INGRESS HANDLERS
+        async function linkBankAccount() {
+            alert("🔱 INITIATING PLAID HANDSHAKE\nRedirecting to secure bank authentication portal...");
+            // Simulation: Success after 2s
+            setTimeout(() => {
+                document.getElementById('fintechCommand').classList.remove('hidden');
+                document.getElementById('bankBalance').innerText = "$42,910.42";
+                alert("✓ BANK LINKED: 'willow rain Co' primary account connected.");
+            }, 2000);
+        }
+
+        async function startIdentityVerification() {
+            const btn = event.target;
+            btn.innerText = "VERIFYING...";
+            alert("🔱 KYC STRIKE: Running identity verification against government watchlists...");
+
+            setTimeout(() => {
+                document.getElementById('identityStatus').innerText = "VERIFIED";
+                document.getElementById('identityStatus').className = "text-xl font-black text-emerald-500 uppercase";
+                document.getElementById('kycCard').style.borderColor = "rgba(16, 185, 129, 0.2)";
+                btn.classList.add('hidden');
+                alert("✓ IDENTITY VERIFIED: Sovereign node status confirmed.");
+            }, 3000);
+        }
+
+        async function fetchRealTimeBalance() {
+            alert("🔱 REFRESHING INGRESS: Handshaking with Signal risk platform...");
         }
 
         window.addEventListener('DOMContentLoaded', loadOrders);

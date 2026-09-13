@@ -245,13 +245,13 @@
 
             <!-- Direct Hero Video (Enforced Reliability) -->
             <div class="absolute inset-0 z-0">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-40">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-30">
                     <source src="https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175" type="video/mp4">
                 </video>
             </div>
 
-            <div class="hero-inner" style="z-index: 10;">
-                <h1 id="rotatingHeroTitle">Own your digital business. <br><span id="rotatingHeroSub" class="text-blue-500">Zero markup domains.</span></h1>
+            <div class="hero-inner" style="z-index: 10; min-height: 250px; display: flex; flex-direction: column; justify-content: center;">
+                <h1 id="rotatingHeroTitle" style="height: 120px; display: flex; align-items: center; justify-content: center; flex-direction: column;">Own your digital business. <span id="rotatingHeroSub" class="text-blue-500">Zero markup domains.</span></h1>
                 <p class="text-lg text-slate-200 mb-10 font-medium">Direct registry access. No legacy markups. <br>Free lifetime privacy protection included.</p>
                 <div class="search-box-wrapper">
                     <input type="text" id="domainSearch" aria-label="Domain Search" placeholder="Type the name you want (e.g. mybrand)..." onkeypress="if(event.key === 'Enter') executeLibrarySearch()">
@@ -367,43 +367,47 @@
             </div>
         </section>
 
-        <!-- 🔱 Empire Cinematic Reel (Horizontal Scrollable Clips) -->
-        <section class="py-20 bg-black overflow-hidden aura-fade-up">
-            <div class="px-12 mb-10">
-                <h2 class="text-2xl font-black text-white tracking-tighter uppercase italic">Recent Cinematic Drops</h2>
-                <p class="text-gray-500 text-xs font-bold uppercase tracking-[3px]">Captured by Global Ingress Nodes</p>
-            </div>
+        <!-- 🔱 Empire Cinematic Reel (Contained & Refined) -->
+        <section class="py-8 bg-black aura-fade-up">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="mb-6 flex justify-between items-center">
+                    <div>
+                        <h2 class="text-lg font-black text-white tracking-tighter uppercase italic">Recent Cinematic Drops</h2>
+                        <p class="text-gray-500 text-[8px] font-bold uppercase tracking-[2px]">Global Ingress Handshake Active</p>
+                    </div>
+                </div>
 
-            <div class="aura-video-reel">
-                <div class="aura-reel-item">
-                    <video autoplay muted loop playsinline>
-                        <source src="https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175" type="video/mp4">
-                    </video>
-                    <div class="absolute bottom-4 left-6 text-white font-black text-[10px] uppercase tracking-widest bg-blue-600/80 px-3 py-1 rounded-full">St. Charles HQ</div>
-                </div>
-                <div class="aura-reel-item">
-                    <video autoplay muted loop playsinline>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-city-traffic-at-night-11-large.mp4" type="video/mp4">
-                    </video>
-                    <div class="absolute bottom-4 left-6 text-white font-black text-[10px] uppercase tracking-widest bg-emerald-600/80 px-3 py-1 rounded-full">Global Mesh Ingress</div>
-                </div>
-                <div class="aura-reel-item">
-                    <video autoplay muted loop playsinline>
-                        <source src="https://player.vimeo.com/external/441221764.hd.mp4?s=c9a0937a1f26f21221f7c8702c89f53e346f9f38&profile_id=175" type="video/mp4">
-                    </video>
-                    <div class="absolute bottom-4 left-6 text-white font-black text-[10px] uppercase tracking-widest bg-purple-600/80 px-3 py-1 rounded-full">Neo-City Node</div>
-                </div>
-                <div class="aura-reel-item">
-                    <video autoplay muted loop playsinline>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-futuristic-technology-background-loop-91-large.mp4" type="video/mp4">
-                    </video>
-                    <div class="absolute bottom-4 left-6 text-white font-black text-[10px] uppercase tracking-widest bg-amber-600/80 px-3 py-1 rounded-full">AI Nexus Sync</div>
+                <div class="aura-video-reel" style="height: 180px; border-radius: 20px; overflow: hidden;">
+                    <div class="aura-reel-item">
+                        <video autoplay muted loop playsinline>
+                            <source src="https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-3 left-4 text-white font-black text-[8px] uppercase tracking-widest bg-blue-600/80 px-2 py-0.5 rounded-full">St. Charles HQ</div>
+                    </div>
+                    <div class="aura-reel-item">
+                        <video autoplay muted loop playsinline>
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-city-traffic-at-night-11-large.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-3 left-4 text-white font-black text-[8px] uppercase tracking-widest bg-emerald-600/80 px-2 py-0.5 rounded-full">Global Ingress</div>
+                    </div>
+                    <div class="aura-reel-item">
+                        <video autoplay muted loop playsinline>
+                            <source src="https://player.vimeo.com/external/441221764.hd.mp4?s=c9a0937a1f26f21221f7c8702c89f53e346f9f38&profile_id=175" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-3 left-4 text-white font-black text-[8px] uppercase tracking-widest bg-purple-600/80 px-2 py-0.5 rounded-full">Neo-City Node</div>
+                    </div>
+                    <div class="aura-reel-item">
+                        <video autoplay muted loop playsinline>
+                            <source src="https://assets.mixkit.co/videos/preview/mixkit-futuristic-technology-background-loop-91-large.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute bottom-3 left-4 text-white font-black text-[8px] uppercase tracking-widest bg-amber-600/80 px-2 py-0.5 rounded-full">AI Nexus Sync</div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- 🔱 Empire Vitals & Real-time Stats -->
-        <section class="py-16 bg-[#030305] border-t border-white/5 relative overflow-hidden">
+        <section class="py-12 bg-[#030305] border-t border-white/5 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-12 relative z-10">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
                     <div class="flex flex-col items-center text-center">
@@ -639,7 +643,7 @@
             titleEl.style.transition = 'opacity 0.5s ease';
 
             setTimeout(() => {
-                titleEl.innerHTML = `${quote.title} <br><span id="rotatingHeroSub" class="text-blue-500">${quote.sub}</span>`;
+                titleEl.innerHTML = `${quote.title} <span id="rotatingHeroSub" class="text-blue-500">${quote.sub}</span>`;
                 // Fade in
                 titleEl.style.opacity = '1';
             }, 500);

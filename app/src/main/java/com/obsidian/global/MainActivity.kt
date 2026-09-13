@@ -20,6 +20,13 @@ import com.obsidian.global.ui.ObsidianRacingGate
 import com.obsidian.global.ui.ObsidianSplashScreen
 import com.obsidian.global.ui.ObsidianTitanBrowserScreen
 import com.obsidian.global.ui.NativeRegistrarDashboardScreen
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.ui.Modifier
 
 class MainActivity : ComponentActivity() {
     private var voiceRecognizerManager: VoiceRecognizerManager? = null
@@ -28,6 +35,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        
+        // Initialize AdMob
+        MobileAds.initialize(this) {}
         
         // Start Autopilot Service
         val serviceIntent = Intent(this, ObsidianAutopilotService::class.java)
@@ -126,4 +136,18 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+}
+
+@Composable
+fun BannerAdView(adUnitId: String) {
+    AndroidView(
+        modifier = Modifier.fillMaxWidth(),
+        factory = { context ->
+            AdView(context).apply {
+                setAdSize(AdSize.BANNER)
+                setAdUnitId(adUnitId)
+                loadAd(AdRequest.Builder().build())
+            }
+        }
+    )
 }

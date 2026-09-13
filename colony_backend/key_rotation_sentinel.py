@@ -20,7 +20,13 @@ class KeyRotationSentinel:
     def __init__(self):
         self.boss = "Anthony-Supreme-v29"
         self.env_path = Path(__file__).resolve().parent.parent / ".env"
-        self.critical_keys = ["STRIPE_SECRET_KEY", "SQUARE_ACCESS_TOKEN", "NAMESILO_API_KEY"]
+        self.critical_keys = [
+            "STRIPE_SECRET_KEY",
+            "SQUARE_ACCESS_TOKEN",
+            "NAMESILO_API_KEY",
+            "OBSIDIAN_INDUSTRIAL_CLIENT_ID",
+            "OBSIDIAN_INDUSTRIAL_SECRET"
+        ]
 
     async def audit_keys(self):
         colony_log("SENTINEL: Initiating global API key audit...", node="ARES")

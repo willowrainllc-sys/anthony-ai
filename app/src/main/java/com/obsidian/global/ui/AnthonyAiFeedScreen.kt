@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.obsidian.global.BannerAdView
 import com.obsidian.global.MainViewModel
 import com.obsidian.global.ProductionJobResponse
 import com.obsidian.global.data.model.AIVideo
@@ -275,6 +276,9 @@ fun AnthonyAiFeedScreen(
                     }
                 }
             }
+
+            // 🔱 AdMob Footer Banner
+            BannerAdView(adUnitId = "ca-app-pub-9539640812310468/8031699492")
 
             // Bottom Command Input
             CommandInput(

@@ -79,6 +79,7 @@ dependencies {
     implementation(libs.androidx.camera.view)
     implementation(libs.androidx.biometric)
     implementation(libs.play.services.location)
+    implementation(libs.play.services.ads)
     implementation(libs.play.services.code.scanner)
     implementation(libs.coil.compose)
     implementation(libs.androidx.media3.exoplayer)
