@@ -132,6 +132,19 @@ class handler(BaseHTTPRequestHandler):
                             results.append({"category": category, "title": a})
             self.wfile.write(json.dumps({"success": True, "results": results[:5]}).encode('utf-8'))
 
+        elif "/api/ares/spatial/predict" in path:
+            # 🔱 ARES SPATIAL INTEL: Fetching latest LLM predictions
+            from colony_backend.ares_spatial_oracle import AresSpatialOracle
+            oracle = AresSpatialOracle()
+
+            # Use asyncio to run the async prediction
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            predictions = loop.run_until_complete(oracle.predict_expansion_vector())
+            loop.close()
+
+            self.wfile.write(json.dumps({"success": True, "predictions": predictions}).encode('utf-8'))
+
         elif "/api/fintech/balance" in path:
             # 🔱 PLAID INGRESS: Fetching real-time bank balance
             email = query_params.get("email", [""])[0]
@@ -160,6 +173,8 @@ class handler(BaseHTTPRequestHandler):
 
             if any(x in user_msg for x in ["who are you", "what are you", "your name"]):
                 reply = "I am the Sovereign AI Oracle of Obsidian City, engineered by my Godfather, Anthony Maestas."
+            elif any(x in user_msg for x in ["social", "twitter", "x.com", "github", "discord", "telegram"]):
+                reply = "You can connect with our global mesh on X (@willowrainllc), GitHub (willowrainllc-sys), or join our private Discord and Telegram channels."
             elif any(x in user_msg for x in ["help", "support", "broken", "error"]):
                 print(f"[MISSION SUPPORT] Alerting willow.rain.llc@gmail.com of request from {email}: {user_msg}")
                 reply = "I have flagged your request for my engineering team. You will receive a reply from my architect's office at willow.rain.llc@gmail.com."
@@ -171,6 +186,35 @@ class handler(BaseHTTPRequestHandler):
                 reply = f"The Obsidian Colony has analyzed your query. What is your next objective for business growth?"
 
             self.wfile.write(json.dumps({"success": True, "reply": reply}).encode('utf-8'))
+
+        elif "/api/vouchers/claim" in path:
+            # 🔱 VOUCHER REDEMPTION: Claiming credits via codes
+            code = payload.get("code", "").upper()
+            email = payload.get("email", "anonymous")
+
+            vouchers_path = Path(__file__).resolve().parent.parent / "colony_backend" / "vouchers.json"
+            try:
+                with open(vouchers_path, 'r') as f:
+                    vouchers = json.load(f)
+
+                if code in vouchers and vouchers[code]["status"] == "AVAILABLE":
+                    val = vouchers[code]["value"]
+                    vouchers[code]["status"] = "REDEEMED"
+                    vouchers[code]["redeemed_by"] = email
+
+                    with open(vouchers_path, 'w') as f:
+                        json.dump(vouchers, f, indent=4)
+
+                    # Log the credit addition
+                    print(f"[REVENUE] Voucher {code} redeemed by {email} for {val} credits.")
+                    db_bridge.record_purchase(email, "voucher_redemption", val, f"CODE-{code}")
+
+                    self.wfile.write(json.dumps({"success": True, "value": val}).encode('utf-8'))
+                else:
+                    self.wfile.write(json.dumps({"success": False, "error": "INVALID_OR_USED"}).encode('utf-8'))
+            except Exception as e:
+                print(f"[-] VOUCHER ERROR: {e}")
+                self.wfile.write(json.dumps({"success": False, "error": "VAULT_OFFLINE"}).encode('utf-8'))
 
         elif "/api/support/ticket" in path:
             email = payload.get("email", "anonymous")

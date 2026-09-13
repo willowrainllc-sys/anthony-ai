@@ -33,8 +33,11 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
             <div class="dashboard-card">
                 <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Empire Credits</h3>
-                <div class="text-3xl font-black text-blue-600">50.0</div>
-                <div class="text-[9px] text-slate-400 font-bold mt-2 uppercase">Valid for Obsidian AI builds</div>
+                <div id="creditDisplay" class="text-3xl font-black text-blue-600">50.0</div>
+                <div class="mt-4 flex gap-2">
+                    <input type="text" id="voucherCode" placeholder="GIFT-CODE" class="flex-1 bg-slate-50 border border-slate-100 rounded-lg px-3 py-1.5 text-[10px] font-bold uppercase outline-none focus:border-blue-500">
+                    <button onclick="claimVoucher()" class="bg-blue-600 text-white px-3 py-1.5 rounded-lg text-[10px] font-black uppercase shadow-md hover:bg-blue-700 transition">Redeem</button>
+                </div>
             </div>
             <div class="dashboard-card border-emerald-500/20">
                 <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Linked Assets</h3>
@@ -224,6 +227,33 @@
 
         async function fetchRealTimeBalance() {
             alert("🔱 REFRESHING INGRESS: Handshaking with Signal risk platform...");
+        }
+
+        async function claimVoucher() {
+            const input = document.getElementById('voucherCode');
+            const code = input.value.trim().toUpperCase();
+            if (!code) return;
+
+            try {
+                const resp = await fetch(getApiUrl('/api/vouchers/claim'), {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ code: code, email: session.email })
+                });
+                const data = await resp.json();
+
+                if (data.success) {
+                    alert(`✓ SUCCESS: ${data.value} credits added to your empire.`);
+                    const cur = parseFloat(document.getElementById('creditDisplay').innerText);
+                    document.getElementById('creditDisplay').innerText = (cur + data.value).toFixed(1);
+                    input.value = '';
+                } else {
+                    alert(`[-] FAILED: ${data.error === 'INVALID_OR_USED' ? 'Code invalid or already redeemed.' : 'Vault Offline.'}`);
+                }
+            } catch (err) {
+                console.error(err);
+                alert("[-] Handshake Failed: System Offline.");
+            }
         }
 
         window.addEventListener('DOMContentLoaded', loadOrders);

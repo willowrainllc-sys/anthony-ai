@@ -187,6 +187,35 @@ class handler(BaseHTTPRequestHandler):
 
             self.wfile.write(json.dumps({"success": True, "reply": reply}).encode('utf-8'))
 
+        elif "/api/vouchers/claim" in path:
+            # 🔱 VOUCHER REDEMPTION: Claiming credits via codes
+            code = payload.get("code", "").upper()
+            email = payload.get("email", "anonymous")
+
+            vouchers_path = Path(__file__).resolve().parent.parent / "colony_backend" / "vouchers.json"
+            try:
+                with open(vouchers_path, 'r') as f:
+                    vouchers = json.load(f)
+
+                if code in vouchers and vouchers[code]["status"] == "AVAILABLE":
+                    val = vouchers[code]["value"]
+                    vouchers[code]["status"] = "REDEEMED"
+                    vouchers[code]["redeemed_by"] = email
+
+                    with open(vouchers_path, 'w') as f:
+                        json.dump(vouchers, f, indent=4)
+
+                    # Log the credit addition
+                    print(f"[REVENUE] Voucher {code} redeemed by {email} for {val} credits.")
+                    db_bridge.record_purchase(email, "voucher_redemption", val, f"CODE-{code}")
+
+                    self.wfile.write(json.dumps({"success": True, "value": val}).encode('utf-8'))
+                else:
+                    self.wfile.write(json.dumps({"success": False, "error": "INVALID_OR_USED"}).encode('utf-8'))
+            except Exception as e:
+                print(f"[-] VOUCHER ERROR: {e}")
+                self.wfile.write(json.dumps({"success": False, "error": "VAULT_OFFLINE"}).encode('utf-8'))
+
         elif "/api/support/ticket" in path:
             email = payload.get("email", "anonymous")
             subject = payload.get("subject", "General Inquiry")
