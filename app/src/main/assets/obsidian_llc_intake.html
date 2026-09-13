@@ -40,11 +40,8 @@
                 <div class="input-group">
                     <label>Formation State</label>
                     <select id="formationState" required>
-                        <option value="AR">Arkansas</option>
-                        <option value="WY">Wyoming (Tax Haven)</option>
-                        <option value="DE">Delaware</option>
-                        <option value="TX">Texas</option>
-                        <option value="FL">Florida</option>
+                        <option value="">Select State...</option>
+                        <!-- Injected via JS -->
                     </select>
                 </div>
                 <div class="input-group">
@@ -74,6 +71,26 @@
     </div>
 
     <script>
+        async function loadStates() {
+            const select = document.getElementById('formationState');
+            try {
+                const resp = await fetch('/api/llc/states');
+                const data = await resp.json();
+                if (data.success) {
+                    Object.entries(data.states).forEach(([code, info]) => {
+                        const opt = document.createElement('option');
+                        opt.value = code;
+                        opt.innerText = info.name;
+                        select.appendChild(opt);
+                    });
+                }
+            } catch (err) {
+                console.error("Failed to load states:", err);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', loadStates);
+
         document.getElementById('llcForm').onsubmit = (e) => {
             e.preventDefault();
             const data = {

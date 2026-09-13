@@ -11,8 +11,6 @@ from http.server import BaseHTTPRequestHandler
 
 # 🔱 WHOLESALE & DATABASE BRIDGES
 NAMESILO_KEY = os.environ.get("NAMESILO_API_KEY", "cert_O6RAXSvTTLkhX1TlQcQt9wpA")
-RC_API_KEY = os.environ.get("RESELLERCLUB_KEY", "mock_key")
-RC_USER_ID = os.environ.get("RESELLERCLUB_ID", "123456")
 PEXELS_KEY = os.environ.get("PEXELS_API_KEY", "qWDIVVoR27MYlXxWil4roFhwgBTVovgX5GnXqpEtbzHIxj2rNAu1APFd")
 
 # 🔱 PROFIT MODEL
@@ -24,6 +22,60 @@ PRICING_MATRIX = {
     ".rocks": {"cost": 5.00,  "retail": 7.99},
     ".net":   {"cost": 12.00, "retail": 16.99},
     ".org":   {"cost": 9.50,  "retail": 12.99}
+}
+
+# 🔱 SOVEREIGN STATE DATABASE (All 50 States)
+STATES_DB = {
+    "AL": {"name": "Alabama", "fee": 200, "time": "2-3 weeks"},
+    "AK": {"name": "Alaska", "fee": 250, "time": "10-15 days"},
+    "AZ": {"name": "Arizona", "fee": 50, "time": "7-10 days"},
+    "AR": {"name": "Arkansas", "fee": 45, "time": "1-2 days"},
+    "CA": {"name": "California", "fee": 70, "time": "5-7 days"},
+    "CO": {"name": "Colorado", "fee": 50, "time": "Instant"},
+    "CT": {"name": "Connecticut", "fee": 120, "time": "3-5 days"},
+    "DE": {"name": "Delaware", "fee": 90, "time": "2-3 days"},
+    "FL": {"name": "Florida", "fee": 125, "time": "2-3 days"},
+    "GA": {"name": "Georgia", "fee": 100, "time": "5-7 days"},
+    "HI": {"name": "Hawaii", "fee": 50, "time": "3-5 days"},
+    "ID": {"name": "Idaho", "fee": 100, "time": "7-10 days"},
+    "IL": {"name": "Illinois", "fee": 150, "time": "10-15 days"},
+    "IN": {"name": "Indiana", "fee": 95, "time": "Instant"},
+    "IA": {"name": "Iowa", "fee": 50, "time": "1-2 days"},
+    "KS": {"name": "Kansas", "fee": 160, "time": "Instant"},
+    "KY": {"name": "Kentucky", "fee": 40, "time": "1-2 days"},
+    "LA": {"name": "Louisiana", "fee": 100, "time": "3-5 days"},
+    "ME": {"name": "Maine", "fee": 175, "time": "5-10 days"},
+    "MD": {"name": "Maryland", "fee": 100, "time": "4-6 weeks"},
+    "MA": {"name": "Massachusetts", "fee": 500, "time": "1-2 days"},
+    "MI": {"name": "Michigan", "fee": 50, "time": "10-15 days"},
+    "MN": {"name": "Minnesota", "fee": 135, "time": "3-5 days"},
+    "MS": {"name": "Mississippi", "fee": 50, "time": "Instant"},
+    "MO": {"name": "Missouri", "fee": 50, "time": "Instant"},
+    "MT": {"name": "Montana", "fee": 70, "time": "7-10 days"},
+    "NE": {"name": "Nebraska", "fee": 100, "time": "2-3 days"},
+    "NV": {"name": "Nevada", "fee": 425, "time": "1-2 days"},
+    "NH": {"name": "New Hampshire", "fee": 100, "time": "3-5 days"},
+    "NJ": {"name": "New Jersey", "fee": 125, "time": "Instant"},
+    "NM": {"name": "New Mexico", "fee": 50, "time": "10-15 days"},
+    "NY": {"name": "New York", "fee": 200, "time": "7-10 days"},
+    "NC": {"name": "North Carolina", "fee": 125, "time": "3-5 days"},
+    "ND": {"name": "North Dakota", "fee": 135, "time": "Instant"},
+    "OH": {"name": "Ohio", "fee": 99, "time": "3-5 days"},
+    "OK": {"name": "Oklahoma", "fee": 100, "time": "Instant"},
+    "OR": {"name": "Oregon", "fee": 100, "time": "Instant"},
+    "PA": {"name": "Pennsylvania", "fee": 125, "time": "2-3 weeks"},
+    "RI": {"name": "Rhode Island", "fee": 150, "time": "Instant"},
+    "SC": {"name": "South Carolina", "fee": 110, "time": "Instant"},
+    "SD": {"name": "South Dakota", "fee": 150, "time": "Instant"},
+    "TN": {"name": "Tennessee", "fee": 300, "time": "Instant"},
+    "TX": {"name": "Texas", "fee": 300, "time": "2-3 days"},
+    "UT": {"name": "Utah", "fee": 70, "time": "24 hours"},
+    "VT": {"name": "Vermont", "fee": 125, "time": "3-5 days"},
+    "VA": {"name": "Virginia", "fee": 100, "time": "Instant"},
+    "WA": {"name": "Washington", "fee": 200, "time": "2-3 days"},
+    "WV": {"name": "West Virginia", "fee": 100, "time": "5-10 days"},
+    "WI": {"name": "Wisconsin", "fee": 130, "time": "Instant"},
+    "WY": {"name": "Wyoming", "fee": 100, "time": "Instant"}
 }
 
 SESSIONS = {}
@@ -78,25 +130,18 @@ class handler(BaseHTTPRequestHandler):
         elif "/api/llc/state-info" in path:
             # 🔱 PROGRAMMATIC SEO: Fetch state-specific filing data
             state_code = query_params.get("state", ["AR"])[0].upper()
-
-            # Use data from the generated states_data.json
-            # (In a real Vercel environment, we'd load this from a file or DB)
-            # Embedding a subset here for the immediate logic
-            states_db = {
-                "AR": {"name": "Arkansas", "fee": 45, "time": "1-2 days"},
-                "WY": {"name": "Wyoming", "fee": 100, "time": "Instant"},
-                "DE": {"name": "Delaware", "fee": 90, "time": "2-3 days"},
-                "TX": {"name": "Texas", "fee": 300, "time": "2-3 days"},
-                "FL": {"name": "Florida", "fee": 125, "time": "2-3 days"}
-            }
-
-            state_data = states_db.get(state_code, states_db["AR"])
+            state_data = STATES_DB.get(state_code, STATES_DB["AR"])
             payload = {
                 "success": True,
                 "state": state_data,
                 "obsidian_fee": 39.00,
-                "total": state_data["fee"] + 39.00 + 125.00 # State + Service + Agent
+                "total": state_data["fee"] + 39.00 + 125.00
             }
+            self.wfile.write(json.dumps(payload).encode('utf-8'))
+
+        elif "/api/llc/states" in path:
+            # 🔱 Get list of all states for dropdowns
+            payload = {"success": True, "states": STATES_DB}
             self.wfile.write(json.dumps(payload).encode('utf-8'))
 
         elif "/api/aura/video" in path:
@@ -148,24 +193,17 @@ class handler(BaseHTTPRequestHandler):
             response = {"success": True, "session_id": sid, "email": email}
 
         elif "/api/settle/authorize" in path:
-            # 🔱 TRANSACTION HANDSHAKE: Domain + LLC + Payout
             email = payload.get("email")
             item_type = payload.get("type")
             amount = payload.get("amount")
             llc_details = payload.get("llc_details")
             txid = f"TX-{int(time.time())}"
-
-            # Simulated Execution Pipeline
             print(f"[REVENUE] {email} settled ${amount} for {item_type}")
-            if llc_details:
-                print(f"[LLC QUEUE] Filing {llc_details['business_name']} in {llc_details['state']}")
-
             response = {
                 "success": True,
                 "status": "AUTHORIZED",
                 "txid": txid,
-                "provisioning": "QUEUED",
-                "llc_status": "FILLING_PENDING" if llc_details else "N/A"
+                "provisioning": "QUEUED"
             }
         elif "/api/developer/keygen" in path:
             key = f"OBS-KEY-{random.randint(100000, 999999)}-{random.randint(100000, 999999)}"
@@ -174,7 +212,6 @@ class handler(BaseHTTPRequestHandler):
             email = payload.get("email", "anonymous")
             bytes_shared = payload.get("bytes", 0)
             device_id = payload.get("device_id", "unknown")
-            print(f"[BW FEED] {email} on {device_id} shared {bytes_shared} bytes.")
             response = {
                 "success": True,
                 "earned_credits": round(bytes_shared / (1024*1024*1024) * 0.10, 4),
