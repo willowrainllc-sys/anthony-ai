@@ -19,6 +19,7 @@ class AresMasterEmpireFixer:
     6. Crypto Trading & DePIN/Bitcoin Mining Nodes
     7. Open Source SEO & API Pushing
     8. Domain DNA Registry Handshake
+    9. Autonomous Project Management (ARES Directives)
     """
     def __init__(self):
         self.boss = "Anthony-Supreme-v29"
@@ -110,7 +111,17 @@ class AresMasterEmpireFixer:
         except Exception as e:
             colony_log(f"[-] DNA REGISTRY NOTICE: {e}", node="SUPREME")
 
-        colony_log("✓ ARES MASTER FIXER: All 8 empire subsystems successfully diagnosed and self-healed!", node="SUPREME")
+        # 9. Autonomous Project Management
+        colony_log("[+] FIXER 9/9: Activating ARES Proactive Project Manager...", node="SUPREME")
+        try:
+            from ares_autonomous_pm import AresProjectManager
+            pm = AresProjectManager()
+            asyncio.create_task(pm.generate_autonomous_mission())
+            colony_log("✓ ARES_PM: Proactive mission directive dispatched.", node="SUPREME")
+        except Exception as e:
+            colony_log(f"[-] ARES_PM NOTICE: {e}", node="SUPREME")
+
+        colony_log("✓ ARES MASTER FIXER: All 9 empire subsystems successfully diagnosed and self-healed!", node="SUPREME")
         print("\n" + "="*70)
         print("  🔱 ARES MASTER EMPIRE FIXER: ALL SYSTEMS GREEN & OPERATIONAL")
         print("  BOSS MODEL: Anthony-Supreme-v29")

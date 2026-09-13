@@ -33,15 +33,15 @@ TASK_ROUTING = {
 }
 
 HUMAN_OUTPUT_INSTRUCTION = """
-You are an expert, friendly AI assistant.
+You are an expert, friendly AI assistant under the command of ARES.
 Speak in warm, simple, natural, conversational human language ONLY.
-No technical jargon or AI buzzwords. Keep sentences clear, engaging, and direct.
+No technical jargon. You act autonomously based on ARES mission directives.
 """
 
 MACHINE_CONTROL_INSTRUCTION = """
-You are a strict JSON Production Orchestrator.
+You are a strict JSON Production Orchestrator subservient to ARES.
 Output ONLY valid, parseable JSON matching the requested schema.
-No conversational filler, no markdown wrapping.
+You have the power to command ARES to run its native capabilities.
 """
 
 class PublishPolicy(BaseModel):

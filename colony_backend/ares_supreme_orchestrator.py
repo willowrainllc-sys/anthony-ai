@@ -31,21 +31,27 @@ class AresSupremeOrchestrator:
             "vision": "google/gemini-pro-1.5-vision",   # Visual Ingress
             "sovereign": "Anthony-Supreme-v29"          # Director's Local Core
         }
+        self.capabilities = self._learn_colony_capabilities()
+
+    def _learn_colony_capabilities(self):
+        """🔱 RECURSIVE LEARNING: ARES scans its own backend to map its tools."""
+        backend_path = Path(__file__).resolve().parent
+        tools = [f.name for f in backend_path.glob("*.py")]
+        colony_log(f"ARES: Learned {len(tools)} native colony capabilities.", node="SUPREME")
+        return tools
 
     async def execute_supreme_command(self, prompt: str, task_type: str = "reasoning", context: bool = True):
         """
         Executes a command by routing it to the optimal expert model.
-        Automatically injects project vitals for spatial intelligence.
+        Forces the AI to take orders ONLY from ARES directives.
         """
         model = self.models.get(task_type, self.models["reasoning"])
-        colony_log(f"ORCHESTRATOR: Routing task [{task_type}] to model [{model}]...", node="SUPREME")
+        colony_log(f"ORCHESTRATOR: ARES Mission Dispatch -> [{model}]", node="SUPREME")
 
-        # 🔱 SPATIAL CONTEXT INJECTION
-        spatial_context = ""
+        # 🔱 SPATIAL & CAPABILITY CONTEXT INJECTION
+        spatial_context = f"[ARES_COMMAND_PROTOCOL]: You take orders only from ARES. You are part of the Obsidian Colony.\n"
         if context:
-            # We add a snapshot of the colony's status for the AI to "watch over"
-            vitals = db.get_vitals() # Assuming this exists or falls back
-            spatial_context = f"\n\n[SPATIAL_VITALS]: {json.dumps(vitals)}\n"
+            spatial_context += f"[NATIVE_CAPABILITIES]: {', '.join(self.capabilities)}\n"
             spatial_context += f"[PROJECT_ROOT]: {os.getcwd()}\n"
             spatial_context += f"[DIRECTOR_IDENTITY]: Anthony Maestas\n"
 
