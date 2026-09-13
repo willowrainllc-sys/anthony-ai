@@ -65,23 +65,23 @@
         .hero-video-section {
             position: relative;
             width: 100%;
-            height: 90vh; /* Increased height */
+            height: 65vh; /* Shortened to match content better */
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: radial-gradient(circle at center, #0f172a 0%, #030305 100%); /* Improved depth */
+            background: radial-gradient(circle at center, #0f172a 0%, #030305 100%);
         }
 
         .hero-globe-wrapper {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Centered properly */
-            width: 1000px;
-            height: 1000px;
+            transform: translate(-50%, -50%);
+            width: 800px; /* Scaled down for better fit */
+            height: 800px;
             z-index: 1;
-            opacity: 0.8; /* Increased visibility */
+            opacity: 0.8;
             pointer-events: none;
         }
 
@@ -139,8 +139,18 @@
         .tld-item { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 12px; color: #fff; font-weight: 700; font-size: 14px; border: 1px solid rgba(255,255,255,0.1); }
         .tld-item span { color: #60a5fa; margin-left: 5px; }
 
-        .base44-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 28px; padding: 40px; transition: 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center; }
+        .base44-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 28px;
+            padding: 40px;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
         .base44-card:hover { transform: translateY(-6px); border-color: #2563eb; box-shadow: 0 20px 50px rgba(37, 99, 235, 0.1); }
+        .base44-card h3 { color: #ffffff; }
+        .base44-card p { color: #94a3b8; }
 
         @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
         .animate-marquee { display: inline-flex; animation: marquee 40s linear infinite; }
@@ -224,9 +234,17 @@
 
     <main>
         <!-- 🔱 Hero Section with 4K Background Loop & Global Mesh Globe -->
-        <section class="hero-video-section">
-            <div id="heroGlobe" class="hero-globe-wrapper"></div>
-            <div class="hero-inner">
+        <section class="hero-video-section" style="background: transparent;">
+            <div id="heroGlobe" class="hero-globe-wrapper" style="opacity: 0.9; z-index: 1;"></div>
+
+            <!-- Direct Hero Video (Enforced Reliability) -->
+            <div class="absolute inset-0 z-0">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-40">
+                    <source src="https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="hero-inner" style="z-index: 10;">
                 <h1 id="rotatingHeroTitle">Own your digital business. <br><span id="rotatingHeroSub" class="text-blue-500">Zero markup domains.</span></h1>
                 <p class="text-lg text-slate-200 mb-10 font-medium">Direct registry access. No legacy markups. <br>Free lifetime privacy protection included.</p>
                 <div class="search-box-wrapper">
@@ -268,36 +286,36 @@
             </div>
         </div>
 
-        <section class="py-24 px-12 bg-slate-50/80 backdrop-blur-md border-b border-slate-200">
+        <section class="py-16 px-12 bg-[#030305] border-b border-white/5">
             <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-6 text-center">
                 <div class="base44-card">
                     <div class="text-3xl mb-4">🏛️</div>
-                    <h3 class="font-black text-slate-900 mb-2 text-sm">LLC Formation</h3>
-                    <p class="text-slate-50 text-[10px] mb-4">Start your business for $39. We handle state filings fast.</p>
+                    <h3 class="font-black mb-2 text-sm">LLC Formation</h3>
+                    <p class="text-[10px] mb-4">Start your business for $39. We handle state filings fast.</p>
                     <a href="obsidian_llc_formation.html" class="text-blue-600 font-bold text-[9px] uppercase hover:underline">Start Now →</a>
                 </div>
                 <div class="base44-card">
                     <div class="text-3xl mb-4">🛡️</div>
-                    <h3 class="font-black text-slate-900 mb-2 text-sm">Armored Privacy</h3>
-                    <p class="text-slate-50 text-[10px] mb-4">WHOIS data shielding included free for life. Stay independent.</p>
+                    <h3 class="font-black mb-2 text-sm">Armored Privacy</h3>
+                    <p class="text-[10px] mb-4">WHOIS data shielding included free for life. Stay independent.</p>
                     <a href="obsidian_domains.html" class="text-blue-600 font-bold text-[9px] uppercase hover:underline">Protect Me →</a>
                 </div>
                 <div class="base44-card border-blue-500 shadow-xl shadow-blue-500/5">
                     <div class="text-3xl mb-4">🌐</div>
-                    <h3 class="font-black text-slate-900 mb-2 text-sm">Global Mesh</h3>
-                    <p class="text-slate-50 text-[10px] mb-4">Private residential data network spanning 140+ countries.</p>
+                    <h3 class="font-black mb-2 text-sm">Global Mesh</h3>
+                    <p class="text-[10px] mb-4">Private residential data network spanning 140+ countries.</p>
                     <a href="obsidian_data_sharing.html" class="text-blue-600 font-bold text-[9px] uppercase hover:underline">View Map →</a>
                 </div>
                 <div class="base44-card">
                     <div class="text-3xl mb-4">💰</div>
-                    <h3 class="font-black text-slate-900 mb-2 text-sm">Wholesale Cost</h3>
-                    <p class="text-slate-50 text-[10px] mb-4">Direct API connection to registrar pools. Zero markups.</p>
+                    <h3 class="font-black mb-2 text-sm">Wholesale Cost</h3>
+                    <p class="text-[10px] mb-4">Direct API connection to registrar pools. Zero markups.</p>
                     <a href="obsidian_domains.html" class="text-blue-600 font-bold text-[9px] uppercase hover:underline">Search Now →</a>
                 </div>
                 <div class="base44-card">
                     <div class="text-3xl mb-4">🤖</div>
-                    <h3 class="font-black text-slate-900 mb-2 text-sm">Obsidian AI Engine</h3>
-                    <p class="text-slate-50 text-[10px] mb-4">Describe your app, Obsidian AI builds the full stack and deploys.</p>
+                    <h3 class="font-black mb-2 text-sm">Obsidian AI Engine</h3>
+                    <p class="text-[10px] mb-4">Describe your app, Obsidian AI builds the full stack and deploys.</p>
                     <a href="obsidian_ai_builder.html" class="text-blue-600 font-bold text-[9px] uppercase hover:underline">Try Obsidian AI →</a>
                 </div>
             </div>
