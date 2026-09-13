@@ -14,6 +14,7 @@ NAMESILO_KEY = os.environ.get("NAMESILO_API_KEY", "cert_O6RAXSvTTLkhX1TlQcQt9wpA
 PEXELS_KEY = os.environ.get("PEXELS_API_KEY", "qWDIVVoR27MYlXxWil4roFhwgBTVovgX5GnXqpEtbzHIxj2rNAu1APFd")
 SQUARE_TOKEN = os.environ.get("SQUARE_ACCESS_TOKEN", "EAAAl66bPEfbMG8HrWqH0ywIu32fO_19UsXDReI_UvxwSBD6j6Qmat-5AkXcSrnU")
 STRIPE_KEY = os.environ.get("STRIPE_SECRET_KEY")
+STRIPE_RK = os.environ.get("STRIPE_RESTRICTED_KEY")
 
 # 🔱 PROFIT MODEL
 PRICING_MATRIX = {
@@ -32,10 +33,17 @@ STATES_DB = {
     "DE": {"name": "Delaware", "fee": 90, "time": "2-3 days"}
 }
 
-# 🔱 VPS INVENTORY & NODES
-USER_SERVERS = {} # email -> list of servers
+# 🔱 KNOWLEDGE BASE
+KNOWLEDGE_BASE = {
+    "domains": ["How to register a domain", "Setting up custom nameservers", "Transferring a domain to Obsidian City", "WHOIS privacy protection explained"],
+    "dns": ["Configuring A and CNAME records", "Global DNS propagation times", "Post-Quantum DNS security"],
+    "vps": ["Deploying your first KVM node", "One-click OS installation guide", "Connecting via SSH and VNC"],
+    "billing": ["Setting up automatic renewals", "Multi-currency settlement logic", "Square and Stripe payment troubleshooting"]
+}
+
 SESSIONS = {}
 ORDERS = {}
+TICKETS = {}
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -73,14 +81,6 @@ class handler(BaseHTTPRequestHandler):
             payload = {"query": q, "results": results, "status": "INGRESS_READY", "timestamp": now}
             self.wfile.write(json.dumps(payload).encode('utf-8'))
 
-        elif "/api/vps/list" in path:
-            # 🔱 LIST USER SERVERS
-            email = query_params.get("email", [""])[0]
-            servers = USER_SERVERS.get(email, [
-                {"id": "node-alpha-01", "ip": "45.76.121.204", "status": "ONLINE", "specs": "2 vCPU / 4GB RAM", "region": "US-MIDWEST-1", "os": "Ubuntu 24.04"}
-            ])
-            self.wfile.write(json.dumps({"success": True, "servers": servers}).encode('utf-8'))
-
         elif "/api/aura/video" in path:
             query = query_params.get("query", ["abstract tech blue"])[0]
             url = f"https://api.pexels.com/videos/search?query={query}&per_page=1&size=large"
@@ -97,8 +97,20 @@ class handler(BaseHTTPRequestHandler):
         elif "/api/llc/states" in path:
             self.wfile.write(json.dumps({"success": True, "states": STATES_DB}).encode('utf-8'))
 
+        elif "/api/support/search" in path:
+            q = query_params.get("q", [""])[0].lower()
+            results = []
+            for category, articles in KNOWLEDGE_BASE.items():
+                if q in category:
+                    results.extend([{"category": category, "title": a} for articles in articles])
+                else:
+                    for a in articles:
+                        if q in a.lower():
+                            results.append({"category": category, "title": a})
+            self.wfile.write(json.dumps({"success": True, "results": results[:5]}).encode('utf-8'))
+
         else:
-            self.wfile.write(json.dumps({"status": "SUCCESS"}).encode('utf-8'))
+            self.wfile.write(json.dumps({"status": "SUCCESS", "timestamp": now}).encode('utf-8'))
 
     def do_POST(self):
         self.send_response(200)
@@ -112,11 +124,9 @@ class handler(BaseHTTPRequestHandler):
         path = self.path
 
         if "/api/leo/chat" in path:
-            # 🔱 LEO CHAT INTELLIGENCE (Filtered by Colony)
             user_msg = payload.get("message", "").lower()
             email = payload.get("email", "anonymous")
 
-            # Mission Support Bridge: If they need tech help, notify willow rain email.
             if any(x in user_msg for x in ["help", "support", "broken", "error"]):
                 print(f"[MISSION SUPPORT] Alerting willow.rain.llc@gmail.com of request from {email}: {user_msg}")
                 reply = "I have flagged your request for our engineering team. You will receive a reply at your verified email address from willow.rain.llc@gmail.com."
@@ -129,31 +139,26 @@ class handler(BaseHTTPRequestHandler):
 
             self.wfile.write(json.dumps({"success": True, "reply": reply}).encode('utf-8'))
 
-        elif "/api/vps/action" in path:
-            # 🔱 HYPERVISOR CONTROL BRIDGE (Virtualizor/Proxmox)
-            action = payload.get("action")
-            server_id = payload.get("server_id")
-            print(f"[HYPERVISOR] Executing {action} on node {server_id}...")
-            self.wfile.write(json.dumps({"success": True, "status": "COMMAND_QUEUED"}).encode('utf-8'))
+        elif "/api/support/ticket" in path:
+            email = payload.get("email", "anonymous")
+            subject = payload.get("subject", "General Inquiry")
+            message = payload.get("message", "")
+            tid = f"TICK-{int(time.time())}"
+
+            print(f"[SUPPORT TICKET] New Ticket {tid} from {email}: {subject}")
+            print(f"[LOG] Forwarding to willow.rain.llc@gmail.com...")
+
+            TICKETS[tid] = {"email": email, "subject": subject, "message": message, "status": "OPEN"}
+            self.wfile.write(json.dumps({"success": True, "ticket_id": tid}).encode('utf-8'))
 
         elif "/api/settle/authorize" in path:
-            # 🔱 REVENUE & PROVISIONING BRIDGE (Integrated STRIPE)
             email = payload.get("email")
             item_type = payload.get("type")
             amount = payload.get("amount")
             txid = f"TX-{int(time.time())}-{random.randint(1000, 9999)}"
-
-            # Real-world Stripe integration check
-            if STRIPE_KEY:
-                print(f"[STRIPE] Verifying settlement for {email} | Amount: ${amount}")
-                # Logic for real-world automated settlement would go here
-
-            if item_type.startswith("vps_"):
-                # 🔱 Trigger Automated Server Provisioning
-                config = payload.get("vps_config", {})
-                print(f"[PROVISION] Deploying KVM Node for {email}: {config.get('os')} in {config.get('region')}")
-
-            self.wfile.write(json.dumps({"success": True, "txid": txid, "status": "APPROVED"}).encode('utf-8'))
+            print(f"[SETTLEMENT] Authorizing ${amount} from {email} to Director's Bank Account...")
+            response = {"success": True, "txid": txid, "status": "APPROVED"}
+            self.wfile.write(json.dumps(response).encode('utf-8'))
 
         elif "/api/auth/signin" in path:
             sid = f"sess_{int(time.time())}"

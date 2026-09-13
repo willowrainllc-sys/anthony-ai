@@ -212,7 +212,7 @@
         <!-- 🔱 Hero Section with 4K Background Loop -->
         <section class="hero-video-section">
             <div class="hero-inner">
-                <h1>Own your digital business. <br><span>Zero markup domains.</span></h1>
+                <h1 id="rotatingHeroTitle">Own your digital business. <br><span id="rotatingHeroSub" class="text-blue-500">Zero markup domains.</span></h1>
                 <p class="text-lg text-slate-200 mb-10 font-medium">Direct registry access. No legacy markups. <br>Free lifetime privacy protection included.</p>
                 <div class="search-box-wrapper">
                     <input type="text" id="domainSearch" aria-label="Domain Search" placeholder="Type the name you want (e.g. mybrand)...">
@@ -495,6 +495,36 @@
             html += `</div>`;
             library.innerHTML = html;
         }
+
+        // 🔱 HERO TEXT ROTATION
+        const heroQuotes = [
+            { title: "Own your digital business.", sub: "Zero markup domains." },
+            { title: "Build your sovereign brand.", sub: "Wholesale registry access." },
+            { title: "Secure your future identity.", sub: "No hidden fees." },
+            { title: "Scale your business growth.", sub: "Advanced edge infrastructure." }
+        ];
+        let quoteIndex = 0;
+
+        function rotateHeroText() {
+            const titleEl = document.getElementById('rotatingHeroTitle');
+            const subEl = document.getElementById('rotatingHeroSub');
+            if (!titleEl || !subEl) return;
+
+            quoteIndex = (quoteIndex + 1) % heroQuotes.length;
+            const quote = heroQuotes[quoteIndex];
+
+            // Fade out
+            titleEl.style.opacity = '0';
+            titleEl.style.transition = 'opacity 0.5s ease';
+
+            setTimeout(() => {
+                titleEl.innerHTML = `${quote.title} <br><span id="rotatingHeroSub" class="text-blue-500">${quote.sub}</span>`;
+                // Fade in
+                titleEl.style.opacity = '1';
+            }, 500);
+        }
+
+        setInterval(rotateHeroText, 5000);
     </script>
     <script src="assets/obsidian_aura_engine.js"></script>
 </body>
