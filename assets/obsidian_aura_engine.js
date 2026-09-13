@@ -82,7 +82,7 @@ async function handleChatKey(e) {
             const data = await resp.json();
             appendMessage('obsidian_ai', data.reply);
         } catch (err) {
-            appendMessage('obsidian_ai', "My uplink to the ARES core is currently throttled. Please ensure the Sovereign Server is running or contact tech support.");
+            appendMessage('obsidian_ai', "My uplink to the ARES core is currently throttled. Please ensure the Private Server is running or contact tech support.");
         }
     }
 }
@@ -241,7 +241,7 @@ function injectSponsoredContent() {
     const partners = [
         { title: "Scale Your Real Estate Portfolio via Sniping", label: "Obsidian Estates", img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=400" },
         { title: "Get Industrial Ad Ingress with Ad Burst", label: "Partner Offer", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" },
-        { title: "The Sovereign Guide to Post-Quantum Identity", label: "Empire Reading", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=400" }
+        { title: "The Private Guide to Post-Quantum Identity", label: "Empire Reading", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=400" }
     ];
 
     let cardsHtml = '';
