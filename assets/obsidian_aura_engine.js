@@ -60,8 +60,17 @@ function initObsidianAIChat() {
 
 function toggleObsidianAIChat() {
     const win = document.getElementById('obsidian_aiChatWindow');
-    const isVisible = win.style.display === 'flex';
-    win.style.display = isVisible ? 'none' : 'flex';
+    if (!win) return;
+
+    // Using computed style for robustness if inline style is missing
+    const currentDisplay = window.getComputedStyle(win).display;
+    if (currentDisplay === 'none') {
+        win.style.display = 'flex';
+        win.classList.add('visible');
+    } else {
+        win.style.display = 'none';
+        win.classList.remove('visible');
+    }
 }
 
 /**
@@ -69,8 +78,7 @@ function toggleObsidianAIChat() {
  */
 const AURA_HINTS = {
     "sharingToggle": "Director's Note: Every GB shared strengthens the Global Mesh and earns you direct credits.",
-    "custEmail": "Security First: We use PQC encryption to deliver your assets to this verified inbox.",
-    "buildPrompt": "Empire Logic: Describe your business once, and Obsidian AI generates your landing page and backend."
+    "custEmail": "Security First: We use PQC encryption to deliver your assets to this verified inbox."
 };
 
 function initHints() {
