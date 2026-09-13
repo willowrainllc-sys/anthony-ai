@@ -7,6 +7,8 @@
     <meta name="description" content="Share your unused bandwidth with the Obsidian City mesh and earn credits or direct payouts. Secure, private, and autonomous."/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/three"></script>
+    <script src="https://unpkg.com/globe.gl"></script>
     <style>
         body { background-color: #f8fafc; color: #0f172a; font-family: 'Inter', sans-serif; margin: 0; }
         .nav-header { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
@@ -70,28 +72,17 @@
         </div>
 
         <!-- Real-time Flow Map Simulation -->
-        <div class="glass-card mb-12 overflow-hidden relative" style="height: 300px; background: #0f172a;">
-            <div class="absolute inset-0 opacity-20" id="meshBackground">
-                <!-- SVG Grid for Mesh Look -->
-                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"/>
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#grid)" />
-                </svg>
-            </div>
-            <div class="absolute inset-0 flex items-center justify-center">
-                <div class="text-center">
-                    <div class="text-[10px] text-blue-400 font-black uppercase tracking-[4px] mb-4">Global Edge Network Pulse</div>
-                    <div class="flex gap-4 items-end h-24" id="pulseGraph">
-                        <!-- Bars injected by JS -->
-                    </div>
+        <div class="glass-card mb-12 overflow-hidden relative" style="height: 400px; background: #030305;">
+            <div id="globeContainer" style="width: 100%; height: 100%;"></div>
+            <div class="absolute top-6 left-8 z-10">
+                <div class="text-[10px] text-blue-400 font-black uppercase tracking-[4px] mb-2">Global Edge Network Pulse</div>
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                    <span class="text-[10px] font-bold text-gray-400 uppercase">Live Ingress Active</span>
                 </div>
             </div>
-            <div class="absolute bottom-6 right-8 text-[9px] text-gray-500 font-bold uppercase tracking-widest">
-                Nodes active in: St. Louis, Arkansas, Chicago, Dallas
+            <div class="absolute bottom-6 right-8 z-10 text-[9px] text-gray-500 font-bold uppercase tracking-widest bg-black/40 backdrop-blur-md p-3 rounded-lg border border-white/5">
+                Nodes active in: St. Louis, Arkansas, Chicago, Dallas, London, Tokyo
             </div>
         </div>
 
@@ -149,6 +140,47 @@
         let isSharing = false;
         let dataCount = 0;
         let earnings = 0;
+        let world;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initGlobe();
+        });
+
+        function initGlobe() {
+            const container = document.getElementById('globeContainer');
+            world = Globe()
+                (container)
+                .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-night.jpg')
+                .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
+                .backgroundColor('rgba(0,0,0,0)')
+                .showAtmosphere(true)
+                .atmosphereColor('#3b82f6')
+                .atmosphereAltitude(0.15);
+
+            world.controls().autoRotate = true;
+            world.controls().autoRotateSpeed = 0.5;
+            world.controls().enableZoom = false;
+
+            // Add some "Nodes"
+            const nodes = [
+                { lat: 38.6270, lng: -90.1994, name: 'St. Louis' },
+                { lat: 34.7465, lng: -92.2896, name: 'Little Rock' },
+                { lat: 41.8781, lng: -87.6298, name: 'Chicago' },
+                { lat: 32.7767, lng: -96.7970, name: 'Dallas' },
+                { lat: 51.5074, lng: -0.1278, name: 'London' },
+                { lat: 35.6762, lng: 139.6503, name: 'Tokyo' }
+            ];
+
+            world.pointsData(nodes)
+                .pointColor(() => '#3b82f6')
+                .pointAltitude(0.05)
+                .pointRadius(0.5);
+
+            window.addEventListener('resize', () => {
+                world.width(container.offsetWidth);
+                world.height(container.offsetHeight);
+            });
+        }
 
         function toggleSharing() {
             isSharing = document.getElementById('sharingToggle').checked;
@@ -156,7 +188,11 @@
             document.getElementById('statusLabel').style.color = isSharing ? '#10b981' : '#0f172a';
 
             if(isSharing) {
+                // Change globe color to emerald when active
+                world.atmosphereColor('#10b981');
                 startSimulation();
+            } else {
+                world.atmosphereColor('#3b82f6');
             }
         }
 
@@ -170,17 +206,6 @@
             document.getElementById('totalData').innerHTML = `${dataCount.toFixed(2)} <span class="text-sm text-slate-400">GB</span>`;
             document.getElementById('totalEarnings').innerText = `$${earnings.toFixed(2)}`;
             document.getElementById('activeDevices').innerText = "1";
-
-            // Pulse graph
-            const graph = document.getElementById('pulseGraph');
-            graph.innerHTML = '';
-            for(let i=0; i<15; i++) {
-                const h = Math.random() * 80 + 20;
-                const bar = document.createElement('div');
-                bar.className = 'w-2 bg-blue-500/40 rounded-t-lg transition-all duration-500';
-                bar.style.height = `${h}%`;
-                graph.appendChild(bar);
-            }
 
             setTimeout(startSimulation, 2000);
         }

@@ -59,10 +59,16 @@
                 <div class="text-lg font-black text-slate-900 truncate" id="userEmailDisplay">admin@mybusiness.com</div>
                 <div class="text-[10px] text-emerald-600 font-bold mt-2">● Secure IMAP/SMTP</div>
             </div>
-            <div class="dashboard-card">
-                <div class="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">Data Sharing</div>
-                <div class="text-2xl font-black text-slate-900" id="sharingStatus">Inactive</div>
-                <a href="obsidian_data_sharing.html" class="text-[10px] text-blue-600 font-bold mt-2 uppercase hover:underline">Manage Earnings →</a>
+            <div class="dashboard-card relative overflow-hidden group">
+                <div class="absolute -right-4 -top-4 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all"></div>
+                <div class="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold flex items-center gap-2">
+                    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                    Data Sharing
+                </div>
+                <div class="text-2xl font-black text-slate-900" id="sharingStatus">Active Pool</div>
+                <a href="obsidian_data_sharing.html" class="text-[10px] text-blue-600 font-bold mt-2 uppercase hover:underline flex items-center gap-1">
+                    <span>🌐</span> View Global Mesh →
+                </a>
             </div>
             <div class="dashboard-card">
                 <div class="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">Account Balance</div>
