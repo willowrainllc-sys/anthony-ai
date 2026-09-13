@@ -314,7 +314,31 @@ function injectNewsTicker() {
 }
 
 /**
- * 🔱 INJECT SPONSORED CONTENT
+ * 🔱 CONTEXTUAL LINK ENGINE (Sovrn/Skimlinks Hybrid)
+ * Automatically scans text for brand keywords and injects monetized links.
+ */
+const BRAND_KEYWORDS = {
+    "domain": "obsidian_domains.html",
+    "vps": "obsidian_vps_hosting.html",
+    "llc": "obsidian_llc_formation.html",
+    "ai": "obsidian_ai_builder.html",
+    "host": "obsidian_hosting_landing.html"
+};
+
+function injectContextualLinks() {
+    const paragraphs = document.querySelectorAll('p, li');
+    paragraphs.forEach(p => {
+        let html = p.innerHTML;
+        Object.keys(BRAND_KEYWORDS).forEach(key => {
+            const regex = new RegExp(`\\b(${key})\\b`, 'gi');
+            html = html.replace(regex, `<a href="${BRAND_KEYWORDS[key]}" class="text-blue-600 font-bold hover:underline">$1</a>`);
+        });
+        p.innerHTML = html;
+    });
+}
+
+/**
+ * 🔱 INJECT SPONSORED CONTENT (Native Recommendation Widget)
  */
 function injectSponsoredContent() {
     const footer = document.querySelector('footer');
@@ -344,7 +368,7 @@ function injectSponsoredContent() {
 
     grid.innerHTML = `
         <div class="w-full mb-10">
-            <h3 class="text-xl font-black text-slate-900 tracking-tighter">RECOMMENDED FOR YOUR EMPIRE</h3>
+            <h3 class="text-xl font-black text-slate-900 tracking-tighter uppercase">Recommended for Your Empire</h3>
         </div>
         ${cardsHtml}
     `;
@@ -356,6 +380,7 @@ window.addEventListener('DOMContentLoaded', () => {
     injectMonetization();
     injectNewsTicker();
     injectSponsoredContent();
+    injectContextualLinks();
     handleScrollAnimations();
     initObsidianAIChat();
     initHints();
