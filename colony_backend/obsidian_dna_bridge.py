@@ -34,12 +34,11 @@ class ObsidianDnaBridge:
     4. AUTH: Uses Basic Auth (ResellerID:APIKey).
     """
     def __init__(self):
-        self.client = httpx.AsyncClient(timeout=30.0)
-        auth_str = f"{DNA_RESELLER_ID}:{ACTIVE_KEY}"
-        encoded_auth = base64.b64encode(auth_str.encode()).decode()
+        self.auth = httpx.BasicAuth(DNA_RESELLER_ID, ACTIVE_KEY)
+        self.client = httpx.AsyncClient(timeout=30.0, auth=self.auth)
         self.common_headers = {
             "Content-Type": "application/json",
-            "Authorization": f"Basic {encoded_auth}"
+            "Accept": "application/json"
         }
 
     async def check_availability(self, domain: str):
@@ -98,8 +97,11 @@ class ObsidianDnaBridge:
         url = f"{BASE_URL}/account/balance"
         try:
             resp = await self.client.get(url, headers=self.common_headers)
+            print(f"[*] DNA BALANCE DEBUG: Status {resp.status_code}")
+            print(f"[*] DNA BALANCE DEBUG: Body {resp.text}")
             return resp.json()
         except Exception as e:
+            print(f"[-] DNA BALANCE ERROR: {e}")
             return {"error": str(e)}
 
 dna_bridge = ObsidianDnaBridge()
