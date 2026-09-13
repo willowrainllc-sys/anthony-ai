@@ -112,10 +112,53 @@ function initHints() {
     });
 }
 
+/**
+ * 🔱 AURA VIDEO PLAYER:
+ * Fetches dynamic tech loops from Pexels and applies them as background.
+ */
+async function initAuraVideo() {
+    // 1. Create Container & Overlay
+    const container = document.createElement('div');
+    container.className = 'aura-video-container';
+
+    const overlay = document.createElement('div');
+    overlay.className = 'aura-video-overlay';
+
+    const video = document.createElement('video');
+    video.className = 'aura-video-element';
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+
+    container.appendChild(video);
+    container.appendChild(overlay);
+    document.body.prepend(container);
+
+    try {
+        // 2. Fetch High-Aura Content
+        const pageType = window.location.pathname.split('/').pop() || 'tech';
+        const resp = await fetch(`/api/aura/video?query=${pageType}+abstract+blue`);
+        const data = await resp.json();
+
+        if (data.success) {
+            video.src = data.url;
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    document.body.addEventListener('click', () => { video.play(); }, { once: true });
+                });
+            }
+        }
+    } catch (err) {
+        console.warn("[AURA] Video pipeline delayed. Using static grid fallback.");
+    }
+}
+
 window.addEventListener('DOMContentLoaded', () => {
+    initAuraVideo();
     initHints();
-    // Initial spawn after 5s
+    // Spawn ads periodically
     setTimeout(spawnAuraAd, 5000);
-    // Periodic spawn
     setInterval(spawnAuraAd, 20000);
 });

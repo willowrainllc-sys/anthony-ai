@@ -26,6 +26,10 @@ PRICING_MATRIX = {
 }
 
 # 🔱 IN-MEMORY FAILOVER (Persistent storage via Supabase is in colony_backend)
+# 🔱 API KEYS
+NAMESILO_KEY = os.environ.get("NAMESILO_API_KEY", "cert_O6RAXSvTTLkhX1TlQcQt9wpA")
+PEXELS_KEY = os.environ.get("PEXELS_API_KEY", "qWDIVVoR27MYlXxWil4roFhwgBTVovgX5GnXqpEtbzHIxj2rNAu1APFd")
+
 SESSIONS = {}
 
 class handler(BaseHTTPRequestHandler):
@@ -75,6 +79,23 @@ class handler(BaseHTTPRequestHandler):
                 })
 
             payload = {"query": q, "results": results, "status": "INGRESS_READY", "timestamp": now}
+            self.wfile.write(json.dumps(payload).encode('utf-8'))
+
+        elif "/api/aura/video" in path:
+            # 🔱 FETCH TRENDING 4K TECH VIDEO FROM PEXELS
+            query = query_params.get("query", ["abstract tech blue"])[0]
+            url = f"https://api.pexels.com/videos/search?query={query}&per_page=1&size=large"
+            headers = {"Authorization": PEXELS_KEY}
+            try:
+                with httpx.Client(timeout=5.0) as client:
+                    resp = client.get(url, headers=headers)
+                    data = resp.json()
+                    # Get the link to the largest HD/4K file
+                    video_url = data['videos'][0]['video_files'][0]['link']
+                    payload = {"success": True, "url": video_url}
+            except Exception:
+                # Fallback to St. Charles Aerial
+                payload = {"success": True, "url": "https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175"}
             self.wfile.write(json.dumps(payload).encode('utf-8'))
 
         elif "/api/auth/session" in path:

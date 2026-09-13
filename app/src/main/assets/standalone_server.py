@@ -1,28 +1,37 @@
 # --- Built by Anthony Christopher | Est 12.19.1987 ---
-# --- OBSIDIAN CITY SOVEREIGN HOSTING SERVER v1.0 ---
+# --- OBSIDIAN CITY SOVEREIGN HOSTING SERVER v1.1 ---
 import http.server
 import socketserver
 import os
 import sys
+import urllib.parse
+import json
 
 # 🔱 Import your existing Vercel API logic
 sys.path.append(os.path.join(os.path.dirname(__file__), 'api'))
-from index import handler
+try:
+    from index import handler
+except ImportError:
+    class handler:
+        def do_GET(self): pass
+        def do_POST(self): pass
 
-PORT = 8080  # Changed to 8080 for easier local testing without admin rights
+PORT = 8080
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 
-class SovereignHandler(handler):
+class SovereignHandler(http.server.SimpleHTTPRequestHandler):
     """
-    Extends your existing Vercel logic to handle static files
-    AND API calls on your own hardware.
+    Extends standard server to handle clean URLs and proxy to Vercel logic.
     """
     def do_GET(self):
-        # 1. Route API calls to your existing logic
+        # 1. Route API calls to your index.py logic
         if self.path.startswith('/api/'):
-            return super().do_GET()
+            # Create a mock instance of your handler
+            from index import handler as APIHandler
+            api_instance = APIHandler(self.request, self.client_address, self.server)
+            return
 
-        # 2. Clean URL Routing (Mirroring vercel.json)
+        # 2. Clean URL Routing (Mirroring vercel.json for local environment)
         routing = {
             "/dashboard": "obsidian_city_dashboard.html",
             "/domains": "obsidian_domains.html",
@@ -33,27 +42,38 @@ class SovereignHandler(handler):
             "/signin": "obsidian_signin.html",
             "/register": "obsidian_register.html",
             "/profile": "obsidian_user_profile.html",
-            "/help": "obsidian_help_center.html"
+            "/help": "obsidian_help_center.html",
+            "/llc": "obsidian_llc_formation.html"
         }
 
-        target = routing.get(self.path.split('?')[0])
-        if target:
-            self.path = "/" + target
+        # Strip query params for routing check
+        clean_path = self.path.split('?')[0].rstrip('/')
+
+        if clean_path in routing:
+            self.path = "/" + routing[clean_path]
+        elif clean_path == "" or clean_path == "/":
+            self.path = "/index.html"
 
         # 3. Serve Static Files
-        return http.server.SimpleHTTPRequestHandler.do_GET(self)
+        return super().do_GET()
 
     def do_POST(self):
         if self.path.startswith('/api/'):
-            return super().do_POST()
+            from index import handler as APIHandler
+            api_instance = APIHandler(self.request, self.client_address, self.server)
+            return
         self.send_error(405, "Method not allowed")
 
 if __name__ == "__main__":
     os.chdir(DIRECTORY)
+    # Enable reuse of address to avoid "Address already in use" errors on restart
+    socketserver.TCPServer.allow_reuse_address = True
     with socketserver.TCPServer(("", PORT), SovereignHandler) as httpd:
+        print(f"\n" + "="*50)
         print(f"🔱 OBSIDIAN CITY SOVEREIGN HOSTING ACTIVE")
-        print(f"[*] Port: {PORT}")
-        print(f"[*] Update Mode: UNLIMITED")
+        print(f"[*] URL: http://localhost:{PORT}")
+        print(f"[*] Update Mode: UNLIMITED (Direct File Serving)")
+        print("="*50 + "\n")
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:
