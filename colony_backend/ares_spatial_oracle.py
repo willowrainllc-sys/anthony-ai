@@ -30,7 +30,7 @@ class AresSpatialOracle:
         ]
 
     async def predict_expansion_vector(self):
-        colony_log("ARES_ORACLE: Initiating spatial prediction handshake...", node="ARES")
+        colony_log("ARES_ORACLE: Initiating spatial prediction handshake via Supreme Orchestrator...", node="ARES")
 
         prompt = f"""
         Director Identity: {BOSS}
@@ -41,35 +41,20 @@ class AresSpatialOracle:
         Format: Return only a JSON list of objects with 'city', 'predicted_roi', and 'reasoning'.
         """
 
-        headers = {
-            "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json"
-        }
-
-        payload = {
-            "model": "google/gemini-flash-1.5",
-            "messages": [{"role": "system", "content": "You are the Obsidian City Spatial Oracle."},
-                         {"role": "user", "content": prompt}]
-        }
-
         try:
-            async with httpx.AsyncClient(timeout=30.0) as client:
-                resp = await client.post(self.oracle_url, json=payload, headers=headers)
-                if resp.status_code == 200:
-                    data = resp.json()
-                    raw_content = data['choices'][0]['message']['content']
-                    # Simple extraction if LLM wraps in markdown
-                    json_str = raw_content.replace('```json', '').replace('```', '').strip()
-                    predictions = json.loads(json_str)
+            from ares_supreme_orchestrator import orchestrator
+            # Use the "reasoning" expert (Claude 3.5 Sonnet) for high-aura spatial logic
+            raw_content = await orchestrator.execute_supreme_command(prompt, task_type="reasoning")
 
-                    colony_log(f"✓ SPATIAL INTEL RECEIVED: Predicted {len(predictions)} growth vectors.", node="ARES")
+            # Simple extraction if LLM wraps in markdown
+            json_str = raw_content.replace('```json', '').replace('```', '').strip()
+            predictions = json.loads(json_str)
 
-                    # Vault the Prediction
-                    db.log_event("ARES", "SPATIAL_PREDICTION_READY", predictions)
-                    return predictions
-                else:
-                    colony_log(f"[-] ORACLE HANDSHAKE FAIL: Status {resp.status_code}", node="ARES")
-                    return None
+            colony_log(f"✓ SPATIAL INTEL RECEIVED: Predicted {len(predictions)} growth vectors.", node="ARES")
+
+            # Vault the Prediction
+            db.log_event("ARES", "SPATIAL_PREDICTION_READY", predictions)
+            return predictions
         except Exception as e:
             colony_log(f"[-] ARES ORACLE CRITICAL ERROR: {e}", node="ARES")
             return None

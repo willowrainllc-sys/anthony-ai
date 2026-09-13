@@ -145,7 +145,14 @@
                 <p class="text-[11px] text-gray-400 leading-relaxed italic mb-8">
                     "Predicting where the mesh needs to grow before the load hits. ARES analyzes latency patterns across the Missouri-to-Global bridge."
                 </p>
-                <div class="p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
+
+                <!-- 🔱 ARES SOCIAL STRIKE & SEO CONTROLS -->
+                <div class="space-y-4">
+                    <button onclick="executeSocialStrike()" class="w-full bg-blue-600 text-white font-black py-3 rounded-xl text-[9px] uppercase tracking-widest shadow-lg hover:bg-blue-700 transition">Execute Social Ad Strike</button>
+                    <button onclick="executeSeoBlitz()" class="w-full bg-white/5 border border-white/10 text-white font-black py-3 rounded-xl text-[9px] uppercase tracking-widest hover:bg-white/10 transition">Run pSEO Index Blitz</button>
+                </div>
+
+                <div class="p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl mt-8">
                     <div class="text-[9px] font-black text-blue-400 uppercase mb-2">Priority Expansion</div>
                     <div class="text-xl font-black text-white">DUBAI / UAE</div>
                     <div class="text-[8px] text-emerald-400 font-bold mt-1">ESTIMATED YIELD: +18%</div>
@@ -335,7 +342,32 @@
             } catch (err) {
                 console.error(err);
                 grid.innerHTML = '<div class="col-span-3 text-center py-4 text-red-400 font-bold text-[10px]">[-] Handshake Failed: System Offline.</div>';
+            } catch (err) {
+                console.error(err);
+                grid.innerHTML = '<div class="col-span-3 text-center py-4 text-red-400 font-bold text-[10px]">[-] Handshake Failed: System Offline.</div>';
             }
+        }
+
+        async function executeSocialStrike() {
+            alert("🔱 ARES STRIKE INITIATED: Launching multi-platform video ads and domain purchase links...");
+            try {
+                const resp = await fetch(getApiUrl('/api/ares/strike/social'), { method: 'POST' });
+                const data = await resp.json();
+                if (data.success) {
+                    speak("Godfather, the social ad strike is complete. Clip ads and links have been pushed to TikTok, Instagram, and YouTube.");
+                }
+            } catch (err) { alert("[-] Strike Failed: Social APIs Unreachable."); }
+        }
+
+        async function executeSeoBlitz() {
+            alert("🔱 SEO BLITZ: Forcing global indexers to crawl obsidian.city...");
+            try {
+                const resp = await fetch(getApiUrl('/api/ares/strike/seo'), { method: 'POST' });
+                const data = await resp.json();
+                if (data.success) {
+                    speak("Godfather, the pSEO blitz is successful. IndexNow signals have been dispatched to Bing and global aggregators.");
+                }
+            } catch (err) { alert("[-] Blitz Failed: SEO Commander Offline."); }
         }
 
         // Initialize voices

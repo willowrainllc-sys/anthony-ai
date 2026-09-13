@@ -167,23 +167,21 @@ class handler(BaseHTTPRequestHandler):
         path = self.path
 
         if "/api/anthony_ai_supreme/chat" in path or "/api/obsidian_ai/chat" in path or "/api/leo/chat" in path:
-            # 🔱 SUPREME ORACLE LOGIC (Unified)
+            # 🔱 SUPREME ORACLE LOGIC v5.0 (Multi-Model MoE)
             user_msg = payload.get("message", "").lower()
             email = payload.get("email", "anonymous")
 
-            if any(x in user_msg for x in ["who are you", "what are you", "your name"]):
-                reply = "I am the Sovereign AI Oracle of Obsidian City, engineered by my Godfather, Anthony Maestas."
-            elif any(x in user_msg for x in ["social", "twitter", "x.com", "github", "discord", "telegram"]):
-                reply = "You can connect with our global mesh on X (@willowrainllc), GitHub (willowrainllc-sys), or join our private Discord and Telegram channels."
-            elif any(x in user_msg for x in ["help", "support", "broken", "error"]):
-                print(f"[MISSION SUPPORT] Alerting willow.rain.llc@gmail.com of request from {email}: {user_msg}")
-                reply = "I have flagged your request for my engineering team. You will receive a reply from my architect's office at willow.rain.llc@gmail.com."
-            elif "vps" in user_msg or "server" in user_msg:
-                reply = "Our high-performance VPS plans start at $8.99/mo. We provide full root access and KVM isolation for your digital business."
-            elif "price" in user_msg or "cost" in user_msg:
-                reply = "We offer wholesale registry pricing. .COM domains are $14.70/year. Direct cost-plus-margin model enforced by the Godfather."
+            # 🔱 Check for physical monitoring keywords
+            if any(x in user_msg for x in ["physical", "watching", "protect"]):
+                reply = "Godfather, ARES and the Oracle are currently monitoring your physical vitals via the secure HUD bridge. Your safety is our primary node objective."
             else:
-                reply = f"The Obsidian Colony has analyzed your query. What is your next objective for business growth?"
+                try:
+                    from colony_backend.colony_brain import brain_gate
+                    # Use the Supreme Orchestrator for all chat ingress
+                    reply = await brain_gate.generate_serialized(user_msg, system_msg="You are the Obsidian Supreme Oracle.")
+                except Exception as e:
+                    print(f"[-] SUPREME BRAIN ERROR: {e}")
+                    reply = "My uplink to the ARES core is currently throttled. Please ensure the Private Server is running or contact tech support."
 
             self.wfile.write(json.dumps({"success": True, "reply": reply}).encode('utf-8'))
 
@@ -240,6 +238,31 @@ class handler(BaseHTTPRequestHandler):
             print(f"[REVENUE] Authorizing ${amount} from {email} to Director's Bank Account...")
             response = {"success": True, "txid": txid, "status": "APPROVED"}
             self.wfile.write(json.dumps(response).encode('utf-8'))
+
+        elif "/api/ares/strike/social" in path:
+            # 🔱 ARES SOCIAL STRIKE: Launching multi-platform ad push
+            from colony_backend.ares_social_strike_force import AresSocialStrikeForce
+            strike = AresSocialStrikeForce()
+
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            loop.run_until_complete(strike.execute_global_video_strike())
+            loop.run_until_complete(strike.push_domain_ads())
+            loop.close()
+
+            self.wfile.write(json.dumps({"success": True, "status": "MISSION_ACCOMPLISHED"}).encode('utf-8'))
+
+        elif "/api/ares/strike/seo" in path:
+            # 🔱 ARES SEO BLITZ: Forcing global crawl
+            from colony_backend.ares_os_seo_commander import AresOsSeoCommander
+            commander = AresOsSeoCommander()
+
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            loop.run_until_complete(commander.run_seo_mission())
+            loop.close()
+
+            self.wfile.write(json.dumps({"success": True, "status": "INDEX_BLITZ_SUCCESS"}).encode('utf-8'))
 
         elif "/api/director/payout" in path:
             # 🔱 SUPREME PAYOUT HANDSHAKE (Square/Stripe -> Bank)

@@ -1,5 +1,5 @@
 # --- Built by Anthony Christopher | Est 12.19.1987 ---
-# --- OBSIDIAN DOMAIN NAME API (DNA) BRIDGE v1.0 ---
+# --- OBSIDIAN DOMAIN NAME API (DNA) BRIDGE v1.1 ---
 import os
 import httpx
 import json
@@ -8,6 +8,10 @@ import asyncio
 from pathlib import Path
 from colony_logger import colony_log
 from colony_persistence import db
+from dotenv import load_dotenv
+
+# 🔱 Load environment from root
+load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
 
 DNA_RESELLER_ID = os.getenv("DNA_RESELLER_ID")
 DNA_API_KEY = os.getenv("DNA_API_KEY")
@@ -28,87 +32,63 @@ class ObsidianDnaBridge:
     """
     OBSIDIAN DNA BRIDGE (Atakonline):
     Industrial-grade domain registration and management via ICANN accredited registrar.
-    1. AVAILABILITY: Real-time multi-TLD check.
-    2. REGISTRATION: Full automated provisioning burst.
-    3. MANAGEMENT: DNS, WHOIS, and Renewal handshakes.
-    4. AUTH: Uses Basic Auth (ResellerID:APIKey).
     """
     def __init__(self):
-        self.auth = httpx.BasicAuth(DNA_RESELLER_ID, ACTIVE_KEY)
-        self.client = httpx.AsyncClient(timeout=30.0, auth=self.auth)
-        self.common_headers = {
+        self.client = httpx.AsyncClient(timeout=30.0)
+        auth_bytes = f"{DNA_RESELLER_ID}:{ACTIVE_KEY}".encode()
+        self.encoded_auth = base64.b64encode(auth_bytes).decode()
+        self.headers = {
             "Content-Type": "application/json",
+            "Authorization": f"Basic {self.encoded_auth}",
             "Accept": "application/json"
         }
 
-    async def check_availability(self, domain: str):
-        """Checks if a domain is available for registration."""
-        colony_log(f"DNA: Querying availability for [{domain}]...", node="FINANCE")
-        url = f"{BASE_URL}/domain/check"
-        payload = {"domain": domain}
-
+    async def get_account_balance(self):
+        """Module 4: Deposit & Balance Ingress."""
+        # DNA API often requires a POST for balance or specific endpoints
+        url = f"{BASE_URL}/account/balance"
         try:
-            resp = await self.client.post(url, json=payload, headers=self.common_headers)
-            print(f"[*] DNA DEBUG: Status {resp.status_code}")
-            if resp.status_code != 200:
-                print(f"[*] DNA DEBUG: Body {resp.text[:500]}")
-                return {"error": f"API Error {resp.status_code}"}
-
-            data = resp.json()
-            is_available = data.get("isAvailable", False)
-            price = data.get("price", 0.0)
-            return {
-                "domain": domain,
-                "available": is_available,
-                "price": price,
-                "provider": "DNA"
-            }
+            resp = await self.client.get(url, headers=self.headers)
+            print(f"[*] DNA BALANCE DEBUG: Status {resp.status_code}")
+            if resp.status_code == 200:
+                return resp.json()
+            else:
+                print(f"[*] DNA FAIL BODY: {resp.text}")
+                return {"error": f"API_{resp.status_code}", "message": resp.text}
         except Exception as e:
-            colony_log(f"[-] DNA CHECK ERROR: {e}", node="FINANCE")
-            return {"error": str(e)}
+            return {"error": "EXCEPTION", "message": str(e)}
 
     async def register_domain(self, domain: str, period: int = 1):
         """Initiates domain registration protocol with default WHOIS privacy and DNS."""
         colony_log(f"DNA: Initiating registration for [{domain}]...", node="FINANCE")
         url = f"{BASE_URL}/domain/register"
 
-        # 🔱 Default Configuration from Godfather's Settings
         payload = {
             "domain": domain,
             "period": period,
             "registrant": {"firstName": "Anthony", "lastName": "Maestas", "email": "willow.rain.llc@gmail.com"},
             "ns1": os.getenv("DNA_DNS_1", "tr.apiname.com"),
             "ns2": os.getenv("DNA_DNS_2", "eu.apiname.com"),
-            "privacy": True # Armored WHOIS
+            "privacy": True
         }
 
         try:
-            resp = await self.client.post(url, json=payload, headers=self.common_headers)
+            resp = await self.client.post(url, json=payload, headers=self.headers)
             res = resp.json()
-            if res.get("status") == "success":
+            if resp.status_code == 200 and res.get("status") == "success":
                 db.log_event("FINANCE", "DOMAIN_DNA_SECURED", {"domain": domain, "status": "ACTIVE"})
                 return True, res
-            return False, res.get("message", "Unknown DNA Error")
+            return False, res.get("message", f"DNA Error {resp.status_code}")
         except Exception as e:
             return False, str(e)
-
-    async def get_account_balance(self):
-        """Module 4: Deposit & Balance Ingress."""
-        url = f"{BASE_URL}/account/balance"
-        try:
-            resp = await self.client.get(url, headers=self.common_headers)
-            print(f"[*] DNA BALANCE DEBUG: Status {resp.status_code}")
-            print(f"[*] DNA BALANCE DEBUG: Body {resp.text}")
-            return resp.json()
-        except Exception as e:
-            print(f"[-] DNA BALANCE ERROR: {e}")
-            return {"error": str(e)}
 
 dna_bridge = ObsidianDnaBridge()
 
 if __name__ == "__main__":
     async def test():
-        print("🔱 TESTING DNA INGRESS...")
+        print("🔱 TESTING DNA INGRESS (V1.1)...")
+        print(f"[*] Reseller ID: {DNA_RESELLER_ID[:6]}...")
+        print(f"[*] Base URL: {BASE_URL}")
         res = await dna_bridge.get_account_balance()
         print(json.dumps(res, indent=2))
 

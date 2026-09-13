@@ -69,66 +69,35 @@ class ProductionContract(BaseModel):
 
 class CentralBrain:
     """
-    OBSIDIAN BRAIN v4.0:
-    3-Layer Architecture:
-    - Layer 1: Human Output (Warm, simple, conversational for users)
-    - Layer 2: Machine Control (Strict JSON schemas for internal agents)
-    - Layer 3: Task-Based Model Routing (Anthony AI the Supreme local fast/deep/vision + Cloud fallback)
+    OBSIDIAN BRAIN v5.0 (SUPREME):
+    Beyond Anthropic. Multi-model Mixture-of-Experts (MoE) cluster.
+    - Layer 1: Human Output (Warm, simple, conversational)
+    - Layer 2: Machine Control (Strict JSON schemas)
+    - Layer 3: Supreme Orchestration (Claude 3.5 + GPT-4o + Gemini 1.5)
     """
     def __init__(self):
+        from ares_supreme_orchestrator import orchestrator
+        self.orchestrator = orchestrator
         self.lock = asyncio.Lock()
-        self.local_url = "http://127.0.0.1:9000/v1/chat/completions" # Points to Native Supreme Base
-        self.cloud_url = None # Excommunicated
-
         self.native_supreme = "Anthony-Supreme-v29"
-        self.local_vision = "Anthony-Vision-v1"
 
-    def get_model_for_task(self, task_type: str) -> str:
-        """Explicit task-based routing rule lookup."""
-        return TASK_ROUTING.get(task_type, self.local_deep)
+    async def generate_serialized(self, prompt: str, system_msg: str = "", task_type: str = "reasoning", format: str = "text", use_web: bool = False):
+        """Dispatches commands to the Supreme Orchestrator for high-aura reasoning."""
+        colony_log(f"BRAIN: Executing Supreme command for [{task_type}]...", node="BRAIN")
 
-    def _get_local_context(self, query: str) -> str:
-        context_parts = []
-        try:
-            with db._get_connection() as conn:
-                rows = conn.execute("SELECT name, description, url FROM heretic_resources WHERE name LIKE ? OR category LIKE ? OR description LIKE ? LIMIT 3",
-                                    (f"%{query}%", f"%{query}%", f"%{query}%")).fetchall()
-                for r in rows: context_parts.append(f"RESOURCE: {r[0]} - {r[1]} ({r[2]})")
+        # 🔱 Add System Instruction if provided
+        final_prompt = f"{system_msg}\n\n{prompt}"
 
-                tools = conn.execute("SELECT name, utility, description FROM ai_toolkit WHERE utility LIKE ? OR description LIKE ? LIMIT 3",
-                                     (f"%{query}%", f"%{query}%")).fetchall()
-                for t in tools: context_parts.append(f"TOOL: {t[0]} - {t[1]} ({t[2]})")
-        except: pass
-        return "\n".join(context_parts)
+        response = await self.orchestrator.execute_supreme_command(final_prompt, task_type=task_type)
 
-    async def generate_serialized(self, prompt: str, system_msg: str = "", timeout: int = 300, format: str = "json", task_type: str = "story_architecture", complexity: str = "medium", use_web: bool = False, bot_id: str = None, security_headers: dict = None):
-        """
-        UPGRADED: SECURE QUANTUM ROUTING.
-        If a bot_id is provided, the request must pass the Obsidian Brain Gate.
-        """
-        # 1. SECURITY VALIDATION
-        if bot_id:
-            from obsidian_brain_gate import brain_gate_security
-            is_valid = await brain_gate_security.validate_access(bot_id, security_headers or {})
-            if not is_valid:
-                return {"status": "error", "message": "SECURITY_BLOCK: ACCESS DENIED BY BRAIN GATE"}
-
-        # 2. LIVE WEB ENRICHMENT
-        web_context = ""
-        if use_web or "search" in prompt.lower() or "latest" in prompt.lower():
+        if format == "json":
+            # Attempt to extract JSON from response
             try:
-                from obsidian_web_search import web_search_engine
-                # Extract a search query from the prompt
-                search_query = prompt[:100] # Simplification
-                web_context = await web_search_engine.get_web_context_for_prompt(search_query)
+                json_match = re.search(r'(\{.*\}|\[.*\])', response, re.DOTALL)
+                return json_match.group(1) if json_match else response
             except: pass
 
-        try:
-            from obsidian_quantum_brain import quantum_brain
-            enriched_prompt = f"{prompt}{web_context}"
-            return await quantum_brain.execute_quantum_inference(enriched_prompt, system_msg, format)
-        except Exception as e:
-            colony_log(f"BRAIN: Quantum override failed ({e}). Falling back to legacy routing.", node="BRAIN")
+        return response
 
         # Legacy fallback logic below...
 
