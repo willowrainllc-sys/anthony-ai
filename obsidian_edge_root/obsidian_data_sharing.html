@@ -19,6 +19,7 @@
         input:checked + .slider { background-color: #2563eb; }
         input:checked + .slider:before { transform: translateX(26px); }
     </style>
+    <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
 </head>
 <body>
     <nav class="nav-header">
@@ -94,7 +95,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div class="glass-card">
                 <h3 class="text-xl font-black text-slate-900 mb-4">How it works</h3>
                 <p class="text-slate-600 text-sm leading-relaxed mb-6">
@@ -109,19 +110,31 @@
                         <span class="text-blue-600">✓</span>
                         <span>**Encrypted**: All data traffic is wrapped in PQC (Post-Quantum Cryptography).</span>
                     </li>
-                    <li class="flex gap-3">
-                        <span class="text-blue-600">✓</span>
-                        <span>**Passive Income**: Simply keep the toggle ON to accumulate credits.</span>
-                    </li>
                 </ul>
             </div>
             <div class="glass-card">
-                <h3 class="text-xl font-black text-slate-900 mb-4">Payout Settings</h3>
-                <div class="space-y-4">
-                    <button onclick="alert('Settlement scheduled for next batch.')" class="w-full bg-slate-900 text-white font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition hover:bg-black">Request USD Payout (Square)</button>
-                    <button onclick="alert('Credits added to your account balance.')" class="w-full bg-blue-600 text-white font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition hover:bg-blue-700">Convert to Obsidian Credits</button>
-                    <p class="text-[10px] text-center text-slate-400 mt-4 font-bold">Minimum Payout: $20.00 • Processing Fee: 0%</p>
+                <h3 class="text-xl font-black text-slate-900 mb-4">Download Feeders</h3>
+                <p class="text-slate-500 text-xs mb-6">To earn while away from your browser, install the background feeder app on your other devices.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="/downloads/obsidian_feeder.apk" class="bg-slate-900 text-white font-bold py-3 rounded-xl text-[10px] uppercase text-center flex items-center justify-center gap-2">
+                        <span>🤖</span> Android APK
+                    </a>
+                    <a href="/downloads/obsidian_feeder_win.exe" class="bg-slate-100 text-slate-900 border border-slate-200 font-bold py-3 rounded-xl text-[10px] uppercase text-center flex items-center justify-center gap-2">
+                        <span>🪟</span> Windows
+                    </a>
                 </div>
+                <p class="text-[9px] text-slate-400 mt-4 text-center">Current Version: 1.0.4 • Last Updated: Today</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+            <div class="glass-card">
+                <h3 class="text-xl font-black text-slate-900 mb-4">Payout Settings</h3>
+                <div class="flex flex-col md:flex-row gap-4">
+                    <button onclick="alert('Settlement scheduled for next batch.')" class="flex-1 bg-slate-900 text-white font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition hover:bg-black">Request USD Payout (Square)</button>
+                    <button onclick="alert('Credits added to your account balance.')" class="flex-1 bg-blue-600 text-white font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition hover:bg-blue-700">Convert to Obsidian Credits</button>
+                </div>
+                <p class="text-[10px] text-center text-slate-400 mt-4 font-bold">Minimum Payout: $20.00 • Processing Fee: 0%</p>
             </div>
         </div>
     </div>

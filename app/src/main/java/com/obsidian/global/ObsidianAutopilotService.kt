@@ -92,6 +92,12 @@ class ObsidianAutopilotService : Service() {
                     // Telemetry Pulse
                     MeshApiService.api.nodeHeartbeat("PHONE_NODE_ANTHONY", "MISSION_LOCKDOWN_ACTIVE")
                     MeshApiService.api.syncTimeHistory("PHONE_NODE_ANTHONY", timeZone, System.currentTimeMillis())
+
+                    // 🔱 BANDWIDTH FEEDER: Report shared data to monetize unused capacity
+                    // In a real app, this would track actual bytes. Here we simulate the pulse.
+                    val sharedBytes = (500000..2000000).random().toLong() // 0.5MB to 2MB per pulse
+                    // Note: This assumes email is stored in shared prefs or similar
+                    // MeshApiService.api.reportBandwidth("user@example.com", sharedBytes, "ANDROID_NODE_01")
                     
                 } catch (e: Exception) {
                     Log.e("AUTOPILOT", "Sync Interrupted: ${e.message}")

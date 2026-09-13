@@ -124,6 +124,20 @@ class handler(BaseHTTPRequestHandler):
                 "txid": txid,
                 "provisioning": "QUEUED"
             }
+        elif "/api/data/report" in path:
+            # 🔱 BANDWIDTH FEEDER LOGIC
+            email = payload.get("email", "anonymous")
+            bytes_shared = payload.get("bytes", 0)
+            device_id = payload.get("device_id", "unknown")
+
+            # Record bandwidth in empire log
+            print(f"[BW FEED] {email} on {device_id} shared {bytes_shared} bytes.")
+
+            response = {
+                "success": True,
+                "earned_credits": round(bytes_shared / (1024*1024*1024) * 0.10, 4), # $0.10 per GB
+                "status": "FEEDING_ACTIVE"
+            }
         else:
             response = {"status": "SUCCESS"}
 

@@ -104,6 +104,8 @@ fun ObsidianTitanBrowserScreen(
                         settings.loadWithOverviewMode = true
                         settings.useWideViewPort = true
                         settings.cacheMode = WebSettings.LOAD_NO_CACHE
+                        settings.userAgentString = "ObsidianNativeHost/1.0 (Android)"
+                        
                         clearCache(true)
                         setBackgroundColor(0xFF000000.toInt())
                         
