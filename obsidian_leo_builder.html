@@ -4,8 +4,8 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-OBSIDIAN_GLOBAL_ADSENSE" crossorigin="anonymous"></script>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Anthony AI the Supreme AI | Elite Design Workspace</title>
-    <meta name="description" content="Build world-class apps and websites with Anthony AI the Supreme AI. The industrial-grade design agent for sovereign founders."/>
+    <title>Obsidian AI | Elite Design Workspace</title>
+    <meta name="description" content="Build world-class apps and websites with Obsidian AI. The industrial-grade design agent for sovereign founders."/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -223,14 +223,14 @@
         <div class="ambient-glow" style="top: -100px; left: 50%; transform: translateX(-50%);"></div>
         <div class="relative z-10">
             <div class="inline-block glass px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-blue-400 mb-8">
-                🦾 Advanced Design Agent v1.4
+                🤖 Advanced Design Agent v1.4
             </div>
             <h1 class="hero-title mb-8">
                 Build what matters.<br>
                 <span class="text-blue-500">Fast as thought.</span>
             </h1>
             <p class="text-gray-400 text-lg max-w-xl mx-auto mb-12 font-medium leading-relaxed">
-                Anthony AI the Supreme is an industrial-grade AI agent that cloner-engineers full-stack digital assets from simple natural language commands.
+                Obsidian AI is an industrial-grade AI agent that cloner-engineers full-stack digital assets from simple natural language commands.
             </p>
             <button onclick="openBuilder()" class="bg-white text-black font-black px-12 py-5 rounded-2xl text-sm transition hover:scale-105 shadow-2xl">
                 Enter AI Workspace →
@@ -246,7 +246,7 @@
                     <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
                 <div class="font-black text-sm tracking-widest uppercase text-gray-400 flex items-center gap-2">
-                    <span class="text-blue-500">🦾</span> LEO AI WORKSPACE
+                    <span class="text-blue-500">🤖</span> LEO AI WORKSPACE
                 </div>
             </div>
             <div class="flex items-center gap-6">
@@ -294,7 +294,7 @@
                     </div>
                 </section>
 
-                <div class="terminal-stream" id="anthony_ai_supremeTerminal">
+                <div class="terminal-stream" id="obsidian_aiTerminal">
                     <div class="opacity-50">> ARES Nexus Linked...</div>
                     <div class="opacity-50">> Waiting for Command...</div>
                 </div>
@@ -326,7 +326,7 @@
             const prompt = promptInput.value.trim();
             if(!prompt) return;
 
-            const term = document.getElementById('anthony_ai_supremeTerminal');
+            const term = document.getElementById('obsidian_aiTerminal');
             const zone = document.getElementById('renderZone');
 
             term.innerHTML = `<div class="text-blue-400">> INGRESS RECEIVED: "${prompt}"</div>`;
@@ -351,7 +351,7 @@
                 await fetch('/api/settle/authorize', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ type: 'anthony_ai_supreme_build_execution', prompt: prompt })
+                    body: JSON.stringify({ type: 'obsidian_ai_build_execution', prompt: prompt })
                 });
             } catch (e) {}
 

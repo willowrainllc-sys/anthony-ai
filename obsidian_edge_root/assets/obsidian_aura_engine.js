@@ -1,5 +1,5 @@
 /* 🔱 OBSIDIAN AURA ENGINE v1.3 */
-/* Integrated Anthony AI the Supreme Chat Agent + Dynamic 4K Backgrounds + Monetization */
+/* Integrated Obsidian AI Chat Agent + Dynamic 4K Backgrounds + Monetization */
 
 const FALLBACK_VIDEO = "https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175";
 
@@ -7,7 +7,7 @@ const AURA_OFFERS = [
     { label: '.COM EXCLUSIVE', price: '$14.70', url: 'obsidian_domains.html', img: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=300' },
     { label: 'DELAWARE LLC', price: '$39.00', url: 'obsidian_llc_formation.html', img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=300' },
     { label: 'GLOBAL MESH', price: 'EARN $', url: 'obsidian_data_sharing.html', img: 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=300' },
-    { label: 'LEO AI BUILDER', price: 'FREE', url: 'obsidian_anthony_ai_supreme_builder.html', img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=300' }
+    { label: 'LEO AI BUILDER', price: 'FREE', url: 'obsidian_obsidian_ai_builder.html', img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=300' }
 ];
 
 /**
@@ -16,46 +16,46 @@ const AURA_OFFERS = [
 function initObsidianAIChat() {
     // 1. Create Floating Trigger
     const trigger = document.createElement('div');
-    trigger.className = 'anthony_ai_supreme-chat-trigger';
+    trigger.className = 'obsidian_ai-chat-trigger';
     // 🔱 High-Aura "Godfather" Thumbnail Mascot
-    trigger.innerHTML = `<img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=200&h=200&auto=format&fit=crop" style="width:100%; height:100%; border-radius:50%; object-fit:cover; border: 2px solid #3b82f6; box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);">`;
+    trigger.innerHTML = `<img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?q=80&w=100&h=100&auto=format&fit=crop" style="width:100%; height:100%; border-radius:50%; object-fit:cover; border: 2px solid #3b82f6; box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);">`;
     trigger.onclick = toggleObsidianAIChat;
     document.body.appendChild(trigger);
 
     // 2. Create Chat Window
     const win = document.createElement('div');
-    win.id = 'anthony_ai_supremeChatWindow';
-    win.className = 'anthony_ai_supreme-chat-window';
+    win.id = 'obsidian_aiChatWindow';
+    win.className = 'obsidian_ai-chat-window';
     win.innerHTML = `
         <div class="chat-header">
             <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-sm">🦾</div>
+                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-sm">🤖</div>
                 <div>
-                    <div class="text-[11px] font-black text-white uppercase tracking-widest">Anthony AI the Supreme</div>
+                    <div class="text-[11px] font-black text-white uppercase tracking-widest">Obsidian AI</div>
                     <div class="text-[8px] text-emerald-400 font-bold uppercase">Enterprise AI Node Active</div>
                 </div>
             </div>
-            <button onclick="toggleAnthony AI the SupremeChat()" class="text-gray-500 hover:text-white text-xl">&times;</button>
+            <button onclick="toggleObsidian AIChat()" class="text-gray-500 hover:text-white text-xl">&times;</button>
         </div>
-        <div class="chat-body" id="anthony_ai_supremeChatBody">
-            <div class="msg msg-anthony_ai_supreme">Greetings. I am Anthony AI the Supreme, your AI Business Assistant. How can I assist your business growth today?</div>
+        <div class="chat-body" id="obsidian_aiChatBody">
+            <div class="msg msg-obsidian_ai">Greetings. I am Obsidian AI, your AI Business Assistant. How can I assist your business growth today?</div>
         </div>
         <div class="chat-footer">
-            <input type="text" id="anthony_ai_supremeChatInput" class="chat-input" placeholder="Ask Anthony AI the Supreme anything..." onkeypress="handleChatKey(event)">
+            <input type="text" id="obsidian_aiChatInput" class="chat-input" placeholder="Ask Obsidian AI anything..." onkeypress="handleChatKey(event)">
         </div>
     `;
     document.body.appendChild(win);
 }
 
-function toggleAnthony AI the SupremeChat() {
-    const win = document.getElementById('anthony_ai_supremeChatWindow');
+function toggleObsidian AIChat() {
+    const win = document.getElementById('obsidian_aiChatWindow');
     const isVisible = win.style.display === 'flex';
     win.style.display = isVisible ? 'none' : 'flex';
 }
 
 async function handleChatKey(e) {
     if (e.key === 'Enter') {
-        const input = document.getElementById('anthony_ai_supremeChatInput');
+        const input = document.getElementById('obsidian_aiChatInput');
         const text = input.value.trim();
         if (!text) return;
 
@@ -63,21 +63,21 @@ async function handleChatKey(e) {
         input.value = '';
 
         try {
-            const resp = await fetch('/api/anthony_ai_supreme/chat', {
+            const resp = await fetch('/api/obsidian_ai/chat', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ message: text, page: window.location.pathname })
             });
             const data = await resp.json();
-            appendMessage('anthony_ai_supreme', data.reply);
+            appendMessage('obsidian_ai', data.reply);
         } catch (err) {
-            appendMessage('anthony_ai_supreme', "My uplink to the ARES core is currently throttled. Please try again or contact tech support at willow.rain.llc@gmail.com.");
+            appendMessage('obsidian_ai', "My uplink to the ARES core is currently throttled. Please try again or contact tech support at willow.rain.llc@gmail.com.");
         }
     }
 }
 
 function appendMessage(role, text) {
-    const body = document.getElementById('anthony_ai_supremeChatBody');
+    const body = document.getElementById('obsidian_aiChatBody');
     const msg = document.createElement('div');
     msg.className = `msg msg-${role}`;
     msg.innerText = text;
@@ -182,7 +182,7 @@ function injectNewsTicker() {
     ticker.className = 'obsidian-news-ticker';
 
     const newsItems = [
-        "Anthony AI the Supreme AI builds 1,000th empire node this hour",
+        "Obsidian AI builds 1,000th empire node this hour",
         "St. Charles Global HQ confirms 99.9% uptime for Edge Mesh",
         ".COM wholesale prices holding steady at $14.70",
         "New LLC formation protocol reduces state filing time by 40%",
@@ -244,7 +244,7 @@ window.addEventListener('DOMContentLoaded', () => {
     injectNewsTicker();
     injectSponsoredContent();
     handleScrollAnimations();
-    initAnthony AI the SupremeChat();
+    initObsidian AIChat();
 
     // 🔱 Restricted Ads: Only spawn pop-ups on the Main Storefront
     const page = window.location.pathname.split('/').pop();

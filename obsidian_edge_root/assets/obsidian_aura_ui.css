@@ -34,8 +34,8 @@
     z-index: 1;
 }
 
-/* 🔱 Floating Anthony AI the Supreme Chat UI */
-.anthony_ai_supreme-chat-trigger {
+/* 🔱 Floating Obsidian AI Chat UI */
+.obsidian_ai-chat-trigger {
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -53,9 +53,9 @@
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 2px solid rgba(255,255,255,0.1);
 }
-.anthony_ai_supreme-chat-trigger:hover { transform: scale(1.1) rotate(5deg); background: #1d4ed8; }
+.obsidian_ai-chat-trigger:hover { transform: scale(1.1) rotate(5deg); background: #1d4ed8; }
 
-.anthony_ai_supreme-chat-window {
+.obsidian_ai-chat-window {
     position: fixed;
     bottom: 110px;
     right: 30px;
@@ -80,7 +80,7 @@
 .chat-footer { padding: 20px; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2); }
 
 .msg { max-width: 85%; padding: 12px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; line-height: 1.5; }
-.msg-anthony_ai_supreme { background: rgba(59, 130, 246, 0.1); color: #fff; align-self: flex-start; border-bottom-left-radius: 4px; border: 1px solid rgba(59, 130, 246, 0.2); }
+.msg-obsidian_ai { background: rgba(59, 130, 246, 0.1); color: #fff; align-self: flex-start; border-bottom-left-radius: 4px; border: 1px solid rgba(59, 130, 246, 0.2); }
 .msg-user { background: #2563eb; color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
 
 .chat-input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 12px 20px; border-radius: 100px; color: #fff; outline: none; font-size: 13px; }
