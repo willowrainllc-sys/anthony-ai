@@ -4,7 +4,7 @@ import time
 import json
 
 def get_report():
-    conn = sqlite3.connect(r'C:\ObsidianAi_Colony\Empire_Vault.db')
+    conn = sqlite3.connect(r'C:\AnthonyAi_Colony\Empire_Vault.db')
     cur = conn.cursor()
 
     print("\n=== [SUPREME] COLONY INTELLIGENCE REPORT: FOR ANTHONY CHRISTOPHER MAESTAS ===\n")

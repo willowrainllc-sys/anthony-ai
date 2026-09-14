@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9539640812310468" crossorigin="anonymous"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ARES x ORACLE | Neural Chat Monitor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg: #030305;
+            --border: rgba(255, 255, 255, 0.05);
+            --ares-blue: #3b82f6;
+            --oracle-purple: #8b5cf6;
+            --scavenger-emerald: #10b981;
+            --sentinel-amber: #f59e0b;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .mono { font-family: 'Space Mono', monospace; }
+
+        /* 🔱 Terminal Layout */
+        .chat-monitor {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid var(--border);
+            background-image: radial-gradient(circle at center, #0a0a14 0%, #030305 100%);
+        }
+
+        .monitor-header {
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .chat-container {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--ares-blue) transparent;
+        }
+
+        .msg-bubble {
+            max-width: 80%;
+            padding: 20px;
+            border-radius: 20px;
+            position: relative;
+            animation: slide-up 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            border: 1px solid transparent;
+        }
+
+        @keyframes slide-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .agent-label {
+            font-family: 'Space Mono';
+            font-size: 9px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .action-tag {
+            font-size: 8px;
+            padding: 2px 8px;
+            border-radius: 100px;
+            background: rgba(255,255,255,0.05);
+            color: #555;
+        }
+
+        /* Agent Styles */
+        .msg-ares { background: rgba(59, 130, 246, 0.05); border-color: rgba(59, 130, 246, 0.2); align-self: flex-start; }
+        .label-ares { color: var(--ares-blue); }
+
+        .msg-oracle { background: rgba(139, 92, 246, 0.05); border-color: rgba(139, 92, 246, 0.2); align-self: flex-start; }
+        .label-oracle { color: var(--oracle-purple); }
+
+        .msg-scavenger { background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.2); align-self: flex-start; }
+        .label-scavenger { color: var(--scavenger-emerald); }
+
+        .msg-sentinel { background: rgba(245, 158, 11, 0.05); border-color: rgba(245, 158, 11, 0.2); align-self: flex-start; }
+        .label-sentinel { color: var(--sentinel-amber); }
+
+        .status-bar {
+            padding: 12px 40px;
+            background: #000;
+            border-top: 1px solid var(--border);
+            font-size: 10px;
+            color: #444;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Space Mono';
+        }
+
+    </style>
+    <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
+    <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
+</head>
+<body>
+
+    <main class="chat-monitor">
+        <header class="monitor-header">
+            <div class="flex items-center gap-6">
+                <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-2xl shadow-lg shadow-blue-600/30">🔱</div>
+                <div>
+                    <h1 class="text-xs font-black tracking-[4px] uppercase text-white">Neural Swarm Monitor</h1>
+                    <p class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mt-1">Multi-Agent Strategic Bridge v1.0</p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <div class="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-[9px] font-black text-emerald-500">UPLINK_ACTIVE</div>
+                <button onclick="window.location.href='obsidian_director_hub.html'" class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-[9px] font-black text-gray-400 hover:text-white uppercase transition">Exit Hub</button>
+            </div>
+        </header>
+
+        <div class="chat-container" id="chatStream">
+            <div class="msg-bubble msg-ares">
+                <div class="agent-label label-ares">ARES <span class="action-tag">SYSTEM_READY</span></div>
+                <p class="text-sm font-medium leading-relaxed">Neural Swarm Monitor initiated. Awaiting strategic ingress from the colony bots...</p>
+            </div>
+        </div>
+
+        <footer class="status-bar">
+            <div>NODES: 103 ORACLES // PHONE HIVE SYNCED</div>
+            <div class="flex gap-6">
+                <span class="text-emerald-500">● MESH_OPERATIONAL</span>
+                <span>DIRECTOR: ANTHONY MAESTAS</span>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        const container = document.getElementById('chatStream');
+
+        function appendMessage(agent, action, message) {
+            const lowerAgent = agent.toLowerCase();
+            const msgHtml = `
+                <div class="msg-bubble msg-${lowerAgent}">
+                    <div class="agent-label label-${lowerAgent}">${agent} <span class="action-tag">${action}</span></div>
+                    <p class="text-sm font-medium leading-relaxed">${message}</p>
+                </div>
+            `;
+            container.innerHTML += msgHtml;
+            container.scrollTop = container.scrollHeight;
+        }
+
+        async function fetchSwarmPulse() {
+            try {
+                // Using getApiUrl from aura engine helper
+                const resp = await fetch(getApiUrl('/api/ares/swarm/pulse'));
+                const data = await resp.json();
+
+                if (data.success && data.exchange) {
+                    const ex = data.exchange;
+
+                    // 1. Append Trigger
+                    appendMessage(ex.trigger, "MISSION_DIRECTIVE", ex.trigger_msg);
+
+                    // 2. Append Responses with staggered timing
+                    let delay = 1500;
+                    ex.responses.forEach(r => {
+                        setTimeout(() => {
+                            appendMessage(r.agent, r.action, r.msg);
+                        }, delay);
+                        delay += 2500;
+                    });
+                }
+            } catch (err) {
+                console.error("Swarm Ingress Error:", err);
+            }
+        }
+
+        // Pulse every 15 seconds
+        setInterval(fetchSwarmPulse, 15000);
+        setTimeout(fetchSwarmPulse, 2000);
+
+    </script>
+    <script src="assets/obsidian_aura_engine.js"></script>
+</body>
+</html>

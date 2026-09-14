@@ -7,6 +7,7 @@ import os
 import re
 import asyncio
 import urllib.parse
+from pathlib import Path
 import httpx
 import xml.etree.ElementTree as ET
 from http.server import BaseHTTPRequestHandler
@@ -14,6 +15,11 @@ from dotenv import load_dotenv
 
 # 🔱 Load environment for local server runs
 load_dotenv()
+
+# 🔱 Ensure colony_backend is in path for imports
+sys_path_added = os.path.join(os.path.dirname(__file__), '..', 'colony_backend')
+if sys_path_added not in os.sys.path:
+    os.sys.path.append(sys_path_added)
 
 # 🔱 INTERNAL BRIDGES
 try:
@@ -23,14 +29,14 @@ except ImportError:
         def save_session(self, *args, **kwargs): pass
         def record_purchase(self, *args, **kwargs): pass
         def is_director(self, email): return email.lower().startswith("anthony")
+        def get_purchases(self, email): return []
     db_bridge = MockDB()
 
 # 🔱 WHOLESALE & DATABASE BRIDGES
 NAMESILO_KEY = os.environ.get("NAMESILO_API_KEY")
 PEXELS_KEY = os.environ.get("PEXELS_API_KEY")
-SQUARE_TOKEN = os.environ.get("SQUARE_ACCESS_TOKEN", "EAAAl66bPEfbMG8HrWqH0ywIu32fO_19UsXDReI_UvxwSBD6j6Qmat-5AkXcSrnU")
+SQUARE_TOKEN = os.environ.get("SQUARE_ACCESS_TOKEN")
 STRIPE_KEY = os.environ.get("STRIPE_SECRET_KEY")
-STRIPE_RK = os.environ.get("STRIPE_RESTRICTED_KEY")
 
 # 🔱 PROFIT MODEL
 PRICING_MATRIX = {
@@ -57,8 +63,6 @@ KNOWLEDGE_BASE = {
     "billing": ["Setting up automatic renewals", "Multi-currency settlement logic", "Square and Stripe payment troubleshooting"]
 }
 
-SESSIONS = {}
-ORDERS = {}
 TICKETS = {}
 
 # ============================================================
@@ -124,6 +128,11 @@ async def handle_api_get(path, query_params):
         predictions = await oracle.predict_expansion_vector()
         return {"success": True, "predictions": predictions}
 
+    elif "/api/ares/swarm/pulse" in path:
+        from colony_backend.ares_chat_swarm_simulator import swarm_engine
+        exchange = swarm_engine.generate_next_exchange()
+        return {"success": True, "exchange": exchange}
+
     elif "/api/fintech/balance" in path:
         email = query_params.get("email", [""])[0]
         balance = 42910.42 if db_bridge.is_director(email) else 0.00
@@ -132,15 +141,20 @@ async def handle_api_get(path, query_params):
     return {"status": "SUCCESS", "timestamp": now}
 
 async def handle_api_post(path, payload, client_ip="0.0.0.0"):
-            else:
-                try:
-                    from colony_backend.colony_brain import brain_gate
-                    # Use the Supreme Orchestrator for all chat ingress
-                    reply = await brain_gate.generate_serialized(user_msg, system_msg="You are the Obsidian Supreme Oracle.")
-                except Exception as e:
-                    print(f"[-] SUPREME BRAIN ERROR: {e}")
-                    reply = "My uplink to the ARES core is currently throttled. Please ensure the Private Server is running."
-            return {"success": True, "reply": reply}
+    if "/api/anthony_ai_supreme/chat" in path or "/api/obsidian_ai/chat" in path or "/api/obsidian_asi/chat" in path:
+        user_msg = payload.get("message", "").lower()
+        email = payload.get("email", "anonymous")
+        if any(x in user_msg for x in ["physical", "watching", "protect"]):
+            reply = "Godfather, ARES and the Oracle are currently monitoring your physical vitals via the secure HUD bridge. Your safety is our primary node objective."
+        else:
+            try:
+                from colony_backend.colony_brain import brain_gate
+                reply = await brain_gate.generate_serialized(user_msg, system_msg="You are the Obsidian Supreme Oracle.")
+            except Exception as e:
+                print(f"[-] SUPREME BRAIN ERROR: {e}")
+                reply = "My uplink to the ARES core is currently throttled. Please ensure the Private Server is running."
+        return {"success": True, "reply": reply}
+
     elif "/api/vouchers/claim" in path:
         code = payload.get("code", "").upper()
         email = payload.get("email", "anonymous")
@@ -171,18 +185,50 @@ async def handle_api_post(path, payload, client_ip="0.0.0.0"):
         amount = payload.get("amount", 0.0)
         txid = f"TX-{int(time.time())}-{random.randint(1000, 9999)}"
         db_bridge.record_purchase(email, item_type, amount, txid)
+
+        # 🔱 INSTRUCTION GENERATOR
         instructions = [
             "1. Access your dashboard at obsidian.city/dashboard.",
-            "2. Your Domain/Asset is currently in 'PROVISIONING' status.",
-            "3. In 2-4 hours, your Nameservers will be live (tr.apiname.com).",
-            "4. Secure your login with the Provisioning Token provided."
+            "2. Your Asset is currently in 'PROVISIONING' status."
         ]
+
+        if "domain" in item_type:
+            instructions.extend([
+                "3. In 2-4 hours, your Nameservers will be live (tr.apiname.com).",
+                "4. Secure your login with the Provisioning Token provided."
+            ])
+        elif "llc" in item_type:
+            instructions.extend([
+                "3. An Obsidian Agent is drafting your Articles of Organization.",
+                "4. Check your email in 12h for signature requests."
+            ])
+        elif "vps" in item_type or "wp_" in item_type:
+            instructions.extend([
+                "3. Your KVM node is being provisioned in the requested region.",
+                "4. IP and SSH credentials will appear in your Cloud Console in 10m."
+            ])
+        elif "builder" in item_type:
+            instructions.extend([
+                "3. Your AI Credits have been applied to your account.",
+                "4. Open the AI Studio to manifest your digital vision."
+            ])
+        else:
+            instructions.extend([
+                "3. Finalizing asset handshake with the global mesh.",
+                "4. Verify your provisioning token in the Director Hub."
+            ])
+
         return {"success": True, "txid": txid, "status": "APPROVED", "instructions": instructions}
+
+    elif "/api/ares/discovery/pulse" in path:
+        from colony_backend.ares_discovery_engine import discovery_engine
+        discovery = await discovery_engine.run_discovery_pulse()
+        return {"success": True, "discovery": discovery}
 
     elif "/api/ares/strike/social" in path:
         from colony_backend.ares_social_strike_force import AresSocialStrikeForce
         strike = AresSocialStrikeForce()
-        # Fire and forget to prevent server hang during intensive API pushes
+        # Non-blocking background tasks
         asyncio.create_task(strike.execute_global_video_strike())
         asyncio.create_task(strike.push_domain_ads())
         return {"success": True, "status": "STRIKE_DISPATCHED"}
@@ -190,15 +236,13 @@ async def handle_api_post(path, payload, client_ip="0.0.0.0"):
     elif "/api/ares/strike/seo" in path:
         from colony_backend.ares_os_seo_commander import AresOsSeoCommander
         commander = AresOsSeoCommander()
-        # Fire and forget for SEO blitz
         asyncio.create_task(commander.run_seo_mission())
         return {"success": True, "status": "SEO_BLITZ_DISPATCHED"}
 
     elif "/api/director/payout" in path:
         email = payload.get("email", "anonymous")
         if db_bridge.is_director(email):
-            has_keys = bool(SQUARE_TOKEN and "EAAAl" in SQUARE_TOKEN)
-            response = {"success": True, "status": "SETTLEMENT_DISPATCHED" if has_keys else "SIMULATED", "batch_id": f"PAY-{int(time.time())}"}
+            response = {"success": True, "status": "SETTLEMENT_LOGGED", "batch_id": f"PAY-{int(time.time())}"}
         else: response = {"success": False, "error": "UNAUTHORIZED"}
         return response
 
@@ -218,7 +262,11 @@ class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         parsed_path = urllib.parse.urlparse(self.path)
         query_params = urllib.parse.parse_qs(parsed_path.query)
-        result = asyncio.run(handle_api_get(parsed_path.path, query_params))
+        try:
+            # We use a new event loop for every request to avoid "already running" issues
+            result = asyncio.run(handle_api_get(parsed_path.path, query_params))
+        except Exception as e:
+            result = {"error": str(e)}
 
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
@@ -231,7 +279,10 @@ class handler(BaseHTTPRequestHandler):
         post_data = self.rfile.read(content_length).decode('utf-8')
         payload = json.loads(post_data) if post_data else {}
 
-        result = asyncio.run(handle_api_post(self.path, payload, self.client_address[0]))
+        try:
+            result = asyncio.run(handle_api_post(self.path, payload, self.client_address[0]))
+        except Exception as e:
+            result = {"error": str(e)}
 
         self.send_response(200)
         self.send_header('Content-type', 'application/json')

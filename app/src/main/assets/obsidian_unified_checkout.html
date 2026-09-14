@@ -122,11 +122,21 @@
         summaryHtml += `<div class="line-item"><span>Registered Agent (1yr)</span><span>$125.00</span></div>`;
         summaryHtml += `<div class="line-item"><span>State Filing Fee</span><span>$${stateFee.toFixed(2)}</span></div>`;
         summaryHtml += `<div class="line-item text-emerald-600"><span>Bundle: Free .COM Domain</span><span>-$14.70</span></div>`;
-    } else if (type.startsWith('obsidian_ai_')) {
-        const planName = type.replace('obsidian_ai_', '').toUpperCase();
-        document.getElementById('checkoutType').innerText = 'Obsidian AI Plan';
-        summaryHtml += `<div class="line-item"><span>Obsidian AI ${planName} Subscription</span><span>$${basePrice.toFixed(2)}</span></div>`;
+    } else if (type.startsWith('builder_')) {
+        const planName = type.replace('builder_', '').toUpperCase();
+        document.getElementById('checkoutType').innerText = 'Obsidian AI Builder';
+        summaryHtml += `<div class="line-item"><span>AI Builder ${planName} Plan</span><span>$${basePrice.toFixed(2)}</span></div>`;
         summaryHtml += `<div class="line-item"><span>AI Credits Inclusion</span><span>Included</span></div>`;
+    } else if (type.startsWith('wp_')) {
+        const planName = type.replace('wp_', '').toUpperCase();
+        document.getElementById('checkoutType').innerText = 'Managed WordPress';
+        summaryHtml += `<div class="line-item"><span>Managed WordPress ${planName}</span><span>$${basePrice.toFixed(2)}</span></div>`;
+        summaryHtml += `<div class="line-item"><span>Global Edge CDN</span><span>Included</span></div>`;
+    } else if (type.startsWith('vps_')) {
+        const planName = type.replace('vps_', '').toUpperCase();
+        document.getElementById('checkoutType').innerText = 'Cloud Hosting';
+        summaryHtml += `<div class="line-item"><span>VPS Node: ${planName}</span><span>$${basePrice.toFixed(2)}</span></div>`;
+        summaryHtml += `<div class="line-item"><span>KVM Isolation</span><span>Secure</span></div>`;
     } else {
         const itemName = type.toUpperCase().replace('DOMAIN_', '').replace('_', ' ');
         summaryHtml += `<div class="line-item"><span>${itemName}</span><span>$${basePrice.toFixed(2)}</span></div>`;

@@ -10,6 +10,7 @@ import asyncio
 
 # 🔱 Import decoupled logic from api/index.py
 sys.path.append(os.path.join(os.path.dirname(__file__), 'api'))
+sys.path.append(os.path.join(os.path.dirname(__file__), 'colony_backend'))
 try:
     from index import handle_api_get, handle_api_post
 except ImportError:

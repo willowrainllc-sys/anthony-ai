@@ -241,7 +241,7 @@ fun AnthonyAiFeedScreen(
                                     letterSpacing = 4.sp
                                 )
                                 Text(
-                                    "Your The World’s First Public ASI Model",
+                                    "Your The World’s First Public AI Model",
                                     color = Color.Gray,
                                     fontSize = 12.sp,
                                     modifier = Modifier.padding(top = 4.dp)
