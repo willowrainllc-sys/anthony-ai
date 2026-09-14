@@ -33,7 +33,7 @@ def rename_content():
 
                 if content != new_content:
                     file_path.write_text(new_content, encoding='utf-8')
-                    # print(f"✓ Renamed content in: {file_path.relative_to(ROOT)}")
+                    # print(f"[+] Renamed content in: {file_path.relative_to(ROOT)}")
             except Exception as e:
                 pass
 
@@ -48,7 +48,7 @@ def rename_files():
                 new_path = os.path.join(root, new_d)
                 try:
                     os.rename(old_path, new_path)
-                    print(f"✓ Renamed Dir: {d} -> {new_d}")
+                    print(f"[+] Renamed Dir: {d} -> {new_d}")
                 except: pass
 
     # Pass 2: Files
@@ -63,11 +63,11 @@ def rename_files():
             new_path = file_path.with_name(new_name)
             try:
                 os.rename(file_path, new_path)
-                print(f"✓ Renamed File: {name} -> {new_name}")
+                print(f"[+] Renamed File: {name} -> {new_name}")
             except: pass
 
 if __name__ == "__main__":
     print("🔱 Executing Final Colony Renamer Strike... (Wait, BURST)")
     rename_content()
     rename_files()
-    print("✓ Evolution Complete.")
+    print("[+] Evolution Complete.")

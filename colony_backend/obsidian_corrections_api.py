@@ -35,7 +35,7 @@ class ObsidianCorrectionsAPI:
             "status": "IN_TRANSIT"
         })
 
-        colony_log("✓ CORRECTIONS SUCCESS: Message pushed to facility node.", node="SECURITY")
+        colony_log("[+] CORRECTIONS SUCCESS: Message pushed to facility node.", node="SECURITY")
 
 corrections_api = ObsidianCorrectionsAPI()
 

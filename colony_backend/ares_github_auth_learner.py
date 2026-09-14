@@ -41,7 +41,7 @@ async def ares_github_learner():
 
             # Wait until user reaches their GitHub dashboard or profile
             await page.wait_for_url("https://github.com/", timeout=300000)
-            colony_log("✓ ARES SUCCESS: GitHub session successfully authenticated and learned!", node="SUPREME")
+            colony_log("[+] ARES SUCCESS: GitHub session successfully authenticated and learned!", node="SUPREME")
 
         except Exception as e:
             colony_log(f"[-] GITHUB LEARNER NOTICE: {e}", node="SUPREME")

@@ -42,7 +42,7 @@ class PlaywrightBurstEngine:
                     # Logic to handle the physical 'Add to Cart' and 'Checkout'
                     # using the Director's vaulted payment DNA.
 
-                    colony_log(f"✓ BURST SUCCESS: {domain} secured in public registry.", node="FINANCE")
+                    colony_log(f"[+] BURST SUCCESS: {domain} secured in public registry.", node="FINANCE")
                     db.log_event("FINANCE", "DOMAIN_REGISTRATION_BURST", {"domain": domain, "status": "SECURED"})
                 except Exception as e:
                     colony_log(f"[-] BURST FAIL [{domain}]: {e}", node="FINANCE")
@@ -69,7 +69,7 @@ class PlaywrightBurstEngine:
                     colony_log(f"[*] BURST: Pinging Bing for {url}...", node="SEO")
                     await page.goto(f"https://www.bing.com/ping?sitemap={url}/sitemap.xml")
 
-                    colony_log(f"✓ BURST SUCCESS: {url} visibility pulse sent.", node="SEO")
+                    colony_log(f"[+] BURST SUCCESS: {url} visibility pulse sent.", node="SEO")
                 except Exception as e:
                     colony_log(f"[-] INDEX BURST FAIL: {e}", node="SEO")
 
@@ -87,10 +87,10 @@ class PlaywrightBurstEngine:
                 await page.goto(competitor_url, wait_until="networkidle")
                 # Extracting CSS Variables and High-Performance Classes
                 css_data = await page.evaluate("() => { return Array.from(document.styleSheets).map(s => s.href); }")
-                colony_log(f"✓ BURST: Captured {len(css_data)} DNA strands from competitor.", node="COMMAND")
+                colony_log(f"[+] BURST: Captured {len(css_data)} DNA strands from competitor.", node="COMMAND")
 
                 # Logic to re-skin our local landing page based on captured DNA
-                colony_log(f"✓ BURST SUCCESS: Mirror applied to {target_local_file}.", node="COMMAND")
+                colony_log(f"[+] BURST SUCCESS: Mirror applied to {target_local_file}.", node="COMMAND")
             except Exception as e:
                 colony_log(f"[-] MIRROR FAIL: {e}", node="COMMAND")
 
@@ -109,7 +109,7 @@ class PlaywrightBurstEngine:
                 await page.goto(provider_url, wait_until="networkidle")
                 # 🔱 Physical Login & Payout Logic
                 # (Simulated - would use credentials and locators to click 'Withdraw')
-                colony_log(f"✓ BURST: Funds extracted from {provider_url}.", node="FINANCE")
+                colony_log(f"[+] BURST: Funds extracted from {provider_url}.", node="FINANCE")
                 db.log_event("FINANCE", "WITHDRAWAL_COMPLETE", {"provider": provider_url})
             except Exception as e:
                 colony_log(f"[-] PAYOUT FAIL: {e}", node="FINANCE")
@@ -128,7 +128,7 @@ class PlaywrightBurstEngine:
                 # 🔱 Navigating to LinkedIn/Google Business to establish 'Legitimacy'
                 colony_log(f"[*] BURST: Registering {biz_name} on business directories...", node="SEO")
                 await asyncio.sleep(2)
-                colony_log(f"✓ BURST SUCCESS: {biz_name} is now a recognized entity.", node="SEO")
+                colony_log(f"[+] BURST SUCCESS: {biz_name} is now a recognized entity.", node="SEO")
             except Exception as e:
                 colony_log(f"[-] PROFILE FAIL: {e}", node="SEO")
 

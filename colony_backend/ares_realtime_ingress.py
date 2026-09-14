@@ -26,7 +26,7 @@ def execute_sync_pipeline():
             colony_log(f"[*] ARES: Running {script}...", node="SUPREME")
             subprocess.run([sys.executable, str(script_path)], capture_output=True)
 
-    colony_log("✓ ARES INGRESS: Pipeline executed. All targets (Android/Edge/Local) updated.", node="SUPREME")
+    colony_log("[+] ARES INGRESS: Pipeline executed. All targets (Android/Edge/Local) updated.", node="SUPREME")
 
 def monitor_local_changes():
     """

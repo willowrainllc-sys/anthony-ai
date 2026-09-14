@@ -49,7 +49,7 @@ class VercelPerfectSetup:
             try:
                 resp = await client.post(proj_url, headers=self.headers, json=proj_payload)
                 if resp.status_code in [200, 201]:
-                    colony_log(f"✓ VERCEL SETUP: Project [{PROJECT_NAME}] created successfully.", node="SUPREME")
+                    colony_log(f"[+] VERCEL SETUP: Project [{PROJECT_NAME}] created successfully.", node="SUPREME")
                 else:
                     colony_log(f"[*] VERCEL SETUP NOTICE: Project creation response: {resp.status_code} - {resp.text}", node="SUPREME")
             except Exception as e:
@@ -62,7 +62,7 @@ class VercelPerfectSetup:
                 try:
                     resp = await client.post(dom_url, headers=self.headers, json=dom_payload)
                     if resp.status_code in [200, 201]:
-                        colony_log(f"✓ VERCEL DOMAIN SUCCESS: [{domain}] linked to [{PROJECT_NAME}].", node="SUPREME")
+                        colony_log(f"[+] VERCEL DOMAIN SUCCESS: [{domain}] linked to [{PROJECT_NAME}].", node="SUPREME")
                     else:
                         colony_log(f"[*] VERCEL DOMAIN NOTICE [{domain}]: {resp.text}", node="SUPREME")
                 except Exception as e:
@@ -86,7 +86,7 @@ class VercelPerfectSetup:
                 if resp.status_code in [200, 201]:
                     data = resp.json()
                     url = data.get("url", "N/A")
-                    colony_log(f"✓ VERCEL DEPLOY SUCCESS: Live at https://{url}", node="SUPREME")
+                    colony_log(f"[+] VERCEL DEPLOY SUCCESS: Live at https://{url}", node="SUPREME")
                     print(f"\n🔱 [VERCEL PERFECT SETUP SUCCESS]:\nProject: {PROJECT_NAME}\nLive URL: https://{url}\nCustom Domain: https://{DOMAIN_NAME}\n")
                 else:
                     colony_log(f"[-] VERCEL DEPLOY NOTICE: {resp.text}", node="SUPREME")

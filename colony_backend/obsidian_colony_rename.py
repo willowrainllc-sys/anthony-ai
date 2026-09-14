@@ -34,7 +34,7 @@ def rename_content():
 
                 if content != new_content:
                     file_path.write_text(new_content, encoding='utf-8')
-                    print(f"✓ Renamed content in: {file_path.relative_to(ROOT)}")
+                    print(f"[+] Renamed content in: {file_path.relative_to(ROOT)}")
             except Exception as e:
                 print(f"[-] Error processing {file_path}: {e}")
 
@@ -57,7 +57,7 @@ def rename_files():
             new_path = file_path.with_name(new_name)
             try:
                 os.rename(file_path, new_path)
-                print(f"✓ Renamed File: {file_path.name} -> {new_name}")
+                print(f"[+] Renamed File: {file_path.name} -> {new_name}")
             except Exception as e:
                 print(f"[-] Error renaming {file_path}: {e}")
 
@@ -65,4 +65,4 @@ if __name__ == "__main__":
     print("🔱 Initiating Colony Evolution Burst... (Wait, it's a BURST now)")
     rename_content()
     rename_files()
-    print("✓ Evolution Complete. The Colony is here.")
+    print("[+] Evolution Complete. The Colony is here.")

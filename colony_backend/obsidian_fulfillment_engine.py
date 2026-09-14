@@ -32,7 +32,7 @@ class ObsidianFulfillmentEngine:
             pass
 
         db.log_event("FULFILLMENT", "MAILING_BURST_SUCCESS", {"target": customer_data['name'], "status": "IN_TRANSIT"})
-        colony_log("✓ FULFILLMENT SUCCESS: Empire documents are in the mail.", node="SUPREME")
+        colony_log("[+] FULFILLMENT SUCCESS: Empire documents are in the mail.", node="SUPREME")
 
 fulfillment_engine = ObsidianFulfillmentEngine()
 

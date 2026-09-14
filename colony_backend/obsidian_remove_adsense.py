@@ -31,7 +31,7 @@ def remove_adsense_everywhere():
         except Exception as e:
             pass
 
-    colony_log(f"✓ ADSENSE REMOVER SUCCESS: Stripped ads across {count} HTML pages!", node="SUPREME")
+    colony_log(f"[+] ADSENSE REMOVER SUCCESS: Stripped ads across {count} HTML pages!", node="SUPREME")
 
 if __name__ == "__main__":
     remove_adsense_everywhere()

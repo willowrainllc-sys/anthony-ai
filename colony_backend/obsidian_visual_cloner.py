@@ -58,7 +58,7 @@ class ObsidianVisualCloner:
                         shadow: comp.boxShadow
                     };
                 }""")
-                colony_log(f"✓ CLONER: Button DNA secured: {styles['background']}", node="COMMAND")
+                colony_log(f"[+] CLONER: Button DNA secured: {styles['background']}", node="COMMAND")
 
                 # 🔱 3. Scroll and Capture Grid Layouts
                 colony_log("[*] CLONER: Analyzing Pricing Matrix...", node="COMMAND")
@@ -67,7 +67,7 @@ class ObsidianVisualCloner:
                 await page.screenshot(path=RECON_DIR / "02_pricing_dna.png")
 
                 # 🔱 4. Final Re-Skin Logic (Simulated)
-                colony_log("✓ CLONER SUCCESS: Obsidian City whole-site layout vaulted.", node="COMMAND")
+                colony_log("[+] CLONER SUCCESS: Obsidian City whole-site layout vaulted.", node="COMMAND")
 
             except Exception as e:
                 colony_log(f"[-] CLONER FAIL: {e}", node="COMMAND")

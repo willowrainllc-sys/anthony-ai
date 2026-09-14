@@ -46,7 +46,7 @@ class ObsidianQuantumTrading:
                 profit = random.uniform(25.0, 150.0)
                 self.total_profit += profit
 
-                colony_log(f"✓ WHALE_BURST: Captured ${profit:.2f} Alpha. PnL: ${self.total_profit:,.2f}", node="FINANCE")
+                colony_log(f"[+] WHALE_BURST: Captured ${profit:.2f} Alpha. PnL: ${self.total_profit:,.2f}", node="FINANCE")
 
                 db.log_event("FINANCE", "QUANTUM_TRADE_SUCCESS", {
                     "profit": profit,

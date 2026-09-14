@@ -86,7 +86,7 @@ class ObsidianDomainKernel:
                 code = reply.find("code").text
 
                 if code == "300": # NameSilo Success
-                    colony_log(f"✓ DOMAIN SUCCESS: [{domain}] identity secured.", node="FINANCE")
+                    colony_log(f"[+] DOMAIN SUCCESS: [{domain}] identity secured.", node="FINANCE")
 
                     # Module 4: DNS Bridge Mapping
                     await self._provision_dns_bridge(domain)
@@ -119,7 +119,7 @@ class ObsidianDomainKernel:
         try:
             async with httpx.AsyncClient() as client:
                 resp = await client.get(url)
-                colony_log(f"✓ DELEGATION SUCCESS: [{domain}] is now managed by {provider} Edge.", node="FINANCE")
+                colony_log(f"[+] DELEGATION SUCCESS: [{domain}] is now managed by {provider} Edge.", node="FINANCE")
                 db.log_event("FINANCE", "DOMAIN_DELEGATED", {"domain": domain, "provider": provider})
                 return True
         except Exception as e:
@@ -149,7 +149,7 @@ class ObsidianDomainKernel:
                 for rec in records:
                     resp = await client.post(url, headers=headers, json=rec)
                     if resp.status_code == 200:
-                        colony_log(f"✓ DNS SUCCESS: {rec['type']} record created for {domain}.", node="FINANCE")
+                        colony_log(f"[+] DNS SUCCESS: {rec['type']} record created for {domain}.", node="FINANCE")
                     else:
                         colony_log(f"[-] DNS FAIL: {resp.text}", node="FINANCE")
                 return True
@@ -187,7 +187,7 @@ class ObsidianDomainKernel:
             async with httpx.AsyncClient() as client:
                 resp = await client.post(url, headers=headers, json=payload)
                 if resp.status_code == 200:
-                    colony_log(f"✓ DNS BRIDGE: [{domain}] is now LIVE globally.", node="FINANCE")
+                    colony_log(f"[+] DNS BRIDGE: [{domain}] is now LIVE globally.", node="FINANCE")
                 else:
                     colony_log(f"[-] DNS BRIDGE FAIL: {resp.text}", node="FINANCE")
         except Exception as e:

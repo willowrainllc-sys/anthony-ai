@@ -52,7 +52,7 @@ class BitcoinLiquidationEngine:
             "destination": "Stride_Bank_Sink",
             "status": "SETTLING_24H"
         })
-        colony_log("✓ FINANCE SUCCESS: $10k burst dispatched. Funds settling to Stride Bank.", node="FINANCE")
+        colony_log("[+] FINANCE SUCCESS: $10k burst dispatched. Funds settling to Stride Bank.", node="FINANCE")
         self.accumulated_alpha = 0.0
 
 if __name__ == "__main__":

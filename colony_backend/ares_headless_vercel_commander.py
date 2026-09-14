@@ -46,10 +46,10 @@ class AresHeadlessVercelCommander:
                 if "login" in page.url:
                     colony_log("[-] HEADLESS NOTICE: Session cookie needs refresh. Please authenticate once.", node="SUPREME")
                 else:
-                    colony_log("✓ HEADLESS SUCCESS: Authenticated with Vercel via Chrome profile cookies.", node="SUPREME")
+                    colony_log("[+] HEADLESS SUCCESS: Authenticated with Vercel via Chrome profile cookies.", node="SUPREME")
 
                     await page.goto("https://vercel.com/new", wait_until="networkidle")
-                    colony_log("✓ HEADLESS: Reached Vercel New Project importer.", node="SUPREME")
+                    colony_log("[+] HEADLESS: Reached Vercel New Project importer.", node="SUPREME")
 
                     db.log_event("SUPREME", "HEADLESS_VERCEL_CONFIG_SUCCESS", {"status": "CONFIG_DISPATCHED"})
 
@@ -57,7 +57,7 @@ class AresHeadlessVercelCommander:
                 colony_log(f"[-] ARES HEADLESS FATAL: {e}", node="SUPREME")
 
             await browser_context.close()
-            colony_log("✓ ARES HEADLESS COMMANDER: Vercel colony ingress cycle complete.", node="SUPREME")
+            colony_log("[+] ARES HEADLESS COMMANDER: Vercel colony ingress cycle complete.", node="SUPREME")
 
 if __name__ == "__main__":
     commander = AresHeadlessVercelCommander()

@@ -25,13 +25,13 @@ class MediaAutopilot:
             content = index_path.read_text(encoding="utf-8", errors="ignore")
             # Verify video fallback handler is present
             if "bg-video" in content:
-                colony_log("✓ MEDIA AUTOPILOT: Background video wrapper verified active.", node="AUTOPILOT")
+                colony_log("[+] MEDIA AUTOPILOT: Background video wrapper verified active.", node="AUTOPILOT")
 
         db.log_event("AUTOPILOT", "MEDIA_REPAIR_COMPLETE", {
             "status": "MEDIA_SELF_HEALING_ACTIVE"
         })
 
-        colony_log("✓ MEDIA AUTOPILOT SUCCESS: All media assets locked and optimized for zero-latency loading.", node="AUTOPILOT")
+        colony_log("[+] MEDIA AUTOPILOT SUCCESS: All media assets locked and optimized for zero-latency loading.", node="AUTOPILOT")
 
 if __name__ == "__main__":
     autopilot = MediaAutopilot()

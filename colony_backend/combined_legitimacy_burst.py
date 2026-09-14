@@ -38,7 +38,7 @@ async def run_full_legitimacy_burst():
         colony_log(f"[*] LEGITIMACY: Establishing industrial footprint for {brand['name']}...", node="SUPREME")
         await burst_engine.execute_social_proof_burst(brand['name'], brand['domain'])
 
-    colony_log("✓ LEGITIMACY SUCCESS: Your empire is now visible and professional.", node="SUPREME")
+    colony_log("[+] LEGITIMACY SUCCESS: Your empire is now visible and professional.", node="SUPREME")
 
 if __name__ == "__main__":
     asyncio.run(run_full_legitimacy_burst())

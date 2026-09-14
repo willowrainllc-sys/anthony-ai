@@ -53,7 +53,7 @@ class ShoppingBurstrKernel:
                         {"item": "Cybernetic Workstation", "discount": "25%", "price": 1200.00}
                     ]
                     discovered_deals.extend(deals)
-                    colony_log(f"✓ BURSTR: {len(deals)} high-performance deals captured from {url}.", node="COMMERCE")
+                    colony_log(f"[+] BURSTR: {len(deals)} high-performance deals captured from {url}.", node="COMMERCE")
                 except Exception as e:
                     colony_log(f"[-] BURST FAIL [{url}]: {e}", node="COMMERCE")
 

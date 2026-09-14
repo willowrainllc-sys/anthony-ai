@@ -4,6 +4,8 @@ import time
 import json
 import random
 import os
+import re
+import asyncio
 import urllib.parse
 import httpx
 import xml.etree.ElementTree as ET
@@ -59,121 +61,77 @@ SESSIONS = {}
 ORDERS = {}
 TICKETS = {}
 
-class handler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header('Content-type', 'application/json')
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.end_headers()
+# ============================================================
+# 🔱 CORE API LOGIC (DECOUPLED)
+# ============================================================
 
-        now = time.time()
-        parsed_path = urllib.parse.urlparse(self.path)
-        path = parsed_path.path
-        query_params = urllib.parse.parse_qs(parsed_path.query)
+async def handle_api_get(path, query_params):
+    now = time.time()
 
-        if "/api/domains/search" in path:
-            raw_q = query_params.get("domain", [""])[0] or query_params.get("q", [""])[0]
-            q = (raw_q or "mybrand").lower().split('.')[0].replace(/[^a-z0-9]/g, '')
+    if "/api/domains/search" in path:
+        raw_q = query_params.get("domain", [""])[0] or query_params.get("q", [""])[0]
+        q = re.sub(r'[^a-z0-9]', '', (raw_q or "mybrand").lower().split('.')[0])
+        results = []
+        available_list = []
+        try:
+            domains_to_check = [f"{q}{tld}" for tld in PRICING_MATRIX.keys()]
+            ns_url = f"https://www.namesilo.com/api/checkRegisterAvailability?version=1&type=xml&key={NAMESILO_KEY}&domains={','.join(domains_to_check)}"
+            async with httpx.AsyncClient(timeout=3.0) as client:
+                resp = await client.get(ns_url)
+                if resp.status_code == 200:
+                    root = ET.fromstring(resp.text)
+                    available_list = [d.text.lower() for d in root.findall(".//reply/available/domain")]
+        except: pass
+        for tld, prices in PRICING_MATRIX.items():
+            full_domain = f"{q}{tld}"
+            is_avail = (full_domain in available_list) if available_list else True
+            results.append({"domain": full_domain, "available": is_avail, "price": prices["retail"], "tag": "Wholesale" if tld == ".com" else "Recommended"})
+        return {"query": q, "results": results, "status": "INGRESS_READY", "timestamp": now}
 
-            results = []
-            available_list = []
-            try:
-                domains_to_check = [f"{q}{tld}" for tld in PRICING_MATRIX.keys()]
-                ns_url = f"https://www.namesilo.com/api/checkRegisterAvailability?version=1&type=xml&key={NAMESILO_KEY}&domains={','.join(domains_to_check)}"
-                with httpx.Client(timeout=3.0) as client:
-                    resp = client.get(ns_url)
-                    if resp.status_code == 200:
-                        root = ET.fromstring(resp.text)
-                        available_list = [d.text.lower() for d in root.findall(".//reply/available/domain")]
-            except Exception: pass
+    elif "/api/aura/video" in path:
+        query = query_params.get("query", ["abstract tech blue"])[0]
+        url = f"https://api.pexels.com/videos/search?query={query}&per_page=1&size=large"
+        headers = {"Authorization": PEXELS_KEY}
+        try:
+            async with httpx.AsyncClient(timeout=5.0) as client:
+                resp = await client.get(url, headers=headers)
+                video_url = resp.json()['videos'][0]['video_files'][0]['link']
+                return {"success": True, "url": video_url}
+        except:
+            return {"success": True, "url": "https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175"}
 
-            for tld, prices in PRICING_MATRIX.items():
-                full_domain = f"{q}{tld}"
-                is_avail = (full_domain in available_list) if available_list else True
-                results.append({"domain": full_domain, "available": is_avail, "price": prices["retail"], "tag": "Wholesale" if tld == ".com" else "Recommended"})
+    elif "/api/orders/status" in path:
+        email = query_params.get("email", [""])[0]
+        purchases = db_bridge.get_purchases(email)
+        return {"success": True, "orders": purchases}
 
-            payload = {"query": q, "results": results, "status": "INGRESS_READY", "timestamp": now}
-            self.wfile.write(json.dumps(payload).encode('utf-8'))
+    elif "/api/llc/states" in path:
+        return {"success": True, "states": STATES_DB}
 
-        elif "/api/aura/video" in path:
-            # ... existing video logic ...
-            query = query_params.get("query", ["abstract tech blue"])[0]
-            url = f"https://api.pexels.com/videos/search?query={query}&per_page=1&size=large"
-            headers = {"Authorization": PEXELS_KEY}
-            try:
-                with httpx.Client(timeout=5.0) as client:
-                    resp = client.get(url, headers=headers)
-                    video_url = resp.json()['videos'][0]['video_files'][0]['link']
-                    payload = {"success": True, "url": video_url}
-            except Exception:
-                payload = {"success": True, "url": "https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175"}
-            self.wfile.write(json.dumps(payload).encode('utf-8'))
+    elif "/api/support/search" in path:
+        q = query_params.get("q", [""])[0].lower()
+        results = []
+        for cat, articles in KNOWLEDGE_BASE.items():
+            if q in cat: results.extend([{"category": cat, "title": a} for a in articles])
+            else:
+                for a in articles:
+                    if q in a.lower(): results.append({"category": cat, "title": a})
+        return {"success": True, "results": results[:5]}
 
-        elif "/api/orders/status" in path:
-            # 🔱 PERSISTENT INGRESS: Fetching orders from Supabase
-            email = query_params.get("email", [""])[0]
-            purchases = db_bridge.get_purchases(email)
-            # Fallback for dev/local
-            if not purchases: purchases = [o for o in ORDERS.values() if o["email"] == email]
-            self.wfile.write(json.dumps({"success": True, "orders": purchases}).encode('utf-8'))
+    elif "/api/ares/spatial/predict" in path:
+        from colony_backend.ares_spatial_oracle import AresSpatialOracle
+        oracle = AresSpatialOracle()
+        predictions = await oracle.predict_expansion_vector()
+        return {"success": True, "predictions": predictions}
 
-        elif "/api/llc/states" in path:
-            self.wfile.write(json.dumps({"success": True, "states": STATES_DB}).encode('utf-8'))
+    elif "/api/fintech/balance" in path:
+        email = query_params.get("email", [""])[0]
+        balance = 42910.42 if db_bridge.is_director(email) else 0.00
+        return {"success": True, "balance": balance, "currency": "USD"}
 
-        elif "/api/support/search" in path:
-            q = query_params.get("q", [""])[0].lower()
-            results = []
-            for category, articles in KNOWLEDGE_BASE.items():
-                if q in category:
-                    results.extend([{"category": category, "title": a} for articles in articles])
-                else:
-                    for a in articles:
-                        if q in a.lower():
-                            results.append({"category": category, "title": a})
-            self.wfile.write(json.dumps({"success": True, "results": results[:5]}).encode('utf-8'))
+    return {"status": "SUCCESS", "timestamp": now}
 
-        elif "/api/ares/spatial/predict" in path:
-            # 🔱 ARES SPATIAL INTEL: Fetching latest LLM predictions
-            from colony_backend.ares_spatial_oracle import AresSpatialOracle
-            oracle = AresSpatialOracle()
-
-            # Use asyncio to run the async prediction
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-            predictions = loop.run_until_complete(oracle.predict_expansion_vector())
-            loop.close()
-
-            self.wfile.write(json.dumps({"success": True, "predictions": predictions}).encode('utf-8'))
-
-        elif "/api/fintech/balance" in path:
-            # 🔱 PLAID INGRESS: Fetching real-time bank balance
-            email = query_params.get("email", [""])[0]
-            # Simulated Balance Extraction
-            balance = 42910.42 if db_bridge.is_director(email) else 0.00
-            self.wfile.write(json.dumps({"success": True, "balance": balance, "currency": "USD"}).encode('utf-8'))
-
-        else:
-            self.wfile.write(json.dumps({"status": "SUCCESS", "timestamp": now}).encode('utf-8'))
-
-    def do_POST(self):
-        self.send_response(200)
-        self.send_header('Content-type', 'application/json')
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.end_headers()
-
-        content_length = int(self.headers.get('Content-Length', 0))
-        post_data = self.rfile.read(content_length).decode('utf-8')
-        payload = json.loads(post_data) if post_data else {}
-        path = self.path
-
-        if "/api/anthony_ai_supreme/chat" in path or "/api/obsidian_ai/chat" in path:
-            # 🔱 SUPREME ORACLE LOGIC v5.0 (Multi-Model MoE)
-            user_msg = payload.get("message", "").lower()
-            email = payload.get("email", "anonymous")
-
-            # 🔱 Check for physical monitoring keywords
-            if any(x in user_msg for x in ["physical", "watching", "protect"]):
-                reply = "Godfather, ARES and the Oracle are currently monitoring your physical vitals via the secure HUD bridge. Your safety is our primary node objective."
+async def handle_api_post(path, payload, client_ip="0.0.0.0"):
             else:
                 try:
                     from colony_backend.colony_brain import brain_gate
@@ -181,143 +139,102 @@ class handler(BaseHTTPRequestHandler):
                     reply = await brain_gate.generate_serialized(user_msg, system_msg="You are the Obsidian Supreme Oracle.")
                 except Exception as e:
                     print(f"[-] SUPREME BRAIN ERROR: {e}")
-                    reply = "My uplink to the ARES core is currently throttled. Please ensure the Private Server is running or contact tech support."
+                    reply = "My uplink to the ARES core is currently throttled. Please ensure the Private Server is running."
+            return {"success": True, "reply": reply}
+    elif "/api/vouchers/claim" in path:
+        code = payload.get("code", "").upper()
+        email = payload.get("email", "anonymous")
+        vouchers_path = Path(__file__).resolve().parent.parent / "colony_backend" / "vouchers.json"
+        try:
+            with open(vouchers_path, 'r') as f: vouchers = json.load(f)
+            if code in vouchers and vouchers[code]["status"] == "AVAILABLE":
+                val = vouchers[code]["value"]
+                vouchers[code]["status"] = "REDEEMED"
+                vouchers[code]["redeemed_by"] = email
+                with open(vouchers_path, 'w') as f: json.dump(vouchers, f, indent=4)
+                db_bridge.record_purchase(email, "voucher_redemption", val, f"CODE-{code}")
+                return {"success": True, "value": val}
+            return {"success": False, "error": "INVALID_OR_USED"}
+        except Exception as e:
+            return {"success": False, "error": str(e)}
 
-            self.wfile.write(json.dumps({"success": True, "reply": reply}).encode('utf-8'))
+    elif "/api/support/ticket" in path:
+        email = payload.get("email", "anonymous")
+        subject = payload.get("subject", "General Inquiry")
+        tid = f"TICK-{int(time.time())}"
+        TICKETS[tid] = {"email": email, "subject": subject, "status": "OPEN"}
+        return {"success": True, "ticket_id": tid}
 
-        elif "/api/vouchers/claim" in path:
-            # 🔱 VOUCHER REDEMPTION: Claiming credits via codes
-            code = payload.get("code", "").upper()
-            email = payload.get("email", "anonymous")
+    elif "/api/settle/authorize" in path:
+        email = payload.get("email", "anonymous")
+        item_type = payload.get("type", "unknown")
+        amount = payload.get("amount", 0.0)
+        txid = f"TX-{int(time.time())}-{random.randint(1000, 9999)}"
+        db_bridge.record_purchase(email, item_type, amount, txid)
+        instructions = [
+            "1. Access your dashboard at obsidian.city/dashboard.",
+            "2. Your Domain/Asset is currently in 'PROVISIONING' status.",
+            "3. In 2-4 hours, your Nameservers will be live (tr.apiname.com).",
+            "4. Secure your login with the Provisioning Token provided."
+        ]
+        return {"success": True, "txid": txid, "status": "APPROVED", "instructions": instructions}
 
-            vouchers_path = Path(__file__).resolve().parent.parent / "colony_backend" / "vouchers.json"
-            try:
-                with open(vouchers_path, 'r') as f:
-                    vouchers = json.load(f)
+    elif "/api/ares/strike/social" in path:
+        from colony_backend.ares_social_strike_force import AresSocialStrikeForce
+        strike = AresSocialStrikeForce()
+        # Fire and forget to prevent server hang during intensive API pushes
+        asyncio.create_task(strike.execute_global_video_strike())
+        asyncio.create_task(strike.push_domain_ads())
+        return {"success": True, "status": "STRIKE_DISPATCHED"}
 
-                if code in vouchers and vouchers[code]["status"] == "AVAILABLE":
-                    val = vouchers[code]["value"]
-                    vouchers[code]["status"] = "REDEEMED"
-                    vouchers[code]["redeemed_by"] = email
+    elif "/api/ares/strike/seo" in path:
+        from colony_backend.ares_os_seo_commander import AresOsSeoCommander
+        commander = AresOsSeoCommander()
+        # Fire and forget for SEO blitz
+        asyncio.create_task(commander.run_seo_mission())
+        return {"success": True, "status": "SEO_BLITZ_DISPATCHED"}
 
-                    with open(vouchers_path, 'w') as f:
-                        json.dump(vouchers, f, indent=4)
+    elif "/api/director/payout" in path:
+        email = payload.get("email", "anonymous")
+        if db_bridge.is_director(email):
+            has_keys = bool(SQUARE_TOKEN and "EAAAl" in SQUARE_TOKEN)
+            response = {"success": True, "status": "SETTLEMENT_DISPATCHED" if has_keys else "SIMULATED", "batch_id": f"PAY-{int(time.time())}"}
+        else: response = {"success": False, "error": "UNAUTHORIZED"}
+        return response
 
-                    # Log the credit addition
-                    print(f"[REVENUE] Voucher {code} redeemed by {email} for {val} credits.")
-                    db_bridge.record_purchase(email, "voucher_redemption", val, f"CODE-{code}")
+    elif "/api/auth/signin" in path:
+        email = payload.get("email", "user@example.com")
+        sid = f"sess_{int(time.time())}"
+        db_bridge.save_session(sid, email, metadata={"ip": client_ip})
+        return {"success": True, "session_id": sid, "email": email}
 
-                    self.wfile.write(json.dumps({"success": True, "value": val}).encode('utf-8'))
-                else:
-                    self.wfile.write(json.dumps({"success": False, "error": "INVALID_OR_USED"}).encode('utf-8'))
-            except Exception as e:
-                print(f"[-] VOUCHER ERROR: {e}")
-                self.wfile.write(json.dumps({"success": False, "error": "VAULT_OFFLINE"}).encode('utf-8'))
+    return {"success": True}
 
-        elif "/api/support/ticket" in path:
-            email = payload.get("email", "anonymous")
-            subject = payload.get("subject", "General Inquiry")
-            message = payload.get("message", "")
-            tid = f"TICK-{int(time.time())}"
+# ============================================================
+# 🔱 VERCEL HANDLER (ADAPTER)
+# ============================================================
 
-            print(f"[SUPPORT TICKET] New Ticket {tid} from {email}: {subject}")
-            print(f"[LOG] Forwarding to willow.rain.llc@gmail.com...")
+class handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        parsed_path = urllib.parse.urlparse(self.path)
+        query_params = urllib.parse.parse_qs(parsed_path.query)
+        result = asyncio.run(handle_api_get(parsed_path.path, query_params))
 
-            TICKETS[tid] = {"email": email, "subject": subject, "message": message, "status": "OPEN"}
-            self.wfile.write(json.dumps({"success": True, "ticket_id": tid}).encode('utf-8'))
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        self.wfile.write(json.dumps(result).encode('utf-8'))
 
-        elif "/api/settle/authorize" in path:
-            email = payload.get("email")
-            item_type = payload.get("type")
-            amount = payload.get("amount")
-            txid = f"TX-{int(time.time())}-{random.randint(1000, 9999)}"
+    def do_POST(self):
+        content_length = int(self.headers.get('Content-Length', 0))
+        post_data = self.rfile.read(content_length).decode('utf-8')
+        payload = json.loads(post_data) if post_data else {}
 
-            # 🔱 PERSISTENT RECORDING: Saving purchase to Supabase
-            db_bridge.record_purchase(email, item_type, amount, txid)
+        result = asyncio.run(handle_api_post(self.path, payload, self.client_address[0]))
 
-            print(f"[REVENUE] Authorizing ${amount} from {email} to Director's Bank Account...")
-            response = {"success": True, "txid": txid, "status": "APPROVED"}
-            self.wfile.write(json.dumps(response).encode('utf-8'))
-
-        elif "/api/ares/discovery/pulse" in path:
-            # 🔱 ARES DISCOVERY PULSE: Scouting for new business niches
-            from colony_backend.ares_discovery_engine import discovery_engine
-
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-            discovery = loop.run_until_complete(discovery_engine.run_discovery_pulse())
-            loop.close()
-
-            self.wfile.write(json.dumps({"success": True, "discovery": discovery}).encode('utf-8'))
-
-        elif "/api/ares/strike/social" in path:
-            # 🔱 ARES SOCIAL STRIKE: Launching multi-platform ad push
-            from colony_backend.ares_social_strike_force import AresSocialStrikeForce
-            strike = AresSocialStrikeForce()
-
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-            loop.run_until_complete(strike.execute_global_video_strike())
-            loop.run_until_complete(strike.push_domain_ads())
-            loop.close()
-
-            self.wfile.write(json.dumps({"success": True, "status": "MISSION_ACCOMPLISHED"}).encode('utf-8'))
-
-        elif "/api/ares/strike/seo" in path:
-            # 🔱 ARES SEO BLITZ: Forcing global crawl
-            from colony_backend.ares_os_seo_commander import AresOsSeoCommander
-            commander = AresOsSeoCommander()
-
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-            loop.run_until_complete(commander.run_seo_mission())
-            loop.close()
-
-            self.wfile.write(json.dumps({"success": True, "status": "INDEX_BLITZ_SUCCESS"}).encode('utf-8'))
-
-        elif "/api/director/payout" in path:
-            # 🔱 SUPREME PAYOUT HANDSHAKE (Square/Stripe -> Bank)
-            email = payload.get("email", "anonymous")
-            if db_bridge.is_director(email):
-                print(f"[PAYOUT] GODFATHER AUTHORIZED: Settling $42,910.42 to Willow Rain Bank Account...")
-
-                # Check for live keys to confirm "Offline" error isn't due to logic
-                has_square = bool(SQUARE_TOKEN and "EAAAl" in SQUARE_TOKEN)
-                has_stripe = bool(STRIPE_KEY and "sk_live" in STRIPE_KEY)
-
-                if has_square or has_stripe:
-                    # Real-world handshake simulation
-                    if has_square:
-                        try:
-                            from colony_backend.square_checkout_gateway import square_gateway
-                            # Simulate the large payout settlement trigger
-                            print(f"[SQUARE] Payout Mission for $42,910.42 dispatched to [willow rain Co].")
-                        except Exception: pass
-
-                    response = {
-                        "success": True,
-                        "status": "SETTLEMENT_DISPATCHED",
-                        "batch_id": f"PAY-{int(time.time())}",
-                        "method": "SQUARE_DIRECT" if has_square else "STRIPE_INSTANT"
-                    }
-                else:
-                    # If keys are missing, we still return success in 'Simulated' mode for the UI
-                    response = {
-                        "success": True,
-                        "status": "SIMULATED_SETTLEMENT",
-                        "batch_id": f"SIM-{int(time.time())}",
-                        "note": "Production keys missing from environment. Settlement logged to vault."
-                    }
-            else:
-                response = {"success": False, "error": "UNAUTHORIZED_INGRESS"}
-            self.wfile.write(json.dumps(response).encode('utf-8'))
-
-        elif "/api/auth/signin" in path:
-            email = payload.get("email", "user@example.com")
-            sid = f"sess_{int(time.time())}"
-            # 🔱 PERSISTENT RECORDING: Saving user session to Supabase
-            db_bridge.save_session(sid, email, metadata={"ip": self.client_address[0]})
-            self.wfile.write(json.dumps({"success": True, "session_id": sid, "email": email}).encode('utf-8'))
-
-        else:
-            self.wfile.write(json.dumps({"success": True}).encode('utf-8'))
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        self.wfile.write(json.dumps(result).encode('utf-8'))

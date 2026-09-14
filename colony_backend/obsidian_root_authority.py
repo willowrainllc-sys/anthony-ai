@@ -69,7 +69,7 @@ class ObsidianRootAuthority:
         # High-bitrate RSA keys that bind an agency to the Obsidian root authority.
         key_id = f"GOV-{uuid.uuid4().hex[:12].upper()}"
 
-        colony_log(f"✓ ORA SUCCESS: Gov-Keys issued for {agency_name}. ID: {key_id}", node="SUPREME")
+        colony_log(f"[+] ORA SUCCESS: Gov-Keys issued for {agency_name}. ID: {key_id}", node="SUPREME")
         return key_id
 
 if __name__ == "__main__":

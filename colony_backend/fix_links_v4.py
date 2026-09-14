@@ -52,7 +52,7 @@ def fix_html_files():
 
                 if modified:
                     hf.write_text(content, encoding="utf-8")
-                    print(f"✓ Fixed links in {hf.relative_to(root)}")
+                    print(f"[+] Fixed links in {hf.relative_to(root)}")
             except Exception as e:
                 print(f"[-] Error fixing {hf}: {e}")
 

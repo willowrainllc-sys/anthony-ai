@@ -49,7 +49,7 @@ class ObsidianOwnershipKernel:
         # Log to the industrial ledger
         db.log_event("SUPREME", "AI_OWNERSHIP_BOUND", {"reg_id": registration_id, "node": ai_node_id, "owner": owner_legal_name})
 
-        colony_log(f"✓ OWNERSHIP SUCCESS: AI Node [{ai_node_id}] legally bound. Cert: {registration_id}", node="SUPREME")
+        colony_log(f"[+] OWNERSHIP SUCCESS: AI Node [{ai_node_id}] legally bound. Cert: {registration_id}", node="SUPREME")
         return certificate
 
 ownership_kernel = ObsidianOwnershipKernel()

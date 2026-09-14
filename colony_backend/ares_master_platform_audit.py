@@ -21,7 +21,7 @@ class AresPlatformAuditor:
 
         # 1. Audit Pages
         html_pages = list(self.root.glob("*.html"))
-        colony_log(f"✓ PAGE AUDIT: Found {len(html_pages)} verified storefront and dashboard pages.", node="ARES")
+        colony_log(f"[+] PAGE AUDIT: Found {len(html_pages)} verified storefront and dashboard pages.", node="ARES")
 
         # 2. Audit Critical Links
         critical_pages = [
@@ -51,10 +51,10 @@ class AresPlatformAuditor:
         if missing_pages:
             colony_log(f"[-] WARNING: Missing critical pages: {missing_pages}", node="ARES")
         else:
-            colony_log(f"✓ LINK ROUTE AUDIT: All {len(critical_pages)} core navigation routes verified active.", node="ARES")
+            colony_log(f"[+] LINK ROUTE AUDIT: All {len(critical_pages)} core navigation routes verified active.", node="ARES")
 
         # 3. Audit Payment & Registrar Bridges
-        colony_log("✓ PAYMENT BRIDGE AUDIT: Square production gateway & NameSilo wholesale API bridges operational.", node="ARES")
+        colony_log("[+] PAYMENT BRIDGE AUDIT: Square production gateway & NameSilo wholesale API bridges operational.", node="ARES")
 
         db.log_event("ARES", "PLATFORM_AUDIT_COMPLETE", {
             "total_pages": len(html_pages),

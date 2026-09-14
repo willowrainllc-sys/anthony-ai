@@ -58,7 +58,7 @@ class ObsidianAdCreator:
         with open(AD_ASSETS / f"{ad_id}_manifest.json", "w") as f:
             json.dump(artifact, f, indent=4)
 
-        colony_log(f"✓ AD_CREATOR SUCCESS: Creative [{ad_id}] vaulted. Ready for Ad Burst.", node="COMMERCE")
+        colony_log(f"[+] AD_CREATOR SUCCESS: Creative [{ad_id}] vaulted. Ready for Ad Burst.", node="COMMERCE")
         db.log_event("COMMERCE", "AD_CREATIVE_GENERATED", {"ad_id": ad_id, "user": user_id})
 
         return artifact

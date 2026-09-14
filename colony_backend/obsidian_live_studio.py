@@ -55,7 +55,7 @@ class ObsidianLiveStudio:
             except Exception as e:
                 colony_log(f"[-] STUDIO ERROR: {e}", node="SUPREME")
 
-            colony_log("✓ STUDIO: Live View closed by Director.", node="SUPREME")
+            colony_log("[+] STUDIO: Live View closed by Director.", node="SUPREME")
             await browser.close()
 
 if __name__ == "__main__":

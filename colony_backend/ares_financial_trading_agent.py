@@ -54,7 +54,7 @@ class AresFinancialTradingAgent:
                 proof_path = self.vault / f"financial_{asset.replace('/', '_')}_proof.png"
                 await page.screenshot(path=str(proof_path), full_page=True)
 
-                colony_log(f"✓ ARES FINANCIAL SUCCESS: Trade/Claim executed for [{asset}]. Proof vaulted.", node="FINANCE")
+                colony_log(f"[+] ARES FINANCIAL SUCCESS: Trade/Claim executed for [{asset}]. Proof vaulted.", node="FINANCE")
                 db.log_event("FINANCE", "ARES_CRYPTO_TRADE_SUCCESS", {"asset": asset, "action": action})
 
             except Exception as e:

@@ -47,7 +47,7 @@ class ObsidianGhostBlast:
 
             with open(self.telemetry_path, 'w') as f:
                 json.dump(new_data, f, indent=4)
-            colony_log("✓ BURST: Telemetry evolved to Oracle DNA.", node="SUPREME")
+            colony_log("[+] BURST: Telemetry evolved to Oracle DNA.", node="SUPREME")
 
         # 🔱 2. The Broadcast
         print("\n" + "="*60)

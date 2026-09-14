@@ -34,7 +34,7 @@ class ObsidianImageStriker:
             "url": st_charles_view
         })
 
-        colony_log("✓ IMAGE_STRIKER: 4K City View vaulted and pushed to Master Hub.", node="SCRAPER")
+        colony_log("[+] IMAGE_STRIKER: 4K City View vaulted and pushed to Master Hub.", node="SCRAPER")
         return st_charles_view
 
 if __name__ == "__main__":

@@ -55,7 +55,7 @@ class ObsidianModelHub:
                 else:
                     colony_log(f"MODEL_HUB: [{model_name}] already secured in Vault.", node="SOVEREIGN")
 
-        colony_log(f"✓ MODEL_HUB: {cloned_count} models excommunicated from HF and moved to Vault.", node="SOVEREIGN")
+        colony_log(f"[+] MODEL_HUB: {cloned_count} models excommunicated from HF and moved to Vault.", node="SOVEREIGN")
 
     def _register_model(self, name, path):
         with open(self.registry_file, "r+") as f:

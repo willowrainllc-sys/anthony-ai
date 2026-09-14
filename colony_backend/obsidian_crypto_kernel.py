@@ -34,7 +34,7 @@ class ObsidianCryptoKernel:
             """, (public_addr, cashtag))
             conn.commit()
 
-        colony_log(f"✓ CRYPTO SUCCESS: Wallet [{public_addr}] bound to {cashtag}.", node="FINANCE")
+        colony_log(f"[+] CRYPTO SUCCESS: Wallet [{public_addr}] bound to {cashtag}.", node="FINANCE")
         return public_addr
 
     def get_market_price(self, asset="BTC"):
@@ -53,7 +53,7 @@ class ObsidianCryptoKernel:
         proxy_port = 1080 + (int(time.time()) % 100)
         proxy_url = f"socks5://127.0.0.1:{proxy_port}"
 
-        colony_log(f"✓ TRADE: Burst dispatched via Ingress Port [{proxy_port}].", node="FINANCE")
+        colony_log(f"[+] TRADE: Burst dispatched via Ingress Port [{proxy_port}].", node="FINANCE")
         return True, f"TR-{hashlib.md5(str(time.time()).encode()).hexdigest()[:6].upper()}"
 
 crypto_kernel = ObsidianCryptoKernel()

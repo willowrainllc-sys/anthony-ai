@@ -170,7 +170,7 @@ class GlobalNexusHandler(BaseHTTPRequestHandler):
             with open(dest_path, "w", encoding="utf-8") as f:
                 f.write(content)
 
-            colony_log(f"✓ STUDIO: New design [{filename}] received and vaulted in Root.", node="SUPREME")
+            colony_log(f"[+] STUDIO: New design [{filename}] received and vaulted in Root.", node="SUPREME")
             self._send_json({"success": True, "message": f"Design [{filename}] is now staged for deployment."})
             return
 

@@ -26,7 +26,7 @@ class AresRedditStriker:
         for sub in self.subreddits:
             colony_log(f"[*] REDDIT STRIKE: Posting 'How to get wholesale domain pricing' in [{sub}]...", node="SUPREME")
             await asyncio.sleep(1.0)
-            colony_log(f"✓ REDDIT SUCCESS: Thread active in {sub}.", node="SUPREME")
+            colony_log(f"[+] REDDIT SUCCESS: Thread active in {sub}.", node="SUPREME")
 
         # 2. Forum Question Answering
         for network in self.forum_networks:

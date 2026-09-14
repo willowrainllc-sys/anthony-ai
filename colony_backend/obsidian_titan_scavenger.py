@@ -56,7 +56,7 @@ class ObsidianTitanScavenger:
                     self._update_manifest(new_asset)
                     self.indexed_count += 1
 
-                    colony_log(f"✓ SCAVENGER SUCCESS: Captured high-performance MP4 packet. Total: {self.indexed_count}", node="MEDIA")
+                    colony_log(f"[+] SCAVENGER SUCCESS: Captured high-performance MP4 packet. Total: {self.indexed_count}", node="MEDIA")
                     db.log_event("MEDIA", "TITAN_SCAVENGE_COMPLETE", {"asset": new_asset['title']})
 
                     await asyncio.sleep(random.randint(60, 180)) # High-frequency burst

@@ -39,7 +39,7 @@ def update_social_links():
 
                 if content != original_content:
                     file_path.write_text(content, encoding="utf-8")
-                    print(f"✓ Connected: {file_path.name}")
+                    print(f"[+] Connected: {file_path.name}")
             except Exception as e:
                 print(f"[-] Error in {file_path.name}: {e}")
 

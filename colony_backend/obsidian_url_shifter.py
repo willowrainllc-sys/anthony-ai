@@ -29,7 +29,7 @@ def shift_empire_urls_to_obsidian_city():
         except Exception as e:
             pass
 
-    colony_log(f"✓ URL SHIFTER SUCCESS: Shifted empire traffic and scrapers across {updated_count} files to https://obsidian.city!", node="SUPREME")
+    colony_log(f"[+] URL SHIFTER SUCCESS: Shifted empire traffic and scrapers across {updated_count} files to https://obsidian.city!", node="SUPREME")
 
 if __name__ == "__main__":
     shift_empire_urls_to_obsidian_city()

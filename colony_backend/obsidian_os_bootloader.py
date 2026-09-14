@@ -53,7 +53,7 @@ class ObsidianOSBootloader:
         colony_log("[*] BOOT: Projecting Desktop to Sovereign Gateway...", node="SUPREME")
 
         db.log_event("SUPREME", "OBSIDIAN_OS_BOOT_COMPLETE", {"version": "1.0", "motto": "God, Family, Business."})
-        colony_log("✓ BOOT SUCCESS: Obsidian OS is LIVE. All systems are green.", node="SUPREME")
+        colony_log("[+] BOOT SUCCESS: Obsidian OS is LIVE. All systems are green.", node="SUPREME")
 
 if __name__ == "__main__":
     bootloader = ObsidianOSBootloader()

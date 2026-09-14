@@ -33,7 +33,7 @@ class ObsidianWifiEngine:
         try:
             # subprocess.run(["powershell", "-Command", ps_script], capture_output=True)
             self.is_active = True
-            colony_log("✓ WIFI SUCCESS: Hotspot is LIVE. The Nest are handshaking.", node="NETWORK")
+            colony_log("[+] WIFI SUCCESS: Hotspot is LIVE. The Nest are handshaking.", node="NETWORK")
             db.log_event("NETWORK", "HOTSPOT_IGNITED", {"ssid": self.ssid, "purity": 1.0})
         except Exception as e:
             colony_log(f"[-] WIFI ERROR: {e}", node="NETWORK")

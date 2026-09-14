@@ -41,7 +41,7 @@ async def ares_vercel_magic_link():
 
             # Wait until user reaches Vercel dashboard after clicking magic link
             await page.wait_for_url("https://vercel.com/dashboard", timeout=300000)
-            colony_log("✓ ARES SUCCESS: Vercel session authenticated via Magic Link and vaulted!", node="SUPREME")
+            colony_log("[+] ARES SUCCESS: Vercel session authenticated via Magic Link and vaulted!", node="SUPREME")
 
         except Exception as e:
             colony_log(f"[-] VERCEL MAGIC LINK NOTICE: {e}", node="SUPREME")

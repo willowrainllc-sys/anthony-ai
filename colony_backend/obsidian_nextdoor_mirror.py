@@ -39,7 +39,7 @@ class NextdoorMirrorBurst:
 
                 # 🔱 2. Extract Structural Components
                 # (Simulating extraction of feed styles and navigation headers)
-                colony_log("✓ MIRROR SUCCESS: Nextdoor structural DNA vaulted.", node="COMMAND")
+                colony_log("[+] MIRROR SUCCESS: Nextdoor structural DNA vaulted.", node="COMMAND")
 
                 # 🔱 3. Build the 'Obsidian Town' Social Front
                 await self._build_obsidian_town_social()
@@ -110,7 +110,7 @@ class NextdoorMirrorBurst:
         """
 
         (PORTAL_DIR / "town360_social_feed.html").write_text(feed_html)
-        colony_log("✓ MIRROR: 'town360_social_feed.html' published.", node="COMMAND")
+        colony_log("[+] MIRROR: 'town360_social_feed.html' published.", node="COMMAND")
 
 if __name__ == "__main__":
     mirror = NextdoorMirrorBurst()

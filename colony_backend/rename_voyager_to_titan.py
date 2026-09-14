@@ -28,14 +28,14 @@ def rename_entities():
 
         if content != new_content:
             file_path.write_text(new_content, encoding='utf-8')
-            print(f"✓ Renamed in: {file_path.name}")
+            print(f"[+] Renamed in: {file_path.name}")
 
     # 2. Rename the actual file
     old_file = PORTAL_DIR / "titan_landing.html"
     new_file = PORTAL_DIR / "titan_landing.html"
     if old_file.exists():
         os.rename(old_file, new_file)
-        print(f"✓ Renamed File: {old_file.name} -> {new_file.name}")
+        print(f"[+] Renamed File: {old_file.name} -> {new_file.name}")
 
 if __name__ == "__main__":
     rename_entities()

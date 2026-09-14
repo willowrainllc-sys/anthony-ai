@@ -34,7 +34,7 @@ def purge_legacy_references():
         except Exception as e:
             pass
 
-    colony_log(f"✓ PURGE SUCCESS: Cleaned legacy references across {file_count} files!", node="SUPREME")
+    colony_log(f"[+] PURGE SUCCESS: Cleaned legacy references across {file_count} files!", node="SUPREME")
 
 if __name__ == "__main__":
     purge_legacy_references()

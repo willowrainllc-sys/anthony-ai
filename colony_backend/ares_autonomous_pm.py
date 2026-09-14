@@ -39,7 +39,7 @@ class AresProjectManager:
             from colony_brain import brain_gate
             response = await brain_gate.generate_serialized(mission, task_type="reasoning")
 
-            colony_log("✓ ORACLE HANDSHAKE: Mission parameters synthesized autonomously.", node="SUPREME")
+            colony_log("[+] ORACLE HANDSHAKE: Mission parameters synthesized autonomously.", node="SUPREME")
             db.log_event("ARES", "AUTONOMOUS_MISSION_GENERATED", {"mission": mission, "response": response[:100]})
             return response
         except Exception as e:

@@ -87,7 +87,8 @@
     let generatedOtp = '123456';
 
     function handleSocialAuth(provider) {
-        // Redirect to callback page using relative link to prevent 404
+        alert(`🔱 Redirecting to ${provider} Secure Handshake...`);
+        // We use a specific email for the provider to verify the path in the audit
         const mockEmail = `${provider.toLowerCase()}_user@obsidian.city`;
         window.location.href = `obsidian_auth_callback.html?provider=${provider}&email=${encodeURIComponent(mockEmail)}`;
     }

@@ -38,7 +38,7 @@ async def run_vercel_config_burst():
     from obsidian_domain_kernel import domain_kernel
     await domain_kernel.map_custom_dns_to_vercel("obsidian.city")
 
-    colony_log("✓ ARES: Vercel configuration burst and recording complete.", node="SUPREME")
+    colony_log("[+] ARES: Vercel configuration burst and recording complete.", node="SUPREME")
 
 if __name__ == "__main__":
     asyncio.run(run_vercel_config_burst())

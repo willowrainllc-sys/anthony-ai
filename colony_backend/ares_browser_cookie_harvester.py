@@ -29,15 +29,15 @@ class AresCookieHarvester:
 
         # Check Chrome
         if self.chrome_profile.exists():
-            colony_log("✓ FOUND: Google Chrome browser profile detected.", node="SUPREME")
+            colony_log("[+] FOUND: Google Chrome browser profile detected.", node="SUPREME")
             harvested.append("CHROME")
 
         # Check Edge
         if self.edge_profile.exists():
-            colony_log("✓ FOUND: Microsoft Edge browser profile detected.", node="SUPREME")
+            colony_log("[+] FOUND: Microsoft Edge browser profile detected.", node="SUPREME")
             harvested.append("EDGE")
 
-        colony_log(f"✓ ARES COOKIE HARVESTER: Ready to ingest sessions from {', '.join(harvested)}.", node="SUPREME")
+        colony_log(f"[+] ARES COOKIE HARVESTER: Ready to ingest sessions from {', '.join(harvested)}.", node="SUPREME")
         return harvested
 
     async def launch_ares_with_harvested_session(self, target_url: str, browser_type: str = "CHROME"):
@@ -64,7 +64,7 @@ class AresCookieHarvester:
             page = await browser_context.new_page()
             try:
                 await page.goto(target_url, wait_until="networkidle", timeout=60000)
-                colony_log(f"✓ ARES SUCCESS: Loaded {target_url} using authentic [{browser_type}] session cookies!", node="SUPREME")
+                colony_log(f"[+] ARES SUCCESS: Loaded {target_url} using authentic [{browser_type}] session cookies!", node="SUPREME")
                 print(f"\n🔱 [ARES SESSION ACTIVE]: Successfully authenticated via {browser_type} profile.")
                 print("Press Enter in this terminal when finished...")
                 input()

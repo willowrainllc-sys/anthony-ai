@@ -17,7 +17,7 @@ async def test_platform_integrity():
         async with httpx.AsyncClient() as client:
             resp = await client.get(url)
             if resp.status_code == 200:
-                colony_log(f"✓ NAMESILO BRIDGE: Active. Response received.", node="SUPREME")
+                colony_log(f"[+] NAMESILO BRIDGE: Active. Response received.", node="SUPREME")
             else:
                 colony_log(f"[-] NAMESILO BRIDGE: Failed with status {resp.status_code}", node="SUPREME")
     except Exception as e:
@@ -31,7 +31,7 @@ async def test_platform_integrity():
         async with httpx.AsyncClient() as client:
             resp = await client.get("https://connect.squareup.com/v2/locations", headers=headers)
             if resp.status_code == 200:
-                colony_log(f"✓ SQUARE SETTLEMENT: Active. Locations verified.", node="SUPREME")
+                colony_log(f"[+] SQUARE SETTLEMENT: Active. Locations verified.", node="SUPREME")
             else:
                 colony_log(f"[-] SQUARE SETTLEMENT: Unauthorized or inactive.", node="SUPREME")
     except Exception as e:

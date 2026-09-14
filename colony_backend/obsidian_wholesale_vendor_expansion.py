@@ -29,7 +29,7 @@ class WholesaleVendorExpansion:
         for v in self.vendors:
             colony_log(f"[*] VENDOR SYNC: Establishing secure API handshake with [{v['name']} @ {v['endpoint']}]...", node="SUPREME")
             await asyncio.sleep(0.5)
-            colony_log(f"✓ VENDOR ONBOARDED: [{v['name']}] status -> {v['status']}", node="SUPREME")
+            colony_log(f"[+] VENDOR ONBOARDED: [{v['name']}] status -> {v['status']}", node="SUPREME")
 
         db.log_event("SUPREME", "WHOLESALE_VENDORS_EXPANDED", {
             "total_vendors": len(self.vendors),

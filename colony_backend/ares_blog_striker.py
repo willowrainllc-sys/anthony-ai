@@ -27,13 +27,13 @@ class AresBlogStriker:
             topic = random.choice(self.topics)
             colony_log(f"[*] BLOG STRIKE: Injecting 'Obsidian City' coverage into [{network}] (Topic: {topic})...", node="SUPREME")
             await asyncio.sleep(0.8)
-            colony_log(f"✓ STRIKE COMPLETE: Article published on {network}.", node="SUPREME")
+            colony_log(f"[+] STRIKE COMPLETE: Article published on {network}.", node="SUPREME")
 
         # 2. SEO Backlink Handshake
-        colony_log("✓ SEO SPREAD: Cross-linking blog assets to boost 'obsidian.city' authority...", node="SUPREME")
+        colony_log("[+] SEO SPREAD: Cross-linking blog assets to boost 'obsidian.city' authority...", node="SUPREME")
 
         # 3. Community Engagement
-        colony_log("✓ COMM_ENGAGE: ARES nodes participating in 103+ relevant comment threads.", node="SUPREME")
+        colony_log("[+] COMM_ENGAGE: ARES nodes participating in 103+ relevant comment threads.", node="SUPREME")
 
         db.log_event("SUPREME", "BLOG_STRIKE_COMPLETE", {
             "target": self.target_url,

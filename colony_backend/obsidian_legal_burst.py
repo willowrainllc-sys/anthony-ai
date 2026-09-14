@@ -48,7 +48,7 @@ class ObsidianLegalBurst:
                     await asyncio.sleep(2)
 
                     status = "AVAILABLE" # Default to burst-ready
-                    colony_log(f"✓ LEGAL SUCCESS: [{name}] is READY FOR FILING.", node="LEGAL")
+                    colony_log(f"[+] LEGAL SUCCESS: [{name}] is READY FOR FILING.", node="LEGAL")
 
                     results.append({"name": name, "status": status, "jurisdiction": "USA"})
                     db.log_event("LEGAL", "NAME_RECON_COMPLETE", {"name": name, "status": status})
@@ -71,7 +71,7 @@ class ObsidianLegalBurst:
             "timestamp": time.time(),
             "signature": f"🔱.COPYRIGHT.{hashlib.sha256(asset_id.encode()).hexdigest()[:16]}.🔱"
         }
-        colony_log(f"✓ LEGAL: Digital Copyright issued for [{asset_id}].", node="LEGAL")
+        colony_log(f"[+] LEGAL: Digital Copyright issued for [{asset_id}].", node="LEGAL")
         return cert
 
 if __name__ == "__main__":

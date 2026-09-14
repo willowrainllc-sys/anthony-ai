@@ -7,7 +7,7 @@ const AURA_OFFERS = [
     { label: '.COM EXCLUSIVE', price: '$14.70', url: 'obsidian_domains.html', img: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=300' },
     { label: 'DELAWARE LLC', price: '$39.00', url: 'obsidian_llc_formation.html', img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=300' },
     { label: 'GLOBAL MESH', price: 'EARN $', url: 'obsidian_data_sharing.html', img: 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=300' },
-    { label: 'OBSIDIAN AI BUILDER', price: 'FREE', url: 'obsidian_obsidian_ai_builder.html', img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=300' }
+    { label: 'Obsidian ASI BUILDER', price: 'FREE', url: 'obsidian_obsidian_ai_builder.html', img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=300' }
 ];
 
 /**
@@ -22,7 +22,7 @@ function getApiUrl(endpoint) {
 
 
 /**
- * 🔱 OBSIDIAN AI CHAT AGENT UI
+ * 🔱 Obsidian ASI CHAT AGENT UI
  */
 function initObsidianAIChat() {
     // 1. Create Floating Trigger

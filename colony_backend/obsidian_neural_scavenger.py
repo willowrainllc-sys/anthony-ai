@@ -46,7 +46,7 @@ class ObsidianNeuralScavenger:
         with open(self.vault_dir / f"{mosaic_id}.json", "w") as f:
             json.dump({"target": target_url, "fragments": fragments, "status": "RECONSTRUCTED"}, f)
 
-        colony_log(f"✓ SCAVENGER SUCCESS: Intelligence Mosaic [{mosaic_id}] reassembled in Vault.", node="RECON")
+        colony_log(f"[+] SCAVENGER SUCCESS: Intelligence Mosaic [{mosaic_id}] reassembled in Vault.", node="RECON")
         db.log_event("RECON", "FRAGMENT_INGRESS_COMPLETE", {"target": target_url, "mosaic": mosaic_id})
 
 scavenger = ObsidianNeuralScavenger()

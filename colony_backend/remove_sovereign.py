@@ -47,7 +47,7 @@ def remove_sovereign():
 
                 if content != original_content:
                     file_path.write_text(content, encoding="utf-8")
-                    print(f"✓ Cleaned: {file_path.relative_to(root)}")
+                    print(f"[+] Cleaned: {file_path.relative_to(root)}")
             except Exception as e:
                 print(f"[-] Error processing {file_path}: {e}")
 

@@ -51,7 +51,7 @@ class AresDnsVercelFixer:
         colony_log("ARES VERCEL: Triggering autonomous Vercel redeploy and cache purge...", node="SUPREME")
         await ares.autonomous_vercel_redeploy(project_name="obsidian-city", domain="obsidian.city")
 
-        colony_log("✓ ARES DNS & VERCEL FIXER: Infrastructure repair complete!", node="SUPREME")
+        colony_log("[+] ARES DNS & VERCEL FIXER: Infrastructure repair complete!", node="SUPREME")
 
 if __name__ == "__main__":
     fixer = AresDnsVercelFixer()

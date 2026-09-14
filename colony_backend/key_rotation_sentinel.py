@@ -39,12 +39,12 @@ class KeyRotationSentinel:
             if val.startswith("cert_") or val.startswith("sk_test") or "placeholder" in val.lower():
                 colony_log(f"[!] WARNING: Critical key [{key}] is in SANDBOX/TEST mode.", node="ARES")
             else:
-                colony_log(f"✓ VERIFIED: [{key}] is in PRODUCTION/LIVE mode.", node="ARES")
+                colony_log(f"[+] VERIFIED: [{key}] is in PRODUCTION/LIVE mode.", node="ARES")
 
         # Simulate Expiration Check
         colony_log("[*] SENTINEL: Checking OAuth token longevity for YouTube & Meta...", node="ARES")
         await asyncio.sleep(1)
-        colony_log("✓ OAUTH SYNC: All tokens valid for > 48h.", node="ARES")
+        colony_log("[+] OAUTH SYNC: All tokens valid for > 48h.", node="ARES")
 
     async def run_rotation_daemon(self):
         """Background daemon to ensure keys are always fresh."""

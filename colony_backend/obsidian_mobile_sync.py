@@ -59,7 +59,7 @@ def run_sync():
             for hf in html_files:
                 shutil.copy2(hf, t)
 
-            print(f"✓ Synced Mobile Assets to: {t}")
+            print(f"[+] Synced Mobile Assets to: {t}")
 
 if __name__ == "__main__":
     run_sync()

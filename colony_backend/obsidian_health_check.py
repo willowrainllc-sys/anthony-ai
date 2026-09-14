@@ -30,7 +30,7 @@ class ObsidianHealthAudit:
             async with httpx.AsyncClient(timeout=5.0) as client:
                 resp = await client.get(f"{self.base_url}/api/status")
                 if resp.status_code == 200:
-                    print("✓ INTERNAL API: Sovereign Server Online.")
+                    print("[+] INTERNAL API: Sovereign Server Online.")
                 else:
                     print(f"[-] INTERNAL API: Warning (Status {resp.status_code})")
         except:
@@ -41,14 +41,14 @@ class ObsidianHealthAudit:
             if not val or "placeholder" in val.lower() or "cert_" in val.lower():
                 print(f"[!] {name} KEY: Sandbox/Missing Mode.")
             else:
-                print(f"✓ {name} KEY: Production Mode Active.")
+                print(f"[+] {name} KEY: Production Mode Active.")
 
         # 3. External Service Ping
         try:
             async with httpx.AsyncClient(timeout=5.0) as client:
                 # Mock ping to NameSilo
                 resp = await client.get("https://www.namesilo.com/api/getAccountBalance?version=1&type=xml&key=invalid")
-                print("✓ EXTERNAL MESH: Global registry reachable.")
+                print("[+] EXTERNAL MESH: Global registry reachable.")
         except:
             print("[-] EXTERNAL MESH: Connection throttled.")
 

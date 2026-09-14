@@ -60,7 +60,7 @@ class ObsidianAresEngine:
 
                 shot_path = self.recon_vault / "vercel_domains_debug.png"
                 await page.screenshot(path=str(shot_path), full_page=True)
-                colony_log(f"✓ ARES VISUAL: Screenshot vaulted to {shot_path}", node="SUPREME")
+                colony_log(f"[+] ARES VISUAL: Screenshot vaulted to {shot_path}", node="SUPREME")
 
                 print("\n" + "="*70)
                 print("  🔱 ARES VISUAL UI FIXER ACTIVE")

@@ -116,7 +116,7 @@ class ServicesMirrorBurst:
 </html>
         """
         (PORTAL_DIR / "town360_services.html").write_text(html)
-        colony_log("✓ MIRROR: 'town360_services.html' published.", node="COMMAND")
+        colony_log("[+] MIRROR: 'town360_services.html' published.", node="COMMAND")
 
 if __name__ == "__main__":
     mirror = ServicesMirrorBurst()

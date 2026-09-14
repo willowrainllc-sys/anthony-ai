@@ -33,7 +33,7 @@ class AresPlaywrightPermanentRunner:
 
             try:
                 await page.goto(target_url, wait_until="networkidle", timeout=60000)
-                colony_log(f"✓ ARES PLAYWRIGHT SUCCESS: Successfully loaded {target_url} under permanent stealth mode.", node="SUPREME")
+                colony_log(f"[+] ARES PLAYWRIGHT SUCCESS: Successfully loaded {target_url} under permanent stealth mode.", node="SUPREME")
 
                 print(f"\n" + "="*70)
                 print(f"  🔱 ARES PLAYWRIGHT PERMANENT RUNNER ACTIVE")

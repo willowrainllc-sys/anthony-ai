@@ -49,7 +49,7 @@ async def run_ares_vercel_domain_automation():
                 except:
                     colony_log("[-] ARES: Login timeout reached.", node="SUPREME")
 
-            colony_log("✓ ARES: Authenticated on Vercel Domains panel.", node="SUPREME")
+            colony_log("[+] ARES: Authenticated on Vercel Domains panel.", node="SUPREME")
 
             # Look for domain input field
             colony_log("ARES: Locating domain input field...", node="SUPREME")
@@ -59,19 +59,19 @@ async def run_ares_vercel_domain_automation():
             try:
                 await page.wait_for_selector(input_selector, timeout=10000)
                 await page.fill(input_selector, "obsidian.city")
-                colony_log("✓ ARES: Entered domain [obsidian.city].", node="SUPREME")
+                colony_log("[+] ARES: Entered domain [obsidian.city].", node="SUPREME")
 
                 # Click Add button
                 add_btn_selector = "button:has-text('Add'), button:has-text('Save')"
                 await page.click(add_btn_selector)
-                colony_log("✓ ARES: Clicked Add domain button.", node="SUPREME")
+                colony_log("[+] ARES: Clicked Add domain button.", node="SUPREME")
 
                 await asyncio.sleep(5)
 
                 # Take proof screenshot
                 proof_path = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\recon_vault\ares_bursts\vercel_domain_added_proof.png")
                 await page.screenshot(path=str(proof_path), full_page=True)
-                colony_log(f"✓ ARES SUCCESS: Vercel domain linked! Proof saved to {proof_path}", node="SUPREME")
+                colony_log(f"[+] ARES SUCCESS: Vercel domain linked! Proof saved to {proof_path}", node="SUPREME")
 
             except Exception as e:
                 colony_log(f"[-] ARES DOMAIN INTERACTION NOTICE: {e}. Please add 'obsidian.city' manually in the opened browser window.", node="SUPREME")

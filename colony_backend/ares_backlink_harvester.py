@@ -36,7 +36,7 @@ class AresBacklinkHarvester:
         # 🔱 Step 3: Injection (Simulated Successes)
         sites = ["TechCrunch Cluster", "IndieHackers Hub", "VentureBeat Mirror"]
         for s in sites:
-            colony_log(f"✓ HARVEST SUCCESS: Backlink opportunity secured on {s}.", node="SEO")
+            colony_log(f"[+] HARVEST SUCCESS: Backlink opportunity secured on {s}.", node="SEO")
             db.log_event("SEO", "BACKLINK_SECURED", {"site": s, "type": "ORGANIC_GUEST_POST"})
 
         print("\n" + "="*70)

@@ -34,7 +34,7 @@ class ObsidianSovereignVPN:
         self.active_tunnels = 103
         self.is_active = True
 
-        colony_log(f"✓ VPN SUCCESS: {self.active_tunnels} Ghost Tunnels established. WireGuard removed.", node="SECURITY")
+        colony_log(f"[+] VPN SUCCESS: {self.active_tunnels} Ghost Tunnels established. WireGuard removed.", node="SECURITY")
 
         db.log_event("SECURITY", "SOVEREIGN_VPN_ACTIVE", {
             "protocol": self.tunnel_protocol,

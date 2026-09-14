@@ -36,7 +36,7 @@ class ObsidianNotaryEngine:
                 # Logic to find input fields and inject the signature token
                 # await page.fill("#signature-field", self.signature_token)
 
-                colony_log("✓ E-SIGN SUCCESS: Document DNA sealed with Maestas Root Key.", node="SECURITY")
+                colony_log("[+] E-SIGN SUCCESS: Document DNA sealed with Maestas Root Key.", node="SECURITY")
                 db.log_event("SECURITY", "ESIGN_COMPLETE", {"doc": document_url})
             except Exception as e:
                 colony_log(f"[-] E-SIGN ERROR: {e}", node="SECURITY")
@@ -48,7 +48,7 @@ class ObsidianNotaryEngine:
         colony_log(f"🏛️ NOTARY: Requesting RON session for [{customer_data['name']}]", node="SUPREME")
         # Logic to POST to the RON platform API or automate the form fill
         await asyncio.sleep(2)
-        colony_log("✓ NOTARY SUCCESS: Session Reviewing. Handshake scheduled.", node="SUPREME")
+        colony_log("[+] NOTARY SUCCESS: Session Reviewing. Handshake scheduled.", node="SUPREME")
 
 if __name__ == "__main__":
     engine = ObsidianNotaryEngine()

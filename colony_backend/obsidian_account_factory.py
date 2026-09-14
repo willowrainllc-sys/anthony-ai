@@ -131,7 +131,7 @@ class ObsidianAccountFactory:
         with open(bot_folder / "auth_state.json", "w") as f:
             json.dump(mock_state, f)
 
-        colony_log(f"✓ FACTORY: {bot_id} is born. Ready for code-based dominance.", node="SUPREME")
+        colony_log(f"[+] FACTORY: {bot_id} is born. Ready for code-based dominance.", node="SUPREME")
         return bot_id
 
     async def birth_seo_specialist(self):
@@ -145,7 +145,7 @@ class ObsidianAccountFactory:
         bot_folder.mkdir(parents=True, exist_ok=True)
 
         # SEO Specialists use their own internal training logic (node_seo_specialist.py)
-        colony_log(f"✓ FACTORY: {bot_id} is born. Trained in Playwright Indexing.", node="SUPREME")
+        colony_log(f"[+] FACTORY: {bot_id} is born. Trained in Playwright Indexing.", node="SUPREME")
         return bot_id
 
     async def birth_ui_architect(self):
@@ -158,7 +158,7 @@ class ObsidianAccountFactory:
         bot_folder = PERSONA_VAULT / bot_id
         bot_folder.mkdir(parents=True, exist_ok=True)
 
-        colony_log(f"✓ FACTORY: {bot_id} is born. Trained in Hyper Frame Injection.", node="SUPREME")
+        colony_log(f"[+] FACTORY: {bot_id} is born. Trained in Hyper Frame Injection.", node="SUPREME")
         return bot_id
 
     async def birth_mirror_specialist(self):
@@ -171,7 +171,7 @@ class ObsidianAccountFactory:
         bot_folder = PERSONA_VAULT / bot_id
         bot_folder.mkdir(parents=True, exist_ok=True)
 
-        colony_log(f"✓ FACTORY: {bot_id} is born. Trained in Pattern Recognition & Mirroring.", node="SUPREME")
+        colony_log(f"[+] FACTORY: {bot_id} is born. Trained in Pattern Recognition & Mirroring.", node="SUPREME")
         return bot_id
 
     async def birth_merchant_architect(self):
@@ -184,7 +184,7 @@ class ObsidianAccountFactory:
         bot_folder = PERSONA_VAULT / bot_id
         bot_folder.mkdir(parents=True, exist_ok=True)
 
-        colony_log(f"✓ FACTORY: {bot_id} is born. Trained in 'SHEIN-Style' Storefront Scaling.", node="SUPREME")
+        colony_log(f"[+] FACTORY: {bot_id} is born. Trained in 'SHEIN-Style' Storefront Scaling.", node="SUPREME")
         return bot_id
 
     async def birth_netlify_architect(self):
@@ -197,7 +197,7 @@ class ObsidianAccountFactory:
         bot_folder = PERSONA_VAULT / bot_id
         bot_folder.mkdir(parents=True, exist_ok=True)
 
-        colony_log(f"✓ FACTORY: {bot_id} is born. Trained in 'Zero-Friction' Global Publishing.", node="SUPREME")
+        colony_log(f"[+] FACTORY: {bot_id} is born. Trained in 'Zero-Friction' Global Publishing.", node="SUPREME")
         return bot_id
 
 account_factory = ObsidianAccountFactory()

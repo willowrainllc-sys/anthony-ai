@@ -39,7 +39,7 @@ class AresDomainProvisioner:
                 # but Stealth is used for edge-case UI interactions.
 
                 await asyncio.sleep(2)
-                colony_log(f"✓ ARES PROVISIONER: Domain [{domain_name}] successfully provisioned and locked to [{owner_email}].", node="ARES")
+                colony_log(f"[+] ARES PROVISIONER: Domain [{domain_name}] successfully provisioned and locked to [{owner_email}].", node="ARES")
 
                 return True
             except Exception as e:

@@ -33,7 +33,7 @@ def evolve_app():
 
                 if content != new_content:
                     file_path.write_text(new_content, encoding='utf-8')
-                    print(f"✓ App Evolved: {file_path.relative_to(ROOT)}")
+                    print(f"[+] App Evolved: {file_path.relative_to(ROOT)}")
             except Exception as e:
                 print(f"[-] Error in {file_path}: {e}")
 

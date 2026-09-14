@@ -29,11 +29,11 @@ class AresSocialSeoBlastEngine:
 
         # 2. Social Video Ad Blast
         for platform in self.platforms:
-            colony_log(f"✓ SOCIAL BLAST: Publishing promotional St. Charles aerial & domain video ad to [{platform}]...", node="SUPREME")
+            colony_log(f"[+] SOCIAL BLAST: Publishing promotional St. Charles aerial & domain video ad to [{platform}]...", node="SUPREME")
             await asyncio.sleep(0.5)
 
         # 3. Repository & API Broadcast
-        colony_log("✓ REPO & API PUSH: Broadcasting wholesale domain registrar ingress across all active vendor ports.", node="SUPREME")
+        colony_log("[+] REPO & API PUSH: Broadcasting wholesale domain registrar ingress across all active vendor ports.", node="SUPREME")
 
         db.log_event("SUPREME", "SOCIAL_SEO_BLAST_COMPLETE", {
             "target": self.target_url,

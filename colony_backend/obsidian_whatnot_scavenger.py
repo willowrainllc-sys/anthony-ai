@@ -44,7 +44,7 @@ class WhatnotScavenger:
                 # Logic to identify the 'Enter Giveaway' button and click it
                 # Logic to provide St. Charles HQ address on win
 
-                colony_log(f"✓ SCAVENGER [{self.node_id}]: Giveaway pulse dispatched. Status: GATHERING.", node="RECON")
+                colony_log(f"[+] SCAVENGER [{self.node_id}]: Giveaway pulse dispatched. Status: GATHERING.", node="RECON")
 
                 await browser.close()
             except Exception as e:

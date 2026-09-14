@@ -33,7 +33,7 @@ class NativeBrainEngine:
             model=self.model,
             tokenizer=self.tokenizer,
         )
-        colony_log("✓ NATIVE_BRAIN: Base is ONLINE and Autonomous.", node="BRAIN_BASE")
+        colony_log("[+] NATIVE_BRAIN: Base is ONLINE and Autonomous.", node="BRAIN_BASE")
 
     def generate(self, prompt: str, system_msg: str = "") -> str:
         messages = [

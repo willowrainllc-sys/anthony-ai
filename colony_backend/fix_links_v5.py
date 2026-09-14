@@ -54,7 +54,7 @@ def repair_links():
 
                 if content != original_content:
                     hf.write_text(content, encoding="utf-8")
-                    print(f"✓ Repaired: {hf.relative_to(root)}")
+                    print(f"[+] Repaired: {hf.relative_to(root)}")
             except Exception as e:
                 print(f"[-] Error in {hf}: {e}")
 

@@ -42,7 +42,7 @@ class AresDiscoveryEngine:
             artifact_id = f"DISC-{uuid_hex()}" if 'uuid_hex' in globals() else f"DISC-{random.randint(1000,9999)}"
             self._vault_artifact(artifact_id, discovery_artifact)
 
-            colony_log(f"✓ DISCOVERY SECURED: New empire blueprint [{artifact_id}] vaulted.", node="SUPREME")
+            colony_log(f"[+] DISCOVERY SECURED: New empire blueprint [{artifact_id}] vaulted.", node="SUPREME")
             db.log_event("SUPREME", "RESEARCH_DISCOVERY_COMPLETE", {"niche": niche, "artifact": artifact_id})
             return discovery_artifact
         except Exception as e:

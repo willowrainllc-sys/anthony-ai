@@ -38,7 +38,7 @@ def obfuscate():
 
         if content != new_content:
             file_path.write_text(new_content, encoding='utf-8')
-            print(f"✓ Obfuscated: {file_path.name}")
+            print(f"[+] Obfuscated: {file_path.name}")
 
 if __name__ == "__main__":
     obfuscate()

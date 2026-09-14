@@ -45,7 +45,7 @@ class AresFullyAutonomousSetup:
             }
             try:
                 resp = await client.post(proj_url, headers=self.headers, json=proj_payload)
-                colony_log(f"✓ AUTO-CONFIG: Project [{PROJECT_NAME}] verified/created (Status: {resp.status_code})", node="SUPREME")
+                colony_log(f"[+] AUTO-CONFIG: Project [{PROJECT_NAME}] verified/created (Status: {resp.status_code})", node="SUPREME")
             except Exception as e:
                 colony_log(f"[*] Project sync notice: {e}", node="SUPREME")
 
@@ -55,7 +55,7 @@ class AresFullyAutonomousSetup:
                 dom_payload = {"name": domain}
                 try:
                     resp = await client.post(dom_url, headers=self.headers, json=dom_payload)
-                    colony_log(f"✓ AUTO-CONFIG: Domain [{domain}] bound to [{PROJECT_NAME}] (Status: {resp.status_code})", node="SUPREME")
+                    colony_log(f"[+] AUTO-CONFIG: Domain [{domain}] bound to [{PROJECT_NAME}] (Status: {resp.status_code})", node="SUPREME")
                 except Exception as e:
                     colony_log(f"[*] Domain sync notice [{domain}]: {e}", node="SUPREME")
 
@@ -77,7 +77,7 @@ class AresFullyAutonomousSetup:
                 if resp.status_code in [200, 201]:
                     data = resp.json()
                     url = data.get("url", "N/A")
-                    colony_log(f"✓ AUTO-CONFIG SUCCESS: Live production deployment active at https://{url}", node="SUPREME")
+                    colony_log(f"[+] AUTO-CONFIG SUCCESS: Live production deployment active at https://{url}", node="SUPREME")
                     print(f"\n" + "="*70)
                     print(f"  🔱 ARES FULLY AUTONOMOUS CONFIGURATION COMPLETE")
                     print(f"  DOMAIN: https://{DOMAIN_NAME}")

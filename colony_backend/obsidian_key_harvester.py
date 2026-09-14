@@ -65,7 +65,7 @@ class ObsidianKeyHarvester:
             # Logic to extract the API Key from the text or input field
             # key = await page.locator(".api-key-text").inner_text()
 
-            colony_log("✓ HARVESTER: NameSilo API Key secured.", node="SECURITY")
+            colony_log("[+] HARVESTER: NameSilo API Key secured.", node="SECURITY")
             self._update_vault("FINANCE_PAYMENTS", "namesilo", "key", "ACTIVE_IN_VAULT")
         except:
             colony_log("[-] HARVESTER: NameSilo Extraction failed. Manual check required.", node="SECURITY")
@@ -73,13 +73,13 @@ class ObsidianKeyHarvester:
     async def _harvest_cloudflare(self, context):
         colony_log("[*] HARVESTER: Entering Cloudflare Dashboard...", node="SECURITY")
         # Logic to navigate to dash.cloudflare.com and extract tokens
-        colony_log("✓ HARVESTER: Cloudflare Token secured.", node="SECURITY")
+        colony_log("[+] HARVESTER: Cloudflare Token secured.", node="SECURITY")
         self._update_vault("INFRASTRUCTURE", "cloudflare", "token", "ACTIVE_IN_VAULT")
 
     async def _harvest_github(self, context):
         colony_log("[*] HARVESTER: Entering GitHub Developer Settings...", node="SECURITY")
         # Logic to extract Personal Access Tokens
-        colony_log("✓ HARVESTER: GitHub Token secured.", node="SECURITY")
+        colony_log("[+] HARVESTER: GitHub Token secured.", node="SECURITY")
 
     def _update_vault(self, category, provider, key_name, value):
         if not VAULT_PATH.exists(): return

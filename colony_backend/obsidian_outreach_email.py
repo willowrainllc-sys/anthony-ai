@@ -34,7 +34,7 @@ class ObsidianOutreachEmail:
 
         await asyncio.sleep(2)
 
-        colony_log(f"✓ OUTREACH SUCCESS: Pitch sent to [{target_email}]. Status: PENDING_HANDSHAKE.", node="COMMERCE")
+        colony_log(f"[+] OUTREACH SUCCESS: Pitch sent to [{target_email}]. Status: PENDING_HANDSHAKE.", node="COMMERCE")
         db.log_event("COMMERCE", "OUTREACH_PITCH_SENT", {"email": target_email, "subject": subject})
         return True
 

@@ -36,7 +36,7 @@ class AresVercelRotator:
             async with httpx.AsyncClient(timeout=10.0) as client:
                 resp = await client.get(self.target_url, follow_redirects=True)
                 status = resp.status_code
-                colony_log(f"✓ VERCEL ROTATOR: Health check on {self.target_url} returned Status [{status}]", node="ARES")
+                colony_log(f"[+] VERCEL ROTATOR: Health check on {self.target_url} returned Status [{status}]", node="ARES")
         except Exception as e:
             colony_log(f"[-] VERCEL ROTATOR WARNING: Edge ping note: {e}", node="ARES")
             status = 200 # Assumed healthy via edge cache

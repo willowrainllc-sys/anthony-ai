@@ -21,7 +21,7 @@ class ObsidianDatabase:
             try:
                 self.client: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
                 self.active = True
-                print("✓ OBSIDIAN DATABASE: Supabase Link Active.")
+                print("[+] OBSIDIAN DATABASE: Supabase Link Active.")
             except Exception as e:
                 print(f"[-] DATABASE ERROR: {e}")
         else:

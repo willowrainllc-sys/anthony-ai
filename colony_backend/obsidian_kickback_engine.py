@@ -41,7 +41,7 @@ class ObsidianKickbackEngine:
                 # 4. Generate the 'Kickback' Payload
                 kickback_msg = f"[OBSIDIAN_SYNC]: {filtered_thought} | Supported by {sponsor}"
 
-                colony_log(f"✓ KICKBACK: Filtered and Dispatched -> {kickback_msg[:60]}...", node="MEDIA")
+                colony_log(f"[+] KICKBACK: Filtered and Dispatched -> {kickback_msg[:60]}...", node="MEDIA")
 
                 db.log_event("MEDIA", "KICKBACK_DELIVERED", {
                     "raw": raw_thought,

@@ -37,7 +37,7 @@ class AresSocialStrikeForce:
             success = True # Mocking success for the pulse
 
             if success:
-                colony_log(f"✓ STRIKE SUCCESS: Published to {platform}.", node="ARES")
+                colony_log(f"[+] STRIKE SUCCESS: Published to {platform}.", node="ARES")
             else:
                 colony_log(f"[-] STRIKE FAILED: {platform} API throttled.", node="ARES")
 

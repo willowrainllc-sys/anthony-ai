@@ -50,7 +50,7 @@ class AresOsSeoCommander:
             async with httpx.AsyncClient(timeout=10.0) as client:
                 resp = await client.post(url, json=payload)
                 if resp.status_code == 200:
-                    colony_log("✓ INDEXNOW SUCCESS: URLs pushed to Bing/Yandex cluster.", node="SUPREME")
+                    colony_log("[+] INDEXNOW SUCCESS: URLs pushed to Bing/Yandex cluster.", node="SUPREME")
                 else:
                     colony_log(f"[-] INDEXNOW WARNING: Status {resp.status_code}", node="SUPREME")
         except Exception as e:
@@ -65,7 +65,7 @@ class AresOsSeoCommander:
             colony_log(f"[*] PING: Signaling {service}...", node="SUPREME")
             await asyncio.sleep(0.2)
 
-        colony_log("✓ PING SUCCESS: Global notification cycle complete.", node="SUPREME")
+        colony_log("[+] PING SUCCESS: Global notification cycle complete.", node="SUPREME")
 
     async def run_seo_mission(self):
         print("\n" + "="*70)

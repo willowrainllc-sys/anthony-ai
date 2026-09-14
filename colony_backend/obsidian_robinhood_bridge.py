@@ -30,7 +30,7 @@ class ObsidianRobinhoodBridge:
             cmd = f"python {self.root_dir}/colony_backend/obsidian_voyager_shell.py --url={self.robinhood_url} --node={self.target_node}"
             subprocess.Popen(f"start /b {cmd}", shell=True)
 
-            colony_log(f"✓ FINANCE SUCCESS: Robinhood Ingress established. Awaiting Director handshake.", node="FINANCE")
+            colony_log(f"[+] FINANCE SUCCESS: Robinhood Ingress established. Awaiting Director handshake.", node="FINANCE")
 
             db.log_event("FINANCE", "ROBINHOOD_BRIDGE_ACTIVE", {
                 "node": self.target_node,

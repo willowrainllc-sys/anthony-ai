@@ -46,7 +46,7 @@ class FreeAPIScout:
                     if "Meteo" in content: discovered_providers.append({"name": "Open-Meteo", "type": "Weather", "key": "KEYLESS"})
                     if "Gemini" in content: discovered_providers.append({"name": "Google Gemini", "type": "AI", "auth": "Google Account"})
 
-                    colony_log(f"✓ SCOUT: Ingress signals detected on {target}.", node="SECURITY")
+                    colony_log(f"[+] SCOUT: Ingress signals detected on {target}.", node="SECURITY")
                 except Exception as e:
                     colony_log(f"[-] SCOUT FAIL [{target}]: {e}", node="SECURITY")
 

@@ -60,7 +60,7 @@ class CompetitorReconBurst:
                     with open(RECON_DIR / f"{industry}_intel.json", "w") as f:
                         json.dump(intel, f, indent=4)
 
-                    colony_log(f"✓ RECON SUCCESS: [{industry}] DNA vaulted.", node="COMMAND")
+                    colony_log(f"[+] RECON SUCCESS: [{industry}] DNA vaulted.", node="COMMAND")
                     db.log_event("COMMAND", "RECON_COMPLETE", {"industry": industry, "status": "VAULTED"})
 
                 except Exception as e:

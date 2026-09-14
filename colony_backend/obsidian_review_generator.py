@@ -43,7 +43,7 @@ class ObsidianReviewGenerator:
                     "aura_score": 100
                 }
 
-                colony_log(f"✓ REVIEWS: Pulse complete -> {review['content'][:50]}...", node="MEDIA")
+                colony_log(f"[+] REVIEWS: Pulse complete -> {review['content'][:50]}...", node="MEDIA")
                 db.log_event("MEDIA", "REVIEW_GENERATED", review)
 
                 # 4. Inject into the Portal

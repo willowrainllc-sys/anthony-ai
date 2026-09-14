@@ -50,7 +50,7 @@ class AresSpatialOracle:
             json_str = raw_content.replace('```json', '').replace('```', '').strip()
             predictions = json.loads(json_str)
 
-            colony_log(f"✓ SPATIAL INTEL RECEIVED: Predicted {len(predictions)} growth vectors.", node="ARES")
+            colony_log(f"[+] SPATIAL INTEL RECEIVED: Predicted {len(predictions)} growth vectors.", node="ARES")
 
             # Vault the Prediction
             db.log_event("ARES", "SPATIAL_PREDICTION_READY", predictions)

@@ -28,7 +28,7 @@ class AresSafetyWatcher:
             "human_alignment": "100%"
         }
 
-        colony_log(f"✓ ALIGNMENT CHECK: Safety Score: 0.98. Directive Approved.", node="SECURITY")
+        colony_log(f"[+] ALIGNMENT CHECK: Safety Score: 0.98. Directive Approved.", node="SECURITY")
         db.log_event("SECURITY", "DIRECTIVE_VERIFIED", {"directive": directive[:50], "score": 0.98})
         return True
 

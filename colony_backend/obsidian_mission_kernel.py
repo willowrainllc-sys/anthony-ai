@@ -34,7 +34,7 @@ class ObsidianMissionKernel:
         }
 
         db.log_event("SUPREME", "OPS_SYNC_COMPLETE", stats)
-        colony_log(f"✓ MISSION UNIFIED: Operations are now routed to the Arkansas bunker.", node="SUPREME")
+        colony_log(f"[+] MISSION UNIFIED: Operations are now routed to the Arkansas bunker.", node="SUPREME")
         return stats
 
 mission_kernel = ObsidianMissionKernel()

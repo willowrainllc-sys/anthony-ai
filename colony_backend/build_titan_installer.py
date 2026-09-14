@@ -23,12 +23,12 @@ def build_standalone_titan():
         zipf.write(PORTAL_DIR / "assets" / "hyper_frame.css", arcname="assets/hyper_frame.css")
         zipf.write(PORTAL_DIR / "assets" / "hyper_frame.js", arcname="assets/hyper_frame.js")
 
-    print(f"✓ WINDOWS: Standalone Bundle created at {win_zip.name}")
+    print(f"[+] WINDOWS: Standalone Bundle created at {win_zip.name}")
 
     # 2. MacOS Bundle (DMG Placeholder)
     macos_file = DIST_DIR / "titan_browser_macos.dmg"
     macos_file.write_text("OBSIDIAN TITAN MACOS_BURST_ACTIVE")
-    print(f"✓ MACOS: Burst package prepared at {macos_file.name}")
+    print(f"[+] MACOS: Burst package prepared at {macos_file.name}")
 
 if __name__ == "__main__":
     build_standalone_titan()

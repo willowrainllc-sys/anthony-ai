@@ -35,7 +35,7 @@ class AresMasterEmpireFixer:
         try:
             from obsidian_domain_kernel import domain_kernel
             await domain_kernel.map_custom_dns_to_vercel("obsidian.city")
-            colony_log("✓ DOMAIN INGRESS: Obsidian City DNS bridge verified.", node="SUPREME")
+            colony_log("[+] DOMAIN INGRESS: Obsidian City DNS bridge verified.", node="SUPREME")
         except Exception as e:
             colony_log(f"[-] DOMAIN INGRESS NOTICE: {e}", node="SUPREME")
 
@@ -49,7 +49,7 @@ class AresMasterEmpireFixer:
             index_dst = assets_dir / "index.html"
             if index_src.exists():
                 index_dst.write_text(index_src.read_text(encoding="utf-8"), encoding="utf-8")
-                colony_log("✓ MOBILE ASSETS: Master Hub synced to Android app assets.", node="SUPREME")
+                colony_log("[+] MOBILE ASSETS: Master Hub synced to Android app assets.", node="SUPREME")
         except Exception as e:
             colony_log(f"[-] MOBILE ASSETS NOTICE: {e}", node="SUPREME")
 
@@ -59,7 +59,7 @@ class AresMasterEmpireFixer:
             from disciple_growth_engine import DiscipleGrowthEngine
             growth_engine = DiscipleGrowthEngine()
             asyncio.create_task(growth_engine.run_growth_loop())
-            colony_log("✓ SOCIAL DOMINANCE: Growth engine online.", node="SUPREME")
+            colony_log("[+] SOCIAL DOMINANCE: Growth engine online.", node="SUPREME")
         except Exception as e:
             colony_log(f"[-] SOCIAL DOMINANCE NOTICE: {e}", node="SUPREME")
 
@@ -68,7 +68,7 @@ class AresMasterEmpireFixer:
         try:
             from enterprise_data_marketplace import data_marketplace_gateway
             asyncio.create_task(data_marketplace_gateway.run_autonomous_broker_loop())
-            colony_log("✓ B2B MARKETPLACE: Enterprise broker active.", node="SUPREME")
+            colony_log("[+] B2B MARKETPLACE: Enterprise broker active.", node="SUPREME")
         except Exception as e:
             colony_log(f"[-] B2B MARKETPLACE NOTICE: {e}", node="SUPREME")
 
@@ -78,7 +78,7 @@ class AresMasterEmpireFixer:
             from auto_payout_claim_engine import AutoPayoutClaimEngine
             payout_engine = AutoPayoutClaimEngine()
             asyncio.create_task(payout_engine.execute_headless_payout_claim("EARNAPP"))
-            colony_log("✓ PAYOUT CLAIMER: Automated harvest sweep dispatched.", node="SUPREME")
+            colony_log("[+] PAYOUT CLAIMER: Automated harvest sweep dispatched.", node="SUPREME")
         except Exception as e:
             colony_log(f"[-] PAYOUT CLAIMER NOTICE: {e}", node="SUPREME")
 
@@ -87,7 +87,7 @@ class AresMasterEmpireFixer:
         try:
             from ares_financial_trading_agent import ares_financial
             asyncio.create_task(ares_financial.execute_crypto_trade_and_claim("BTC/USD", "BUY"))
-            colony_log("✓ CRYPTO & MINING: Financial stealth agent active.", node="SUPREME")
+            colony_log("[+] CRYPTO & MINING: Financial stealth agent active.", node="SUPREME")
         except Exception as e:
             colony_log(f"[-] CRYPTO & MINING NOTICE: {e}", node="SUPREME")
 
@@ -97,7 +97,7 @@ class AresMasterEmpireFixer:
             from ares_os_seo_commander import AresOsSeoCommander
             commander = AresOsSeoCommander()
             asyncio.create_task(commander.run_seo_mission())
-            colony_log("✓ OS SEO: API Pushing Commander active.", node="SUPREME")
+            colony_log("[+] OS SEO: API Pushing Commander active.", node="SUPREME")
         except Exception as e:
             colony_log(f"[-] OS SEO NOTICE: {e}", node="SUPREME")
 
@@ -107,7 +107,7 @@ class AresMasterEmpireFixer:
             from obsidian_dna_bridge import dna_bridge
             balance = await dna_bridge.get_account_balance()
             if "error" not in balance:
-                colony_log(f"✓ DNA REGISTRY: Handshake successful. Balance: {balance.get('balance', '0')} {balance.get('currency', 'USD')}", node="SUPREME")
+                colony_log(f"[+] DNA REGISTRY: Handshake successful. Balance: {balance.get('balance', '0')} {balance.get('currency', 'USD')}", node="SUPREME")
             else:
                 colony_log(f"[!] DNA REGISTRY: Handshake partial (Check IP Whitelist).", node="SUPREME")
         except Exception as e:
@@ -119,7 +119,7 @@ class AresMasterEmpireFixer:
             from ares_autonomous_pm import AresProjectManager
             pm = AresProjectManager()
             asyncio.create_task(pm.generate_autonomous_mission())
-            colony_log("✓ ARES_PM: Proactive mission directive dispatched.", node="SUPREME")
+            colony_log("[+] ARES_PM: Proactive mission directive dispatched.", node="SUPREME")
         except Exception as e:
             colony_log(f"[-] ARES_PM NOTICE: {e}", node="SUPREME")
 
@@ -129,7 +129,7 @@ class AresMasterEmpireFixer:
             from ares_backlink_harvester import AresBacklinkHarvester
             harvester = AresBacklinkHarvester()
             asyncio.create_task(harvester.execute_harvester_cycle())
-            colony_log("✓ ARES_HARVEST: Global authority recon active.", node="SUPREME")
+            colony_log("[+] ARES_HARVEST: Global authority recon active.", node="SUPREME")
         except Exception as e:
             colony_log(f"[-] ARES_HARVEST NOTICE: {e}", node="SUPREME")
 
@@ -138,11 +138,11 @@ class AresMasterEmpireFixer:
         try:
             from ares_collective_intelligence import collective_intel
             await collective_intel.run_distillation_cycle()
-            colony_log("✓ ARES_COLLECTIVE: Edge knowledge weights synthesized.", node="SUPREME")
+            colony_log("[+] ARES_COLLECTIVE: Edge knowledge weights synthesized.", node="SUPREME")
         except Exception as e:
             colony_log(f"[-] ARES_COLLECTIVE NOTICE: {e}", node="SUPREME")
 
-        colony_log("✓ ARES MASTER FIXER: All 11 empire subsystems successfully diagnosed and self-healed!", node="SUPREME")
+        colony_log("[+] ARES MASTER FIXER: All 11 empire subsystems successfully diagnosed and self-healed!", node="SUPREME")
         print("\n" + "="*70)
         print("  🔱 ARES MASTER EMPIRE FIXER: ALL SYSTEMS GREEN & OPERATIONAL")
         print("  BOSS MODEL: Anthony-Supreme-v29")

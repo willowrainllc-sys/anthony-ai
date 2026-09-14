@@ -50,7 +50,7 @@ class ObsidianMasterSecurePipeline:
             "status": "ARMORED_ENCRYPTION_ACTIVE"
         })
 
-        colony_log(f"✓ SECURE_PIPELINE SUCCESS: Payload [{payload_type}] securely dispatched and encrypted.", node="PIPELINE")
+        colony_log(f"[+] SECURE_PIPELINE SUCCESS: Payload [{payload_type}] securely dispatched and encrypted.", node="PIPELINE")
         return {"status": "SUCCESS", "token_hash": token_hash}
 
 secure_pipeline = ObsidianMasterSecurePipeline()

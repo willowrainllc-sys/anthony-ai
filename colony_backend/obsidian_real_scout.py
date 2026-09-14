@@ -43,7 +43,7 @@ class ObsidianRealScout:
                         "status": "AWAITING_AUTHORIZED_BURST"
                     }
                     self.found_prospects.append(prospect)
-                    colony_log(f"✓ SCOUT: Identified Prospect -> {r['title'][:40]}...", node="SALES")
+                    colony_log(f"[+] SCOUT: Identified Prospect -> {r['title'][:40]}...", node="SALES")
 
                     db.log_event("SALES", "PROSPECT_IDENTIFIED", prospect)
 

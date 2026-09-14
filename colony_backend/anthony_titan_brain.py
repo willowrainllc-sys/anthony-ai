@@ -59,7 +59,7 @@ class AnthonyTitanBrain:
         # If the prompt implies code change, we simulate a [WRITE] or [EXECUTE] tag
         if "os" in prompt.lower() or "ui" in prompt.lower():
             response += f"[WRITE] {self.root_dir}\\colony_backend\\anthony_command_os.py | # Evolved by Titan v30.0 [/WRITE]\n"
-            response += "✓ CODE EVOLUTION DISPATCHED."
+            response += "[+] CODE EVOLUTION DISPATCHED."
 
         # Physically process any tags in the response
         await self._dispatch_agentic_bursts(response)

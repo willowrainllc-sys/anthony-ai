@@ -39,20 +39,20 @@ class AresVercel404Fixer:
                 if resp.status_code == 200:
                     data = resp.json()
                     projects = data.get("projects", [])
-                    colony_log(f"✓ VERCEL API: Found {len(projects)} projects on edge.", node="SUPREME")
+                    colony_log(f"[+] VERCEL API: Found {len(projects)} projects on edge.", node="SUPREME")
 
                     target_proj = next((p for p in projects if p["name"] in ["obsidian-city", "anthony-ai"]), projects[0] if projects else None)
 
                     if target_proj:
                         proj_id = target_proj["id"]
                         proj_name = target_proj["name"]
-                        colony_log(f"✓ VERCEL API: Targeting active project [{proj_name}] (ID: {proj_id})", node="SUPREME")
+                        colony_log(f"[+] VERCEL API: Targeting active project [{proj_name}] (ID: {proj_id})", node="SUPREME")
 
                         # 2. Re-bind domains to active project
                         for domain in ["obsidian.city", "www.obsidian.city"]:
                             dom_url = f"{self.api_base.replace('api', 'api/v10')}/projects/{proj_id}/domains"
                             dom_resp = await client.post(dom_url, headers=self.headers, json={"name": domain})
-                            colony_log(f"✓ DOMAIN RE-BIND [{domain}]: Status {dom_resp.status_code}", node="SUPREME")
+                            colony_log(f"[+] DOMAIN RE-BIND [{domain}]: Status {dom_resp.status_code}", node="SUPREME")
 
                         # 3. Trigger Production Redeploy
                         dep_url = f"{self.api_base.replace('api', 'api/v13')}/deployments"
@@ -66,7 +66,7 @@ class AresVercel404Fixer:
                         }
                         dep_resp = await client.post(dep_url, headers=self.headers, json=dep_payload)
                         if dep_resp.status_code in [200, 201]:
-                            colony_log("✓ ARES 404 FIXER SUCCESS: Vercel production redeploy triggered successfully!", node="SUPREME")
+                            colony_log("[+] ARES 404 FIXER SUCCESS: Vercel production redeploy triggered successfully!", node="SUPREME")
                             print("\n" + "="*70)
                             print("  🔱 ARES VERCEL 404 PURGE COMPLETE")
                             print("  DOMAIN: https://obsidian.city")

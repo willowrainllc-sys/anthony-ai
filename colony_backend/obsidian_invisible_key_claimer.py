@@ -31,7 +31,7 @@ class InvisibleKeyClaimer:
             match = re.search(r'vps\.apiKey" android:value="([^"]+)"', content)
             if match:
                 self.findings["GOOGLE_AR_CORE"] = match.group(1)
-                colony_log("✓ CLAIMER: Google AR_VPS Key acquired from Manifest.", node="SECURITY")
+                colony_log("[+] CLAIMER: Google AR_VPS Key acquired from Manifest.", node="SECURITY")
 
         # 🔱 2. Mesh Internal Auth Key
         mesh_api_path = ROOT / "app" / "src" / "main" / "java" / "com" / "obsidian" / "global" / "MeshApiService.kt"
@@ -40,7 +40,7 @@ class InvisibleKeyClaimer:
             match = re.search(r'OBSIDIAN_API_KEY = "([^"]+)"', content)
             if match:
                 self.findings["MESH_INTERNAL_AUTH"] = match.group(1)
-                colony_log("✓ CLAIMER: Mesh Internal Signature acquired.", node="SECURITY")
+                colony_log("[+] CLAIMER: Mesh Internal Signature acquired.", node="SECURITY")
 
         # 🔱 3. Promo Codes
         factory_path = ROOT / "colony_backend" / "obsidian_account_factory.py"
@@ -49,7 +49,7 @@ class InvisibleKeyClaimer:
             match = re.search(r'COUPON_CODE = "([^"]+)"', content)
             if match:
                 self.findings["SIGNUP_PROMO_CODE"] = match.group(1)
-                colony_log(f"✓ CLAIMER: Ghost Promo Code [{match.group(1)}] acquired.", node="SECURITY")
+                colony_log(f"[+] CLAIMER: Ghost Promo Code [{match.group(1)}] acquired.", node="SECURITY")
 
         # 🔱 4. Vercel Project DNA
         env_path = ROOT / ".env"
@@ -78,7 +78,7 @@ class InvisibleKeyClaimer:
                             self.findings[f"GHOST_SIG_{auth_file.stem.upper()}_{i}"] = t
                             count += 1
 
-                    colony_log(f"✓ CLAIMER: {count} signatures acquired from {auth_file.name}.", node="SECURITY")
+                    colony_log(f"[+] CLAIMER: {count} signatures acquired from {auth_file.name}.", node="SECURITY")
                 except: pass
 
         self._sync_to_vault()
@@ -99,7 +99,7 @@ class InvisibleKeyClaimer:
         with open(VAULT_PATH, 'w') as f:
             json.dump(vault, f, indent=4)
 
-        colony_log(f"✓ CLAIMER SUCCESS: {len(self.findings)} invisible keys consolidated in Vault.", node="SECURITY")
+        colony_log(f"[+] CLAIMER SUCCESS: {len(self.findings)} invisible keys consolidated in Vault.", node="SECURITY")
         db.log_event("SECURITY", "INVISIBLE_KEYS_CLAIMED", {"count": len(self.findings)})
 
 if __name__ == "__main__":

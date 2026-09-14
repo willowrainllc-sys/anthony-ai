@@ -54,7 +54,7 @@ def purge_jargon():
 
                 if modified:
                     file_path.write_text(content, encoding="utf-8")
-                    print(f"✓ Rebranded: {file_path.relative_to(root)}")
+                    print(f"[+] Rebranded: {file_path.relative_to(root)}")
             except Exception as e:
                 print(f"[-] Error processing {file_path}: {e}")
 

@@ -65,7 +65,7 @@ venv\\Scripts\\python.exe colony_backend\\ares_master_empire_fixer.py
 echo 🔱 COLONY: Verifying global node telemetry...
 venv\\Scripts\\python.exe colony_backend\\colony_status_report.py
 
-echo ✓ MISSION READY: The Empire is now active on this host.
+echo [+] MISSION READY: The Empire is now active on this host.
 pause
 """
     ignite_script.write_text(script_content, encoding="utf-8")

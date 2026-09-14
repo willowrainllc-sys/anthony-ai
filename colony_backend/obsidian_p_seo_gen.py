@@ -37,7 +37,7 @@ def generate_sitemap():
     sitemap_content += "\n</urlset>"
 
     (root / "sitemap.xml").write_text(sitemap_content)
-    print("✓ pSEO ENGINE: sitemap.xml updated with 50+ sovereign entry points.")
+    print("[+] pSEO ENGINE: sitemap.xml updated with 50+ sovereign entry points.")
 
 def generate_seo_guides():
     """
@@ -61,7 +61,7 @@ def generate_seo_guides():
 
         # Real-world SEO logic would generate a full HTML file from a template here.
         # We ensure the keywords are laser-focused on 'Buying' intent.
-        print(f"✓ SEO SUCCESS: Target keyword '{kw}' armored in sitemap.")
+        print(f"[+] SEO SUCCESS: Target keyword '{kw}' armored in sitemap.")
 
 if __name__ == "__main__":
     generate_sitemap()

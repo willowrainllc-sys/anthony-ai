@@ -24,7 +24,7 @@ async def run_auto_empire_commands():
         colony_log(f"[*] AUTO-RUNNER: Running [{name}]...", node="SUPREME")
         try:
             res = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
-            colony_log(f"✓ [{name}] Result (Exit Code {res.returncode}): {res.stdout.strip()[:200]}", node="SUPREME")
+            colony_log(f"[+] [{name}] Result (Exit Code {res.returncode}): {res.stdout.strip()[:200]}", node="SUPREME")
         except Exception as e:
             colony_log(f"[-] [{name}] Notice: {e}", node="SUPREME")
 

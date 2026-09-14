@@ -49,7 +49,7 @@ class ObsidianFulfillmentDispatch:
             pass
 
         db.log_event("SUPREME", "DISPATCH_COMPLETE", {"invoice": invoice_id, "team": "GHOST_BURSTR"})
-        colony_log(f"✓ DISPATCH SUCCESS: {product_type} has been physically provisioned.", node="SUPREME")
+        colony_log(f"[+] DISPATCH SUCCESS: {product_type} has been physically provisioned.", node="SUPREME")
 
 fulfillment_dispatch = ObsidianFulfillmentDispatch()
 

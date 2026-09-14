@@ -21,7 +21,7 @@ def rename_anthony_ai_supreme_to_anthony_ai_supreme():
         except Exception as e:
             pass
 
-    colony_log(f"✓ RENAME SUCCESS: Updated {count} HTML pages to Anthony AI the Supreme AI!", node="SUPREME")
+    colony_log(f"[+] RENAME SUCCESS: Updated {count} HTML pages to Anthony AI the Supreme AI!", node="SUPREME")
 
 if __name__ == "__main__":
     rename_anthony_ai_supreme_to_anthony_ai_supreme()

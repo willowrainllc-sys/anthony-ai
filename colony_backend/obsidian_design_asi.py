@@ -26,7 +26,7 @@ class DesignASI:
         # 3. Replaces "Negotiating" with "Authorized" or "Processing"
 
         db.log_event("STAFF", "DESIGN_OVERHAUL", {"status": "AESTHETIC_SYNC_COMPLETE"})
-        colony_log("✓ AURA SUCCESS: Visual DNA is now professional and high-performance.", node="SUPREME")
+        colony_log("[+] AURA SUCCESS: Visual DNA is now professional and high-performance.", node="SUPREME")
 
 aura_design = DesignASI()
 

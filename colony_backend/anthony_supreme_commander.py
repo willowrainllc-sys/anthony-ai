@@ -29,7 +29,7 @@ class AnthonySupremeCommander:
         # Launch ARES in headed mode on the physical computer
         await ares.execute_ares_burst(target_url, mission_name=mission_name, headed=True)
 
-        colony_log(f"✓ SUPREME COMMANDER: Mission [{mission_name}] completed on physical computer.", node="SUPREME")
+        colony_log(f"[+] SUPREME COMMANDER: Mission [{mission_name}] completed on physical computer.", node="SUPREME")
 
 supreme_commander = AnthonySupremeCommander()
 

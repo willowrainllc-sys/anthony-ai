@@ -44,7 +44,7 @@ class ObsidianUIVerifier:
                 colony_log("[*] VERIFIER: Verifying 'Start Building' Button Aura...", node="SUPREME")
                 await page.hover(".btn-obsidian city")
 
-                colony_log("✓ VERIFIER SUCCESS: Visual Audit Complete. Status: LEGIT.", node="SUPREME")
+                colony_log("[+] VERIFIER SUCCESS: Visual Audit Complete. Status: LEGIT.", node="SUPREME")
 
             except Exception as e:
                 colony_log(f"[-] VERIFIER FAIL: {e}", node="SUPREME")

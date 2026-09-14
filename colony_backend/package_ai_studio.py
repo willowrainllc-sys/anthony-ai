@@ -28,11 +28,11 @@ def create_bundle():
         dest.parent.mkdir(parents=True, exist_ok=True)
         if src.exists():
             shutil.copy2(src, dest)
-            print(f"✓ Bundled: {f}")
+            print(f"[+] Bundled: {f}")
 
     # 2. Create the ZIP
     shutil.make_archive(str(ZIP_DEST).replace(".zip", ""), 'zip', TEMP_BUNDLE)
-    print(f"✓ SUCCESS: Industrial IDE Bundle created at {ZIP_DEST.name}")
+    print(f"[+] SUCCESS: Industrial IDE Bundle created at {ZIP_DEST.name}")
 
 if __name__ == "__main__":
     create_bundle()

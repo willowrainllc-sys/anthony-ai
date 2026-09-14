@@ -88,7 +88,7 @@ class ObsidianObsidian TitanShell:
                 colony_log("[-] OBSIDIAN_TITAN: External domain unresolved. Falling back to Local Portal.", node="SUPREME")
                 await page.goto("http://127.0.0.1:80")
 
-            colony_log(f"✓ OBSIDIAN_TITAN SUCCESS: Ingress established on [{node_id}].", node="SUPREME")
+            colony_log(f"[+] OBSIDIAN_TITAN SUCCESS: Ingress established on [{node_id}].", node="SUPREME")
 
             # Keep alive for interaction
             while True:

@@ -25,7 +25,7 @@ def clean_language():
 
         if content != new_content:
             file_path.write_text(new_content, encoding='utf-8')
-            print(f"✓ Cleaned: {file_path.name}")
+            print(f"[+] Cleaned: {file_path.name}")
 
 if __name__ == "__main__":
     clean_language()

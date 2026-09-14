@@ -113,7 +113,7 @@ class SquareCheckoutGateway:
                 p_resp = await client.post(f"{self.base_url}/invoices/{invoice_id}/publish", json=p_payload, headers=headers)
 
                 if p_resp.status_code == 200:
-                    colony_log(f"✓ SQUARE SUCCESS: Invoice published to [willow rain Co].", node="SQUARE")
+                    colony_log(f"[+] SQUARE SUCCESS: Invoice published to [willow rain Co].", node="SQUARE")
                     return {"status": "success", "invoice_id": invoice_id, "url": p_resp.json()['invoice'].get('public_url')}
 
                 return {"status": "error", "message": "Publish Fail"}

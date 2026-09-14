@@ -35,7 +35,7 @@ class AresCollectiveIntelligence:
             await self._synthesize_insight(node, random.choice(insights))
             await asyncio.sleep(0.5)
 
-        colony_log("✓ COLLECTIVE SYNC: Oracle updated with global edge intelligence.", node="SUPREME")
+        colony_log("[+] COLLECTIVE SYNC: Oracle updated with global edge intelligence.", node="SUPREME")
         db.log_event("SUPREME", "COLLECTIVE_KNOWLEDGE_UPDATE", {"nodes_synced": len(self.node_registry)})
 
     async def _synthesize_insight(self, node_id: str, insight: dict):
@@ -43,7 +43,7 @@ class AresCollectiveIntelligence:
         out_file = self.knowledge_vault / f"{node_id}_intelligence.json"
         with open(out_file, "w") as f:
             json.dump(insight, f, indent=4)
-        colony_log(f"✓ SYNTHESIS: Insight from {node_id} vaulted.", node="SUPREME")
+        colony_log(f"[+] SYNTHESIS: Insight from {node_id} vaulted.", node="SUPREME")
 
     def get_proof_of_inference(self, node_id: str) -> float:
         """Calculates reasoning efficiency score for the node."""

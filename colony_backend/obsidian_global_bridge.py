@@ -41,7 +41,7 @@ class ObsidianGlobalBridge:
                 stderr=asyncio.subprocess.PIPE
             )
 
-            colony_log(f"✓ BRIDGE SUCCESS: Global Ingress ACTIVE. Obsidian Titan is now live for all devices.", node="SUPREME")
+            colony_log(f"[+] BRIDGE SUCCESS: Global Ingress ACTIVE. Obsidian Titan is now live for all devices.", node="SUPREME")
 
             # Monitor for the public URL in the logs
             while True:

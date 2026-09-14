@@ -87,12 +87,18 @@ fun NativeAIStudioScreen(
                             modifier = Modifier.padding(end = 4.dp)
                         ) {
                             Text(
-                                "mission_kernel.py",
+                                "synthesis_node.py",
                                 color = Color.White,
                                 fontSize = 10.sp,
                                 modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
                             )
                         }
+                        Text(
+                            "visual_dna.css",
+                            color = Color.Gray,
+                            fontSize = 10.sp,
+                            modifier = Modifier.padding(start = 8.dp, top = 6.dp)
+                        )
                     }
                     
                     // Code Content (Terminal/Editor Hybrid)
@@ -102,14 +108,48 @@ fun NativeAIStudioScreen(
                             .padding(16.dp),
                         verticalArrangement = Arrangement.spacedBy(4.dp)
                     ) {
+                        item {
+                            Text(
+                                text = "> [ARES] SECURING INGRESS PORT 8080...",
+                                color = CityBlue,
+                                fontSize = 11.sp,
+                                fontFamily = FontFamily.Monospace
+                            )
+                        }
                         items(logs) { log ->
                             Text(
                                 text = log,
-                                color = if (log.startsWith(">")) CityBlue else if (log.startsWith("✓")) CityEmerald else Color.Gray,
+                                color = if (log.startsWith(">")) CityBlue else if (log.startsWith("✓") || log.startsWith("[+]")) CityEmerald else Color.Gray,
                                 fontSize = 11.sp,
                                 fontFamily = FontFamily.Monospace,
                                 fontWeight = FontWeight.Medium
                             )
+                        }
+                    }
+                }
+            }
+
+            // High-Aura Blueprint Chooser (Simplified for Mobile)
+            if (logs.size > 2 && logs.any { it.contains("Directing") }) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                ) {
+                    val blueprints = listOf("MINIMAL", "GLASS", "INDUSTRIAL")
+                    blueprints.forEach { name ->
+                        Button(
+                            onClick = { 
+                                logs.add("> BLUEPRINT [$name] SELECTED.")
+                                logs.add("> DISPATCHING FULL-STACK SYNTHESIS...")
+                                logs.add("[+] THRONE SECURED AT THE EDGE.")
+                            },
+                            modifier = Modifier.weight(1f),
+                            colors = ButtonDefaults.buttonColors(containerColor = Color.White.copy(0.05f)),
+                            shape = RoundedCornerShape(12.dp)
+                        ) {
+                            Text(name, fontSize = 9.sp, fontWeight = FontWeight.Black)
                         }
                     }
                 }
@@ -128,7 +168,7 @@ fun NativeAIStudioScreen(
                         .imePadding()
                 ) {
                     Text(
-                        "DIRECTIVE INGRESS",
+                        "MISSION PARAMETERS",
                         color = Color.Gray,
                         fontSize = 9.sp,
                         fontWeight = FontWeight.Black,
@@ -139,7 +179,7 @@ fun NativeAIStudioScreen(
                         TextField(
                             value = prompt,
                             onValueChange = { prompt = it },
-                            placeholder = { Text("Code your vision...", color = Color.DarkGray, fontSize = 13.sp) },
+                            placeholder = { Text("Describe your vision...", color = Color.DarkGray, fontSize = 13.sp) },
                             modifier = Modifier.weight(1f),
                             colors = TextFieldDefaults.colors(
                                 focusedContainerColor = Color.Transparent,
@@ -152,22 +192,15 @@ fun NativeAIStudioScreen(
                         Button(
                             onClick = {
                                 if (prompt.isNotBlank()) {
-                                    logs.add("> Ingress: $prompt")
-                                    if (prompt.contains("ares", ignoreCase = true)) {
-                                        logs.add("🔱 ARES COMMAND DETECTED")
-                                        logs.add("> Executing high-priority directive...")
-                                        logs.add("✓ Mission Successful. Empire Pillars Balanced.")
-                                    } else {
-                                        logs.add("> Analyzing empire pillars...")
-                                        logs.add("✓ Protocol Generated. Dispatching to Global Bridge.")
-                                    }
+                                    logs.add("> Ingress: \"$prompt\"")
+                                    logs.add("> Directing ARES to synthesize visual DNA...")
                                     prompt = ""
                                 }
                             },
                             shape = RoundedCornerShape(12.dp),
                             colors = ButtonDefaults.buttonColors(containerColor = CityBlue)
                         ) {
-                            Text("COMPILE", fontSize = 11.sp, fontWeight = FontWeight.Black)
+                            Text("IGNITE", fontSize = 11.sp, fontWeight = FontWeight.Black)
                         }
                     }
                 }

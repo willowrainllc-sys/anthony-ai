@@ -166,14 +166,15 @@
         };
 
         try {
-            await fetch('/api/settle/authorize', {
+            const resp = await fetch('/api/settle/authorize', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(data)
             });
+            const res = await resp.json();
 
             if(llcData) localStorage.removeItem('pending_llc_data');
-            window.location.href = `success.html?type=${encodeURIComponent(type)}&price=${total}`;
+            window.location.href = `success.html?type=${encodeURIComponent(type)}&price=${total}&txid=${res.txid}`;
         } catch (err) {
             window.location.href = `success.html?type=${encodeURIComponent(type)}&price=${total}`;
         }

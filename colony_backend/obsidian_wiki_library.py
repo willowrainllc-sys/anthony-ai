@@ -68,7 +68,7 @@ class ObsidianWikiLibrary:
             entry_file = WIKI_DIR / f"{key.lower()}.json"
             with open(entry_file, "w") as f:
                 json.dump(entry, f, indent=4)
-            colony_log(f"✓ WIKI: Entry [{key}] published to public library.", node="SUPREME")
+            colony_log(f"[+] WIKI: Entry [{key}] published to public library.", node="SUPREME")
 
     def generate_public_repo_manifest(self):
         """Creates the manifest for the public 'Attractive' repository."""
@@ -81,7 +81,7 @@ class ObsidianWikiLibrary:
         repo_file = WIKI_DIR.parent / "obsidian_public_repo.json"
         with open(repo_file, "w") as f:
             json.dump(manifest, f, indent=4)
-        colony_log("✓ REPO: Public manifest generated for the attractive grid.", node="SUPREME")
+        colony_log("[+] REPO: Public manifest generated for the attractive grid.", node="SUPREME")
 
 if __name__ == "__main__":
     wiki = ObsidianWikiLibrary()

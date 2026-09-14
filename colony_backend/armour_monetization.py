@@ -30,7 +30,7 @@ def armour_monetization():
             except Exception as e:
                 print(f"[-] Error in {hf.name}: {e}")
 
-    print(f"✓ ADSENSE: Injected real publisher ID into {html_count} pages.")
+    print(f"[+] ADSENSE: Injected real publisher ID into {html_count} pages.")
 
     # 2. Sync ads.txt to deployment targets
     ads_txt_src = root / "ads.txt"
@@ -39,7 +39,7 @@ def armour_monetization():
             if d.exists():
                 import shutil
                 shutil.copy2(ads_txt_src, d / "ads.txt")
-        print("✓ ADS.TXT: Synchronized to all targets.")
+        print("[+] ADS.TXT: Synchronized to all targets.")
 
 if __name__ == "__main__":
     armour_monetization()

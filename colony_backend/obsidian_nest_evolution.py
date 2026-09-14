@@ -34,7 +34,7 @@ def run_evolution():
 
                 if content != new_content:
                     file_path.write_text(new_content, encoding='utf-8')
-                    print(f"✓ Evolved: {file_path.relative_to(ROOT)}")
+                    print(f"[+] Evolved: {file_path.relative_to(ROOT)}")
             except Exception as e:
                 print(f"[-] Error in {file_path}: {e}")
 
@@ -55,4 +55,4 @@ if __name__ == "__main__":
     run_evolution()
     blast = GhostBlast()
     blast.announce_presence()
-    print("✓ The Nest is permanent. Evolution Complete.")
+    print("[+] The Nest is permanent. Evolution Complete.")

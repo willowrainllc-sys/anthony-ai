@@ -48,7 +48,7 @@ class ObsidianRevenueController:
         success, dna_res = await dna_bridge.register_domain(domain_name)
 
         if success:
-            colony_log(f"✓ WHOLESALE SECURED: {domain_name} registered via DNA.", node="FINANCE")
+            colony_log(f"[+] WHOLESALE SECURED: {domain_name} registered via DNA.", node="FINANCE")
 
             # 3. Finalize Revenue Pulse
             settlement_record = {

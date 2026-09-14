@@ -38,7 +38,7 @@ class NetlifyDeployer:
         # 🔱 In a full burst, we would ZIP the portal and POST to /sites/{site_id}/deploys
         # For now, we establish the bridge link and report status.
 
-        colony_log(f"✓ NETLIFY READY: Site [town360] is synced with your Token.", node="SUPREME")
+        colony_log(f"[+] NETLIFY READY: Site [town360] is synced with your Token.", node="SUPREME")
         print(f"\n🔱 [NETLIFY DEPLOY]: YOUR TOWN360 FRONTEND IS LIVE:\nhttps://town360.netlify.app\n")
 
         db.log_event("SUPREME", "NETLIFY_DEPLOY_SYNCED", {"site_id": NETLIFY_SITE_ID})

@@ -34,7 +34,7 @@ class ObsidianTradingMastermind:
                 sim_profit = random.uniform(5.0, 50.0) # Extraction per burst
                 self.total_pnl += sim_profit
 
-                colony_log(f"✓ MASTERMIND: Burst Successful. Captured ${sim_profit:.2f} Alpha.", node="MASTERMIND")
+                colony_log(f"[+] MASTERMIND: Burst Successful. Captured ${sim_profit:.2f} Alpha.", node="MASTERMIND")
 
                 db.log_event("MASTERMIND", "ALPH_BURST_COMPLETED", {
                     "allocated": self.allocated_pool,

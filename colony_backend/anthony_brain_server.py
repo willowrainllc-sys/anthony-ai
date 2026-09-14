@@ -43,7 +43,7 @@ class AnthonyBrainEngine:
             model=self.model,
             tokenizer=self.tokenizer,
         )
-        colony_log("✓ BRAIN: Native Intelligence Base is ONLINE. Middlemen Excommunicated.", node="SUPREME")
+        colony_log("[+] BRAIN: Native Intelligence Base is ONLINE. Middlemen Excommunicated.", node="SUPREME")
 
     async def generate_response(self, prompt: str):
         # 🔱 PHASE 1: Check for Web Search Intent

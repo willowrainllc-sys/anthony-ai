@@ -30,7 +30,7 @@ async def test_namesilo_handshake():
 
             if code == "300":
                 balance = reply.find("balance").text
-                print(f"✓ HANDSHAKE SUCCESS: Account Balance: ${balance}")
+                print(f"[+] HANDSHAKE SUCCESS: Account Balance: ${balance}")
                 return True
             else:
                 print(f"[-] HANDSHAKE FAIL: Code {code} - {detail}")

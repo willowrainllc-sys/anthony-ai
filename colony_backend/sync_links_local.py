@@ -32,7 +32,7 @@ def sync_links():
 
             if modified:
                 path.write_text(content, encoding='utf-8')
-                print(f"✓ Fixed links: {path.relative_to(root)}")
+                print(f"[+] Fixed links: {path.relative_to(root)}")
         except Exception as e:
             print(f"[-] Error in {path}: {e}")
 

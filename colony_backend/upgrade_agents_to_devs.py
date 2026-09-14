@@ -26,7 +26,7 @@ def upgrade_agents():
     with open(MANIFEST_PATH, 'w') as f:
         json.dump(manifest, f, indent=4)
 
-    print(f"✓ SUCCESS: 103 Aiphony Nodes upgraded to DEVELOPER status.")
+    print(f"[+] SUCCESS: 103 Aiphony Nodes upgraded to DEVELOPER status.")
 
 if __name__ == "__main__":
     upgrade_agents()

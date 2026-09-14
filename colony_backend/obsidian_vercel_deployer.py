@@ -43,7 +43,7 @@ class VercelDeployer:
         # For this industrial burst, we'll guide the user to the Vercel Dashboard
         # as it's the most stable way to sync the local folder for free.
 
-        colony_log(f"✓ VERCEL READY: Project [{PROJECT_NAME}] is synced with your Token.", node="SUPREME")
+        colony_log(f"[+] VERCEL READY: Project [{PROJECT_NAME}] is synced with your Token.", node="SUPREME")
         print(f"\n🔱 [VERCEL DEPLOY]: YOUR LEGIT HTTPS LINKS ARE ACTIVE:\n")
         print(f"HQ: https://{PROJECT_NAME}.vercel.app")
         print(f"CITY: https://obsidian.city\n")

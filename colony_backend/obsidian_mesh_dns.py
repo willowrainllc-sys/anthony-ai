@@ -40,7 +40,7 @@ class ObsidianMeshDNS:
         }
 
         for name, ip in mapping.items():
-            colony_log(f"✓ DNS: [{name}] mapped to Mesh Root ({ip}).", node="SUPREME")
+            colony_log(f"[+] DNS: [{name}] mapped to Mesh Root ({ip}).", node="SUPREME")
             db.log_event("SUPREME", "MESH_DNS_MAPPED", {"domain": name, "ip": ip})
 
     async def run_nameserver_daemon(self):

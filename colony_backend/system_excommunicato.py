@@ -37,7 +37,7 @@ class SystemExcommunicato:
             except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
                 pass
 
-        colony_log(f"✓ EXCOMMUNICATO SUCCESS: {killed_count} external loops terminated. System isolated.", node="SECURITY")
+        colony_log(f"[+] EXCOMMUNICATO SUCCESS: {killed_count} external loops terminated. System isolated.", node="SECURITY")
         return killed_count
 
 if __name__ == "__main__":

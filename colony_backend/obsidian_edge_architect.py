@@ -51,7 +51,7 @@ class ObsidianEdgeArchitect:
             json.dump(manifest, f, indent=4)
 
         db.log_event("SUPREME", "EDGE_PROJECT_DEPLOYED", manifest)
-        colony_log(f"✓ EDGE SUCCESS: Workstation [{project_name}] is LIVE.", node="SUPREME")
+        colony_log(f"[+] EDGE SUCCESS: Workstation [{project_name}] is LIVE.", node="SUPREME")
 
         return manifest
 

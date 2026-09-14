@@ -66,7 +66,7 @@ class ObsidianDockerOrchestrator:
             await asyncio.sleep(0.05)
 
         db.log_event("CARRIER", "PIXEL_HIVE_IGNITED", {"count": self.node_count})
-        colony_log("✓ HIVE SUCCESS: 103 Independent Clones are LIVE and Headed.", node="CARRIER")
+        colony_log("[+] HIVE SUCCESS: 103 Independent Clones are LIVE and Headed.", node="CARRIER")
 
 orchestrator = ObsidianDockerOrchestrator()
 

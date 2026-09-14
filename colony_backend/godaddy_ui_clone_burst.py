@@ -66,7 +66,7 @@ class Obsidian CityUICloner:
                 with open(RECON_DIR / "ui_dna_manifest.json", "w") as f:
                     json.dump({"buttons": button_dna, "sections": sections}, f, indent=4)
 
-                colony_log("✓ CLONER SUCCESS: Obsidian City UI DNA vaulted.", node="COMMAND")
+                colony_log("[+] CLONER SUCCESS: Obsidian City UI DNA vaulted.", node="COMMAND")
 
             except Exception as e:
                 colony_log(f"[-] CLONER FAIL: {e}", node="COMMAND")

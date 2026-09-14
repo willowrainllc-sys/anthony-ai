@@ -76,7 +76,7 @@ class DNAExtractor:
                     "layouts": layout_dna
                 }, f, indent=4)
 
-            print(f"✓ DNA EXTRACTION SUCCESS: {vault_file.name}")
+            print(f"[+] DNA EXTRACTION SUCCESS: {vault_file.name}")
             await browser.close()
 
 if __name__ == "__main__":
