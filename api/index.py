@@ -239,6 +239,17 @@ class handler(BaseHTTPRequestHandler):
             response = {"success": True, "txid": txid, "status": "APPROVED"}
             self.wfile.write(json.dumps(response).encode('utf-8'))
 
+        elif "/api/ares/discovery/pulse" in path:
+            # 🔱 ARES DISCOVERY PULSE: Scouting for new business niches
+            from colony_backend.ares_discovery_engine import discovery_engine
+
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            discovery = loop.run_until_complete(discovery_engine.run_discovery_pulse())
+            loop.close()
+
+            self.wfile.write(json.dumps({"success": True, "discovery": discovery}).encode('utf-8'))
+
         elif "/api/ares/strike/social" in path:
             # 🔱 ARES SOCIAL STRIKE: Launching multi-platform ad push
             from colony_backend.ares_social_strike_force import AresSocialStrikeForce
