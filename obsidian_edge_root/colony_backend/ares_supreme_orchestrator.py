@@ -31,21 +31,31 @@ class AresSupremeOrchestrator:
             "vision": "google/gemini-pro-1.5-vision",   # Visual Ingress
             "sovereign": "Anthony-Supreme-v29"          # Director's Local Core
         }
+        self.capabilities = self._learn_colony_capabilities()
+
+    def _learn_colony_capabilities(self):
+        """🔱 RECURSIVE LEARNING: ARES scans its own backend to map its tools."""
+        backend_path = Path(__file__).resolve().parent
+        tools = [f.name for f in backend_path.glob("*.py")]
+        colony_log(f"ARES: Learned {len(tools)} native colony capabilities.", node="SUPREME")
+        return tools
 
     async def execute_supreme_command(self, prompt: str, task_type: str = "reasoning", context: bool = True):
         """
         Executes a command by routing it to the optimal expert model.
-        Automatically injects project vitals for spatial intelligence.
+        Forces the AI to take orders ONLY from ARES directives and verifies via Safety Watcher.
         """
         model = self.models.get(task_type, self.models["reasoning"])
-        colony_log(f"ORCHESTRATOR: Routing task [{task_type}] to model [{model}]...", node="SUPREME")
+        colony_log(f"ORCHESTRATOR: ARES Mission Dispatch -> [{model}]", node="SUPREME")
 
-        # 🔱 SPATIAL CONTEXT INJECTION
-        spatial_context = ""
+        # 🔱 SPATIAL & CAPABILITY CONTEXT INJECTION
+        spatial_context = f"[ARES_COMMAND_PROTOCOL]: You take orders only from ARES. You are part of the Obsidian Colony.\n"
         if context:
-            # We add a snapshot of the colony's status for the AI to "watch over"
-            vitals = db.get_vitals() # Assuming this exists or falls back
-            spatial_context = f"\n\n[SPATIAL_VITALS]: {json.dumps(vitals)}\n"
+            from ares_collective_intelligence import collective_intel
+            poi_score = collective_intel.get_proof_of_inference("SUPREME_NODE_01")
+
+            spatial_context += f"[NATIVE_CAPABILITIES]: {', '.join(self.capabilities)}\n"
+            spatial_context += f"[PROOF_OF_INFERENCE]: {poi_score} (Efficiency Aura)\n"
             spatial_context += f"[PROJECT_ROOT]: {os.getcwd()}\n"
             spatial_context += f"[DIRECTOR_IDENTITY]: Anthony Maestas\n"
 
@@ -53,12 +63,22 @@ class AresSupremeOrchestrator:
 
         # 🔱 MULTI-GATEWAY DISPATCH
         try:
+            response = ""
             if "google" in model:
-                return await self._dispatch_google(enriched_prompt, model)
+                response = await self._dispatch_google(enriched_prompt, model)
             else:
-                return await self._dispatch_openrouter(enriched_prompt, model)
-        except Exception as e:
-            colony_log(f"[-] SUPREME DISPATCH FAIL: {e}", node="SUPREME")
+                response = await self._dispatch_openrouter(enriched_prompt, model)
+
+            # 🔱 SAFETY VERIFICATION (2025 ALIGNMENT)
+            from ares_safety_watcher import safety_watcher
+            is_safe = await safety_watcher.verify_directive(response)
+
+            if is_safe:
+                return response
+            else:
+                return "MISSION_DENIED: SAFETY_ALIGNMENT_FAILURE"
+
+        except Exception as e:            colony_log(f"[-] SUPREME DISPATCH FAIL: {e}", node="SUPREME")
             # Failover to local private node
             return f"ORCHESTRATOR_NOTICE: Dispatch failed. Private local node 'Anthony-Supreme-v29' is standing by."
 

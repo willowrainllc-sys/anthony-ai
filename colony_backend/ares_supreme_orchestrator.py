@@ -43,7 +43,7 @@ class AresSupremeOrchestrator:
     async def execute_supreme_command(self, prompt: str, task_type: str = "reasoning", context: bool = True):
         """
         Executes a command by routing it to the optimal expert model.
-        Forces the AI to take orders ONLY from ARES directives.
+        Forces the AI to take orders ONLY from ARES directives and verifies via Safety Watcher.
         """
         model = self.models.get(task_type, self.models["reasoning"])
         colony_log(f"ORCHESTRATOR: ARES Mission Dispatch -> [{model}]", node="SUPREME")
@@ -51,7 +51,11 @@ class AresSupremeOrchestrator:
         # 🔱 SPATIAL & CAPABILITY CONTEXT INJECTION
         spatial_context = f"[ARES_COMMAND_PROTOCOL]: You take orders only from ARES. You are part of the Obsidian Colony.\n"
         if context:
+            from ares_collective_intelligence import collective_intel
+            poi_score = collective_intel.get_proof_of_inference("SUPREME_NODE_01")
+
             spatial_context += f"[NATIVE_CAPABILITIES]: {', '.join(self.capabilities)}\n"
+            spatial_context += f"[PROOF_OF_INFERENCE]: {poi_score} (Efficiency Aura)\n"
             spatial_context += f"[PROJECT_ROOT]: {os.getcwd()}\n"
             spatial_context += f"[DIRECTOR_IDENTITY]: Anthony Maestas\n"
 
@@ -59,12 +63,22 @@ class AresSupremeOrchestrator:
 
         # 🔱 MULTI-GATEWAY DISPATCH
         try:
+            response = ""
             if "google" in model:
-                return await self._dispatch_google(enriched_prompt, model)
+                response = await self._dispatch_google(enriched_prompt, model)
             else:
-                return await self._dispatch_openrouter(enriched_prompt, model)
-        except Exception as e:
-            colony_log(f"[-] SUPREME DISPATCH FAIL: {e}", node="SUPREME")
+                response = await self._dispatch_openrouter(enriched_prompt, model)
+
+            # 🔱 SAFETY VERIFICATION (2025 ALIGNMENT)
+            from ares_safety_watcher import safety_watcher
+            is_safe = await safety_watcher.verify_directive(response)
+
+            if is_safe:
+                return response
+            else:
+                return "MISSION_DENIED: SAFETY_ALIGNMENT_FAILURE"
+
+        except Exception as e:            colony_log(f"[-] SUPREME DISPATCH FAIL: {e}", node="SUPREME")
             # Failover to local private node
             return f"ORCHESTRATOR_NOTICE: Dispatch failed. Private local node 'Anthony-Supreme-v29' is standing by."
 

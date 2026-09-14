@@ -20,6 +20,7 @@ import com.obsidian.global.ui.ObsidianRacingGate
 import com.obsidian.global.ui.ObsidianSplashScreen
 import com.obsidian.global.ui.ObsidianTitanBrowserScreen
 import com.obsidian.global.ui.NativeRegistrarDashboardScreen
+import com.obsidian.global.ui.NativeAIStudioScreen
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
@@ -35,6 +36,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        
+        // 🔱 HARD-CODED ARES IGNITION
+        AresCore.ignite(this)
         
         // Initialize AdMob
         MobileAds.initialize(this) {}
@@ -88,6 +92,7 @@ class MainActivity : ComponentActivity() {
                                     browserUrl = "https://obsidian.city"
                                     currentScreen = "voyager" 
                                 },
+                                onStudioClick = { currentScreen = "ai_studio" },
                                 onMicPressed = { vrm.startListening() },
                                 onMicReleased = { vrm.stopListening() }
                             )
@@ -131,6 +136,9 @@ class MainActivity : ComponentActivity() {
                     }
                     "phone_hive" -> {
                         ObsidianTitanBrowserScreen(initialUrl = "file:///android_asset/obsidian_device_grid.html")
+                    }
+                    "ai_studio" -> {
+                        NativeAIStudioScreen(onBack = { currentScreen = "feed" })
                     }
                 }
             }

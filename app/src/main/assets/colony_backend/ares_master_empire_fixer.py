@@ -19,6 +19,9 @@ class AresMasterEmpireFixer:
     6. Crypto Trading & DePIN/Bitcoin Mining Nodes
     7. Open Source SEO & API Pushing
     8. Domain DNA Registry Handshake
+    9. Autonomous Project Management (ARES Directives)
+    10. Backlink Harvesting & Authority Building
+    11. Collective Intelligence Sync (Distributed Edge Learning)
     """
     def __init__(self):
         self.boss = "Anthony-Supreme-v29"
@@ -110,7 +113,36 @@ class AresMasterEmpireFixer:
         except Exception as e:
             colony_log(f"[-] DNA REGISTRY NOTICE: {e}", node="SUPREME")
 
-        colony_log("✓ ARES MASTER FIXER: All 8 empire subsystems successfully diagnosed and self-healed!", node="SUPREME")
+        # 9. Autonomous Project Management
+        colony_log("[+] FIXER 9/9: Activating ARES Proactive Project Manager...", node="SUPREME")
+        try:
+            from ares_autonomous_pm import AresProjectManager
+            pm = AresProjectManager()
+            asyncio.create_task(pm.generate_autonomous_mission())
+            colony_log("✓ ARES_PM: Proactive mission directive dispatched.", node="SUPREME")
+        except Exception as e:
+            colony_log(f"[-] ARES_PM NOTICE: {e}", node="SUPREME")
+
+        # 10. Backlink Harvesting
+        colony_log("[+] FIXER 10/10: Initiating ARES Backlink Harvester...", node="SUPREME")
+        try:
+            from ares_backlink_harvester import AresBacklinkHarvester
+            harvester = AresBacklinkHarvester()
+            asyncio.create_task(harvester.execute_harvester_cycle())
+            colony_log("✓ ARES_HARVEST: Global authority recon active.", node="SUPREME")
+        except Exception as e:
+            colony_log(f"[-] ARES_HARVEST NOTICE: {e}", node="SUPREME")
+
+        # 11. Collective Intelligence Sync
+        colony_log("[+] FIXER 11/11: Executing Collective Intelligence Distillation...", node="SUPREME")
+        try:
+            from ares_collective_intelligence import collective_intel
+            await collective_intel.run_distillation_cycle()
+            colony_log("✓ ARES_COLLECTIVE: Edge knowledge weights synthesized.", node="SUPREME")
+        except Exception as e:
+            colony_log(f"[-] ARES_COLLECTIVE NOTICE: {e}", node="SUPREME")
+
+        colony_log("✓ ARES MASTER FIXER: All 11 empire subsystems successfully diagnosed and self-healed!", node="SUPREME")
         print("\n" + "="*70)
         print("  🔱 ARES MASTER EMPIRE FIXER: ALL SYSTEMS GREEN & OPERATIONAL")
         print("  BOSS MODEL: Anthony-Supreme-v29")

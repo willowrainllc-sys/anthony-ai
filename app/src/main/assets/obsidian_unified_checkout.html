@@ -33,7 +33,11 @@
     <div class="flex justify-between items-center mb-8 text-left">
         <div>
             <h1 class="text-xl font-black text-slate-900 tracking-tight">Checkout</h1>
-            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest" id="checkoutType">Express Guest</p>
+            <select id="checkoutType" class="text-[10px] text-blue-600 font-bold uppercase tracking-widest bg-transparent border-none p-0 outline-none cursor-pointer">
+                <option value="guest">Express Guest</option>
+                <option value="merchant">Merchant Account</option>
+                <option value="institutional">Institutional Node</option>
+            </select>
         </div>
         <div class="text-right">
             <div class="bg-blue-50 text-blue-600 text-[10px] font-black px-3 py-1 rounded-full uppercase">PQC Secured</div>
@@ -95,7 +99,21 @@
 
     let total = basePrice + stateFee;
     const summaryItems = document.getElementById('summaryItems');
+    const checkoutTypeSelect = document.getElementById('checkoutType');
     let summaryHtml = '';
+
+    // 🔱 Mode Switcher for Institutional Pricing
+    checkoutTypeSelect.onchange = () => {
+        const mode = checkoutTypeSelect.value;
+        if (mode === 'institutional') {
+            total = (basePrice + stateFee) * 1.5; // Institutional markup
+            document.getElementById('securityNote').innerText = '🛡️ Institutional Grade Support & SLA Active';
+        } else {
+            total = basePrice + stateFee;
+            document.getElementById('securityNote').innerText = '🔒 256-Bit SSL Secured Transaction • No Login Required';
+        }
+        document.getElementById('finalTotal').innerText = '$' + total.toFixed(2);
+    };
 
     // 🔱 Bundle Breakdown Logic
     if (type === 'llc_formation') {

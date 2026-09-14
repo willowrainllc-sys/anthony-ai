@@ -31,6 +31,7 @@ fun AnthonyAiFeedScreen(
     onLogout: () -> Unit,
     onAgentRoomClick: () -> Unit,
     onCityClick: () -> Unit,
+    onStudioClick: () -> Unit,
     onMicPressed: () -> Unit,
     onMicReleased: () -> Unit
 ) {
@@ -69,6 +70,9 @@ fun AnthonyAiFeedScreen(
                         }
                         IconButton(onClick = onAgentRoomClick) {
                             Icon(Icons.Default.Adb, contentDescription = "Agent Room", tint = Color(0xFF8B5CF6))
+                        }
+                        IconButton(onClick = onStudioClick) {
+                            Icon(Icons.Default.Code, contentDescription = "AI Studio", tint = CityEmerald)
                         }
                     }
                     IconButton(onClick = onLogout) {
@@ -237,7 +241,7 @@ fun AnthonyAiFeedScreen(
                                     letterSpacing = 4.sp
                                 )
                                 Text(
-                                    "Your Personal Intelligence Partner",
+                                    "Your The World’s First Public ASI Model",
                                     color = Color.Gray,
                                     fontSize = 12.sp,
                                     modifier = Modifier.padding(top = 4.dp)

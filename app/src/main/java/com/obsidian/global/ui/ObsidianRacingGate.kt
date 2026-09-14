@@ -49,7 +49,7 @@ fun ObsidianRacingGate(
             RacingCar("SHAE", Color(0xFF3B82F6), speed = 0.015f + (Random.nextFloat() * 0.01f)),
             RacingCar("JESS", Color(0xFFEF4444), speed = 0.015f + (Random.nextFloat() * 0.01f)),
             RacingCar("RAINA", Color(0xFFA855F7), speed = 0.015f + (Random.nextFloat() * 0.01f)),
-            RacingCar("LEO", Color(0xFFEAB308), speed = 0.015f + (Random.nextFloat() * 0.01f)),
+            RacingCar("ARES", Color(0xFFEAB308), speed = 0.015f + (Random.nextFloat() * 0.01f)),
             RacingCar("WILLOW", Color(0xFF22C55E), speed = 0.015f + (Random.nextFloat() * 0.01f)),
             RacingCar("JESSE", Color(0xFFFFA500), speed = 0.015f + (Random.nextFloat() * 0.01f)),
             RacingCar("SHEA", Color(0xFF00FFFF), speed = 0.015f + (Random.nextFloat() * 0.01f)),

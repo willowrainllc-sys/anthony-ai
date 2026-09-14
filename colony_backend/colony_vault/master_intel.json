@@ -1,33 +1,8 @@
 [
     {
-        "title": "The Obsidian Citadel Breach",
-        "description": "Bioluminescent ritual in a glass city.",
-        "reality_score": 98,
-        "brand": "SPECTACLE"
-    },
-    {
-        "title": "Sky-Forge Ignition",
-        "description": "Liquid gold rivers flowing into clouds.",
-        "reality_score": 95,
-        "brand": "SPECTACLE"
-    },
-    {
-        "title": "The Emerald Jungle Gate",
-        "description": "Floating stone ruins in a vertical forest.",
-        "reality_score": 97,
-        "brand": "SPECTACLE"
-    },
-    {
         "title": "SIGNAL: HIGH-STAKES ARBITRAGE",
         "description": "New velocity detected in High-Stakes Arbitrage. High retention potential.",
         "brand": "GRID",
         "reality_score": 90
-    },
-    {
-        "title": "MILESTONE: OBSIDIAN.CITY 200 OK LIVE",
-        "description": "Successfully deployed and verified 200 OK response on https://obsidian.city with Obsidian City-style domain reseller & hosting storefront.",
-        "brand": "OBSIDIAN_CITY",
-        "reality_score": 100,
-        "status": "LIVE_PRODUCTION"
     }
 ]

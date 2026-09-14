@@ -166,7 +166,7 @@ class handler(BaseHTTPRequestHandler):
         payload = json.loads(post_data) if post_data else {}
         path = self.path
 
-        if "/api/anthony_ai_supreme/chat" in path or "/api/obsidian_ai/chat" in path or "/api/leo/chat" in path:
+        if "/api/anthony_ai_supreme/chat" in path or "/api/obsidian_ai/chat" in path:
             # 🔱 SUPREME ORACLE LOGIC v5.0 (Multi-Model MoE)
             user_msg = payload.get("message", "").lower()
             email = payload.get("email", "anonymous")

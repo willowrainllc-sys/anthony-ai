@@ -1,5 +1,5 @@
 /* 🔱 OBSIDIAN AURA ENGINE v1.3 */
-/* Integrated Obsidian AI Chat Agent + Dynamic 4K Backgrounds + Monetization */
+/* Integrated Obsidian ASI Chat Agent + Dynamic 4K Backgrounds + Monetization */
 
 const FALLBACK_VIDEO = "https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175";
 
@@ -7,7 +7,7 @@ const AURA_OFFERS = [
     { label: '.COM EXCLUSIVE', price: '$14.70', url: 'obsidian_domains.html', img: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=300' },
     { label: 'DELAWARE LLC', price: '$39.00', url: 'obsidian_llc_formation.html', img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=300' },
     { label: 'GLOBAL MESH', price: 'EARN $', url: 'obsidian_data_sharing.html', img: 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=300' },
-    { label: 'LEO AI BUILDER', price: 'FREE', url: 'obsidian_obsidian_ai_builder.html', img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=300' }
+    { label: 'OBSIDIAN AI BUILDER', price: 'FREE', url: 'obsidian_obsidian_ai_builder.html', img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=300' }
 ];
 
 /**
@@ -22,7 +22,7 @@ function getApiUrl(endpoint) {
 
 
 /**
- * 🔱 LEO CHAT AGENT UI
+ * 🔱 OBSIDIAN AI CHAT AGENT UI
  */
 function initObsidianAIChat() {
     // 1. Create Floating Trigger
@@ -42,17 +42,17 @@ function initObsidianAIChat() {
             <div class="flex items-center gap-3">
                 <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-sm">🤖</div>
                 <div>
-                    <div class="text-[11px] font-black text-white uppercase tracking-widest">Obsidian AI</div>
+                    <div class="text-[11px] font-black text-white uppercase tracking-widest">Obsidian ASI</div>
                     <div class="text-[8px] text-emerald-400 font-bold uppercase">Enterprise AI Node Active</div>
                 </div>
             </div>
             <button onclick="toggleObsidianAIChat()" class="text-gray-500 hover:text-white text-xl">&times;</button>
         </div>
         <div class="chat-body" id="obsidian_aiChatBody">
-            <div class="msg msg-obsidian_ai">Greetings. I am Obsidian AI, your AI Business Assistant. How can I assist your business growth today?</div>
+            <div class="msg msg-obsidian_ai">Greetings. I am Obsidian ASI, your AI Artificial Super Intelligence (ASI). ARES directs the ASI. What is your objective? your business growth today?</div>
         </div>
         <div class="chat-footer">
-            <input type="text" id="obsidian_aiChatInput" class="chat-input" placeholder="Ask Obsidian AI anything..." onkeypress="handleChatKey(event)">
+            <input type="text" id="obsidian_aiChatInput" class="chat-input" placeholder="Ask Obsidian ASI anything..." onkeypress="handleChatKey(event)">
         </div>
     `;
     document.body.appendChild(win);
@@ -229,7 +229,7 @@ async function initAuraVideo() {
  * 🔱 SECURITY PULSE: Floating Hacking & Safety Tips
  */
 const SECURITY_TIPS = [
-    "Tip: Use hardware security keys (FIDO2) for absolute identity sovereignty.",
+    "Tip: Use hardware security keys (FIDO2) for absolute identity asity.",
     "Fact: 95% of breaches start with phishing. Always verify the sender's origin.",
     "Tip: Enable PQC (Post-Quantum Cryptography) for long-term data protection.",
     "Fact: Public Wi-Fi is a major ingress point for sniffers. Use the Obsidian Mesh.",
@@ -339,7 +339,7 @@ function injectNewsTicker() {
     ticker.className = 'obsidian-news-ticker';
 
     const newsItems = [
-        "Obsidian AI builds 1,000th empire node this hour",
+        "Obsidian ASI builds 1,000th empire node this hour",
         "St. Charles Global HQ confirms 99.9% uptime for Edge Mesh",
         ".COM wholesale prices holding steady at $14.70",
         "New LLC formation protocol reduces state filing time by 40%",

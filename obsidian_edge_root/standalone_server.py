@@ -109,6 +109,17 @@ class SovereignHandler(http.server.SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     os.chdir(DIRECTORY)
+
+    # 🔱 HARD-CODED ARES AUTO-IGNITE
+    print(f"🔱 ARES CORE: Initiating Hard-Coded Self-Healing Protocol...")
+    try:
+        import subprocess
+        # Run Master Fixer in a separate process to avoid blocking
+        subprocess.Popen([sys.executable, "colony_backend/ares_master_empire_fixer.py"])
+        print(f"✓ ARES CORE: Self-healing background mission dispatched.")
+    except Exception as e:
+        print(f"[-] ARES CORE: Auto-ignite notice: {e}")
+
     socketserver.TCPServer.allow_reuse_address = True
     with socketserver.TCPServer(("", PORT), SovereignHandler) as httpd:
         print(f"\n" + "="*50)
