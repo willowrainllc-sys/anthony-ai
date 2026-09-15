@@ -1,6 +1,17 @@
 {
   "cleanUrls": true,
   "outputDirectory": ".",
+  "headers": [
+    {
+      "source": "/(.*)\\.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",
@@ -97,6 +108,14 @@
     {
       "source": "/start-llc/(.*)",
       "destination": "/obsidian_llc_state.html?state=$1"
+    },
+    {
+      "source": "/google(.*)\\.html",
+      "destination": "/google$1.html"
+    },
+    {
+      "source": "/(.*)\\.html",
+      "destination": "/$1.html"
     }
   ]
 }
