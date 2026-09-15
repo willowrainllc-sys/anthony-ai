@@ -101,6 +101,10 @@
     {
       "source": "/google(.*)\\.html",
       "destination": "/google$1.html"
+    },
+    {
+      "source": "/(.*)\\.xml",
+      "destination": "/$1.xml"
     }
   ]
 }
