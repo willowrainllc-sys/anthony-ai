@@ -25,6 +25,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="https://unpkg.com/three"></script>
     <script src="https://unpkg.com/globe.gl"></script>
     <style>
+        * { box-sizing: border-box; }
         /* [+] Global Scroll & Layout Reset */
         html { scroll-behavior: smooth; }
         body {
@@ -35,6 +36,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-family: 'Inter', sans-serif;
             padding-top: 172px;
             overflow-x: hidden;
+        }
+
+        @media (max-width: 768px) {
+            body { padding-top: 100px !important; }
+            .base44-top-bar { padding: 8px 15px !important; font-size: 10px !important; }
+            .base44-main-nav { padding: 12px 15px !important; }
+            .category-tabs { padding: 8px 15px !important; }
+            .hero-video-section { height: auto !important; padding: 60px 15px !important; }
+            .hero-inner h1 { font-size: 1.8rem !important; line-height: 1.2 !important; height: auto !important; }
+            .hero-inner p { font-size: 0.9rem !important; }
+            .search-box-wrapper { flex-direction: column !important; background: #fff !important; border-radius: 20px !important; padding: 10px !important; }
+            .search-box-wrapper input { padding: 12px 15px !important; font-size: 1rem !important; width: 100% !important; }
+            .search-btn { width: 100% !important; padding: 12px !important; border-radius: 15px !important; }
+            .tld-bar { gap: 10px !important; }
+            .tld-item { padding: 6px 12px !important; font-size: 11px !important; }
+            .product-grid { padding: 40px 15px !important; }
+            .base44-card { padding: 25px 15px !important; }
         }
 
         /* [+] Splash Screen */
@@ -91,11 +109,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 1000px;
-            height: 1000px;
+            width: min(1000px, 100vw);
+            height: min(1000px, 100vw);
             z-index: 1;
             opacity: 0.9;
             pointer-events: none;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            body { padding-top: 120px !important; }
+            .base44-top-bar, .base44-main-nav, .category-tabs { padding-left: 15px !important; padding-right: 15px !important; }
+            .hero-inner h1 { font-size: 2.2rem !important; height: auto !important; }
+            .search-box-wrapper { flex-direction: column; background: transparent; box-shadow: none; }
+            .search-box-wrapper input { background: #fff; border-radius: 20px; margin-bottom: 10px; }
+            .search-btn { width: 100%; border-radius: 20px; }
         }
 
         .hero-inner {
