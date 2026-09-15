@@ -13,32 +13,113 @@ import httpx
 import xml.etree.ElementTree as ET
 from http.server import BaseHTTPRequestHandler
 from dotenv import load_dotenv
+from supabase import create_client, Client
 
 # [+] Load environment for local server runs
 load_dotenv()
 
-# [+] Ensure network_backend is in path for imports
-sys_path_added = os.path.join(os.path.dirname(__file__), '..', 'network_backend')
-if sys_path_added not in os.sys.path:
-    os.sys.path.append(sys_path_added)
 
-# [+] INTERNAL BRIDGES (Direct Import for Vercel)
-try:
-    from .obsidian_database_sync import db_bridge
-except ImportError:
-    try:
-        import obsidian_database_sync
-        db_bridge = obsidian_database_sync.db_bridge
-    except ImportError:
-        from network_backend.obsidian_database_sync import db_bridge
+# [+] INTERNAL BRIDGES (INLINED)
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
+# --- OBSIDIAN CITY DATABASE SYNCHRONIZER v1.0 ---
 
-# [+] PLAID BRIDGE
-try:
-    from network_backend.obsidian_plaid_bridge import plaid_bridge
-except ImportError:
-    plaid_bridge = None
+# [+] Initialize Environment
+SUPABASE_URL = os.environ.get("SUPABASE_URL")
+SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
 
-# [+] WHOLESALE & DATABASE BRIDGES
+class ObsidianDatabase:
+    """
+    OBSIDIAN CITY PERSISTENT DATABASE BRIDGE:
+    Uses Supabase to synchronize user sessions, digital asset ownership,
+    and platform data separation between Director (Anthony) and Customers.
+    """
+    def __init__(self):
+        self.active = False
+        if SUPABASE_URL and SUPABASE_KEY:
+            try:
+                self.client: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+                self.active = True
+                print("[+] OBSIDIAN DATABASE: Supabase Link Active.")
+            except Exception as e:
+                print(f"[-] DATABASE ERROR: {e}")
+        else:
+            print("[-] DATABASE WARNING: Supabase Credentials missing. Falling back to Local Vault.")
+
+    def save_session(self, sid, email, metadata=None):
+        if not self.active: return False
+        try:
+            data = {"id": sid, "email": email, "metadata": metadata, "last_active": "now()"}
+            self.client.table("sessions").upsert(data).execute()
+            return True
+        except Exception: return False
+
+    def record_purchase(self, email, item_type, amount, txid, metadata=None):
+        if not self.active: return False
+        try:
+            data = {
+                "email": email,
+                "item": item_type,
+                "amount": amount,
+                "txid": txid,
+                "metadata": metadata,
+                "created_at": "now()"
+            }
+            self.client.table("purchases").insert(data).execute()
+            return True
+        except Exception: return False
+
+    def get_purchases(self, email):
+        """Retrieves user order history from Supabase."""
+        if not self.active: return []
+        try:
+            res = self.client.table("purchases").select("*").eq("email", email).order("created_at", desc=True).execute()
+            return res.data
+        except Exception: return []
+
+    def save_settings(self, email, settings_dict):
+        if not self.active: return False
+        try:
+            data = {"email": email, "settings": settings_dict, "updated_at": "now()"}
+            self.client.table("user_settings").upsert(data).execute()
+            return True
+        except Exception: return False
+
+    def get_settings(self, email):
+        if not self.active: return {}
+        try:
+            res = self.client.table("user_settings").select("settings").eq("email", email).single().execute()
+            return res.data.get("settings", {})
+        except Exception: return {}
+
+    def save_api_keys(self, email, public_key, private_key_hash):
+        if not self.active: return False
+        try:
+            data = {
+                "email": email,
+                "public_key": public_key,
+                "private_key_hash": private_key_hash,
+                "created_at": "now()",
+                "status": "ACTIVE"
+            }
+            self.client.table("user_api_keys").upsert(data).execute()
+            return True
+        except Exception: return False
+
+    def get_api_keys(self, email):
+        if not self.active: return None
+        try:
+            res = self.client.table("user_api_keys").select("public_key").eq("email", email).single().execute()
+            return res.data
+        except Exception: return None
+
+    def is_director(self, email):
+        # [+] SUPREME OVERRIDE: Identify the Boss (Admin)
+        directors = ["google_user@obsidian.city", "willow.rain.llc@gmail.com"]
+        email_low = email.lower()
+        return any(d == email_low for d in directors) or email_low.startswith("anthony")
+
+# [+] Global Instance
+db_bridge = ObsidianDatabase()
 NAMESILO_KEY = os.environ.get("NAMESILO_API_KEY")
 PEXELS_KEY = os.environ.get("PEXELS_API_KEY")
 SQUARE_TOKEN = os.environ.get("SQUARE_ACCESS_TOKEN")
@@ -393,5 +474,4 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
         self.wfile.write(json.dumps(result).encode('utf-8'))
-
 
