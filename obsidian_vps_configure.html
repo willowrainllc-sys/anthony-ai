@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Configure Your VPS | Obsidian City Hosting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f8fafc; color: #0f172a; font-family: 'Inter', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .config-card { background: #ffffff; border: 1px solid #e2e8f0; padding: 45px; border-radius: 32px; width: 100%; max-width: 650px; box-shadow: 0 20px 60px rgba(0,0,0,0.05); }
+        .input-group { margin-bottom: 25px; }
+        label { display: block; font-size: 11px; color: #64748b; margin-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        select, input { width: 100%; background: #f1f5f9; border: 1px solid #e2e8f0; padding: 16px; border-radius: 14px; color: #0f172a; outline: none; font-size: 14px; font-weight: 600; }
+        .os-option { border: 2px solid #e2e8f0; border-radius: 16px; padding: 15px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 12px; }
+        .os-option:hover { border-color: #3b82f6; background: #eff6ff; }
+        .os-option.active { border-color: #2563eb; background: #eff6ff; }
+        .btn-deploy { width: 100%; background: #2563eb; color: #fff; padding: 18px; border-radius: 14px; font-weight: 800; font-size: 15px; transition: 0.2s; border: none; cursor: pointer; box-shadow: 0 10px 25px rgba(37,99,235,0.2); }
+        .btn-deploy:hover { background: #1d4ed8; transform: translateY(-2px); }
+    </style>
+    <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
+    <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHCNLC5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div class="config-card">
+        <div class="mb-8">
+            <a href="obsidian_vps_hosting.html" class="text-xs font-bold text-blue-600 hover:underline">← Back to Plans</a>
+            <h1 class="text-3xl font-black text-slate-900 mt-4 tracking-tight">Configure Your Node</h1>
+            <p class="text-slate-500 text-sm mt-1" id="planLabel">Selected: 2 vCPU / 4GB RAM Plan</p>
+        </div>
+
+        <form id="vpsForm">
+            <div class="input-group">
+                <label>Operating System</label>
+                <div class="grid-cols-2 gap-4">
+                    <div class="os-option active" onclick="selectOS(this, 'ubuntu-24-04')">
+                        <span class="text-xl">🐧</span>
+                        <div class="text-xs font-bold">Ubuntu 24.04 LTS</div>
+                    </div>
+                    <div class="os-option" onclick="selectOS(this, 'debian-12')">
+                        <span class="text-xl">🌀</span>
+                        <div class="text-xs font-bold">Debian 12</div>
+                    </div>
+                    <div class="os-option" onclick="selectOS(this, 'windows-2022')">
+                        <span class="text-xl">🪟</span>
+                        <div class="text-xs font-bold">Windows 2022</div>
+                    </div>
+                    <div class="os-option" onclick="selectOS(this, 'alma-9')">
+                        <span class="text-xl">🛡️</span>
+                        <div class="text-xs font-bold">AlmaLinux 9</div>
+                    </div>
+                </div>
+                <input type="hidden" id="selectedOS" value="ubuntu-24-04">
+            </div>
+
+            <div class="input-group">
+                <label>Server Location</label>
+                <select id="serverRegion" required>
+                    <option value="US-MIDWEST-1">US Midwest (St. Louis)</option>
+                    <option value="US-EAST-1">US East (Virginia)</option>
+                    <option value="EU-CENTRAL-1">EU Central (Frankfurt)</option>
+                    <option value="ASIA-EAST-1">Asia East (Tokyo)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Hostname</label>
+                <input type="text" id="hostname" placeholder="my-node-01" required>
+                <p class="text-[9px] text-slate-400 mt-2 font-bold uppercase tracking-wider">Example: node.yourdomain.com</p>
+            </div>
+
+            <div class="bg-blue-50 border-blue-100 p-6 rounded-2xl mb-8">
+                <div class="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-blue-700">
+                    <span>Hardware Setting up</span>
+                    <span id="planPrice">$17.99/mo</span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-deploy">Proceed to Checkout & Deploy →</button>
+        </form>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const plan = urlParams.get('type') || 'vps_2cpu_4gb';
+        const price = urlParams.get('price') || '17.99';
+
+        document.getElementById('planLabel').innerText = `Selected: ${plan.replace('vps_', '').replace('_', ' ').toUpperCase()} Plan`;
+        document.getElementById('planPrice').innerText = `$${price}/mo`;
+
+        function selectOS(el, os) {
+            document.querySelectorAll('.os-option').forEach(opt => opt.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('selectedOS').value = os;
+        }
+
+        document.getElementById('vpsForm').onsubmit = (e) => {
+            e.preventDefault();
+            const config = {
+                os: document.getElementById('selectedOS').value,
+                region: document.getElementById('serverRegion').value,
+                hostname: document.getElementById('hostname').value,
+                plan: plan
+            };
+
+            localStorage.setItem('pending_vps_config', JSON.stringify(config));
+            window.location.href = `obsidian_unified_checkout.html?type=${plan}&price=${price}`;
+        };
+    </script>
+    <script src="assets/obsidian_aura_engine.js"></script>
+</body>
+</html>
