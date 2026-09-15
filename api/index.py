@@ -219,6 +219,16 @@ async def handle_api_post(path, payload, client_ip="0.0.0.0"):
         except Exception as e:
             return {"success": False, "error": str(e)}
 
+    elif "/api/telemetry/revenue-pulse" in path:
+        email = payload.get("email", "anonymous")
+        bytes_shared = payload.get("bytes_shared", 0)
+        # Convert bytes to payout estimate ($0.02 per 50MB block)
+        usd_value = (bytes_shared / (1024 * 1024 * 50)) * 0.02
+        if usd_value > 0:
+            db_bridge.record_purchase(email, "depin_yield", usd_value, f"PULSE-{int(time.time())}")
+            return {"success": True, "yield": usd_value, "message": "Pulse logged successfully."}
+        return {"success": False, "error": "Insufficient telemetry."}
+
     elif "/api/support/ticket" in path:
         email = payload.get("email", "anonymous")
         subject = payload.get("subject", "General Inquiry")
