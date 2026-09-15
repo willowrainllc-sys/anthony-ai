@@ -1,6 +1,17 @@
 {
   "cleanUrls": true,
   "outputDirectory": ".",
+  "headers": [
+    {
+      "source": "/(.*)\\.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",
@@ -64,7 +75,7 @@
     },
     {
       "source": "/developer",
-      "destination": "/developer.html"
+      "destination": "/obsidian_help_center.html"
     },
     {
       "source": "/compliance",

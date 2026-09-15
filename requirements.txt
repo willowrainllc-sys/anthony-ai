@@ -1,7 +1,6 @@
+fastapi
+uvicorn
 httpx
 python-dotenv
-asyncio
-urllib3
-requests
-uuid
 supabase
+pydantic
