@@ -93,6 +93,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
 
+        <!-- [+] Manual Card / ID Upload (Front & Back) -->
+        <div class="input-group text-left mt-6 pt-6 border-t border-slate-200">
+            <label class="text-blue-600 font-bold">📸 Alternative: Upload Card (Front & Back)</label>
+            <p class="text-[10px] text-slate-400 mb-3">For manual verification or secure processing, upload card or ID images below.</p>
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <span class="text-[9px] font-bold text-slate-500 uppercase">Front Image</span>
+                    <input type="file" id="cardFront" accept="image/*" class="text-xs !p-2">
+                </div>
+                <div>
+                    <span class="text-[9px] font-bold text-slate-500 uppercase">Back Image</span>
+                    <input type="file" id="cardBack" accept="image/*" class="text-xs !p-2">
+                </div>
+            </div>
+        </div>
+
         <button type="submit" id="submitBtn" class="btn-pay mt-2">Authorize & Settle →</button>
     </form>
 
