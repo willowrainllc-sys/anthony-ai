@@ -3,7 +3,6 @@
 import asyncio
 import os
 import sys
-import time
 from pathlib import Path
 from colony_logger import colony_log
 from ares_social_reel_striker import dispatch_1_min_reels
@@ -57,7 +56,6 @@ class ObsidianEmpireDaemon:
         while True:
             colony_log("[DAEMON] Auditing API Keys, Handshakes, Ports, and App Bridges...", node="SUPREME")
             try:
-                # Runs the handshake audit under the hood
                 await test_handshakes()
                 colony_log("[+] ALL KEYS VALID & PORTS SECURE. Next API rotation window verified.", node="SUPREME")
                 colony_log("[+] App pipelines, payment bridges, and Vercel edge routers are returning 200 OK.", node="SUPREME")
@@ -74,17 +72,20 @@ class ObsidianEmpireDaemon:
         print("  [+] MODULES: Social (2h), Engagement (1h), SEO (4h), Infra (12h)")
         print("="*70 + "\n")
 
-        # Run all loops concurrently
-        await asyncio.gather(
-            self.social_publishing_daemon(),
-            self.engagement_bot_daemon(),
-            self.seo_traffic_daemon(),
-            self.infrastructure_health_daemon()
-        )
+        # Using create_task to prevent blocking/crashing the main event loop
+        tasks = [
+            asyncio.create_task(self.social_publishing_daemon()),
+            asyncio.create_task(self.engagement_bot_daemon()),
+            asyncio.create_task(self.seo_traffic_daemon()),
+            asyncio.create_task(self.infrastructure_health_daemon())
+        ]
+        await asyncio.gather(*tasks)
 
 if __name__ == "__main__":
     daemon = ObsidianEmpireDaemon()
     try:
+        if sys.platform == 'win32':
+            asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
         asyncio.run(daemon.start_all())
     except KeyboardInterrupt:
         print("\n[!] Daemon manually terminated.")
