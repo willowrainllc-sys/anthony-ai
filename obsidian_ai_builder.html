@@ -434,38 +434,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             // Background classes based on blueprint
             let bgClass = "bg-white text-black";
-            if (id === 1) bgClass = "bg-slate-950 text-white";
-            if (id === 2) bgClass = "bg-gradient-to-br from-blue-900 to-indigo-950 text-white";
+            let btnClass = "bg-black text-white";
+            let cardClass = "bg-gray-50 border-gray-200";
+            if (id === 1) { bgClass = "bg-slate-950 text-white"; btnClass = "bg-blue-600 text-white"; cardClass = "bg-slate-900 border-white/5"; }
+            if (id === 2) { bgClass = "bg-gradient-to-br from-indigo-950 to-emerald-950 text-white"; btnClass = "bg-emerald-500 text-black"; cardClass = "bg-white/10 backdrop-blur-xl border-white/10"; }
 
             zone.innerHTML = `
-                <div class="h-full flex-col ${bgClass} p-0 animate-fadeIn relative">
+                <div class="h-full flex-col ${bgClass} p-0 animate-fadeIn relative overflow-y-auto overflow-x-hidden">
                     <!-- Browser Chrome Mockup -->
-                    <div class="bg-black/20 backdrop-blur-md p-4 border-b border-white/5 flex items-center gap-4">
+                    <div class="bg-black/80 backdrop-blur-md p-4 border-b border-white/5 flex items-center gap-4 sticky top-0 z-50">
                         <div class="flex gap-1.5">
                             <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
                             <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
                             <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
                         </div>
-                        <div class="bg-black/30 border-white/10 rounded px-3 py-1 text-[9px] font-bold text-white/40 flex-1">
+                        <div class="bg-white/5 border border-white/10 rounded px-3 py-1 text-[9px] font-bold text-white/50 flex-1 text-center">
                             https://throne-node-${Math.floor(Math.random()*900)+100}.obsidian.city
                         </div>
                     </div>
 
-                    <!-- Synthesized Content -->
-                    <div class="flex-1 p-16 flex-col items-center justify-center text-center">
-                        <div class="text-[10px] font-black uppercase tracking-[8px] text-blue-400 mb-6">${name} Protocol Active</div>
-                        <h1 class="text-5xl font-black tracking-tighter mb-8 max-w-2xl">${prompt}</h1>
-                        <p class="text-gray-400 text-sm max-w-md mb-12 leading-relaxed font-medium">This site was automaticly synthesized by the Obsidian AI reasoning core. Integrated with wholesale registrar bridges and 0% fee settlement logic.</p>
-
-                        <div class="flex gap-6 w-full max-w-sm">
-                             <div class="flex-1 h-14 bg-blue-600 rounded-2xl flex items-center justify-center font-black text-xs uppercase tracking-widest shadow-xl shadow-blue-600/20">Launch Now</div>
-                             <div class="flex-1 h-14 bg-white/5 border-white/10 rounded-2xl flex items-center justify-center font-black text-xs uppercase tracking-widest">Learn More</div>
+                    <!-- Synthesized High-Fidelity Template -->
+                    <nav class="p-6 flex justify-between items-center border-b border-white/5">
+                        <div class="font-black text-xl tracking-tighter">${prompt.split(' ')[0].toUpperCase()}</div>
+                        <div class="hidden md:flex gap-6 text-sm font-bold opacity-70">
+                            <span>Features</span>
+                            <span>Pricing</span>
+                            <span>About</span>
                         </div>
+                        <div class="${btnClass} px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">Get Started</div>
+                    </nav>
 
-                        <div class="mt-16 w-full max-w-lg h-48 bg-white/5 rounded-[32px] border-dashed border-white/10 flex items-center justify-center group cursor-pointer hover:border-blue-500/50 transition">
-                            <span class="text-[10px] text-gray-600 font-black uppercase tracking-[5px] group-hover:text-blue-400 transition">Interactive Asset Container</span>
+                    <header class="py-24 px-8 text-center max-w-4xl mx-auto">
+                        <div class="inline-block px-4 py-1 rounded-full border border-current opacity-60 text-[10px] font-black uppercase tracking-[3px] mb-6">${name} Protocol Active</div>
+                        <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-[1.1]">${prompt}</h1>
+                        <p class="text-lg opacity-60 max-w-2xl mx-auto mb-10">Automatically architected by Obsidian AI. Engineered for global edge deployment, instant wholesale monetization, and zero-latency performance.</p>
+                        <div class="flex justify-center gap-4">
+                             <div class="${btnClass} px-10 py-4 rounded-xl font-black text-sm uppercase tracking-widest shadow-xl cursor-pointer">Launch Platform</div>
+                             <div class="border border-current opacity-70 px-10 py-4 rounded-xl font-black text-sm uppercase tracking-widest cursor-pointer hover:opacity-100 transition">View Source</div>
                         </div>
-                    </div>
+                    </header>
+
+                    <section class="py-16 px-8 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="${cardClass} p-8 rounded-3xl border shadow-xl">
+                            <div class="text-3xl mb-4">⚡</div>
+                            <h3 class="text-xl font-black mb-3">Hyper-Speed Edge</h3>
+                            <p class="text-sm opacity-70 leading-relaxed">Deployed instantly across global CDN nodes. Zero cold boots, infinite scaling, and native SSL security included.</p>
+                        </div>
+                        <div class="${cardClass} p-8 rounded-3xl border shadow-xl">
+                            <div class="text-3xl mb-4">🛒</div>
+                            <h3 class="text-xl font-black mb-3">Square Checkouts</h3>
+                            <p class="text-sm opacity-70 leading-relaxed">Embedded secure checkout pipelines capable of capturing B2B revenue and direct payouts to your ledger.</p>
+                        </div>
+                        <div class="${cardClass} p-8 rounded-3xl border shadow-xl">
+                            <div class="text-3xl mb-4">🤖</div>
+                            <h3 class="text-xl font-black mb-3">AI Engine Connected</h3>
+                            <p class="text-sm opacity-70 leading-relaxed">Hardwired into the Obsidian AI swarm for automated SEO indexing, domain linking, and content generation.</p>
+                        </div>
+                    </section>
                 </div>
             `;
 
