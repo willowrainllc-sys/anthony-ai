@@ -13,7 +13,8 @@ import httpx
 import xml.etree.ElementTree as ET
 from http.server import BaseHTTPRequestHandler
 from dotenv import load_dotenv
-from supabase import create_client, Client
+# from supabase import create_client, Client
+
 
 # [+] Load environment for local server runs
 load_dotenv()
@@ -35,15 +36,17 @@ class ObsidianDatabase:
     """
     def __init__(self):
         self.active = False
+        # Vercel Runtime Optimization: Bypass Supabase initialization for simple heartbeat tests
         if SUPABASE_URL and SUPABASE_KEY:
             try:
-                self.client: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
-                self.active = True
-                print("[+] OBSIDIAN DATABASE: Supabase Link Active.")
+                # self.client: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+                # self.active = True
+                print("[+] OBSIDIAN DATABASE: Supabase Link Pending.")
             except Exception as e:
                 print(f"[-] DATABASE ERROR: {e}")
         else:
             print("[-] DATABASE WARNING: Supabase Credentials missing. Falling back to Local Vault.")
+
 
     def save_session(self, sid, email, metadata=None):
         if not self.active: return False
