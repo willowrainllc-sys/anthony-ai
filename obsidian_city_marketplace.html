@@ -129,6 +129,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <option value="ro">Română (Romanian)</option>
                 </select>
             </div>
+            <button onclick="toggleNeonTheme()" class="px-3 py-2 bg-emerald-500/10 border border-emerald-500/30 rounded-lg text-xs font-bold text-emerald-400 hover:bg-emerald-500/20 transition cursor-pointer">✨ Glow</button>
             <a href="#" class="text-sm font-bold">Help</a>
             <a href="#" class="text-sm font-bold">Sign In</a>
             <button class="w-10 h-10 flex items-center justify-center border border-white/10 rounded-full">🛒</button>
@@ -370,6 +371,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- [+] Toast Notification Container -->
+    <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 pointer-events-none"></div>
+
+    <script>
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+            const toast = document.createElement('div');
+            toast.className = `pointer-events-auto glass-card px-6 py-4 rounded-2xl border ${type === 'success' ? 'border-emerald-500/50 text-emerald-400' : 'border-blue-500/50 text-blue-400'} text-xs font-bold shadow-2xl backdrop-blur-xl animate-bounce`;
+            toast.innerHTML = `✨ ${message}`;
+            container.appendChild(toast);
+            setTimeout(() => { toast.remove(); }, 3500);
+        }
+
+        let neonActive = true;
+        function toggleNeonTheme() {
+            neonActive = !neonActive;
+            document.documentElement.style.setProperty('--accent', neonActive ? '#10b981' : '#3b82f6');
+            showToast(neonActive ? 'Neon Lime Glow Enabled 🟢' : 'Classic Blue Glow Enabled 🔵', 'info');
+        }
+    </script>
 
     <script>
         // [+] Robust Video Pipeline Fallback
