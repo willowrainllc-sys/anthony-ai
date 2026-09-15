@@ -22,14 +22,12 @@
     { "source": "/vps", "destination": "/obsidian_vps_hosting.html" },
     { "source": "/wordpress", "destination": "/obsidian_wordpress_support.html" },
     { "source": "/airo", "destination": "/obsidian_ai_builder.html" },
-    { "source": "/builder", "destination": "/obsidian_ai_builder.html" },
     { "source": "/signin", "destination": "/obsidian_signin.html" },
     { "source": "/register", "destination": "/obsidian_register.html" },
     { "source": "/help", "destination": "/obsidian_help_center.html" },
     { "source": "/profile", "destination": "/obsidian_user_profile.html" },
     { "source": "/whitelabel", "destination": "/obsidian_white_label_licensing.html" },
     { "source": "/chat", "destination": "/ares_oracle_chat_monitor.html" },
-    { "source": "/google(.*)\\.html", "destination": "/google$1.html" },
-    { "source": "/(.*)\\.html", "destination": "/$1.html" }
+    { "source": "/google(.*)\\.html", "destination": "/google$1.html" }
   ]
 }
