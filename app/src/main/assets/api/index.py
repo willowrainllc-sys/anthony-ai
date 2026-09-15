@@ -22,11 +22,15 @@ sys_path_added = os.path.join(os.path.dirname(__file__), '..', 'network_backend'
 if sys_path_added not in os.sys.path:
     os.sys.path.append(sys_path_added)
 
-# [+] INTERNAL BRIDGES
+# [+] INTERNAL BRIDGES (Direct Import for Vercel)
 try:
-    from obsidian_database_sync import db_bridge
+    from .obsidian_database_sync import db_bridge
 except ImportError:
-    from network_backend.obsidian_database_sync import db_bridge
+    try:
+        import obsidian_database_sync
+        db_bridge = obsidian_database_sync.db_bridge
+    except ImportError:
+        from network_backend.obsidian_database_sync import db_bridge
 
 # [+] PLAID BRIDGE
 try:
