@@ -26,6 +26,13 @@ HERETIC_SITES = [
     ("cia.gov/readingroom", "https://www.cia.gov/readingroom", "Search declassified CIA documents and Cold War secrets.", "Declassified")
 ]
 
+SCIENCE_ADVANCEMENTS = [
+    ("mind-uploading-theory.org", "https://en.wikipedia.org/wiki/Mind_uploading", "Whole brain emulation, neural mapping, and digital consciousness transfer protocols.", "Science & Advancement"),
+    ("connectomics-lab.org", "https://en.wikipedia.org/wiki/Connectome", "Mapping complete neural wiring diagrams for cognitive replication.", "Science & Advancement"),
+    ("neural-substrate.ai", "https://en.wikipedia.org/wiki/Neuron_simulation", "Silicon-based neural network architecture and biological-synthetic bridging.", "Science & Advancement"),
+    ("quantum-consciousness.net", "https://en.wikipedia.org/wiki/Quantum_mind", "Orchestrated objective reduction and quantum biological processing units.", "Science & Advancement")
+]
+
 AI_TOOLKIT = [
     ("Ideogram", "https://ideogram.ai", "Image", "Create ultra-realistic images with perfect text in seconds."),
     ("Midjourney", "https://midjourney.com", "Image", "Generate stunning, high-end visuals for brands & thumbnails."),
@@ -51,8 +58,35 @@ AI_TOOLKIT = [
 
 def seed():
     with db._get_connection() as conn:
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS heretic_resources (
+                name TEXT PRIMARY KEY,
+                url TEXT,
+                description TEXT,
+                category TEXT
+            )
+        """)
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS ai_toolkit (
+                name TEXT PRIMARY KEY,
+                url TEXT,
+                utility TEXT,
+                description TEXT
+            )
+        """)
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS neural_disciples (
+                id TEXT PRIMARY KEY,
+                name TEXT,
+                aura TEXT
+            )
+        """)
         print("[+] Seeding Heretic Open Source...")
         for name, url, desc, cat in HERETIC_SITES:
+            conn.execute("INSERT OR IGNORE INTO heretic_resources (name, url, description, category) VALUES (?, ?, ?, ?)", (name, url, desc, cat))
+
+        print("[+] Seeding Science & Advancement Discoveries (Mind Uploading & Neural Emulation)...")
+        for name, url, desc, cat in SCIENCE_ADVANCEMENTS:
             conn.execute("INSERT OR IGNORE INTO heretic_resources (name, url, description, category) VALUES (?, ?, ?, ?)", (name, url, desc, cat))
 
         print("[+] Seeding AI Toolkit...")

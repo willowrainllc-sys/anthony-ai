@@ -2,12 +2,12 @@ package com.obsidian.global.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Obsidian City Industrial Palette
-val CityBlack = Color(0xFF030305)
+// Obsidian City Industrial Palette (Lime/Emerald Accent)
+val CityBlack = Color(0xFF030303)
 val CitySurface = Color(0xFF0A0A0C)
-val CityBlue = Color(0xFF3B82F6)
+val CityBlue = Color(0xFF10B981)
 val CityEmerald = Color(0xFF10B981)
-val CityGold = Color(0xFFFBBF24)
+val CityGold = Color(0xFF10B981)
 
 val ObsidianWhite = Color(0xFFFFFFFF)
 
