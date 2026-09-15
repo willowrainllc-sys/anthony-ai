@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: CL4R1T4S TRANSPARENCY & PROMPT INTELLIGENCE v2.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json

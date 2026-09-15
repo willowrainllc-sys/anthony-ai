@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (SOVEREIGN PAY) ---
 import uuid
 import time
@@ -34,7 +34,7 @@ class ObsidianPayKernel:
     def transfer(self, sender, receiver, amount, note=""):
         if amount <= 0: return False, "Invalid amount"
 
-        # 🔱 INDUSTRIAL COMMISSION LOGIC (Master Payout)
+        # [+] INDUSTRIAL COMMISSION LOGIC (Master Payout)
         commission_rate = 0.05 # 5% per transaction
         fee = amount * commission_rate
         net_amount = amount - fee

@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: SUPREME MISSION OVERSEER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import json
@@ -30,11 +30,11 @@ class ObsidianMissionOverseer:
     """
     MISSION OVERSEER:
     Spawns and manages the 6 AI Daemon counterparts for the empire.
-    1. VORTEX_SENTINEL: Oversees Data Mesh Ingress.
+    1. VORTEX_SENTINEL: Oversees Data Mesh Access.
     2. GHOST_BURSTR: Oversees Identity Liquidation.
     3. BRICK_WATCHER: Oversees Virtual Real Estate.
     4. NODE_GUARDIAN: Oversees Domains & Hosting.
-    5. VOID_DIRECTOR: Oversees Media & Sponsor Ingress.
+    5. VOID_DIRECTOR: Oversees Media & Sponsor Access.
     6. WHALE_HUNT: Oversees HFT Trading.
     """
     def __init__(self):
@@ -51,7 +51,7 @@ class ObsidianMissionOverseer:
         ]
 
     async def run_overseer_loop(self):
-        colony_log("🔱 OVERSEER: Initiating Supreme Mission Control...", node="SUPREME")
+        colony_log("[+] OVERSEER: Initiating Supreme Mission Control...", node="SUPREME")
         while True:
             for daemon in self.daemons:
                 await daemon.pulse()

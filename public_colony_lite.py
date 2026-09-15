@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- COLONY LITE: OPEN SOURCE EDITION ---
 # A simple social media automation tool.
 # This is a basic framework for news scraping and automated posting.

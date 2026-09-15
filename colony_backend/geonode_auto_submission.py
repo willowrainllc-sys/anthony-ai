@@ -1,4 +1,4 @@
-# --- WILLOW RAIN ENTERPRISES: GEONODE AUTO-SUBMISSION HANDSHAKE BOT v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -25,7 +25,7 @@ class GeonodeAutoSubmitBot:
     4. Submits the technical spec to lock in the B2B loop.
     """
     async def execute_handshake_submission(self, headless: bool = True) -> dict:
-        colony_log(f"GEONODE_SUBMIT: Initiating Automated Handshake Submission (Headless={headless})...", node="GEONODE_BOT")
+        colony_log(f"GEONODE_SUBMIT: Initiating Automated Connection Submission (Headless={headless})...", node="GEONODE_BOT")
 
         if not PROPOSAL_PATH.exists():
             return {"status": "ERROR", "message": "Proposal MD file not found."}
@@ -77,7 +77,7 @@ class GeonodeAutoSubmitBot:
                     # submit_btn = page.get_by_role("button", name=re.compile(r"submit|send|become", re.I))
                     # await submit_btn.click()
 
-                    colony_log(" GEONODE_SUBMIT SUCCESS: Handshake proposal dispatched to Geonode!", node="GEONODE_BOT")
+                    colony_log(" GEONODE_SUBMIT SUCCESS: Connection proposal dispatched to Geonode!", node="GEONODE_BOT")
 
                     db.log_event("GEONODE_BOT", "HANDSHAKE_SUBMITTED", {
                         "proposal_id": "SOV-C6E69A",

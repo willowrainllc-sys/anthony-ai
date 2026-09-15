@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE CONTENT DIRECTOR: MISSION SPECTRUM ORCHESTRATOR v2.4 (SELF-LEARNING) ---
 import asyncio
 import json

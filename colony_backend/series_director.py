@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE SERIES-FIRST CONTENT DIRECTOR & CANONICAL STUDIO v1.0 ---
 import os
 import sys

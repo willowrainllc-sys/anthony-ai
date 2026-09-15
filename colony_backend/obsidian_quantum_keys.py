@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: POST-QUANTUM CRYPTOGRAPHY (PQC) KEY VAULT v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -57,8 +57,7 @@ class ObsidianQuantumKeys:
 quantum_keys = ObsidianQuantumKeys()
 
 if __name__ == "__main__":
-    key = quantum_keys.generate_pqc_session_key("Grid_Handshake_Initial")
-    print("\n=== [SUPREME] WILLOW RAIN QUANTUM SECURITY ===\n")
+    key = quantum_keys.generate_pqc_session_key("Grid_Connection_Initial")
     print("Algorithm:", key["algorithm"])
     print("Key ID:", key["key_id"])
     print("Public Key:", key["public_key_b64"][:32] + "...")

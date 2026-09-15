@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (WHATNOT SCAVENGER) ---
 import asyncio
 import os
@@ -24,7 +24,7 @@ class WhatnotScavenger:
         self.address = logistics_kernel.get_shipping_address()
 
     async def run_scavenge_loop(self):
-        colony_log(f"SCAVENGER [{self.node_id}]: Waking up Whatnot Ingress...", node="RECON")
+        colony_log(f"SCAVENGER [{self.node_id}]: Waking up Whatnot Access...", node="RECON")
 
         async with async_playwright() as p:
             try:
@@ -62,4 +62,4 @@ if __name__ == "__main__":
     if username and password:
         asyncio.run(scavenger.run_scavenge_loop())
     else:
-        print("🔱 WHATNOT SCAVENGER INITIALIZED. STANDING BY FOR VAULT INGRESS.")
+        print("[+] WHATNOT SCAVENGER INITIALIZED. STANDING BY FOR VAULT INGRESS.")

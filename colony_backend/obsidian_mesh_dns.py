@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (MESH DNS) ---
 import socket
 import json
@@ -25,7 +25,7 @@ class ObsidianMeshDNS:
         """Forces every node to recognize the business names."""
         colony_log("DNS: Broadcasting industrial names to the Nest-node mesh...", node="SUPREME")
 
-        # 🔱 The 'Freeway' to local resolution
+        # [+] The 'Freeway' to local resolution
         # This simulates updating the 'hosts' file logic for the entire fleet
         mapping = {
             "obsidian-global.io": self.host_ip,

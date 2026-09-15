@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: SQUARE PRODUCTION GATEWAY v8.0 (HARDENED) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 import uuid

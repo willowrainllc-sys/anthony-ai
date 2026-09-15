@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE AUTONOMOUS TOPIC & THEME FACTORY v3.0 (HIGH-AURA MASTERMINDS, HEISTS & DECLASSIFIED SECRETS) ---
 import os
 import time

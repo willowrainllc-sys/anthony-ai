@@ -42,7 +42,7 @@ async def verify_handshake(auth_file: Path):
             if "Obsidian Bridge Mode" in content or "JMPT" in content:
                 print(f"   [✓] MODE: Obsidian Bridge Mode Active.")
             else:
-                print(f"   [!] WARNING: Account might be in standard Obsidian Ingress mode.")
+                print(f"   [!] WARNING: Account might be in standard Obsidian Access mode.")
 
             # 3. Verify Wallet Bound
             # Searching for the wallet address prefix in the HTML

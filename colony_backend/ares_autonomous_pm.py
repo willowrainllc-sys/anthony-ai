@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES AUTONOMOUS PROJECT MANAGER v1.0 ---
 import asyncio
 import os
@@ -21,7 +21,7 @@ class AresProjectManager:
     async def generate_autonomous_mission(self):
         colony_log("ARES_PM: Analyzing empire status for proactive growth...", node="SUPREME")
 
-        # 🔱 ARES analyzes its own world
+        # [+] ARES analyzes its own world
         pillars = {
             "monetization": "ACTIVE",
             "seo": "STRIKING",
@@ -32,7 +32,7 @@ class AresProjectManager:
 
         mission = f"ARES Mission Directive: The 'Autonomous Scale' pillar is currently in BETA. Analyze the 'ares_os_seo_commander.py' and 'obsidian_dna_bridge.py' to determine how we can automate the creation of new localized mirror sites for 'obsidian.city' to bypass regional throttling."
 
-        colony_log(f"🔱 ARES COMMAND: {mission}", node="SUPREME")
+        colony_log(f"[+] ARES COMMAND: {mission}", node="SUPREME")
 
         # Dispatch to Oracle via the Brain Gate
         try:

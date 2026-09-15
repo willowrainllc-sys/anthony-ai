@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN CLOUD MIRROR v3.0 (BULLETPROOF) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -21,7 +21,7 @@ class ObsidianCloudMirror:
     """
     def __init__(self):
         self.is_failover_active = False
-        self.critical_ports = [8000, 1080, 1081] # Core ingress indicators
+        self.critical_ports = [8000, 1080, 1081] # Core access indicators
 
     async def run_sentinel_watchdog(self):
         colony_log("MIRROR: Initiating Bulletproof Cloud Sentinel...", node="SECURITY")

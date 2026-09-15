@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE OPEN SOURCE CONNECTORS: ZSKY.AI, SNAPGEN.AI & VIBES.AI INTEGRATION v1.0 ---
 import os
 import json

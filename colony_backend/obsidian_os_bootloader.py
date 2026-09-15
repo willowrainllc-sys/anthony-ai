@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v7.5 (OS BOOTLOADER) ---
 import asyncio
 import os
@@ -22,7 +22,7 @@ class ObsidianOSBootloader:
         self.status = "OFFLINE"
 
     async def execute_boot_sequence(self):
-        colony_log("🔱 BOOT: Initiating OBSIDIAN OS v1.0 [ST_CHARLES_ROOT]...", node="SUPREME")
+        colony_log("[+] BOOT: Initiating OBSIDIAN OS v1.0 [ST_CHARLES_ROOT]...", node="SUPREME")
 
         # 1. Start System Kernels
         colony_log("[*] BOOT: Loading ASI v30.0 TITAN Intelligence Layer...", node="SUPREME")

@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (HIVE HEARTBEAT) ---
 import asyncio
 import time
@@ -20,11 +20,11 @@ class HiveHeartbeat:
         self.status_file = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\willow_rain_global\wholesale_portal\hive_status.json")
 
     async def run_heartbeat_loop(self):
-        colony_log(f"🔱 HEARTBEAT: Monitoring {self.node_count} Auto-Dev Nodes...", node="SECURITY")
+        colony_log(f"[+] HEARTBEAT: Monitoring {self.node_count} Auto-Dev Nodes...", node="SECURITY")
 
         while True:
             try:
-                # 🔱 1. Generate Fake/Simulated Telemetry for the Grid
+                # [+] 1. Generate Fake/Simulated Telemetry for the Grid
                 # In production, this would probe the 103 Docker IPs via ADB
                 telemetry = {
                     "last_sync": time.strftime("%H:%M:%S"),
@@ -33,10 +33,10 @@ class HiveHeartbeat:
                     "uptime": "14d 06h 12m"
                 }
 
-                # 🔱 2. Write to physical manifest for UI auto-load
+                # [+] 2. Write to physical manifest for UI auto-load
                 self.status_file.write_text(json.dumps(telemetry, indent=4))
 
-                # 🔱 3. Log to Empire Vault
+                # [+] 3. Log to Empire Vault
                 db.log_event("SECURITY", "HIVE_HEARTBEAT_SYNC", telemetry)
 
                 await asyncio.sleep(30) # High-frequency sync

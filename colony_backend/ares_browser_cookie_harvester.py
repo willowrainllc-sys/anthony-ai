@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES BROWSER COOKIE & SESSION HARVESTER (CHROME & EDGE) ---
 import os
 import sqlite3
@@ -65,7 +65,7 @@ class AresCookieHarvester:
             try:
                 await page.goto(target_url, wait_until="networkidle", timeout=60000)
                 colony_log(f"[+] ARES SUCCESS: Loaded {target_url} using authentic [{browser_type}] session cookies!", node="SUPREME")
-                print(f"\n🔱 [ARES SESSION ACTIVE]: Successfully authenticated via {browser_type} profile.")
+                print(f"\n[+] [ARES SESSION ACTIVE]: Successfully authenticated via {browser_type} profile.")
                 print("Press Enter in this terminal when finished...")
                 input()
             except Exception as e:

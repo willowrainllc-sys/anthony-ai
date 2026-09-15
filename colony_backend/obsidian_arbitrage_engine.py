@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN DIGITAL ARBITRAGE & DOMAIN SNIPER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -94,7 +94,6 @@ arbitrage_engine = ObsidianArbitrageEngine()
 
 if __name__ == "__main__":
     res = asyncio.run(arbitrage_engine.execute_arbitrage_pulse())
-    print("\n=== [SUPREME] WILLOW RAIN ARBITRAGE SCOUT ===")
     print("Type:", res.type)
     print("Asset:", res.asset_name)
     print("Estimated Exit Value:", f"${res.est_exit_value_usd:,.2f}")

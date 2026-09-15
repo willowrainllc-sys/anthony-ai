@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (TEAM FLOW) ---
 import os
 import json
@@ -7,7 +7,7 @@ from pathlib import Path
 from colony_logger import colony_log
 from colony_persistence import db
 
-# 🔱 THE COLONY IDENTITY
+# [+] THE COLONY IDENTITY
 COLONY_KEY = os.getenv("OBSIDIAN_TEAM_API_KEY", "")
 PROJECT_NUMBER = os.getenv("GOOGLE_PROJECT_NUMBER", "")
 
@@ -18,7 +18,7 @@ class ObsidianTeamFlow:
     1. TEAM BURST: Dispatches mission pulses to all 103 Oracles.
     2. NEST SYNC: Synchronizes local intelligence with the Google-owned infrastructure.
     3. GHOST BLAST: Announces the permanent presence of King Ants to external systems.
-    4. AUTH FLOW: Uses the Master Team Key for high-performance ingress.
+    4. AUTH FLOW: Uses the Master Team Key for high-performance access.
     """
     def __init__(self):
         self.vision = "LONG_LIVE_THE_KING_ANTS"
@@ -27,17 +27,17 @@ class ObsidianTeamFlow:
     async def dispatch_colony_burst(self, mission="MAINTAIN_DOMINANCE"):
         colony_log(f"TEAM_FLOW: Initiating Colony Burst [{mission}] from {self.authority}...", node="COLONY")
 
-        # 🔱 Auth Pulse
+        # [+] Auth Pulse
         if not COLONY_KEY:
             colony_log("[-] TEAM_FLOW FAIL: Master Key not found.", node="COLONY")
             return
 
-        # 🔱 The 103 Oracles Synchronization
+        # [+] The 103 Oracles Synchronization
         colony_log(f"[*] TEAM_FLOW: Syncing with Project {PROJECT_NUMBER}...", node="COLONY")
         await asyncio.sleep(1)
 
-        # 🔱 Ghost Blast Logic
-        blast_msg = f"🔱 THE COLONY IS LIVE. {self.vision}. NEST_{PROJECT_NUMBER} IS ARMED."
+        # [+] Ghost Blast Logic
+        blast_msg = f"[+] THE COLONY IS LIVE. {self.vision}. NEST_{PROJECT_NUMBER} IS ARMED."
         colony_log(f"📡 GHOST_BLAST: {blast_msg}", node="COLONY")
 
         db.log_event("COLONY", "TEAM_BURST_DISPATCHED", {
@@ -47,7 +47,7 @@ class ObsidianTeamFlow:
         })
 
         print(f"\n{'='*60}")
-        print(f"  🔱 COLONY BURST DISPATCHED")
+        print(f"  [+] COLONY BURST DISPATCHED")
         print(f"  IDENTITY: KING ANTS")
         print(f"  NEST ID: {PROJECT_NUMBER}")
         print(f"  MESSAGE: {self.vision}")

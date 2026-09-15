@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN MINDSET & AUTO-SUGGESTION ENGINE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import random
 import time
 from typing import List, Dict

@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v2.0 (GLOBAL LOGISTICS) ---
 import json
 import time
@@ -11,7 +11,7 @@ VAULT_DIR = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\logi
 class ObsidianLogisticsKernel:
     """
     GLOBAL LOGISTICS KERNEL v2.0:
-    Manages physical asset tracking and shipping ingress.
+    Manages physical asset tracking and shipping access.
     1. SHIPPING INGRESS: Standardizes the 'St. Charles HQ' delivery address.
     2. ASSET TRACKING: Logs physical rewards, hardware, and packages.
     3. INBOUND SCAN: Monitors carrier tracking for incoming 'Free Stuff' bursts.
@@ -19,7 +19,7 @@ class ObsidianLogisticsKernel:
     """
     def __init__(self):
         VAULT_DIR.mkdir(parents=True, exist_ok=True)
-        # 🔱 Master Shipping Address (St. Charles HQ)
+        # [+] Master Shipping Address (St. Charles HQ)
         self.hq_address = {
             "name": "Anthony Christopher Maestas",
             "street": "ST_CHARLES_STREET_PLACEHOLDER", # Director to update in Sovereign IDE

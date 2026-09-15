@@ -7,8 +7,8 @@ DIRS = [ROOT / "colony_backend", ROOT / "willow_rain_global", ROOT / "app"]
 
 REPLACEMENTS = {
     # 1. Major Services
-    "obsidian_ingress": "obsidian_ingress",
-    "Obsidian Ingress": "Obsidian Ingress",
+    "obsidian_access": "obsidian_access",
+    "Obsidian Access": "Obsidian Access",
     "OBSIDIAN_INGRESS": "OBSIDIAN_INGRESS",
 
     "obsidian_bridge": "obsidian_bridge",

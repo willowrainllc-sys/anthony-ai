@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (LEGAL BURST) ---
 import asyncio
 import os
@@ -19,7 +19,6 @@ class ObsidianLegalBurst:
     """
     def __init__(self):
         self.target_names = [
-            "OBSIDIAN GLOBAL",
             "OBSIDIAN TITAN",
             "GHOST VAULT",
             "VORTEX SCRAPER",
@@ -42,7 +41,7 @@ class ObsidianLegalBurst:
                 colony_log(f"[*] LEGAL: Checking Trademark status for [{name}]...", node="LEGAL")
 
                 try:
-                    # 🔱 USPTO TESS (Trademark Electronic Search System) Ingress
+                    # [+] USPTO TESS (Trademark Electronic Search System) Access
                     # (Note: In a live burst, this would navigate the complex USPTO search forms)
                     # For now, we simulate the 'Clearance' check
                     await asyncio.sleep(2)
@@ -69,7 +68,7 @@ class ObsidianLegalBurst:
             "owner": "ANTHONY CHRISTOPHER MAESTAS",
             "est": "12.19.1987",
             "timestamp": time.time(),
-            "signature": f"🔱.COPYRIGHT.{hashlib.sha256(asset_id.encode()).hexdigest()[:16]}.🔱"
+            "signature": f"[+].COPYRIGHT.{hashlib.sha256(asset_id.encode()).hexdigest()[:16]}.[+]"
         }
         colony_log(f"[+] LEGAL: Digital Copyright issued for [{asset_id}].", node="LEGAL")
         return cert

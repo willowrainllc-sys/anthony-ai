@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN DIRECT-B2B PROPOSAL ENGINE v3.0 (ENTERPRISE GRADE) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -53,7 +53,7 @@ class ObsidianProposalEngine:
 ---
 
 ### 1. MISSION STATEMENT
-Willow Rain Company LLC provides the world's most resilient, industrial-grade data and intelligence infrastructure. Our mission is to empower {target['name']} with high-fidelity, unflagged network ingress and structured data streams designed specifically for enterprise-scale AI and security operations.
+Willow Rain Company LLC provides the world's most resilient, industrial-grade data and intelligence infrastructure. Our mission is to empower {target['name']} with high-fidelity, unflagged network access and structured data streams designed specifically for enterprise-scale AI and security operations.
 
 ### 2. CORE INFRASTRUCTURE SPECIFICATIONS
 - **DECENTRALIZED MATRIX:** Distributed 16-Port residential gateway matrix with multi-region cloud failover.
@@ -68,7 +68,7 @@ Willow Rain Company LLC provides the world's most resilient, industrial-grade da
 
 ### 4. COMMERCIAL TERMS
 - **MONTHLY RETAINER:** ${data.get('total_payout_usd', 0.0):,.2f} USD
-- **SETTLEMENT ROUTE:** Direct ACH Bank Wire (Willow Rain Company LLC) or Secured Stablecoin Ingress.
+- **SETTLEMENT ROUTE:** Direct ACH Bank Wire (Willow Rain Company LLC) or Secured Stablecoin Access.
 - **CONTRACT PERIOD:** 12-Month Service Agreement with monthly milestone reviews.
 
 ### 5. CONNECTION ENDPOINT (SECURE)
@@ -95,7 +95,7 @@ Director, Willow Rain Company LLC
             "vault_path": str(out_file)
         })
 
-        colony_log(f" PROPOSAL SUCCESS: Direct B2B Handshake [{proposal_id}] generated for {target['name']}!", node="PROPOSAL")
+        colony_log(f" PROPOSAL SUCCESS: Direct B2B Connection [{proposal_id}] generated for {target['name']}!", node="PROPOSAL")
         return proposal_md
 
 proposal_engine = ObsidianProposalEngine()

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN CLOUD FACTORY v1.0 (REAL BIRTH) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import uuid
@@ -16,7 +16,7 @@ class ObsidianCloudFactory:
     CLOUD FACTORY v1.0:
     Physically births 500+ real, unblocked accounts using Cloud-Base authority.
     1. ZERO-PC-LOAD: Executes the bursts from the Alibaba Residential Bridge.
-    2. REAL VERIFY: Handshakes with the Gmail Harvester (yrjr wkoa cpqc zxfc) to confirm.
+    2. REAL VERIFY: Connections with the Gmail Harvester (yrjr wkoa cpqc zxfc) to confirm.
     3. AUTO-LINK: Hard-binds each account to the Director's ObsidianBridge ID at birth.
     """
     async def execute_mass_rebirth(self, count: int = 500):
@@ -61,13 +61,13 @@ class ObsidianCloudFactory:
         try:
             with requests.Session(impersonate="chrome110", proxies={"http": proxy, "https": proxy}) as s:
                 # 1. Registration Burst
-                resp = s.post("https://dashboard.obsidian_ingress.com/api/v1/users", json=payload, timeout=30)
+                resp = s.post("https://dashboard.obsidian_access.com/api/v1/users", json=payload, timeout=30)
 
                 if resp.status_code in [200, 201]:
                     jwt = resp.json().get("jwt")
                     # 2. Immediate JMPT Linking
                     s.post(
-                        "https://dashboard.obsidian_ingress.com/api/v1/obsidian_bridge/link",
+                        "https://dashboard.obsidian_access.com/api/v1/obsidian_bridge/link",
                         json={"obsidian_bridge_id": OBSIDIAN_BRIDGE_ID},
                         headers={"Authorization": f"Bearer {jwt}"}
                     )

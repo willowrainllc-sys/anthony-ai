@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN HEADED HANDSHAKE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import json
@@ -6,7 +6,7 @@ from pathlib import Path
 from playwright.async_api import async_playwright
 
 # Emulate the phone environment precisely
-PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault")
+PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault")
 JMPT_AUTH = PERSONA_VAULT / "cookie_monster" / "cookie_monster_obsidian_bridge.json"
 
 async def open_headed_phone_browser():

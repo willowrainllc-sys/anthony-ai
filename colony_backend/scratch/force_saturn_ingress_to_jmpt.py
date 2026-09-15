@@ -12,13 +12,13 @@ sys.path.append(sys_path)
 from human_stealth_helper import human_stealth
 from playwright_stealth_factory import stealth_factory
 
-HG_SESSION = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault\cookie_monster\cookie_monster_obsidian_ingress.json")
+HG_SESSION = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault\cookie_monster\cookie_monster_obsidian_access.json")
 
 async def force_transfer():
     print("🔱 OBSIDIAN_INGRESS_STRIKE: Initiating transfer to Obsidian Bridge...")
 
     if not HG_SESSION.exists():
-        print("Error: No Obsidian Ingress session keys.")
+        print("Error: No Obsidian Access session keys.")
         return
 
     async with async_playwright() as p:
@@ -28,9 +28,9 @@ async def force_transfer():
             page = await context.new_page()
             await human_stealth.inject_stealth_scripts(page)
 
-            # 1. Access Obsidian Ingress
-            print("Navigating to Obsidian Ingress Dashboard...")
-            await page.goto("https://dashboard.obsidian_ingress.com/", timeout=60000)
+            # 1. Access Obsidian Access
+            print("Navigating to Obsidian Access Dashboard...")
+            await page.goto("https://dashboard.obsidian_access.com/", timeout=60000)
             await asyncio.sleep(10)
 
             # 2. Look for the "Transfer to Obsidian Bridge" or JMPT Toggle

@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (PQC FRAGMENT INGRESS) ---
 import asyncio
 import os
@@ -26,9 +26,9 @@ class ObsidianNeuralScavenger:
         self.vault_dir.mkdir(parents=True, exist_ok=True)
 
     async def execute_fragment_burst(self, target_url: str):
-        colony_log(f"SCAVENGER: Initiating 'PQC Fragment Ingress' burst on {target_url}...", node="RECON")
+        colony_log(f"SCAVENGER: Initiating 'PQC Fragment Access' burst on {target_url}...", node="RECON")
 
-        # 🔱 The "New Method" Logic:
+        # [+] The "New Method" Logic:
         # Instead of visiting a page once, we use the Nest-node fleet to pull
         # different 'fragments' of the DOM through 103 different Missouri IPs.
 

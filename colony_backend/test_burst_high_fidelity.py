@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ANTHONY TEST BURST: HIGH-FIDELITY MODERNA v1.0 ---
 import asyncio
 import os
@@ -12,7 +13,7 @@ from colony_logger import colony_log
 from mobile_social_agent import MobileSocialAgent as MobileAgent
 
 # MISSION PAYLOAD
-TARGET_VIDEO = Path(r"C:\ObsidianAi_Colony\Renderings\remix_hyper_stock_9573667f.mp4")
+TARGET_VIDEO = Path(r"C:\AnthonyAi_Colony\Renderings\remix_hyper_stock_9573667f.mp4")
 PAGE_ID = "1370890679430214" # Willow Rain Company LLC
 
 async def execute_moderna_burst():

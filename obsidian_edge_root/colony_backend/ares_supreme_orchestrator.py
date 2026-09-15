@@ -17,7 +17,7 @@ class AresSupremeOrchestrator:
     ARES SUPREME ORCHESTRATOR (v5.0):
     Beyond Anthropic. A multi-model Mixture-of-Experts (MoE) cluster.
     1. TASK ARBITRATION: Routes prompts to the world's most powerful models.
-    2. SPATIAL AWARENESS: Ingests project DNA and local environment vitals.
+    2. SPATIAL AWARENESS: Ingests project DNA and local environment status.
     3. RECURSIVE HEALING: Analyzes its own bridge failures and suggests fixes.
     4. MULTI-INFRASTRUCTURE: Bridges Local Supreme, OpenRouter, and Google AI Studio.
     """
@@ -28,7 +28,7 @@ class AresSupremeOrchestrator:
             "reasoning": "anthropic/claude-3.5-sonnet", # Logic / Architect
             "deep_think": "openai/o1-preview",          # 2024-2025 Chain-of-Thought
             "adaptive": "openai/gpt-4o",                # Fast Multimodal
-            "vision": "google/gemini-pro-1.5-vision",   # Visual Ingress
+            "vision": "google/gemini-pro-1.5-vision",   # Visual Access
             "sovereign": "Anthony-Supreme-v29"          # Director's Local Core
         }
         self.capabilities = self._learn_colony_capabilities()

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN NODE MULTIPLEXER (100x PHYSICAL SCALE) v2.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -33,7 +33,7 @@ class ObsidianNodeMultiplexer:
         self.active_nodes: List[DataFeederNode] = []
 
     async def provision_100_node_physical_cluster(self, service: str = "OBSIDIAN_INGRESS"):
-        colony_log(f"MULTIPLEXER: Provisioning 100 physical nodes across the cloud mesh...", node="MULTIPLEXER")
+        colony_log(f"MULTIPLEXER: Setting up 100 physical nodes across the cloud mesh...", node="MULTIPLEXER")
 
         # 1. Ensure we have enough Cloud Bases (Unique IPs)
         bases = await base_provisioner.provision_free_tier_mesh(count_per_provider=25)

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN GEOSPATIAL SDI & MAPPING ENGINE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -37,7 +37,7 @@ class ObsidianGeospatialSDI:
     3. REVENUE MODEL: Milestone-based payments for custom data architecture and database migrations.
     """
     async def create_interactive_map_layer(self, layer_name: str, category: str = "TRAFFIC_VECTORS") -> GeospatialDataset:
-        colony_log(f"SDI_ENGINE: Provisioning interactive map layer [{layer_name}]...", node="GEOSPATIAL")
+        colony_log(f"SDI_ENGINE: Setting up interactive map layer [{layer_name}]...", node="GEOSPATIAL")
 
         # Simulating data compilation from your 16-port matrix and OSINT nodes
         records = random.randint(5000, 25000)
@@ -69,7 +69,7 @@ class ObsidianGeospatialSDI:
             "client": client,
             "project": project_name,
             "deliverables": [
-                {"milestone": "API Deployment & Ingress Sync", "payment_pct": 30},
+                {"milestone": "API Deployment & Access Sync", "payment_pct": 30},
                 {"milestone": "Database Migration & Supabase Wiring", "payment_pct": 40},
                 {"milestone": "Final Webhook Integration & Uptime Audit", "payment_pct": 30}
             ],
@@ -83,7 +83,6 @@ if __name__ == "__main__":
     import asyncio
     async def test_sdi():
         layer = await geospatial_sdi.create_interactive_map_layer("Midwest Residential IP Density Map")
-        print("\n=== [SUPREME] WILLOW RAIN GEOSPATIAL SDI ===")
         print("Dataset:", layer.name)
         print("Format:", layer.format)
         print("Records:", layer.record_count)

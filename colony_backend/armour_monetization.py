@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE MONETIZATION ARMOURING v1.0 ---
 import os
 from pathlib import Path
@@ -10,7 +10,7 @@ REAL_ADSENSE_ID = "pub-9539640812310468"
 PLACEHOLDER_ID = "ca-pub-OBSIDIAN_GLOBAL_ADSENSE"
 
 def armour_monetization():
-    print(f"🔱 Armouring Empire Monetization Grid...")
+    print(f"[+] Armouring Empire Monetization Grid...")
 
     # 1. Update AdSense IDs in all HTML files
     targets = [root, root / "app" / "src" / "main" / "assets", root / "obsidian_edge_root"]

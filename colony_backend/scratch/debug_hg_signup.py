@@ -15,7 +15,7 @@ async def debug_signup():
         "referral_code": None
     }
 
-    url = "https://dashboard.obsidian_ingress.com/api/v1/users"
+    url = "https://dashboard.obsidian_access.com/api/v1/users"
 
     print(f"🔱 DEBUG: Testing signup for {email} via HOME IP...")
 
@@ -24,8 +24,8 @@ async def debug_signup():
             url,
             json=payload,
             headers={
-                "Origin": "https://dashboard.obsidian_ingress.com",
-                "Referer": "https://dashboard.obsidian_ingress.com/sign-up",
+                "Origin": "https://dashboard.obsidian_access.com",
+                "Referer": "https://dashboard.obsidian_access.com/sign-up",
                 "Accept": "application/json, text/plain, */*",
                 "Content-Type": "application/json"
             },

@@ -84,7 +84,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     var searchResultLocation: LatLng? by mutableStateOf(null)
 
-    val colonyFeed = mutableStateListOf<AIVideo>()
+    val networkFeed = mutableStateListOf<AIVideo>()
+    val colonyFeed get() = networkFeed
 
     val streetCameras = mutableStateListOf<StreetCamera>()
 
@@ -103,6 +104,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     var reconMatchLocation: LatLng? by mutableStateOf(null)
 
     var isReconActive: Boolean by mutableStateOf(value = false)
+    var isAdminMode: Boolean by mutableStateOf(value = false)
     var isDirectorMode: Boolean by mutableStateOf(value = false)
 
     val hereticResources = mutableStateListOf<HereticResource>()
@@ -137,7 +139,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
         legacyFeedVideos.addAll(localFallbackVideos)
-        colonyFeed.addAll(localFallbackVideos) // Initial fallbacks
+        networkFeed.addAll(localFallbackVideos) // Initial fallbacks
         NetworkConfig.sync(application)
         startConnectionLoop()
         loadStreetCameras()
@@ -251,7 +253,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun fetchSupabaseFeed(force: Boolean = false) {
-        if (!force && colonyFeed.isNotEmpty()) return
+        if (!force && networkFeed.isNotEmpty()) return
 
         viewModelScope.launch {
             if (force) {
@@ -259,25 +261,25 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 activityFeed.add("GRID: Fetching fresh content...")
             }
             try {
-                // Now fetching from our sovereign native web server on Port 80
+                // Now fetching from our independent native web server on Port 80
                 val data = withTimeoutOrNull(8.seconds) { MeshApiService.api.getFeed(selectedCategory) }
                 if (!data.isNullOrEmpty()) {
-                    colonyFeed.clear()
-                    colonyFeed.addAll(data)
+                    networkFeed.clear()
+                    networkFeed.addAll(data)
                     activityFeed.add("GRID: Successfully synced ${data.size} items.")
                 } else {
                     val fallback = withTimeoutOrNull(8.seconds) { MeshApiService.api.getFeed("all") }
                     if (!fallback.isNullOrEmpty()) {
-                        colonyFeed.clear()
-                        colonyFeed.addAll(fallback)
-                    } else if (colonyFeed.isEmpty()) {
-                        colonyFeed.addAll(localFallbackVideos)
+                        networkFeed.clear()
+                        networkFeed.addAll(fallback)
+                    } else if (networkFeed.isEmpty()) {
+                        networkFeed.addAll(localFallbackVideos)
                     }
                 }
             } catch (e: Exception) {
-                Log.e("SOVEREIGN_SYNC", "Native Ingress Fail: ${e.message}")
-                if (colonyFeed.isEmpty()) {
-                    colonyFeed.addAll(localFallbackVideos)
+                Log.e("INDEPENDENT_SYNC", "Native Ingress Fail: ${e.message}")
+                if (networkFeed.isEmpty()) {
+                    networkFeed.addAll(localFallbackVideos)
                 }
             } finally {
                 isRefreshing = false
@@ -400,7 +402,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     videoUrl = video.videoUrl,
                     platforms = listOf("YOUTUBE", "FACEBOOK", "INSTA_THREADS", "TIKTOK")
                 )
-                MeshApiService.api.colonyBurst(payload)
+                MeshApiService.api.networkBurst(payload)
                 activityFeed.add("Burst deployed: ${video.title}")
             } catch (e: Exception) {
                 Log.e("BURST", "Failed: ${e.message}")
@@ -564,7 +566,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             sharedPreferences.edit(commit = true) { clear() }
             withContext(Dispatchers.Main) {
                 chatHistory.clear()
-                colonyFeed.clear()
+                networkFeed.clear()
             }
         }
     }

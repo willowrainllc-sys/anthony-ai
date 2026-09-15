@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN CLOUD BASE PROVISIONER v2.0 (FREE-TIER OPTIMIZED) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json

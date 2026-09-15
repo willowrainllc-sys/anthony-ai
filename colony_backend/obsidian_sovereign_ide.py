@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ANTHONY AI: OBSIDIAN SOVEREIGN IDE v1.0 (AGENTIC DEVELOPMENT) ---
 import os
 import sys
@@ -36,7 +37,7 @@ IDE_HTML = """
 </head>
 <body>
     <div class="sidebar">
-        <div style="font-family: 'Space Grotesk'; letter-spacing: 5px; color: #8B5CF6; margin-bottom: 30px;">🔱 OBSIDIAN_IDE</div>
+        <div style="font-family: 'Space Grotesk'; letter-spacing: 5px; color: #8B5CF6; margin-bottom: 30px;">[+] OBSIDIAN_IDE</div>
         <div id="fileTree">Loading Atoms...</div>
     </div>
     <div class="editor-container">
@@ -82,7 +83,7 @@ IDE_HTML = """
         }
 
         function triggerBurst() {
-            alert("🔱 [SUPREME]: Global Burst Dispatched. Verify vitals in Terminal.");
+            alert("[+] [SUPREME]: Global Burst Dispatched. Verify status in Terminal.");
         }
 
         loadTree();
@@ -122,5 +123,5 @@ async def write_file(data: dict):
 
 if __name__ == "__main__":
     import uvicorn
-    colony_log("🔱 IDE: Sovereign Development Environment is ONLINE on Port 9005.", node="SUPREME")
+    colony_log("[+] IDE: Sovereign Development Environment is ONLINE on Port 9005.", node="SUPREME")
     uvicorn.run(app, host="0.0.0.0", port=9005)

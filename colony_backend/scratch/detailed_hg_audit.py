@@ -14,7 +14,7 @@ from human_stealth_helper import human_stealth
 from playwright_stealth_factory import stealth_factory
 
 PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault")
-HG_SESSION = PERSONA_VAULT / "cookie_monster" / "cookie_monster_obsidian_ingress.json"
+HG_SESSION = PERSONA_VAULT / "cookie_monster" / "cookie_monster_obsidian_access.json"
 JMPT_SESSION = PERSONA_VAULT / "cookie_monster" / "cookie_monster_obsidian_bridge.json"
 
 async def audit_account(session_file, label, url):
@@ -50,8 +50,8 @@ async def audit_account(session_file, label, url):
 
 async def run():
     print("=== 🔱 DETAILED REAL-WORLD REVENUE AUDIT ===\n")
-    # Audit Obsidian Ingress Dashboard (Standard Pot)
-    await audit_account(HG_SESSION, "OBSIDIAN_INGRESS_DASHBOARD", "https://dashboard.obsidian_ingress.com/")
+    # Audit Obsidian Access Dashboard (Standard Pot)
+    await audit_account(HG_SESSION, "OBSIDIAN_INGRESS_DASHBOARD", "https://dashboard.obsidian_access.com/")
     print("-" * 30)
     # Audit Obsidian Bridge Dashboard (Crypto Pot)
     await audit_account(JMPT_SESSION, "OBSIDIAN_BRIDGE_DASHBOARD", "https://app.obsidian_bridge.io/dashboard")

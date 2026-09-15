@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: SOVEREIGN VIRTUAL DATA CENTER (VDC) v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -35,7 +35,7 @@ class ObsidianSovereignVDC:
         # 1. Audit Physical "Blades" (Local Matrix + Mesh)
         await self._discover_physical_blades()
 
-        # 2. Re-point Ingress from Alibaba to Sovereign Core
+        # 2. Re-point Access from Alibaba to Sovereign Core
         colony_log("[SUPREME] VDC: Decoupling from Alibaba Cloud. Re-routing to Missouri Core...", node="SUPREME")
 
         # 3. Launch the "Ghost Hypervisor"

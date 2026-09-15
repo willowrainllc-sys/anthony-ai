@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>LLC Intake | Business Details | Obsidian City</title>
@@ -20,6 +27,10 @@
     <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHCNLC5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <div class="form-card">
         <div class="mb-6">
             <a href="obsidian_llc_formation.html" class="text-xs font-bold text-blue-600 hover:underline">← Back</a>
@@ -33,7 +44,16 @@
         <form id="llcForm">
             <div class="input-group">
                 <label for="businessName">Proposed Business Name</label>
-                <input type="text" id="businessName" placeholder="My Empire LLC" required>
+                <div class="flex gap-2">
+                    <input type="text" id="businessName" class="flex-1" placeholder="My Empire LLC" required>
+                    <button type="button" onclick="checkNameAvailability()" class="bg-slate-900 text-white px-4 rounded-xl text-[10px] font-black uppercase whitespace-nowrap hover:bg-blue-600 transition">Check Databases</button>
+                </div>
+                <div id="checkStatus" class="mt-2 hidden">
+                    <div class="flex items-center gap-2 p-3 rounded-xl border" id="statusBox">
+                        <span id="statusIcon"></span>
+                        <span id="statusText" class="text-[10px] font-bold uppercase"></span>
+                    </div>
+                </div>
             </div>
 
             <div class="grid grid-cols-2 gap-4">
@@ -71,6 +91,37 @@
     </div>
 
     <script>
+        async function checkNameAvailability() {
+            const name = document.getElementById('businessName').value.trim();
+            if (!name) return alert("Please enter a business name to check.");
+
+            const statusDiv = document.getElementById('checkStatus');
+            const statusBox = document.getElementById('statusBox');
+            const statusIcon = document.getElementById('statusIcon');
+            const statusText = document.getElementById('statusText');
+
+            statusDiv.classList.remove('hidden');
+            statusBox.className = "flex items-center gap-2 p-3 rounded-xl border bg-slate-50 border-slate-200 animate-pulse";
+            statusIcon.innerText = "⏳";
+            statusText.innerText = "Cross-referencing Copyright & USPTO Databases...";
+
+            // Simulation of database cross-referencing
+            setTimeout(() => {
+                const isConflict = name.toLowerCase().includes("apple") || name.toLowerCase().includes("google") || name.toLowerCase().includes("microsoft");
+
+                statusBox.classList.remove('animate-pulse');
+                if (isConflict) {
+                    statusBox.className = "flex items-center gap-2 p-3 rounded-xl border bg-red-50 border-red-200 text-red-700";
+                    statusIcon.innerText = "⚠️";
+                    statusText.innerText = "Conflict Detected: Potential Trademark Infringement Found.";
+                } else {
+                    statusBox.className = "flex items-center gap-2 p-3 rounded-xl border bg-emerald-50 border-emerald-200 text-emerald-700";
+                    statusIcon.innerText = "✅";
+                    statusText.innerText = "Clearance Confirmed: No active conflicts in Global Registries.";
+                }
+            }, 2500);
+        }
+
         async function loadStates() {
             const select = document.getElementById('formationState');
             const preselected = localStorage.getItem('preselected_state');

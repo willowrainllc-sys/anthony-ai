@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN BUSINESS MODEL MANIFEST v8.0 (100% PRIVATE HARVESTING) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 
@@ -31,7 +31,7 @@ def get_business_model_manifest():
             "4. PERSISTENCE KERNEL: Self-healing OS-level background processes."
         ],
         "extraction_targets": {
-            "Phase_1": "$9,000 / Day (Obsidian Ingress + Multi-Platform Stacking)",
+            "Phase_1": "$9,000 / Day (Obsidian Access + Multi-Platform Stacking)",
             "Velocity": "High-Frequency Extraction (Every $3.00 hit)",
             "Destination": "bc1qk4ass5xsanvth2tz7jsapscy8ld25yr6ze5yzx (Direct BTC Wallet)"
         }

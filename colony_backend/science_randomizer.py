@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE REAL SCIENCE & ASTRONOMICAL ANOMALIES RANDOMIZER v2.0 ---
 import os
 import sys

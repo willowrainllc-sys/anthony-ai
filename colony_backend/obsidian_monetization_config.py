@@ -1,9 +1,9 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- OBSIDIAN EMPIRE: GLOBAL MONETIZATION MATRIX v3.0 ---
 import os
 from pathlib import Path
 
-# 🔱 CENTRALIZED REVENUE KEYS
+# [+] CENTRALIZED REVENUE KEYS
 MONETIZATION_CONFIG = {
     "AD_NETWORKS": {
         "ADSENSE": {

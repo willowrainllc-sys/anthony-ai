@@ -64,7 +64,7 @@ fun AnthonyAiFeedScreen(
                     IconButton(onClick = onCityClick) {
                         Icon(Icons.Default.LocationCity, contentDescription = "City", tint = Color(0xFF3B82F6))
                     }
-                    if (viewModel.isDirectorMode) {
+                    if (viewModel.isAdminMode) {
                         IconButton(onClick = { viewModel.sendText("TERMINATE EXTERNAL LOOPS") }) {
                             Icon(Icons.Default.StopCircle, contentDescription = "Purge", tint = Color(0xFFFF4444))
                         }
@@ -89,7 +89,7 @@ fun AnthonyAiFeedScreen(
                     .padding(horizontal = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                if (viewModel.isDirectorMode) {
+                if (viewModel.isAdminMode) {
                     item {
                         CommandCard(
                             title = "HONEYGAIN MINING",
@@ -241,7 +241,7 @@ fun AnthonyAiFeedScreen(
                                     letterSpacing = 4.sp
                                 )
                                 Text(
-                                    "Your The World’s First Public AI Model",
+                                    "The World’s First Public AI Model",
                                     color = Color.Gray,
                                     fontSize = 12.sp,
                                     modifier = Modifier.padding(top = 4.dp)
@@ -262,7 +262,7 @@ fun AnthonyAiFeedScreen(
 
                 item {
                     Text(
-                        if (viewModel.isDirectorMode) "ACTIVE JOBS" else "LATEST UPDATES",
+                        if (viewModel.isAdminMode) "ACTIVE JOBS" else "LATEST UPDATES",
                         color = Color.White,
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
@@ -270,7 +270,7 @@ fun AnthonyAiFeedScreen(
                     )
                 }
 
-                if (viewModel.isDirectorMode) {
+                if (viewModel.isAdminMode) {
                     items(viewModel.productionJobs) { job ->
                         ProductionJobCard(job)
                     }

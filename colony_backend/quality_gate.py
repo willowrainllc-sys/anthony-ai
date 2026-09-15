@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE QUALITY GATE: ALPHA PRODUCTION VALIDATOR v2.0 ---
 import json
 import hashlib

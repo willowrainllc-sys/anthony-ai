@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (SHOPPING BURSTR) ---
 import asyncio
 import os
@@ -43,7 +43,7 @@ class ShoppingBurstrKernel:
                 colony_log(f"[*] BURSTR: Scouring {url} for price-drop signatures...", node="COMMERCE")
                 try:
                     await page.goto(url, timeout=60000, wait_until="networkidle")
-                    # 🔱 Extraction Logic:
+                    # [+] Extraction Logic:
                     # Capture product titles, images, and percentage-off signatures
                     # (Simulation for demonstration)
                     await asyncio.sleep(2)

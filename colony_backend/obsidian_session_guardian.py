@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: SESSION GUARDIAN & IDENTITY PROTECTOR v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import time

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN AUTO-RUN & REBOOT RECOVERY v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import winshell
 from win32com.client import Dispatch
@@ -8,7 +8,7 @@ def setup_autorun():
     print("=== [SUPREME] OBSIDIAN REBOOT RECOVERY SETUP ===\n")
 
     # 1. Define Paths
-    base_dir = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai")
+    base_dir = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
     launcher_py = base_dir / "colony_backend" / "obsidian_production_launcher.py"
     startup_folder = winshell.startup()
     shortcut_path = os.path.join(startup_folder, "WillowRain_Grid_Launcher.lnk")

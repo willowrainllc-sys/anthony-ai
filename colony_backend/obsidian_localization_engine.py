@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN GLOBAL LOCALIZATION & DUBBING ENGINE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -87,7 +87,6 @@ if __name__ == "__main__":
     async def test_loc():
         test_script = "The infinite energy anomaly detected near Sagittarius A* proves that the search for life has transitioned to direct observational science."
         res = await localization_engine.execute_global_dubbing_burst(test_script, "Starlight Horizon #1")
-        print("\n=== [SUPREME] WILLOW RAIN GLOBAL DUBBING RESULT ===")
         for r in res:
             print(f"[{r.target_language}] Job: {r.job_id} | Path: {r.dubbed_audio_path}")
 

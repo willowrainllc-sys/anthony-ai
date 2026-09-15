@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN REVENUE MULTIPLIER & CONVERSION OPTIMIZER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -38,7 +38,7 @@ class ObsidianRevenueMultiplier:
     Directly addresses the "No Money" bottleneck by forcing high-conversion retail sales
     and bypassing B2B approval delays.
     1. HIGH-GREED HOOKS: Uses the Brain to write psychological triggers for Pinterest/YouTube.
-    2. LIVE DEMO INGRESS: Opens a dedicated 'Speed-Handshake' port for B2B aggregators.
+    2. LIVE DEMO INGRESS: Opens a dedicated 'Speed-Connection' port for B2B aggregators.
     3. AFFILIATE ARBITRAGE: Injects high-paying CPA offers ($50 - $100 per lead) into viral feeds.
     """
     async def generate_high_greed_marketing_burst(self, channel: str = "PINTEREST") -> RevenueBurst:
@@ -78,9 +78,9 @@ class ObsidianRevenueMultiplier:
         colony_log(f" REVENUE_MULT SUCCESS: Armed burst [{burst_id}]. Hook: '{burst.high_greed_hook}'", node="REVENUE_MULT")
         return burst
 
-    def activate_b2b_live_demo_ingress(self) -> dict:
+    def activate_b2b_live_demo_access(self) -> dict:
         """Opens a dedicated 'Technical Proof' port to bypass the 72h Geonode/Rayobyte approval lag."""
-        colony_log("REVENUE_MULT: Activating B2B Live-Demo Ingress (Port 9000)...", node="REVENUE_MULT")
+        colony_log("REVENUE_MULT: Activating B2B Live-Demo Access (Port 9000)...", node="REVENUE_MULT")
 
         demo_config = {
             "demo_port": 9000,
@@ -99,9 +99,8 @@ revenue_multiplier = ObsidianRevenueMultiplier()
 if __name__ == "__main__":
     async def test_multiplier():
         burst = await revenue_multiplier.generate_high_greed_marketing_burst("PINTEREST")
-        demo = revenue_multiplier.activate_b2b_live_demo_ingress()
+        demo = revenue_multiplier.activate_b2b_live_demo_access()
 
-        print("\n=== [SUPREME] WILLOW RAIN REVENUE MULTIPLIER ===")
         print("Marketing Hook:", burst.high_greed_hook)
         print("Conversion Link:", burst.conversion_link)
         print("B2B Demo Status:", demo["status"])

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: GMAIL B2B HANDSHAKE MONITOR v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -14,7 +14,7 @@ from human_stealth_helper import human_stealth
 
 GMAIL_URL = "https://mail.google.com/mail/u/0/#search/Geonode+OR+Rayobyte+OR+Obsidian Grid"
 
-class GmailHandshakeMonitor:
+class GmailConnectionMonitor:
     """
     GMAIL B2B HANDSHAKE MONITOR v1.0:
     1. Reuses vaulted Gmail session cookies.
@@ -61,7 +61,7 @@ class GmailHandshakeMonitor:
                     return {"status": "APPROVAL_FOUND", "partner": found_partner}
                 else:
                     colony_log("GMAIL_MONITOR: No new approval signals detected yet. Pipeline remains ARMED.", node="GMAIL_MONITOR")
-                    return {"status": "NEGOTIATING", "message": "Awaiting Handshake partner handshake."}
+                    return {"status": "NEGOTIATING", "message": "Awaiting Connection partner handshake."}
 
             except Exception as e:
                 colony_log(f"[-] GMAIL_MONITOR Error: {e}", node="GMAIL_MONITOR")
@@ -69,8 +69,8 @@ class GmailHandshakeMonitor:
             finally:
                 await browser.close()
 
-monitor = GmailHandshakeMonitor()
+monitor = GmailConnectionMonitor()
 
 if __name__ == "__main__":
-    monitor = GmailHandshakeMonitor()
+    monitor = GmailConnectionMonitor()
     asyncio.run(monitor.scan_for_b2b_approvals(headless=True))

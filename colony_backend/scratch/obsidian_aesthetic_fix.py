@@ -6,13 +6,13 @@ ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\willow_rain_global\whol
 
 REPLACEMENTS = {
     "HANDSHAKE": "SECURE CONNECTION",
-    "Handshake": "Secure Sync",
+    "Connection": "Secure Sync",
     "handshake": "sync",
     "NEGOTIATING": "PROCESSING",
     "Negotiating": "Reviewing",
     "INGRESS": "NETWORK",
-    "Ingress": "Access",
-    "ingress": "feed",
+    "Access": "Access",
+    "access": "feed",
     "PROPOSAL_SENT": "SECURE_AUTHORIZED",
     "SETTLING": "CLEARING",
     "Settling": "Verifying",

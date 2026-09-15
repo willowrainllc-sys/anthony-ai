@@ -1,4 +1,4 @@
-# --- WILLOW RAIN ENTERPRISES: ENTERPRISE DATA MARKETPLACE GATEWAY v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -60,7 +60,6 @@ class EnterpriseDataMarketplaceGateway:
         record_count = len(intel) * 250 + random.randint(500, 2000)
         price = 199.00 if "SNOWFLAKE" in mkt["id"] else 49.99
 
-        title = f"WILLOW RAIN B2B DATASET: {category.upper().replace('_', ' ')} ({record_count} Records)"
 
         # Save dataset JSON
         out_file = DATASET_VAULT / f"{dataset_id}.json"

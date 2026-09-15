@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN AGENT BRIDGE (AUTONOMOUS) v2.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import time
 import subprocess

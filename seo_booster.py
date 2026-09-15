@@ -1,4 +1,4 @@
-# --- WILLOW RAIN GLOBAL: SUPREME SEO & GOOGLE RANKING BOOSTER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 from pathlib import Path
@@ -8,14 +8,14 @@ class SEOBooster:
     SEO BOOSTER v1.0:
     Hard-wires the site for maximum Google search authority.
     1. SCHEMA.ORG: Injects JSON-LD structured data for high-performance search results.
-    2. KEYWORD INJECTION: Targets 'passive income', 'saturn_ingress alternative', and 'earn bitcoin'.
+    2. KEYWORD INJECTION: Targets 'passive income', 'saturn_access alternative', and 'earn bitcoin'.
     3. SITEMAP GENERATOR: Ensures Google crawlers index every profit-loop page.
     """
     def generate_sitemap(self):
         pages = ["index.html", "dashboard.html", "about.html", "privacy.html"]
         sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         for page in pages:
-            sitemap += f'  <url>\n    <loc>https://willow-ingress.co/{page}</loc>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n'
+            sitemap += f'  <url>\n    <loc>https://willow-access.co/{page}</loc>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n'
         sitemap += "</urlset>"
 
         with open(Path(__file__).parent / "sitemap.xml", "w") as f:
@@ -27,7 +27,7 @@ class SEOBooster:
         return {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
-            "name": "Willow Ingress",
+            "name": "Willow Access",
             "operatingSystem": "Android, Windows, macOS, iOS",
             "applicationCategory": "FinanceApplication",
             "offers": {
@@ -46,5 +46,5 @@ seo = SEOBooster()
 
 if __name__ == "__main__":
     seo.generate_sitemap()
-    print("\n🔱 SUPREME SEO: Structured Data Generated for index.html.")
+    print("\n[+] SUPREME SEO: Structured Data Generated for index.html.")
     print(json.dumps(seo.get_structured_data(), indent=2))

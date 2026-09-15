@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: THE DEFINITE CHIEF AIM (NAPOLEON HILL PROTOCOL) v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 import time

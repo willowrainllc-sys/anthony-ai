@@ -18,14 +18,14 @@ def get_timeline():
         for r in rows[:3]:
             meta = json.loads(r[0])
             print(f"Client: {meta.get('client')} | Value: ${meta.get('total_usd'):,.2f}")
-            print(f"Arrival: 1-3 Business Days (Awaiting Handshake client ACH signature)\n")
+            print(f"Arrival: 1-3 Business Days (Awaiting Connection client ACH signature)\n")
 
     # 2. Check Retail Sales (Square)
     print("--- 🛍️ RETAIL SALES (SOCIAL) ---")
     print("Status: Active Push (YouTube/FB/Pinterest links live)")
     print("Arrival: 24-48 Hours from the moment a fan clicks 'Buy'.\n")
 
-    # 3. Check Passive Yield (Obsidian Ingress)
+    # 3. Check Passive Yield (Obsidian Access)
     print("--- 🍯 PASSIVE SWARM (OBSIDIAN_INGRESS/PAWNS) ---")
     print("Status: 116 Nodes Gathering.")
     print("Arrival: 3-7 Days (Accumulating toward $5.00 cash-out threshold).\n")

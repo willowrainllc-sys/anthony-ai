@@ -1,4 +1,4 @@
-# --- WILLOW RAIN ENTERPRISES: REAL-WORLD SQUARE & BANK MONITOR v2.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -36,7 +36,7 @@ class SquareRealBalanceMonitor:
                 "message": "Square API key not detected. Showing daily revenue projections.",
                 "actual_proposal sent_funds": 2142.45,
                 "currency": "USD",
-                "bank_routing": "Awaiting Handshake Direct Connect"
+                "bank_routing": "Awaiting Connection Direct Connect"
             }
 
         headers = {

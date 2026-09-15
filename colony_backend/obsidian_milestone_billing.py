@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN MILESTONE BILLING & INVOICE ENGINE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -83,7 +83,6 @@ if __name__ == "__main__":
     async def test_billing():
         # Example: Billing a partner for the API & HUD build we just finished
         res = await billing_engine.generate_milestone_invoice("B2B_Infrastructure_Partner", "API_DEPLOYMENT")
-        print("\n=== [SUPREME] WILLOW RAIN MILESTONE INVOICE ===")
         print("Invoice ID:", res.invoice_id)
         print("Project:", res.project_name)
         print("AMOUNT DUE:", f"${res.amount_usd:,.2f}")

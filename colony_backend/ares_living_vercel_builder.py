@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES LIVING INTELLIGENCE: VERCEL AUTONOMOUS BUILDER ---
 import asyncio
 import os
@@ -12,7 +12,7 @@ async def ares_living_vercel_build():
     Bypasses container network limits by taking direct physical control
     of your local Chrome browser to build and deploy Obsidian City on Vercel.
     """
-    colony_log("ARES LIVING INTELLIGENCE: Initializing physical browser ingress for Vercel...", node="SUPREME")
+    colony_log("ARES LIVING INTELLIGENCE: Initializing physical browser access for Vercel...", node="SUPREME")
 
     target_url = "https://vercel.com/new"
     chrome_user_data = r"C:\Users\willo\AppData\Local\Google\Chrome\User Data"
@@ -38,7 +38,7 @@ async def ares_living_vercel_build():
             await page.goto(target_url, wait_until="networkidle")
 
             print("\n" + "="*60)
-            print("  🔱 ARES LIVING INTELLIGENCE: VERCEL PORTAL OPENED")
+            print("  [+] ARES LIVING INTELLIGENCE: VERCEL PORTAL OPENED")
             print("  ARES has taken control of your browser.")
             print("  Import your repository 'anthony-ai' and add 'obsidian.city'.")
             print("="*60 + "\n")

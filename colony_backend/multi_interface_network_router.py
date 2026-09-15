@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE MULTI-INTERFACE NETWORK ROUTER & BANDWIDTH AGGREGATOR v1.0 ---
 import os
 import sys
@@ -14,7 +15,7 @@ class MultiInterfaceNetworkRouter:
     """
     MULTI-INTERFACE NETWORK ROUTER:
     Detects all active network adapters (Wi-Fi, Ethernet, Cellular, Secondary NICs)
-    and enables multi-homed socket binding so background nodes (Mysterium, Obsidian Ingress,
+    and enables multi-homed socket binding so background nodes (Mysterium, Obsidian Access,
     EarnApp, Pawns) can route outbound traffic independently through specific local network adapters.
     """
     def __init__(self):

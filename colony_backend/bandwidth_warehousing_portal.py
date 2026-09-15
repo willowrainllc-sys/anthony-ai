@@ -1,4 +1,4 @@
-# --- WILLOW RAIN ENTERPRISES: BANDWIDTH WAREHOUSING & CLOUD PIPELINE PORTAL v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -105,7 +105,6 @@ warehouse_portal = BandwidthWarehousingPortal()
 
 if __name__ == "__main__":
     access = warehouse_portal.allocate_secure_pipeline_access("Global Enterprise Data Corp", capacity_tb=25)
-    print("WILLOW RAIN BANDWIDTH WAREHOUSE PIPELINE ACCESS:")
     print("Warehouse Name:", access.warehouse_name)
     print("Cloud Location:", access.cloud_location)
     print("Allocated Bandwidth:", access.allocated_bandwidth_tb, "TB")

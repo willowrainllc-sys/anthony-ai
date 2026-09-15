@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES GITHUB AUTHENTICATION & SESSION LEARNER ---
 import asyncio
 import os
@@ -34,7 +34,7 @@ async def ares_github_learner():
             await page.goto(target_url, wait_until="networkidle")
 
             print("\n" + "="*70)
-            print("  🔱 ARES GITHUB AUTHENTICATION LEARNER ACTIVE")
+            print("  [+] ARES GITHUB AUTHENTICATION LEARNER ACTIVE")
             print("  Please log in to your GitHub account (or update your password)")
             print("  in the opened browser window.")
             print("="*70 + "\n")

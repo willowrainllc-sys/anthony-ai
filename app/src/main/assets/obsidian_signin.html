@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Secure Access | Obsidian City Account Manager</title>
@@ -8,21 +15,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #f8fafc; color: #0f172a; font-family: 'Inter', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-        .auth-card { background: #ffffff; border: 1px solid #e2e8f0; padding: 45px; border-radius: 28px; width: 100%; max-width: 440px; box-shadow: 0 20px 50px rgba(0,0,0,0.06); }
+        body { background-color: #030305; color: #ffffff; font-family: 'Inter', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .auth-card { background: #0a0a0f; border: 1px solid #1e293b; padding: 45px; border-radius: 28px; width: 100%; max-width: 440px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
         .input-group { margin-bottom: 16px; }
-        label { display: block; font-size: 11px; color: #475569; margin-bottom: 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-        input { width: 100%; background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px 16px; border-radius: 12px; color: #0f172a; outline: none; transition: 0.2s; font-size: 14px; }
-        input:focus { border-color: #2563eb; background: #ffffff; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
-        .btn-primary { width: 100%; background: #2563eb; color: #fff; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; transition: 0.2s; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(37,99,235,0.25); }
-        .btn-primary:hover { background: #1d4ed8; }
-        .btn-social { width: 100%; background: #ffffff; border: 1px solid #cbd5e1; color: #0f172a; padding: 12px; border-radius: 12px; font-weight: 600; font-size: 13px; transition: 0.2s; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px; }
-        .btn-social:hover { background: #f1f5f9; border-color: #94a3b8; }
+        label { display: block; font-size: 11px; color: #94a3b8; margin-bottom: 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        input { width: 100%; background: #030305; border: 1px solid #1e293b; padding: 12px 16px; border-radius: 12px; color: #ffffff; outline: none; transition: 0.2s; font-size: 14px; }
+        input:focus { border-color: #3b82f6; background: #0a0a0f; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+        .btn-primary { width: 100%; background: #3b82f6; color: #fff; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 14px; transition: 0.2s; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25); }
+        .btn-primary:hover { background: #2563eb; }
+        .btn-social { width: 100%; background: #030305; border: 1px solid #1e293b; color: #ffffff; padding: 12px; border-radius: 12px; font-weight: 600; font-size: 13px; transition: 0.2s; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px; }
+        .btn-social:hover { background: #0a0a0f; border-color: #3b82f6; }
     </style>
     <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
-    <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
+    <link href="assets/obsidian_performance_ui.css" rel="stylesheet"/>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHCNLC5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <div class="auth-card">
     <div class="mb-4">
@@ -30,8 +41,8 @@
     </div>
 
     <div class="text-center mb-8">
-        <h1 class="text-2xl font-black text-slate-900 tracking-tight">Sign in to Obsidian AI</h1>
-        <p class="text-xs text-slate-500 mt-1">Manage domains, hosting, and empire billing.</p>
+        <h1 class="text-2xl font-black text-white tracking-tight">Sign in to Obsidian AI</h1>
+        <p class="text-xs text-slate-400 mt-1">Manage domains, hosting, and empire billing.</p>
     </div>
 
     <!-- Social / Multi-Provider Sign In Options -->
@@ -50,9 +61,9 @@
     </div>
 
     <div class="relative flex py-2 items-center mb-6" id="orDivider">
-        <div class="flex-grow border-t border-slate-200"></div>
-        <span class="flex-shrink mx-4 text-slate-400 text-[11px] uppercase tracking-wider font-bold">Or email</span>
-        <div class="flex-grow border-t border-slate-200"></div>
+        <div class="flex-grow border-t border-slate-800"></div>
+        <span class="flex-shrink mx-4 text-slate-500 text-[11px] uppercase tracking-wider font-bold">Or email</span>
+        <div class="flex-grow border-t border-slate-800"></div>
     </div>
 
     <!-- Step 1: Email Form -->
@@ -87,7 +98,7 @@
     let generatedOtp = '123456';
 
     function handleSocialAuth(provider) {
-        alert(`🔱 Redirecting to ${provider} Secure Handshake...`);
+        alert(`[+] Redirecting to ${provider} Secure Connection...`);
         // We use a specific email for the provider to verify the path in the audit
         const mockEmail = `${provider.toLowerCase()}_user@obsidian.city`;
         window.location.href = `obsidian_auth_callback.html?provider=${provider}&email=${encodeURIComponent(mockEmail)}`;
@@ -149,6 +160,6 @@
         window.location.href = 'obsidian_city_dashboard.html';
     };
 </script>
-    <script src="assets/obsidian_aura_engine.js"></script>
+    <script src="assets/obsidian_performance_engine.js"></script>
 </body>
 </html>

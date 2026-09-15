@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import sys
 print(f"Python Version: {sys.version}")
 try:

@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v6.0 (SOVEREIGN NATIVE WEB) ---
 import os
 import sys
@@ -26,7 +26,7 @@ class SovereignWebHandler(BaseHTTPRequestHandler):
     SOVEREIGN NATIVE WEB HANDLER:
     1. INDEPENDENT: No FastAPI, No external frameworks.
     2. SECURE: Maestas Root Key authentication.
-    3. NATIVE: Direct SQLite and File System ingress.
+    3. NATIVE: Direct SQLite and File System access.
     """
     def do_GET(self):
         url = urlparse(self.path)
@@ -36,8 +36,8 @@ class SovereignWebHandler(BaseHTTPRequestHandler):
             self._handle_api_feed()
             return
 
-        if url.path == "/api/revenue/vitals":
-            self._handle_api_vitals()
+        if url.path == "/api/revenue/status":
+            self._handle_api_status()
             return
 
         if url.path == "/download/titan_windows.zip":
@@ -57,10 +57,10 @@ class SovereignWebHandler(BaseHTTPRequestHandler):
         domain_map = domain_registry.get_domain_map()
         target_file = domain_map.get(host, "obsidian_world_gateway.html")
 
-        # 🔱 PUBLIC ACCESS BYPASS: Industrial Landing Pages
+        # [+] PUBLIC ACCESS BYPASS: Industrial Landing Pages
         public_domains = ["titan-browser.io", "www.mywebbrowser.com", "vortex-global.io", "ghost-vault.com", "brick-bitcoin.net", "sovereign-node.org", "black-hole.media", "global-pay.io", "obsidian-registry.io", "gov-burst.io", "obsidian-store.io", "obsidian-hosting.io", "obsidian-burstr.io", "obsidian.city", "www.obsidian.city", "obsidian-edge.io", "ide.obsidian-global.io", "wiki.obsidian-global.io", "b2b.obsidian-global.io", "town360.com", "www.town360.com", "io-factory.obsidian-global.io"]
 
-        # 🔱 MASTER BRIDGE RESOLVER
+        # [+] MASTER BRIDGE RESOLVER
         # If accessing via the Global Bridge (trycloudflare), default to the OMNI_GRID Command
         is_bridge = "trycloudflare.com" in host
         if is_bridge and (target_file == "obsidian_world_gateway.html" or target_file == "obsidian_master_hub.html"):
@@ -78,7 +78,7 @@ class SovereignWebHandler(BaseHTTPRequestHandler):
             self._serve_file(final_path)
             return
 
-        # 3. Sovereign Gateway (Open Ingress for Obsidian City)
+        # 3. Sovereign Gateway (Open Access for Obsidian City)
         # Authentication layer removed as requested by Director
         if "obsidian-global.io" in host:
             target_file = "obsidian_os_desktop.html"
@@ -171,7 +171,7 @@ class SovereignWebHandler(BaseHTTPRequestHandler):
 def run_server():
     server_address = ('', PORT)
     httpd = HTTPServer(server_address, SovereignWebHandler)
-    colony_log(f"🔱 WEB_SERVER: Sovereign Native Hosting ONLINE on Port {PORT}.", node="SUPREME")
+    colony_log(f"[+] WEB_SERVER: Sovereign Native Hosting ONLINE on Port {PORT}.", node="SUPREME")
     httpd.serve_forever()
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-/* 🔱 OBSIDIAN AURA ENGINE v1.3 */
+/* [+] OBSIDIAN AURA ENGINE v1.3 */
 /* Integrated Obsidian AI Chat Agent + Dynamic 4K Backgrounds + Monetization */
 
 const FALLBACK_VIDEO = "https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175";
@@ -11,7 +11,7 @@ const AURA_OFFERS = [
 ];
 
 /**
- * 🔱 AURA API HELPER:
+ * [+] AURA API HELPER:
  * Automatically resolves endpoint based on environment (Local File vs Server).
  */
 function getApiUrl(endpoint) {
@@ -22,13 +22,15 @@ function getApiUrl(endpoint) {
 
 
 /**
- * 🔱 Obsidian AI CHAT AGENT UI
+ * [+] Obsidian AI CHAT AGENT UI
  */
 function initObsidianAIChat() {
+    if (window.OBSIDIAN_AI_CHAT_DISABLED) return;
+
     // 1. Create Floating Trigger
     const trigger = document.createElement('div');
     trigger.className = 'obsidian_ai-chat-trigger';
-    // 🔱 High-Aura "Godfather" Thumbnail Mascot
+    // [+] High-Aura "Admin" Thumbnail Mascot
     trigger.innerHTML = `<img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?q=80&w=100&h=100&auto=format&fit=crop" style="width:100%; height:100%; border-radius:50%; object-fit:cover; border: 2px solid #3b82f6; box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);">`;
     trigger.onclick = toggleObsidianAIChat;
     document.body.appendChild(trigger);
@@ -74,7 +76,7 @@ function toggleObsidianAIChat() {
 }
 
 /**
- * 🔱 AURA HINTS: Tooltip system for key features
+ * [+] AURA HINTS: Tooltip system for key features
  */
 const AURA_HINTS = {
     "sharingToggle": "Director's Note: Every GB shared strengthens the Global Mesh and earns you direct credits.",
@@ -134,7 +136,7 @@ async function handleChatKey(e) {
             const data = await resp.json();
             appendMessage('obsidian_ai', data.reply);
         } catch (err) {
-            appendMessage('obsidian_ai', "My uplink to the ARES core is currently throttled. Please ensure the Private Server is running or contact tech support.");
+            appendMessage('obsidian_ai', "My uplink to the ARES core is currently busy. Please ensure the Private Server is running or contact tech support.");
         }
     }
 }
@@ -149,7 +151,7 @@ function appendMessage(role, text) {
 }
 
 /**
- * 🔱 INJECT MONETIZATION (AdSense & Fallbacks)
+ * [+] INJECT MONETIZATION (AdSense & Fallbacks)
  */
 function injectMonetization() {
     const sections = document.querySelectorAll('section');
@@ -177,13 +179,13 @@ function injectMonetization() {
             (window.adsbygoogle = window.adsbygoogle || []).push({});
             // Add a small check: if adsbygoogle has status, we can hide fallback.
         } catch (e) {
-            console.warn("[AURA] AdSense handshake delayed. Empire Fallback Active.");
+            console.warn("[AURA] AdSense connection delayed. Empire Fallback Active.");
         }
     }
 }
 
 /**
- * 🔱 INITIALIZE VIDEO BACKGROUND
+ * [+] INITIALIZE VIDEO BACKGROUND
  */
 async function initAuraVideo() {
     document.body.style.backgroundColor = 'transparent';
@@ -226,13 +228,13 @@ async function initAuraVideo() {
 }
 
 /**
- * 🔱 SECURITY PULSE: Floating Hacking & Safety Tips
+ * [+] SECURITY PULSE: Floating Hacking & Safety Tips
  */
 const SECURITY_TIPS = [
-    "Tip: Use hardware security keys (FIDO2) for absolute identity asity.",
+    "Tip: Use hardware security keys (FIDO2) for absolute identity authenticity.",
     "Fact: 95% of breaches start with phishing. Always verify the sender's origin.",
     "Tip: Enable PQC (Post-Quantum Cryptography) for long-term data protection.",
-    "Fact: Public Wi-Fi is a major ingress point for sniffers. Use the Obsidian Mesh.",
+    "Fact: Public Wi-Fi is a major access point for sniffers. Use the Obsidian Mesh.",
     "Tip: Rotate your backend API keys every 90 days to minimize exposure."
 ];
 
@@ -265,7 +267,7 @@ function spawnSecurityPulse() {
 }
 
 /**
- * 🔱 CONNECTION PULSE: Promoting Social Matrix
+ * [+] CONNECTION PULSE: Promoting Social Matrix
  */
 function spawnConnectionPulse() {
     if (Math.random() > 0.6) return;
@@ -332,7 +334,7 @@ function handleScrollAnimations() {
 }
 
 /**
- * 🔱 INJECT NEWS TICKER
+ * [+] INJECT NEWS TICKER
  */
 function injectNewsTicker() {
     const ticker = document.createElement('div');
@@ -358,7 +360,7 @@ function injectNewsTicker() {
 }
 
 /**
- * 🔱 CONTEXTUAL LINK ENGINE (Sovrn/Skimlinks Hybrid)
+ * [+] CONTEXTUAL LINK ENGINE (Sovrn/Skimlinks Hybrid)
  * Automatically scans text for brand keywords and injects monetized links.
  */
 const BRAND_KEYWORDS = {
@@ -382,7 +384,7 @@ function injectContextualLinks() {
 }
 
 /**
- * 🔱 INJECT SPONSORED CONTENT (Native Recommendation Widget)
+ * [+] INJECT SPONSORED CONTENT (Native Recommendation Widget)
  */
 function injectSponsoredContent() {
     const footer = document.querySelector('footer');
@@ -393,7 +395,7 @@ function injectSponsoredContent() {
 
     const partners = [
         { title: "Scale Your Real Estate Portfolio via Sniping", label: "Obsidian Estates", img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=400" },
-        { title: "Get Industrial Ad Ingress with Ad Burst", label: "Partner Offer", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" },
+        { title: "Get Industrial Ad Access with Ad Burst", label: "Partner Offer", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" },
         { title: "The Private Guide to Post-Quantum Identity", label: "Empire Reading", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=400" }
     ];
 
@@ -420,8 +422,12 @@ function injectSponsoredContent() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
+    if (window.OBSIDIAN_AURA_PULSES_DISABLED) {
+        return;
+    }
     initAuraVideo();
     injectMonetization();
+
     injectNewsTicker();
     injectSponsoredContent();
     injectContextualLinks();
@@ -429,15 +435,70 @@ window.addEventListener('DOMContentLoaded', () => {
     initObsidianAIChat();
     initHints();
 
-    // 🔱 Periodic Security & Connection Pulses
+    // [+] Periodic Security & Connection Pulses
     setInterval(spawnSecurityPulse, 30000);
     setInterval(spawnConnectionPulse, 45000);
     setTimeout(spawnSecurityPulse, 5000);
     setTimeout(spawnConnectionPulse, 15000);
 
-    // 🔱 Restricted Ads: Only spawn pop-ups on the Main Storefront
-    const page = window.location.pathname.split('/').pop();
-    if (page === 'index.html' || page === '') {
-        setInterval(spawnAuraAd, 25000);
+        // [+] Restricted Ads: Only spawn pop-ups on the Main Storefront
+        const page = window.location.pathname.split('/').pop();
+        if (page === 'index.html' || page === '') {
+            setInterval(spawnAuraAd, 25000);
+        }
     }
+
+    injectInfomercials();
 });
+
+/**
+ * [+] INJECT INFOMERCIALS (Embedded native themed containers)
+ */
+function injectInfomercials() {
+    if (window.OBSIDIAN_AURA_PULSES_DISABLED) return;
+
+    // Check if already injected or present
+    if (document.querySelector('.obsidian-infomercial-section')) return;
+
+    const section = document.createElement('section');
+    section.className = 'obsidian-infomercial-section aura-fade-up';
+
+    // Monthly Theme: Landscape & Exploration
+    section.innerHTML = `
+        <div class="max-w-7xl mx-auto mb-10 px-10">
+            <h3 class="text-xs font-black text-blue-400 uppercase tracking-[5px]">Monthly Native Drops // Landscape & Infrastructure</h3>
+        </div>
+    `;
+
+    const grid = document.createElement('div');
+    grid.className = 'obsidian-infomercial-grid';
+
+    const themedClips = [
+        { label: "Missouri Edge Node", src: "https://player.vimeo.com/external/371728562.hd.mp4?s=447702f23cf5354900cb3e23630f9a56763a14e9&profile_id=175" },
+        { label: "Dubai Expansion Alpha", src: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-city-traffic-at-night-11-large.mp4" },
+        { label: "Quantum Mesh Pulse", src: "https://assets.mixkit.co/videos/preview/mixkit-futuristic-technology-background-loop-91-large.mp4" },
+        { label: "Director's Vision", src: "https://player.vimeo.com/external/441221764.hd.mp4?s=c9a0937a1f26f21221f7c8702c89f53e346f9f38&profile_id=175" }
+    ];
+
+    themedClips.forEach(clip => {
+        const box = document.createElement('div');
+        box.className = 'obsidian-infomercial';
+        box.innerHTML = `
+            <div class="infomercial-label">${clip.label}</div>
+            <video autoplay muted loop playsinline>
+                <source src="${clip.src}" type="video/mp4">
+            </video>
+        `;
+        grid.appendChild(box);
+    });
+
+    section.appendChild(grid);
+
+    // Find footer or last section to append before
+    const footer = document.querySelector('footer');
+    if (footer) {
+        footer.before(section);
+    } else {
+        document.body.appendChild(section);
+    }
+}

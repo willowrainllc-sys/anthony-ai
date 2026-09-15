@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- OBSIDIAN CITY MOBILE UI SYNC v1.0 ---
 import os
 import glob

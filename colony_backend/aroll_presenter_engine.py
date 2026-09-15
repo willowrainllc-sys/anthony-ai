@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE A-ROLL CINEMATIC PRESENTER & HOST ENGINE v1.0 ---
 import os
 import sys

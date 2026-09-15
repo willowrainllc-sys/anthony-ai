@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN EMERGENCY NOTIFIER & FAILOVER HUB v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import smtplib
 import time
@@ -26,7 +26,6 @@ class ObsidianEmergencyNotifier:
             colony_log("[-] ALERT FAIL: No GMAIL_APP_PASSWORD found in .env.", node="SECURITY")
             return False
 
-        subject = "[SUPREME] WILLOW RAIN SECURITY: GRID FAILOVER ACTIVATED"
         command_text = f"python colony_backend/obsidian_production_launcher.py --remote {new_ip}:{new_port}"
 
         body = f"""

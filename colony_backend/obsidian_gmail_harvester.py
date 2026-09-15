@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN GMAIL HARVESTER v1.0 (IMAP PRO) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import re
@@ -35,8 +35,8 @@ class ObsidianGmailHarvester:
                 client.login(GMAIL_USER, GMAIL_PASS)
                 client.select_folder('INBOX')
 
-                # Search for unread Obsidian Ingress verification emails
-                messages = client.search(['UNSEEN', 'FROM', 'no-reply@obsidian_ingress.com'])
+                # Search for unread Obsidian Access verification emails
+                messages = client.search(['UNSEEN', 'FROM', 'no-reply@obsidian_access.com'])
                 colony_log(f"HARVESTER: Detected {len(messages)} unread verification signals.", node="SECURITY")
 
                 verified_count = 0
@@ -44,8 +44,8 @@ class ObsidianGmailHarvester:
                     raw_email = data[b'RFC822'].decode('utf-8', errors='ignore')
 
                     # Regex to find the verification link
-                    # Typically looks like: https://dashboard.obsidian_ingress.com/verify-email?token=...
-                    links = re.findall(r'https://dashboard\.obsidian_ingress\.com/verify-email\?[^\s"\'<>]+', raw_email)
+                    # Typically looks like: https://dashboard.obsidian_access.com/verify-email?token=...
+                    links = re.findall(r'https://dashboard\.obsidian_access\.com/verify-email\?[^\s"\'<>]+', raw_email)
 
                     if links:
                         verify_url = links[0]

@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Account Dashboard | Obsidian City Manager</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #f8fafc; color: #0f172a; font-family: 'Inter', sans-serif; margin: 0; }
-        .nav-header { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .dashboard-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 24px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        body { background-color: #030305; color: #ffffff; font-family: 'Inter', sans-serif; margin: 0; }
+        .nav-header { background: #030305; border-bottom: 1px solid #1e293b; padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .dashboard-card { background: #0a0a0f; border: 1px solid #1e293b; border-radius: 24px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         .status-pill { padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 800; text-transform: uppercase; }
-        .status-processing { background: #eff6ff; color: #2563eb; }
-        .status-approved { background: #ecfdf5; color: #059669; }
+        .status-processing { background: #1e3a8a; color: #3b82f6; }
+        .status-approved { background: #064e3b; color: #10b981; }
+        .settings-card { background: #0a0a0f; border: 1px solid #1e293b; border-radius: 20px; padding: 20px; margin-top: 20px; }
     </style>
     <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
-    <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
+    <link href="assets/obsidian_performance_ui.css" rel="stylesheet"/>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHCNLC5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <div class="max-w-6xl mx-auto px-6 py-12">
         <div class="mb-12 flex justify-between items-end">
             <div>
-                <h1 class="text-4xl font-black text-slate-900 tracking-tight">Welcome Back</h1>
+                <h1 class="text-4xl font-black text-white tracking-tight">Welcome Back</h1>
                 <p class="text-slate-500 text-sm mt-1">Manage your business entities and digital assets.</p>
             </div>
             <div class="flex gap-3">
@@ -32,8 +44,8 @@
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
             <div class="dashboard-card">
-                <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Empire Credits</h3>
-                <div id="creditDisplay" class="text-3xl font-black text-blue-600">50.0</div>
+                <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Account Balance</h3>
+                <div id="creditDisplay" class="text-3xl font-black text-blue-600">$50.00</div>
                 <div class="mt-4 flex gap-2">
                     <input type="text" id="voucherCode" placeholder="GIFT-CODE" class="flex-1 bg-slate-50 border border-slate-100 rounded-lg px-3 py-1.5 text-[10px] font-bold uppercase outline-none focus:border-blue-500">
                     <button onclick="claimVoucher()" class="bg-blue-600 text-white px-3 py-1.5 rounded-lg text-[10px] font-black uppercase shadow-md hover:bg-blue-700 transition">Redeem</button>
@@ -51,7 +63,7 @@
             </div>
             <div class="dashboard-card">
                 <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Active Domains</h3>
-                <div id="domainCount" class="text-3xl font-black text-slate-900">0</div>
+                <div id="domainCount" class="text-3xl font-black text-white">0</div>
                 <div class="text-[9px] text-blue-600 font-bold mt-2 uppercase">Auto-Renew: ON</div>
             </div>
             <div class="dashboard-card border-blue-500/20">
@@ -64,13 +76,13 @@
             </div>
         </div>
 
-        <!-- 🔱 Fintech Command Center -->
-        <div id="fintechCommand" class="hidden mb-12 aura-fade-up">
+        <!-- [+] Fintech Command Center -->
+        <div id="fintechCommand" class="hidden mb-12 performance-fade-up">
             <div class="dashboard-card bg-slate-900 border-none text-white p-10 relative overflow-hidden">
                 <div class="absolute top-0 right-0 p-8 opacity-10 text-8xl">🏦</div>
                 <div class="relative z-10">
                     <div class="text-[10px] font-black text-blue-400 uppercase tracking-[4px] mb-4">Fintech Command Center</div>
-                    <h2 class="text-3xl font-black mb-8">Industrial Banking Ingress</h2>
+                    <h2 class="text-3xl font-black mb-8">Industrial Banking Access</h2>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
@@ -81,12 +93,12 @@
                         <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
                             <h4 class="text-xs font-black uppercase mb-2">Identity Matching</h4>
                             <p class="text-gray-400 text-[10px] mb-4">Validate ownership through intelligent fuzzy matching with financial institutions.</p>
-                            <button onclick="alert('Handshaking with bank registry...')" class="bg-white/10 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Validate Now</button>
+                            <button onclick="alert('Connecting to bank...')" class="bg-white/10 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Validate Now</button>
                         </div>
                         <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
                             <h4 class="text-xs font-black uppercase mb-2">Wealth Insights</h4>
                             <p class="text-gray-400 text-[10px] mb-4">Access summary of recurring subscriptions, bill payments, and deposits.</p>
-                            <button onclick="alert('Aggregating 24 months of transaction history...')" class="bg-white/10 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Get Insights</button>
+                            <button onclick="alert('Loading transaction history...')" class="bg-white/10 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Get Insights</button>
                         </div>
                     </div>
                 </div>
@@ -95,11 +107,11 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             <div class="lg:col-span-2 dashboard-card">
-                <h2 class="text-xl font-black text-slate-900 mb-6">Recent Orders & Activity</h2>
+                <h2 class="text-xl font-black text-white mb-6">Recent Orders & Activity</h2>
                 <div id="ordersList" class="space-y-4">
                     <div class="text-center py-10">
                         <div class="inline-block w-8 h-8 border-4 border-slate-200 border-t-blue-600 rounded-full animate-spin mb-4"></div>
-                        <p class="text-slate-400 text-xs font-bold uppercase tracking-widest">Syncing with Ingress Nodes...</p>
+                        <p class="text-slate-400 text-xs font-bold uppercase tracking-widest">Connecting to our network...</p>
                     </div>
                 </div>
             </div>
@@ -127,6 +139,20 @@
                     <h3 class="text-xs font-black uppercase tracking-widest mb-4 text-slate-400">Security Pulse</h3>
                     <p class="text-[11px] text-slate-600 leading-relaxed">Your account is secured with 256-bit PQC encryption. WHOIS privacy is active for all qualifying domains.</p>
                 </div>
+
+                <!-- [+] Developer Access (First Public AI Mesh) -->
+                <div class="settings-card border-blue-500/30 bg-blue-600/5 relative overflow-hidden">
+                    <div class="absolute -top-2 -right-2 w-16 h-16 bg-blue-500/10 rounded-full blur-xl"></div>
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-[10px] text-blue-400 uppercase font-black tracking-[2px]">AI Mesh Access</h3>
+                        <span class="bg-blue-500/20 text-blue-400 text-[8px] font-black px-2 py-0.5 rounded-full">PRODUCTION</span>
+                    </div>
+                    <p class="text-[9px] text-gray-400 leading-relaxed mb-4">Generate your production keys to tap directly into the world's first public AI network. Build with Professional infrastructure.</p>
+                    <div id="apiKeySection">
+                        <div class="text-[9px] text-gray-500 mb-4 italic">"Waiting for setup..."</div>
+                        <button onclick="generateApiKeys()" class="w-full bg-blue-600 text-white py-3 rounded-xl text-[9px] font-black uppercase tracking-widest shadow-lg shadow-blue-600/20 hover:bg-blue-700 transition">Create Access Keys</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -135,11 +161,27 @@
         const sessionData = localStorage.getItem('obsidian_session');
         const session = sessionData ? JSON.parse(sessionData) : {};
         if (!session.email) window.location.href = 'obsidian_signin.html';
+
+        // [+] ADMIN LOCK: Only Admin can access the full Dashboard
+        const isAdmin = session.email.toLowerCase().includes("anthony") || session.email === "willow.rain.llc@gmail.com";
+        if (!isAdmin) {
+            document.body.innerHTML = `
+                <div class="h-screen flex items-center justify-center bg-slate-950">
+                    <div class="text-center p-12 bg-slate-900 rounded-[32px] shadow-xl border border-slate-800 max-w-md">
+                        <div class="text-5xl mb-6">🔒</div>
+                        <h1 class="text-2xl font-black text-white mb-2">Admin Account Required</h1>
+                        <p class="text-slate-400 text-sm mb-8">This section is for site administration. Please log in with your admin credentials or return to the main store.</p>
+                        <a href="index.html" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold uppercase text-xs">Return to Home</a>
+                    </div>
+                </div>
+            `;
+        }
+
         document.getElementById('userEmail').innerText = session.email;
 
         async function loadOrders() {
             try {
-                // Using getApiUrl from aura engine for cross-origin local reliability
+                // Using getApiUrl from performance engine for cross-origin local reliability
                 const url = getApiUrl(`/api/orders/status?email=${session.email}`);
                 const resp = await fetch(url);
                 const data = await resp.json();
@@ -152,25 +194,27 @@
                     let vpsCount = 0;
 
                     data.orders.forEach(order => {
-                        if (order.type === 'llc_formation') filingCount++;
+                        if (order.type === 'llc_formation' || order.type === 'dba_registration') filingCount++;
                         if (order.type.startsWith('domain')) domainCount++;
                         if (order.type.startsWith('vps')) vpsCount++;
 
                         const itemHtml = `
-                            <div class="flex justify-between items-center p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:border-blue-200 transition-all cursor-pointer">
+                            <div class="flex justify-between items-center p-5 bg-slate-900 rounded-2xl border border-slate-800 hover:border-blue-900 transition-all cursor-pointer">
                                 <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-lg shadow-sm border border-slate-100">
-                                        ${order.type === 'llc_formation' ? '🏛️' : order.type.startsWith('vps') ? '🖥️' : '🌐'}
+                                    <div class="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center text-lg shadow-sm border border-slate-700">
+                                        ${order.type === 'llc_formation' || order.type === 'dba_registration' ? '🏛️' : order.type.startsWith('vps') ? '🖥️' : '🌐'}
                                     </div>
                                     <div>
-                                        <div class="font-bold text-slate-900">${order.type.toUpperCase().replace('_', ' ')}</div>
-                                        <div class="text-[9px] text-slate-400 font-mono">${order.id}</div>
+                                        <div class="font-bold text-white">
+                                            ${order.metadata && order.metadata.business_name ? order.metadata.business_name : order.type.toUpperCase().replace('_', ' ')}
+                                        </div>
+                                        <div class="text-[9px] text-slate-500 font-mono">${order.id}</div>
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-8">
                                     <div class="text-right">
-                                        <div class="text-sm font-black text-slate-900">$${(order.amount || 0).toFixed(2)}</div>
-                                        <div class="text-[9px] text-slate-400 uppercase font-bold">${new Date(order.timestamp * 1000).toLocaleDateString()}</div>
+                                        <div class="text-sm font-black text-white">$${(order.amount || 0).toFixed(2)}</div>
+                                        <div class="text-[9px] text-slate-500 uppercase font-bold">${new Date(order.timestamp * 1000).toLocaleDateString()}</div>
                                     </div>
                                     <span class="status-pill status-approved">ACTIVE</span>
                                 </div>
@@ -194,7 +238,7 @@
             } catch (err) {
                 console.error("Dashboard Load Error:", err);
                 const list = document.getElementById('ordersList');
-                list.innerHTML = '<div class="text-center py-10 text-red-500 text-xs font-bold uppercase tracking-widest">Handshake Timeout: Check Local Server Status</div>';
+                list.innerHTML = '<div class="text-center py-10 text-red-500 text-xs font-bold uppercase tracking-widest">Connection Timeout: Check Local Server Status</div>';
             }
         }
 
@@ -203,21 +247,33 @@
             window.location.href = 'index.html';
         }
 
-        // 🔱 FINTECH INGRESS HANDLERS
+        // [+] FINTECH INGRESS HANDLERS
         async function linkBankAccount() {
-            alert("🔱 INITIATING PLAID HANDSHAKE\nRedirecting to secure bank authentication portal...");
-            // Simulation: Success after 2s
-            setTimeout(() => {
-                document.getElementById('fintechCommand').classList.remove('hidden');
-                document.getElementById('bankBalance').innerText = "$42,910.42";
-                alert("✓ BANK LINKED: 'willow rain Co' primary account connected.");
-            }, 2000);
+            alert("[+] INITIATING PLAID INTEGRATION\nRedirecting to secure bank authentication portal...");
+            try {
+                const resp = await fetch(getApiUrl(`/api/plaid/create-link-token?user_id=${session.email}`));
+                const data = await resp.json();
+                if (data.link_token) {
+                    console.log("PLAID LINK TOKEN:", data.link_token);
+                    // Simulation: Success after 2s
+                    setTimeout(() => {
+                        document.getElementById('fintechCommand').classList.remove('hidden');
+                        document.getElementById('bankBalance').innerText = "$42,910.42";
+                        alert("✓ BANK LINKED: 'willow rain Co' primary account connected via Plaid.");
+                    }, 2000);
+                } else {
+                    alert("[-] Plaid Bridge Connection Failed. Verify API Credentials.");
+                }
+            } catch (err) {
+                console.error(err);
+                alert("[-] Failed to connect to Plaid Access.");
+            }
         }
 
         async function startIdentityVerification() {
             const btn = event.target;
             btn.innerText = "VERIFYING...";
-            alert("🔱 KYC STRIKE: Running identity verification against government watchlists...");
+            alert("[+] Identity Check: Running identity verification against government watchlists...");
 
             setTimeout(() => {
                 document.getElementById('identityStatus').innerText = "VERIFIED";
@@ -229,7 +285,7 @@
         }
 
         async function fetchRealTimeBalance() {
-            alert("🔱 REFRESHING INGRESS: Handshaking with Signal risk platform...");
+            alert("[+] REFRESHING INGRESS: Integrating with Signal risk platform...");
         }
 
         async function claimVoucher() {
@@ -255,12 +311,90 @@
                 }
             } catch (err) {
                 console.error(err);
-                alert("[-] Handshake Failed: System Offline.");
+                alert("[-] Connection Failed: System Offline.");
             }
         }
 
-        window.addEventListener('DOMContentLoaded', loadOrders);
+        // 🔱 PERSISTENT SETTINGS HANDLERS
+        async function saveEmpireSettings() {
+            const settings = {
+                darkMode: document.getElementById('darkModeToggle').checked
+            };
+
+            try {
+                const resp = await fetch(getApiUrl('/api/user/settings/save'), {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ email: session.email, settings: settings })
+                });
+                const data = await resp.json();
+                if (data.success) alert("✓ SETTINGS ARMORED: Saved to cloud vault.");
+            } catch (err) {
+                console.error(err);
+                alert("[-] Failed to save settings.");
+            }
+        }
+
+        async function loadEmpireSettings() {
+            try {
+                const resp = await fetch(getApiUrl(`/api/user/settings?email=${session.email}`));
+                const data = await resp.json();
+                if (data.success && data.settings) {
+                    document.getElementById('darkModeToggle').checked = data.settings.darkMode || false;
+                }
+            } catch (err) {
+                console.error("Failed to load settings:", err);
+            }
+        }
+
+        // 🔱 DEVELOPER KEY HANDLERS
+        async function generateApiKeys() {
+            if (!confirm("🔱 WARNING: Generating new keys will deactivate any existing ones. Proceed?")) return;
+
+            try {
+                const resp = await fetch(getApiUrl('/api/user/keys/generate'), {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ email: session.email })
+                });
+                const data = await resp.json();
+                if (data.success) {
+                    alert("✓ KEYS GENERATED: Copy your private key now. It will not be shown again.");
+                    document.getElementById('apiKeySection').innerHTML = `
+                        <div class="space-y-2">
+                            <div class="text-[8px] text-gray-500 uppercase font-black">Public Key</div>
+                            <div class="bg-black/20 p-2 rounded border border-white/5 text-[10px] mono text-blue-400 break-all">${data.public_key}</div>
+                            <div class="text-[8px] text-amber-500 uppercase font-black">Private Key (SECRET)</div>
+                            <div class="bg-black/40 p-2 rounded border border-amber-500/20 text-[10px] mono text-amber-400 break-all">${data.private_key}</div>
+                            <p class="text-[8px] text-gray-500 italic mt-2">"Powering your personal pages via the Obsidian API."</p>
+                        </div>
+                    `;
+                }
+            } catch (err) { alert("[-] Failed to generate keys."); }
+        }
+
+        async function loadApiKeys() {
+            try {
+                const resp = await fetch(getApiUrl(`/api/user/keys?email=${session.email}`));
+                const data = await resp.json();
+                if (data.success && data.keys) {
+                    document.getElementById('apiKeySection').innerHTML = `
+                        <div class="space-y-2">
+                            <div class="text-[8px] text-gray-500 uppercase font-black">Active Public Key</div>
+                            <div class="bg-black/20 p-2 rounded border border-white/5 text-[10px] mono text-blue-400 break-all">${data.keys.public_key}</div>
+                            <button onclick="generateApiKeys()" class="text-[8px] text-gray-600 hover:text-white uppercase font-bold">Rotate Keys →</button>
+                        </div>
+                    `;
+                }
+            } catch (e) {}
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadOrders();
+            loadEmpireSettings();
+            loadApiKeys();
+        });
     </script>
-    <script src="assets/obsidian_aura_engine.js"></script>
+    <script src="assets/obsidian_performance_engine.js"></script>
 </body>
 </html>

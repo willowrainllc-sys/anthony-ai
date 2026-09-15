@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: ELITE DIGITAL E-BOOK & PUBLISHING ENGINE v6.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -143,7 +143,6 @@ class DigitalPublishingEngine:
         story.append(Spacer(1, 100))
         story.append(Paragraph(brand_name.upper(), title_style))
         story.append(Paragraph(sub_title, sub_style))
-        story.append(Paragraph("WILLOW RAIN PUBLISHING  ORIGINAL AUTHOR EDITION", sub_style))
         story.append(Spacer(1, 50))
         story.append(Paragraph(" 2026 Willow Rain Company LLC. All Rights Reserved.", body_style))
         story.append(PageBreak())
@@ -183,7 +182,6 @@ publishing_engine = DigitalPublishingEngine()
 
 if __name__ == "__main__":
     res = asyncio.run(publishing_engine.generate_catchy_ebook("cozy_girl_bold_easy"))
-    print("\n=== [SUPREME] WILLOW RAIN ELITE E-BOOK GENERATED ===")
     print("Title:", res["title"])
     print("PDF Path:", res["pdf_path"])
     print("Catchy Checkout:", res["checkout_url"])

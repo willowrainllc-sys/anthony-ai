@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE COLONY INTELLIGENCE: COORDINATED TEAMWORK & MATH v1.0 ---
 import asyncio
 import os
@@ -25,7 +26,7 @@ class ColonyIntelligenceOrchestrator:
         self.actions_per_disciple_daily = 15
 
     async def run_master_orchestration(self):
-        colony_log("🔱 COLONY: Initializing Master Intelligence Orchestrator...", node="COLONY")
+        colony_log("[+] COLONY: Initializing Master Intelligence Orchestrator...", node="COLONY")
 
         while True:
             try:
@@ -39,14 +40,14 @@ class ColonyIntelligenceOrchestrator:
                 current_fleet = self.get_fleet_count()
                 if current_fleet < self.target_fleet_size:
                     deficit = self.target_fleet_size - current_fleet
-                    colony_log(f"🔱 COLONY: Fleet deficit detected (-{deficit}). Launching disciple expansion...", node="COLONY")
+                    colony_log(f"[+] COLONY: Fleet deficit detected (-{deficit}). Launching disciple expansion...", node="COLONY")
                     for _ in range(min(deficit, 5)): # Birth 5 at a time to stay stealthy
                         await account_factory.birth_social_disciple()
                         await asyncio.sleep(5)
 
                 # 3. Teamwork Strategy: Staggered Burst Plan
                 # Ensure the 103 Aiphony phones act as 'Squad Leaders'
-                colony_log("🔱 COLONY: Synchronizing Squad Leaders with newly birthed disciples.", node="COLONY")
+                colony_log("[+] COLONY: Synchronizing Squad Leaders with newly birthed disciples.", node="COLONY")
 
                 # 4. Long Sleep - Orchestrator pulses once per hour
                 await asyncio.sleep(3600)

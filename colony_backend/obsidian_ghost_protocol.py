@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN GHOST PROTOCOL v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import shutil
 from pathlib import Path
@@ -47,7 +47,6 @@ class ObsidianGhostProtocol:
         colony_log(" GHOST: Temporary video buffers cleared.", node="SECURITY")
 
         db.log_event("SECURITY", "GHOST_PROTOCOL_EXECUTED", {"status": "TRACES_PURGED"})
-        colony_log("[SUPREME] SYSTEM STATUS: GHOSTED. WILLOW RAIN IS NOW INVISIBLE.", node="SECURITY")
         return True
 
 ghost_protocol = ObsidianGhostProtocol()

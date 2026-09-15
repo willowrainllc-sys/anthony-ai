@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- OBSIDIAN MEDIA AUTOPILOT & SELF-HEALING ENGINE v1.0 ---
 import os
 import asyncio

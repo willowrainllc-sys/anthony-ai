@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN QUANT ENGINE (TRIPLE-DOUBLE) v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import random
 import time
@@ -33,7 +33,7 @@ class ObsidianQuantEngine:
         bp = summary.get("buying_power_usd", 25.98)
 
         if bp < 2.0:
-            colony_log("[-] QUANT_ENGINE: Insufficient proposal sent cash. Awaiting Handshake settlement.", node="QUANT")
+            colony_log("[-] QUANT_ENGINE: Insufficient proposal sent cash. Awaiting Connection settlement.", node="QUANT")
             return {"status": "HOLD"}
 
         # 2. Market Analysis (Simulating RSI / MACD crossover detection)

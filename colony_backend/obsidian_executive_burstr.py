@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN EXECUTIVE B2B BURSTR v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import uuid
@@ -10,7 +10,7 @@ class ExecutiveBurstr:
     """
     EXECUTIVE BURSTR v1.0:
     The path to $5,000 / Week.
-    1. TARGETING: Identifies AI Labs needing 'Missouri Residential' ingress.
+    1. TARGETING: Identifies AI Labs needing 'Missouri Residential' access.
     2. PROPOSAL: Dispatches high-performance executive summaries signed by the Director.
     3. INVOICING: Instantly generates the $5k Square checkout link.
     """

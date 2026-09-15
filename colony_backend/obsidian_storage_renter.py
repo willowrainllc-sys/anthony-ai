@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN DISTRIBUTED STORAGE RENTER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -93,7 +93,6 @@ if __name__ == "__main__":
     async def test_storage():
         await storage_renter.execute_storage_yield_audit()
         m = storage_renter.generate_storage_manifest()
-        print("\n=== [SUPREME] WILLOW RAIN STORAGE RENTAL ===")
         print("Total Capacity:", m.total_capacity_tb, "TB")
         print("Utilization:", m.current_utilization_pct, "%")
         print("ESTIMATED MONTHLY PAYOUT:", f"${m.estimated_monthly_payout:,.2f}")

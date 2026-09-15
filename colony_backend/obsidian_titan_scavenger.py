@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v8.0 (TITAN SCAVENGER) ---
 import asyncio
 import os
@@ -14,7 +14,7 @@ class ObsidianTitanScavenger:
     TITAN SCAVENGER (HEAVY INGRESS):
     The supreme content acquisition engine.
     1. PLAYWRIGHT BURST: Bypasses JS-obfuscation on high-traffic adult nodes.
-    2. RAW MP4 CAPTURE: Identifies the 'Direct Ingress' source of video packets.
+    2. RAW MP4 CAPTURE: Identifies the 'Direct Access' source of video packets.
     3. AUTONOMOUS INDEX: Updates 'media_manifest.json' with high-performance DNA.
     4. GHOST MASKING: Rotates through 5,103 residential nodes to prevent IP bans.
     """
@@ -25,10 +25,10 @@ class ObsidianTitanScavenger:
         self.manifest_path = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\willow_rain_global\wholesale_portal\media_manifest.json")
 
     async def execute_adult_burst(self):
-        colony_log("[TITAN] SCAVENGER: Initiating Unrestricted Adult Ingress...", node="MEDIA")
+        colony_log("[TITAN] SCAVENGER: Initiating Unrestricted Adult Access...", node="MEDIA")
 
         async with async_playwright() as p:
-            # 🔱 Launch Ghost-Secured Browser
+            # [+] Launch Ghost-Secured Browser
             browser = await p.chromium.launch(headless=True)
             context = await browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/128.0.0.0")
             page = await context.new_page()
@@ -36,7 +36,7 @@ class ObsidianTitanScavenger:
             while self.is_active:
                 try:
                     # 1. Target Discovery (Simulated high-performance targets)
-                    targets = ["https://xv-direct-node.io", "https://ph-ingress-mesh.net"]
+                    targets = ["https://xv-direct-node.io", "https://ph-access-mesh.net"]
                     url = random.choice(targets)
 
                     colony_log(f"[*] SCAVENGER: Striking target -> {url}", node="MEDIA")

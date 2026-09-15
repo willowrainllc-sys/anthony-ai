@@ -124,8 +124,7 @@ class VisualDirectorLibrarian:
         Maps every scene and shot in story_plan directly into a fully-structured ProductionTimeline object
         using 100% REAL 4K MP4 VIDEO CLIPS.
         """
-        # Clean title: Remove prepended "WILLOW RAIN: " and bracket tags
-        clean_title = story_plan.title.replace("WILLOW RAIN: ", "").replace("WILLOW RAIN:", "").strip()
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
         clean_title = re.sub(r'\[.*?\]', '', clean_title).strip()
 
         colony_log(f"VISUAL_DIRECTOR_V5: Resolving 100% Real 4K Video Timeline for [{clean_title}]...", node="VISUAL_DIR")

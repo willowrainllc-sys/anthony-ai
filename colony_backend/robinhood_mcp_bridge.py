@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE ROBINHOOD MCP & TRADING BRIDGE v3.5 (REAL-WORLD EXECUTION) ---
 import os
 import sys

@@ -36,9 +36,9 @@ async def check():
         # 2. Available for Withdrawal
         available = await page.locator("span:has-text('Available')").first.inner_text() if await page.locator("span:has-text('Available')").count() > 0 else "N/A"
 
-        # 3. Obsidian Ingress Specific Box
-        # We search for the Obsidian Ingress card/box
-        hg_card = page.locator("div:has-text('Obsidian Ingress')").first
+        # 3. Obsidian Access Specific Box
+        # We search for the Obsidian Access card/box
+        hg_card = page.locator("div:has-text('Obsidian Access')").first
         hg_text = await hg_card.inner_text() if await hg_card.count() > 0 else "N/A"
 
         print("\n=== 🔱 TARGETED OBSIDIAN_BRIDGE AUDIT ===")

@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: ANTHONY DAEMON CORE v4.0 (STABLE) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import subprocess

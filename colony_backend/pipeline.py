@@ -67,7 +67,7 @@ def create_brand_watermark_png(width: int = 1080, height: int = 1920) -> str:
     except:
         font_brand = ImageFont.load_default()
 
-    brand_text = "WILLOW RAIN COMPANY "
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
     draw.rounded_rectangle([30, 40, 420, 95], radius=12, fill=(12, 16, 24, 180), outline=(0, 255, 136, 180), width=2)
     draw.text((50, 52), brand_text, font=font_brand, fill=(0, 255, 136, 240))
 

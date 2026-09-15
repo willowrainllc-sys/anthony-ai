@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN COMPUTE & GPU RENTING ENGINE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -109,7 +109,6 @@ if __name__ == "__main__":
         yield_val = await compute_renter.execute_compute_yield_audit()
         m = compute_renter.generate_compute_manifest()
 
-        print("\n=== [SUPREME] WILLOW RAIN OBSIDIAN COMPUTE RENTAL ===")
         print("Manifest ID:", m.manifest_id)
         print("Total GPUs Active:", m.total_active_gpus)
         print("Hourly Rate:", f"${m.total_hourly_rate_usd:.2f} / hr")

@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: ATOMIC PERSISTENCE v23.0 (FULL TASKING) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import sqlite3
 import json
 import time
@@ -95,15 +95,23 @@ class EmpireDatabase:
                 )
             """)
 
-            # 6. USER SESSIONS & TOKENS (Secure Auth Tracker)
+            # 7. USER SETTINGS (Custom UI & Logic Preferences)
             conn.execute("""
-                CREATE TABLE IF NOT EXISTS user_sessions (
-                    session_id TEXT PRIMARY KEY,
-                    email TEXT,
-                    token_hash TEXT,
-                    ip_address TEXT,
+                CREATE TABLE IF NOT EXISTS user_settings (
+                    email TEXT PRIMARY KEY,
+                    settings_json TEXT,
+                    updated_at REAL
+                )
+            """)
+            conn.commit()
+
+            # 8. USER API KEYS (Public/Private Dev Access)
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS user_api_keys (
+                    email TEXT PRIMARY KEY,
+                    public_key TEXT UNIQUE,
+                    private_key_hash TEXT,
                     created_at REAL,
-                    expires_at REAL,
                     status TEXT DEFAULT 'ACTIVE'
                 )
             """)

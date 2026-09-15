@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN PERMANENT BURST LOOP v2.0 (REAL PRODUCTION) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import sys

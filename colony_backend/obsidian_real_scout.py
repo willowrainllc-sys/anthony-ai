@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v8.0 (REAL WORLD SCOUT) ---
 import asyncio
 import os
@@ -12,7 +12,7 @@ from obsidian_web_search import web_search
 class ObsidianRealScout:
     """
     REAL WORLD SCOUT:
-    Identifies actual businesses in Pueblo, CO and St. Louis, MO for B2B ingress.
+    Identifies actual businesses in Pueblo, CO and St. Louis, MO for B2B access.
     1. MARKET SCAVENGE: Searches for law firms, real estate agencies, and tech startups.
     2. VULNERABILITY AUDIT: Scans public business listings for 'Legacy' tech fingerprints.
     3. PROPOSAL GENERATION: Crafts high-performance PDF 'Bursts' for Sovereign services.
@@ -28,7 +28,7 @@ class ObsidianRealScout:
 
         while self.is_active:
             try:
-                # 🔱 1. Search Live Web for Prospects
+                # [+] 1. Search Live Web for Prospects
                 territory = random.choice(self.target_territories)
                 query = f"law firms in {territory} or real estate agencies"
 
@@ -47,8 +47,8 @@ class ObsidianRealScout:
 
                     db.log_event("SALES", "PROSPECT_IDENTIFIED", prospect)
 
-                # 🔱 2. Forward to Fulfillment Dispatch
-                # This prepares the 'Handshake' packets for the Director's review.
+                # [+] 2. Forward to Fulfillment Dispatch
+                # This prepares the 'Connection' packets for the Director's review.
 
                 await asyncio.sleep(3600) # Scout every hour
 

@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE STORYBOARD ENGINE: SCENE-LOCKED FACTORY v2.0 (INFINITE DYNAMIC TOPICS) ---
 import random
 import json

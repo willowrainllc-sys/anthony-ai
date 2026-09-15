@@ -37,7 +37,7 @@ async def sales_audit():
         if bank_balance > 0:
             print('[✓] Money is in your Square balance. Auto-withdrawal to Stride Bank takes 24h.')
         else:
-            print('[!] Awaiting Handshake first buyer. Your links are active on YouTube and Facebook.')
+            print('[!] Awaiting Connection first buyer. Your links are active on YouTube and Facebook.')
             print('[!] Payouts hit your Stride account 24-48h after the sale clears.')
     else:
         print('[!] SYSTEM NOTE: Currently in PROJECTION_MODE.')

@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 """
 Open-Source Hybrid Trading Engine
 Integrates with Willow Rain Security: Robinhood Ghost Executor.

@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE MASTER STUDIO: A-ROLL & B-ROLL DUAL-LAYER CINEMATIC STUDIO v14.0 ---
 import os
 import sys

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: LEGAL COMPLIANCE & FAIR USE SHIELD v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 from colony_logger import colony_log

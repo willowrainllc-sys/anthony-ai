@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES SUPREME ORCHESTRATOR: MULTI-MODEL MoE BRIDGE v5.0 ---
 import asyncio
 import httpx
@@ -17,7 +17,7 @@ class AresSupremeOrchestrator:
     ARES SUPREME ORCHESTRATOR (v5.0):
     Beyond Anthropic. A multi-model Mixture-of-Experts (MoE) cluster.
     1. TASK ARBITRATION: Routes prompts to the world's most powerful models.
-    2. SPATIAL AWARENESS: Ingests project DNA and local environment vitals.
+    2. SPATIAL AWARENESS: Ingests project DNA and local environment status.
     3. RECURSIVE HEALING: Analyzes its own bridge failures and suggests fixes.
     4. MULTI-INFRASTRUCTURE: Bridges Local Supreme, OpenRouter, and Google AI Studio.
     """
@@ -28,15 +28,20 @@ class AresSupremeOrchestrator:
             "reasoning": "anthropic/claude-3.5-sonnet", # Logic / Architect
             "deep_think": "openai/o1-preview",          # 2024-2025 Chain-of-Thought
             "adaptive": "openai/gpt-4o",                # Fast Multimodal
-            "vision": "google/gemini-pro-1.5-vision",   # Visual Ingress
+            "vision": "google/gemini-pro-1.5-vision",   # Visual Access
             "sovereign": "Anthony-Supreme-v29"          # Director's Local Core
         }
         self.capabilities = self._learn_colony_capabilities()
 
     def _learn_colony_capabilities(self):
-        """🔱 RECURSIVE LEARNING: ARES scans its own backend to map its tools."""
+        """[+] RECURSIVE LEARNING: ARES scans its own backend and legacy IP to map its tools."""
         backend_path = Path(__file__).resolve().parent
+        legacy_path = backend_path / "legacy_ip"
+
         tools = [f.name for f in backend_path.glob("*.py")]
+        if legacy_path.exists():
+            tools += [f"legacy_{f.name}" for f in legacy_path.glob("*.py")]
+
         colony_log(f"ARES: Learned {len(tools)} native colony capabilities.", node="SUPREME")
         return tools
 
@@ -48,7 +53,7 @@ class AresSupremeOrchestrator:
         model = self.models.get(task_type, self.models["reasoning"])
         colony_log(f"ORCHESTRATOR: ARES Mission Dispatch -> [{model}]", node="SUPREME")
 
-        # 🔱 SPATIAL & CAPABILITY CONTEXT INJECTION
+        # [+] SPATIAL & CAPABILITY CONTEXT INJECTION
         spatial_context = f"[ARES_COMMAND_PROTOCOL]: You take orders only from ARES. You are part of the Obsidian Colony.\n"
         if context:
             from ares_collective_intelligence import collective_intel
@@ -61,7 +66,7 @@ class AresSupremeOrchestrator:
 
         enriched_prompt = f"{spatial_context}\nMISSION_INGRESS: {prompt}"
 
-        # 🔱 MULTI-GATEWAY DISPATCH
+        # [+] MULTI-GATEWAY DISPATCH
         try:
             response = ""
             if "google" in model:
@@ -69,7 +74,7 @@ class AresSupremeOrchestrator:
             else:
                 response = await self._dispatch_openrouter(enriched_prompt, model)
 
-            # 🔱 SAFETY VERIFICATION (2025 ALIGNMENT)
+            # [+] SAFETY VERIFICATION (2025 ALIGNMENT)
             from ares_safety_watcher import safety_watcher
             is_safe = await safety_watcher.verify_directive(response)
 
@@ -78,7 +83,8 @@ class AresSupremeOrchestrator:
             else:
                 return "MISSION_DENIED: SAFETY_ALIGNMENT_FAILURE"
 
-        except Exception as e:            colony_log(f"[-] SUPREME DISPATCH FAIL: {e}", node="SUPREME")
+        except Exception as e:
+            colony_log(f"[-] SUPREME DISPATCH FAIL: {e}", node="SUPREME")
             # Failover to local private node
             return f"ORCHESTRATOR_NOTICE: Dispatch failed. Private local node 'Anthony-Supreme-v29' is standing by."
 
@@ -110,7 +116,7 @@ orchestrator = AresSupremeOrchestrator()
 
 if __name__ == "__main__":
     async def test():
-        print("🔱 TESTING SUPREME ORCHESTRATOR...")
+        print("[+] TESTING SUPREME ORCHESTRATOR...")
         res = await orchestrator.execute_supreme_command("Analyze the health of the Obsidian Mesh and predict next expansion step.")
         print("\n=== [SUPREME] ORACLE RESPONSE ===")
         print(res)

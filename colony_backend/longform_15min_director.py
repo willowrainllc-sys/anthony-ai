@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE 15-MINUTE DYNAMIC HIGH-AURA DOCUMENTARY DIRECTOR v4.0 (STANDALONE MEDIA ENGINE) ---
 import os
 import sys

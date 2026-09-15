@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: SUPABASE MIRACLE WRITER & CLOUD ACTIVATOR v3.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN WEALTH EXPANSION v2.0 (PRODUCTION BURST) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import json

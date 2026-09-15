@@ -6,7 +6,7 @@ from pathlib import Path
 # Paths
 ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
 BACKEND = ROOT / "colony_backend"
-INGRESS = ROOT / "willow_rain_global" / "ingress_api"
+INGRESS = ROOT / "willow_rain_global" / "access_api"
 CELLULAR = ROOT / "willow_rain_global" / "cellular_stack"
 DB_PATH = r'C:\AnthonyAi_Swarm\Empire_Vault.db'
 
@@ -24,12 +24,12 @@ def repair_file_content(file_path):
         new_content = new_content.replace('Anthony ChristopherPersistenceEngine', 'AnthonyChristopherPersistenceEngine')
         new_content = new_content.replace('Obsidian BridgeAutoClaimEngine', 'ObsidianBridgeAutoClaimEngine')
         new_content = new_content.replace('Anthony ChristopherCommandOS', 'AnthonyChristopherCommandOS')
-        new_content = new_content.replace('Anthony ChristopherIngressEngine', 'AnthonyChristopherIngressEngine')
+        new_content = new_content.replace('Anthony ChristopherAccessEngine', 'AnthonyChristopherAccessEngine')
 
         # 3. Fix broken imports after rebrand
         new_content = new_content.replace('from obsidian_persistence_engine', 'from anthony_persistence_engine')
         new_content = new_content.replace('import obsidian_persistence_engine', 'import anthony_persistence_engine')
-        new_content = new_content.replace('import obsidian_ingress_data_flow_auditor', 'from obsidian_ingress_data_flow_auditor')
+        new_content = new_content.replace('import obsidian_access_data_flow_auditor', 'from obsidian_access_data_flow_auditor')
 
         if new_content != content:
             file_path.write_text(new_content, encoding='utf-8')
@@ -65,7 +65,7 @@ def setup_database():
             print("[*] Adding 'title' column to production_jobs...")
             conn.execute("ALTER TABLE production_jobs ADD COLUMN title TEXT")
 
-        # Seed the The Nest
+        # Seed the Nest
         for port in range(1080, 1183):
             conn.execute("INSERT OR IGNORE INTO virtual_nodes (node_id, status) VALUES (?, 'GATHERING')", (f"OBS-IND-{port}",))
 

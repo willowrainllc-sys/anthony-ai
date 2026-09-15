@@ -5,14 +5,14 @@ import os
 import json
 import random
 from pathlib import Path
-from colony_logger import colony_log
-from colony_persistence import db
+from network_logger import network_log
+from network_persistence import db
 
 class AresCollectiveIntelligence:
     """
     ARES COLLECTIVE INTELLIGENCE:
     The evolution beyond server-trapped AI.
-    1. FEDERATED INGRESS: Edge nodes (phones/PCs) process local context (vitals, interactions).
+    1. FEDERATED INGRESS: Edge nodes (phones/PCs) process local context (status, interactions).
     2. DISTILLATION BRIDGE: Nodes send 'Knowledge Weights' (not raw data) back to the Oracle.
     3. COLLECTIVE SYNTHESIS: The Supreme Oracle updates its global reasoning based on edge learnings.
     4. PROOF-OF-INFERENCE: Rewards nodes with high-efficiency reasoning.
@@ -23,10 +23,10 @@ class AresCollectiveIntelligence:
         self.knowledge_vault.mkdir(parents=True, exist_ok=True)
 
     async def run_distillation_cycle(self):
-        colony_log("ARES_COLLECTIVE: Initiating global distillation cycle...", node="SUPREME")
+        network_log("ARES_COLLECTIVE: Initiating global distillation cycle...", node="SUPREME")
 
         for node in self.node_registry:
-            colony_log(f"[*] NODE_PULSE: Syncing knowledge weights from [{node}]...", node="SUPREME")
+            network_log(f"[*] NODE_PULSE: Syncing knowledge weights from [{node}]...", node="SUPREME")
             # 🔱 Simulation: Receiving distilled insights from the edge
             insights = [
                 {"topic": "Regional Latency", "discovery": "High load detected in Missouri Bridge"},
@@ -35,7 +35,7 @@ class AresCollectiveIntelligence:
             await self._synthesize_insight(node, random.choice(insights))
             await asyncio.sleep(0.5)
 
-        colony_log("✓ COLLECTIVE SYNC: Oracle updated with global edge intelligence.", node="SUPREME")
+        network_log("✓ COLLECTIVE SYNC: Oracle updated with global edge intelligence.", node="SUPREME")
         db.log_event("SUPREME", "COLLECTIVE_KNOWLEDGE_UPDATE", {"nodes_synced": len(self.node_registry)})
 
     async def _synthesize_insight(self, node_id: str, insight: dict):
@@ -43,11 +43,11 @@ class AresCollectiveIntelligence:
         out_file = self.knowledge_vault / f"{node_id}_intelligence.json"
         with open(out_file, "w") as f:
             json.dump(insight, f, indent=4)
-        colony_log(f"✓ SYNTHESIS: Insight from {node_id} vaulted.", node="SUPREME")
+        network_log(f"✓ SYNTHESIS: Insight from {node_id} vaulted.", node="SUPREME")
 
     def get_proof_of_inference(self, node_id: str) -> float:
         """Calculates reasoning efficiency score for the node."""
-        # High efficiency = High Aura
+        # High efficiency = High Performance
         return round(random.uniform(0.95, 0.99), 4)
 
 collective_intel = AresCollectiveIntelligence()

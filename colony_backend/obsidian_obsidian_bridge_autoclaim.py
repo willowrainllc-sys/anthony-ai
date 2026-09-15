@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN OBSIDIAN_BRIDGE AUTO-CLAIM ENGINE v12.0 (PATH FIX) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json

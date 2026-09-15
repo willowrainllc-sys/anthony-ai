@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v8.5 (BITCOIN LIQUIDATION) ---
 import asyncio
 import os
@@ -15,7 +15,7 @@ class BitcoinLiquidationEngine:
     1. THRESHOLD MONITOR: Watches for the $10,000 'Burst' milestone.
     2. EXCHANGE HANDSHAKE: Interfaces with Robinhood/CashApp to convert BTC -> USD.
     3. BANK SINK SYNC: Physically pushes the settlement to Stride Bank (...9729).
-    4. LEGACY LEDGER: Inscribes the physical capital ingress into the Director's record.
+    4. LEGACY LEDGER: Inscribes the physical capital access into the Director's record.
     """
     def __init__(self):
         self.burst_threshold = 10000.0
@@ -27,10 +27,10 @@ class BitcoinLiquidationEngine:
 
         while self.is_active:
             try:
-                # 🔱 1. Pull Latest Alpha from Database
+                # [+] 1. Pull Latest Alpha from Database
                 # Logic: Querying the QUANTUM_TRADE_SUCCESS events
 
-                # 🔱 2. Verify Threshold
+                # [+] 2. Verify Threshold
                 if self.accumulated_alpha >= self.burst_threshold:
                     colony_log(f"🔥 BURST: Threshold reached. Initiating liquidation to Stride Bank...", node="FINANCE")
                     await self._physically_move_funds()
@@ -46,7 +46,7 @@ class BitcoinLiquidationEngine:
 
     async def _physically_move_funds(self):
         """Executes the actual handshake with the exchange APIs."""
-        # Simulated Settlement Handshake
+        # Simulated Settlement Connection
         db.log_event("FINANCE", "REAL_LIQUIDATION_BURST", {
             "amount_usd": self.accumulated_alpha,
             "destination": "Stride_Bank_Sink",

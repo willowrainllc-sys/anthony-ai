@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: GEONODE SALES CONTACT HANDSHAKE BOT v2.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -20,12 +20,12 @@ class GeonodeSalesSubmitBot:
     """
     GEONODE SALES SUBMIT BOT v2.0:
     1. Loads Geonode session cookies.
-    2. Navigates to 'Contact Sales' page (Handshake alternative).
+    2. Navigates to 'Contact Sales' page (Connection alternative).
     3. Fills out the form with the Obsidian Proposal text.
     4. Auto-submits to the enterprise data buyers.
     """
     async def execute_sales_handshake(self, headless: bool = True) -> dict:
-        colony_log(f"GEONODE_SALES: Initiating Elite Handshake via Sales Portal (Headless={headless})...", node="GEONODE_BOT")
+        colony_log(f"GEONODE_SALES: Initiating Elite Connection via Sales Portal (Headless={headless})...", node="GEONODE_BOT")
 
         if not PROPOSAL_PATH.exists():
             return {"status": "ERROR", "message": "Proposal MD file not found."}
@@ -86,7 +86,7 @@ class GeonodeSalesSubmitBot:
                     if await submit_btn.is_visible():
                         await submit_btn.click()
                         await page.wait_for_timeout(5000)
-                        colony_log(" GEONODE_SALES SUCCESS: Handshake Proposal submitted to Geonode Sales!", node="GEONODE_BOT")
+                        colony_log(" GEONODE_SALES SUCCESS: Connection Proposal submitted to Geonode Sales!", node="GEONODE_BOT")
                     else:
                         colony_log("[-] GEONODE_SALES: Submit button not found. Assuming manual completion or JS trigger.", node="GEONODE_BOT")
 

@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE GENERATIVE VISUAL & CAMERA MOTION ENGINE v1.0 (ZERO PEXELS DEPENDENCY) ---
 import os
 import sys

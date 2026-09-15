@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Search Results | Obsidian City Wholesale Registrar</title>
@@ -18,7 +25,11 @@
     <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
 </head>
 <body>
-    <!-- 🔱 Navigation Header -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHCNLC5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <!-- [+] Navigation Header -->
     <nav class="nav-header">
         <div class="flex items-center gap-10">
             <a href="index.html" class="font-black text-2xl tracking-tighter text-slate-900">OBSIDIAN<span class="text-blue-600">.CITY</span></a>
@@ -29,7 +40,7 @@
         </div>
     </nav>
 
-    <!-- 🔱 Main Search Section -->
+    <!-- [+] Main Search Section -->
     <div class="max-w-6xl mx-auto px-6 py-12">
         <div class="bg-white border border-slate-200 p-4 rounded-3xl shadow-sm mb-12 flex gap-4 items-center">
             <input type="text" id="searchTermInput" aria-label="Search Input" placeholder="Search another name..." class="flex-1 bg-slate-50 border-none px-6 py-4 rounded-full text-lg font-bold text-slate-900 outline-none">
@@ -45,7 +56,7 @@
             <!-- Results Injected via JS -->
         </div>
 
-        <!-- 🔱 Free Perks Section -->
+        <!-- [+] Free Perks Section -->
         <div class="bg-slate-900 rounded-[40px] p-16 mt-24 text-center">
             <h3 class="text-3xl font-black text-white mb-4">Everything You Need, Free with an Obsidian Domain</h3>
             <p class="text-slate-400 text-sm mb-12 max-w-xl mx-auto">We empower founders with a complete ecosystem to launch and protect their brand instantly.</p>
@@ -99,7 +110,7 @@
             container.innerHTML = '';
             loader.style.display = 'block';
 
-            // 🔱 Clean parsing
+            // [+] Clean parsing
             const cleanKey = keyword.toLowerCase().split('.')[0].replace(/[^a-z0-9]/g, '') || 'mybrand';
 
             try {
@@ -108,7 +119,7 @@
                 const data = await resp.json();
                 renderResults(data.results, cleanKey);
             } catch (err) {
-                // 🔱 FAIL-SAFE VAULT GENERATOR
+                // [+] FAIL-SAFE VAULT GENERATOR
                 const fallback = [
                     {tld: ".com", price: 14.70, tag: "Best Value"},
                     {tld: ".ai", price: 59.99, tag: "Trending"},

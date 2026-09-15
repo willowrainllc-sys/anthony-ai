@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN HFT INGRESS & LOW-LATENCY PORTS v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -13,7 +13,7 @@ from colony_logger import colony_log
 from colony_persistence import db
 
 SECURE_DIR = Path(r"D:\ObsidianAi_Colony\Secure_Assets")
-HFT_VAULT = SECURE_DIR / "hft_ingress_vault"
+HFT_VAULT = SECURE_DIR / "hft_access_vault"
 HFT_VAULT.mkdir(parents=True, exist_ok=True)
 
 class HftPort(BaseModel):
@@ -24,7 +24,7 @@ class HftPort(BaseModel):
     hourly_premium_usd: float
     status: str = "AVAILABLE"
 
-class ObsidianHftIngress:
+class ObsidianHftAccess:
     """
     OBSIDIAN HFT INGRESS v1.0:
     The "Wall Street" play. Renting low-latency residential ports to algorithmic traders.
@@ -58,13 +58,12 @@ class ObsidianHftIngress:
             "tier": "INSTITUTIONAL_GRADE"
         }
 
-hft_ingress = ObsidianHftIngress()
+hft_access = ObsidianHftAccess()
 
 if __name__ == "__main__":
     async def test_hft():
-        ports = await hft_ingress.audit_latency_for_hft()
-        proj = hft_ingress.get_hft_yield_projection()
-        print("\n=== [SUPREME] WILLOW RAIN HFT INGRESS ===")
+        ports = await hft_access.audit_latency_for_hft()
+        proj = hft_access.get_hft_yield_projection()
         print("Elite Ports:", len(ports))
         print("ESTIMATED MONTHLY YIELD:", f"${proj['monthly_yield_usd']:,.2f}")
         print("Status:", proj["tier"])

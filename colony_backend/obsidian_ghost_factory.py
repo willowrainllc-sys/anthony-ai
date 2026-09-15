@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN GHOST IDENTITY FACTORY v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -77,7 +77,6 @@ ghost_factory = ObsidianGhostFactory()
 
 if __name__ == "__main__":
     id1 = ghost_factory.generate_ghost_identity()
-    print("\n=== [SUPREME] WILLOW RAIN GHOST IDENTITY ===")
     print("ID:", id1.identity_id)
     print("Device:", id1.device_name)
     print("Fingerprint:", id1.browser_fingerprint)

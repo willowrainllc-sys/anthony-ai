@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ANTHONY'S CENTRAL BRAIN: UNIVERSAL AUTONOMOUS BUILD BRAIN v5.0 ---
 import os
 import sys

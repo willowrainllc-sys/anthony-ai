@@ -28,13 +28,13 @@ class ObsidianWealthSync:
     async def execute_sync(self):
         colony_log("🔱 WEALTH_SYNC: Utilizing industrial API keys for capital audit...", node="FINANCE")
 
-        # 1. Square Handshake
+        # 1. Square Connection
         if self.square_token:
             colony_log("[*] SQUARE: Auditing 'willow rain Co' location for negotiating funds...", node="FINANCE")
             # Logic to check Square balance
             colony_log("✓ SQUARE SUCCESS: $0.00 identified as Liquid.", node="FINANCE")
 
-        # 2. Robinhood Handshake
+        # 2. Robinhood Connection
         if self.rh_token:
             colony_log("[*] ROBINHOOD: Synchronizing Whale Strike trading pool...", node="FINANCE")
             # Logic to check RH buying power

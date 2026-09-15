@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES VERCEL PERFECT SETUP & API DEPLOYER ---
 import os
 import httpx
@@ -87,7 +87,7 @@ class VercelPerfectSetup:
                     data = resp.json()
                     url = data.get("url", "N/A")
                     colony_log(f"[+] VERCEL DEPLOY SUCCESS: Live at https://{url}", node="SUPREME")
-                    print(f"\n🔱 [VERCEL PERFECT SETUP SUCCESS]:\nProject: {PROJECT_NAME}\nLive URL: https://{url}\nCustom Domain: https://{DOMAIN_NAME}\n")
+                    print(f"\n[+] [VERCEL PERFECT SETUP SUCCESS]:\nProject: {PROJECT_NAME}\nLive URL: https://{url}\nCustom Domain: https://{DOMAIN_NAME}\n")
                 else:
                     colony_log(f"[-] VERCEL DEPLOY NOTICE: {resp.text}", node="SUPREME")
             except Exception as e:

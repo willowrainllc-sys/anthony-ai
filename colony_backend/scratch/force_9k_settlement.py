@@ -22,7 +22,7 @@ async def force_strike():
 
     async with httpx.AsyncClient(timeout=30.0) as client:
         # 1. Create a Customer Profile for the Buyer
-        print("[*] Provisioning AI Lab Procurement Identity...")
+        print("[*] Setting up AI Lab Procurement Identity...")
         c_body = {
             "idempotency_key": uuid.uuid4().hex,
             "given_name": "Missouri",
@@ -43,7 +43,7 @@ async def force_strike():
             "order": {
                 "location_id": LOC_ID,
                 "line_items": [{
-                    "name": "Wholesale Obsidian Matrix: 5,000 GB High-Performance Ingress",
+                    "name": "Wholesale Obsidian Matrix: 5,000 GB High-Performance Access",
                     "quantity": "1",
                     "base_price_money": {"amount": 900000, "currency": "USD"}
                 }]

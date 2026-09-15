@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (FREE API SCOUT) ---
 import asyncio
 import os
@@ -13,11 +13,11 @@ VAULT_PATH = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\ind
 class FreeAPIScout:
     """
     FREE API SCOUT:
-    Trained to find and catalog 'Zero-Cost' industrial ingress points.
+    Trained to find and catalog 'Zero-Cost' industrial access points.
     1. MARKET SCOUR: Scrapes GitHub and dev-portals for free API lists.
     2. KEYLESS INGRESS: Identifies APIs that don't require keys (like Open-Meteo).
     3. NO-CC FILTER: Filters for providers that don't require a credit card for free tiers.
-    4. TEAM NOTIFY: Dispatches the 'Harvester' to the confirmed ingress points.
+    4. TEAM NOTIFY: Dispatches the 'Harvester' to the confirmed access points.
     """
     def __init__(self):
         self.scour_targets = [
@@ -46,7 +46,7 @@ class FreeAPIScout:
                     if "Meteo" in content: discovered_providers.append({"name": "Open-Meteo", "type": "Weather", "key": "KEYLESS"})
                     if "Gemini" in content: discovered_providers.append({"name": "Google Gemini", "type": "AI", "auth": "Google Account"})
 
-                    colony_log(f"[+] SCOUT: Ingress signals detected on {target}.", node="SECURITY")
+                    colony_log(f"[+] SCOUT: Access signals detected on {target}.", node="SECURITY")
                 except Exception as e:
                     colony_log(f"[-] SCOUT FAIL [{target}]: {e}", node="SECURITY")
 
@@ -61,7 +61,7 @@ class FreeAPIScout:
         with open(VAULT_PATH, 'r') as f:
             vault = json.load(f)
 
-        vault["discovered_free_ingress"] = providers
+        vault["discovered_free_access"] = providers
 
         with open(VAULT_PATH, 'w') as f:
             json.dump(vault, f, indent=4)

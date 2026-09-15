@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: SUPREME COMMAND OS v5.0 (TOTAL AUTOPILOT) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import sys
@@ -37,7 +37,7 @@ class AnthonyCommandOS:
             from obsidian_prism_directorate import prism_directorate
             from system_excommunicato import SystemExcommunicato
 
-            # 🔱 0. INITIAL PURGE: Excommunicato any unauthorized external loops
+            # [+] 0. INITIAL PURGE: Excommunicato any unauthorized external loops
             purger = SystemExcommunicato()
             purger.execute_purge()
 
@@ -74,7 +74,7 @@ class AnthonyCommandOS:
             "obsidian_5gc_engine.py",             # 5G_REALITY
             "obsidian_notary_engine.py",          # LEGAL
             "obsidian_fulfillment_dispatch.py",   # DISPATCH
-            "obsidian_social_ingress.py",         # SOCIAL
+            "obsidian_social_access.py",         # SOCIAL
             "obsidian_vqe_tax_engine.py",          # TAX
             "obsidian_real_scout.py",             # SALES_SCOUT
             "obsidian_btc_mining_yield.py",        # FINANCE_MINER
@@ -109,10 +109,10 @@ class AnthonyCommandOS:
         return True
 
 if __name__ == "__main__":
-    os.system("title 🔱 OBSIDIAN SUPREME COMMAND OS v5.0 🔱")
+    os.system("title [+] OBSIDIAN SUPREME COMMAND OS v5.0 [+]")
     grid = AnthonyCommandOS()
     asyncio.run(grid.boot_supreme_grid())
 
     while True:
-        print(f"\r🔱 EMPIRE STATUS: TOTAL_AUTOPILOT | TIME: {time.strftime('%H:%M:%S')} | AURA: 100.0%", end="")
+        print(f"\r[+] EMPIRE STATUS: TOTAL_AUTOPILOT | TIME: {time.strftime('%H:%M:%S')} | AURA: 100.0%", end="")
         time.sleep(1)

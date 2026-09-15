@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES COLLECTIVE INTELLIGENCE: FEDERATED DISTILLATION v1.0 ---
 import asyncio
 import os
@@ -12,7 +12,7 @@ class AresCollectiveIntelligence:
     """
     ARES COLLECTIVE INTELLIGENCE:
     The evolution beyond server-trapped AI.
-    1. FEDERATED INGRESS: Edge nodes (phones/PCs) process local context (vitals, interactions).
+    1. FEDERATED INGRESS: Edge nodes (phones/PCs) process local context (status, interactions).
     2. DISTILLATION BRIDGE: Nodes send 'Knowledge Weights' (not raw data) back to the Oracle.
     3. COLLECTIVE SYNTHESIS: The Supreme Oracle updates its global reasoning based on edge learnings.
     4. PROOF-OF-INFERENCE: Rewards nodes with high-efficiency reasoning.
@@ -27,7 +27,7 @@ class AresCollectiveIntelligence:
 
         for node in self.node_registry:
             colony_log(f"[*] NODE_PULSE: Syncing knowledge weights from [{node}]...", node="SUPREME")
-            # 🔱 Simulation: Receiving distilled insights from the edge
+            # [+] Simulation: Receiving distilled insights from the edge
             insights = [
                 {"topic": "Regional Latency", "discovery": "High load detected in Missouri Bridge"},
                 {"topic": "User Intent", "discovery": "Search spike for 'Zero-Markup Domain' in UAE"}

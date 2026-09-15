@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9539640812310468" crossorigin="anonymous"></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -28,6 +35,10 @@
     <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHCNLC5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <div class="dashboard-container">
         <header class="flex justify-between items-center mb-20">
             <div>
@@ -62,8 +73,8 @@
                 <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest text-center block">Creative Output Preview</label>
                 <div class="preview-pane" id="previewPane">
                     <div class="text-gray-700 text-center">
-                        <div class="text-6xl mb-4 opacity-10">🔱</div>
-                        <p class="text-xs uppercase tracking-widest font-bold">Waiting for Ingress...</p>
+                        <div class="text-6xl mb-4 opacity-10">[+]</div>
+                        <p class="text-xs uppercase tracking-widest font-bold">Waiting for Access...</p>
                     </div>
                 </div>
             </div>
@@ -85,7 +96,7 @@
             genBtn.innerText = "SYNTHESIZING AURA...";
             genBtn.disabled = true;
 
-            // 🔱 Firing the burst to the Ad Creator Kernel
+            // [+] Firing the burst to the Ad Creator Kernel
             try {
                 // Simulation of the backend burst
                 await new Promise(r => setTimeout(r, 3000));
@@ -101,7 +112,7 @@
                             <span class="text-gray-800 text-[100px] orbitron font-black">AD</span>
                         </div>
                     </div>
-                    <button class="btn-burst mt-6" style="background: #10b981; color: #fff;" onclick="alert('🔱 Burst Dispatched to 103-Node Mesh.')">DEPLOY TO GRID</button>
+                    <button class="btn-burst mt-6" style="background: #10b981; color: #fff;" onclick="alert('[+] Burst Dispatched to 103-Node Mesh.')">DEPLOY TO GRID</button>
                 `;
 
                 alert("✓ CREATIVE SYNTHESIZED: Industrial Ad ready for deployment.");

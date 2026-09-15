@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: ANTHONY COMMAND BRIDGE v2.0 (FULL HANDS) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN REST GATEWAY (FOREVER TOKEN) v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -29,10 +29,10 @@ async def security_middleware(request: Request, call_next):
 
     return await call_next(request)
 
-@app.get("/grid/vitals")
-async def get_grid_vitals():
+@app.get("/grid/status")
+async def get_grid_status():
     """GET: Pulls live mining and wealth telemetry from the fortress."""
-    colony_log("GATEWAY: Pulling live vitals for remote server...", node="SECURITY")
+    colony_log("GATEWAY: Pulling live status for remote server...", node="SECURITY")
     from obsidian_capital_hub_controller import capital_hub
     res = await capital_hub.execute_empire_wealth_audit()
     return res

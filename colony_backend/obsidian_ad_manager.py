@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN AD SPEND & TRAFFIC MANAGER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 from colony_logger import colony_log
@@ -17,7 +17,7 @@ class AdManager:
 
         copy = {
             "headline": "Turn Your Idle Internet into Passive Bitcoin.",
-            "body": "Join the Willow Rain Company sister-partner network. Higher rates than Obsidian Ingress. Instant payouts. 100% Secure.",
+            "body": "Join the Willow Rain Company sister-partner network. Higher rates than Obsidian Access. Instant payouts. 100% Secure.",
             "cta": "Start Earning Now",
             "link": "https://obsidian.co/earner"
         }

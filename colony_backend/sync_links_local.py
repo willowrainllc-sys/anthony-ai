@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 from pathlib import Path
 
 root = Path(r'C:\Users\willo\OneDrive\Desktop\Anthony_Ai')

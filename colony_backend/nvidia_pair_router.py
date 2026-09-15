@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- NVIDIA PERSONAL AI ROUTER (PAIR) & NIM ENGINE v1.0 ---
 import os
 import json

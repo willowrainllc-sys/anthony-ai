@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE TAURIC RESEARCH: FINANCIAL MARKETING & ALGORITHMIC TRADING ENGINE v2.0 (STRICT STOP-LOSS & PROFIT MARGINS) ---
 import os
 import sys

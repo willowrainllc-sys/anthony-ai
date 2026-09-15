@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: GEONODE PROVIDER AUTOMATION BOT v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Secure Checkout | Obsidian City Global</title>
@@ -24,6 +31,10 @@
     <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHCNLC5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <div class="checkout-box">
     <div class="mb-4 text-left">
@@ -44,7 +55,7 @@
         </div>
     </div>
 
-    <!-- 🔱 Order Summary Breakdown -->
+    <!-- [+] Order Summary Breakdown -->
     <div class="summary-card" id="summaryCard">
         <div id="summaryItems">
             <!-- Items injected by JS -->
@@ -102,7 +113,7 @@
     const checkoutTypeSelect = document.getElementById('checkoutType');
     let summaryHtml = '';
 
-    // 🔱 Mode Switcher for Institutional Pricing
+    // [+] Mode Switcher for Institutional Pricing
     checkoutTypeSelect.onchange = () => {
         const mode = checkoutTypeSelect.value;
         if (mode === 'institutional') {
@@ -115,13 +126,18 @@
         document.getElementById('finalTotal').innerText = '$' + total.toFixed(2);
     };
 
-    // 🔱 Bundle Breakdown Logic
+    // [+] Bundle Breakdown Logic
     if (type === 'llc_formation') {
         document.getElementById('checkoutType').innerText = 'Business Starter Bundle';
         summaryHtml += `<div class="line-item"><span>LLC Formation (Obsidian)</span><span>$39.00</span></div>`;
         summaryHtml += `<div class="line-item"><span>Registered Agent (1yr)</span><span>$125.00</span></div>`;
         summaryHtml += `<div class="line-item"><span>State Filing Fee</span><span>$${stateFee.toFixed(2)}</span></div>`;
         summaryHtml += `<div class="line-item text-emerald-600"><span>Bundle: Free .COM Domain</span><span>-$14.70</span></div>`;
+    } else if (type === 'dba_registration') {
+        document.getElementById('checkoutType').innerText = 'DBA Trade Name Setup';
+        summaryHtml += `<div class="line-item"><span>DBA Registration Service</span><span>$0.00</span></div>`;
+        summaryHtml += `<div class="line-item"><span>Identity Verification</span><span>INCLUDED</span></div>`;
+        summaryHtml += `<div class="line-item text-emerald-600"><span>Obsidian User Discount</span><span>-$100.00</span></div>`;
     } else if (type.startsWith('builder_')) {
         const planName = type.replace('builder_', '').toUpperCase();
         document.getElementById('checkoutType').innerText = 'Obsidian AI Builder';
@@ -154,7 +170,7 @@
     if (total === 0) {
         paymentDiv.style.display = 'none';
         submitBtn.innerText = 'Claim Free Credits →';
-        securityNote.innerText = '✓ Direct Provisioning • No Payment Required';
+        securityNote.innerText = '✓ Direct Setting up • No Payment Required';
         cardInputs.forEach(input => input.removeAttribute('required'));
     } else {
         cardInputs.forEach(input => input.setAttribute('required', ''));

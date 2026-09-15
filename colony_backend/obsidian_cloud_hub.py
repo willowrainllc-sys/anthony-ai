@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN CLOUD HUB & DATA WAREHOUSE MASTER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -129,7 +129,6 @@ if __name__ == "__main__":
     # 3. Finalize Manifest
     m = hub_master.generate_grand_manifest()
 
-    print("\n=== [SUPREME] WILLOW RAIN OBSIDIAN CLOUD HUB ===")
     print("Manifest ID:", m.manifest_id)
     print("Active Leases:", sum(1 for s in m.active_spaces if s.assigned_company != "AVAILABLE"))
     print("PROJECTED MONTHLY GROSS:", f"${m.total_monthly_gross_usd:,.2f}")

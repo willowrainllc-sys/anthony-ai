@@ -33,7 +33,7 @@ class AresSafetyWatcher:
         return True
 
     def trigger_fail_safe(self, reason: str):
-        colony_log(f"⚠️ CRITICAL FAIL-SAFE: Terminating node ingress due to: {reason}", node="SECURITY")
+        colony_log(f"⚠️ CRITICAL FAIL-SAFE: Terminating node access due to: {reason}", node="SECURITY")
         # Logic to close network sockets or kill local processes
 
 safety_watcher = AresSafetyWatcher()

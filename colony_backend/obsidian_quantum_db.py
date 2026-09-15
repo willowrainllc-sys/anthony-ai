@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v5.0 (QUANTUM DATABASE) ---
 import os
 import json
@@ -40,7 +40,7 @@ class ObsidianQuantumDB:
             colony_log(f"[-] QDB ERROR: {e}", node="SUPREME")
             return False
 
-    def query_vitals(self):
+    def query_status(self):
         # High-aura lookup logic
         return {"db_status": "HARDENED", "location": "D_DRIVE", "purity": 1.0}
 

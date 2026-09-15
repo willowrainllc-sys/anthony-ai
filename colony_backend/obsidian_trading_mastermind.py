@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: TRADING MASTERMIND v3.0 (50% ALLOCATION) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import json
 import time

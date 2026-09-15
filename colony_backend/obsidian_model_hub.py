@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ANTHONY AI: OBSIDIAN MODEL HUB & NATIVE VAULT v1.0 ---
 import os
 import json
@@ -7,7 +8,7 @@ from pathlib import Path
 from colony_logger import colony_log
 from colony_persistence import db
 
-# 🔱 THE NATIVE VAULT
+# [+] THE NATIVE VAULT
 MODEL_STORAGE = Path(r"D:\AnthonyAi_Colony\Secure_Assets\Model_Vault")
 HUGGINGFACE_CACHE = Path(os.getenv("USERPROFILE")) / ".cache" / "huggingface" / "hub"
 
@@ -71,7 +72,7 @@ class ObsidianModelHub:
 
     async def run_hub_daemon(self):
         """Continuously monitors the vault and handles team 'Push/Get' requests."""
-        colony_log("🔱 MODEL_HUB: Sovereign Daemon is ONLINE. External traffic BLOCKED.", node="SOVEREIGN")
+        colony_log("[+] MODEL_HUB: Sovereign Daemon is ONLINE. External traffic BLOCKED.", node="SOVEREIGN")
 
         while True:
             # 1. Block external downloads (Simulated via firewall or env override)

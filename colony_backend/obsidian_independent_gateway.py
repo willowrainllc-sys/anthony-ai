@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN INDEPENDENT DATA GATEWAY v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -70,7 +70,6 @@ if __name__ == "__main__":
     async def test_gateway():
         await mesh_controller.initialize_global_mesh()
         contract = await independent_gateway.issue_direct_b2b_handshake("Global_Tech_Collective")
-        print("\n=== [SUPREME] WILLOW RAIN INDEPENDENT DATA HUB ===")
         print("Center Status:", independent_gateway.get_independent_center_status()["security_tier"])
         print("Active Client:", contract.client_name)
         print("Monthly Direct Revenue:", f"${contract.monthly_fee_usd:,.2f}")

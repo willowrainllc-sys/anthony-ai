@@ -9,9 +9,9 @@
                 <div class="hf-corner hf-br"><span class="hf-label">v29.0_TITAN</span></div>
                 <div class="hf-scanning-line"></div>
                 <div class="hf-pulse"><div class="hf-dot"></div> LIVE_SYNC</div>
-                <div class="hf-vitals">
+                <div class="hf-status">
                     <div>HUB: <span id="hf-nodes">USA_CENTRAL</span></div>
-                    <div>AURA: <span id="hf-aura">100%</span></div>
+                    <div>PERFORMANCE: <span id="hf-performance">100%</span></div>
                     <div>SIGINT: <span id="hf-sigint">ACTIVE</span></div>
                 </div>
             </div>
@@ -21,14 +21,14 @@
         div.innerHTML = frameHTML;
         document.body.appendChild(div.firstElementChild);
 
-        // Dynamic Vitals Update
+        // Dynamic Status Update
         setInterval(() => {
             const nodes = 100 + Math.floor(Math.random() * 5);
-            const aura = 98 + Math.floor(Math.random() * 3);
+            const performance = 98 + Math.floor(Math.random() * 3);
             const nodesEl = document.getElementById('hf-nodes');
-            const auraEl = document.getElementById('hf-aura');
+            const performanceEl = document.getElementById('hf-performance');
             if(nodesEl) nodesEl.innerText = nodes;
-            if(auraEl) auraEl.innerText = aura + "%";
+            if(performanceEl) performanceEl.innerText = performance + "%";
         }, 5000);
     }
 

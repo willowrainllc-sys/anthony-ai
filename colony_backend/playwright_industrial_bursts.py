@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v5.0 (PLAYWRIGHT BURSTS) ---
 import asyncio
 import os
@@ -34,7 +34,7 @@ class PlaywrightBurstEngine:
             for domain in domain_list:
                 try:
                     colony_log(f"[*] BURST: Purchasing {domain} via Registrar Portal...", node="FINANCE")
-                    # 🔱 Navigating to NameSilo / Registrar directly
+                    # [+] Navigating to NameSilo / Registrar directly
                     await page.goto("https://www.namesilo.com/register.php", wait_until="networkidle")
                     await page.fill('input[name="domain"]', domain)
                     await page.click('button:has-text("Search")')
@@ -60,12 +60,12 @@ class PlaywrightBurstEngine:
 
             for url in urls:
                 try:
-                    # 🔱 Google Search Console 'Request Indexing' Burst
+                    # [+] Google Search Console 'Request Indexing' Burst
                     colony_log(f"[*] BURST: Pinging Google Indexer for {url}...", node="SEO")
                     ping_url = f"https://www.google.com/ping?sitemap={url}/sitemap.xml"
                     await page.goto(ping_url)
 
-                    # 🔱 Bing Webmaster Burst
+                    # [+] Bing Webmaster Burst
                     colony_log(f"[*] BURST: Pinging Bing for {url}...", node="SEO")
                     await page.goto(f"https://www.bing.com/ping?sitemap={url}/sitemap.xml")
 
@@ -107,7 +107,7 @@ class PlaywrightBurstEngine:
 
             try:
                 await page.goto(provider_url, wait_until="networkidle")
-                # 🔱 Physical Login & Payout Logic
+                # [+] Physical Login & Payout Logic
                 # (Simulated - would use credentials and locators to click 'Withdraw')
                 colony_log(f"[+] BURST: Funds extracted from {provider_url}.", node="FINANCE")
                 db.log_event("FINANCE", "WITHDRAWAL_COMPLETE", {"provider": provider_url})
@@ -117,7 +117,7 @@ class PlaywrightBurstEngine:
             await browser.close()
 
     async def execute_social_proof_burst(self, biz_name: str, domain: str):
-        """Module 5: Global Business Profile Ingress."""
+        """Module 5: Global Business Profile Access."""
         colony_log(f"BURST: Creating Global Business Profile for [{biz_name}]...", node="SEO")
 
         async with async_playwright() as p:
@@ -125,7 +125,7 @@ class PlaywrightBurstEngine:
             page = await browser.new_page()
 
             try:
-                # 🔱 Navigating to LinkedIn/Google Business to establish 'Legitimacy'
+                # [+] Navigating to LinkedIn/Google Business to establish 'Legitimacy'
                 colony_log(f"[*] BURST: Registering {biz_name} on business directories...", node="SEO")
                 await asyncio.sleep(2)
                 colony_log(f"[+] BURST SUCCESS: {biz_name} is now a recognized entity.", node="SEO")

@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: SHADOW PROTOCOL (ANTI-DETECTION) v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import time

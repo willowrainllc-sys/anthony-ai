@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: BURST FOR REALITY v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import uuid
@@ -30,7 +30,7 @@ async def burst():
             context = await browser.new_context(user_agent=human_stealth.get_random_user_agent(), proxy={"server": proxy})
             page = await context.new_page()
 
-            await page.goto("https://dashboard.obsidian_ingress.com/sign-up", timeout=60000)
+            await page.goto("https://dashboard.obsidian_access.com/sign-up", timeout=60000)
             await page.fill('input[name="email"]', email)
             await page.fill('input[name="password"]', password)
 
@@ -41,7 +41,7 @@ async def burst():
             await page.click('button[type="submit"]')
             await asyncio.sleep(10)
 
-            colony_log(" BURST: Account created. Awaiting Handshake verification email...", node="SUPREME")
+            colony_log(" BURST: Account created. Awaiting Connection verification email...", node="SUPREME")
 
             # 2. VERIFY (Directly via IMAP)
             # We wait 30s for the email to arrive
@@ -53,7 +53,7 @@ async def burst():
                 colony_log(" BURST: Email verified. Toggling to ObsidianBridge...", node="SUPREME")
 
                 # 3. TOGGLE JMPT & WITHDRAW
-                await page.goto("https://dashboard.obsidian_ingress.com/", timeout=60000)
+                await page.goto("https://dashboard.obsidian_access.com/", timeout=60000)
                 await asyncio.sleep(5)
 
                 # Click the JMPT Toggle

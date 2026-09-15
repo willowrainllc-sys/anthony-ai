@@ -28,8 +28,8 @@ def fix_syntax():
     if f3.exists():
         content = f3.read_text()
         new_content = content.replace("class Anthony ChristopherCommandOS:", "class AnthonyChristopherCommandOS:")
-        new_content = new_content.replace("from anthony_ingress_engine import Anthony ChristopherIngressEngine", "from anthony_ingress_engine import AnthonyChristopherIngressEngine")
-        new_content = new_content.replace("engine = Anthony ChristopherIngressEngine", "engine = AnthonyChristopherIngressEngine")
+        new_content = new_content.replace("from anthony_access_engine import Anthony ChristopherAccessEngine", "from anthony_access_engine import AnthonyChristopherAccessEngine")
+        new_content = new_content.replace("engine = Anthony ChristopherAccessEngine", "engine = AnthonyChristopherAccessEngine")
         new_content = new_content.replace("grid_os = Anthony ChristopherCommandOS()", "grid_os = AnthonyChristopherCommandOS()")
         f3.write_text(new_content)
         print(f"  [✓] FIXED: {f3.name}")

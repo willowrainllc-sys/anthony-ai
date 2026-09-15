@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: MULTI-ENTITY CORPORATE UMBRELLA v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 from colony_logger import colony_log
@@ -16,7 +16,7 @@ class CorporateUmbrellaShield:
         return {
             "parent_entity": "Willow Rain Holdings LLC (The Umbrella)",
             "operational_subsidiaries": [
-                {"name": "Willow Rain Security", "focus": "Cyber-Intel & Ingress"},
+                {"name": "Willow Rain Security", "focus": "Cyber-Intel & Access"},
                 {"name": "Maestas Media Group", "focus": "Content & Syndication"},
                 {"name": "Obsidian Grid IaaS", "focus": "Compute & Storage Rental"}
             ],
@@ -38,7 +38,6 @@ corporate_shield = CorporateUmbrellaShield()
 
 if __name__ == "__main__":
     structure = corporate_shield.get_umbrella_structure()
-    print("\n=== [SUPREME] WILLOW RAIN CORPORATE UMBRELLA ===\n")
     print("Parent:", structure["parent_entity"])
     print("Loop Holes Active:", len(structure["legal_loopholes_active"]))
     for sub in structure["operational_subsidiaries"]:

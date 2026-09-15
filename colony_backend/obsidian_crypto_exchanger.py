@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN CRYPTO EXCHANGER & BTC BRIDGE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -19,7 +19,7 @@ class ObsidianCryptoExchanger:
     """
     def __init__(self):
         self.target_wallet = "bc1qk4ass5xsanvth2tz7jsapscy8ld25yr6ze5yzx" # Mainnet BTC Hub
-        self.ln_invoice = "lnbc1p42pr29dqdgdshx6pqg9c8qpp5pnzhnha7efq6pav4704cy4n29fc26cls9gxtt4xsxu3x5d25nmsssp5g6l2xjekhsr0cksgmvtx2pgke6v2atxve0xn22wt7glrvy40jats9qrsgqcqzp2xqy8ayqrzjqtsjy9p55gdceevp36fvdmrkxqvzfhy8ak2tgc5zgtjtra9xlaz97ryrtuqqz7sqqvqqqqqqqqqqqqqqxqrzjqfrjnu747au57n0sn07m0j3r5na7dsufjlxayy7xjj3vegwz0ja3wzggrvqqzvsqqcqqqqqqqqqqqqqqxqdz73q90fa8tlsj4u5yam6szu7tk8g7ys6424dwjf9te5n7yudhcpj0yxmxg92czkspc7r7ejc70s2sgxatgms0ht98lh5ygac6evfasq87usye" # Instant Lightning Ingress
+        self.ln_invoice = "lnbc1p42pr29dqdgdshx6pqg9c8qpp5pnzhnha7efq6pav4704cy4n29fc26cls9gxtt4xsxu3x5d25nmsssp5g6l2xjekhsr0cksgmvtx2pgke6v2atxve0xn22wt7glrvy40jats9qrsgqcqzp2xqy8ayqrzjqtsjy9p55gdceevp36fvdmrkxqvzfhy8ak2tgc5zgtjtra9xlaz97ryrtuqqz7sqqvqqqqqqqqqqqqqqxqrzjqfrjnu747au57n0sn07m0j3r5na7dsufjlxayy7xjj3vegwz0ja3wzggrvqqzvsqqcqqqqqqqqqqqqqqxqdz73q90fa8tlsj4u5yam6szu7tk8g7ys6424dwjf9te5n7yudhcpj0yxmxg92czkspc7r7ejc70s2sgxatgms0ht98lh5ygac6evfasq87usye" # Instant Lightning Access
 
     async def exchange_to_bitcoin(self, amount_usd: float, source_token: str = "JMPT") -> dict:
         colony_log(f"EXCHANGER: Initiating swap for ${amount_usd:.2f} {source_token} -> BITCOIN...", node="FINANCE")

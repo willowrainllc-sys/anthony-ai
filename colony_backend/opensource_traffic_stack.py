@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE OPEN-SOURCE TRAFFIC STACK & MESH ROUTING ORCHESTRATOR v1.2 ---
 import os
 import sys
@@ -49,7 +50,7 @@ class OpenSourceTrafficStack:
     """
     OPEN-SOURCE TRAFFIC STACK & MESH ORCHESTRATOR v1.2:
     Phase 1: Envoy/3proxy Gateway & WireGuard NetBird Private Mesh Layer.
-    Phase 2: FastAPI / Supabase Usage Metering & Auto-Provisioning.
+    Phase 2: FastAPI / Supabase Usage Metering & Auto-Setting up.
     Phase 3: Hybrid Cloud (Oracle Free Tier / AWS / Edge Tunnels).
     """
     def __init__(self):

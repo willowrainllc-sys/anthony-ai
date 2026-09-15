@@ -1,10 +1,11 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ANTHONY AI: SYSTEM EXCOMMUNICATO & PROCESS PURGE v1.0 ---
 import os
 import psutil
 import time
 from colony_logger import colony_log
 
-# 🔱 THE BLACKLIST: External services we are terminating to ensure total sovereignty
+# [+] THE BLACKLIST: External services we are terminating to ensure total sovereignty
 BS_PROCESSES = [
     "ollama.exe",
     "ollama_llama_server.exe",

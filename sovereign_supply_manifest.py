@@ -1,27 +1,26 @@
-# --- WILLOW RAIN GLOBAL: SOVEREIGN SUPPLY MANIFEST v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 
 def get_supply_chain_blueprint():
     """
-    THE WILLOW RAIN GLOBAL SUPPLY CHAIN:
-    Replicating the Saturn Grid/Saturn Ingress ecosystem.
+    Replicating the Saturn Grid/Saturn Access ecosystem.
 
     The Hierarchy:
     1. Parent: Willow Rain Holdings LLC (The Shield)
-    2. Subsidiary: Willow Ingress (The Supplier/App)
+    2. Subsidiary: Willow Access (The Supplier/App)
     3. Channel: Sovereign Marketplace (The Wholesaler)
     """
     return {
         "entity": "Willow Rain Global (The Independent Data Grid)",
         "mission": "To create the world's most aggressive and secure residential data supply chain.",
         "operational_structure": {
-            "the_honey": "Willow Ingress - A cross-platform app where users share bandwidth for Bitcoin rewards.",
+            "the_honey": "Willow Access - A cross-platform app where users share bandwidth for Bitcoin rewards.",
             "the_client": "Sovereign Proxy - A premium B2B service selling high-performance Missouri IPs to AI labs.",
             "the_bridge": "Ghost Matrix - The automated 1,001-port tunnel system linking the two."
         },
         "revenue_multipliers": [
-            {"step": "Capture", "cost_usd_gb": 0.05, "platform": "Willow Ingress"},
+            {"step": "Capture", "cost_usd_gb": 0.05, "platform": "Willow Access"},
             {"step": "Aggregate", "cost_usd_gb": 0.02, "platform": "Ghost Matrix"},
             {"step": "Wholesale", "sale_usd_gb": 6.00, "margin": "8,400%"}
         ],

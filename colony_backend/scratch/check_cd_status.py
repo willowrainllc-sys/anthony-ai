@@ -14,7 +14,7 @@ from human_stealth_helper import human_stealth
 from playwright_stealth_factory import stealth_factory
 
 JMPT_SESSION = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault\cookie_monster\cookie_monster_obsidian_bridge.json")
-HG_SESSION = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault\cookie_monster\cookie_monster_obsidian_ingress.json")
+HG_SESSION = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault\cookie_monster\cookie_monster_obsidian_access.json")
 
 async def check_cd(session_file, name):
     if not session_file.exists():
@@ -31,7 +31,7 @@ async def check_cd(session_file, name):
             await human_stealth.inject_stealth_scripts(page)
 
             print(f"🔱 AUDITING {name} FOR CONTENT DELIVERY...")
-            await page.goto("https://dashboard.obsidian_ingress.com/", timeout=60000, wait_until="networkidle")
+            await page.goto("https://dashboard.obsidian_access.com/", timeout=60000, wait_until="networkidle")
             await asyncio.sleep(8)
 
             content = await page.evaluate("() => document.body.innerText")
@@ -50,7 +50,7 @@ async def check_cd(session_file, name):
 
 async def run():
     print("=== 🔱 SUPREME CONTENT DELIVERY AUDIT ===\n")
-    # Audit Obsidian Ingress Master
+    # Audit Obsidian Access Master
     res = await check_cd(HG_SESSION, "OBSIDIAN_INGRESS_MASTER")
     print(res)
 

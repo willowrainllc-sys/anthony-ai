@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: SUPREME INDUSTRIAL SIGNER v10.0 (RESIDENTIAL BRIDGE) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import uuid
@@ -22,7 +22,7 @@ class ObsidianIndustrialSigner:
     4. REVENUE LOCK: Guarantees the $5.00 burst per account.
     """
     def __init__(self):
-        self.api_endpoint = "https://dashboard.obsidian_ingress.com/api/v1/users"
+        self.api_endpoint = "https://dashboard.obsidian_access.com/api/v1/users"
         # No proxy for signup burst = Uses the high-performance Home IP
         self.proxy = None
 
@@ -60,7 +60,7 @@ class ObsidianIndustrialSigner:
                     jwt = resp.json().get("jwt")
                     # 2. AUTO-LINK JMPT
                     link_resp = s.post(
-                        "https://dashboard.obsidian_ingress.com/api/v1/obsidian_bridge/link",
+                        "https://dashboard.obsidian_access.com/api/v1/obsidian_bridge/link",
                         json={"obsidian_bridge_id": OBSIDIAN_BRIDGE_ID},
                         headers={"Authorization": f"Bearer {jwt}"}
                     )

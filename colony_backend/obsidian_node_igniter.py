@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN NODE IGNITER v1.0 (MASS LOGIN) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import json
@@ -10,7 +10,7 @@ from colony_persistence import db
 from human_stealth_helper import human_stealth
 
 # Director's Verified Session
-PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault")
+PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault")
 HG_SESSION = PERSONA_VAULT / "cookie_monster" / "cookie_monster_obsidian_bridge.json"
 
 class ObsidianNodeIgniter:
@@ -43,7 +43,7 @@ class ObsidianNodeIgniter:
                 await human_stealth.inject_stealth_scripts(page)
 
                 # Navigate and stay alive
-                await page.goto("https://dashboard.obsidian_ingress.com/", timeout=60000)
+                await page.goto("https://dashboard.obsidian_access.com/", timeout=60000)
                 await asyncio.sleep(5)
 
                 if "dashboard" in page.url:

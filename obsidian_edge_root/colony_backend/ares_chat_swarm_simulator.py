@@ -47,7 +47,7 @@ class AresChatSwarm:
                 "trigger_msg": "Director Maestas has initiated a Social Ad Strike. Pushing 4K cinematic assets to TikTok and IG now.",
                 "responses": [
                     {"agent": "ARES", "action": "ARMORING", "msg": "Verified. I have established the 'Physical Guardian Watch' on the Director's primary node. Safety alignment is 100%."},
-                    {"agent": "ORACLE", "action": "REASONING", "msg": "Analyzing traffic ingress from the strike. Conversion probability for .AI domains is spiking. Suggesting a 10% retail margin increase for Dubai-based buyers."},
+                    {"agent": "ORACLE", "action": "REASONING", "msg": "Analyzing traffic access from the strike. Conversion probability for .AI domains is spiking. Suggesting a 10% retail margin increase for Dubai-based buyers."},
                     {"agent": "SENTINEL", "action": "MONITORING", "msg": "Grid load is increasing by 18%. Energy Sentinel is balancing the thermal state. System remains Green."}
                 ]
             }

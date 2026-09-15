@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES REAL-TIME INGRESS & UPDATE INJECTOR v1.0 ---
 import os
 import sys
@@ -40,12 +40,12 @@ def monitor_local_changes():
     try:
         res = subprocess.run(["git", "pull", "origin", "master"], capture_output=True, text=True)
         if "Already up to date" not in res.stdout:
-            colony_log("🔱 ARES: New GitHub assets detected. Injecting...", node="SUPREME")
+            colony_log("[+] ARES: New GitHub assets detected. Injecting...", node="SUPREME")
             execute_sync_pipeline()
     except: pass
 
 if __name__ == "__main__":
-    # 🔱 This is the brain of the 'Always-On' update system
+    # [+] This is the brain of the 'Always-On' update system
     while True:
         monitor_local_changes()
         time.sleep(15) # High frequency pulse

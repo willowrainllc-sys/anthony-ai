@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: CARRIER IDENTITY WIPE & SYSTEM OVERLAY v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import subprocess
@@ -31,8 +31,6 @@ class ObsidianCarrierWipe:
             # [EXECUTE] adb -s {self.serial} shell rm -rf /system/etc/security/cacerts/{carrier}* [/EXECUTE]
 
         # 3. Inject Obsidian Branding
-        colony_log("WIPE: Injecting [SUPREME] OBSIDIAN GLOBAL branding into system UI...", node="CARRIER")
-        # [EXECUTE] adb -s {self.serial} shell settings put global multi_sim_carrier_name '[SUPREME] OBSIDIAN GLOBAL' [/EXECUTE]
 
         colony_log(f" WIPE SUCCESS: Device [{self.serial}] is now an OBSIDIAN AUTHORITY node.", node="CARRIER")
         db.log_event("CARRIER", "DEVICE_CARRIER_WIPE", {"serial": self.serial, "status": "INCINERATED"})

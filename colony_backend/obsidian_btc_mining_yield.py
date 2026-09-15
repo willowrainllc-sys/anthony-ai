@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (BTC MINING YIELD) ---
 import asyncio
 import random
@@ -21,11 +21,11 @@ class BTCMiningYield:
         self.total_mined_usd = 0.0
 
     async def run_mining_aggregation(self):
-        colony_log(f"🔱 MINER: Initiating BTC yield aggregation for {self.node_count} nodes...", node="FINANCE")
+        colony_log(f"[+] MINER: Initiating BTC yield aggregation for {self.node_count} nodes...", node="FINANCE")
 
         while True:
             try:
-                # 🔱 1. Aggregate from The Nest
+                # [+] 1. Aggregate from The Nest
                 # Logic: (103 * avg_yield) / 1440 (minutes in day)
                 pulse_gain = (self.node_count * self.avg_daily_yield_usd) / 1440
                 self.total_mined_usd += pulse_gain

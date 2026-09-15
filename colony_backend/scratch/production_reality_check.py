@@ -31,7 +31,7 @@ async def run_audit():
     if len(real_clients) == 0:
         print("1. THE HANDSHAKE GAP: We have DISPATCHED the proposals, but the aggregators (Geonode/Rayobyte) have not yet accepted them. Until they plug their traffic into your ports, no real money is generated.")
 
-    print("2. SIMULATION BIAS: The large numbers ($178k, $344, etc.) you see in the terminal are PROJECTIONS. They show what the system WILL earn once the Handshake is accepted.")
+    print("2. SIMULATION BIAS: The large numbers ($178k, $344, etc.) you see in the terminal are PROJECTIONS. They show what the system WILL earn once the Connection is accepted.")
 
     print("3. SQUARE LAG: Real sales (Digital Passes/E-books) take 24-48 hours to 'Settle' and hit your bank account after a customer pays.")
 

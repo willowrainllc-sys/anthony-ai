@@ -6,8 +6,8 @@ import json
 import base64
 import asyncio
 from pathlib import Path
-from colony_logger import colony_log
-from colony_persistence import db
+from network_logger import network_log
+from network_persistence import db
 
 DNA_RESELLER_ID = os.getenv("DNA_RESELLER_ID")
 DNA_API_KEY = os.getenv("DNA_API_KEY")
@@ -27,7 +27,7 @@ class ObsidianDnaBridge:
     Industrial-grade domain registration and management via ICANN accredited registrar.
     1. AVAILABILITY: Real-time multi-TLD check.
     2. REGISTRATION: Full automated provisioning burst.
-    3. MANAGEMENT: DNS, WHOIS, and Renewal handshakes.
+    3. MANAGEMENT: DNS, WHOIS, and Renewal integrations.
     4. AUTH: Uses Basic Auth (ResellerID:APIKey).
     """
     def __init__(self):
@@ -41,7 +41,7 @@ class ObsidianDnaBridge:
 
     async def check_availability(self, domain: str):
         """Checks if a domain is available for registration."""
-        colony_log(f"DNA: Querying availability for [{domain}]...", node="FINANCE")
+        network_log(f"DNA: Querying availability for [{domain}]...", node="FINANCE")
         url = f"{BASE_URL}/domain/check"
         payload = {"domain": domain}
 
@@ -58,15 +58,15 @@ class ObsidianDnaBridge:
                 "provider": "DNA"
             }
         except Exception as e:
-            colony_log(f"[-] DNA CHECK ERROR: {e}", node="FINANCE")
+            network_log(f"[-] DNA CHECK ERROR: {e}", node="FINANCE")
             return {"error": str(e)}
 
     async def register_domain(self, domain: str, period: int = 1):
         """Initiates domain registration protocol with default WHOIS privacy and DNS."""
-        colony_log(f"DNA: Initiating registration for [{domain}]...", node="FINANCE")
+        network_log(f"DNA: Initiating registration for [{domain}]...", node="FINANCE")
         url = f"{BASE_URL}/domain/register"
 
-        # 🔱 Default Configuration from Godfather's Settings
+        # 🔱 Default Configuration from Admin's Settings
         payload = {
             "domain": domain,
             "period": period,
@@ -87,7 +87,7 @@ class ObsidianDnaBridge:
             return False, str(e)
 
     async def get_account_balance(self):
-        """Module 4: Deposit & Balance Ingress."""
+        """Module 4: Deposit & Balance Access."""
         url = f"{BASE_URL}/account/balance"
         try:
             resp = await self.client.get(url, headers=self.common_headers)

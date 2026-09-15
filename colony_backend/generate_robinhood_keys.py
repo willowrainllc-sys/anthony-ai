@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import base64
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import ed25519
@@ -27,7 +28,7 @@ def generate_keys():
         encryption_algorithm=serialization.NoEncryption()
     )
 
-    save_path = r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\colony_vault\robinhood_private.pem"
+    save_path = r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\colony_vault\robinhood_private.pem"
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
 
     with open(save_path, "wb") as f:

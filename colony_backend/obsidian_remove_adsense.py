@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- OBSIDIAN ADSENSE REMOVER v1.0 ---
 from pathlib import Path
 from colony_logger import colony_log

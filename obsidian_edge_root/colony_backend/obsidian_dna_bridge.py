@@ -66,7 +66,7 @@ class ObsidianDnaBridge:
         colony_log(f"DNA: Initiating registration for [{domain}]...", node="FINANCE")
         url = f"{BASE_URL}/domain/register"
 
-        # 🔱 Default Configuration from Godfather's Settings
+        # 🔱 Default Configuration from Admin's Settings
         payload = {
             "domain": domain,
             "period": period,
@@ -87,7 +87,7 @@ class ObsidianDnaBridge:
             return False, str(e)
 
     async def get_account_balance(self):
-        """Module 4: Deposit & Balance Ingress."""
+        """Module 4: Deposit & Balance Access."""
         url = f"{BASE_URL}/account/balance"
         try:
             resp = await self.client.get(url, headers=self.common_headers)

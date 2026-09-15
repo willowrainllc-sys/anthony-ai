@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: MASS B2B ACCOUNT ONBOARDER v2.0 (GOD-MODE SCALE) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import random
@@ -52,7 +52,7 @@ class MassAccountOnboarder:
                 return False
 
     async def run_god_mode_blitz(self, service_id: str = "OBSIDIAN_INGRESS"):
-        target_url = "https://dashboard.obsidian_ingress.com/sign-up"
+        target_url = "https://dashboard.obsidian_access.com/sign-up"
         colony_log(f"ONBOARDER: Initiating GOD-MODE 100-Flow Blitz for [{service_id}]...", node="ONBOARDER")
 
         # 1. Provision the 10x10 Cluster

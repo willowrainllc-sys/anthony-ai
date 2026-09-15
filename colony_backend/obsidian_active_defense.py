@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN ACTIVE DEFENSE & COUNTER-MEASURE ENGINE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import time

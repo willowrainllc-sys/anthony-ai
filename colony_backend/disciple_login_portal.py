@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: DISCIPLE LOGIN PORTAL v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import sys

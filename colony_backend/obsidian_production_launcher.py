@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: SUPREME PRODUCTION LAUNCHER v2.0 (SURGICAL) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import subprocess
@@ -32,7 +32,6 @@ def launch_live_production():
     colony_log("[SUPREME] SUPREME SUCCESS: Grid authority locked. Kernel is managing the burst.", node="SUPREME")
 
     print("\n====================================================")
-    print("  [SUPREME] WILLOW RAIN SECURITY: PRODUCTION v2.0 [SUPREME]")
     print("====================================================")
     print("  Status:    ONLINE & SURGICAL")
     print("  Grid:      5,000 IPs / 100 Bases")

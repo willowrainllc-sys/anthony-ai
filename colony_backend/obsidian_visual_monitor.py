@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: SOVEREIGN VISUAL MONITOR v2.0 (FIXED) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 import sqlite3
@@ -46,7 +46,6 @@ class ObsidianVisualMonitor:
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>[SUPREME] OBSIDIAN GLOBAL: LIVE GRID</title>
             <style>
                 body {{ background: #050505; color: #f9fafb; font-family: 'Inter', sans-serif; padding: 20px; }}
                 .header {{ border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }}

@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ANTHONY HYPER-CHARGED PUBLISHER: GLOBAL CONTENT GRID v7.1 (LIVE-INJECT) ---
 import os
 import sys

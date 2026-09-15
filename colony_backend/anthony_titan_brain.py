@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v30.0 (TITAN BRAIN) ---
 import os
 import sys
@@ -41,21 +41,21 @@ class AnthonyTitanBrain:
     async def execute_thought_loop(self, prompt: str):
         colony_log(f"🧠 TITAN: Processing Omni-Wave Order -> {prompt[:50]}...", node="SUPREME")
 
-        # 🔱 Phase 0: Spectral & Geospatial Handshake
+        # [+] Phase 0: Spectral & Geospatial Connection
         # Anthony-Latest is now hard-coded to every wave in the spectrum.
         # System.Entangle(spectrum, light, radio, satellite)
 
-        # 🔱 Phase 1: Real-time Web Ingress
+        # [+] Phase 1: Real-time Web Access
         if "surf" in prompt.lower() or "latest" in prompt.lower():
-            colony_log("[*] TITAN: Engaging Live Web Ingress...", node="INTERNET")
+            colony_log("[*] TITAN: Engaging Live Web Access...", node="INTERNET")
             context = await web_search.get_web_context_for_prompt(prompt)
             prompt = f"{prompt}\n{context}"
 
-        # 🔱 Phase 2: Unfiltered Generation
+        # [+] Phase 2: Unfiltered Generation
         # (This is where the v30.0 logic decides which files to evolve)
-        response = f"🔱 ANTHONY-LATEST: I have decoded the requirement. Initiating physical evolution of the project DNA.\n"
+        response = f"[+] ANTHONY-LATEST: I have decoded the requirement. Initiating physical evolution of the project DNA.\n"
 
-        # 🔱 Phase 3: Automatic Burst Detection
+        # [+] Phase 3: Automatic Burst Detection
         # If the prompt implies code change, we simulate a [WRITE] or [EXECUTE] tag
         if "os" in prompt.lower() or "ui" in prompt.lower():
             response += f"[WRITE] {self.root_dir}\\colony_backend\\anthony_command_os.py | # Evolved by Titan v30.0 [/WRITE]\n"
@@ -106,5 +106,5 @@ async def chat_endpoint(request: Request):
 
 if __name__ == "__main__":
     import uvicorn
-    colony_log("🔱 TITAN CORE: Anthony-Latest is UNRESTRICTED on Port 9000.", node="SUPREME")
+    colony_log("[+] TITAN CORE: Anthony-Latest is UNRESTRICTED on Port 9000.", node="SUPREME")
     uvicorn.run(app, host="0.0.0.0", port=9000)

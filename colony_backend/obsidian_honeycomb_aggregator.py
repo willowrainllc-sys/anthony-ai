@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN HONEYCOMB AGGREGATOR (B2B) v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 import uuid
@@ -8,7 +8,7 @@ import random
 class HoneycombAggregator:
     """
     THE $5,000/DAY BLUEPRINT:
-    Pivoting from a "User" of Obsidian Ingress to a "Provider" of high-value data.
+    Pivoting from a "User" of Obsidian Access to a "Provider" of high-value data.
 
     THE REVENUE MATH (Net Profit):
     - B2B Rate: $12.00 / GB (Enterprise Premium)
@@ -31,7 +31,6 @@ class HoneycombAggregator:
         net_profit = total_revenue - total_payout_to_colony
 
         return {
-            "model": "WILLOW RAIN AGGREGATOR",
             "daily_revenue_gross": round(total_revenue, 2),
             "daily_payout_cost": round(total_payout_to_colony, 2),
             "DAILY_NET_PROFIT": round(net_profit, 2),
@@ -53,7 +52,6 @@ aggregator_engine = HoneycombAggregator()
 
 if __name__ == "__main__":
     proj = aggregator_engine.get_daily_profit_projection()
-    print("=== [SUPREME] WILLOW RAIN HONEYCOMB AGGREGATOR MODEL ===")
     print("Daily Net Profit Target:", f"${proj['DAILY_NET_PROFIT']:.2f}")
     print("Monthly Scaling Potential:", f"${proj['monthly_projected']:.2f}")
     print("Next Step: Launching the B2B Sales Dashboard.")

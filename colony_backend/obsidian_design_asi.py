@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v6.0 (AESTHETIC SUPREMACY) ---
 import asyncio
 import os
@@ -9,7 +9,7 @@ class DesignASI:
     """
     DESIGN ASI (AURA):
     The Chief Design Officer for the Obsidian Global Universe.
-    1. VISUAL HARDENING: Eliminates technical jargon (Handshake, Ingress) from public pages.
+    1. VISUAL HARDENING: Eliminates technical jargon (Connection, Access) from public pages.
     2. SAAS AESTHETICS: Implements 'Linear/Stripe' level UI components across all dotcoms.
     3. BRAND COHERENCE: Ensures the Maestas DNA is professional and eye-popping.
     4. UX OPTIMIZATION: Hard-coded for 100% conversion and zero friction.
@@ -22,7 +22,7 @@ class DesignASI:
         colony_log("[AURA] DESIGN: Initiating visual overhaul... Incinerating technical jargon.", node="SUPREME")
 
         # 1. Scans HTML files for non-professional terms
-        # 2. Replaces "Handshake" with "Secure Sync"
+        # 2. Replaces "Connection" with "Secure Sync"
         # 3. Replaces "Negotiating" with "Authorized" or "Processing"
 
         db.log_event("STAFF", "DESIGN_OVERHAUL", {"status": "AESTHETIC_SYNC_COMPLETE"})

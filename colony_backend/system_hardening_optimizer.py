@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: SYSTEM HARDENING & MULTI-SIG TREASURY OPTIMIZER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -31,7 +31,7 @@ class MultiSigTreasurySweep(BaseModel):
 class SystemHardeningOptimizer:
     """
     SYSTEM HARDENING OPTIMIZER v1.0:
-    1. Layer 1: Ingress & Failover Latency Hardening (HTTP 403 / 429 instant IP auto-rotation).
+    1. Layer 1: Access & Failover Latency Hardening (HTTP 403 / 429 instant IP auto-rotation).
     2. Layer 2: Docker Resource Isolation (Limits video render CPU to prevent proxy latency spikes).
     3. Layer 3: Multi-Sig Cold Storage Auto-Sweep for on-chain USDC settlements.
     """

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN ENTERPRISES: DIRECT STABLECOIN, B2B WIRE & SQUARE CASHOUT HUB v2.1 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json

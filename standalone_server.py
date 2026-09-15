@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- OBSIDIAN CITY SOVEREIGN HOSTING SERVER v1.3 ---
 import http.server
 import socketserver
@@ -8,7 +8,7 @@ import urllib.parse
 import json
 import asyncio
 
-# 🔱 Import decoupled logic from api/index.py
+# [+] Import decoupled logic from api/index.py
 sys.path.append(os.path.join(os.path.dirname(__file__), 'api'))
 sys.path.append(os.path.join(os.path.dirname(__file__), 'colony_backend'))
 try:
@@ -50,7 +50,8 @@ class SovereignHandler(http.server.SimpleHTTPRequestHandler):
             "/signin": "obsidian_signin.html",
             "/register": "obsidian_register.html",
             "/help": "obsidian_help_center.html",
-            "/llc": "obsidian_llc_formation.html"
+            "/llc": "obsidian_llc_formation.html",
+            "/b2b": "obsidian_industrial_mesh.html"
         }
 
         clean_path = self.path.split('?')[0].rstrip('/')

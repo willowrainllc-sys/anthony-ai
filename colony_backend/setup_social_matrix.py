@@ -1,11 +1,11 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE SOCIAL MATRIX & CONNECTIONS v1.0 ---
 import os
 from pathlib import Path
 
 root = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
 
-# 🔱 Professional Connection Links
+# [+] Professional Connection Links
 SOCIAL_LINKS = {
     "X / Twitter": "https://x.com/willowrainllc",
     "GitHub": "https://github.com/willowrainllc-sys",
@@ -14,7 +14,7 @@ SOCIAL_LINKS = {
 }
 
 def update_social_links():
-    print(f"🔱 Initiating Social Matrix Connection Protocol...")
+    print(f"[+] Initiating Social Matrix Connection Protocol...")
 
     # Target all HTML files in root, app assets, and edge root
     dirs = [root, root / "app" / "src" / "main" / "assets", root / "obsidian_edge_root"]

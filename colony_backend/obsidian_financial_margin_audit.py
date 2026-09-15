@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- OBSIDIAN FINANCIAL MARGIN & LOSS-LEADER AUDIT v1.0 ---
 import asyncio
 from colony_logger import colony_log
@@ -22,7 +22,7 @@ class FinancialMarginAuditor:
         margin_percent = (net_profit / total_revenue) * 100
 
         print("\n" + "="*60)
-        print("  🔱 OBSIDIAN CITY FINANCIAL MARGIN AUDIT")
+        print("  [+] OBSIDIAN CITY FINANCIAL MARGIN AUDIT")
         print("="*60)
         print(f"  Wholesale Cost (3 Years): ${total_wholesale_cost:.2f}")
         print(f"  Customer Paid (3 Years):  ${total_revenue:.2f}")

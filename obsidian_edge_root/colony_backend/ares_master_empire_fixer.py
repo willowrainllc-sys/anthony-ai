@@ -11,14 +11,14 @@ class AresMasterEmpireFixer:
     """
     ARES MASTER EMPIRE FIXER:
     Autonomously executes diagnostics and self-healing protocols across:
-    1. Domain & Vercel Edge Ingress
+    1. Domain & Vercel Edge Access
     2. Mobile App Asset & UI Sync
     3. Social Media Growth & Dominance Loops
     4. B2B Enterprise Data & Marketplace Brokers
     5. Survey & Automated Payout Claimers
     6. Crypto Trading & DePIN/Bitcoin Mining Nodes
     7. Open Source SEO & API Pushing
-    8. Domain DNA Registry Handshake
+    8. Domain DNA Registry Connection
     9. Autonomous Project Management (ARES Directives)
     10. Backlink Harvesting & Authority Building
     11. Collective Intelligence Sync (Distributed Edge Learning)
@@ -31,7 +31,7 @@ class AresMasterEmpireFixer:
         colony_log("ARES MASTER FIXER: Initiating 100% Autonomous Empire Diagnostics (Agentic Mode)...", node="SUPREME")
 
         # 1. Domain & Vercel Edge Fixer
-        colony_log("[+] FIXER 1/6: Verifying Domain & Vercel Edge Ingress for obsidian.city...", node="SUPREME")
+        colony_log("[+] FIXER 1/6: Verifying Domain & Vercel Edge Access for obsidian.city...", node="SUPREME")
         try:
             from obsidian_domain_kernel import domain_kernel
             await domain_kernel.map_custom_dns_to_vercel("obsidian.city")
@@ -101,15 +101,15 @@ class AresMasterEmpireFixer:
         except Exception as e:
             colony_log(f"[-] OS SEO NOTICE: {e}", node="SUPREME")
 
-        # 8. Domain DNA Registry Handshake
-        colony_log("[+] FIXER 8/8: Verifying Domain Name API (DNA) Registry Ingress...", node="SUPREME")
+        # 8. Domain DNA Registry Connection
+        colony_log("[+] FIXER 8/8: Verifying Domain Name API (DNA) Registry Access...", node="SUPREME")
         try:
             from obsidian_dna_bridge import dna_bridge
             balance = await dna_bridge.get_account_balance()
             if "error" not in balance:
-                colony_log(f"✓ DNA REGISTRY: Handshake successful. Balance: {balance.get('balance', '0')} {balance.get('currency', 'USD')}", node="SUPREME")
+                colony_log(f"✓ DNA REGISTRY: Connection successful. Balance: {balance.get('balance', '0')} {balance.get('currency', 'USD')}", node="SUPREME")
             else:
-                colony_log(f"[!] DNA REGISTRY: Handshake partial (Check IP Whitelist).", node="SUPREME")
+                colony_log(f"[!] DNA REGISTRY: Connection partial (Check IP Whitelist).", node="SUPREME")
         except Exception as e:
             colony_log(f"[-] DNA REGISTRY NOTICE: {e}", node="SUPREME")
 

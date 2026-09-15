@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ANTHONY AI: GLOBAL TIME SYNC & REAL-TIME ZONE ENGINE v1.0 ---
 import datetime
 import pytz
@@ -10,7 +11,7 @@ class GlobalTimeSyncEngine:
     GLOBAL TIME SYNC ENGINE:
     Synchronizes Anthony's real-world devices across multiple time zones.
     1. CST HUB: Missouri/Arkansas primary control center.
-    2. GHOST SIGNALS: Maps nodes to EST, PST, and UTC for global ingress.
+    2. GHOST SIGNALS: Maps nodes to EST, PST, and UTC for global access.
     3. TIME-TRAVEL MODE: Compares current timestamps to historical milestones.
     """
     def __init__(self):
@@ -60,9 +61,9 @@ class GlobalTimeSyncEngine:
 if __name__ == "__main__":
     engine = GlobalTimeSyncEngine()
     report = engine.get_current_fleet_time()
-    print("🔱 GLOBAL FLEET TIME SYNC REPORT:")
+    print("[+] GLOBAL FLEET TIME SYNC REPORT:")
     print(json.dumps(report, indent=4))
 
     age_stats = engine.map_history_to_present(Path("dummy"))
-    print("\n🔱 DIRECTOR VITAL STATS:")
+    print("\n[+] DIRECTOR VITAL STATS:")
     print(json.dumps(age_stats, indent=4))

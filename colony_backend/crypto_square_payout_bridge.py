@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE POLYGON MYST CRYPTO TO SQUARE BANK PAYOUT BRIDGE v1.0 ---
 import os
 import sys

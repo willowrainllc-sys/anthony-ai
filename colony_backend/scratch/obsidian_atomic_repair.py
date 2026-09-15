@@ -6,7 +6,7 @@ from pathlib import Path
 # Paths
 ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
 BACKEND = ROOT / "colony_backend"
-INGRESS = ROOT / "willow_rain_global" / "ingress_api"
+INGRESS = ROOT / "willow_rain_global" / "access_api"
 CELLULAR = ROOT / "willow_rain_global" / "cellular_stack"
 DB_PATH = r'C:\AnthonyAi_Swarm\Empire_Vault.db'
 

@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE AGENTIC PRODUCTION QA GATE & STATEFUL JOB MANAGER v3.0 (15-POINT HARD VALIDATION) ---
 import os
 import sys

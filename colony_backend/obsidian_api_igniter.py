@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN API NODE IGNITER v2.0 (HIGH-SPEED) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import json
@@ -8,7 +8,7 @@ from curl_cffi import requests
 from colony_logger import colony_log
 from colony_persistence import db
 
-PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault")
+PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault")
 JMPT_SESSION = PERSONA_VAULT / "cookie_monster" / "cookie_monster_obsidian_bridge.json"
 
 class ObsidianAPIIgniter:
@@ -34,10 +34,10 @@ class ObsidianAPIIgniter:
             # We use a lightweight session to ping the devices API
             with requests.Session(impersonate="chrome110", proxies={"http": proxy_url, "https": proxy_url}) as s:
                 # 1. Register Device / Pulse Heartbeat
-                resp = s.get("https://dashboard.obsidian_ingress.com/api/v1/devices", headers={"Cookie": cookie_str}, timeout=10)
+                resp = s.get("https://dashboard.obsidian_access.com/api/v1/devices", headers={"Cookie": cookie_str}, timeout=10)
                 if resp.status_code == 200:
                     # 2. Force balance sync
-                    s.get("https://dashboard.obsidian_ingress.com/api/v1/users/me", headers={"Cookie": cookie_str}, timeout=10)
+                    s.get("https://dashboard.obsidian_access.com/api/v1/users/me", headers={"Cookie": cookie_str}, timeout=10)
                     return True
         except:
             return False
@@ -46,7 +46,7 @@ class ObsidianAPIIgniter:
     async def execute_blitz(self):
         cookie_str = self._get_cookie_str()
         if not cookie_str:
-            colony_log("[-] IGNITER: Session missing. Handshake aborted.", node="SUPREME")
+            colony_log("[-] IGNITER: Session missing. Connection aborted.", node="SUPREME")
             return
 
         colony_log(f"IGNITER: Striking 101 ports with mobile session [{cookie_str[:20]}...]...", node="SUPREME")

@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE REGIONAL BANDWIDTH CENTERS & SUBNET CLUSTER MANAGER v1.0 ---
 import os
 import sys

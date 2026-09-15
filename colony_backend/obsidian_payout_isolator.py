@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN PAYOUT ISOLATOR & FUNNEL v2.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 import uuid

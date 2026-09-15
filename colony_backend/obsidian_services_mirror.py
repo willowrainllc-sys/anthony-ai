@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (SERVICES MIRROR) ---
 import asyncio
 import os
@@ -43,7 +43,7 @@ class ServicesMirrorBurst:
 
             await browser.close()
 
-        # 🔱 Build the rebranded front
+        # [+] Build the rebranded front
         await self._build_town360_services()
 
     async def _build_town360_services(self):
@@ -93,7 +93,7 @@ class ServicesMirrorBurst:
             <!-- Service 2 -->
             <div class="card p-8">
                 <div class="text-3xl mb-4">🏠</div>
-                <h3 class="font-bold text-xl mb-2">Smart Home Ingress</h3>
+                <h3 class="font-bold text-xl mb-2">Smart Home Access</h3>
                 <p class="text-xs text-gray-500 mb-6">Full biometric and sensor integration for residential nodes.</p>
                 <div class="flex justify-between items-center">
                     <span class="text-emerald-500 font-bold">$299+</span>

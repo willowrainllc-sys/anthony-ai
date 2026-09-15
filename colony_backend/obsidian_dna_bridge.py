@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- OBSIDIAN DOMAIN NAME API (DNA) BRIDGE v1.1 ---
 import os
 import httpx
@@ -10,7 +10,7 @@ from colony_logger import colony_log
 from colony_persistence import db
 from dotenv import load_dotenv
 
-# 🔱 Load environment from root
+# [+] Load environment from root
 load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
 
 DNA_RESELLER_ID = os.getenv("DNA_RESELLER_ID")
@@ -44,7 +44,7 @@ class ObsidianDnaBridge:
         }
 
     async def get_account_balance(self):
-        """Module 4: Deposit & Balance Ingress."""
+        """Module 4: Deposit & Balance Access."""
         # DNA API often requires a POST for balance or specific endpoints
         url = f"{BASE_URL}/account/balance"
         try:
@@ -86,7 +86,7 @@ dna_bridge = ObsidianDnaBridge()
 
 if __name__ == "__main__":
     async def test():
-        print("🔱 TESTING DNA INGRESS (V1.1)...")
+        print("[+] TESTING DNA INGRESS (V1.1)...")
         print(f"[*] Reseller ID: {DNA_RESELLER_ID[:6]}...")
         print(f"[*] Base URL: {BASE_URL}")
         res = await dna_bridge.get_account_balance()

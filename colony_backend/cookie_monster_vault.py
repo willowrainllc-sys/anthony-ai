@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE COOKIE MONSTER: AUTOMATED SESSION COOKIE VAULT & FEEDER v1.0 ---
 import os
 import sys
@@ -10,7 +11,7 @@ from colony_logger import colony_log
 from colony_persistence import db
 
 SECURE_DIR = Path(r"D:\ObsidianAi_Colony\Secure_Assets")
-PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault")
+PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault")
 COOKIE_MONSTER_DIR = PERSONA_VAULT / "cookie_monster"
 COOKIE_MONSTER_DIR.mkdir(parents=True, exist_ok=True)
 

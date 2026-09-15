@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (MASTER CLI) ---
 import os
 import sys
@@ -12,14 +12,13 @@ BACKEND = ROOT / "colony_backend"
 
 @click.group()
 def cli():
-    """🔱 OBSIDIAN GLOBAL: Industrial Command Line Interface"""
     pass
 
 @cli.command()
 @click.argument('target', default='all')
 def burst(target):
     """🚀 Executes a global burst pulse across the mesh."""
-    click.echo(f"🔱 [BURST]: Initiating pulse on cluster: {target}...")
+    click.echo(f"[+] [BURST]: Initiating pulse on cluster: {target}...")
     # Fire the physical burst scripts directly to avoid interactive shell lag
     if target == "register":
         os.system(f"python {BACKEND}/node_merchant_architect.py --register")
@@ -47,7 +46,7 @@ def burst(target):
 @click.argument('target', default='netlify')
 def deploy(target):
     """🌐 Pushes portals to global edge servers."""
-    click.echo(f"🔱 [DEPLOY]: Mobilizing {target} sync...")
+    click.echo(f"[+] [DEPLOY]: Mobilizing {target} sync...")
     if target == "netlify":
         os.system(f"python {BACKEND}/obsidian_netlify_deployer.py")
     elif target == "vercel":
@@ -57,7 +56,7 @@ def deploy(target):
 @click.argument('subject')
 def harvest(subject):
     """📡 Harvests data, keys, or rewards."""
-    click.echo(f"🔱 [HARVEST]: Initiating omni-ingress for {subject}...")
+    click.echo(f"[+] [HARVEST]: Initiating omni-access for {subject}...")
     if subject == "keys":
         os.system(f"python {BACKEND}/obsidian_key_harvester.py")
     elif subject == "free":
@@ -66,13 +65,13 @@ def harvest(subject):
 @cli.command()
 def bridge():
     """🌉 Ignites the Global Wormhole bridge."""
-    click.echo("🔱 [BRIDGE]: Opening secure ingress tunnel...")
+    click.echo("[+] [BRIDGE]: Opening secure access tunnel...")
     os.system(f"python {BACKEND}/obsidian_global_bridge.py")
 
 @cli.command()
 def status():
-    """📊 Displays real-time grid vitals."""
-    click.echo("🔱 [STATUS]: GRID: 103 NODES | AURA: 100% | INGRESS: ACTIVE")
+    """📊 Displays real-time grid status."""
+    click.echo("[+] [STATUS]: GRID: 103 NODES | AURA: 100% | INGRESS: ACTIVE")
 
 if __name__ == "__main__":
     cli()

@@ -239,6 +239,11 @@ interface MeshApiService {
         @Body payload: PublishRequest
     ): Response<ResponseBody>
 
+    @POST("/api/colony/burst")
+    suspend fun networkBurst(
+        @Body payload: PublishRequest
+    ): Response<ResponseBody>
+
     @POST("/api/colony/ignite")
     suspend fun igniteFullBurst(): Response<ResponseBody>
 

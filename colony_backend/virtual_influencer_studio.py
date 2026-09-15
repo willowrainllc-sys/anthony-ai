@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE VIRTUAL INFLUENCER CHARACTER BOARD & STUDIO v1.0 ---
 import os
 import sys

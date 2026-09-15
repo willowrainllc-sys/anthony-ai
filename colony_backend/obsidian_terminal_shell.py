@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ANTHONY AI: OBSIDIAN TERMINAL SHELL v1.0 (SOVEREIGN COMMAND) ---
 import os
 import sys
@@ -26,7 +27,7 @@ class ObsidianTerminalShell:
         self.is_running = True
 
     def _get_prompt(self):
-        return f"🔱 [OBSIDIAN] {self.director_name}@{self.current_dir.name} > "
+        return f"[+] [OBSIDIAN] {self.director_name}@{self.current_dir.name} > "
 
     async def execute_command(self, cmd_line: str):
         if not cmd_line.strip():
@@ -39,7 +40,7 @@ class ObsidianTerminalShell:
         # 1. Internal Agentic Commands
         if base_cmd == "exit":
             self.is_running = False
-            print("🔱 [TERMINAL]: Closing Sovereign Ingress...")
+            print("[+] [TERMINAL]: Closing Sovereign Access...")
             return
 
         elif base_cmd == "burst":
@@ -54,13 +55,13 @@ class ObsidianTerminalShell:
                 return
 
             colony_log("TERMINAL: Dispatching Global Burst Force...", node="COMMAND")
-            print("🚀 [BURST]: Initiating Aiphony Provisioning...")
+            print("🚀 [BURST]: Initiating Aiphony Setting up...")
 
         elif base_cmd == "harvest":
             # 📡 OMNI-HARVESTER: Extracting data or keys
             if "keys" in cmd_line:
                 colony_log("TERMINAL: Triggering Global API Key Harvest...", node="COMMAND")
-                print("📡 [HARVEST]: Birthing Key Harvester Node. Initiating portal ingress...")
+                print("📡 [HARVEST]: Birthing Key Harvester Node. Initiating portal access...")
                 os.system(f"start /b python {ROOT}/colony_backend/obsidian_key_harvester.py")
                 return
             elif "free" in cmd_line:
@@ -70,10 +71,10 @@ class ObsidianTerminalShell:
                 return
 
         elif base_cmd == "procure":
-            # 🔱 INDUSTRIAL PROCUREMENT: Spending wealth on HQ assets
+            # [+] INDUSTRIAL PROCUREMENT: Spending wealth on HQ assets
             item = " ".join(parts[1:]) if len(parts) > 1 else "Industrial Hardware"
             colony_log(f"TERMINAL: Initiating Procurement Burst for [{item}]...", node="COMMAND")
-            print(f"🔱 [PROCURE]: Tasking Procurement Agent to hunt for [{item}] and ship to St. Charles.")
+            print(f"[+] [PROCURE]: Tasking Procurement Agent to hunt for [{item}] and ship to St. Charles.")
             os.system(f"start /b python {ROOT}/colony_backend/node_procurement_agent.py")
             return
 
@@ -95,9 +96,9 @@ class ObsidianTerminalShell:
             return
 
         elif base_cmd == "claim":
-            # 🔱 INVISIBLE KEY CLAIM: Scour codebase for hidden signatures
+            # [+] INVISIBLE KEY CLAIM: Scour codebase for hidden signatures
             colony_log("TERMINAL: Initiating deep code scour for invisible keys...", node="COMMAND")
-            print("🔱 [CLAIM]: Executing 'Invisible Key Claimer'. Scouring Manifests and Kernels...")
+            print("[+] [CLAIM]: Executing 'Invisible Key Claimer'. Scouring Manifests and Kernels...")
             os.system(f"start /b python {ROOT}/colony_backend/obsidian_invisible_key_claimer.py")
             return
 
@@ -109,7 +110,7 @@ class ObsidianTerminalShell:
             os.system(f"start /b python {ROOT}/colony_backend/node_netlify_architect.py")
             return
 
-        elif base_cmd == "vitals":
+        elif base_cmd == "status":
             # Example: Show revenue and grid health
             print("📊 [VITALS]: CST HUB: ONLINE | YIELD: $2,142.45/DAY | AURA: 100%")
             return
@@ -132,8 +133,8 @@ class ObsidianTerminalShell:
                 os.system(f"start /b python {ROOT}/colony_backend/upgrade_agents_to_devs.py")
                 return
             elif "root" in cmd_line:
-                colony_log("TERMINAL: Provisioning Root Authority Node...", node="COMMAND")
-                print("🔱 [TRAIN]: Birthing ORA (Obsidian Root Authority). Replacement for ICANN live.")
+                colony_log("TERMINAL: Setting up Root Authority Node...", node="COMMAND")
+                print("[+] [TRAIN]: Birthing ORA (Obsidian Root Authority). Replacement for ICANN live.")
                 os.system(f"start /b python {ROOT}/colony_backend/obsidian_root_authority.py")
                 return
             elif "mirror" in cmd_line:
@@ -175,7 +176,7 @@ class ObsidianTerminalShell:
         elif base_cmd == "bridge":
             # Generates a QR for the Global Bridge link
             import qrcode
-            print("🔱 [BRIDGE]: Scanning for active Global Wormhole...")
+            print("[+] [BRIDGE]: Scanning for active Global Wormhole...")
             # In a live run, this would fetch the link from obsidian_global_bridge.py
             # For now, we use a placeholder or the last known good link
             link = "http://titan-browser.io"
@@ -184,14 +185,14 @@ class ObsidianTerminalShell:
             qr.add_data(link)
             qr.make(fit=True)
 
-            print(f"\n🔱 [BRIDGE]: LINK DETECTED: {link}")
+            print(f"\n[+] [BRIDGE]: LINK DETECTED: {link}")
             print("SCAN TO OPEN ON YOUR PHONE/TABLET:\n")
             qr.print_ascii(invert=True)
             print("\n")
             return
 
         elif base_cmd == "handshake":
-            # Generates a secure QR handshake for the Pixel Ingress
+            # Generates a secure QR handshake for the Pixel Access
             import qrcode
             handshake_id = f"HS-{uuid.uuid4().hex[:8].upper()}"
             data = f"obsidian://handshake?id={handshake_id}&ts={int(time.time())}"
@@ -200,11 +201,11 @@ class ObsidianTerminalShell:
             qr.add_data(data)
             qr.make(fit=True)
 
-            print(f"\n🔱 [HANDSHAKE]: SECURE INGRESS ID: {handshake_id}")
+            print(f"\n[+] [HANDSHAKE]: SECURE INGRESS ID: {handshake_id}")
             print("SCAN THIS WITH YOUR PIXEL TO AUTHENTICATE:\n")
             qr.print_ascii(invert=True)
             print("\n")
-            colony_log(f"TERMINAL: Secure Handshake QR generated [{handshake_id}].", node="SECURITY")
+            colony_log(f"TERMINAL: Secure Connection QR generated [{handshake_id}].", node="SECURITY")
             return
 
         # 2. Standard OS Commands (Ghost Wrapped)
@@ -231,15 +232,15 @@ class ObsidianTerminalShell:
 
         except Exception as e:
             # 3. Brain Fallback: If OS fails, ask the Native Brain what it meant
-            print(f"🔱 [BRAIN]: Command not found. Consulting Native Intelligence Base...")
+            print(f"[+] [BRAIN]: Command not found. Consulting Native Intelligence Base...")
             colony_log(f"TERMINAL: Unknown command '{cmd_line}'. Intent parsing required.", node="BRAIN")
             # In a live environment, this would call NativeBrainEngine.generate()
 
     async def run_loop(self):
-        os.system("title 🔱 OBSIDIAN TERMINAL SHELL v1.0 🔱")
+        os.system("title [+] OBSIDIAN TERMINAL SHELL v1.0 [+]")
         os.system("cls")
         print("====================================================")
-        print("  🔱 OBSIDIAN SOVEREIGN TERMINAL | AUTHORIZED ONLY")
+        print("  [+] OBSIDIAN SOVEREIGN TERMINAL | AUTHORIZED ONLY")
         print("  BY ANTHONY CHRISTOPHER | EST 12.19.1987")
         print("====================================================\n")
 
@@ -248,7 +249,7 @@ class ObsidianTerminalShell:
                 cmd = input(self._get_prompt())
                 await self.execute_command(cmd)
             except KeyboardInterrupt:
-                print("\n🔱 [TERMINAL]: Interrupt received. Use 'exit' to close.")
+                print("\n[+] [TERMINAL]: Interrupt received. Use 'exit' to close.")
             except Exception as e:
                 print(f"[-] TERMINAL ERROR: {e}")
 

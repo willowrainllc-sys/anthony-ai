@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- GLOBAL LINK REPAIR v3.0 (Android & Local Server Perfect) ---
 import os
 from pathlib import Path

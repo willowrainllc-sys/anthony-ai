@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # sync_frontend_media_gateway.py
 # Fixes frontend state bleed (backend debug logs leaking onto UI)
 # and synchronizes video payload paths between server nodes and the mobile app client.

@@ -11,7 +11,7 @@ URL_MAP = {
     "https://bridge.obsidian-global.io": "https://bridge.obsidian-global.io",
     "https://comm.obsidian-global.io": "https://comm.obsidian-global.io",
     "https://comm.obsidian-global.io": "https://comm.obsidian-global.io",
-    "https://ingress.obsidian-global.io": "https://ingress.obsidian-global.io"
+    "https://access.obsidian-global.io": "https://access.obsidian-global.io"
 }
 
 def lockdown_independence():

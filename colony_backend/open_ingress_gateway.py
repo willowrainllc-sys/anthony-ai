@@ -1,4 +1,4 @@
-# --- WILLOW RAIN ENTERPRISES: OPEN INGRESS GATEWAY & DYNAMIC IP WHITELIST v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
 
 SECURE_DIR = Path(r"D:\ObsidianAi_Colony\Secure_Assets")
-INGRESS_VAULT = SECURE_DIR / "open_ingress_vault"
+INGRESS_VAULT = SECURE_DIR / "open_access_vault"
 INGRESS_VAULT.mkdir(parents=True, exist_ok=True)
 
 # ============================================================
@@ -32,7 +32,7 @@ class WhitelistedCorporateRange(BaseModel):
     is_active: bool = True
     added_at: float = Field(default_factory=time.time)
 
-class IngressRequestAudit(BaseModel):
+class AccessRequestAudit(BaseModel):
     request_id: str
     client_ip: str
     company_name: str
@@ -47,10 +47,10 @@ DEFAULT_WHITELIST = [
     WhitelistedCorporateRange(range_id="w_03", company_name="Ahrefs Web Crawler", ip_cidr="192.168.1.0/24", max_mbps_ceiling=500.0)
 ]
 
-class OpenIngressGateway:
+class OpenAccessGateway:
     """
     OPEN INGRESS GATEWAY & DYNAMIC IP WHITELIST v1.0:
-    Operates an open turnstile ingress pipeline for zero-touch corporate traffic streaming.
+    Operates an open turnstile access pipeline for zero-touch corporate traffic streaming.
     Bypasses manual passwords/headers using dynamic IP CIDR whitelisting and eBPF rate limiting.
     """
     def __init__(self):
@@ -74,7 +74,7 @@ class OpenIngressGateway:
         colony_log(f" INGRESS_GATEWAY: Whitelisted IP range [{ip_cidr}] for [{company_name}] ({max_mbps} Mbps ceiling)!", node="INGRESS_GATEWAY")
         return entry
 
-    def verify_open_ingress_request(self, client_ip: str, bytes_requested: int = 1048576) -> IngressRequestAudit:
+    def verify_open_access_request(self, client_ip: str, bytes_requested: int = 1048576) -> AccessRequestAudit:
         """Sub-millisecond IP Whitelist & Rate Limiting Check for Zero-Touch Connections."""
         req_id = f"req_{uuid.uuid4().hex[:8]}"
         client_obj = ipaddress.ip_address(client_ip)
@@ -84,7 +84,7 @@ class OpenIngressGateway:
             net_obj = ipaddress.ip_network(entry.ip_cidr, strict=False)
 
             if client_obj in net_obj:
-                audit = IngressRequestAudit(
+                audit = AccessRequestAudit(
                     request_id=req_id,
                     client_ip=client_ip,
                     company_name=entry.company_name,
@@ -95,7 +95,7 @@ class OpenIngressGateway:
                 return audit
 
         # Rejection for non-whitelisted IP
-        return IngressRequestAudit(
+        return AccessRequestAudit(
             request_id=req_id,
             client_ip=client_ip,
             company_name="UNAUTHENTICATED",
@@ -104,11 +104,11 @@ class OpenIngressGateway:
             reason="IP address not found in Corporate Whitelist"
         )
 
-open_ingress_gateway = OpenIngressGateway()
+open_access_gateway = OpenAccessGateway()
 
 if __name__ == "__main__":
-    open_ingress_gateway.add_whitelisted_ip_range("Geonode Global Network", "47.85.50.0/24", 1000.0)
-    audit = open_ingress_gateway.verify_open_ingress_request("47.85.50.46", 5242880)
+    open_access_gateway.add_whitelisted_ip_range("Geonode Global Network", "47.85.50.0/24", 1000.0)
+    audit = open_access_gateway.verify_open_access_request("47.85.50.46", 5242880)
 
     print("OPEN INGRESS REQUEST AUDIT:")
     print("Request ID:", audit.request_id)

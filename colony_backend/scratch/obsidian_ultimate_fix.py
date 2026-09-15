@@ -26,7 +26,7 @@ def repair_all_code():
             new_content = new_content.replace('Anthony ChristopherPersistenceEngine', 'AnthonyChristopherPersistenceEngine')
             new_content = new_content.replace('Obsidian BridgeAutoClaimEngine', 'ObsidianBridgeAutoClaimEngine')
             new_content = new_content.replace('Anthony ChristopherCommandOS', 'AnthonyChristopherCommandOS')
-            new_content = new_content.replace('Anthony ChristopherIngressEngine', 'AnthonyChristopherIngressEngine')
+            new_content = new_content.replace('Anthony ChristopherAccessEngine', 'AnthonyChristopherAccessEngine')
             new_content = new_content.replace('Anthony Christopher', 'AnthonyChristopher')
 
             # Fix imports

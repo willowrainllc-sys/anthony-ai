@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: PLAYWRIGHT HUMAN TRAINER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import json
@@ -12,7 +12,7 @@ class PlaywrightHumanTrainer:
     """
     HUMAN TRAINER v1.0:
     Trains bots to physically interact with Gmail and Social Media.
-    1. GMAIL GHOST: Physically opens Gmail, searches for 'Obsidian Ingress', and clicks 'Verify'.
+    1. GMAIL GHOST: Physically opens Gmail, searches for 'Obsidian Access', and clicks 'Verify'.
     2. SOCIAL BURST: Handles video uploads to X, FB, and YouTube via the real web UI.
     3. STEALTH: Mimics human mouse movements, typing speeds, and scroll patterns.
     """
@@ -34,8 +34,8 @@ class PlaywrightHumanTrainer:
                 await page.goto("https://mail.google.com/mail/u/0/#inbox", timeout=60000)
                 await asyncio.sleep(random.uniform(3, 7))
 
-                # B. Find Obsidian Ingress Email
-                await page.fill('input[aria-label="Search mail"]', "Obsidian Ingress Verify")
+                # B. Find Obsidian Access Email
+                await page.fill('input[aria-label="Search mail"]', "Obsidian Access Verify")
                 await page.keyboard.press("Enter")
                 await asyncio.sleep(5)
 

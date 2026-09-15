@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: CASH APP GHOST EXECUTOR v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -10,7 +10,7 @@ from colony_persistence import db
 from human_stealth_helper import human_stealth
 from cookie_monster_vault import cookie_monster
 
-PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault")
+PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault")
 SESSION_FILE = PERSONA_VAULT / "cashapp_auth.json"
 
 class CashAppBrowserBot:

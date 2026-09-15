@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES REDDIT & COMMUNITY OUTREACH STRIKER v1.0 ---
 import asyncio
 import os
@@ -41,7 +41,7 @@ class AresRedditStriker:
         })
 
         print("\n" + "="*70)
-        print("  🔱 ARES REDDIT & COMMUNITY STRIKER COMPLETE")
+        print("  [+] ARES REDDIT & COMMUNITY STRIKER COMPLETE")
         print(f"  TARGET: {self.target_url}")
         print("  STATUS: ORGANIC WORD-OF-MOUTH ACTIVE IN HIGH-INTENT HUBS")
         print("="*70 + "\n")

@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES AUTO-PILOT EMPIRE COMMAND RUNNER v1.0 ---
 import asyncio
 import subprocess
@@ -15,7 +15,7 @@ async def run_auto_empire_commands():
 
     commands = [
         ("Git Status Check", [sys.executable, "-c", "import subprocess; print(subprocess.check_output(['git', 'status']).decode())"]),
-        ("Real-time Ingress", [sys.executable, str(Path(__file__).resolve().parent / "ares_realtime_ingress.py")]), # Runs high-frequency pulse
+        ("Real-time Access", [sys.executable, str(Path(__file__).resolve().parent / "ares_realtime_access.py")]), # Runs high-frequency pulse
         ("Vercel Edge Deploy", [sys.executable, str(Path(__file__).resolve().parent / "obsidian_vercel_deployer.py")]),
         ("Empire Fixer Sync", [sys.executable, str(Path(__file__).resolve().parent / "ares_master_empire_fixer.py")])
     ]
@@ -29,7 +29,7 @@ async def run_auto_empire_commands():
             colony_log(f"[-] [{name}] Notice: {e}", node="SUPREME")
 
     print("\n" + "="*70)
-    print("  🔱 ARES AUTO-PILOT COMMAND SEQUENCE COMPLETE")
+    print("  [+] ARES AUTO-PILOT COMMAND SEQUENCE COMPLETE")
     print("  BOSS MODEL: Anthony-Supreme-v29")
     print("="*70 + "\n")
 

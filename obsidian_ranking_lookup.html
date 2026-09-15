@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9539640812310468" crossorigin="anonymous"></script>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -17,6 +24,10 @@
     <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHCNLC5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <nav class="bg-white border-b border-slate-200 p-6 flex justify-between items-center sticky top-0 z-50">
         <a href="index.html" class="font-black text-xl tracking-tighter">OBSIDIAN<span class="text-blue-600">.CITY</span></a>
         <button onclick="window.location.href='obsidian_city_dashboard.html'" class="text-xs font-bold text-slate-500">Back to Dashboard</button>
@@ -25,10 +36,10 @@
     <div class="max-w-5xl mx-auto px-6 py-16">
         <div class="mb-12 text-center">
             <h1 class="text-4xl font-black tracking-tight">Website Ranking Lookup</h1>
-            <p class="text-slate-500 text-sm mt-2 font-medium">Analyze global reach and performance vitals in real-time.</p>
+            <p class="text-slate-500 text-sm mt-2 font-medium">Analyze global reach and performance status in real-time.</p>
         </div>
 
-        <!-- 🔱 Search Ingress -->
+        <!-- [+] Search Access -->
         <div class="lookup-card mb-12 flex gap-4 items-center">
             <label for="targetDomain" class="sr-only">Target Domain</label>
             <input type="text" id="targetDomain" placeholder="Enter domain (e.g. obsidian.city)" class="flex-1 bg-slate-50 border border-slate-200 px-6 py-4 rounded-full text-lg font-bold outline-none focus:border-blue-500 transition-all">
@@ -56,7 +67,7 @@
             </div>
 
             <div class="lookup-card">
-                <h3 class="text-lg font-black mb-6">Detailed Ingress Analysis</h3>
+                <h3 class="text-lg font-black mb-6">Detailed Access Analysis</h3>
                 <div class="space-y-4">
                     <div class="flex justify-between items-center py-3 border-b border-slate-100">
                         <span class="text-xs font-bold text-slate-500 uppercase">Status</span>
@@ -103,7 +114,7 @@
                 loader.classList.add('hidden');
                 results.classList.remove('hidden');
             } catch (err) {
-                alert("[-] Handshake Failed: System Offline.");
+                alert("[-] Connection Failed: System Offline.");
                 loader.classList.add('hidden');
             }
         }

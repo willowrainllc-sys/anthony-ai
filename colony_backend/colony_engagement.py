@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE SOCIAL COLONY: DISCIPLE BOOST & ENGAGEMENT ENGINE v3.0 ---
 import os
 import random

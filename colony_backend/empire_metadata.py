@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE METADATA: CLEAN SOCIAL MEDIA BRANDING & TAGGING v3.0 ---
 import re
 import random

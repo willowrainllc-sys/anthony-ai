@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE STORYTELLER V2: MULTI-GENRE DYNAMIC STORY DIRECTOR v6.0 ---
 import os
 import sys

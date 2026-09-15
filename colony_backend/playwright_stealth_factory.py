@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE PLAYWRIGHT STEALTH FACTORY & NETWORK SPEED INTERCEPTOR v1.1 ---
 import os
 import sys

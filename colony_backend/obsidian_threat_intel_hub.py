@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN CYBER-THREAT INTEL & OSINT HUB v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -84,7 +84,6 @@ threat_intel_hub = ObsidianThreatIntelHub()
 if __name__ == "__main__":
     async def test_intel():
         res = await threat_intel_hub.harvest_critical_threat_signals()
-        print("\n=== [SUPREME] WILLOW RAIN THREAT INTEL HUB ===")
         for s in res:
             print(f"[{s.severity}] {s.type}: {s.description}")
             print(f"   Value: ${s.wholesale_value_usd:,.2f}")

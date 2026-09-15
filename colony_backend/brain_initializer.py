@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ANTHONY AI: BRAIN SEEDER (HERETIC & AI TOOLKIT) ---
 from colony_persistence import db
 import time

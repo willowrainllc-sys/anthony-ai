@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v8.0 (HANDSHAKE AUDIT) ---
 import asyncio
 import os
@@ -12,13 +12,13 @@ from colony_persistence import db
 ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
 load_dotenv(ROOT / ".env")
 
-class ObsidianHandshakeAudit:
+class ObsidianConnectionAudit:
     """
     OBSIDIAN HANDSHAKE AUDIT:
     Verifies the integrity and authority of all industrial API keys.
     1. SQUARE SYNC: Checks connectivity to 'willow rain Co' locations.
     2. ROBINHOOD CRYPTO: Verifies Ed25519 signing readiness.
-    3. GOOGLE/YOUTUBE: Audits Data API ingress status.
+    3. GOOGLE/YOUTUBE: Audits Data API access status.
     4. SUPABASE VAULT: Confirms connection to the Sovereign Cloud DB.
     5. OPENROUTER/AI: Verifies the brain's link to global LLM pools.
     """
@@ -39,7 +39,6 @@ class ObsidianHandshakeAudit:
 
         await asyncio.gather(*tasks)
 
-        print("\n=== 🔱 OBSIDIAN GLOBAL: HANDSHAKE AUDIT REPORT ===")
         for service, status in self.results.items():
             icon = "✅" if "AUTHORIZED" in status else "❌"
             print(f"  {icon} {service.ljust(15)} -> {status}")
@@ -80,7 +79,7 @@ class ObsidianHandshakeAudit:
                 # Simple probe to verify key validity
                 resp = await client.get(f"https://www.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode=US&key={key}")
                 if resp.status_code == 200:
-                    self.results["YOUTUBE"] = "AUTHORIZED (Media Ingress Active)"
+                    self.results["YOUTUBE"] = "AUTHORIZED (Media Access Active)"
                 else:
                     self.results["YOUTUBE"] = f"DENIED (Status: {resp.status_code})"
             except: self.results["YOUTUBE"] = "NETWORK_FAIL"
@@ -114,5 +113,5 @@ class ObsidianHandshakeAudit:
         self.results["PRINTFUL"] = "AUTHORIZED (Logistics Active)"
 
 if __name__ == "__main__":
-    audit = ObsidianHandshakeAudit()
+    audit = ObsidianConnectionAudit()
     asyncio.run(audit.run_full_audit())

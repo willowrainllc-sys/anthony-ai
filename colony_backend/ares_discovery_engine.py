@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES DISCOVERY ENGINE: AUTONOMOUS RESEARCH & ARBITRAGE v1.0 ---
 import asyncio
 import os
@@ -24,15 +24,15 @@ class AresDiscoveryEngine:
         self.target_niches = ["Quantum-Safe SSL", "Decentralized GPU Compute", "AI-Managed Real Estate", "Automated Legal Entities"]
 
     async def run_discovery_pulse(self):
-        colony_log("ARES_DISCOVERY: Initiating global research ingress pulse...", node="SUPREME")
+        colony_log("ARES_DISCOVERY: Initiating global research access pulse...", node="SUPREME")
 
         niche = random.choice(self.target_niches)
         colony_log(f"[*] SCOUTING: Analyzing global demand for [{niche}]...", node="SUPREME")
 
-        # 🔱 Real Internet Signal Ingress
+        # [+] Real Internet Signal Access
         search_results = await web_search.search_live_web(f"market demand and gaps for {niche} 2026")
 
-        # 🔱 Discovery Synthesis (MoE Oracle)
+        # [+] Discovery Synthesis (MoE Oracle)
         try:
             from colony_brain import brain_gate
             prompt = f"ARES Discovery Directive: Based on these search results: {json.dumps(search_results)}, identify one specific 'High-Aura' business model we can launch on Obsidian City. Return as JSON with 'blueprint_name', 'estimated_cpm', and 'strategic_advantage'."

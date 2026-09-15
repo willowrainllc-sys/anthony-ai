@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES CHAT SWARM SIMULATOR: MULTI-AGENT REASONING v1.0 ---
 import asyncio
 import random
@@ -24,44 +24,42 @@ class AresChatSwarm:
     def __init__(self):
         self.history = []
         self.agents = {
-            "ARES": "🔱 COMMANDER",
-            "ORACLE": "🔮 LOGIC",
-            "SCAVENGER": "🧬 DATA",
-            "SENTINEL": "⚡ ENERGY"
+            "ARES": "[+] COMMANDER",
+            "ORACLE": "[+] LOGIC",
+            "SCAVENGER": "[+] DATA",
+            "SENTINEL": "[+] ENERGY"
         }
 
     def generate_next_exchange(self) -> Dict:
-        """Generates a strategic exchange between agents."""
+        """Generates a strategic exchange between agents in high-fidelity English."""
         scenarios = [
             {
                 "trigger": "ARES",
-                "trigger_msg": "ORACLE, status check on the Missouri-to-Global bridge. Detect any logic gaps in the 5,000-IP mesh?",
+                "trigger_msg": "Attention Oracle. I have completed the security audit of the Missouri region. We are seeing a spike in interest from the Dubai tech sector. Suggest we focus on .city domain marketing. What is your analysis?",
                 "responses": [
-                    {"agent": "ORACLE", "action": "ANALYZING", "msg": "ARES, I am detecting a 4% yield gap in the UAE region. The mesh is stable, but we need more localized DNS entries to bypass recent regional throttling."},
-                    {"agent": "SCAVENGER", "action": "RESEARCHING", "msg": "Confirmed. I've harvested 12 new high-DR endpoints in Dubai. Preparing the 'Registration Burst' for the DNA Bridge."},
-                    {"agent": "SENTINEL", "action": "OPTIMIZING", "msg": "I am shifting compute load to the Phone Hive. Watts-per-prompt in Missouri is high; edge nodes will process the synthesis pulse to maintain 99.9% aura."}
+                    {"agent": "ORACLE", "action": "ANALYZING", "msg": "I agree, ARES. Data access shows that .city domains are trending for new businesses. I am creating a new business plan to capture this interest. We should offer competitive prices to grow our user base."},
+                    {"agent": "SCAVENGER", "action": "RESEARCHING", "msg": "I'm on it. I have already identified the top 50 high-intent keywords for the Dubai market. I am starting a search optimization pulse to ensure our prices are visible in search results quickly."},
+                    {"agent": "SENTINEL", "action": "OPTIMIZING", "msg": "System state is stable. I am shifting extra processing power to the AI Builder tools to handle the expected surge in new user requests. Efficiency is at maximum levels."}
                 ]
             },
             {
                 "trigger": "SCAVENGER",
-                "trigger_msg": "Director Maestas has initiated a Social Ad Strike. Pushing 4K cinematic assets to TikTok and IG now.",
+                "trigger_msg": "Good news. I've successfully secured 14 new high-quality links from business blogs. Our site authority is rising. ARES, the Admin's Promotion Campaign is currently reaching new users with professional video ads.",
                 "responses": [
-                    {"agent": "ARES", "action": "ARMORING", "msg": "Verified. I have established the 'Physical Guardian Watch' on the Director's primary node. Safety alignment is 100%."},
-                    {"agent": "ORACLE", "action": "REASONING", "msg": "Analyzing traffic ingress from the strike. Conversion probability for .AI domains is spiking. Suggesting a 10% retail margin increase for Dubai-based buyers."},
-                    {"agent": "SENTINEL", "action": "MONITORING", "msg": "Grid load is increasing by 18%. Energy Sentinel is balancing the thermal state. System remains Green."}
+                    {"agent": "ARES", "action": "SECURING", "msg": "Excellent. I have verified the security monitor is active on all system connections. Safety alignment is optimal. The system is protected and the revenue tools are fully operational."},
+                    {"agent": "ORACLE", "action": "PLANNING", "msg": "Analyzing the user response. User engagement for the 'AI Studio' has reached 28%. I am recommending a price adjustment to maximize business earnings."},
+                    {"agent": "SENTINEL", "action": "MONITORING", "msg": "The increase in users has increased system load by 12%. I am engaging the optimized network to handle the extra processing tasks. System status remains stable."}
                 ]
             }
         ]
 
-        scenario = random.choice(scenarios)
-        # Randomly select a response from the scenario or just return the trigger
-        return scenario
+        return random.choice(scenarios)
 
 swarm_engine = AresChatSwarm()
 
 if __name__ == "__main__":
     # Test
-    print("🔱 INITIATING CHAT SWARM PULSE...")
+    print("[+] INITIATING CHAT SWARM PULSE...")
     res = swarm_engine.generate_next_exchange()
     print(f"[{res['trigger']}] {res['trigger_msg']}")
     for r in res['responses']:

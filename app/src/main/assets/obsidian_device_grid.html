@@ -2,6 +2,13 @@
 
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9539640812310468" crossorigin="anonymous"></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -31,7 +38,7 @@
         .orbitron { font-family: 'Orbitron', sans-serif; }
         .mono { font-family: 'Space Mono', monospace; }
 
-        /* 🔱 Header */
+        /* [+] Header */
         .header {
             padding: 20px 40px;
             border-bottom: 1px solid var(--border);
@@ -43,7 +50,7 @@
             backdrop-filter: blur(20px);
         }
 
-        /* 🔱 Secure Node Grid */
+        /* [+] Secure Node Grid */
         .device-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -51,7 +58,7 @@
             padding: 10px;
         }
 
-        /* 🔱 Hologram Chassis */
+        /* [+] Hologram Chassis */
         .phone-node {
             background: transparent;
             border-radius: 20px;
@@ -140,7 +147,7 @@
 
         .phone-meta { position: absolute; bottom: 10px; width: 100%; text-align: center; font-size: 8px; color: var(--accent); font-family: 'Orbitron'; letter-spacing: 2px; font-weight: 900; }
 
-        /* 🔱 Biometric Detection HUD */
+        /* [+] Biometric Detection HUD */
         .biometric-hud {
             position: absolute;
             top: 5px; left: 5px;
@@ -153,7 +160,7 @@
         }
 
 
-        /* 🔱 Focus View (Headed) */
+        /* [+] Focus View (Headed) */
         #focusView {
             display: none;
             position: fixed;
@@ -209,7 +216,7 @@
             100% { top: 90%; opacity: 0; }
         }
 
-        .vitals-side {
+        .status-side {
             position: absolute; left: -320px; top: 50%; transform: translateY(-50%);
             width: 280px; background: rgba(5,5,10,0.9); border: 1px solid var(--border); border-radius: 20px; padding: 30px;
             backdrop-filter: blur(20px);
@@ -220,7 +227,7 @@
         .btn-burst { background: #fff; color: #000; padding: 15px 30px; border-radius: 15px; font-weight: 900; font-family: 'Orbitron'; text-transform: uppercase; letter-spacing: 2px; }
         .btn-burst:hover { background: var(--gold); }
 
-        /* 🔱 Global Splash Screen */
+        /* [+] Global Splash Screen */
         #splash-screen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -242,9 +249,13 @@
     <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
 </head>
 <body>
-<!-- 🔱 Master Splash -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHCNLC5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- [+] Master Splash -->
 <div id="splash-screen">
-<div class="splash-logo">🔱</div>
+<div class="splash-logo">[+]</div>
 <div class="splash-text">AIPHONY HIVE</div>
 <div class="splash-status">Synchronizing Global Intelligence Nodes...</div>
 </div>
@@ -259,11 +270,11 @@
 </div>
 </div>
 <div class="device-grid" id="aiphonyGrid"></div>
-<!-- 🔱 Headed Modal -->
+<!-- [+] Headed Modal -->
 <div id="focusView" onclick="this.style.display='none'">
 <div class="flex flex-col items-center gap-10" onclick="event.stopPropagation()">
 <div class="relative">
-<div class="vitals-side">
+<div class="status-side">
 <div class="text-[10px] text-gray-600 uppercase mb-2">Live E-SIM Mapping</div>
 <div class="text-emerald-500 font-black mb-4" id="v-num">+1 (314) 251-5003</div>
 <div class="text-[10px] text-gray-600 uppercase mb-2">EID Signature</div>
@@ -284,17 +295,17 @@
 </div>
 <h2 class="orbitron text-xl font-bold mt-6" id="v-title">AIPHONY_NODE</h2>
 <p class="text-[10px] text-emerald-500 mono mt-2 tracking-widest" id="v-status">BIOMETRIC_DETECTION_ACTIVE</p>
-<p class="text-[9px] text-gray-500 mt-6 text-center leading-relaxed">"Processing neural handshake via Director Maestas root key. Visualizing frontend worker state..."</p>
+<p class="text-[9px] text-gray-500 mt-6 text-center leading-relaxed">"Processing neural connection via Director Maestas root key. Visualizing frontend worker state..."</p>
 <div class="mt-auto w-full space-y-4">
 <div class="h-[1px] bg-blue-500/30 w-full"></div>
-<p class="text-[8px] text-center text-gray-700 tracking-[5px] uppercase">Global_Ingress_Verified</p>
+<p class="text-[8px] text-center text-gray-700 tracking-[5px] uppercase">Global_Access_Verified</p>
 </div>
 </div>
 </div>
 </div>
 <div class="flex gap-4">
-<button class="btn-burst" onclick="alert('🔱 Handshake Dispatched to Brain.')">COMMAND_BRAIN</button>
-<button class="btn-burst" onclick="alert('🔱 Disconnecting Identity.')" style="border-color: #ef4444; color: #ef4444;">SHUTDOWN</button>
+<button class="btn-burst" onclick="alert('[+] Connection Dispatched to Brain.')">COMMAND_BRAIN</button>
+<button class="btn-burst" onclick="alert('[+] Disconnecting Identity.')" style="border-color: #ef4444; color: #ef4444;">SHUTDOWN</button>
 </div>
 </div>
 </div>
@@ -329,7 +340,7 @@
             }
         }
 
-        // 🔱 Splash Sequence
+        // [+] Splash Sequence
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const splash = document.getElementById('splash-screen');

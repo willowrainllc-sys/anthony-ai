@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (AD CREATOR) ---
 import asyncio
 import os
@@ -30,7 +30,7 @@ class ObsidianAdCreator:
 
         ad_id = f"AD-{uuid.uuid4().hex[:8].upper()}"
 
-        # 🔱 1. Neural Copy Burst
+        # [+] 1. Neural Copy Burst
         # Simulation: Calling the Native Brain to write the ad copy
         copy = {
             "headline": f"Experience {brand_prompt.upper()} like never before.",
@@ -38,7 +38,7 @@ class ObsidianAdCreator:
             "cta": "ENTER THE GRID"
         }
 
-        # 🔱 2. Visual Synthesis Pulse
+        # [+] 2. Visual Synthesis Pulse
         # In a full run, this would trigger a ComfyUI node to overlay the copy onto the image
         output_path = AD_ASSETS / f"{ad_id}_master.png"
 

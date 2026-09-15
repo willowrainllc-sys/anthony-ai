@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES VERCEL MAGIC LINK AUTHENTICATOR ---
 import asyncio
 import os
@@ -33,7 +33,7 @@ async def ares_vercel_magic_link():
             await page.goto(target_url, wait_until="networkidle")
 
             print("\n" + "="*70)
-            print("  🔱 ARES VERCEL MAGIC LINK AUTHENTICATOR ACTIVE")
+            print("  [+] ARES VERCEL MAGIC LINK AUTHENTICATOR ACTIVE")
             print("  1. Enter your email in the opened browser window.")
             print("  2. Click 'Continue with Email' to receive your Vercel Magic Link.")
             print("  3. Click the Magic Link in your email to log in.")

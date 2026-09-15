@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE LIVE BURST EXECUTOR: PRODUCTION API WORKER v3.7 (ALL PLATFORMS) ---
 import asyncio
 import os

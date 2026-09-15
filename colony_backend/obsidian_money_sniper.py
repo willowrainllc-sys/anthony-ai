@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: MONEY SNIPER & CAPITAL INGRESS v1.1 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import sys

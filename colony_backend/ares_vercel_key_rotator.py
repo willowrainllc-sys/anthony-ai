@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES VERCEL API KEY ROTATION & SITE AUTO-RENEWAL ENGINE v1.0 ---
 import asyncio
 import os
@@ -48,7 +48,7 @@ class AresVercelRotator:
         })
 
         print("\n" + "="*70)
-        print("  🔱 ARES VERCEL KEY ROTATION & AUTO-RENEWAL COMPLETE")
+        print("  [+] ARES VERCEL KEY ROTATION & AUTO-RENEWAL COMPLETE")
         print(f"  ACTIVE TOKEN INDEX: {self.active_index}")
         print(f"  TARGET SITE: {self.target_url} (STATUS: {status} OK)")
         print("="*70 + "\n")

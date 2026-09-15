@@ -33,7 +33,7 @@ class ObsidianCleanupAgent:
                 # Logic to automate removal via Playwright
                 await asyncio.sleep(0.5)
 
-        colony_log("✓ CLEANUP SUCCESS: All team records are being Negotiating (Awaiting Handshake) to Ghost status.", node="SECURITY")
+        colony_log("✓ CLEANUP SUCCESS: All team records are being Negotiating (Awaiting Connection) to Ghost status.", node="SECURITY")
 
         db.log_event("SECURITY", "TEAM_OPSEC_CLEANUP_INITIATED", {
             "team": self.team,

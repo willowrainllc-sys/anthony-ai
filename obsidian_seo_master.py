@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: SEO MASTER & GOOGLE BUSINESS AUTOMATOR v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 from colony_logger import colony_log

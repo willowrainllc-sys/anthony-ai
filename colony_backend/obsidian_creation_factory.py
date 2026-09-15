@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: CREATION FACTORY & APK BUILDER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import subprocess
 import time

@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import sqlite3
 try:
     conn = sqlite3.connect('C:/AnthonyAi_Colony/Empire_Vault.db')

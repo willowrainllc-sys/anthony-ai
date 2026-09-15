@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE 2026 TOP 20 PROFITABLE FACELESS NICHES ENGINE v2.0 (SYNCHRONIZED METADATA) ---
 import random
 import json

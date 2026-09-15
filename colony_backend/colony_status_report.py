@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: COLONY STATUS REPORT FOR ANTHONY ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import sqlite3
 import time
 import json

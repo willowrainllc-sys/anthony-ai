@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE QUALITY CONTROL: THE GATEKEEPER v1.1 (FFMPEG PROBE FIX) ---
 import os
 import asyncio

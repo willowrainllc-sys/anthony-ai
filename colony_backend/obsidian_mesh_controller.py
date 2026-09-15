@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN VIRTUAL MESH CONTROLLER v2.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -83,7 +83,6 @@ mesh_controller = ObsidianMeshController()
 if __name__ == "__main__":
     async def test_mesh():
         await mesh_controller.initialize_global_mesh()
-        print("\n=== [SUPREME] WILLOW RAIN OBSIDIAN MESH MANIFEST ===")
         print(json.dumps(mesh_controller.get_mesh_manifest(), indent=2))
 
     asyncio.run(test_mesh())

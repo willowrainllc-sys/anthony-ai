@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v3.0 (IDENTITY AUTHORITY) ---
 import os
 import time
@@ -12,7 +12,7 @@ from colony_persistence import db
 
 load_dotenv(dotenv_path=Path(__file__).resolve().parent.parent / ".env")
 
-# 🔱 NAMESILO CONFIGURATION (Wholesale Registrar)
+# [+] NAMESILO CONFIGURATION (Wholesale Registrar)
 NAMESILO_API_KEY = os.getenv("NAMESILO_API_KEY", "")
 # Strictly Industrial Production: Sandbox Bypass
 if NAMESILO_API_KEY.startswith("cert_"):
@@ -23,7 +23,7 @@ else:
 
 
 
-# 🔱 CLOUDFLARE CONFIGURATION (DNS Bridge)
+# [+] CLOUDFLARE CONFIGURATION (DNS Bridge)
 CLOUDFLARE_API_TOKEN = os.getenv("CLOUDFLARE_API_TOKEN")
 CLOUDFLARE_ZONE_ID = os.getenv("CLOUDFLARE_ZONE_ID") # Director to update
 
@@ -39,7 +39,7 @@ class ObsidianDomainKernel:
     """
 
     async def check_availability(self, domain: str):
-        """Module 1: Industrial Availability Ingress."""
+        """Module 1: Industrial Availability Access."""
         colony_log(f"DOMAIN: Querying global availability for [{domain}]...", node="FINANCE")
 
         url = f"{NAMESILO_BASE_URL}/checkRegisterAvailability?version=1&type=xml&key={NAMESILO_API_KEY}&domains={domain}"
@@ -69,13 +69,13 @@ class ObsidianDomainKernel:
         return {"domain": domain, "available": False, "price": 0.0, "status": "NETWORK_LAG"}
 
     async def register_domain(self, domain: str, signature: str = None, years: int = 1):
-        """Module 3: Autonomous Provisioning Burst (Requires Team Signature)."""
+        """Module 3: Autonomous Setting up Burst (Requires Team Signature)."""
         if not signature:
             return False, "AUTH_REQUIRED"
 
         colony_log(f"DOMAIN: Initiating registration burst for [{domain}] via team auth...", node="FINANCE")
 
-        # 🔱 The Burst: Registration + Private WHOIS + Auto-Renew
+        # [+] The Burst: Registration + Private WHOIS + Auto-Renew
         url = f"{NAMESILO_BASE_URL}/registerDomain?version=1&type=xml&key={NAMESILO_API_KEY}&domain={domain}&years={years}&private=1&auto_renew=1"
 
         try:
@@ -127,7 +127,7 @@ class ObsidianDomainKernel:
             return False
 
     async def map_custom_dns_to_vercel(self, domain: str):
-        """Module 6: Cloudflare DNS Mapping for Vercel Ingress."""
+        """Module 6: Cloudflare DNS Mapping for Vercel Access."""
         colony_log(f"DOMAIN: Mapping DNS for [{domain}] to Vercel Edge...", node="FINANCE")
 
         if not CLOUDFLARE_API_TOKEN or not CLOUDFLARE_ZONE_ID:
@@ -137,7 +137,7 @@ class ObsidianDomainKernel:
         url = f"https://api.cloudflare.com/client/v4/zones/{CLOUDFLARE_ZONE_ID}/dns_records"
         headers = {"Authorization": f"Bearer {CLOUDFLARE_API_TOKEN}", "Content-Type": "application/json"}
 
-        # 🔱 Step 3: Configure DNS (Using Cloudflare)
+        # [+] Step 3: Configure DNS (Using Cloudflare)
         # Add A record for Apex and CNAME for www
         records = [
             {"type": "A", "name": "@", "content": "76.76.21.21", "proxied": False}, # DNS Only for verification
@@ -161,7 +161,7 @@ class ObsidianDomainKernel:
         """Module 4: Global DNS Mapping to the Obsidian Bridge."""
         colony_log(f"DOMAIN: Mapping DNS Bridge for [{domain}] via Cloudflare API...", node="FINANCE")
 
-        # 🔱 The Burst: Update Cloudflare DNS to point CNAME at your tunnel
+        # [+] The Burst: Update Cloudflare DNS to point CNAME at your tunnel
         if not CLOUDFLARE_API_TOKEN or not CLOUDFLARE_ZONE_ID:
             colony_log("[-] DNS BRIDGE FAIL: Missing Cloudflare credentials.", node="FINANCE")
             return

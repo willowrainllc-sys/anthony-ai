@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- REBRAND: OBSIDIAN AI -> ANTHONY AI THE SUPREME v1.0 ---
 import os
 from pathlib import Path

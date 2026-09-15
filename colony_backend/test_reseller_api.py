@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- DOMAIN RESELLER API TEST v1.0 ---
 import os
 import httpx
@@ -13,7 +13,7 @@ NAMESILO_KEY = os.getenv("NAMESILO_API_KEY")
 BASE_URL = "https://www.namesilo.com/api"
 
 async def test_namesilo_handshake():
-    print(f"🔱 TESTING NAMESILO HANDSHAKE: Key [{NAMESILO_KEY[:10]}...]")
+    print(f"[+] TESTING NAMESILO HANDSHAKE: Key [{NAMESILO_KEY[:10]}...]")
 
     # Simple check for account balance or status
     url = f"{BASE_URL}/getAccountBalance?version=1&type=xml&key={NAMESILO_KEY}"

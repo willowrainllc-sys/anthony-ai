@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE YOUTUBE LIVE TRENDING HASHTAG SCRAPER ENGINE v1.0 ---
 import os
 import sys

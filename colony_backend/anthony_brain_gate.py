@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN BRAIN ACCESS GATE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import time
 import json
 from colony_logger import colony_log

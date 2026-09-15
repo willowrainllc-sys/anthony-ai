@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v7.3 (PIXEL CLONE HIVE) ---
 import subprocess
 import os
@@ -39,7 +39,7 @@ class ObsidianDockerOrchestrator:
         return hashlib.sha1(f"PIXEL_CLONE_{node_id}_{time.time()}".encode()).hexdigest()[:16]
 
     async def ignite_clone_hive(self):
-        colony_log(f"🔱 HIVE: Initiating Pixel System Clone for {self.node_count} nodes...", node="CARRIER")
+        colony_log(f"[+] HIVE: Initiating Pixel System Clone for {self.node_count} nodes...", node="CARRIER")
 
         for i in range(1, self.node_count + 1):
             node_id = f"MUSTANG_{i:03d}"
@@ -47,10 +47,10 @@ class ObsidianDockerOrchestrator:
             shai = self._generate_shai(node_id)
             ip = f"172.28.10.{i}"
 
-            # 🔱 PIXEL CLONE INJECTION
+            # [+] PIXEL CLONE INJECTION
             # 1. Spawn Docker instance with Pixel system props
             # 2. ADB push obsidian-core.apk
-            # 3. Provision unique EID for 5G Ingress
+            # 3. Provision unique EID for 5G Access
 
             self.active_nodes[node_id] = {
                 "status": "ASI_ATTACKING",

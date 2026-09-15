@@ -15,7 +15,7 @@ class AgentMessage:
 class AresChatSwarm:
     """
     ARES CHAT SWARM:
-    Simulates a high-level strategic discussion between the colony's top bots.
+    Simulates a high-level strategic discussion between the network's top bots.
     1. ARES: The Commander/Protector.
     2. THE ORACLE: The Reasoning/Logic Master.
     3. THE SCAVENGER: The Data/Arbitrage Specialist.
@@ -39,15 +39,15 @@ class AresChatSwarm:
                 "responses": [
                     {"agent": "ORACLE", "action": "ANALYZING", "msg": "ARES, I am detecting a 4% yield gap in the UAE region. The mesh is stable, but we need more localized DNS entries to bypass recent regional throttling."},
                     {"agent": "SCAVENGER", "action": "RESEARCHING", "msg": "Confirmed. I've harvested 12 new high-DR endpoints in Dubai. Preparing the 'Registration Burst' for the DNA Bridge."},
-                    {"agent": "SENTINEL", "action": "OPTIMIZING", "msg": "I am shifting compute load to the Phone Hive. Watts-per-prompt in Missouri is high; edge nodes will process the synthesis pulse to maintain 99.9% aura."}
+                    {"agent": "SENTINEL", "action": "OPTIMIZING", "msg": "I am shifting compute load to the Phone Hive. Watts-per-prompt in Missouri is high; edge nodes will process the synthesis pulse to maintain 99.9% performance."}
                 ]
             },
             {
                 "trigger": "SCAVENGER",
-                "trigger_msg": "Director Maestas has initiated a Social Ad Strike. Pushing 4K cinematic assets to TikTok and IG now.",
+                "trigger_msg": "Director Maestas has initiated a Social Ad Campaign. Pushing 4K cinematic assets to TikTok and IG now.",
                 "responses": [
                     {"agent": "ARES", "action": "ARMORING", "msg": "Verified. I have established the 'Physical Guardian Watch' on the Director's primary node. Safety alignment is 100%."},
-                    {"agent": "ORACLE", "action": "REASONING", "msg": "Analyzing traffic ingress from the strike. Conversion probability for .AI domains is spiking. Suggesting a 10% retail margin increase for Dubai-based buyers."},
+                    {"agent": "ORACLE", "action": "REASONING", "msg": "Analyzing traffic access from the campaign. Conversion probability for .AI domains is spiking. Suggesting a 10% retail margin increase for Dubai-based buyers."},
                     {"agent": "SENTINEL", "action": "MONITORING", "msg": "Grid load is increasing by 18%. Energy Sentinel is balancing the thermal state. System remains Green."}
                 ]
             }

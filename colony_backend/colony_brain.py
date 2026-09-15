@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE CENTRAL BRAIN: OBSIDIAN PRODUCTION ORCHESTRATOR & TASK ROUTER v4.0 ---
 import asyncio
 import httpx
@@ -85,7 +86,7 @@ class CentralBrain:
         """Dispatches commands to the Supreme Orchestrator for high-aura reasoning."""
         colony_log(f"BRAIN: Executing Supreme command for [{task_type}]...", node="BRAIN")
 
-        # 🔱 Add System Instruction if provided
+        # [+] Add System Instruction if provided
         final_prompt = f"{system_msg}\n\n{prompt}"
 
         response = await self.orchestrator.execute_supreme_command(final_prompt, task_type=task_type)

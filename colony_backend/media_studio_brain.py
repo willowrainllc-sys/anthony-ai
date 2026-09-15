@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE AUTONOMOUS AI MEDIA STUDIO BRAIN v7.0 (INSPIRATIONAL KINETIC TEXT ENGINE) ---
 import os
 import sys

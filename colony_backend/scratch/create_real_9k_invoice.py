@@ -19,7 +19,7 @@ async def strike():
         client_name="St. Louis AI Research Lab",
         email="procurement@stlouis-ai.org",
         amount_usd=9000.0,
-        description="Wholesale Obsidian Matrix Access: 5,000 GB High-Performance Residential Ingress"
+        description="Wholesale Obsidian Matrix Access: 5,000 GB High-Performance Residential Access"
     )
 
     if res.get("status") == "success":

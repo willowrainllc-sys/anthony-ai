@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN PPROXY RUNNER v30.0 (IMMORTAL MATRIX) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import subprocess
 import time
 import os
@@ -50,8 +50,8 @@ class ObsidianPProxyRunner(ObsidianDaemon):
 
         full_cmd = f"python -m pproxy {' '.join(listeners)}"
 
-        # 3. Launch with unique title and physical log ingress for Sigint Interceptor
-        log_file = r"C:\AnthonyAi_Colony\Logs\matrix_ingress.log"
+        # 3. Launch with unique title and physical log access for Sigint Interceptor
+        log_file = r"C:\AnthonyAi_Colony\Logs\matrix_access.log"
         os.makedirs(os.path.dirname(log_file), exist_ok=True)
 
         try:

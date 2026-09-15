@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN DAEMON BASE CLASS v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import time
 import json
 import os

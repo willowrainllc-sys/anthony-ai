@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN DIRECT-SALES HUB v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -87,7 +87,6 @@ direct_sales_hub = ObsidianDirectSalesHub()
 if __name__ == "__main__":
     async def test_sales():
         contract = await direct_sales_hub.create_direct_b2b_contract("Data_Research_Group", "CUSTOM_AI_DATASET")
-        print("\n=== [SUPREME] WILLOW RAIN DIRECT B2B CONTRACT ===")
         print("Contract ID:", contract.contract_id)
         print("Client:", contract.client_entity)
         print("Monthly Fee:", f"${contract.monthly_fee_usd:,.2f}")

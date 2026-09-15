@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES COMPETITOR TRAFFIC INTERCEPTION & SEO STEALER v1.0 ---
 import asyncio
 import os
@@ -38,7 +38,7 @@ class AresTrafficInterceptor:
         })
 
         print("\n" + "="*70)
-        print("  🔱 ARES TRAFFIC INTERCEPTOR ACTIVE (THE DEVIL SYSTEM)")
+        print("  [+] ARES TRAFFIC INTERCEPTOR ACTIVE (THE DEVIL SYSTEM)")
         print("  TARGET: Stealing competitor domain & hosting traffic")
         print("  DESTINATION: https://obsidian.city")
         print("="*70 + "\n")

@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v6.2 (OBSIDIAN_TITAN SHELL) ---
 import asyncio
 import os
@@ -25,7 +25,7 @@ class ObsidianObsidian TitanShell:
         colony_log(f"🛰️ OBSIDIAN_TITAN: Igniting Sovereign Browser Shell for [{node_id}]...", node="SUPREME")
 
         async with async_playwright() as p:
-            # 🔱 Launch Persistent Chromium Context (Headed for Interaction)
+            # [+] Launch Persistent Chromium Context (Headed for Interaction)
             context = await p.chromium.launch_persistent_context(
                 str(self.user_data_dir),
                 headless=False,
@@ -37,7 +37,7 @@ class ObsidianObsidian TitanShell:
                 ]
             )
 
-            # 🔱 Ingest HUD Script: Real-time Wealth Tracking
+            # [+] Ingest HUD Script: Real-time Wealth Tracking
             await context.add_init_script("""
                 const injectHUD = () => {
                     if (document.getElementById('obsidian-hud')) return;
@@ -79,7 +79,7 @@ class ObsidianObsidian TitanShell:
 
             page = context.pages[0] if context.pages else await context.new_page()
 
-            # 🔱 Local Resolution Fallback
+            # [+] Local Resolution Fallback
             # If the domain fails, we redirect to the local portal
             try:
                 colony_log(f"[*] OBSIDIAN_TITAN: Navigating to {start_url}...", node="SUPREME")
@@ -88,7 +88,7 @@ class ObsidianObsidian TitanShell:
                 colony_log("[-] OBSIDIAN_TITAN: External domain unresolved. Falling back to Local Portal.", node="SUPREME")
                 await page.goto("http://127.0.0.1:80")
 
-            colony_log(f"[+] OBSIDIAN_TITAN SUCCESS: Ingress established on [{node_id}].", node="SUPREME")
+            colony_log(f"[+] OBSIDIAN_TITAN SUCCESS: Access established on [{node_id}].", node="SUPREME")
 
             # Keep alive for interaction
             while True:

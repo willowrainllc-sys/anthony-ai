@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: INGRESS DATA FLOW AUDITOR v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import sqlite3
 import time
 import json
@@ -7,7 +7,7 @@ from pathlib import Path
 from colony_logger import colony_log
 from colony_persistence import db
 
-class ObsidianIngressDataFlowAuditor:
+class ObsidianAccessDataFlowAuditor:
     """
     INGRESS DATA FLOW AUDITOR:
     Polices the flow of data across the Nest-node mesh.
@@ -38,7 +38,7 @@ class ObsidianIngressDataFlowAuditor:
         colony_log("AUDITOR: Triggering global re-ignition pulse...", node="NETWORK")
         # Logic to restart pproxy and agents
 
-flow_auditor = ObsidianIngressDataFlowAuditor()
+flow_auditor = ObsidianAccessDataFlowAuditor()
 
 if __name__ == "__main__":
     asyncio.run(flow_auditor.audit_all_flows())

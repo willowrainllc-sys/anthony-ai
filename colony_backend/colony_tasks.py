@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE TASK QUEUE: SHIMMER PROTECTED v2.0 ---
 from colony_persistence import db
 from colony_logger import colony_log

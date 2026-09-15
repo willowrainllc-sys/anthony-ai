@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (INVISIBLE KEY CLAIMER) ---
 import json
 import re
@@ -24,7 +24,7 @@ class InvisibleKeyClaimer:
     def claim_invisible_keys(self):
         colony_log("CLAIMER: Initiating Deep Code Scour for invisible signatures...", node="SECURITY")
 
-        # 🔱 1. Android Manifest AR Key
+        # [+] 1. Android Manifest AR Key
         manifest_path = ROOT / "app" / "src" / "main" / "AndroidManifest.xml"
         if manifest_path.exists():
             content = manifest_path.read_text()
@@ -33,7 +33,7 @@ class InvisibleKeyClaimer:
                 self.findings["GOOGLE_AR_CORE"] = match.group(1)
                 colony_log("[+] CLAIMER: Google AR_VPS Key acquired from Manifest.", node="SECURITY")
 
-        # 🔱 2. Mesh Internal Auth Key
+        # [+] 2. Mesh Internal Auth Key
         mesh_api_path = ROOT / "app" / "src" / "main" / "java" / "com" / "obsidian" / "global" / "MeshApiService.kt"
         if mesh_api_path.exists():
             content = mesh_api_path.read_text()
@@ -42,7 +42,7 @@ class InvisibleKeyClaimer:
                 self.findings["MESH_INTERNAL_AUTH"] = match.group(1)
                 colony_log("[+] CLAIMER: Mesh Internal Signature acquired.", node="SECURITY")
 
-        # 🔱 3. Promo Codes
+        # [+] 3. Promo Codes
         factory_path = ROOT / "colony_backend" / "obsidian_account_factory.py"
         if factory_path.exists():
             content = factory_path.read_text()
@@ -51,7 +51,7 @@ class InvisibleKeyClaimer:
                 self.findings["SIGNUP_PROMO_CODE"] = match.group(1)
                 colony_log(f"[+] CLAIMER: Ghost Promo Code [{match.group(1)}] acquired.", node="SECURITY")
 
-        # 🔱 4. Vercel Project DNA
+        # [+] 4. Vercel Project DNA
         env_path = ROOT / ".env"
         if env_path.exists():
             content = env_path.read_text()
@@ -59,16 +59,16 @@ class InvisibleKeyClaimer:
             if url_match:
                 self.findings["VERCEL_PRODUCTION_ENDPOINT"] = url_match.group(1).strip()
 
-        # 🔱 5. Session Token Scavenge (Ghost Vault)
+        # [+] 5. Session Token Scavenge (Ghost Vault)
         persona_vault = ROOT / "secure_assets" / "persona_vault" / "game_sessions"
         if persona_vault.exists():
             for auth_file in persona_vault.glob("*.json"):
                 try:
                     raw_content = auth_file.read_text()
-                    # 🔱 ULTRA-AGGRESSIVE: Match labels even with escaped quotes
+                    # [+] ULTRA-AGGRESSIVE: Match labels even with escaped quotes
                     tokens = re.findall(r'\\?"[a-zA-Z0-9_-]*(?:token|key|secret|auth|sid)\\?":\s*\\?"([^\\"]+)\\?"', raw_content, re.IGNORECASE)
 
-                    # 🔱 Look for raw JWTs (starts with eyJ)
+                    # [+] Look for raw JWTs (starts with eyJ)
                     jwts = re.findall(r'eyJ[a-zA-Z0-9_-]+\.eyJ[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+', raw_content)
 
                     all_found = list(set(tokens + jwts))

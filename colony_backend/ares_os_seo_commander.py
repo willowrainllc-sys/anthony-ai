@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES OPEN SOURCE SEO COMMANDER: FREE API PUSH v1.0 ---
 import os
 import json
@@ -69,7 +69,7 @@ class AresOsSeoCommander:
 
     async def run_seo_mission(self):
         print("\n" + "="*70)
-        print("  🔱 ARES OPEN SOURCE SEO COMMANDER ACTIVE")
+        print("  [+] ARES OPEN SOURCE SEO COMMANDER ACTIVE")
         print(f"  TARGET: {self.target_url}")
         print("="*70 + "\n")
 

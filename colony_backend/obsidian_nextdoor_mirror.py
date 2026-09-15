@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (NEXTDOOR MIRROR) ---
 import asyncio
 import os
@@ -32,16 +32,16 @@ class NextdoorMirrorBurst:
             page = await context.new_page()
 
             try:
-                # 🔱 1. Capture Public Landing
+                # [+] 1. Capture Public Landing
                 colony_log(f"[*] MIRROR: Capturing Nextdoor Landing DNA...", node="COMMAND")
                 await page.goto(self.target_url, timeout=60000, wait_until="networkidle")
                 await page.screenshot(path=RECON_DIR / "nextdoor_landing.png", full_page=True)
 
-                # 🔱 2. Extract Structural Components
+                # [+] 2. Extract Structural Components
                 # (Simulating extraction of feed styles and navigation headers)
                 colony_log("[+] MIRROR SUCCESS: Nextdoor structural DNA vaulted.", node="COMMAND")
 
-                # 🔱 3. Build the 'Obsidian Town' Social Front
+                # [+] 3. Build the 'Obsidian Town' Social Front
                 await self._build_obsidian_town_social()
 
             except Exception as e:
@@ -53,7 +53,7 @@ class NextdoorMirrorBurst:
         """Creates the rebranded social layer frontends."""
         colony_log("MIRROR: Architecting 'TOWN 360 Social' Frontends...", node="COMMAND")
 
-        # 🔱 Feed Page Build
+        # [+] Feed Page Build
         feed_html = """
 <!DOCTYPE html>
 <html lang="en">

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: RAYOBYTE (CASHFORIP) PROVIDER AUTOMATION BOT v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -28,7 +28,7 @@ class RayobyteHeadlessBot:
         self.portal_id = "RAYOBYTE"
 
     async def execute_handshake_submission(self, headless: bool = True) -> dict:
-        colony_log(f"RAYOBYTE_BOT: Initiating Automated Handshake Submission (Headless={headless})...", node="RAYOBYTE_BOT")
+        colony_log(f"RAYOBYTE_BOT: Initiating Automated Connection Submission (Headless={headless})...", node="RAYOBYTE_BOT")
 
         if not PROPOSAL_PATH.exists():
             return {"status": "ERROR", "message": "Proposal MD file not found."}
@@ -85,7 +85,7 @@ class RayobyteHeadlessBot:
                         shot_path_ready = f"D:\\ObsidianAi_Colony\\Temp\\rayobyte_ready_{uuid.uuid4().hex[:4]}.png"
                         await page.screenshot(path=shot_path_ready)
 
-                        colony_log(" RAYOBYTE_BOT SUCCESS: Handshake ready for submission!", node="RAYOBYTE_BOT")
+                        colony_log(" RAYOBYTE_BOT SUCCESS: Connection ready for submission!", node="RAYOBYTE_BOT")
 
                         db.log_event("RAYOBYTE_BOT", "HANDSHAKE_READY", {
                             "proposal_id": "SOV-C6E69A",

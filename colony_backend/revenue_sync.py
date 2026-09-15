@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE REVENUE SYNC: COMMERCE & FINANCIAL NODE v1.0 ---
 import asyncio
 import random

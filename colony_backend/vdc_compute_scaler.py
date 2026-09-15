@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import uuid
 import time
@@ -16,7 +17,7 @@ class VdcComputeScaler:
         self.max_capacity_nodes = 500
 
     async def provision_client_cluster(self, client_name: str, requested_nodes: int) -> dict:
-        print(f"VDC_SCALER: Provisioning {requested_nodes} compute nodes for [{client_name}]...")
+        print(f"VDC_SCALER: Setting up {requested_nodes} compute nodes for [{client_name}]...")
 
         if requested_nodes > self.max_capacity_nodes:
             print(f"[-] Error: Requested capacity exceeds available VDC resources.")

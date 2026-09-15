@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (VISUAL CLONER) ---
 import asyncio
 import os
@@ -33,20 +33,20 @@ class ObsidianVisualCloner:
         colony_log("CLONER: Initiating Headed Visual Burst on Obsidian City...", node="COMMAND")
 
         async with async_playwright() as p:
-            # 🔱 Launching HEADED mode (slow_mo for visibility)
+            # [+] Launching HEADED mode (slow_mo for visibility)
             browser = await p.chromium.launch(headless=False, slow_mo=1000)
             context = await browser.new_context(viewport={'width': 1440, 'height': 900})
             page = await context.new_page()
 
             try:
-                colony_log(f"[*] CLONER: Ingress into {self.target}...", node="COMMAND")
+                colony_log(f"[*] CLONER: Access into {self.target}...", node="COMMAND")
                 await page.goto(self.target, wait_until="networkidle")
 
-                # 🔱 1. Capture Hero Buttons
+                # [+] 1. Capture Hero Buttons
                 colony_log("[*] CLONER: Sniping 'Start for Free' button DNA...", node="COMMAND")
-                await page.screenshot(path=RECON_DIR / "01_ingress_hero.png")
+                await page.screenshot(path=RECON_DIR / "01_access_hero.png")
 
-                # 🔱 2. Extract Button Styles (Live Evaluation)
+                # [+] 2. Extract Button Styles (Live Evaluation)
                 styles = await page.evaluate("""() => {
                     const btn = document.querySelector('button') || document.querySelector('a');
                     const comp = window.getComputedStyle(btn);
@@ -60,13 +60,13 @@ class ObsidianVisualCloner:
                 }""")
                 colony_log(f"[+] CLONER: Button DNA secured: {styles['background']}", node="COMMAND")
 
-                # 🔱 3. Scroll and Capture Grid Layouts
+                # [+] 3. Scroll and Capture Grid Layouts
                 colony_log("[*] CLONER: Analyzing Pricing Matrix...", node="COMMAND")
                 await page.mouse.wheel(0, 2000)
                 await asyncio.sleep(2)
                 await page.screenshot(path=RECON_DIR / "02_pricing_dna.png")
 
-                # 🔱 4. Final Re-Skin Logic (Simulated)
+                # [+] 4. Final Re-Skin Logic (Simulated)
                 colony_log("[+] CLONER SUCCESS: Obsidian City whole-site layout vaulted.", node="COMMAND")
 
             except Exception as e:

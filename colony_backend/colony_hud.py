@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE COLONY HUD: LIVE MISSION TERMINAL v2.6 (FILTERED HUD) ---
 import os
 import time
@@ -27,7 +28,7 @@ def print_header():
     print(f"  STATUS: {Fore.GREEN}ONLINE{Fore.YELLOW} | PREDICTION_BOT: ACTIVE{Fore.RED} | LOTTERY_BOT: SCRAPING{Fore.RESET}")
     print(f"{Fore.GREEN}" + "="*85 + f"{Style.RESET_ALL}")
 
-def get_vitals():
+def get_status():
     try:
         conn = sqlite3.connect(str(DB_PATH))
         c = conn.cursor()
@@ -89,7 +90,7 @@ def run_hud():
     while True:
         try:
             print_header()
-            time_info, tasks, bots, trader_events, recent_drops, social_missions, clocks = get_vitals()
+            time_info, tasks, bots, trader_events, recent_drops, social_missions, clocks = get_status()
 
             # --- SECTION 1: SYSTEM VITALS ---
             negotiating_count = tasks.get('NEGOTIATING', 0)

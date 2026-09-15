@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN KILL-SWITCH & GRID TERMINATOR v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import subprocess
@@ -35,7 +35,6 @@ class ObsidianKillSwitch:
         db.log_event("SECURITY", "GLOBAL_TERMINATION_EXECUTED", {"status": "GRID_OFFLINE"})
 
         # 4. Final System Lock
-        colony_log("[SUPREME] SYSTEM STATUS: GRID TERMINATED. WILLOW RAIN IS OFFLINE.", node="SECURITY")
         return True
 
 kill_switch = ObsidianKillSwitch()

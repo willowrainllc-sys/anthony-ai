@@ -6,11 +6,11 @@ ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
 DIRS = [ROOT / "colony_backend", ROOT / "willow_rain_global", ROOT / "saturn_cloud" / "dashboard_ui"]
 
 REPLACEMENTS = {
-    "Negotiating (Awaiting Handshake)": "Negotiating (Awaiting Handshake)",
+    "Negotiating (Awaiting Connection)": "Negotiating (Awaiting Connection)",
     "NEGOTIATING": "NEGOTIATING",
     "negotiating": "negotiating",
     "Negotiating": "Negotiating",
-    "Awaiting Handshake": "Awaiting Handshake",
+    "Awaiting Connection": "Awaiting Connection",
     "awaiting handshake": "awaiting handshake"
 }
 

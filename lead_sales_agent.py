@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: LEAD SALES AGENT v2.1 (FIXED IMPORTS) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import sys

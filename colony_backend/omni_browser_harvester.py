@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ANTHONY AI: OMNI-BROWSER HARVESTER & CDP OS BRIDGE v1.0 ---
 import os
 import shutil

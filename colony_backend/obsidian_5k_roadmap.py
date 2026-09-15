@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: $5,000/MONTH MASTER ROADMAP v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 

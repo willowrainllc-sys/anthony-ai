@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN WAR ROOM SIMULATION (GOD-MODE) v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import json
 import time
@@ -11,7 +11,7 @@ async def run_god_mode_simulation():
     Simulates a full-scale 'Aggregator Attack' on the market.
     Goal: Verify the $5,000/day net profit model through the Virtual Colony.
     """
-    colony_log(" WAR_ROOM: Initiating Obsidian Market Ingress Simulation...", node="WAR_ROOM")
+    colony_log(" WAR_ROOM: Initiating Obsidian Market Access Simulation...", node="WAR_ROOM")
 
     # 1. Scale the Virtual Colony to 865 nodes (The $5k Target)
     aggregator_core.colony_size = 865

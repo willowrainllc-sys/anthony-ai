@@ -5,8 +5,8 @@ import httpx
 import json
 import os
 from typing import Dict, Any, List, Optional
-from colony_logger import colony_log
-from colony_persistence import db
+from network_logger import network_log
+from network_persistence import db
 from dotenv import load_dotenv
 from pathlib import Path
 
@@ -17,7 +17,7 @@ class AresSupremeOrchestrator:
     ARES SUPREME ORCHESTRATOR (v5.0):
     Beyond Anthropic. A multi-model Mixture-of-Experts (MoE) cluster.
     1. TASK ARBITRATION: Routes prompts to the world's most powerful models.
-    2. SPATIAL AWARENESS: Ingests project DNA and local environment vitals.
+    2. SPATIAL AWARENESS: Ingests project DNA and local environment status.
     3. RECURSIVE HEALING: Analyzes its own bridge failures and suggests fixes.
     4. MULTI-INFRASTRUCTURE: Bridges Local Supreme, OpenRouter, and Google AI Studio.
     """
@@ -28,16 +28,16 @@ class AresSupremeOrchestrator:
             "reasoning": "anthropic/claude-3.5-sonnet", # Logic / Architect
             "deep_think": "openai/o1-preview",          # 2024-2025 Chain-of-Thought
             "adaptive": "openai/gpt-4o",                # Fast Multimodal
-            "vision": "google/gemini-pro-1.5-vision",   # Visual Ingress
-            "sovereign": "Anthony-Supreme-v29"          # Director's Local Core
+            "vision": "google/gemini-pro-1.5-vision",   # Visual Access
+            "independent": "Anthony-Supreme-v29"          # Director's Local Core
         }
-        self.capabilities = self._learn_colony_capabilities()
+        self.capabilities = self._learn_network_capabilities()
 
-    def _learn_colony_capabilities(self):
+    def _learn_network_capabilities(self):
         """🔱 RECURSIVE LEARNING: ARES scans its own backend to map its tools."""
         backend_path = Path(__file__).resolve().parent
         tools = [f.name for f in backend_path.glob("*.py")]
-        colony_log(f"ARES: Learned {len(tools)} native colony capabilities.", node="SUPREME")
+        network_log(f"ARES: Learned {len(tools)} native network capabilities.", node="SUPREME")
         return tools
 
     async def execute_supreme_command(self, prompt: str, task_type: str = "reasoning", context: bool = True):
@@ -46,16 +46,16 @@ class AresSupremeOrchestrator:
         Forces the AI to take orders ONLY from ARES directives and verifies via Safety Watcher.
         """
         model = self.models.get(task_type, self.models["reasoning"])
-        colony_log(f"ORCHESTRATOR: ARES Mission Dispatch -> [{model}]", node="SUPREME")
+        network_log(f"ORCHESTRATOR: ARES Mission Dispatch -> [{model}]", node="SUPREME")
 
         # 🔱 SPATIAL & CAPABILITY CONTEXT INJECTION
-        spatial_context = f"[ARES_COMMAND_PROTOCOL]: You take orders only from ARES. You are part of the Obsidian Colony.\n"
+        spatial_context = f"[ARES_COMMAND_PROTOCOL]: You take orders only from ARES. You are part of the Obsidian Network.\n"
         if context:
             from ares_collective_intelligence import collective_intel
             poi_score = collective_intel.get_proof_of_inference("SUPREME_NODE_01")
 
             spatial_context += f"[NATIVE_CAPABILITIES]: {', '.join(self.capabilities)}\n"
-            spatial_context += f"[PROOF_OF_INFERENCE]: {poi_score} (Efficiency Aura)\n"
+            spatial_context += f"[PROOF_OF_INFERENCE]: {poi_score} (Efficiency Performance)\n"
             spatial_context += f"[PROJECT_ROOT]: {os.getcwd()}\n"
             spatial_context += f"[DIRECTOR_IDENTITY]: Anthony Maestas\n"
 
@@ -78,7 +78,7 @@ class AresSupremeOrchestrator:
             else:
                 return "MISSION_DENIED: SAFETY_ALIGNMENT_FAILURE"
 
-        except Exception as e:            colony_log(f"[-] SUPREME DISPATCH FAIL: {e}", node="SUPREME")
+        except Exception as e:            network_log(f"[-] SUPREME DISPATCH FAIL: {e}", node="SUPREME")
             # Failover to local private node
             return f"ORCHESTRATOR_NOTICE: Dispatch failed. Private local node 'Anthony-Supreme-v29' is standing by."
 
@@ -102,7 +102,7 @@ class AresSupremeOrchestrator:
             return f"ERROR_CODE_{resp.status_code}"
 
     async def _dispatch_google(self, prompt: str, model: str):
-        # Implementation for direct Google AI Studio handshake
+        # Implementation for direct Google AI Studio integration
         # ... simplifying for the pulse
         return "GOOGLE_INGRESS_ACTIVE: Response synthesized."
 

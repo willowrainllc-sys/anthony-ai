@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE DOCKER MULTI-IP BANDWIDTH NODE DEPLOYER v1.0 ---
 import os
 import sys
@@ -15,7 +16,7 @@ class DockerMultiIpNodeDeployer:
     """
     DOCKER MULTI-IP NODE DEPLOYER v1.0:
     Generates Docker Compose & macvlan IP alias binding configurations
-    to run multiple Obsidian Ingress, EarnApp, Pawns, and Mysterium nodes
+    to run multiple Obsidian Access, EarnApp, Pawns, and Mysterium nodes
     on distinct IP addresses on a single server machine.
     """
     def generate_multi_ip_docker_compose(self, ip_addresses: list = None) -> dict:
@@ -26,8 +27,8 @@ class DockerMultiIpNodeDeployer:
 
         docker_services = {}
         for idx, ip_addr in enumerate(ip_addresses, 1):
-            docker_services[f"obsidian_ingress_node_{idx}"] = {
-                "image": "obsidian_ingress/obsidian_ingress:latest",
+            docker_services[f"obsidian_access_node_{idx}"] = {
+                "image": "obsidian_access/obsidian_access:latest",
                 "container_name": f"hg_node_{idx}",
                 "restart": "always",
                 "networks": {

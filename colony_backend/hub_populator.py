@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE HUB POPULATOR & SOCIAL FIREWALL DISPATCHER v1.0 ---
 import os
 import sys

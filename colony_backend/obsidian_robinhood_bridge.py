@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v7.5 (ROBINHOOD TRADING BRIDGE) ---
 import asyncio
 import os
@@ -24,13 +24,13 @@ class ObsidianRobinhoodBridge:
     async def launch_headed_trade_session(self):
         colony_log(f"💹 FINANCE: Initiating Headed Robinhood burst on [{self.target_node}]...", node="FINANCE")
 
-        # 🔱 Launching the Obsidian Titan Shell via Playwright in Headed Mode
+        # [+] Launching the Obsidian Titan Shell via Playwright in Headed Mode
         # This physically opens the browser for the Director on Mustang_001
         try:
             cmd = f"python {self.root_dir}/colony_backend/obsidian_voyager_shell.py --url={self.robinhood_url} --node={self.target_node}"
             subprocess.Popen(f"start /b {cmd}", shell=True)
 
-            colony_log(f"[+] FINANCE SUCCESS: Robinhood Ingress established. Awaiting Director handshake.", node="FINANCE")
+            colony_log(f"[+] FINANCE SUCCESS: Robinhood Access established. Awaiting Director handshake.", node="FINANCE")
 
             db.log_event("FINANCE", "ROBINHOOD_BRIDGE_ACTIVE", {
                 "node": self.target_node,
@@ -41,6 +41,16 @@ class ObsidianRobinhoodBridge:
         except Exception as e:
             colony_log(f"[-] FINANCE ERROR: {e}", node="FINANCE")
 
+    async def get_account_status(self):
+        """Returns the current trading status and buying power (Simulated)."""
+        # In production, this would scrape the live dashboard
+        return {
+            "success": True,
+            "buying_power": "$42,910.42",
+            "status": "ARMORED_FOR_TRADE"
+        }
+
+robinhood_bridge = ObsidianRobinhoodBridge()
+
 if __name__ == "__main__":
-    bridge = ObsidianRobinhoodBridge()
-    asyncio.run(bridge.launch_headed_trade_session())
+    asyncio.run(robinhood_bridge.launch_headed_trade_session())

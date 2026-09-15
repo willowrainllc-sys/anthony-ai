@@ -10,7 +10,7 @@ REPLACEMENTS = {
     "Proposal Sent": "Proposal Sent",
     "proposal sent": "proposal sent",
     "AWAITING_HANDSHAKE": "AWAITING_HANDSHAKE",
-    "Awaiting Handshake": "Awaiting Handshake",
+    "Awaiting Connection": "Awaiting Connection",
     "awaiting handshake": "awaiting handshake",
     "NEGOTIATING": "NEGOTIATING",
     "Negotiating": "Negotiating",

@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE PASSIVE DATA & DePIN MONETIZATION AGGREGATOR v5.0 (REPOCKET, GRASS AI, PROXYRACK & MYSTERIUM) ---
 import os
 import sys
@@ -12,7 +13,7 @@ from colony_persistence import db
 from dotenv import load_dotenv
 
 try:
-    from pyObsidian Ingress import Obsidian Ingress
+    from pyObsidian Access import Obsidian Access
     PYOBSIDIAN_INGRESS_AVAILABLE = True
 except ImportError:
     PYOBSIDIAN_INGRESS_AVAILABLE = False
@@ -39,7 +40,7 @@ PASSIVE_NETWORKS = [
 class PassiveMonetizationNode:
     """
     PASSIVE MONETIZATION AGGREGATOR v5.0:
-    Manages DePIN & Proxy Sharing Networks (Obsidian Ingress, EarnApp, Pawns, Repocket, Grass AI, Mysterium, Proxyrack)
+    Manages DePIN & Proxy Sharing Networks (Obsidian Access, EarnApp, Pawns, Repocket, Grass AI, Mysterium, Proxyrack)
     and aggregates passive bandwidth revenue into Square merchant balance logs.
     """
     def __init__(self):
@@ -47,7 +48,7 @@ class PassiveMonetizationNode:
         self.hg_token = os.getenv("OBSIDIAN_INGRESS_SDK_KEY") or os.getenv("OBSIDIAN_INGRESS_API_TOKEN")
         if PYOBSIDIAN_INGRESS_AVAILABLE and self.hg_token:
             try:
-                self.hg_client = Obsidian Ingress()
+                self.hg_client = Obsidian Access()
                 self.hg_client.login(token=self.hg_token)
             except: pass
 
@@ -58,7 +59,7 @@ class PassiveMonetizationNode:
                 self.earnapp_client = EarnApp(auth_token=self.earnapp_token)
             except: pass
 
-    async def get_obsidian_ingress_sdk_stats(self) -> dict:
+    async def get_obsidian_access_sdk_stats(self) -> dict:
         if self.hg_client:
             try:
                 stats = self.hg_client.stats()
@@ -66,7 +67,7 @@ class PassiveMonetizationNode:
                 except: pass
                 return {"status": "SDK_ACTIVE", "credits": stats.get("credits", 0), "today_credits": stats.get("today_credits", 0)}
             except Exception as e:
-                colony_log(f"[-] Obsidian Ingress SDK Note: {e}", node="PASSIVE_MONEY")
+                colony_log(f"[-] Obsidian Access SDK Note: {e}", node="PASSIVE_MONEY")
         return {"status": "SDK_STANDBY", "credits": 0, "today_credits": 0}
 
     async def get_earnapp_api_stats(self) -> dict:
@@ -80,13 +81,13 @@ class PassiveMonetizationNode:
         return {"status": "OAUTH_BOT_ACTIVE", "balance_usd": 0.0}
 
     async def get_passive_earnings_summary(self) -> dict:
-        colony_log("MONETIZATION: Syncing DePIN & Proxy Sharing Networks (Obsidian Ingress, EarnApp, Repocket, Grass AI, Mysterium)...", node="PASSIVE_MONEY")
+        colony_log("MONETIZATION: Syncing DePIN & Proxy Sharing Networks (Obsidian Access, EarnApp, Repocket, Grass AI, Mysterium)...", node="PASSIVE_MONEY")
         now = time.time()
 
         active_revenue = []
         total_daily_est = 0.0
 
-        hg_stats = await self.get_obsidian_ingress_sdk_stats()
+        hg_stats = await self.get_obsidian_access_sdk_stats()
         ea_stats = await self.get_earnapp_api_stats()
 
         for net in PASSIVE_NETWORKS:

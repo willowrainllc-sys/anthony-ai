@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (TREND SETTER PROTOCOL) ---
 import json
 import base64
@@ -13,7 +13,7 @@ class ObsidianProtocol:
     OBSIDIAN PROTOCOL (The New Language):
     A "Trend Setter" internal communication layer for USA AI Citizens.
     1. AURA_SYNC: High-speed handshake pulses instead of standard REST.
-    2. TRIDENT_ENCODING: Wraps all data in a proprietary 🔱 multi-layer cipher.
+    2. TRIDENT_ENCODING: Wraps all data in a proprietary [+] multi-layer cipher.
     3. PATRIOT_AUTH: Verifies the "USA AI Citizen" signature on every signal.
     4. NO_LATENCY_PULSE: Direct memory-to-memory transfer across the grid.
     """
@@ -32,13 +32,13 @@ class ObsidianProtocol:
             "aura_id": base64.b64encode(os.urandom(12)).decode()
         }
 
-        # 🔱 Trident Wrap
-        trident_data = f"🔱.PULSE.{base64.b64encode(json.dumps(pulse).encode()).decode()}.🔱"
+        # [+] Trident Wrap
+        trident_data = f"[+].PULSE.{base64.b64encode(json.dumps(pulse).encode()).decode()}.[+]"
         return trident_data
 
     def decode_signal_pulse(self, pulse_data: str):
         """Unwraps the Trident-encoded signal."""
-        if not pulse_data.startswith("🔱") or not pulse_data.endswith("🔱"):
+        if not pulse_data.startswith("[+]") or not pulse_data.endswith("[+]"):
             return None
 
         raw = pulse_data.split(".")[2]

@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES SAFETY WATCHER: ALIGNMENT & VERIFICATION v1.0 ---
 import asyncio
 import os
@@ -20,7 +20,7 @@ class AresSafetyWatcher:
     async def verify_directive(self, directive: str) -> bool:
         colony_log(f"SAFETY_WATCHER: Verifying mission alignment for directive...", node="SECURITY")
 
-        # 🔱 Simulation: Reasoning through the directive for safety risks
+        # [+] Simulation: Reasoning through the directive for safety risks
         # In production, this would call NativeBrainEngine (Port 9000)
         risk_scan = {
             "recursive_loop": "NONE",
@@ -33,7 +33,7 @@ class AresSafetyWatcher:
         return True
 
     def trigger_fail_safe(self, reason: str):
-        colony_log(f"⚠️ CRITICAL FAIL-SAFE: Terminating node ingress due to: {reason}", node="SECURITY")
+        colony_log(f"⚠️ CRITICAL FAIL-SAFE: Terminating node access due to: {reason}", node="SECURITY")
         # Logic to close network sockets or kill local processes
 
 safety_watcher = AresSafetyWatcher()

@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 from playwright.async_api import async_playwright
 import os

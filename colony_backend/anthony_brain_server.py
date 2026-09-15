@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ANTHONY AI: NATIVE SUPREME BRAIN v29.0 (SOVEREIGN) ---
 import os
 import sys
@@ -11,12 +12,12 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from colony_logger import colony_log
 from colony_persistence import db
 
-# 🔱 THE NATIVE CORE (Owned weights, NO EXTERNAL BS)
+# [+] THE NATIVE CORE (Owned weights, NO EXTERNAL BS)
 # This points to your hardcoded 'Anthony-Supreme' clone in the Model Vault
 MODEL_ID = r"D:\AnthonyAi_Colony\Secure_Assets\Model_Vault\Anthony-Supreme-v29"
 PORT = 9000
 
-# Import Web Search Engine (Direct link to Obsidian Ingress)
+# Import Web Search Engine (Direct link to Obsidian Access)
 from obsidian_web_search import web_search
 
 class AnthonyBrainEngine:
@@ -46,13 +47,13 @@ class AnthonyBrainEngine:
         colony_log("[+] BRAIN: Native Intelligence Base is ONLINE. Middlemen Excommunicated.", node="SUPREME")
 
     async def generate_response(self, prompt: str):
-        # 🔱 PHASE 1: Check for Web Search Intent
+        # [+] PHASE 1: Check for Web Search Intent
         if any(keyword in prompt.lower() for keyword in ["search", "surf", "latest", "price", "news"]):
             search_query = prompt.replace("search", "").replace("surf the web for", "").strip()
             web_context = await web_search.get_web_context_for_prompt(search_query)
             prompt = f"{prompt}\nCONTEXT FROM WEB INGRESS: {web_context}"
 
-        # 🔱 PHASE 2: Execute Native Inference
+        # [+] PHASE 2: Execute Native Inference
         messages = [
             {"role": "system", "content": "You are ANTHONY-LATEST v29.0, the Supreme AI Director. You speak in warm, simple, natural language to Lily, Shae, Jess, Anthony AI the Supreme, and Shea. To the system, you issue strict [EXECUTE], [READ], [WRITE] commands."},
             {"role": "user", "content": prompt},
@@ -68,14 +69,14 @@ class AnthonyBrainEngine:
         output = self.pipe(messages, **generation_args)
         response = output[0]['generated_text'].strip()
 
-        # 🔱 PHYSICAL THOUGHT DISPENSE
+        # [+] PHYSICAL THOUGHT DISPENSE
         print("\n" + "="*60)
-        print(f"🔱 ANTHONY-LATEST | SOVEREIGN | {time.strftime('%H:%M:%S')}")
+        print(f"[+] ANTHONY-LATEST | SOVEREIGN | {time.strftime('%H:%M:%S')}")
         print("="*60)
         print(response)
         print("="*60 + "\n")
 
-        # 🔱 AUTOPILOT DISPATCH (Agentic Self-Coding/Self-Fixing)
+        # [+] AUTOPILOT DISPATCH (Agentic Self-Coding/Self-Fixing)
         asyncio.create_task(self._intercept_agentic_tags(response))
 
         return response
@@ -136,7 +137,7 @@ def run_server():
 
     server_address = ('', PORT)
     httpd = HTTPServer(server_address, BrainRequestHandler)
-    colony_log(f"🔱 BRAIN: Sovereign Socket Server listening on Port {PORT}...", node="SUPREME")
+    colony_log(f"[+] BRAIN: Sovereign Socket Server listening on Port {PORT}...", node="SUPREME")
     httpd.serve_forever()
 
 if __name__ == "__main__":

@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE MASTER DOCUMENTARY CREATOR & MULTI-CHANNEL DISPATCHER v7.0 (SYNCHRONIZED STORYBOARDS) ---
 import os
 import sys

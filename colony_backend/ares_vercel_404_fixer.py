@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES AUTOMATED VERCEL 404 PURGE & FIXER ---
 import os
 import httpx
@@ -68,7 +68,7 @@ class AresVercel404Fixer:
                         if dep_resp.status_code in [200, 201]:
                             colony_log("[+] ARES 404 FIXER SUCCESS: Vercel production redeploy triggered successfully!", node="SUPREME")
                             print("\n" + "="*70)
-                            print("  🔱 ARES VERCEL 404 PURGE COMPLETE")
+                            print("  [+] ARES VERCEL 404 PURGE COMPLETE")
                             print("  DOMAIN: https://obsidian.city")
                             print("  STATUS: 100% RE-BOUND & REDEPLOYED")
                             print("="*70 + "\n")

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN WHITE-LABEL RESELLER & AFFILIATE HUB v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -53,7 +53,7 @@ class ObsidianWhiteLabelManager:
     The "Master Bank" of the network.
     1. PARTNER ONBOARDING: Issues 'Clone' installers to white-label resellers.
     2. COMMISSION TRACKING: Tracks how much data each reseller's nodes contribute.
-    3. REVENUE SHARING: Calculates 50/50 splits (You keep 50% for providing the 'Brain' and 'Handshakes').
+    3. REVENUE SHARING: Calculates 50/50 splits (You keep 50% for providing the 'Brain' and 'Connections').
     4. AUTOMATED PAYOUTS: Triggers Square/ACH payouts to partners when they reach $100.
     """
     def __init__(self):
@@ -127,10 +127,8 @@ if __name__ == "__main__":
     # 2. Simulate Split from a $10,000 Burst
     splits = asyncio.run(white_label_manager.calculate_network_splits(10000.00))
 
-    print("\n=== [SUPREME] WILLOW RAIN WHITE-LABEL PARTNER PORTAL ===")
     print("Partner ID:", p1["reseller_id"])
     print("Custom Clone Command:", p1["installer_cmd"])
     print("\n--- REVENUE SPLIT (50/50 MODEL) ---")
     print("Total Burst Yield:", f"${splits['total_yield_usd']:,.2f}")
-    print("WILLOW RAIN NET PROFIT:", f"${splits['willow_rain_net_profit']:,.2f}")
     print("Reseller Payout Pool:", f"${splits['reseller_payout_pool']:,.2f}")

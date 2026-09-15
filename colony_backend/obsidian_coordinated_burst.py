@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN COORDINATED BURST v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import asyncio
@@ -24,7 +24,7 @@ async def execute_coordinated_empire_burst():
     """
     colony_log("[SUPREME] OBSIDIAN BURST: Initiating Coordinated Empire Burst...", node="BURST")
 
-    # 1. B2B Handshake (Wholesale)
+    # 1. B2B Connection (Wholesale)
     proposal_md = proposal_engine.generate_handshake_proposal("contract_proxy_efc03e.json", target_idx=1) # Target Obsidian Grid
     colony_log(" BURST: Elite Proposal dispatched to Obsidian Grid (B2B).", node="BURST")
 

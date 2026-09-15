@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: ZERO-TRUST IDENTITY PROXY v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import httpx
 from fastapi import FastAPI, Request, HTTPException
@@ -21,7 +21,7 @@ class ObsidianIdentityProxy:
         client_ip = request.client.host
         # Only allow Director's Mustang or Local Loopback
         if client_ip != self.authorized_ip and "mustang" not in request.headers.get("User-Agent", ""):
-             colony_log(f"[DEATH] PROXY: Unauthorized Handshake attempt from [{client_ip}]. Triggering NCIC report.", node="SECURITY")
+             colony_log(f"[DEATH] PROXY: Unauthorized Connection attempt from [{client_ip}]. Triggering NCIC report.", node="SECURITY")
              # Logic to report to obsidian_ois_ncic
              return False
         return True

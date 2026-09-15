@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN MARKET SCOUT v2.0 (WHOLESALE BURST) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import json
@@ -17,7 +17,7 @@ class ObsidianMarketScout:
     async def scout_and_burst_wholesale(self):
         colony_log("SCOUT: Initiating wholesale market burst...", node="SUPREME")
 
-        # Hard-coded targets for Missouri-based residential ingress
+        # Hard-coded targets for Missouri-based residential access
         targets = [
             {"name": "Missouri AI Research Lab", "email": "partnerships@mo-ai.org", "offer": "5,000 IP Residential Mesh"},
             {"name": "Central Data Aggregators", "email": "procurement@centraldata.io", "offer": "Direct API Access to Grid"},

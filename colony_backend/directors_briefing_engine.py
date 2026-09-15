@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: DIRECTOR'S BRIEFING ENGINE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -35,7 +35,7 @@ class DirectorsBriefingEngine:
 
         summary += "\n3. ACTION REQUIRED BY DIRECTOR:\n"
         summary += "   - [ ] Check Gmail for Gift Card Codes (obsidian.global.holdings@gmail.com).\n"
-        summary += "   - [ ] Confirm Geonode/Rayobyte Handshake in browser tabs.\n"
+        summary += "   - [ ] Confirm Geonode/Rayobyte Connection in browser tabs.\n"
         summary += "   - [ ] Share the $19.99 Masterclass link to social hubs manually to force a sale.\n"
 
         summary += "\n4. SUPERHUMAN RECOMMENDATION:\n"

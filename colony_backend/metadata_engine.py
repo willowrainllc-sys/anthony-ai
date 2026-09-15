@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE METADATA ENGINE: CONVERSION OPTIMIZER v1.1 (PLATFORM-SPECIFIC) ---
 import asyncio
 import json

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9539640812310468" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,27 +68,27 @@
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen p-6">
 
-    <!-- 🔱 Master Header -->
+    <!-- [+] Master Header -->
     <div class="fixed top-10 left-10 flex items-center gap-3">
         <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center text-white font-black italic text-xl">O</div>
         <div class="space-grotesk font-bold tracking-tighter text-xl">GLOBAL PAY</div>
     </div>
 
-    <!-- 🔱 Tabs -->
+    <!-- [+] Tabs -->
     <div class="flex gap-12 mb-12 text-sm font-bold text-gray-400 uppercase tracking-widest">
         <div class="text-black border-b-2 border-black pb-2 cursor-pointer" id="tab-cash" onclick="showTab('cash')">CASH</div>
         <div class="hover:text-black cursor-pointer pb-2" id="tab-crypto" onclick="showTab('crypto')">CRYPTO</div>
-        <div class="hover:text-black cursor-pointer pb-2" onclick="alert('🔱 Business Intelligence Locked.')">CARDS</div>
+        <div class="hover:text-black cursor-pointer pb-2" onclick="alert('[+] Business Intelligence Locked.')">CARDS</div>
     </div>
 
-    <!-- 🔱 Amount Display -->
+    <!-- [+] Amount Display -->
     <div id="cash-view">
         <div class="text-center mb-12">
             <div class="text-7xl font-black space-grotesk" id="amountDisplay">$0</div>
             <div class="text-gray-400 mt-4 font-semibold uppercase tracking-widest text-[10px]">global-pay.io</div>
         </div>
 
-        <!-- 🔱 Numpad Grid -->
+        <!-- [+] Numpad Grid -->
         <div class="grid grid-cols-3 gap-8 mb-16">
             <div class="numpad-btn" onclick="addNum('1')">1</div>
             <div class="numpad-btn" onclick="addNum('2')">2</div>
@@ -97,14 +104,14 @@
             <div class="numpad-btn" onclick="clearNum()">×</div>
         </div>
 
-        <!-- 🔱 Action Bar -->
+        <!-- [+] Action Bar -->
         <div class="flex gap-4 w-full max-w-sm">
-            <button class="flex-1 bg-black text-white py-4 rounded-xl font-bold hover:scale-105 transition" onclick="alert('🔱 Ingress Requested.')">REQUEST</button>
+            <button class="flex-1 bg-black text-white py-4 rounded-xl font-bold hover:scale-105 transition" onclick="alert('[+] Access Requested.')">REQUEST</button>
             <button class="flex-1 bg-green-500 text-white py-4 rounded-xl font-bold hover:scale-105 transition" onclick="payBurst()">PAY</button>
         </div>
     </div>
 
-    <!-- 🔱 Crypto View -->
+    <!-- [+] Crypto View -->
     <div id="crypto-view" class="hidden w-full max-w-md">
         <div class="space-y-4">
             <div class="bg-gray-50 p-6 rounded-2xl flex justify-between items-center border border-gray-100">
@@ -138,7 +145,7 @@
                 </div>
             </div>
         </div>
-        <button class="w-full mt-10 bg-black text-white py-4 rounded-xl font-bold hover:bg-gray-900 transition" onclick="alert('🔱 Crypto Ingress Portal Opening...')">TRADE ASSETS</button>
+        <button class="w-full mt-10 bg-black text-white py-4 rounded-xl font-bold hover:bg-gray-900 transition" onclick="alert('[+] Crypto Access Portal Opening...')">TRADE ASSETS</button>
     </div>
 
     <script>
@@ -194,7 +201,7 @@
                         sender: "$director",
                         receiver: cashtag,
                         amount: amount,
-                        note: "Autonomous Business Burst"
+                        note: "Automatic Business Burst"
                     })
                 });
                 const data = await resp.json();

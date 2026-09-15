@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- OBSIDIAN SYSTEM HEALTH & HANDSHAKE AUDIT v1.0 ---
 import os
 import asyncio
@@ -23,7 +23,7 @@ class ObsidianHealthAudit:
         }
 
     async def run_full_audit(self):
-        print("🔱 INITIATING SUPREME SYSTEM AUDIT...")
+        print("[+] INITIATING SUPREME SYSTEM AUDIT...")
 
         # 1. Internal API Check
         try:
@@ -52,7 +52,7 @@ class ObsidianHealthAudit:
         except:
             print("[-] EXTERNAL MESH: Connection throttled.")
 
-        print("🔱 AUDIT COMPLETE: Systems functional.")
+        print("[+] AUDIT COMPLETE: Systems functional.")
 
 if __name__ == "__main__":
     audit = ObsidianHealthAudit()

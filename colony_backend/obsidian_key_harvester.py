@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (KEY HARVESTER) ---
 import asyncio
 import os
@@ -14,7 +14,7 @@ VAULT_PATH = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\ind
 class ObsidianKeyHarvester:
     """
     KEY HARVESTER:
-    The "Hands of the Empire" for API Ingress.
+    The "Hands of the Empire" for API Access.
     1. PORTAL LOGON: Uses Director credentials to enter developer consoles.
     2. KEY EXTRACTION: Physically locates and copies API keys and tokens.
     3. VAULT SYNC: Updates the industrial_api_vault.json with live "Ammo."
@@ -37,13 +37,13 @@ class ObsidianKeyHarvester:
             browser = await p.chromium.launch(headless=True)
             context = await browser.new_context(viewport={'width': 1920, 'height': 1080})
 
-            # 🔱 1. NameSilo Burst (The Domain Ammo)
+            # [+] 1. NameSilo Burst (The Domain Ammo)
             await self._harvest_namesilo(context)
 
-            # 🔱 2. Cloudflare Burst (The DNS Bridge)
+            # [+] 2. Cloudflare Burst (The DNS Bridge)
             await self._harvest_cloudflare(context)
 
-            # 🔱 3. GitHub Burst (The Free Domain/Hosting Way)
+            # [+] 3. GitHub Burst (The Free Domain/Hosting Way)
             await self._harvest_github(context)
 
             await browser.close()

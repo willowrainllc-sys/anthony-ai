@@ -2,7 +2,7 @@ import os
 import json
 import random
 
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 
 def populate_media():
     # Direct access to the physical render repository
@@ -19,7 +19,7 @@ def populate_media():
     media_list = []
     files = [f for f in os.listdir(render_dir) if f.endswith(".mp4")]
 
-    print(f"Scanning Ingress: Found {len(files)} video assets.")
+    print(f"Scanning Access: Found {len(files)} video assets.")
 
     for file in files:
         title = file.replace(".mp4", "").replace("_", " ").upper()

@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE MASTER BURST: ALL PLATFORMS (MIND SERVER API) ---
 import asyncio
 import httpx

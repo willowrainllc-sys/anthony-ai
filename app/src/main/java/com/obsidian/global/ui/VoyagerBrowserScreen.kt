@@ -112,7 +112,10 @@ fun ObsidianTitanBrowserScreen(
                         // 🔱 SOVEREIGN INGRESS RESOLVER
                         val finalUrl = when {
                             initialUrl.contains("trycloudflare.com") -> initialUrl
-                            initialUrl.contains("obsidian.city") -> "file:///android_asset/index.html"
+                            initialUrl.contains("obsidian.city") -> {
+                                val path = initialUrl.substringAfter("obsidian.city/").ifEmpty { "index.html" }
+                                "file:///android_asset/$path"
+                            }
                             initialUrl.contains("town360.com") -> "file:///android_asset/town360_landing.html"
                             initialUrl.contains("obsidian-global.io") -> "file:///android_asset/obsidian_index.html"
                             initialUrl.contains("mywebbrowser.com") || initialUrl.contains("titan-browser.io") -> {

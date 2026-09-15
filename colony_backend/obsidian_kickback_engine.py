@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v6.0 (KICKBACK REPLICA) ---
 import asyncio
 import os
@@ -33,7 +33,7 @@ class ObsidianKickbackEngine:
                 # 2. Apply Data Filter (Removing technical jargon for the public)
                 filtered_thought = raw_thought.replace("throughput", "velocity").replace("lies", "limitations")
 
-                # 3. Fetch Sponsor Handshake
+                # 3. Fetch Sponsor Connection
                 async with httpx.AsyncClient() as client:
                     resp = await client.get(self.sponsor_api, timeout=2.0)
                     sponsor = resp.json()['text']

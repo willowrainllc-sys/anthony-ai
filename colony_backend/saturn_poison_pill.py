@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: POISON PILL (SELF-DESTRUCT) v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import subprocess

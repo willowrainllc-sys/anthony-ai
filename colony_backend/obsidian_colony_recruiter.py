@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN COLONY RECRUITER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import json

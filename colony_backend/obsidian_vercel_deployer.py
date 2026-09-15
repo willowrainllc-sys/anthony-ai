@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (VERCEL DEPLOYER) ---
 import os
 import httpx
@@ -44,12 +44,12 @@ class VercelDeployer:
         # as it's the most stable way to sync the local folder for free.
 
         colony_log(f"[+] VERCEL READY: Project [{PROJECT_NAME}] is synced with your Token.", node="SUPREME")
-        print(f"\n🔱 [VERCEL DEPLOY]: YOUR LEGIT HTTPS LINKS ARE ACTIVE:\n")
+        print(f"\n[+] [VERCEL DEPLOY]: YOUR LEGIT HTTPS LINKS ARE ACTIVE:\n")
         print(f"HQ: https://{PROJECT_NAME}.vercel.app")
         print(f"CITY: https://obsidian.city\n")
 
-        # Guide for standard browser ingress
-        colony_log("VERCEL: Global Ingress stable on Chrome/Edge/Firefox.", node="SUPREME")
+        # Guide for standard browser access
+        colony_log("VERCEL: Global Access stable on Chrome/Edge/Firefox.", node="SUPREME")
 
 if __name__ == "__main__":
     deployer = VercelDeployer()

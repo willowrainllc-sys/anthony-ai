@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: GLOBAL FLEET CONTROLLER & NODE MESH v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -121,7 +121,6 @@ fleet_controller = GlobalFleetController()
 
 if __name__ == "__main__":
     m = asyncio.run(fleet_controller.audit_global_fleet_health())
-    print("\n=== [SUPREME] WILLOW RAIN GLOBAL FLEET STATUS ===")
     print("Fleet ID:", m.fleet_id)
     print("Total Active Nodes:", m.total_active_nodes)
     print("Mesh Health:", f"{m.mesh_health_score}%")

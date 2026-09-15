@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- OPENMONTAGE: OPEN-SOURCE PYTHON VIDEO MONTAGE ENGINE v3.0 (PNG & MP4 SUPPORT) ---
 import os
 import sys

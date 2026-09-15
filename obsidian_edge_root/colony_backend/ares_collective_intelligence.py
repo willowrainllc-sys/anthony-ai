@@ -12,7 +12,7 @@ class AresCollectiveIntelligence:
     """
     ARES COLLECTIVE INTELLIGENCE:
     The evolution beyond server-trapped AI.
-    1. FEDERATED INGRESS: Edge nodes (phones/PCs) process local context (vitals, interactions).
+    1. FEDERATED INGRESS: Edge nodes (phones/PCs) process local context (status, interactions).
     2. DISTILLATION BRIDGE: Nodes send 'Knowledge Weights' (not raw data) back to the Oracle.
     3. COLLECTIVE SYNTHESIS: The Supreme Oracle updates its global reasoning based on edge learnings.
     4. PROOF-OF-INFERENCE: Rewards nodes with high-efficiency reasoning.

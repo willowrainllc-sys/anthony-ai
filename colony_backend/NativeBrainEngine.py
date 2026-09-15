@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ANTHONY AI: NATIVE INTELLIGENCE BASE v1.0 (OWNED) ---
 import json
 import time
@@ -6,7 +7,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from colony_logger import colony_log
 
-# 🔱 THE BASE CONFIGURATION
+# [+] THE BASE CONFIGURATION
 # Using Phi-3-mini (3.8B) as the native high-fidelity base
 MODEL_ID = "microsoft/Phi-3-mini-4k-instruct"
 PORT = 9000
@@ -94,7 +95,7 @@ def run_server():
 
     server_address = ('', PORT)
     httpd = HTTPServer(server_address, BrainRequestHandler)
-    colony_log(f"🔱 BRAIN_BASE: Native Socket Server listening on Port {PORT}...", node="BRAIN_BASE")
+    colony_log(f"[+] BRAIN_BASE: Native Socket Server listening on Port {PORT}...", node="BRAIN_BASE")
     httpd.serve_forever()
 
 if __name__ == "__main__":

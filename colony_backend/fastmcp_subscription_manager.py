@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE FASTMCP & FASTAPI DEVELOPER API SUBSCRIPTION MANAGER v1.0 ---
 import os
 import sys

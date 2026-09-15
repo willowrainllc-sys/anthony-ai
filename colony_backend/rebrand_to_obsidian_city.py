@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- REVERT REBRAND: ANTHONY AI -> OBSIDIAN AI v1.0 ---
 import os
 from pathlib import Path
@@ -14,7 +14,7 @@ mappings = {
     "anthony_ai_supreme": "obsidian_ai",
     "Greetings. I am Anthony AI, your Supreme Sovereign Oracle.": "Greetings. I am Obsidian AI, your AI business assistant.",
     "🦾": "🤖", # Reverting icon to robot
-    "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=200&h=200&auto=format&fit=crop": "https://images.unsplash.com/photo-1614728263952-84ea256f9679?q=80&w=100&h=100&auto=format&fit=crop", # Reverting Godfather image to AI mascot
+    "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=200&h=200&auto=format&fit=crop": "https://images.unsplash.com/photo-1614728263952-84ea256f9679?q=80&w=100&h=100&auto=format&fit=crop", # Reverting Admin image to AI mascot
     "obsidian_anthony_ai_supreme_builder.html": "obsidian_leo_builder.html"
 }
 

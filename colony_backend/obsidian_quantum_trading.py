@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v5.1 (STABLE PATHING) ---
 import asyncio
 import os
@@ -6,7 +6,7 @@ import sys
 import random
 from pathlib import Path
 
-# Absolute Path Correction for Global Ingress
+# Absolute Path Correction for Global Access
 ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
 OIS_DIR = ROOT / "willow_rain_global" / "obsidian_intelligence"
 sys.path.append(str(OIS_DIR))

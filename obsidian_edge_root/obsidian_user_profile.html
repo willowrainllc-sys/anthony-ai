@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Obsidian City | Cloud & Identity Hub</title>
@@ -8,66 +15,73 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #f8fafc; color: #0f172a; font-family: 'Inter', sans-serif; margin: 0; }
-        .nav-header { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
-        .profile-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 24px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        body { background-color: #030305; color: #fff; font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
+        .nav-header { background: rgba(0,0,0,0.4); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 20px 60px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .profile-card { background: rgba(10, 10, 15, 0.8); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 32px; padding: 50px; backdrop-filter: blur(20px); box-shadow: 0 40px 100px rgba(0,0,0,0.5); }
+        .info-group { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 25px; transition: 0.3s; }
+        .info-group:hover { border-color: #3b82f6; }
     </style>
     <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
     <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
 </head>
 <body>
-    <!-- 🔱 Navigation Header -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHCNLC5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <!-- [+] Navigation Header -->
     <nav class="nav-header">
         <div class="flex items-center gap-10">
-            <a href="index.html" class="font-black text-2xl tracking-tighter text-slate-900">OBSIDIAN<span class="text-blue-600">.CITY</span></a>
+            <a href="index.html" class="font-black text-2xl tracking-tighter text-white">OBSIDIAN<span class="text-blue-600">.CITY</span></a>
         </div>
-        <div class="flex items-center gap-6 text-sm font-bold text-slate-600">
-            <a href="obsidian_city_dashboard.html" class="hover:text-blue-600">Dashboard</a>
-            <a href="obsidian_help_center.html" class="hover:text-blue-600">Help Center</a>
-            <button onclick="handleLogout()" class="bg-slate-100 text-slate-700 px-5 py-2 rounded-xl font-bold text-xs transition">Log Out</button>
+        <div class="flex items-center gap-6 text-[10px] font-black uppercase tracking-widest text-gray-500">
+            <a href="obsidian_city_dashboard.html" class="hover:text-white transition">Dashboard</a>
+            <a href="obsidian_help_center.html" class="hover:text-white transition">Support</a>
+            <button onclick="handleLogout()" class="bg-white/5 border border-white/10 text-white px-6 py-2 rounded-xl hover:bg-white/10 transition">Sign Out</button>
         </div>
     </nav>
 
-    <div class="max-w-4xl mx-auto px-6 py-16">
+    <div class="max-w-4xl mx-auto px-6 py-24">
         <div class="profile-card">
-            <div class="flex items-center gap-6 mb-10">
-                <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center text-white text-3xl font-black shadow-lg">
+            <div class="flex items-center gap-8 mb-12">
+                <div class="w-28 h-28 bg-blue-600 rounded-3xl flex items-center justify-center text-white text-4xl font-black shadow-2xl shadow-blue-600/20">
                     <span id="initials">U</span>
                 </div>
                 <div>
-                    <h1 class="text-3xl font-black text-slate-900 mb-1" id="userName">Authorized User</h1>
-                    <p class="text-slate-500 text-sm font-medium" id="userEmailDisplay">user@example.com</p>
+                    <div class="text-[10px] font-black text-blue-400 uppercase tracking-[4px] mb-2">Member Node Active</div>
+                    <h1 class="text-4xl font-black text-white tracking-tighter mb-1" id="userName">Authorized User</h1>
+                    <p class="text-gray-500 text-sm font-bold uppercase tracking-widest" id="userEmailDisplay">user@example.com</p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 border-t border-slate-100 pt-10">
-                <div>
-                    <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-6">Security & Login</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-white/5 pt-12">
+                <div class="info-group">
+                    <h3 class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-6">Security Architecture</h3>
                     <div class="space-y-6">
                         <div>
-                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Primary Email</label>
-                            <p class="text-sm font-bold text-slate-900" id="detailEmail">user@example.com</p>
+                            <label class="block text-[9px] font-black text-gray-500 uppercase mb-2">Authenticated Access</label>
+                            <p class="text-sm font-bold text-white mono" id="detailEmail">user@example.com</p>
                         </div>
                         <div>
-                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Two-Factor Auth</label>
-                            <span class="bg-emerald-100 text-emerald-700 text-[10px] font-black px-2.5 py-1 rounded-full uppercase">Enabled (Email OTP)</span>
+                            <label class="block text-[9px] font-black text-gray-500 uppercase mb-2">ARES Protection</label>
+                            <span class="bg-emerald-500/10 text-emerald-500 text-[9px] font-black px-3 py-1 rounded-full uppercase">PQC Encryption Active</span>
                         </div>
-                        <button onclick="alert('Session security reset triggered.')" class="text-blue-600 font-bold text-xs hover:underline">Change Password or Security Keys →</button>
+                        <button onclick="alert('Session security reset triggered.')" class="text-blue-600 font-black text-[10px] uppercase tracking-widest hover:underline">Rotate Security Keys →</button>
                     </div>
                 </div>
 
-                <div>
-                    <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-6">Subscription & Tier</h3>
+                <div class="info-group">
+                    <h3 class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-6">Subscription Status</h3>
                     <div class="space-y-6">
                         <div>
-                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Wholesale Tier</label>
-                            <p class="text-sm font-bold text-slate-900">Tier 1 Elite Business</p>
+                            <label class="block text-[9px] font-black text-gray-500 uppercase mb-2">Current Tier</label>
+                            <p class="text-sm font-bold text-white uppercase">Elite Business Node</p>
                         </div>
                         <div>
-                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-2">Payment Status</label>
-                            <p class="text-sm font-bold text-slate-900">Current (Auto-Renew Active)</p>
+                            <label class="block text-[9px] font-black text-gray-500 uppercase mb-2">Direct Settlement</label>
+                            <p class="text-sm font-bold text-emerald-500 uppercase">Auto-Renew: ON</p>
                         </div>
-                        <a href="checkout" class="text-blue-600 font-bold text-xs hover:underline">Manage Billing & Payment Methods →</a>
+                        <a href="obsidian_unified_checkout.html" class="text-blue-600 font-black text-[10px] uppercase tracking-widest hover:underline">Manage Merchant Account →</a>
                     </div>
                 </div>
             </div>
@@ -76,7 +90,10 @@
 
     <script>
         window.addEventListener('DOMContentLoaded', () => {
-            const email = localStorage.getItem('obsidian_email') || 'user@example.com';
+            const sessionData = localStorage.getItem('obsidian_session');
+            const session = sessionData ? JSON.parse(sessionData) : {};
+            const email = session.email || 'user@example.com';
+
             document.getElementById('userEmailDisplay').innerText = email;
             document.getElementById('detailEmail').innerText = email;
             document.getElementById('initials').innerText = email.charAt(0).toUpperCase();
@@ -87,7 +104,6 @@
 
         function handleLogout() {
             localStorage.removeItem('obsidian_session');
-            localStorage.removeItem('obsidian_email');
             window.location.href = 'index.html';
         }
     </script>

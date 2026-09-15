@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE VIRAL FACTORY: HIGH-TENSION NARRATIVE MATRIX v1.0 ---
 import random
 import json

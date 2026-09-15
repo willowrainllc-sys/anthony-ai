@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: GIT REPOSITORY ORCHESTRATOR v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import subprocess
 from pathlib import Path

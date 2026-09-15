@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: VIDBEE OPEN-SOURCE ASSET SNIPER v1.0 (1,000+ SITES) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import asyncio

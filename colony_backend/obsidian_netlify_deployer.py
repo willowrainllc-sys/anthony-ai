@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (NETLIFY DEPLOYER) ---
 import os
 import json
@@ -8,7 +8,7 @@ from pathlib import Path
 from colony_logger import colony_log
 from colony_persistence import db
 
-# 🔱 NETLIFY CONFIGURATION
+# [+] NETLIFY CONFIGURATION
 NETLIFY_SITE_ID = "96e82213-0db0-4c0c-9c31-4d68ba0041ad"
 NETLIFY_AUTH_TOKEN = os.getenv("NETLIFY_AUTH_TOKEN") # Director to update
 
@@ -32,14 +32,14 @@ class NetlifyDeployer:
 
         if not NETLIFY_AUTH_TOKEN:
             colony_log("[-] NETLIFY FAIL: Auth Token not found in .env.", node="SUPREME")
-            print("\n🔱 [NETLIFY]: MISSING AUTH TOKEN. Update .env to activate the Netlify Freeway.\n")
+            print("\n[+] [NETLIFY]: MISSING AUTH TOKEN. Update .env to activate the Netlify Freeway.\n")
             return
 
-        # 🔱 In a full burst, we would ZIP the portal and POST to /sites/{site_id}/deploys
+        # [+] In a full burst, we would ZIP the portal and POST to /sites/{site_id}/deploys
         # For now, we establish the bridge link and report status.
 
         colony_log(f"[+] NETLIFY READY: Site [town360] is synced with your Token.", node="SUPREME")
-        print(f"\n🔱 [NETLIFY DEPLOY]: YOUR TOWN360 FRONTEND IS LIVE:\nhttps://town360.netlify.app\n")
+        print(f"\n[+] [NETLIFY DEPLOY]: YOUR TOWN360 FRONTEND IS LIVE:\nhttps://town360.netlify.app\n")
 
         db.log_event("SUPREME", "NETLIFY_DEPLOY_SYNCED", {"site_id": NETLIFY_SITE_ID})
 

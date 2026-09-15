@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ANTHONY AI: FACEBOOK BOT CREATOR & AUTH LINKER v1.0 ---
 import asyncio
 from playwright.async_api import async_playwright
@@ -6,8 +7,8 @@ import uuid
 import sqlite3
 from colony_logger import colony_log
 
-DB_PATH = r"C:\ObsidianAi_Colony\Empire_Vault.db"
-PERSONA_VAULT = r"C:\Users\willo/OneDrive/Desktop/Obsidian_Ai\secure_assets\persona_vault"
+DB_PATH = r"C:\AnthonyAi_Colony\Empire_Vault.db"
+PERSONA_VAULT = r"C:\Users\willo/OneDrive/Desktop/Anthony_Ai\secure_assets\persona_vault"
 
 async def launch_facebook_linker():
     """

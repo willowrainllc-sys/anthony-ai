@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (WIKI ARCHITECT) ---
 import json
 import time
@@ -27,7 +27,7 @@ class ObsidianWikiLibrary:
             },
             "OBSIDIAN_TITAN": {
                 "title": "Obsidian Titan Browser",
-                "summary": "A privacy-centric web ingress engine powered by a distributed 5,000 IP residential mesh.",
+                "summary": "A privacy-centric web access engine powered by a distributed 5,000 IP residential mesh.",
                 "status": "v29.0 Stable"
             },
             "GLOBAL_PAY": {
@@ -37,8 +37,8 @@ class ObsidianWikiLibrary:
             },
             "VORTEX_SCRAPER": {
                 "title": "Vortex Scraper",
-                "summary": "A next-generation industrial data harvesting engine using PQC fragment ingress and 5,000 IP mesh dispersion.",
-                "type": "Data Ingress"
+                "summary": "A next-generation industrial data harvesting engine using PQC fragment access and 5,000 IP mesh dispersion.",
+                "type": "Data Access"
             },
             "OBSIDIAN_ESTATES": {
                 "title": "Obsidian Estates",

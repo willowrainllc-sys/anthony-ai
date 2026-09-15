@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN PENTA-STACKER v1.0 (LOOPHOLE) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import sys
@@ -11,7 +11,7 @@ class ObsidianPentaStacker:
     PENTA-STACKER v1.0:
     The "Double-Dip" Loophole.
     1. REVENUE STACKING: Runs 5 different mining apps on every single IP in the grid.
-    2. APP CATALOG: Obsidian Ingress, Pawns.app, EarnApp, Repocket, PacketStream.
+    2. APP CATALOG: Obsidian Access, Pawns.app, EarnApp, Repocket, PacketStream.
     3. YIELD MULTIPLIER: Turns a $20/day IP into a $100/day IP.
     4. NO BIRTH ERRORS: Uses existing master accounts, avoiding the 429 signup wall.
     """

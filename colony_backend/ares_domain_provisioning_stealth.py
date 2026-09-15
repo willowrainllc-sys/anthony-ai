@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES AUTOMATED DOMAIN PROVISIONING ENGINE (STEALTH) v1.0 ---
 import asyncio
 import os

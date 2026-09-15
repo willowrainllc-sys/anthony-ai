@@ -1,10 +1,10 @@
-# --- WILLOW RAIN COMPANY LLC: HONEY COMB DATA FLOW DAEMON v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import time
 import random
 from colony_logger import colony_log
 from colony_persistence import db
-from obsidian_ingress_data_flow_auditor import flow_auditor
+from obsidian_access_data_flow_auditor import flow_auditor
 from obsidian_daemon_base import ObsidianDaemon
 
 class HoneyCombDaemon(ObsidianDaemon):

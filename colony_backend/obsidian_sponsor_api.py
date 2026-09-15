@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: SOVEREIGN SPONSOR API v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import random
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware

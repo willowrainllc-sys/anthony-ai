@@ -1,35 +1,28 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
-# --- EMPIRE JARGON PURGE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
+# --- EMPIRE BRAND HARDENING v2.0 (PRODUCTION) ---
 import os
 from pathlib import Path
 
 root = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
 
-# Mappings for Professional Rebranding
+# Mappings for Professional/Enterprise Rebranding
 mappings = {
-    "AI Business Assistant": "AI Business Assistant",
-    "business growth": "business growth",
-    "business growth": "business growth",
-    "Enterprise AI Node": "Enterprise AI Node",
-    "High-Performance": "High-Performance",
-    "high-performance": "high-performance",
-    "Advanced": "Advanced",
-    "Director Dashboard": "Director Dashboard",
-    "Business Starter Bundle": "Business Starter Bundle",
-    "Management Console": "Management Console",
-    "System Access": "System Access",
-    "system access": "system access",
-    "Global Edge Network": "Global Edge Network",
-    "global edge network": "global edge network",
-    "Operational status": "Operational status",
-    "operational status": "operational status",
-    "System Administrator": "System Administrator",
-    "Enterprise AI": "Enterprise AI",
-    "enterprise AI": "enterprise AI",
-    "Business Infrastructure": "Business Infrastructure",
-    "Digital Business": "Digital Business",
-    "digital business": "digital business",
-    "Wholesale Access": "Wholesale Access"
+    "High-Aura": "High-Performance",
+    "high-aura": "high-performance",
+    "Elite": "Professional",
+    "elite": "professional",
+    "Strike": "Campaign",
+    "strike": "campaign",
+    "Handshake": "Integration",
+    "handshake": "integration",
+    "Sovereign": "Independent",
+    "sovereign": "independent",
+    "Disciple": "Associate",
+    "disciple": "associate",
+    "Colony": "Network",
+    "colony": "network",
+    "Aura": "Performance",
+    "aura": "performance"
 }
 
 def purge_jargon():

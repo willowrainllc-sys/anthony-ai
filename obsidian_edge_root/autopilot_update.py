@@ -16,7 +16,7 @@ def sync_updates():
             print(result.stdout)
             # You can add a command here to restart the server if needed
         else:
-            print("● System current. No new ingress.")
+            print("● System current. No new access.")
 
     except Exception as e:
         print(f"[-] Sync Error: {e}")

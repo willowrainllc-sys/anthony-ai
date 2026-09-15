@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: FULL FLEET LAUNCHER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import subprocess
 import time
@@ -18,7 +18,6 @@ FLEET_SCRIPTS = [
 ]
 
 def launch_fleet():
-    print("[SUPREME] WILLOW RAIN: Initiating Full Fleet Deployment...")
 
     for script in FLEET_SCRIPTS:
         script_path = BACKEND_DIR / script

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: SUPREME ACCOUNT FACTORY v7.0 (RESOURCE-AWARE) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import uuid
@@ -24,7 +24,7 @@ class ObsidianAccountFactory:
     3. GHOST DNA: Hard-wired mobile hardware fingerprints.
     """
     def __init__(self):
-        self.signup_url = "https://dashboard.obsidian_ingress.com/sign-up"
+        self.signup_url = "https://dashboard.obsidian_access.com/sign-up"
         self.max_parallel = 1 # HARD LIMIT: One browser at a time to prevent RAM crash
 
     async def execute_9k_blitz(self, count: int = 1800):
@@ -68,7 +68,7 @@ class ObsidianAccountFactory:
 
         from playwright_industrial_bursts import burst_engine
 
-        # 🔱 Using the Industrial Burst Engine for better stealth and consistency
+        # [+] Using the Industrial Burst Engine for better stealth and consistency
         colony_log(f"FACTORY: Dispatching industrial signup pulse for {email}...", node="SUPREME")
 
         async with async_playwright() as p:

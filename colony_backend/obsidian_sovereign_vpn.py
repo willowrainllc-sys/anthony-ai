@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v8.0 (SOVEREIGN VPN) ---
 import asyncio
 import os
@@ -11,7 +11,7 @@ class ObsidianSovereignVPN:
     """
     SOVEREIGN VPN ENGINE:
     The "Self-Made" unblockable tunnel. Replacing legacy WireGuard.
-    1. ZERO-TRUST MESH: Connects the The Nest via private SOCKS5 + SSH tunneling.
+    1. ZERO-TRUST MESH: Connects the Nest via private SOCKS5 + SSH tunneling.
     2. OBFUSCATION BURST: Uses the Shadow Protocol to mask VPN traffic as standard HTTPS.
     3. DYNAMIC ROTATION: Switches exit nodes across the global 5,103 node mesh.
     4. GHOST IDENTITY: Physically binds the VPN signature to the Director's Root Key.
@@ -24,12 +24,12 @@ class ObsidianSovereignVPN:
     async def ignite_sovereign_tunnel(self):
         colony_log("🛡️ VPN: Igniting Sovereign 'Self-Made' VPN Mesh...", node="SECURITY")
 
-        # 🔱 Phase 1: Establish the Obsidian Matrix (PProxy)
+        # [+] Phase 1: Establish the Obsidian Matrix (PProxy)
         # This acts as our internal routing plane
         subprocess.Popen("start /b python colony_backend/obsidian_pproxy_runner.py", shell=True)
         await asyncio.sleep(3)
 
-        # 🔱 Phase 2: Launch Shadow Tunnels for the The Nest
+        # [+] Phase 2: Launch Shadow Tunnels for the Nest
         # Logic: Creating peer-to-peer encrypted pipes between Mustang nodes
         self.active_tunnels = 103
         self.is_active = True

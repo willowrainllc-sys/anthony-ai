@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (ROOT AUTHORITY) ---
 import os
 import json
@@ -47,7 +47,7 @@ class ObsidianRootAuthority:
         if not domain_name.endswith(tuple([".obsidian", ".anthony", ".global", ".usa"])):
             return False, "INVALID_SOVEREIGN_TLD"
 
-        colony_log(f"ORA: Provisioning Sovereign Identity [{domain_name}] for {owner_cashtag}...", node="SUPREME")
+        colony_log(f"ORA: Setting up Sovereign Identity [{domain_name}] for {owner_cashtag}...", node="SUPREME")
 
         # Logic to append to the master ledger
         # This bypasses all external registrars and ICANN fees
@@ -65,7 +65,7 @@ class ObsidianRootAuthority:
         """Generates a high-performance RSA keypair for a government contract."""
         colony_log(f"ORA: Issuing GOV_DIRECT keys for [{agency_name}]...", node="SUPREME")
 
-        # 🔱 The 'Cash Cow' Keys:
+        # [+] The 'Cash Cow' Keys:
         # High-bitrate RSA keys that bind an agency to the Obsidian root authority.
         key_id = f"GOV-{uuid.uuid4().hex[:12].upper()}"
 

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN IPAM (IP ADDRESS MANAGEMENT) v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 import sqlite3
@@ -78,7 +78,6 @@ ipam = ObsidianIPAM()
 
 if __name__ == "__main__":
     status = ipam.get_pool_status()
-    print("\n=== [SUPREME] WILLOW RAIN IPAM STATUS ===\n")
     print(f"  Total Public IPs: {status['total_ips']}")
     print(f"  Active Leases:    {status['leased']}")
     print(f"  Available:        {status['available']}")

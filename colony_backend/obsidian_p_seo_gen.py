@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- OBSIDIAN CITY pSEO & SITEMAP ENGINE v1.0 ---
 import os
 import json
@@ -11,25 +11,43 @@ states_file = root / "colony_backend" / "states_data.json"
 def generate_sitemap():
     print("[*] pSEO ENGINE: Generating Automated Sitemap...")
 
-    # 1. Base Pages
+    # 1. Base Pages (Tier 1 Pillars)
     pages = [
         "index.html", "obsidian_domains.html", "obsidian_llc_formation.html",
         "obsidian_vps_hosting.html", "obsidian_anthony_ai_supreme_builder.html", "developer.html"
     ]
 
-    # 2. Programmatic State Pages
+    # 1.5. Dynamic Category Hubs (Tier 2 Categories)
+    categories = [
+        "tax-havens",
+        "instant-processing",
+        "low-state-fees"
+    ]
+
+    # 2. Programmatic State Pages (Tier 3 Leaves)
     with open(states_file, 'r') as f:
         states = json.load(f)
 
     sitemap_entries = []
     base_url = "https://obsidian.city"
 
-    # Static pages
+    # Static Tier 1 pages
     for p in pages:
-        sitemap_entries.append(f"  <url>\n    <loc>{base_url}/{p.replace('.html', '')}</loc>\n    <lastmod>{datetime.now().strftime('%Y-%m-%d')}</lastmod>\n    <priority>0.8</priority>\n  </url>")
+        sitemap_entries.append(f"  <url>\n    <loc>{base_url}/{p.replace('.html', '')}</loc>\n    <lastmod>{datetime.now().strftime('%Y-%m-%d')}</lastmod>\n    <priority>1.0</priority>\n  </url>")
 
-    # Dynamic LLC pages
-    for code, info in states.items():
+    # Tier 2 Hub pages
+    for cat in categories:
+        sitemap_entries.append(f"  <url>\n    <loc>{base_url}/llc-clusters/{cat}</loc>\n    <lastmod>{datetime.now().strftime('%Y-%m-%d')}</lastmod>\n    <priority>0.8</priority>\n  </url>")
+
+    # Dynamic LLC Tier 3 pages
+    state_keys = list(states.keys())
+    for i, (code, info) in enumerate(states.items()):
+        # Establish dynamic internal linking fields for automated horizontally related state pages
+        # (e.g., cross-linking neighboring/alternative states to eliminate thin content patterns)
+        prev_code = state_keys[(i - 1) % len(state_keys)]
+        next_code = state_keys[(i + 1) % len(state_keys)]
+        rand_code = state_keys[(i + 3) % len(state_keys)]
+
         sitemap_entries.append(f"  <url>\n    <loc>{base_url}/start-llc/{code.lower()}</loc>\n    <lastmod>{datetime.now().strftime('%Y-%m-%d')}</lastmod>\n    <priority>0.6</priority>\n  </url>")
 
     sitemap_content = f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -51,7 +69,9 @@ def generate_seo_guides():
     keywords = [
         "best domain registrar for startups in Missouri",
         "how to bypass GoDaddy price hikes",
-        "building AI apps on NVMe VPS hosting",
+        "world's first public AI mesh API access",
+        "sovereign AI development platform for founders",
+        "industrial grade residential proxy network for AI training",
         "registering .city domains for local commerce"
     ]
 

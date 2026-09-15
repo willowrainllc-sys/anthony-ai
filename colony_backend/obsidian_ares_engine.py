@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (ARES ENGINE - VISUAL UI HEALING HYBRID) ---
 import asyncio
 import os
@@ -53,7 +53,7 @@ class ObsidianAresEngine:
 
                 if "login" in page.url or "signin" in page.url:
                     colony_log("[!] ARES: Please complete sign-in in the opened browser window...", node="SUPREME")
-                    print("\n🔱 [ARES OAUTH AUTHENTICATION]: Please log in in the browser window.")
+                    print("\n[+] [ARES OAUTH AUTHENTICATION]: Please log in in the browser window.")
                     await page.wait_for_url("**/settings/domains**", timeout=120000)
 
                 colony_log("ARES VISUAL: Reached Vercel Domains page. Taking diagnostic screenshot...", node="SUPREME")
@@ -63,7 +63,7 @@ class ObsidianAresEngine:
                 colony_log(f"[+] ARES VISUAL: Screenshot vaulted to {shot_path}", node="SUPREME")
 
                 print("\n" + "="*70)
-                print("  🔱 ARES VISUAL UI FIXER ACTIVE")
+                print("  [+] ARES VISUAL UI FIXER ACTIVE")
                 print("  ARES has vaulted a screenshot of your Vercel Domains settings.")
                 print("  Re-binding domain to clear the 404...")
                 print("="*70 + "\n")
@@ -77,7 +77,21 @@ class ObsidianAresEngine:
     async def autonomous_vercel_redeploy(self, project_name: str = "anthony-ai", domain: str = "obsidian.city"):
         await self.autonomous_fix_vercel_domain_ui(project_name, domain)
 
+    async def run_seo_maintenance(self):
+        """Dispatches the ARES Open Source SEO Commander."""
+        colony_log("ARES: Initiating scheduled SEO mission...", node="SUPREME")
+        try:
+            from ares_os_seo_commander import AresOsSeoCommander
+            commander = AresOsSeoCommander()
+            await commander.run_seo_mission()
+        except Exception as e:
+            colony_log(f"[-] ARES SEO ERROR: {e}", node="SUPREME")
+
 ares = ObsidianAresEngine()
 
 if __name__ == "__main__":
-    asyncio.run(ares.autonomous_fix_vercel_domain_ui(project_name="anthony-ai", domain="obsidian.city"))
+    # Standard Maintenance Cycle
+    async def main():
+        await ares.autonomous_fix_vercel_domain_ui(project_name="anthony-ai", domain="obsidian.city")
+        await ares.run_seo_maintenance()
+    asyncio.run(main())

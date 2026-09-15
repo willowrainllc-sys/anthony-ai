@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE TRAFFIC OPERATOR & HIGH-YIELD PROXY RELAY BROKER v2.0 (16 PORTS & SQUARE BANK DEPOSIT) ---
 import os
 import sys

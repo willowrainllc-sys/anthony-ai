@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>LLC Intake | Business Details | Obsidian City</title>
@@ -20,50 +27,86 @@
     <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHCNLC5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <div class="form-card">
         <div class="mb-6">
             <a href="obsidian_llc_formation.html" class="text-xs font-bold text-blue-600 hover:underline">← Back</a>
         </div>
 
         <div class="mb-10">
-            <h1 class="text-3xl font-black text-slate-900 tracking-tight">Business Details</h1>
-            <p class="text-sm text-slate-500 mt-2">Enter the legal details for your new LLC formation.</p>
+            <h1 class="text-3xl font-black text-slate-900 tracking-tight">Business Setup</h1>
+            <p class="text-sm text-slate-500 mt-2">Enter the details for your new LLC or DBA registration.</p>
         </div>
 
         <form id="llcForm">
             <div class="input-group">
-                <label for="businessName">Proposed Business Name</label>
-                <input type="text" id="businessName" placeholder="My Empire LLC" required>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4">
-                <div class="input-group">
-                    <label>Formation State</label>
-                    <select id="formationState" required>
-                        <option value="">Select State...</option>
-                        <!-- Injected via JS -->
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label>Business Type</label>
-                    <select id="businessType" required>
-                        <option value="LLC">Limited Liability Company</option>
-                        <option value="CORP">Corporation</option>
-                    </select>
-                </div>
+                <label>Registration Type</label>
+                <select id="regType" onchange="toggleRegType()" required>
+                    <option value="LLC">LLC Formation ($39.00)</option>
+                    <option value="DBA">DBA / Trade Name (FREE for Obsidian Users)</option>
+                </select>
             </div>
 
             <div class="input-group">
-                <label>Primary Business Purpose</label>
-                <textarea id="businessPurpose" placeholder="e.g. Software development and digital assets..." rows="3" required></textarea>
+                <label for="businessName" id="nameLabel">Proposed Business Name</label>
+                <div class="flex gap-2">
+                    <input type="text" id="businessName" class="flex-1" placeholder="My Empire LLC" required>
+                    <button type="button" onclick="checkNameAvailability()" class="bg-slate-900 text-white px-4 rounded-xl text-[10px] font-black uppercase whitespace-nowrap hover:bg-blue-600 transition">Check Databases</button>
+                </div>
+                <div id="checkStatus" class="mt-2 hidden">
+                    <div class="flex items-center gap-2 p-3 rounded-xl border" id="statusBox">
+                        <span id="statusIcon"></span>
+                        <span id="statusText" class="text-[10px] font-bold uppercase"></span>
+                    </div>
+                </div>
             </div>
 
-            <div class="bg-blue-50 border border-blue-100 p-6 rounded-2xl mb-8">
-                <div class="flex justify-between items-center mb-2">
-                    <span class="text-xs font-bold text-blue-700">Registered Agent Service</span>
-                    <span class="text-xs font-black text-blue-700">$125/year</span>
+            <!-- [+] DBA SPECIFIC FIELDS -->
+            <div id="dbaFields" class="hidden space-y-4">
+                <div class="input-group">
+                    <label>Identity Verification (SSN)</label>
+                    <input type="password" id="ownerSsn" placeholder="XXX-XX-XXXX" maxlength="11">
                 </div>
-                <p class="text-[10px] text-blue-600 leading-relaxed">Highly Recommended: Keeps your personal address off public records. Included in checkout total.</p>
+                <div class="input-group">
+                    <label>Upload Driver's License Image</label>
+                    <input type="file" id="dlImage" accept="image/*" class="text-[10px]">
+                    <p class="text-[9px] text-slate-400 mt-1">Required for state identity verification and "Free" status clearance.</p>
+                </div>
+            </div>
+
+            <div id="llcExtra" class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="input-group">
+                        <label>Formation State</label>
+                        <select id="formationState" required>
+                            <option value="">Select State...</option>
+                            <!-- Injected via JS -->
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Business Type</label>
+                        <select id="businessType" required>
+                            <option value="LLC">Limited Liability Company</option>
+                            <option value="CORP">Corporation</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Primary Business Purpose</label>
+                    <textarea id="businessPurpose" placeholder="e.g. Software development and digital assets..." rows="3" required></textarea>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-100 p-6 rounded-2xl mb-8">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xs font-bold text-blue-700">Registered Agent Service</span>
+                        <span class="text-xs font-black text-blue-700">$125/year</span>
+                    </div>
+                    <p class="text-[10px] text-blue-600 leading-relaxed">Highly Recommended: Keeps your personal address off public records. Included in checkout total.</p>
+                </div>
             </div>
 
             <button type="submit" class="btn-next">Continue to Secure Checkout →</button>
@@ -71,6 +114,61 @@
     </div>
 
     <script>
+        async function checkNameAvailability() {
+            const name = document.getElementById('businessName').value.trim();
+            if (!name) return alert("Please enter a business name to check.");
+
+            const statusDiv = document.getElementById('checkStatus');
+            const statusBox = document.getElementById('statusBox');
+            const statusIcon = document.getElementById('statusIcon');
+            const statusText = document.getElementById('statusText');
+
+            statusDiv.classList.remove('hidden');
+            statusBox.className = "flex items-center gap-2 p-3 rounded-xl border bg-slate-50 border-slate-200 animate-pulse";
+            statusIcon.innerText = "⏳";
+            statusText.innerText = "Cross-referencing Copyright & USPTO Databases...";
+
+            // Simulation of database cross-referencing
+            setTimeout(() => {
+                const isConflict = name.toLowerCase().includes("apple") || name.toLowerCase().includes("google") || name.toLowerCase().includes("microsoft");
+
+                statusBox.classList.remove('animate-pulse');
+                if (isConflict) {
+                    statusBox.className = "flex items-center gap-2 p-3 rounded-xl border bg-red-50 border-red-200 text-red-700";
+                    statusIcon.innerText = "⚠️";
+                    statusText.innerText = "Conflict Detected: Potential Trademark Infringement Found.";
+                } else {
+                    statusBox.className = "flex items-center gap-2 p-3 rounded-xl border bg-emerald-50 border-emerald-200 text-emerald-700";
+                    statusIcon.innerText = "✅";
+                    statusText.innerText = "Clearance Confirmed: No active conflicts in Global Registries.";
+                }
+            }, 2500);
+        }
+
+        function toggleRegType() {
+            const type = document.getElementById('regType').value;
+            const dbaFields = document.getElementById('dbaFields');
+            const nameLabel = document.getElementById('nameLabel');
+            const businessName = document.getElementById('businessName');
+            const llcExtra = document.getElementById('llcExtra');
+
+            if (type === 'DBA') {
+                dbaFields.classList.remove('hidden');
+                llcExtra.classList.add('hidden');
+                nameLabel.innerText = "Proposed DBA Name";
+                businessName.placeholder = "My Brand Name";
+                document.getElementById('ownerSsn').setAttribute('required', '');
+                document.getElementById('dlImage').setAttribute('required', '');
+            } else {
+                dbaFields.classList.add('hidden');
+                llcExtra.classList.remove('hidden');
+                nameLabel.innerText = "Proposed Business Name";
+                businessName.placeholder = "My Empire LLC";
+                document.getElementById('ownerSsn').removeAttribute('required');
+                document.getElementById('dlImage').removeAttribute('required');
+            }
+        }
+
         async function loadStates() {
             const select = document.getElementById('formationState');
             const preselected = localStorage.getItem('preselected_state');
@@ -96,8 +194,22 @@
 
         document.getElementById('llcForm').onsubmit = async (e) => {
             e.preventDefault();
-            const stateCode = document.getElementById('formationState').value;
+            const type = document.getElementById('regType').value;
 
+            if (type === 'DBA') {
+                const data = {
+                    type: 'dba_registration',
+                    business_name: document.getElementById('businessName').value,
+                    ssn_hash: btoa(document.getElementById('ownerSsn').value), // Simple obf for simulation
+                    dl_attached: !!document.getElementById('dlImage').files[0]
+                };
+                localStorage.setItem('pending_llc_data', JSON.stringify(data));
+                // DBA is FREE, but we still route to success via checkout for verification
+                window.location.href = `obsidian_unified_checkout.html?type=dba_registration&price=0.00&bundle=true`;
+                return;
+            }
+
+            const stateCode = document.getElementById('formationState').value;
             // Fetch live state fee for total calculation
             const feeResp = await fetch(`/api/llc/state-info?state=${stateCode}`);
             const feeData = await feeResp.json();

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: ALWAYS-ON AUTOPILOT EXECUTION MANAGER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -12,7 +12,7 @@ from pathlib import Path
 
 from colony_logger import colony_log
 from colony_persistence import db
-from open_ingress_gateway import open_ingress_gateway
+from open_access_gateway import open_access_gateway
 from depin_aggregator_supervisor import depin_supervisor
 from opensource_traffic_stack import opensource_traffic_stack
 from dotenv import load_dotenv
@@ -25,7 +25,7 @@ ALWAYS_ON_VAULT.mkdir(parents=True, exist_ok=True)
 
 class AlwaysOnPipelineStatus(BaseModel):
     pipeline_id: str
-    ingress_gateway_status: str = "TRAEFIK_OPEN_GATE_ACTIVE"
+    access_gateway_status: str = "TRAEFIK_OPEN_GATE_ACTIVE"
     nodes_count: int = 4
     active_aggregators: List[str] = Field(default_factory=lambda: ["Titan Network", "Grass AI", "Mysterium dVPN", "Geonode"])
     auto_restart_policy: str = "docker_restart_always"
@@ -36,12 +36,12 @@ class AlwaysOnPipelineStatus(BaseModel):
 class AlwaysOnAutopilotManager:
     """
     ALWAYS-ON AUTOPILOT EXECUTION MANAGER v1.0:
-    1. Phase 1: Traefik / KrakenD Dynamic Ingress Gateway Intake Valve.
+    1. Phase 1: Traefik / KrakenD Dynamic Access Gateway Intake Valve.
     2. Phase 2: 'Always-On' Docker Container Self-Healing Daemon Loop.
     3. Phase 3: Direct DePIN & Enterprise Aggregator Yield Pipeline.
     """
     def __init__(self):
-        self.gateway = open_ingress_gateway
+        self.gateway = open_access_gateway
         self.supervisor = depin_supervisor
         self.stack = opensource_traffic_stack
 
@@ -49,9 +49,9 @@ class AlwaysOnAutopilotManager:
         pipeline_id = f"pipe_247_{uuid.uuid4().hex[:6]}"
         colony_log(f"ALWAYS_ON_MANAGER: Executing 24/7 Always-On Autopilot Cycle [{pipeline_id}]...", node="ALWAYS_ON")
 
-        # 1. Audit Gateway Ingress & Whitelist
-        audit = self.gateway.verify_open_ingress_request("47.85.50.46", 10485760)
-        colony_log(f" ALWAYS_ON: Ingress Gateway Verified -> [{audit.company_name}] (Allowed: {audit.allowed})", node="ALWAYS_ON")
+        # 1. Audit Gateway Access & Whitelist
+        audit = self.gateway.verify_open_access_request("47.85.50.46", 10485760)
+        colony_log(f" ALWAYS_ON: Access Gateway Verified -> [{audit.company_name}] (Allowed: {audit.allowed})", node="ALWAYS_ON")
 
         # 2. Audit Docker Node Health & Auto-Reboot
         supervisor_report = await self.supervisor.run_247_health_supervisor_check()
@@ -62,7 +62,7 @@ class AlwaysOnAutopilotManager:
 
         status_obj = AlwaysOnPipelineStatus(
             pipeline_id=pipeline_id,
-            ingress_gateway_status="TRAEFIK_OPEN_GATE_ACTIVE",
+            access_gateway_status="TRAEFIK_OPEN_GATE_ACTIVE",
             nodes_count=supervisor_report.get("total_nodes_monitored", 4),
             network_health_score=health_score,
             total_gb_processed_24h=round(random.uniform(280.0, 520.0), 2),
@@ -127,7 +127,7 @@ if __name__ == "__main__":
     res = asyncio.run(always_on_manager.execute_always_on_cycle())
     print("\nALWAYS-ON AUTOPILOT PIPELINE STATUS:")
     print("Pipeline ID:", res.pipeline_id)
-    print("Ingress Gateway:", res.ingress_gateway_status)
+    print("Access Gateway:", res.access_gateway_status)
     print("Network Health Score:", f"{res.network_health_score}%")
     print("24h Processed Volume:", f"{res.total_gb_processed_24h} GB")
     print("Active Aggregators:", ", ".join(res.active_aggregators))

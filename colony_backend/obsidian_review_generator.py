@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: REVIEW GENERATOR & SPONSOR ENGINE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import json
@@ -13,7 +13,7 @@ class ObsidianReviewGenerator:
     1. THOUGHT TRANSLATION: Converts ASI 'Thinking Lines' into small sponsor messages.
     2. BACKGROUND GENERATION: Automatically crafts high-performance reviews for the 6 pillars.
     3. SPONSOR SYNC: Injects 'Maestas Legacy' messages into the media hub feed.
-    4. REVENUE LOOP: Every generated review feeds the 'Obsidian Ingress' signal.
+    4. REVENUE LOOP: Every generated review feeds the 'Obsidian Access' signal.
     """
     def __init__(self):
         self.is_active = True

@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (UI VERIFIER) ---
 import asyncio
 import os
@@ -20,7 +20,7 @@ class ObsidianUIVerifier:
         colony_log("VERIFIER: Launching Headed UI Session...", node="SUPREME")
 
         async with async_playwright() as p:
-            # 🔱 Launching HEADED mode with slow_mo for the Director's visibility
+            # [+] Launching HEADED mode with slow_mo for the Director's visibility
             browser = await p.chromium.launch(headless=False, slow_mo=1500)
             context = await browser.new_context(viewport={'width': 1440, 'height': 900})
             page = await context.new_page()
@@ -29,8 +29,8 @@ class ObsidianUIVerifier:
                 colony_log(f"[*] VERIFIER: Loading local industrial portal...", node="SUPREME")
                 await page.goto(LOCAL_FILE)
 
-                # 🔱 Demonstration Sequence
-                colony_log("[*] VERIFIER: Testing Hero Ingress...", node="SUPREME")
+                # [+] Demonstration Sequence
+                colony_log("[*] VERIFIER: Testing Hero Access...", node="SUPREME")
                 await page.hover("h1")
 
                 colony_log("[*] VERIFIER: Scrolling through Industrial Catalog...", node="SUPREME")

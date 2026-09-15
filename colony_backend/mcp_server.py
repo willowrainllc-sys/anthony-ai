@@ -1,4 +1,4 @@
-# --- WILLOW RAIN APP CORE MCP SERVER v4.0 (GOD-MODE ASYNC) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -44,8 +44,8 @@ async def trigger_master_burst(category: str = "exoplanetary_anomalies", target_
     )
 
 @mcp.tool()
-async def audit_obsidian_ingress_data_flows() -> dict:
-    from obsidian_ingress_data_flow_auditor import flow_auditor
+async def audit_obsidian_access_data_flows() -> dict:
+    from obsidian_access_data_flow_auditor import flow_auditor
     return await flow_auditor.audit_all_flows()
 
 @mcp.tool()
@@ -74,7 +74,7 @@ async def trigger_mastermind_trade_burst() -> dict:
 async def get_obsidian_ledger() -> list:
     """
     Returns the real-time balance ledger for all grid accounts.
-    Tracks Obsidian Ingress (Standard), ObsidianBridge, Square, and Robinhood.
+    Tracks Obsidian Access (Standard), ObsidianBridge, Square, and Robinhood.
     """
     try:
         from obsidian_account_ledger import account_ledger
@@ -119,7 +119,7 @@ async def dispatch_god_mission(goal: str) -> dict:
 @mcp.tool()
 async def trigger_mass_linking_burst(limit: int = 50) -> dict:
     """
-    Executes a mass-linking burst to connect Obsidian Ingress accounts to the ObsidianBridge ID.
+    Executes a mass-linking burst to connect Obsidian Access accounts to the ObsidianBridge ID.
     This ensures all ghost accounts funnel their yield to the Director's BTC Hub.
     """
     try:

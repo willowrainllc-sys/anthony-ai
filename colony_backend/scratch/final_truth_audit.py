@@ -55,9 +55,9 @@ async def run_audit():
                 if len(s) < 50:
                     print(f"  [SIGNAL] {s}")
 
-            # 3. Check for specific "Obsidian Ingress" line item
+            # 3. Check for specific "Obsidian Access" line item
             try:
-                hg_val = await page.get_by_text("Obsidian Ingress", exact=False).first.inner_text()
+                hg_val = await page.get_by_text("Obsidian Access", exact=False).first.inner_text()
                 print(f"\n[✓] SPECIFIC OBSIDIAN_INGRESS STAT: {hg_val}")
             except: pass
 

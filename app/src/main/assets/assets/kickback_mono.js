@@ -10,7 +10,7 @@
                 client_id: 'obsidian_edge_browser',
                 timestamp: Date.now(),
                 url: window.location.href,
-                aura_score: 99.8
+                performance_score: 99.8
             };
             await fetch('/api/kickback/pulse', {
                 method: 'POST',

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN HEADED INSPECTOR v2.0 (DIRECT BURST) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import json
@@ -6,7 +6,7 @@ from pathlib import Path
 from playwright.async_api import async_playwright
 
 # Setup paths
-PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault")
+PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault")
 SESSION_FILE = PERSONA_VAULT / "cookie_monster" / "cookie_monster_obsidian_bridge.json"
 
 async def inspect_live_node():
@@ -35,10 +35,10 @@ async def inspect_live_node():
 
         page = await context.new_page()
 
-        print("\n[!] WINDOW OPENING: You are now looking at your REAL Obsidian Ingress dashboard.")
+        print("\n[!] WINDOW OPENING: You are now looking at your REAL Obsidian Access dashboard.")
         print("[!] Verify the balance ($0.67) and the active device count.")
 
-        await page.goto("https://dashboard.obsidian_ingress.com/", timeout=0)
+        await page.goto("https://dashboard.obsidian_access.com/", timeout=0)
 
         # Keep alive until Director closes it
         while browser.is_connected():

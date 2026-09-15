@@ -42,7 +42,7 @@ async def physical_truth_audit():
             print(f"[-] SQUARE ERROR: {resp.status_code}")
 
     # 2. Audit Video Swarm
-    print("\n[*] Auditing Social Hub Ingress...")
+    print("\n[*] Auditing Social Hub Access...")
     conn = sqlite3.connect(DB_PATH)
     try:
         # Check if the title column is really there

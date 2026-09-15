@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN B2B LEAD GENERATION ENGINE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -110,7 +110,6 @@ lead_gen = ObsidianLeadGenerator()
 if __name__ == "__main__":
     async def test_leadgen():
         pkg = await lead_gen.harvest_high_intent_leads("Luxury Real Estate")
-        print("\n=== [SUPREME] WILLOW RAIN B2B LEAD GENERATION ===")
         print("Package ID:", pkg.package_id)
         print("Category:", pkg.category)
         print("Total Verified Leads:", pkg.total_leads)

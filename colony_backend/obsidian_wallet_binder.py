@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN BTC WALLET BINDER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import json
@@ -7,7 +7,7 @@ from playwright.async_api import async_playwright
 
 # Configuration
 BTC_WALLET = "bc1qk4ass5xsanvth2tz7jsapscy8ld25yr6ze5yzx"
-PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault")
+PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault")
 SESSION_FILE = PERSONA_VAULT / "cookie_monster" / "cookie_monster_obsidian_bridge.json"
 
 async def bind_wallet():

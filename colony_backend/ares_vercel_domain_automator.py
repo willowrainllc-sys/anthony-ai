@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES PLAYWRIGHT AUTOMATION: VERCEL DOMAIN LINKER ---
 import asyncio
 import os
@@ -40,7 +40,7 @@ async def run_ares_vercel_domain_automation():
             # Check if login is required
             if "login" in page.url or "signup" in page.url:
                 colony_log("[!] ARES: Login required. Please log in to Vercel in the browser window...", node="SUPREME")
-                print("\n🔱 [ARES ACTION REQUIRED]: Please log in to your Vercel account in the opened browser window.")
+                print("\n[+] [ARES ACTION REQUIRED]: Please log in to your Vercel account in the opened browser window.")
                 print("ARES will wait up to 120 seconds for you to authenticate...\n")
 
                 # Wait until user logs in and lands on the dashboard or project settings
@@ -75,7 +75,7 @@ async def run_ares_vercel_domain_automation():
 
             except Exception as e:
                 colony_log(f"[-] ARES DOMAIN INTERACTION NOTICE: {e}. Please add 'obsidian.city' manually in the opened browser window.", node="SUPREME")
-                print("\n🔱 [ARES GUIDANCE]: ARES has opened Vercel. Please add 'obsidian.city' in the Vercel dashboard window if not already added.")
+                print("\n[+] [ARES GUIDANCE]: ARES has opened Vercel. Please add 'obsidian.city' in the Vercel dashboard window if not already added.")
 
             # Keep browser open for director review
             print("\nARES automation active. Press Enter in terminal when finished reviewing/configuring...")

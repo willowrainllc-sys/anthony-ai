@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: ROBINHOOD GHOST EXECUTOR v3.0 (REAL-WORLD) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json

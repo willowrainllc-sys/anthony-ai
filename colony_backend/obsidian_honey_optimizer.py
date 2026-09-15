@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN HONEY OPTIMIZER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -11,7 +11,7 @@ class HoneyOptimizer:
     """
     OBSIDIAN HONEY OPTIMIZER v1.0:
     Maximizes yield across all 16 residential proxy ports.
-    1. MULTI-PLATFORM STACKING: Runs Obsidian Ingress, Pawns, EarnApp, and TraffMonetizer on EVERY port.
+    1. MULTI-PLATFORM STACKING: Runs Obsidian Access, Pawns, EarnApp, and TraffMonetizer on EVERY port.
     2. CONTENT DELIVERY PUSH: Prioritizes 'Content Delivery' enabled nodes for 10x higher pay.
     3. JMPT AUTO-SWEEP: Monitors JMPT (ObsidianBridge) balances and auto-stakes them in DeFi.
     4. REPUTATION SYNC: Ensures nodes only feed data when reputation is 100/100.
@@ -47,7 +47,7 @@ class HoneyOptimizer:
 
     def get_max_yield_projection(self) -> dict:
         """Calculates the theoretical max profit of the 16-port stack."""
-        # Estimated daily yield per port (Stacked): $1.20 (Obsidian Ingress CD + Pawns + EarnApp)
+        # Estimated daily yield per port (Stacked): $1.20 (Obsidian Access CD + Pawns + EarnApp)
         yield_per_port = 1.20
         daily_total = len(self.ports) * yield_per_port
 
@@ -64,7 +64,6 @@ if __name__ == "__main__":
     async def test_opt():
         res = await honey_optimizer.execute_optimization_burst()
         proj = honey_optimizer.get_max_yield_projection()
-        print("\n=== [SUPREME] WILLOW RAIN HONEY OPTIMIZER v1.0 ===")
         print("Status:", res["status"])
         print("Daily Max Yield:", f"${proj['daily_yield_usd']:.2f}")
         print("MONTHLY CAPITAL GENERATION:", f"${proj['monthly_yield_usd']:.2f}")

@@ -31,7 +31,7 @@ async def troubleshoot():
 
             # 1. Check for 'Suspended' or 'Flagged' messages
             print("   -> Scanning Dashboard for Red Flags...")
-            await page.goto("https://dashboard.obsidian_ingress.com/", timeout=60000)
+            await page.goto("https://dashboard.obsidian_access.com/", timeout=60000)
             await asyncio.sleep(10)
 
             content = await page.evaluate("() => document.body.innerText")

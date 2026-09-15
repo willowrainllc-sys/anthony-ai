@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (UI CLONE BURST) ---
 import asyncio
 import os
@@ -33,11 +33,11 @@ class Obsidian CityUICloner:
             try:
                 await page.goto(self.target_url, wait_until="networkidle")
 
-                # 🔱 1. Capture Full Page Map
+                # [+] 1. Capture Full Page Map
                 colony_log("[*] CLONER: Mapping page structure...", node="COMMAND")
                 await page.screenshot(path=RECON_DIR / "obsidian city_full_structure.png", full_page=True)
 
-                # 🔱 2. Extract Button DNA
+                # [+] 2. Extract Button DNA
                 button_dna = await page.evaluate("""() => {
                     const buttons = Array.from(document.querySelectorAll('button, .btn, a.btn'));
                     return buttons.map(b => {
@@ -53,7 +53,7 @@ class Obsidian CityUICloner:
                     });
                 }""")
 
-                # 🔱 3. Extract Core Headlines & Sections
+                # [+] 3. Extract Core Headlines & Sections
                 sections = await page.evaluate("""() => {
                     return Array.from(document.querySelectorAll('h1, h2, section')).map(s => ({
                         tag: s.tagName,
@@ -62,7 +62,7 @@ class Obsidian CityUICloner:
                     }));
                 }""")
 
-                # 🔱 4. Vault the DNA
+                # [+] 4. Vault the DNA
                 with open(RECON_DIR / "ui_dna_manifest.json", "w") as f:
                     json.dump({"buttons": button_dna, "sections": sections}, f, indent=4)
 

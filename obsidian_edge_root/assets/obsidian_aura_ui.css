@@ -245,3 +245,58 @@
 .sponsored-label { font-size: 9px; font-weight: 900; color: #64748b; text-transform: uppercase; margin-bottom: 5px; display: block; }
 .sponsored-title { font-size: 14px; font-weight: 800; color: #0f172a; line-height: 1.4; }
 
+/* 🔱 Infomercial Looping Video Section (Embedded, Not Popups) */
+.obsidian-infomercial-section {
+    padding: 60px 40px;
+    background: #030305;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.obsidian-infomercial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.obsidian-infomercial {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: 0.4s;
+}
+
+.obsidian-infomercial:hover {
+    transform: translateY(-5px);
+    border-color: #3b82f6;
+    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2);
+}
+
+.obsidian-infomercial video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.infomercial-label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #3b82f6;
+    color: #fff;
+    font-size: 8px;
+    font-weight: 900;
+    padding: 3px 10px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 10;
+}
+

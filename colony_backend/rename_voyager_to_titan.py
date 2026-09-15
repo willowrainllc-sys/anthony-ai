@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import re
 from pathlib import Path
@@ -5,7 +6,7 @@ from pathlib import Path
 PORTAL_DIR = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\willow_rain_global\wholesale_portal")
 APP_DIR = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\app\src\main\java\com\obsidian\global\ui")
 
-# 🔱 The Pivot: Obsidian Titan -> Obsidian Titan (Unique and Trend-Setting)
+# [+] The Pivot: Obsidian Titan -> Obsidian Titan (Unique and Trend-Setting)
 REPLACEMENTS = [
     (r"OBSIDIAN_TITAN", "OBSIDIAN_TITAN"),
     (r"Obsidian Titan", "Obsidian Titan"),

@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE 48 LAWS OF POWER STRATEGIC DIRECTIVE MATRIX v1.0 ---
 import os
 import sys

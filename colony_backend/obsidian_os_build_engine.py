@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: OS BUILD ENGINE & KERNEL REWRITE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import subprocess
 import sys
@@ -23,7 +23,6 @@ class ObsidianOSBuildEngine:
         # [EXECUTE] repo init -u https://android.googlesource.com/platform/manifest -b android-14.0.0_rXX [/EXECUTE]
 
         # 2. Modify Branding
-        # We rewrite the system strings to 'OBSIDIAN GLOBAL'
 
         # 3. Compile Boot Image
         # [EXECUTE] make bootimage -j$(nproc) [/EXECUTE]

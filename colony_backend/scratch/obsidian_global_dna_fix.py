@@ -9,7 +9,7 @@ from pathlib import Path
 # Paths
 ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
 BACKEND = ROOT / "colony_backend"
-INGRESS = ROOT / "willow_rain_global" / "ingress_api"
+INGRESS = ROOT / "willow_rain_global" / "access_api"
 CELLULAR = ROOT / "willow_rain_global" / "cellular_stack"
 OIS = ROOT / "willow_rain_global" / "obsidian_intelligence"
 CARRIERS = ROOT / "willow_rain_global" / "imperium_carrier_core"
@@ -26,7 +26,7 @@ def repair_file(file_path):
         new_content = new_content.replace('Anthony Christopher', 'AnthonyChristopher')
         new_content = new_content.replace('Obsidian Bridge', 'ObsidianBridge')
 
-        # 2. Ingress Fix: Decouple from legacy 'ollama' names in commands
+        # 2. Access Fix: Decouple from legacy 'ollama' names in commands
         new_content = new_content.replace('ollama run', 'anthony-engine run')
 
         # 3. Persistence Fix: Align imports

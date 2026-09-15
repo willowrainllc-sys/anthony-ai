@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN TREASURY & ALLOCATION MANAGER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 import uuid
@@ -96,7 +96,6 @@ if __name__ == "__main__":
         # Simulate a $5,000 day
         await treasury_manager.allocate_incoming_revenue(5000.00, source="B2B_Wholesale_Contract")
         status = treasury_manager.get_treasury_status()
-        print("\n=== [SUPREME] WILLOW RAIN TREASURY LEDGER ===")
         for b in status:
             print(f"- {b['bucket']}: ${b['balance']:,.2f}")
 

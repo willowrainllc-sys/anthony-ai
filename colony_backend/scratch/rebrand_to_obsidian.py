@@ -4,7 +4,7 @@ from pathlib import Path
 # Paths to process
 DIRS = [
     Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\colony_backend"),
-    Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\willow_rain_global\ingress_api"),
+    Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\willow_rain_global\access_api"),
     Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\willow_rain_global\cellular_stack"),
     Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\willow_rain_global\imperium_carrier_core"),
     Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\obsidian_cloud")

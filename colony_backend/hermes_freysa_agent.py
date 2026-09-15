@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE HERMES & FREYSA AUTONOMOUS AGENT STACK v1.0 (PLAYWRIGHT BOTS) ---
 import os
 import sys

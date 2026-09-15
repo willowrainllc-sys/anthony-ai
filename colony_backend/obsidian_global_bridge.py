@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v5.0 (GLOBAL BRIDGE) ---
 import os
 import sys
@@ -10,7 +10,6 @@ from colony_logger import colony_log
 
 class ObsidianGlobalBridge:
     """
-    OBSIDIAN GLOBAL BRIDGE:
     The "Wormhole" that connects your local server to the global internet.
     1. GLOBAL INGRESS: Maps titan-browser.io to your computer from anywhere in the world.
     2. SSL ENFORCEMENT: Automatically provides HTTPS (the padlock) for trust.
@@ -23,14 +22,14 @@ class ObsidianGlobalBridge:
         self.cloudflared_path = "cloudflared" # Assumes it's in PATH
 
     async def ignite_global_tunnel(self):
-        # 🔱 Get Persistent Token from .env
+        # [+] Get Persistent Token from .env
         token = os.getenv("MASTER_CERT_TOKEN")
 
         if token and token != "your_real_cloudflare_token_here":
-            colony_log(f"🔱 BRIDGE: Igniting Persistent Cloudflare Tunnel for [obsidian.city]...", node="SUPREME")
+            colony_log(f"[+] BRIDGE: Igniting Persistent Cloudflare Tunnel for [obsidian.city]...", node="SUPREME")
             cmd = f"cloudflared tunnel --no-autoupdate run --token {token}"
         else:
-            colony_log(f"🔱 BRIDGE: No Token found. Falling back to Temporary Ingress...", node="SUPREME")
+            colony_log(f"[+] BRIDGE: No Token found. Falling back to Temporary Access...", node="SUPREME")
             cmd = f"cloudflared tunnel --url http://localhost:{self.local_port}"
 
 
@@ -41,7 +40,7 @@ class ObsidianGlobalBridge:
                 stderr=asyncio.subprocess.PIPE
             )
 
-            colony_log(f"[+] BRIDGE SUCCESS: Global Ingress ACTIVE. Obsidian Titan is now live for all devices.", node="SUPREME")
+            colony_log(f"[+] BRIDGE SUCCESS: Global Access ACTIVE. Obsidian Titan is now live for all devices.", node="SUPREME")
 
             # Monitor for the public URL in the logs
             while True:
@@ -50,7 +49,7 @@ class ObsidianGlobalBridge:
                 decoded_line = line.decode().strip()
                 if "trycloudflare.com" in decoded_line:
                     colony_log(f"🌐 PUBLIC LINK DETECTED: {decoded_line}", node="SUPREME")
-                    print(f"\n🔱 [GLOBAL BRIDGE]: YOUR TEMPORARY LINK IS LIVE:\n{decoded_line}\n")
+                    print(f"\n[+] [GLOBAL BRIDGE]: YOUR TEMPORARY LINK IS LIVE:\n{decoded_line}\n")
 
                 await asyncio.sleep(0.1)
 

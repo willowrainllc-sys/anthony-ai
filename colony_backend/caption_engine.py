@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE CAPTION ENGINE: RETENTION ARCHITECT v1.1 ---
 import asyncio
 import os

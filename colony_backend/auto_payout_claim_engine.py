@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE AUTOMATED PLAYWRIGHT HEADLESS PAYOUT & BET CLAIM ENGINE v1.0 ---
 import os
 import sys
@@ -22,7 +23,7 @@ USER_GMAIL = "obsidian.global.holdings@gmail.com"
 PAYOUT_PORTALS = [
     {"id": "EARNAPP", "name": "EarnApp (Bright Data)", "min_usd": 2.00, "url": "https://earnapp.com/dashboard", "action": "AUTO_PAYOUT_TO_GMAIL"},
     {"id": "PAWNS_APP", "name": "Pawns.app (IPRoyal)", "min_usd": 5.00, "url": "https://pawns.app/dashboard", "action": "REQUEST_PAYOUT_GMAIL"},
-    {"id": "OBSIDIAN_INGRESS", "name": "Obsidian Ingress SDK", "min_usd": 20.00, "url": "https://dashboard.obsidian_ingress.com", "action": "AUTO_CLAIM_POT_AND_PAYOUT"},
+    {"id": "OBSIDIAN_INGRESS", "name": "Obsidian Access SDK", "min_usd": 20.00, "url": "https://dashboard.obsidian_access.com", "action": "AUTO_CLAIM_POT_AND_PAYOUT"},
     {"id": "IPSOS_ISAY", "name": "Ipsos i-Say", "min_usd": 5.00, "url": "https://www.ipsosisay.com", "action": "CLAIM_EGIFT_CARD_GMAIL"},
     {"id": "INBOXDOLLARS", "name": "InboxDollars", "min_usd": 15.00, "url": "https://www.obsidian_rewards.com/games", "action": "CLAIM_VISA_EGIFT_GMAIL"},
     {"id": "SWAGBUCKS", "name": "Swagbucks", "min_usd": 10.00, "url": "https://www.obsidian_rewards.com/games", "action": "CLAIM_AMAZON_EGIFT_GMAIL"},

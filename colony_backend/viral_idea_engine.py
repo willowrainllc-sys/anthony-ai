@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE VIRAL IDEA ENGINE: ELITE SPECTACLE v4.0 ---
 import asyncio
 import os

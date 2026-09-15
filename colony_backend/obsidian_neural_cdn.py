@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN NEURAL CDN & CONTENT CACHE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -81,7 +81,6 @@ if __name__ == "__main__":
     async def test_cdn():
         res = await neural_cdn.execute_cdn_sync_pulse()
         m = neural_cdn.get_cdn_manifest()
-        print("\n=== [SUPREME] WILLOW RAIN NEURAL CDN ===")
         print("CDN ID:", m["cdn_id"])
         print("Total Assets Serving:", res["assets"])
         print("DAILY REVENUE:", f"${res['yield']:.2f}")

@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE ROBINHOOD CRYPTO TRADING DIAGNOSTIC & READY CONFIG v2.0 ---
 import os
 import sys

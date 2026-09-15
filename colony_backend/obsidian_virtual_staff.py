@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v5.0 ---
 import asyncio
 import os
@@ -53,7 +53,7 @@ class ObsidianVirtualStaff:
         ]
 
     async def run_staff_loop(self):
-        colony_log("🔱 STAFF: Initiating BPO Operations...", node="SUPREME")
+        colony_log("[+] STAFF: Initiating BPO Operations...", node="SUPREME")
         while self.is_active:
             for member in self.staff:
                 await member.pulse()

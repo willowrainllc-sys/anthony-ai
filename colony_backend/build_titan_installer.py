@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (TITAN BUILDER) ---
 import os
 import shutil
@@ -11,7 +11,7 @@ DIST_DIR = PORTAL_DIR / "downloads"
 
 def build_standalone_titan():
     """Bundles the Titan Browser into a 'Legit' Windows/MacOS package."""
-    print("🔱 [BUILD]: Initiating Obsidian Titan Standalone Build...")
+    print("[+] [BUILD]: Initiating Obsidian Titan Standalone Build...")
 
     DIST_DIR.mkdir(parents=True, exist_ok=True)
 

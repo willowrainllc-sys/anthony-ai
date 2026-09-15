@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE BATCH BOT CREATOR v1.0 ---
 import asyncio
 import os
@@ -7,8 +8,8 @@ import httpx
 import sqlite3
 from colony_logger import colony_log
 
-DB_PATH = r"C:\ObsidianAi_Colony\Empire_Vault.db"
-PERSONA_VAULT = r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault"
+DB_PATH = r"C:\AnthonyAi_Colony\Empire_Vault.db"
+PERSONA_VAULT = r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault"
 
 async def generate_sexy_bot_persona():
     """Generates a high-fidelity 'Alpha' woman persona."""

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN LEAD NURTURER & CRM v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 import time
@@ -44,7 +44,6 @@ if __name__ == "__main__":
     import asyncio
     async def test_crm():
         res = await lead_nurturer.audit_sales_pipeline()
-        print("\n=== [SUPREME] WILLOW RAIN CRM AUDIT ===")
         print(f"Total Pipeline: ${res['pipeline_value_usd']:,.2f}")
         print(f"Active Leads: {res['total_leads']}")
 

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN CPU HARVESTER & MINING BRIDGE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -63,7 +63,6 @@ cpu_harvester = ObsidianCpuHarvester()
 if __name__ == "__main__":
     async def test_miner():
         res = asyncio.run(cpu_harvester.execute_mining_pulse(24))
-        print("\n=== [SUPREME] WILLOW RAIN CPU HARVESTER ===")
         print("Hash Rate:", f"{res.hash_rate:.2f} H/s")
         print("24H Projected Yield:", f"${res.pennies_earned_total:.2f}")
         print("Status:", res.status)

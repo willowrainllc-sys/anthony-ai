@@ -1,4 +1,4 @@
-# --- WILLOW RAIN ENTERPRISES: CLOUD FEED SEEDER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 from supabase import create_client, Client

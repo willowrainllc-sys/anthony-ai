@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v7.5 (BLE MESH) ---
 import asyncio
 import os
@@ -24,8 +24,8 @@ class ObsidianBLEMesh:
 
         while self.is_active:
             try:
-                # 🔱 1. Scan for nearby Obsidian signatures
-                # 🔱 2. Establish encrypted GATT handle with peers
+                # [+] 1. Scan for nearby Obsidian signatures
+                # [+] 2. Establish encrypted GATT handle with peers
 
                 colony_log(f"⚛️ BLE_SYNC: {self.active_beacons} nodes entangled in the local mesh.", node="NETWORK")
 

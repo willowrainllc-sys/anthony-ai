@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE END-TO-END TEST: AGENTIC PRODUCTION PIPELINE v3.1 ---
 import asyncio
 import os
@@ -49,7 +50,7 @@ async def run_end_to_end_test():
     )
 
     if filename:
-        local_path = Path(r"C:\ObsidianAi_Colony\Renderings") / filename
+        local_path = Path(r"C:\AnthonyAi_Colony\Renderings") / filename
         print(f"[] Render Complete: {filename}")
 
         # 5. TECHNICAL VERIFICATION (Pixel Analysis for Color Casts)

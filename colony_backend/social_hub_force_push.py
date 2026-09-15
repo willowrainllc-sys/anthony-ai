@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: SOCIAL HUB FORCE PUSH v2.0 (HARDENED) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import sqlite3
 import json
 import os

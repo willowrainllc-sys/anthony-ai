@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- OBSIDIAN MASTER SECURE PIPELINE & ENCRYPTION KERNEL v1.0 ---
 import os
 import json
@@ -14,7 +14,7 @@ class ObsidianMasterSecurePipeline:
     """
     OBSIDIAN MASTER SECURE PIPELINE:
     1. ARMORED ENCRYPTION: AES-256 / Fernet cryptographic wrapping for all internal data payloads.
-    2. SECURE DATA BRIDGES: Encrypted ingress/egress channels connecting the Node grid to Square & NameSilo APIs.
+    2. SECURE DATA BRIDGES: Encrypted access/egress channels connecting the Node grid to Square & NameSilo APIs.
     3. SEPARATION OF CONCERNS: Isolates low-level backend jargon from public frontend storefronts.
     """
     def __init__(self):

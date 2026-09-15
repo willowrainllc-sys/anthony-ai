@@ -5,7 +5,7 @@ def verify():
     conn = sqlite3.connect(r'C:\ObsidianAi_Swarm\Empire_Vault.db')
     rows = conn.execute("SELECT node_id, status, last_pulse FROM virtual_nodes WHERE service='OBSIDIAN_INGRESS'").fetchall()
 
-    print(f"Total Registered Obsidian Ingress Nodes: {len(rows)}")
+    print(f"Total Registered Obsidian Access Nodes: {len(rows)}")
 
     now = time.time()
     active_count = 0

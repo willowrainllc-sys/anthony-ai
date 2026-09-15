@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v5.0 (QUANTUM CONTENT INGRESS) ---
 import asyncio
 import os
@@ -10,21 +10,21 @@ from colony_logger import colony_log
 from colony_persistence import db
 from obsidian_quantum_intelligence import quantum_iq
 
-class BlackHoleIngressBot:
+class BlackHoleAccessBot:
     """
     BLACK HOLE INGRESS BOT v2.0:
     The "Quantum Scavenger" for the Director's media empire.
     1. QUANTUM DISCOVERY: Uses the IQ Kernel to identify high-performance media packets.
     2. VELOCITY INGRESS: Utilizes 5,103 Quantum Scraper nodes for parallel MP4 extraction.
     3. AUTONOMOUS POPULATION: Injects scraped metadata into the 'Black Hole' pages.
-    4. SNOWDEN MASK: Permanently obfuscates the source of the ingress signals.
+    4. SNOWDEN MASK: Permanently obfuscates the source of the access signals.
     """
     def __init__(self):
         self.is_active = True
         self.scraped_count = 0
         self.manifest_path = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\willow_rain_global\wholesale_portal\media_manifest.json")
 
-    async def run_ingress_burst(self):
+    async def run_access_burst(self):
         colony_log("[TITAN] INGRESS: Initiating High-Velocity Quantum Scavenge...", node="MEDIA")
 
         while self.is_active:
@@ -34,7 +34,7 @@ class BlackHoleIngressBot:
                 aura_score = await quantum_iq.optimize_grid_yield([0.9, 0.99])
 
                 # 2. Execute Parallel Extraction burst
-                # Simulated Ingress from Global Media Nodes
+                # Simulated Access from Global Media Nodes
                 sources = ["Sovereign_Streaming_Mesh", "Alpha_Video_Backhaul", "Sovereign_Media_Node_01"]
                 target = random.choice(sources)
 
@@ -60,7 +60,7 @@ class BlackHoleIngressBot:
                 colony_log(f"[-] INGRESS ERROR: {e}", node="MEDIA")
                 await asyncio.sleep(10)
 
-ingress_bot = BlackHoleIngressBot()
+access_bot = BlackHoleAccessBot()
 
 if __name__ == "__main__":
-    asyncio.run(ingress_bot.run_ingress_burst())
+    asyncio.run(access_bot.run_access_burst())

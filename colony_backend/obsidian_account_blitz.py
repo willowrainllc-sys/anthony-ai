@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN ACCOUNT BLITZ v1.0 (MASS SIGNUP) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import uuid
@@ -21,7 +21,7 @@ class AccountBlitzEngine:
     async def execute_mass_onboarding(self, count: int = 500):
         colony_log(f"ACCOUNT_BLITZ: Launching mass signup for {count} Master Honeycomb Accounts...", node="SUPREME")
 
-        target_url = "https://dashboard.obsidian_ingress.com/sign-up"
+        target_url = "https://dashboard.obsidian_access.com/sign-up"
 
         # 1. Fetch available IPs from the Grid
         with db._get_connection() as conn:

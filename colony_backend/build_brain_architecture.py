@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ANTHONY'S CENTRAL BUILD BRAIN: ENTERPRISE AUTONOMOUS BUILD OS v1.0 ---
 import os
 import sys

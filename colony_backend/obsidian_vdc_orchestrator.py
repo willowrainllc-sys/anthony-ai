@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN VDC (VIRTUAL DATA CENTER) ORCHESTRATOR v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -103,7 +103,6 @@ if __name__ == "__main__":
     async def test_vdc():
         await vdc_orchestrator.execute_vdc_sync_pulse()
         m = vdc_orchestrator.generate_vdc_manifest()
-        print("\n=== [SUPREME] WILLOW RAIN VDC (VIRTUAL DATA CENTER) ===")
         print("Manifest ID:", m.manifest_id)
         print("Compute Power:", m.total_compute_power)
         print("ESTIMATED MONTHLY YIELD:", f"${m.estimated_monthly_yield_usd:,.2f}")

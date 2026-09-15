@@ -1,10 +1,11 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import re
 from pathlib import Path
 
 ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
 
-# 🔱 THE EVOLUTION: Colony -> Colony | Burst -> Burst | The Nest -> The Nest
+# [+] THE EVOLUTION: Colony -> Colony | Burst -> Burst | The Nest -> The Nest
 REPLACEMENTS = [
     (r"Colony", "Colony"),
     (r"colony", "colony"),
@@ -62,7 +63,7 @@ def rename_files():
                 print(f"[-] Error renaming {file_path}: {e}")
 
 if __name__ == "__main__":
-    print("🔱 Initiating Colony Evolution Burst... (Wait, it's a BURST now)")
+    print("[+] Initiating Colony Evolution Burst... (Wait, it's a BURST now)")
     rename_content()
     rename_files()
     print("[+] Evolution Complete. The Colony is here.")

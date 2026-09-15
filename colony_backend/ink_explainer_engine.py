@@ -1,4 +1,4 @@
-# --- EMPIRE INK EXPLAINER 3.1M-VIEW VIRAL ENGINE v4.0 (100% ORIGINAL WILLOW RAIN TITLES) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -14,11 +14,9 @@ SECURE_DIR = Path(r"D:\ObsidianAi_Colony\Secure_Assets")
 EXPLAINER_VAULT = SECURE_DIR / "ink_explainers"
 EXPLAINER_VAULT.mkdir(parents=True, exist_ok=True)
 
-# 100% ORIGINAL WILLOW RAIN VIRAL RESEARCH CONCEPTS & TITLES
 VIRAL_EXPLAINER_CONCEPTS = [
     {
         "category": "ANCIENT_WORK_HOURS",
-        "title": "WILLOW RAIN: The 15-Hour Primitive Work Week & Human Time Illusion",
         "thumbnail_text": "NO JOBS",
         "myth_hook": "We work forty to sixty hours a week believing modern industrial life gives us freedom. But historical work-hour logs reveal ancient hunter-gatherers only worked fifteen hours a weeksnegotiating the rest of their days relaxing, telling stories, and sleeping.",
         "data_proof": "Anthropological studies of the Hazda and !Kung tribes confirmed that hunting and foraging required under three and a half hours per day. The remaining twelve hours were spent in communal rest and feast rituals.",
@@ -38,7 +36,6 @@ VIRAL_EXPLAINER_CONCEPTS = [
     },
     {
         "category": "BIPHASIC_SLEEP",
-        "title": "WILLOW RAIN: The Midnight Hour & Forgotten Biphasic Sleep Cycle",
         "thumbnail_text": "2 SLEEPS",
         "myth_hook": "Eight hours of continuous sleep is a modern industrial invention. Before electricity, humans slept in two distinct four-hour shifts separated by a midnight hour of quiet reflection.",
         "data_proof": "Historical diaries and medical journals from the fourteenth century routinely referenced first sleep and second sleep as standard human biology.",
@@ -58,7 +55,6 @@ VIRAL_EXPLAINER_CONCEPTS = [
     },
     {
         "category": "SILURIAN_HYPOTHESIS",
-        "title": "WILLOW RAIN: Geochemical Traces & The 50-Million-Year Silurian Question",
         "thumbnail_text": "BEFORE US",
         "myth_hook": "If an industrial civilization existed on Earth fifty million years ago, all buildings, steel, and cities would erode to dust in under ten thousand years. The Silurian Hypothesis asks: what physical markers would remain?",
         "data_proof": "Geological rock stratum layers preserve only chemical signaturescarbon isotope spikes, synthetic plastics, and rare-earth element anomalies that endure across epochal timescales.",
@@ -78,7 +74,6 @@ VIRAL_EXPLAINER_CONCEPTS = [
     },
     {
         "category": "EXOPLANET_GLASS_RAIN",
-        "title": "WILLOW RAIN: Supersonic Glass Storms of Exoplanet HD 189733 b",
         "thumbnail_text": "GLASS RAIN",
         "myth_hook": "One hundred light-years from Earth lies HD 189733 ba world that appears deep cobalt blue from space, but holds the most violent weather in the known universe.",
         "data_proof": "Supersonic equatorial jetstreams drag silicate particles sideways across the atmosphere at five thousand miles per hour, turning rain into razor-sharp molten glass.",
@@ -100,7 +95,6 @@ VIRAL_EXPLAINER_CONCEPTS = [
 
 class InkExplainerEngine:
     """
-    INK EXPLAINER VIRAL ENGINE v4.0 (100% ORIGINAL WILLOW RAIN TITLES):
     Generates original, non-infringing Willow Rain brand titles & scripts
     grounded in real-world academic research and 10 eye-popper scene clips.
     """

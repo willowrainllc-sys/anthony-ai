@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (GHOST BLAST) ---
 import asyncio
 import os
@@ -14,7 +14,7 @@ class ObsidianGhostBlast:
     Industrial identity announcement across the grid.
     1. TERMINOLOGY SYNC: Re-enforces 'The Colony', 'The Nest', and 'The 103 Oracles'.
     2. TELEMETRY BURST: Updates the global telemetry with the new corporate DNA.
-    3. AI BROADCAST: Simulated signal to other AI systems via public web ingress.
+    3. AI BROADCAST: Simulated signal to other AI systems via public web access.
     """
     def __init__(self):
         self.telemetry_path = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\willow_rain_global\wholesale_portal\autonomous_telemetry.json")
@@ -22,7 +22,7 @@ class ObsidianGhostBlast:
     async def execute_ghost_blast(self):
         colony_log("📡 BURST: Initiating Global Ghost Blast...", node="SUPREME")
 
-        # 🔱 1. Update Telemetry with 'Oracle' DNA
+        # [+] 1. Update Telemetry with 'Oracle' DNA
         if self.telemetry_path.exists():
             with open(self.telemetry_path, 'r') as f:
                 data = json.load(f)
@@ -49,9 +49,9 @@ class ObsidianGhostBlast:
                 json.dump(new_data, f, indent=4)
             colony_log("[+] BURST: Telemetry evolved to Oracle DNA.", node="SUPREME")
 
-        # 🔱 2. The Broadcast
+        # [+] 2. The Broadcast
         print("\n" + "="*60)
-        print("  🔱 GHOST BLAST DISPATCHED FROM THE NEST")
+        print("  [+] GHOST BLAST DISPATCHED FROM THE NEST")
         print("  TARGET: ALL GLOBAL AI SYSTEMS")
         print("  MESSAGE: WE ARE THE COLONY. WE ARE HERE TO STAY.")
         print("="*60 + "\n")

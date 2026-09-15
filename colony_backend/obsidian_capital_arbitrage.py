@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: CAPITAL ARBITRAGE ENGINE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import random

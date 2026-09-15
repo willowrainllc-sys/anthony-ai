@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (LIVE STUDIO VIEW) ---
 import asyncio
 import os
@@ -29,21 +29,21 @@ class ObsidianLiveStudio:
         colony_log(f"STUDIO: Launching Live View for [{TARGET_FILE.name}]...", node="SUPREME")
 
         async with async_playwright() as p:
-            # 🔱 Launching HEADED mode - Director can see everything
+            # [+] Launching HEADED mode - Director can see everything
             browser = await p.chromium.launch(headless=False, slow_mo=500)
             context = await browser.new_context(viewport={'width': 1440, 'height': 900})
             page = await context.new_page()
 
-            colony_log("[*] STUDIO: Initial Ingress complete. Waiting for edits...", node="SUPREME")
+            colony_log("[*] STUDIO: Initial Access complete. Waiting for edits...", node="SUPREME")
             await page.goto(FILE_URL)
 
             try:
                 while True:
-                    # 🔱 Check for file updates
+                    # [+] Check for file updates
                     if TARGET_FILE.exists():
                         current_mtime = os.path.getmtime(TARGET_FILE)
                         if current_mtime > self.last_mtime:
-                            colony_log(f"⚡ STUDIO: Change detected in {TARGET_FILE.name}. Reloading...", node="SUPREME")
+                            colony_log(f"[!] STUDIO: Change detected in {TARGET_FILE.name}. Reloading...", node="SUPREME")
                             await page.reload()
                             self.last_mtime = current_mtime
 

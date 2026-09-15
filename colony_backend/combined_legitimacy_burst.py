@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v5.0 (LEGITIMACY ORCHESTRATOR) ---
 import asyncio
 import os
@@ -15,7 +15,7 @@ from node_seo_specialist import SEOSpecialistNode
 from playwright_industrial_bursts import burst_engine
 
 async def run_full_legitimacy_burst():
-    colony_log("🔱 LEGITIMACY: Initiating Global Professionalism Burst...", node="SUPREME")
+    colony_log("[+] LEGITIMACY: Initiating Global Professionalism Burst...", node="SUPREME")
 
     # 1. MERCHANT ARCHITECT: Ensure all 8 storefronts are published & mapped
     architect = MerchantArchitectNode()

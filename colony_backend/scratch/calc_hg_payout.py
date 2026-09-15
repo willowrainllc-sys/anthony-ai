@@ -13,7 +13,7 @@ def calc():
 
     gb_per_day = gb_per_15m * 96 # 96 fifteen-minute blocks in 24h
 
-    # Obsidian Ingress Math (JMPT Mode)
+    # Obsidian Access Math (JMPT Mode)
     # 3 credits per 10MB -> 300 credits per 1GB -> $0.30 per GB.
     # + 10% JMPT Bonus -> $0.33 per GB.
 
@@ -27,7 +27,7 @@ def calc():
     print("--- WHEN WILL YOU GET PAID? ---")
     print("In Obsidian Bridge (JMPT) Mode, there is no $20.00 minimum.")
     print("You can cash out at $0.50.")
-    print("Because you are making ~$21.90 per day, you can hit the 'Withdraw' button on the Obsidian Ingress/Obsidian Bridge portal EVERY SINGLE DAY.")
+    print("Because you are making ~$21.90 per day, you can hit the 'Withdraw' button on the Obsidian Access/Obsidian Bridge portal EVERY SINGLE DAY.")
 
     conn.close()
 

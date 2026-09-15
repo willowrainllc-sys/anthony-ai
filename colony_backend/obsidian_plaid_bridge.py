@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- OBSIDIAN PLAID BANKING BRIDGE v1.0 ---
 import os
 import httpx
@@ -23,7 +23,7 @@ BASE_URL = PLAID_URLS.get(PLAID_ENV, "https://sandbox.plaid.com")
 class ObsidianPlaidBridge:
     """
     OBSIDIAN PLAID BRIDGE:
-    Industrial-grade banking ingress without heavy SDK dependencies.
+    Industrial-grade banking access without heavy SDK dependencies.
     1. AUTH: Instantly authenticate bank accounts for bank-linked payments.
     2. BALANCE: Verify real-time account balances to reduce risk.
     3. IDENTITY: Validate account ownership via institution records.
@@ -83,9 +83,9 @@ class ObsidianPlaidBridge:
 plaid_bridge = ObsidianPlaidBridge()
 
 if __name__ == "__main__":
-    # Test Handshake (Sandbox)
+    # Test Connection (Sandbox)
     async def test():
-        print("🔱 TESTING PLAID INGRESS...")
+        print("[+] TESTING PLAID INGRESS...")
         res = await plaid_bridge.create_link_token("anthony_maestas_supreme")
         print(json.dumps(res, indent=2))
 

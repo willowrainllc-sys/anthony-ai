@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v6.0 (WORLDWIDE WEB IGNITION) ---
 import asyncio
 import subprocess
@@ -9,7 +9,6 @@ from pathlib import Path
 ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
 
 async def ignite_universe():
-    print("=== 🔱 OBSIDIAN GLOBAL: WORLDWIDE WEB IGNITION ===\n")
 
     # 1. Clear Port 80
     print("[*] Clearing Port 80 (Worldwide Web Gateway)...")
@@ -21,7 +20,7 @@ async def ignite_universe():
     await asyncio.sleep(5)
 
     # 3. Launch the Ghost Tunnel
-    print("[*] Establishing Ghost Tunnel (Secure Ingress)...")
+    print("[*] Establishing Ghost Tunnel (Secure Access)...")
     tunnel_cmd = "cloudflared tunnel --url http://127.0.0.1:80"
     tunnel_proc = await asyncio.create_subprocess_shell(
         tunnel_cmd,
@@ -43,14 +42,13 @@ async def ignite_universe():
             if match:
                 live_url = match.group(0)
                 print("\n" + "="*60)
-                print("  🔱 SUCCESS: YOUR UNIVERSE IS LIVE ON THE WEB 🔱")
+                print("  [+] SUCCESS: YOUR UNIVERSE IS LIVE ON THE WEB [+]")
                 print("="*60)
                 print(f"  [URL]: {live_url}")
                 print("  [STATUS]: AUTHORIZED / UNBLOCKABLE")
                 print("="*60 + "\n")
 
                 # Save to a file for the Director to reference
-                (ROOT / "LIVE_URL.txt").write_text(f"🔱 OBSIDIAN GLOBAL LIVE URL: {live_url}")
                 break
     except Exception as e:
         print(f"[-] IGNITION FAIL: {e}")

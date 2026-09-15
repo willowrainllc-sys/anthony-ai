@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN GHOST DNA (HARDWARE SPOOFER) v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import random
 import uuid
 

@@ -138,7 +138,7 @@ class NicheDirectorV3:
             )
         ]
 
-        title = f"WILLOW RAIN: Anomaly Deep-Dive  {topic[:40]}... [Director Cut]"
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
         blueprint = ProductionBlueprint(
             topic=topic,
             title=title,

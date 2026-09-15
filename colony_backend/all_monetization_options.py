@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE MASTER MONETIZATION INDEX & REVENUE MATRIX v2.0 (12 DIGITAL PRODUCTS) ---
 import os
 import sys
@@ -45,7 +46,7 @@ ALL_MONETIZATION_OPTIONS = {
         "status": "ACTIVE_EMBEDDED"
     },
     "5_passive_bandwidth_data": {
-        "title": "Obsidian Ingress SDK, EarnApp, Pawns.app & Ipsos Grid",
+        "title": "Obsidian Access SDK, EarnApp, Pawns.app & Ipsos Grid",
         "type": "BACKGROUND_INFRASTRUCTURE",
         "description": "Unused Wi-Fi bandwidth sharing + automated eGift card claims to Gmail.",
         "payout_destination": "Willow Rain Company LLC (Square) & Gmail eGift Cards",

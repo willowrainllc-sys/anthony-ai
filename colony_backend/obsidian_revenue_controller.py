@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- OBSIDIAN REVENUE & SETTLEMENT CONTROLLER v1.0 ---
 import os
 import json
@@ -8,7 +8,7 @@ from colony_logger import colony_log
 from colony_persistence import db
 from obsidian_dna_bridge import dna_bridge
 
-# 🔱 WHOLESALE PRICING DATA (Source of Truth)
+# [+] WHOLESALE PRICING DATA (Source of Truth)
 PRICING_MATRIX = {
     ".com":   {"cost": 10.50, "retail": 14.70},
     ".ai":    {"cost": 45.00, "retail": 64.99},
@@ -30,7 +30,7 @@ class ObsidianRevenueController:
         email = order_data.get("email", "anonymous")
         gross_amount = float(order_data.get("amount", 0.0))
 
-        colony_log(f"REVENUE: Processing order ingress for [{item_type}] from {email}...", node="FINANCE")
+        colony_log(f"REVENUE: Processing order access for [{item_type}] from {email}...", node="FINANCE")
 
         # 1. Identify Wholesale Cost
         tld = next((ext for ext in PRICING_MATRIX.keys() if ext in item_type.lower()), None)
@@ -41,7 +41,7 @@ class ObsidianRevenueController:
         wholesale_cost = PRICING_MATRIX[tld]["cost"]
         net_profit = round(gross_amount - wholesale_cost, 2)
 
-        # 2. Trigger Wholesale Provisioning (Real Handshake)
+        # 2. Trigger Wholesale Setting up (Real Connection)
         domain_name = item_type.replace("domain_", "")
         colony_log(f"[*] WHOLESALE: Dispatching ${wholesale_cost} to DNA Registry for [{domain_name}]...", node="FINANCE")
 
@@ -62,7 +62,7 @@ class ObsidianRevenueController:
             db.log_event("FINANCE", "ORDER_SETTLED_SUCCESS", settlement_record)
 
             print("\n" + "="*70)
-            print("  🔱 OBSIDIAN REVENUE SETTLEMENT COMPLETE")
+            print("  [+] OBSIDIAN REVENUE SETTLEMENT COMPLETE")
             print(f"  RETAIL GROSS: ${gross_amount:.2f}")
             print(f"  WHOLESALE COST: ${wholesale_cost:.2f}")
             print(f"  DIRECT PROFIT: ${net_profit:.2f}")

@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE COMFYUI DYNAMIC ANIMATION RENDERER v1.0 ---
 import os
 import sys

@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- OBSIDIAN WHOLESALE VENDOR EXPANSION ENGINE v1.0 ---
 import asyncio
 import os
@@ -37,7 +37,7 @@ class WholesaleVendorExpansion:
         })
 
         print("\n" + "="*70)
-        print("  🔱 OBSIDIAN WHOLESALE VENDOR EXPANSION COMPLETE")
+        print("  [+] OBSIDIAN WHOLESALE VENDOR EXPANSION COMPLETE")
         print(f"  ACTIVE REGISTRAR POOL: {len(self.vendors)} Global Suppliers")
         print("  ROUTING STRATEGY: Automated Cheapest-Price Margin Routing")
         print("="*70 + "\n")

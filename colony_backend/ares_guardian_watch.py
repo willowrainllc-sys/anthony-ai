@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES GUARDIAN WATCH: PHYSICAL MONITORING & PROTECTION v1.0 ---
 import asyncio
 import os
@@ -13,7 +13,7 @@ class AresGuardianWatch:
     """
     ARES GUARDIAN WATCH:
     1. PHYSICAL HEARTBEAT: Monitors for the Director's primary node pulse (HUD/Phone).
-    2. ORACLE ANALYSIS: Uses LLM to analyze 'Anomaly Vitals' and determine risk level.
+    2. ORACLE ANALYSIS: Uses LLM to analyze 'Anomaly Status' and determine risk level.
     3. ESCALATION: Automatically triggers failover alerts and emergency notifications.
     """
     def __init__(self):
@@ -25,7 +25,7 @@ class AresGuardianWatch:
     async def check_director_presence(self):
         """Monitors for the Director's secure link pulse."""
         while self.protection_active:
-            # 🔱 Simulation: Checking for encrypted handshake from primary mobile node
+            # [+] Simulation: Checking for encrypted handshake from primary mobile node
             # In a real scenario, this would be a socket or database check
             current_time = time.time()
             gap = current_time - self.last_seen
@@ -53,7 +53,7 @@ class AresGuardianWatch:
                 if resp.status_code == 200:
                     action = resp.json()['choices'][0]['message']['content']
                     if "ALERT" in action.upper():
-                        colony_log("🔱 ORACLE COMMAND: TRIGGERING EMERGENCY NOTIFICATION.", node="SECURITY")
+                        colony_log("[+] ORACLE COMMAND: TRIGGERING EMERGENCY NOTIFICATION.", node="SECURITY")
                         emergency_notifier.send_failover_alert("ARES_SECURE_NODE_01", 8080)
                     else:
                         colony_log("ARES_GUARDIAN: Oracle recommends monitoring. No alert sent.", node="SECURITY")

@@ -51,16 +51,16 @@ async def search_for_067():
                 amounts = re.findall(r'\$[0-9,]+\.[0-9]{2}', content)
                 print(f"   Other balances on screen: {amounts}")
 
-            # 2. Check Obsidian Ingress Dashboard (for the 0.06)
-            print("\n   -> Scanning Obsidian Ingress Standard...")
-            await page.goto("https://dashboard.obsidian_ingress.com/", timeout=60000, wait_until="networkidle")
+            # 2. Check Obsidian Access Dashboard (for the 0.06)
+            print("\n   -> Scanning Obsidian Access Standard...")
+            await page.goto("https://dashboard.obsidian_access.com/", timeout=60000, wait_until="networkidle")
             await asyncio.sleep(10)
             hg_content = await page.evaluate("() => document.body.innerText")
 
             if "0.06" in hg_content:
-                print("🎯 FOUND IT! $0.06 is physically on the Obsidian Ingress dashboard.")
+                print("🎯 FOUND IT! $0.06 is physically on the Obsidian Access dashboard.")
             else:
-                print("[-] 0.06 not found on Obsidian Ingress dashboard.")
+                print("[-] 0.06 not found on Obsidian Access dashboard.")
 
             await browser.close()
         except Exception as e:

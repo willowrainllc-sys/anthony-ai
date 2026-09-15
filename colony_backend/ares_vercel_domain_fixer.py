@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES AUTONOMOUS VERCEL DOMAIN FIXER ---
 import asyncio
 import os
@@ -34,7 +34,7 @@ async def fix_vercel_domain_binding():
             # Check if login is required
             if "login" in page.url or "signup" in page.url:
                 colony_log("[!] ARES: Please log in to Vercel in the opened browser window...", node="SUPREME")
-                print("\n🔱 [ARES ACTION REQUIRED]: Please log in to your Vercel account in the browser window.")
+                print("\n[+] [ARES ACTION REQUIRED]: Please log in to your Vercel account in the browser window.")
                 await page.wait_for_url("**/settings/domains**", timeout=120000)
 
             colony_log("[+] ARES: Connected to Vercel Domains panel. Re-binding obsidian.city to Production...", node="SUPREME")

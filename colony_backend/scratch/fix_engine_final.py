@@ -7,11 +7,11 @@ ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\colony_backend")
 def fix_all():
     print("=== 🔱 FINAL ENGINE ALIGNMENT: FIXING ALL BUGS ===\n")
 
-    # 1. Fix obsidian_ingress_data_flow_auditor.py
-    f1 = ROOT / "obsidian_ingress_data_flow_auditor.py"
+    # 1. Fix obsidian_access_data_flow_auditor.py
+    f1 = ROOT / "obsidian_access_data_flow_auditor.py"
     if f1.exists():
         content = f1.read_text(encoding='utf-8')
-        new_content = content.replace("class Obsidian IngressDataFlowAuditor:", "class ObsidianIngressDataFlowAuditor:")
+        new_content = content.replace("class Obsidian AccessDataFlowAuditor:", "class ObsidianAccessDataFlowAuditor:")
         f1.write_text(new_content, encoding='utf-8')
         print(f"  [✓] FIXED SYNTAX: {f1.name}")
 

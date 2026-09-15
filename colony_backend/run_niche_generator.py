@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE AUTONOMOUS NICHE VIDEO GENERATION PIPELINE v2.0 (RUN_NICHE_GENERATOR.PY) ---
 import os
 import sys

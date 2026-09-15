@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES SPATIAL ORACLE: PREDICTION & INTEL v1.0 ---
 import os
 import json
@@ -8,8 +8,8 @@ from pathlib import Path
 from colony_logger import colony_log
 from colony_persistence import db
 
-# 🔱 IDENTITY AUTHORITY
-BOSS = "The Godfather: Anthony Maestas"
+# [+] IDENTITY AUTHORITY
+BOSS = "The Admin: Anthony Maestas"
 
 class AresSpatialOracle:
     """

@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES PERMANENT PLAYWRIGHT EXECUTION SUITE v1.0 ---
 import asyncio
 import os
@@ -36,7 +36,7 @@ class AresPlaywrightPermanentRunner:
                 colony_log(f"[+] ARES PLAYWRIGHT SUCCESS: Successfully loaded {target_url} under permanent stealth mode.", node="SUPREME")
 
                 print(f"\n" + "="*70)
-                print(f"  🔱 ARES PLAYWRIGHT PERMANENT RUNNER ACTIVE")
+                print(f"  [+] ARES PLAYWRIGHT PERMANENT RUNNER ACTIVE")
                 print(f"  TARGET: {target_url}")
                 print(f"  STATUS: 100% PLAYWRIGHT STEALTH INGRESS")
                 print("="*70 + "\n")

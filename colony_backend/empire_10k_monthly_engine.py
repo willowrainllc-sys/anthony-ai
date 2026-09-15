@@ -1,4 +1,4 @@
-# --- EMPIRE 10K MONTHLY REVENUE ENGINE v1.0 (WILLOW RAIN COMPANY LLC) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json

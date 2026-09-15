@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE CASH FLOW OPTIMIZER & REVENUE COMMAND v1.0 ---
 import os
 import sys

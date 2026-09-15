@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES MASTER PLAYWRIGHT COMMAND SUITE & EMPIRE ORCHESTRATOR v3.0 ---
 import asyncio
 import os
@@ -22,7 +22,7 @@ class AresMasterSuite:
 
     async def execute_headed_handshake(self, target_url: str, mission_name: str):
         """Launches ARES in headed mode for user interaction & manual authentication."""
-        colony_log(f"ARES SUITE: Launching Headed Handshake [{mission_name}] on {target_url}...", node="SUPREME")
+        colony_log(f"ARES SUITE: Launching Headed Connection [{mission_name}] on {target_url}...", node="SUPREME")
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=False, slow_mo=500)
             context = await browser.new_context(viewport={'width': 1920, 'height': 1080})
@@ -36,7 +36,7 @@ class AresMasterSuite:
                 proof = self.vault / f"{mission_name}_handshake.png"
                 await page.screenshot(path=str(proof), full_page=True)
 
-                print(f"\n🔱 [ARES HEADED ACTIVE]: Mission [{mission_name}] is live in the browser.")
+                print(f"\n[+] [ARES HEADED ACTIVE]: Mission [{mission_name}] is live in the browser.")
                 print("Press Enter in this terminal once you have completed your mission actions...")
                 input()
 

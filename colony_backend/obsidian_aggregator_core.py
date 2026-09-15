@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN INTERNAL GRID & PRIVATE COLONY v3.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -63,7 +63,7 @@ class ObsidianInternalGridManager:
             client_name=client_name,
             email="procurement@buyer.io",
             amount_usd=total_value,
-            description=f"Wholesale Data Ingress: {volume_gb}GB Missouri Mesh"
+            description=f"Wholesale Data Access: {volume_gb}GB Missouri Mesh"
         )
 
         return {
@@ -92,7 +92,6 @@ if __name__ == "__main__":
     async def test_grid():
         await aggregator_core.synchronize_private_colony()
         audit = aggregator_core.get_private_wealth_audit()
-        print("\n=== [SUPREME] WILLOW RAIN PRIVATE GRID AUDIT ===")
         print("Daily Net Profit:", f"${audit['DAILY_NET_PROFIT']:,.2f}")
         print("Monthly Projection:", f"${audit['monthly_projected']:,.2f}")
         print("Status:", audit["status"])

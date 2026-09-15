@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN NODE CAPITAL TRACKER v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import json
 import uuid
@@ -8,7 +8,7 @@ from pydantic import BaseModel
 from colony_logger import colony_log
 from colony_persistence import db
 
-class NodeVitals(BaseModel):
+class NodeStatus(BaseModel):
     node_id: str
     capital_id: str            # Unique BTC Tracking ID for this specific node
     current_yield_usd: float = 0.0

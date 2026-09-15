@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN CAPITAL HUB CONTROLLER v2.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -112,7 +112,6 @@ capital_hub = ObsidianCapitalHubController()
 if __name__ == "__main__":
     async def test_hub():
         m = await capital_hub.execute_empire_wealth_audit()
-        print("\n=== [SUPREME] WILLOW RAIN CAPITAL HUB MANIFEST ===")
         print("Owner:", m.owner)
         print("Proposal Sent USD (Bank):", f"${m.proposal sent_usd_balance:,.2f}")
         print("Bank Destination:", "Stride Bank (Chime) ****843")

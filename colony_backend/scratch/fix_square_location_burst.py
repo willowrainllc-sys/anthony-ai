@@ -40,7 +40,7 @@ async def fix_strike():
             "order": {
                 "location_id": CORRECT_LOC_ID,
                 "line_items": [{
-                    "name": "Wholesale Obsidian Matrix: 5,000 GB High-Performance Ingress",
+                    "name": "Wholesale Obsidian Matrix: 5,000 GB High-Performance Access",
                     "quantity": "1",
                     "base_price_money": {"amount": 900000, "currency": "USD"}
                 }]

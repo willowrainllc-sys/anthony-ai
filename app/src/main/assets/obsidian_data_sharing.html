@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Obsidian Data Sharing | Monetize Your Bandwidth</title>
-    <meta name="description" content="Share your unused bandwidth with the Obsidian City mesh and earn credits or direct payouts. Secure, private, and autonomous."/>
+    <meta name="description" content="Share your unused bandwidth with the Obsidian City mesh and earn credits or direct payouts. Secure, private, and automatic."/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/three"></script>
@@ -25,6 +32,10 @@
     <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHCNLC5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <nav class="nav-header">
         <div class="flex items-center gap-10">
             <a href="index.html" class="font-black text-2xl tracking-tighter text-slate-900">OBSIDIAN<span class="text-blue-600">.CITY</span></a>
@@ -79,7 +90,7 @@
                 <div class="text-[10px] text-blue-400 font-black uppercase tracking-[4px] mb-2">Global Edge Network Pulse</div>
                 <div class="flex items-center gap-2">
                     <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-                    <span class="text-[10px] font-bold text-gray-400 uppercase">Live Ingress Active</span>
+                    <span class="text-[10px] font-bold text-gray-400 uppercase">Live Access Active</span>
                 </div>
             </div>
             <div class="absolute bottom-6 right-8 z-10 text-[9px] text-gray-500 font-bold uppercase tracking-widest bg-black/40 backdrop-blur-md p-3 rounded-lg border border-white/5">
@@ -215,7 +226,7 @@
             document.getElementById('totalEarnings').innerText = `$${earnings.toFixed(2)}`;
             document.getElementById('activeDevices').innerText = "1";
 
-            // 🔱 REAL-TIME HANDSHAKE: Report bandwidth to backend
+            // [+] REAL-TIME HANDSHAKE: Report bandwidth to backend
             try {
                 const session = JSON.parse(localStorage.getItem('obsidian_session') || '{}');
                 await fetch(getApiUrl('/api/data/report'), {

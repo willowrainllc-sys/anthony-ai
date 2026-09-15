@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN GMAIL MONITOR & AUTO-VERIFY v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import sys
@@ -9,7 +9,7 @@ from playwright.async_api import async_playwright
 from colony_logger import colony_log
 from human_stealth_helper import human_stealth
 
-PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault")
+PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault")
 SESSION_FILE = PERSONA_VAULT / "cookie_monster" / "cookie_monster_gmail.json"
 
 class ObsidianGmailMonitor:
@@ -17,7 +17,7 @@ class ObsidianGmailMonitor:
     OBSIDIAN GMAIL MONITOR v1.0:
     Automates the verification of 1,800+ Honeycomb accounts.
     1. GHOST ACCESS: Uses vaulted Gmail cookies to enter the inbox.
-    2. LINK SNIPING: Identifies 'Confirm your email' messages from Obsidian Ingress.
+    2. LINK SNIPING: Identifies 'Confirm your email' messages from Obsidian Access.
     3. AUTO-CLICK: Opens the verification link to finalize the $5.00 account.
     """
     async def run_verification_sweep(self):
@@ -38,15 +38,15 @@ class ObsidianGmailMonitor:
                 await page.goto("https://mail.google.com/mail/u/0/#inbox", timeout=60000)
                 await asyncio.sleep(5)
 
-                # 2. Search for Obsidian Ingress Verification Emails
+                # 2. Search for Obsidian Access Verification Emails
                 colony_log("GMAIL_MONITOR: Searching for 'Confirm your email' signals...", node="SECURITY")
 
                 # Robust Search Bar Discovery
                 search_bar = page.get_by_placeholder("Search mail").first
                 if await search_bar.is_visible():
-                    await search_bar.fill("Obsidian Ingress Confirm your email")
+                    await search_bar.fill("Obsidian Access Confirm your email")
                 else:
-                    await page.fill('input[aria-label="Search mail"]', "Obsidian Ingress Confirm your email")
+                    await page.fill('input[aria-label="Search mail"]', "Obsidian Access Confirm your email")
 
                 await page.keyboard.press("Enter")
                 await asyncio.sleep(8) # Extra time for Gmail's slow search

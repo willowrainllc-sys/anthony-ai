@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: SUPABASE MASTER SCHEMA EXECUTOR v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json

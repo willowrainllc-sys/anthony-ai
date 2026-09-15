@@ -1,69 +1,68 @@
-# --- WILLOW RAIN SECURITY: SYSTEM PURGE & REDUNDANCY CLEANUP v2.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
+# --- ARES SYSTEM PURGE & WORKSPACE CLEANUP v1.0 ---
 import os
 import shutil
 from pathlib import Path
 
-# TARGETS FOR DELETION (Legacy / Redundant / Broken)
-JUNK_SCRIPTS = [
-    "bradautomates_claude_video.py",
-    "claude_video_engine.py",
-    "ltx_pipelines.py",
-    "repair_ltx_model.py",
-    "theme_engine.py",
-    "populate_store.py",
-    "wipe_store.py",
-    "store_sales_burstr.py",
-    "viking_context_engine.py",
-    "viking_context_engine.py",
-    "demonstrate_team_chat.py",
-    "manual_amigos_burst.py",
-    "manual_feed_burst.py",
-    "manual_frontend_trigger.py",
-    "interactive_game_login.py",
-    "game_rewards_browser_bot.py",
-    "lottery_data_bot.py",
-    "usb_bootstrapper.py"
-]
+def purge_system():
+    root = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
 
-TEMP_FOLDERS = [
-    Path(r"D:\ObsidianAi_Colony\Secure_Assets\renderings"),
-    Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\app\build"),
-    Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\.gradle")
-]
+    # 🔱 1. TARGETS FOR TOTAL DELETION (Snapshots, Logs, Temp)
+    purge_dirs = [
+        "dominance_snapshots", "earnapp_snapshots", "geonode_snapshots",
+        "ipsos_snapshots", "payout_EARNAPP_snapshots", "payout_FREECASH_snapshots",
+        "payout_INBOXDOLLARS_snapshots", "payout_IPSOS_ISAY_snapshots",
+        "payout_OBSIDIAN_INGRESS_snapshots", "payout_PAWNS_APP_snapshots",
+        "payout_SWAGBUCKS_snapshots", "robinhood_snapshots", "seo_snapshots",
+        "obsidian_cloud", "saturn_cloud", "willow_rain_global", "willow_rain_hub",
+        "colony_vault", "renders", ".gradle", "build"
+    ]
 
-def execute_obsidian_purge():
-    print("=== [SUPREME] SUPREME SYSTEM PURGE: WILLOW RAIN SECURITY ===\n")
+    # 🔱 2. ROOT HTML TO KEEP
+    keep_html = {
+        "index.html", "obsidian_ai_builder.html", "obsidian_ai_studio.html",
+        "obsidian_auth_callback.html", "obsidian_city_dashboard.html",
+        "obsidian_city_landing.html", "obsidian_city_marketplace.html", "obsidian_data_sharing.html",
+        "obsidian_director_hub.html", "obsidian_domains.html", "obsidian_domain_results.html",
+        "obsidian_help_center.html", "obsidian_hosting_landing.html",
+        "obsidian_industrial_mesh.html", "obsidian_llc_formation.html",
+        "obsidian_llc_intake.html", "obsidian_llc_state.html",
+        "obsidian_monetization_hub.html", "obsidian_pay_hub.html",
+        "obsidian_register.html", "obsidian_site_builder_landing.html",
+        "obsidian_signin.html", "obsidian_vps_hosting.html", "obsidian_vps_configure.html",
+        "obsidian_vps_dashboard.html", "obsidian_wordpress_support.html",
+        "obsidian_openclaw_hosting.html", "obsidian_nodejs_hosting.html",
+        "obsidian_unified_checkout.html", "success.html", "terms.html", "privacy.html",
+        "ares_oracle_chat_monitor.html", "obsidian_city_tech.html", "obsidian_web_voyager.html",
+        "obsidian_user_profile.html", "obsidian_device_grid.html", "obsidian_ranking_lookup.html",
+        "obsidian_premium_domains.html"
+    }
 
-    # 1. Purge Junk Scripts
-    backend_dir = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\colony_backend")
-    purged_count = 0
-    for script in JUNK_SCRIPTS:
-        spath = backend_dir / script
-        if spath.exists():
+    print("🔱 ARES: Initiating Global System Purge...")
+
+    # Purge Directories
+    for d in purge_dirs:
+        target = root / d
+        if target.exists():
             try:
-                os.remove(spath)
-                print(f"[] PURGED: {script}")
-                purged_count += 1
-            except: pass
+                shutil.rmtree(target)
+                print(f"[!] Purged Directory: {d}")
+            except Exception as e:
+                print(f"[-] Failed to purge {d}: {e}")
 
-    # 2. Purge Temp Data & Caches
-    for folder in TEMP_FOLDERS:
-        if folder.exists():
-            try:
-                shutil.rmtree(folder)
-                folder.mkdir(parents=True, exist_ok=True)
-                print(f"[] CLEANED: {folder}")
-            except: pass
+    # Purge Root Files (Temp/Irrelevant)
+    for f in root.glob("*"):
+        if f.is_file():
+            # Keep .py, .js, .css, .json, .env, .gitignore, and core HTML
+            if f.suffix == ".mp4" or f.suffix == ".log" or f.suffix == ".bat" or f.suffix == ".dmg":
+                if f.name not in ["ANTHONY.bat"]: # Keep main launcher
+                    f.unlink()
+                    print(f"[!] Purged File: {f.name}")
+            elif f.suffix == ".html" and f.name not in keep_html:
+                f.unlink()
+                print(f"[!] Purged Legacy HTML: {f.name}")
 
-    # 3. Purge Large Log Files
-    logs_dir = Path(r"D:\ObsidianAi_Colony\Logs")
-    if logs_dir.exists():
-        for f in logs_dir.glob("*.log"):
-            if f.stat().st_size > 10 * 1024 * 1024: # 10MB
-                os.remove(f)
-                print(f"[] PURGED LARGE LOG: {f.name}")
-
-    print(f"\n[SUPREME] PURGE COMPLETE: {purged_count} legacy scripts removed. System is lean.")
+    print("\n🔱 SYSTEM PURGE COMPLETE. GRID IS CLEANED.")
 
 if __name__ == "__main__":
-    execute_obsidian_purge()
+    purge_system()

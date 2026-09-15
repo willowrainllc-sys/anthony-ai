@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE LEGAL VAULT: TABLE PROVISIONING v1.0 ---
 import os
 from supabase import create_client, Client
@@ -12,7 +13,7 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 def provision():
-    print("[*] Provisioning Legal Vault Tables in Supabase...")
+    print("[*] Setting up Legal Vault Tables in Supabase...")
 
     # Note: Supabase Python client doesn't support 'CREATE TABLE' directly via standard API.
     # The user should ideally run the SQL provided in the 'legal_schema.sql' artifact.

@@ -1,4 +1,4 @@
-# --- WILLOW RAIN ENTERPRISES: UNLIMITED BANDWIDTH DATA BASES & COMPANY HUB ENGINE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json

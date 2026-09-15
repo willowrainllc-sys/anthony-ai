@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (DNA EXTRACTOR) ---
 import asyncio
 import json
@@ -14,7 +14,7 @@ class DNAExtractor:
 
     async def run_extraction(self):
         async with async_playwright() as p:
-            # 🔱 High-trust user agent to bypass initial blocks
+            # [+] High-trust user agent to bypass initial blocks
             user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
             browser = await p.chromium.launch(headless=True)
             context = await browser.new_context(user_agent=user_agent)
@@ -25,7 +25,7 @@ class DNAExtractor:
             await asyncio.sleep(5) # Allow dynamic elements to settle
 
 
-            # 🔱 1. Extract CSS Variables (Design Tokens)
+            # [+] 1. Extract CSS Variables (Design Tokens)
             css_vars = await page.evaluate("""() => {
                 const root = document.documentElement;
                 const styles = window.getComputedStyle(root);
@@ -37,7 +37,7 @@ class DNAExtractor:
                 return res;
             }""")
 
-            # 🔱 2. Extract Button DNA (Structure & Styles)
+            # [+] 2. Extract Button DNA (Structure & Styles)
             button_dna = await page.evaluate("""() => {
                 return Array.from(document.querySelectorAll('button, a[role="button"]')).slice(0, 10).map(b => {
                     const style = window.getComputedStyle(b);
@@ -53,7 +53,7 @@ class DNAExtractor:
                 });
             }""")
 
-            # 🔱 3. Extract Layout Logic (Section Grids)
+            # [+] 3. Extract Layout Logic (Section Grids)
             layout_dna = await page.evaluate("""() => {
                 return Array.from(document.querySelectorAll('section')).slice(0, 5).map(s => {
                     const style = window.getComputedStyle(s);
@@ -67,7 +67,7 @@ class DNAExtractor:
                 });
             }""")
 
-            # 🔱 4. Vault the DNA
+            # [+] 4. Vault the DNA
             vault_file = RECON_DIR / "obsidian city_raw_dna.json"
             with open(vault_file, 'w') as f:
                 json.dump({

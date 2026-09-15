@@ -1,4 +1,4 @@
-# --- WILLOW RAIN ENTERPRISES: TOKEN BUCKET RATE LIMITER & STATELESS S2S HANDSHAKE ENGINE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -36,7 +36,7 @@ class ScopedS2SToken(BaseModel):
     expires_at: float
     is_active: bool = True
 
-class HandshakeValidationResult(BaseModel):
+class ConnectionValidationResult(BaseModel):
     authenticated: bool
     client_identity: str
     remaining_quota_gb: float
@@ -72,7 +72,7 @@ class TokenBucketLimiter:
             return True
         return False
 
-class ScopedTokenHandshakeEngine:
+class ScopedTokenConnectionEngine:
     """
     STATELESS S2S HANDSHAKE ENGINE v1.0:
     Issues scoped, metered API tokens with automatic quota expiry and token bucket rate-limiting.
@@ -127,10 +127,10 @@ class ScopedTokenHandshakeEngine:
         colony_log(f" TOKEN_ENGINE: Issued scoped S2S token [{bearer_token[:12]}...] ({quota_gb} GB) for {client_identity}!", node="TOKEN_ENGINE")
         return tok_obj
 
-    def validate_stateless_handshake(self, bearer_token: str, bytes_requested: int = 1048576) -> HandshakeValidationResult:
-        """Stateless S2S Handshake: Verifies token, quota, and expiry in milliseconds."""
+    def validate_stateless_handshake(self, bearer_token: str, bytes_requested: int = 1048576) -> ConnectionValidationResult:
+        """Stateless S2S Connection: Verifies token, quota, and expiry in milliseconds."""
         if not bearer_token:
-            return HandshakeValidationResult(authenticated=False, client_identity="ANONYMOUS", remaining_quota_gb=0.0, rate_limit_mbps=0.0, message="Missing Bearer Token")
+            return ConnectionValidationResult(authenticated=False, client_identity="ANONYMOUS", remaining_quota_gb=0.0, rate_limit_mbps=0.0, message="Missing Bearer Token")
 
         with db._get_connection() as conn:
             row = conn.execute("SELECT client_identity, quota_gb, used_gb, expires_at, is_active FROM scoped_s2s_tokens WHERE bearer_token=?", (bearer_token,)).fetchone()
@@ -139,9 +139,9 @@ class ScopedTokenHandshakeEngine:
                 now = time.time()
 
                 if is_active == 0:
-                    return HandshakeValidationResult(authenticated=False, client_identity=client_id, remaining_quota_gb=0.0, rate_limit_mbps=0.0, message="Token quota exhausted / inactive")
+                    return ConnectionValidationResult(authenticated=False, client_identity=client_id, remaining_quota_gb=0.0, rate_limit_mbps=0.0, message="Token quota exhausted / inactive")
                 if now > expires_at:
-                    return HandshakeValidationResult(authenticated=False, client_identity=client_id, remaining_quota_gb=0.0, rate_limit_mbps=0.0, message="Token expired")
+                    return ConnectionValidationResult(authenticated=False, client_identity=client_id, remaining_quota_gb=0.0, rate_limit_mbps=0.0, message="Token expired")
 
                 # Deduct requested bytes from quota
                 added_gb = bytes_requested / (1024 ** 3)
@@ -151,16 +151,16 @@ class ScopedTokenHandshakeEngine:
                 if new_used >= quota_gb:
                     conn.execute("UPDATE scoped_s2s_tokens SET used_gb=?, is_active=0 WHERE bearer_token=?", (new_used, bearer_token))
                     conn.commit()
-                    return HandshakeValidationResult(authenticated=False, client_identity=client_id, remaining_quota_gb=0.0, rate_limit_mbps=0.0, message="Quota limit reached on request")
+                    return ConnectionValidationResult(authenticated=False, client_identity=client_id, remaining_quota_gb=0.0, rate_limit_mbps=0.0, message="Quota limit reached on request")
 
                 conn.execute("UPDATE scoped_s2s_tokens SET used_gb=? WHERE bearer_token=?", (new_used, bearer_token))
                 conn.commit()
 
-                return HandshakeValidationResult(authenticated=True, client_identity=client_id, remaining_quota_gb=round(remaining_gb, 2), rate_limit_mbps=100.0, message="S2S Handshake Authenticated OK")
+                return ConnectionValidationResult(authenticated=True, client_identity=client_id, remaining_quota_gb=round(remaining_gb, 2), rate_limit_mbps=100.0, message="S2S Connection Authenticated OK")
 
-        return HandshakeValidationResult(authenticated=False, client_identity="UNKNOWN", remaining_quota_gb=0.0, rate_limit_mbps=0.0, message="Invalid Bearer Token")
+        return ConnectionValidationResult(authenticated=False, client_identity="UNKNOWN", remaining_quota_gb=0.0, rate_limit_mbps=0.0, message="Invalid Bearer Token")
 
-token_handshake_engine = ScopedTokenHandshakeEngine()
+token_handshake_engine = ScopedTokenConnectionEngine()
 
 if __name__ == "__main__":
     tok = token_handshake_engine.issue_scoped_token("Geonode_Aggregator_NorthAmerica", quota_gb=500.0)

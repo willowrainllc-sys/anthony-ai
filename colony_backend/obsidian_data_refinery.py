@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN AI TRAINING DATA REFINERY v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -78,7 +78,6 @@ data_refinery = ObsidianDataRefinery()
 if __name__ == "__main__":
     async def test_refinery():
         res = await data_refinery.execute_refining_burst("Medical AI Ethics")
-        print("\n=== [SUPREME] WILLOW RAIN AI DATA REFINERY ===")
         print("Topic:", res.topic)
         print("Record Count:", res.record_count)
         print("Format:", res.format)

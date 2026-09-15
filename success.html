@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Obsidian City | Cloud & Identity Hub</title>
@@ -24,14 +31,18 @@
     <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHCNLC5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <div class="success-card">
-    <div class="text-6xl mb-8">🔱</div>
+    <div class="text-6xl mb-8">[+]</div>
     <h1 class="text-4xl font-black text-slate-900 mb-2">Throne Claimed.</h1>
-    <p class="text-slate-500 text-lg">Your digital asset has been successfully handshaked with the ASI registry.</p>
+    <p class="text-slate-500 text-lg">Your digital asset has been successfully connectiond with the ASI registry.</p>
 
     <div class="token-box" id="purchaseInfo">
-        <div class="token-label">ASI Provisioning Token</div>
+        <div class="token-label">ASI Setting up Token</div>
         <span id="pToken" class="font-black">OBS-LOADING-DNA</span>
         <div class="mt-6 pt-6 border-t border-slate-100 text-left text-[11px] text-slate-400 font-bold uppercase tracking-widest grid grid-cols-2">
             <div>Item: <span id="purchasedItem" class="text-slate-900">...</span></div>
@@ -39,15 +50,15 @@
         </div>
     </div>
 
-    <!-- 🔱 Next Steps Instructions (Armored) -->
+    <!-- [+] Next Steps Instructions (Armored) -->
     <div id="instructionCard" class="bg-blue-50 border border-blue-100 p-8 rounded-[32px] text-left mb-10">
         <h4 class="text-[10px] font-black text-blue-600 uppercase tracking-[3px] mb-6">Mission Directives // What to do next</h4>
 
         <div class="instruction-step">
             <div class="step-num">01</div>
             <div>
-                <div class="text-xs font-black text-slate-900 uppercase">Access Ingress</div>
-                <p class="text-[11px] text-slate-500 mt-1">Log into your <a href="obsidian_city_dashboard.html" class="text-blue-600 underline">Director Dashboard</a> to view your asset vitals.</p>
+                <div class="text-xs font-black text-slate-900 uppercase">Access Access</div>
+                <p class="text-[11px] text-slate-500 mt-1">Log into your <a href="obsidian_city_dashboard.html" class="text-blue-600 underline">Admin Dashboard</a> to view your asset status.</p>
             </div>
         </div>
 
@@ -55,7 +66,7 @@
             <div class="step-num">02</div>
             <div>
                 <div class="text-xs font-black text-slate-900 uppercase">Propagation Pulse</div>
-                <p class="text-[11px] text-slate-500 mt-1">Global DNS handshake takes 2-4 hours. Your site will be live at the edge shortly.</p>
+                <p class="text-[11px] text-slate-500 mt-1">Global DNS connection takes 2-4 hours. Your site will be live at the edge shortly.</p>
             </div>
         </div>
 
@@ -112,12 +123,12 @@
 
         if (txid) {
             document.getElementById('pToken').innerText = txid;
-            // 🔱 Fetch Instructions from Dashboard or local API
+            // [+] Fetch Instructions from Dashboard or local API
             const instructions = [
                 "1. Access your dashboard at obsidian.city/dashboard.",
                 "2. Your Domain/Asset is currently in 'PROVISIONING' status.",
                 "3. In 2-4 hours, your Nameservers will be live (tr.apiname.com).",
-                "4. Secure your login with the Provisioning Token provided."
+                "4. Secure your login with the Setting up Token provided."
             ];
             const list = document.getElementById('instructionList');
             instructions.forEach(i => {

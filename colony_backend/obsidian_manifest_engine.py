@@ -1,4 +1,4 @@
-# --- WILLOW RAIN ENTERPRISES: OBSIDIAN SYSTEM MANIFEST & MASTER KEY VAULT v1.1 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -83,7 +83,7 @@ class ObsidianManifestEngine:
             "web_portal": os.getenv("VERCEL_URL", "https://obsidian.city"),
             "fastmcp_gateway": "http://localhost:8000",
             "comfyui_render": os.getenv("COMFY_URL", "http://127.0.0.1:8188"),
-            "ingress_gateway": f"socks5://{keys.alibaba_cloud['public_eip']}:1080"
+            "access_gateway": f"socks5://{keys.alibaba_cloud['public_eip']}:1080"
         }
 
         manifest = ObsidianSystemManifest(

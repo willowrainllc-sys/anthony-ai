@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: HIGH-TICKET AFFILIATE ARBITRAGE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -73,7 +73,6 @@ if __name__ == "__main__":
     import asyncio
     async def test_ht():
         res = await ht_arbitrage.execute_high_ticket_burst()
-        print("\n=== [SUPREME] WILLOW RAIN HIGH-TICKET ARBITRAGE ===")
         print("Offer:", res.product_name)
         print("Potential Commission:", f"${res.commission_usd:,.2f}")
         print("Link:", res.tracking_link)

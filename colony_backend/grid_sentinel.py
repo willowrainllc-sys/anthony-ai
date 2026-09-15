@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE GRID SENTINEL: DISK & RAM DEFENSE v1.0 ---
 import os
 import shutil
@@ -12,7 +13,7 @@ class GridSentinel:
     Auto-cleans disk space and monitors RAM to prevent grid crashes.
     """
     def __init__(self):
-        self.render_dir = r"C:\ObsidianAi_Colony\Renderings"
+        self.render_dir = r"C:\AnthonyAi_Colony\Renderings"
         self.hf_cache = r"C:\Users\willo\huggingface_cache"
 
     async def run_defense_loop(self):

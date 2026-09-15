@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN OBSIDIAN_INGRESS-OBSIDIAN_BRIDGE LINKER v3.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import json
@@ -12,16 +12,16 @@ from playwright_stealth_factory import stealth_factory
 
 # Configuration
 OBSIDIAN_BRIDGE_ID = "c54d9d74-fd16-4bfd-9136-904fb62ff21f"
-PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault")
+PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault")
 COOKIE_MONSTER = PERSONA_VAULT / "cookie_monster"
 TEMP_DIR = Path(r"D:\ObsidianAi_Colony\Temp")
 TEMP_DIR.mkdir(parents=True, exist_ok=True)
 
-class Obsidian IngressLinker:
+class Obsidian AccessLinker:
     """
     OBSIDIAN_INGRESS LINKER v3.0:
-    Automates the connection of Obsidian Ingress accounts to the Director's ObsidianBridge ID.
-    1. VAULT SCAN: Identifies all active Obsidian Ingress sessions.
+    Automates the connection of Obsidian Access accounts to the Director's ObsidianBridge ID.
+    1. VAULT SCAN: Identifies all active Obsidian Access sessions.
     2. GHOST NAVIGATION: Logins via Playwright and navigates to the JMPT modal.
     3. ID INJECTION: Pastes the c54d9d74... ID and verifies the handshake.
     """
@@ -44,8 +44,8 @@ class Obsidian IngressLinker:
                 await human_stealth.inject_stealth_scripts(page)
 
                 # 1. Access Dashboard
-                colony_log(f"   -> Accessing Obsidian Ingress for [{account_name}]...", node="SUPREME")
-                await page.goto("https://dashboard.obsidian_ingress.com/", timeout=60000, wait_until="networkidle")
+                colony_log(f"   -> Accessing Obsidian Access for [{account_name}]...", node="SUPREME")
+                await page.goto("https://dashboard.obsidian_access.com/", timeout=60000, wait_until="networkidle")
                 await asyncio.sleep(5)
 
                 # 2. Check if already linked
@@ -88,8 +88,8 @@ class Obsidian IngressLinker:
 
     async def execute_mass_linking_burst(self, limit: int = 50):
         auth_files = list(COOKIE_MONSTER.glob("cookie_monster_*.json"))
-        # Filter for Obsidian Ingress accounts
-        hg_files = [f for f in auth_files if "obsidian_ingress" in f.name or "ghost" in f.name or "node" in f.name or "obsidian_bridge" in f.name]
+        # Filter for Obsidian Access accounts
+        hg_files = [f for f in auth_files if "obsidian_access" in f.name or "ghost" in f.name or "node" in f.name or "obsidian_bridge" in f.name]
 
         colony_log(f"LINKER: Initiating mass burst on {len(hg_files)} accounts...", node="SUPREME")
 
@@ -103,7 +103,7 @@ class Obsidian IngressLinker:
 
         return linked_count
 
-linker = Obsidian IngressLinker()
+linker = Obsidian AccessLinker()
 
 if __name__ == "__main__":
     asyncio.run(linker.execute_mass_linking_burst())

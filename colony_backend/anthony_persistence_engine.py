@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: PERSISTENCE KERNEL v7.0 (STABLE) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import time

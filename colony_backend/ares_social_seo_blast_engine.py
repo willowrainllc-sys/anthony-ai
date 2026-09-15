@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES MASTER SOCIAL & SEO BLAST ENGINE v1.0 ---
 import asyncio
 import os
@@ -33,7 +33,7 @@ class AresSocialSeoBlastEngine:
             await asyncio.sleep(0.5)
 
         # 3. Repository & API Broadcast
-        colony_log("[+] REPO & API PUSH: Broadcasting wholesale domain registrar ingress across all active vendor ports.", node="SUPREME")
+        colony_log("[+] REPO & API PUSH: Broadcasting wholesale domain registrar access across all active vendor ports.", node="SUPREME")
 
         db.log_event("SUPREME", "SOCIAL_SEO_BLAST_COMPLETE", {
             "target": self.target_url,
@@ -42,7 +42,7 @@ class AresSocialSeoBlastEngine:
         })
 
         print("\n" + "="*70)
-        print("  🔱 ARES SOCIAL & SEO BLAST ENGINE COMPLETE")
+        print("  [+] ARES SOCIAL & SEO BLAST ENGINE COMPLETE")
         print(f"  PROMOTING: {self.target_url}")
         print("  STATUS: 100% BLAPPED ACROSS SOCIAL, REDDIT & SEO INDEXERS")
         print("="*70 + "\n")

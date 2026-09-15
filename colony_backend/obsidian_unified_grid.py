@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN UNIFIED GRID v2.0 (INTELLIGENT EMPIRE) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import asyncio
 import os
 import sys
@@ -23,7 +23,7 @@ class ObsidianUnifiedGrid:
     async def execute_obsidian_grid_cycle(self):
         colony_log(f"[SUPREME] SUPREME_GRID: Initiating Master Wealth Loop. Target: {self.chief_aim}", node="SUPREME")
 
-        # Layer 1: Network Ingress (The 1,000+ Port Matrix)
+        # Layer 1: Network Access (The 1,000+ Port Matrix)
         from obsidian_pproxy_runner import run_matrix_industrial
         # Already managed by Daemon Overseer, but we ensure routing is hot
 

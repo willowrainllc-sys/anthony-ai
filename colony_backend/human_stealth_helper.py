@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE HUMAN ACTION STEALTH, BEZIER MOUSE & ROBUST LOCATOR HELPER v3.0 ---
 import os
 import sys

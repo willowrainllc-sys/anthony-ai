@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE PRODUCTION WORKER: ASYNC TASK RUNNER v1.4 (RESILIENT SCENES) ---
 import asyncio
 import os

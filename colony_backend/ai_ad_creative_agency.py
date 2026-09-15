@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: AI AD CREATIVE AGENCY & B2B AD-ENGINE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -80,7 +80,6 @@ ad_agency = AiAdCreativeAgency()
 if __name__ == "__main__":
     async def test_agency():
         pkg = await ad_agency.create_wholesale_ad_package("Luxury Watches Inc", goal="CONVERSION", count=3)
-        print("\n=== [SUPREME] WILLOW RAIN AD CREATIVE AGENCY ===")
         print("Client:", pkg.client_name)
         print("Total Ads:", pkg.total_creatives)
         print("AGENCY WHOLESALE FEE:", f"${pkg.wholesale_price_usd:,.2f}")

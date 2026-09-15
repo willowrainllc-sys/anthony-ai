@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ENCRYPTED VIA OBSIDIAN CORE v1.0 (GLOBAL CRYPTO) ---
 import os
 import hashlib
@@ -19,7 +19,7 @@ class ObsidianCryptoKernel:
 
     def generate_industrial_wallet(self, cashtag):
         """Generates a new secure wallet address for a user cashtag."""
-        colony_log(f"CRYPTO: Provisioning industrial wallet for [{cashtag}]...", node="FINANCE")
+        colony_log(f"CRYPTO: Setting up industrial wallet for [{cashtag}]...", node="FINANCE")
 
         # Simple high-entropy seed for demo
         seed = os.urandom(32)
@@ -38,7 +38,7 @@ class ObsidianCryptoKernel:
         return public_addr
 
     def get_market_price(self, asset="BTC"):
-        """Fetches live market price via industrial ingress."""
+        """Fetches live market price via industrial access."""
         # Simulated live feed
         base_prices = {"BTC": 77175.50, "ETH": 3450.20, "SOL": 145.80}
         import random
@@ -46,14 +46,14 @@ class ObsidianCryptoKernel:
 
     async def execute_mesh_trade(self, asset, amount, side="BUY"):
         """Executes a trade burst originating from a random Missouri IP."""
-        colony_log(f"TRADE: Executing {side} burst for {amount} {asset} via Mesh Ingress...", node="FINANCE")
+        colony_log(f"TRADE: Executing {side} burst for {amount} {asset} via Mesh Access...", node="FINANCE")
 
-        # 🔱 This is where we'd bind to a specific proxy port from the matrix
+        # [+] This is where we'd bind to a specific proxy port from the matrix
         # and hit a trade API like Robinhood or Coinbase.
         proxy_port = 1080 + (int(time.time()) % 100)
         proxy_url = f"socks5://127.0.0.1:{proxy_port}"
 
-        colony_log(f"[+] TRADE: Burst dispatched via Ingress Port [{proxy_port}].", node="FINANCE")
+        colony_log(f"[+] TRADE: Burst dispatched via Access Port [{proxy_port}].", node="FINANCE")
         return True, f"TR-{hashlib.md5(str(time.time()).encode()).hexdigest()[:6].upper()}"
 
 crypto_kernel = ObsidianCryptoKernel()

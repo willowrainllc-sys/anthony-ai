@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES AUTONOMOUS INFRASTRUCTURE BOT (DNS & VERCEL AUTOMATION) ---
 import asyncio
 import os
@@ -33,7 +33,7 @@ async def ares_configure_infrastructure():
             await page.goto("https://vercel.com/login", wait_until="networkidle")
 
             print("\n" + "="*70)
-            print("  🔱 ARES INFRASTRUCTURE BOT ACTIVE")
+            print("  [+] ARES INFRASTRUCTURE BOT ACTIVE")
             print("  ARES has opened Vercel. It is ready to bind 'obsidian.city'")
             print("  and redeploy your master hub.")
             print("="*70 + "\n")

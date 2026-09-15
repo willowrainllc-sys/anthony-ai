@@ -13,7 +13,7 @@ from human_stealth_helper import human_stealth
 from playwright_stealth_factory import stealth_factory
 
 JMPT_SESSION = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault\cookie_monster\cookie_monster_obsidian_bridge.json")
-HG_SESSION = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault\cookie_monster\cookie_monster_obsidian_ingress.json")
+HG_SESSION = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault\cookie_monster\cookie_monster_obsidian_access.json")
 
 async def take_proof(session_file, url, name):
     if not session_file.exists():
@@ -53,7 +53,7 @@ async def take_proof(session_file, url, name):
 
 async def run():
     print("=== 🔱 SUPREME VISUAL PROOF AUDIT ===\n")
-    await take_proof(HG_SESSION, "https://dashboard.obsidian_ingress.com/", "OBSIDIAN_INGRESS")
+    await take_proof(HG_SESSION, "https://dashboard.obsidian_access.com/", "OBSIDIAN_INGRESS")
     print("-" * 30)
     await take_proof(JMPT_SESSION, "https://app.obsidian_bridge.io/dashboard", "OBSIDIAN_BRIDGE")
 

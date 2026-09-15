@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE IPSOS I-SAY HEADLESS SURVEY BOT v2.0 (HUMAN STEALTH & SAFETY FIRST) ---
 import os
 import sys
@@ -10,7 +11,7 @@ from colony_persistence import db
 from human_stealth_helper import human_stealth
 
 SECURE_DIR = Path(r"D:\ObsidianAi_Colony\Secure_Assets")
-PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Obsidian_Ai\secure_assets\persona_vault")
+PERSONA_VAULT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai\secure_assets\persona_vault")
 PERSONA_VAULT.mkdir(parents=True, exist_ok=True)
 
 class IpsosBrowserBot:

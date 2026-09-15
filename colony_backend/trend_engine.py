@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE TREND ENGINE: ULTRA-DIVERSE DOCUMENTARY SPARK v3.0 ---
 import asyncio
 import httpx

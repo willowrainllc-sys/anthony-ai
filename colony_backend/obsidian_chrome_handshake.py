@@ -1,4 +1,4 @@
-# --- WILLOW RAIN SECURITY: OBSIDIAN CHROME HANDSHAKE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import subprocess
 import sys
@@ -28,4 +28,4 @@ def open_live_handshake(portal_url: str):
 
 if __name__ == "__main__":
     # Target the login page to ensure we capture fresh keys
-    open_live_handshake("https://dashboard.obsidian_ingress.com/login")
+    open_live_handshake("https://dashboard.obsidian_access.com/login")

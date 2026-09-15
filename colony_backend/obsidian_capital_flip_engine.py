@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: OBSIDIAN CAPITAL FLIP ENGINE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -62,5 +62,4 @@ flip_engine = ObsidianCapitalFlipEngine()
 
 if __name__ == "__main__":
     res = asyncio.run(flip_engine.monitor_and_flip_gains())
-    print("\n=== [SUPREME] WILLOW RAIN CAPITAL FLIP STATUS ===")
     print(json.dumps(res, indent=2))

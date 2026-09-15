@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE GENERATIVE BURST: OBSIDIAN LOCAL PIPELINE v2.0 ---
 import os
 import sys

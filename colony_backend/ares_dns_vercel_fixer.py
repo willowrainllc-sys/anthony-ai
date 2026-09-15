@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES MASTER DNS & VERCEL REDEPLOY FIXER ---
 import asyncio
 import os
@@ -16,7 +16,7 @@ CLOUDFLARE_ZONE_ID = os.getenv("CLOUDFLARE_ZONE_ID")
 class AresDnsVercelFixer:
     """
     ARES MASTER DNS & VERCEL REDEPLOY FIXER:
-    1. Validates and pushes correct Cloudflare DNS records for Vercel ingress.
+    1. Validates and pushes correct Cloudflare DNS records for Vercel access.
        - A Record (@ -> 76.76.21.21)
        - CNAME Record (www -> cname.vercel-dns.com)
     2. Triggers ARES browser automation to redeploy Vercel and clear cache.

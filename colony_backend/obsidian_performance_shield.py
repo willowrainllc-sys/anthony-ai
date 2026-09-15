@@ -1,4 +1,4 @@
-# --- OBSIDIAN GLOBAL: PERFORMANCE SHIELD v2.0 (ROBUST) ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import subprocess
 import time

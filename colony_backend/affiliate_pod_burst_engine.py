@@ -1,4 +1,4 @@
-# --- WILLOW RAIN COMPANY LLC: AFFILIATE ARBITRAGE & POD BURST ENGINE v1.0 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import sys
 import json
@@ -62,7 +62,6 @@ class AffiliatePodBurstEngine:
         product_id = f"merch_{uuid.uuid4().hex[:6]}"
         concept = MerchConcept(
             product_id=product_id,
-            title=f"WILLOW RAIN: {spark['subject']} - Official Series Apparel",
             niche=spark["niche"],
             design_prompt=f"Cinematic high-contrast minimalist graphic for {spark['subject']}... vaporwave aesthetics"
         )

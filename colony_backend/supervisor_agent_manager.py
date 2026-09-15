@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE SUPERVISOR MANAGER AGENT & LANGFUSE-STYLE FLIGHT RECORDER v1.0 ---
 import os
 import sys

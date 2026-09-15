@@ -1,10 +1,11 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 import os
 import re
 from pathlib import Path
 
 ROOT = Path(r"C:\Users\willo\OneDrive\Desktop\Anthony_Ai")
 
-# 🔱 THE FINAL RENAMER: Handling both content and filenames
+# [+] THE FINAL RENAMER: Handling both content and filenames
 REPLACEMENTS = [
     (r"colony_backend", "colony_backend"),
     (r"colony_log", "colony_log"),
@@ -67,7 +68,7 @@ def rename_files():
             except: pass
 
 if __name__ == "__main__":
-    print("🔱 Executing Final Colony Renamer Strike... (Wait, BURST)")
+    print("[+] Executing Final Colony Renamer Strike... (Wait, BURST)")
     rename_content()
     rename_files()
     print("[+] Evolution Complete.")

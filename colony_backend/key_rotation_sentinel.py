@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE KEY ROTATION & EXPIRATION SENTINEL v1.0 ---
 import os
 import time

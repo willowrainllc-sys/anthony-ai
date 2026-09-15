@@ -1,4 +1,4 @@
-# --- Built by Anthony Christopher | Est 12.19.1987 ---
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- ARES MASTER BLOG STRIKER & CONTENT SPREADER v1.0 ---
 import asyncio
 import os
@@ -29,7 +29,7 @@ class AresBlogStriker:
             await asyncio.sleep(0.8)
             colony_log(f"[+] STRIKE COMPLETE: Article published on {network}.", node="SUPREME")
 
-        # 2. SEO Backlink Handshake
+        # 2. SEO Backlink Connection
         colony_log("[+] SEO SPREAD: Cross-linking blog assets to boost 'obsidian.city' authority...", node="SUPREME")
 
         # 3. Community Engagement
@@ -42,7 +42,7 @@ class AresBlogStriker:
         })
 
         print("\n" + "="*70)
-        print("  🔱 ARES BLOG STRIKER MISSION COMPLETE")
+        print("  [+] ARES BLOG STRIKER MISSION COMPLETE")
         print(f"  PLATFORM PROMOTED: {self.target_url}")
         print("  STATUS: WORD SPREAD ACROSS ALL MAJOR BLOG CLUSTERS")
         print("="*70 + "\n")

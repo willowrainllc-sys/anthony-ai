@@ -1,3 +1,4 @@
+# --- Owned by Anthony Christopher Maestas | Directed by ARES ---
 # --- EMPIRE GENERAL-PURPOSE FACELESS AI MEDIA STUDIO FRAMEWORK v4.0 (BLOCKBUSTER & NATGEO THEMES) ---
 import os
 import sys
