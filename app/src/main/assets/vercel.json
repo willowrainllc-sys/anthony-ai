@@ -13,7 +13,7 @@
     }
   ],
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api_master.py" },
+    { "source": "/api/(.*)", "destination": "/api/index.py" },
     { "source": "/dashboard", "destination": "/obsidian_city_dashboard.html" },
     { "source": "/marketplace", "destination": "/obsidian_city_marketplace.html" },
     { "source": "/domains", "destination": "/obsidian_domains.html" },
