@@ -12,6 +12,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Secure Checkout | Obsidian City Global</title>
     <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
+    <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
+    <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -81,7 +83,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <label>Card Information</label>
                 <input type="text" id="cardNum" placeholder="4242 •••• •••• 4242">
             </div>
-            <div class="grid grid-cols-2 gap-4 input-group text-left">
+            <div class="grid-cols-2 gap-4 input-group text-left">
                 <div>
                     <label>Expiration</label>
                     <input type="text" id="cardExp" placeholder="MM / YY">
@@ -89,22 +91,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div>
                     <label>CVC</label>
                     <input type="text" id="cardCvc" placeholder="123">
-                </div>
-            </div>
-        </div>
-
-        <!-- [+] Manual Card / ID Upload (Front & Back) -->
-        <div class="input-group text-left mt-6 pt-6 border-t border-slate-200">
-            <label class="text-blue-600 font-bold">📸 Alternative: Upload Card (Front & Back)</label>
-            <p class="text-[10px] text-slate-400 mb-3">For manual verification or secure processing, upload card or ID images below.</p>
-            <div class="grid grid-cols-2 gap-3">
-                <div>
-                    <span class="text-[9px] font-bold text-slate-500 uppercase">Front Image</span>
-                    <input type="file" id="cardFront" accept="image/*" class="text-xs !p-2">
-                </div>
-                <div>
-                    <span class="text-[9px] font-bold text-slate-500 uppercase">Back Image</span>
-                    <input type="file" id="cardBack" accept="image/*" class="text-xs !p-2">
                 </div>
             </div>
         </div>
@@ -149,11 +135,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         summaryHtml += `<div class="line-item"><span>Registered Agent (1yr)</span><span>$125.00</span></div>`;
         summaryHtml += `<div class="line-item"><span>State Filing Fee</span><span>$${stateFee.toFixed(2)}</span></div>`;
         summaryHtml += `<div class="line-item text-emerald-600"><span>Bundle: Free .COM Domain</span><span>-$14.70</span></div>`;
-    } else if (type === 'dba_registration') {
-        document.getElementById('checkoutType').innerText = 'DBA Trade Name Setup';
-        summaryHtml += `<div class="line-item"><span>DBA Registration Service</span><span>$0.00</span></div>`;
-        summaryHtml += `<div class="line-item"><span>Identity Verification</span><span>INCLUDED</span></div>`;
-        summaryHtml += `<div class="line-item text-emerald-600"><span>Obsidian User Discount</span><span>-$100.00</span></div>`;
     } else if (type.startsWith('builder_')) {
         const planName = type.replace('builder_', '').toUpperCase();
         document.getElementById('checkoutType').innerText = 'Obsidian AI Builder';

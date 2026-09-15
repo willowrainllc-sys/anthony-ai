@@ -11,6 +11,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Account Dashboard | Obsidian City Manager</title>
+    <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
+    <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -20,7 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .status-pill { padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 800; text-transform: uppercase; }
         .status-processing { background: #eff6ff; color: #2563eb; }
         .status-approved { background: #ecfdf5; color: #059669; }
-        .settings-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 25px; margin-top: 20px; }
+        .settings-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 20px; padding: 20px; margin-top: 20px; }
     </style>
     <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
     <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
@@ -33,8 +35,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="max-w-6xl mx-auto px-6 py-12">
         <div class="mb-12 flex justify-between items-end">
             <div>
-                <h1 class="text-4xl font-black text-slate-900 tracking-tight">Account Summary</h1>
-                <p class="text-slate-500 text-sm mt-1">Manage your business assets and tools.</p>
+                <h1 class="text-4xl font-black text-slate-900 tracking-tight">Welcome Back</h1>
+                <p class="text-slate-500 text-sm mt-1">Manage your business entities and digital assets.</p>
             </div>
             <div class="flex gap-3">
                 <button onclick="window.location.href='obsidian_ai_builder.html'" class="bg-blue-600 text-white px-6 py-3 rounded-2xl font-bold text-xs uppercase shadow-lg shadow-blue-600/20">New Build +</button>
@@ -42,12 +44,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+        <div class="grid-cols-1 md:grid-cols-4 gap-6 mb-12">
             <div class="dashboard-card">
                 <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Empire Credits</h3>
                 <div id="creditDisplay" class="text-3xl font-black text-blue-600">50.0</div>
                 <div class="mt-4 flex gap-2">
-                    <input type="text" id="voucherCode" placeholder="GIFT-CODE" class="flex-1 bg-slate-50 border border-slate-100 rounded-lg px-3 py-1.5 text-[10px] font-bold uppercase outline-none focus:border-blue-500">
+                    <input type="text" id="voucherCode" placeholder="GIFT-CODE" class="flex-1 bg-slate-50 border-slate-100 rounded-lg px-3 py-1.5 text-[10px] font-bold uppercase outline-none focus:border-blue-500">
                     <button onclick="claimVoucher()" class="bg-blue-600 text-white px-3 py-1.5 rounded-lg text-[10px] font-black uppercase shadow-md hover:bg-blue-700 transition">Redeem</button>
                 </div>
             </div>
@@ -69,18 +71,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="dashboard-card border-blue-500/20">
                 <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Revenue Status</h3>
                 <div class="text-xl font-black text-blue-500 uppercase">Active</div>
-                <div class="flex flex-col gap-1 mt-2">
+                <div class="flex-col gap-1 mt-2">
                     <button onclick="window.location.href='obsidian_monetization_hub.html'" class="text-[9px] text-blue-600 font-black uppercase text-left hover:underline">Manage Revenue →</button>
                     <button onclick="window.location.href='obsidian_ranking_lookup.html'" class="text-[9px] text-blue-600 font-black uppercase text-left hover:underline">Ranking Lookup →</button>
-                </div>
-            </div>
-            <!-- [+] New: Bandwidth Sharing Status -->
-            <div class="dashboard-card border-purple-500/20 bg-purple-50/30 cursor-pointer hover:border-purple-500 transition-all" onclick="window.location.href='obsidian_data_sharing.html'">
-                <h3 class="text-[10px] text-purple-400 uppercase font-black mb-4 tracking-widest">Mesh Sharing</h3>
-                <div id="meshSharedDisplay" class="text-2xl font-black text-slate-900">0.00 GB</div>
-                <div class="flex justify-between items-center mt-4">
-                    <span class="text-[9px] text-purple-600 font-black uppercase">Earn While Idle</span>
-                    <span class="status-pill bg-purple-100 text-purple-600">LIVE</span>
                 </div>
             </div>
         </div>
@@ -90,31 +83,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="dashboard-card bg-slate-900 border-none text-white p-10 relative overflow-hidden">
                 <div class="absolute top-0 right-0 p-8 opacity-10 text-8xl">🏦</div>
                 <div class="relative z-10">
-                    <div class="text-[10px] font-black text-blue-400 uppercase tracking-[4px] mb-4">Financial Command Center</div>
-                    <h2 class="text-3xl font-black mb-8">Business Banking Tools</h2>
+                    <div class="text-[10px] font-black text-blue-400 uppercase tracking-[4px] mb-4">Fintech Command Center</div>
+                    <h2 class="text-3xl font-black mb-8">Industrial Banking Access</h2>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
-                            <h4 class="text-xs font-black uppercase mb-2">Live Balance</h4>
-                            <p class="text-gray-400 text-[10px] mb-4">Check your linked account balance instantly across all providers.</p>
-                            <button onclick="fetchRealTimeBalance()" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Update Balance</button>
+                    <div class="grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-6 bg-white/5 border-white/10 rounded-2xl">
+                            <h4 class="text-xs font-black uppercase mb-2">Real-time Balance</h4>
+                            <p class="text-gray-400 text-[10px] mb-4"> reduces risk of insufficient funds via Signal risk platform.</p>
+                            <button onclick="fetchRealTimeBalance()" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Refresh Balance</button>
                         </div>
-                        <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
-                            <h4 class="text-xs font-black uppercase mb-2">Account Verification</h4>
-                            <p class="text-gray-400 text-[10px] mb-4">Verify your ownership status with connected financial institutions securely.</p>
-                            <button onclick="alert('Checking account status...')" class="bg-white/10 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Verify Account</button>
+                        <div class="p-6 bg-white/5 border-white/10 rounded-2xl">
+                            <h4 class="text-xs font-black uppercase mb-2">Identity Matching</h4>
+                            <p class="text-gray-400 text-[10px] mb-4">Validate ownership through intelligent fuzzy matching with financial institutions.</p>
+                            <button onclick="alert('Connecting to bank...')" class="bg-white/10 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Validate Now</button>
                         </div>
-                        <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
-                            <h4 class="text-xs font-black uppercase mb-2">Transaction Analytics</h4>
-                            <p class="text-gray-400 text-[10px] mb-4">Get a simple summary of your business spending and revenue history.</p>
-                            <button onclick="alert('Analyzing transaction data...')" class="bg-white/10 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">View Analytics</button>
+                        <div class="p-6 bg-white/5 border-white/10 rounded-2xl">
+                            <h4 class="text-xs font-black uppercase mb-2">Wealth Insights</h4>
+                            <p class="text-gray-400 text-[10px] mb-4">Access summary of recurring subscriptions, bill payments, and deposits.</p>
+                            <button onclick="alert('Loading transaction history...')" class="bg-white/10 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Get Insights</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div class="grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             <div class="lg:col-span-2 dashboard-card">
                 <h2 class="text-xl font-black text-slate-900 mb-6">Recent Orders & Activity</h2>
                 <div id="ordersList" class="space-y-4">
@@ -153,13 +146,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="settings-card border-blue-500/30 bg-blue-600/5 relative overflow-hidden">
                     <div class="absolute -top-2 -right-2 w-16 h-16 bg-blue-500/10 rounded-full blur-xl"></div>
                     <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-[10px] text-blue-400 uppercase font-black tracking-[2px]">AI API Access</h3>
-                        <span class="bg-blue-500/20 text-blue-400 text-[8px] font-black px-2 py-0.5 rounded-full">ACTIVE</span>
+                        <h3 class="text-[10px] text-blue-400 uppercase font-black tracking-[2px]">AI Mesh Access</h3>
+                        <span class="bg-blue-500/20 text-blue-400 text-[8px] font-black px-2 py-0.5 rounded-full">PRODUCTION</span>
                     </div>
-                    <p class="text-[9px] text-gray-400 leading-relaxed mb-4">Generate your API keys to connect your apps directly to our business assistant. Professional infrastructure ready for your projects.</p>
+                    <p class="text-[9px] text-gray-400 leading-relaxed mb-4">Generate your production keys to tap directly into the world's first public AI mesh. Build with ARES grade infrastructure.</p>
                     <div id="apiKeySection">
-                        <div class="text-[9px] text-gray-500 mb-4 italic">"Waiting for access..."</div>
-                        <button onclick="generateApiKeys()" class="w-full bg-blue-600 text-white py-3 rounded-xl text-[9px] font-black uppercase tracking-widest shadow-lg shadow-blue-600/20 hover:bg-blue-700 transition">Create API Keys</button>
+                        <div class="text-[9px] text-gray-500 mb-4 italic">"Waiting for setup..."</div>
+                        <button onclick="generateApiKeys()" class="w-full bg-blue-600 text-white py-3 rounded-xl text-[9px] font-black uppercase tracking-widest shadow-lg shadow-blue-600/20 hover:bg-blue-700 transition">Create Access Keys</button>
                     </div>
                 </div>
             </div>
@@ -171,16 +164,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const session = sessionData ? JSON.parse(sessionData) : {};
         if (!session.email) window.location.href = 'obsidian_signin.html';
 
-        // [+] ADMIN LOCK: Only Admin can access the full Dashboard
-        const isAdmin = session.email.toLowerCase().includes("anthony") || session.email === "willow.rain.llc@gmail.com";
-        if (!isAdmin) {
+        // [+] ADMIN LOCK: Only Director can access the full Dashboard
+        const isDirector = session.email.toLowerCase().includes("anthony") || session.email === "willow.rain.llc@gmail.com";
+        if (!isDirector) {
             document.body.innerHTML = `
                 <div class="h-screen flex items-center justify-center bg-slate-50">
-                    <div class="text-center p-12 bg-white rounded-[32px] shadow-xl border border-slate-200 max-w-md">
+                    <div class="text-center p-12 bg-white rounded-[32px] shadow-xl border-slate-200 max-w-md">
                         <div class="text-5xl mb-6">🔒</div>
-                        <h1 class="text-2xl font-black text-slate-900 mb-2">Admin Account Required</h1>
-                        <p class="text-slate-500 text-sm mb-8">This section is for site administration. Please log in with your admin credentials or return to the main store.</p>
-                        <a href="index.html" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold uppercase text-xs">Return to Home</a>
+                        <h1 class="text-2xl font-black text-slate-900 mb-2">Director Access Required</h1>
+                        <p class="text-slate-500 text-sm mb-8">This terminal is restricted to the Admin. Your node privileges do not allow access to this dashboard.</p>
+                        <a href="index.html" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold uppercase text-xs">Return to Mesh</a>
                     </div>
                 </div>
             `;
@@ -208,9 +201,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         if (order.type.startsWith('vps')) vpsCount++;
 
                         const itemHtml = `
-                            <div class="flex justify-between items-center p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:border-blue-200 transition-all cursor-pointer">
+                            <div class="flex justify-between items-center p-5 bg-slate-50 rounded-2xl border-slate-100 hover:border-blue-200 transition-all cursor-pointer">
                                 <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-lg shadow-sm border border-slate-100">
+                                    <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-lg shadow-sm border-slate-100">
                                         ${order.type === 'llc_formation' ? '🏛️' : order.type.startsWith('vps') ? '🖥️' : '🌐'}
                                     </div>
                                     <div>
@@ -370,9 +363,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     document.getElementById('apiKeySection').innerHTML = `
                         <div class="space-y-2">
                             <div class="text-[8px] text-gray-500 uppercase font-black">Public Key</div>
-                            <div class="bg-black/20 p-2 rounded border border-white/5 text-[10px] mono text-blue-400 break-all">${data.public_key}</div>
+                            <div class="bg-black/20 p-2 rounded border-white/5 text-[10px] mono text-blue-400 break-all">${data.public_key}</div>
                             <div class="text-[8px] text-amber-500 uppercase font-black">Private Key (SECRET)</div>
-                            <div class="bg-black/40 p-2 rounded border border-amber-500/20 text-[10px] mono text-amber-400 break-all">${data.private_key}</div>
+                            <div class="bg-black/40 p-2 rounded border-amber-500/20 text-[10px] mono text-amber-400 break-all">${data.private_key}</div>
                             <p class="text-[8px] text-gray-500 italic mt-2">"Powering your personal pages via the Obsidian API."</p>
                         </div>
                     `;
@@ -388,7 +381,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     document.getElementById('apiKeySection').innerHTML = `
                         <div class="space-y-2">
                             <div class="text-[8px] text-gray-500 uppercase font-black">Active Public Key</div>
-                            <div class="bg-black/20 p-2 rounded border border-white/5 text-[10px] mono text-blue-400 break-all">${data.keys.public_key}</div>
+                            <div class="bg-black/20 p-2 rounded border-white/5 text-[10px] mono text-blue-400 break-all">${data.keys.public_key}</div>
                             <button onclick="generateApiKeys()" class="text-[8px] text-gray-600 hover:text-white uppercase font-bold">Rotate Keys →</button>
                         </div>
                     `;
