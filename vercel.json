@@ -112,6 +112,10 @@
     {
       "source": "/google(.*)\\.html",
       "destination": "/google$1.html"
+    },
+    {
+      "source": "/(.*)\\.html",
+      "destination": "/$1.html"
     }
   ]
 }
