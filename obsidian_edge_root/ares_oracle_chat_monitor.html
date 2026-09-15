@@ -141,14 +141,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
             <div class="flex gap-4">
-                <div class="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-[9px] font-black text-emerald-500">UPLINK_ACTIVE</div>
-                <button onclick="window.location.href='obsidian_director_hub.html'" class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-[9px] font-black text-gray-400 hover:text-white uppercase transition">Exit Hub</button>
+                <div class="px-4 py-2 bg-emerald-500/10 border-emerald-500/20 rounded-lg text-[9px] font-black text-emerald-500">UPLINK_ACTIVE</div>
+                <button onclick="window.location.href='obsidian_director_hub.html'" class="px-4 py-2 bg-white/5 border-white/10 rounded-lg text-[9px] font-black text-gray-400 hover:text-white uppercase transition">Exit Hub</button>
             </div>
         </header>
 
         <div class="chat-container" id="chatStream">
             <div class="msg-bubble msg-ares">
-                <div class="agent-label label-ares">ARES <span class="action-tag">SYSTEM_READY</span></div>
+                <div class="agent-label-ares">ARES <span class="action-tag">SYSTEM_READY</span></div>
                 <p class="text-sm font-medium leading-relaxed">Tool Network Monitor initiated. Awaiting strategic access from the automated tools...</p>
             </div>
         </div>
@@ -173,7 +173,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             const lowerAgent = agent.toLowerCase();
             const msgHtml = `
                 <div class="msg-bubble msg-${lowerAgent}">
-                    <div class="agent-label label-${lowerAgent}">${agent} <span class="action-tag">${action}</span></div>
+                    <div class="agent-label-${lowerAgent}">${agent} <span class="action-tag">${action}</span></div>
                     <p class="text-sm font-medium leading-relaxed">${message}</p>
                 </div>
             `;

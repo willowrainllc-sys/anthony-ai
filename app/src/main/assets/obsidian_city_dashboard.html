@@ -42,12 +42,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+        <div class="grid-cols-1 md:grid-cols-4 gap-6 mb-12">
             <div class="dashboard-card">
                 <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Account Balance</h3>
                 <div id="creditDisplay" class="text-3xl font-black text-blue-600">$50.00</div>
                 <div class="mt-4 flex gap-2">
-                    <input type="text" id="voucherCode" placeholder="GIFT-CODE" class="flex-1 bg-slate-50 border border-slate-100 rounded-lg px-3 py-1.5 text-[10px] font-bold uppercase outline-none focus:border-blue-500">
+                    <input type="text" id="voucherCode" placeholder="GIFT-CODE" class="flex-1 bg-slate-50 border-slate-100 rounded-lg px-3 py-1.5 text-[10px] font-bold uppercase outline-none focus:border-blue-500">
                     <button onclick="claimVoucher()" class="bg-blue-600 text-white px-3 py-1.5 rounded-lg text-[10px] font-black uppercase shadow-md hover:bg-blue-700 transition">Redeem</button>
                 </div>
             </div>
@@ -69,7 +69,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="dashboard-card border-blue-500/20">
                 <h3 class="text-[10px] text-slate-400 uppercase font-black mb-4 tracking-widest">Revenue Status</h3>
                 <div class="text-xl font-black text-blue-500 uppercase">Active</div>
-                <div class="flex flex-col gap-1 mt-2">
+                <div class="flex-col gap-1 mt-2">
                     <button onclick="window.location.href='obsidian_monetization_hub.html'" class="text-[9px] text-blue-600 font-black uppercase text-left hover:underline">Manage Revenue →</button>
                     <button onclick="window.location.href='obsidian_ranking_lookup.html'" class="text-[9px] text-blue-600 font-black uppercase text-left hover:underline">Ranking Lookup →</button>
                 </div>
@@ -84,18 +84,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="text-[10px] font-black text-blue-400 uppercase tracking-[4px] mb-4">Fintech Command Center</div>
                     <h2 class="text-3xl font-black mb-8">Industrial Banking Access</h2>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
+                    <div class="grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-6 bg-white/5 border-white/10 rounded-2xl">
                             <h4 class="text-xs font-black uppercase mb-2">Real-time Balance</h4>
                             <p class="text-gray-400 text-[10px] mb-4"> reduces risk of insufficient funds via Signal risk platform.</p>
                             <button onclick="fetchRealTimeBalance()" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Refresh Balance</button>
                         </div>
-                        <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
+                        <div class="p-6 bg-white/5 border-white/10 rounded-2xl">
                             <h4 class="text-xs font-black uppercase mb-2">Identity Matching</h4>
                             <p class="text-gray-400 text-[10px] mb-4">Validate ownership through intelligent fuzzy matching with financial institutions.</p>
                             <button onclick="alert('Connecting to bank...')" class="bg-white/10 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Validate Now</button>
                         </div>
-                        <div class="p-6 bg-white/5 border border-white/10 rounded-2xl">
+                        <div class="p-6 bg-white/5 border-white/10 rounded-2xl">
                             <h4 class="text-xs font-black uppercase mb-2">Wealth Insights</h4>
                             <p class="text-gray-400 text-[10px] mb-4">Access summary of recurring subscriptions, bill payments, and deposits.</p>
                             <button onclick="alert('Loading transaction history...')" class="bg-white/10 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase">Get Insights</button>
@@ -105,7 +105,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div class="grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             <div class="lg:col-span-2 dashboard-card">
                 <h2 class="text-xl font-black text-white mb-6">Recent Orders & Activity</h2>
                 <div id="ordersList" class="space-y-4">
@@ -167,7 +167,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         if (!isAdmin) {
             document.body.innerHTML = `
                 <div class="h-screen flex items-center justify-center bg-slate-950">
-                    <div class="text-center p-12 bg-slate-900 rounded-[32px] shadow-xl border border-slate-800 max-w-md">
+                    <div class="text-center p-12 bg-slate-900 rounded-[32px] shadow-xl border-slate-800 max-w-md">
                         <div class="text-5xl mb-6">🔒</div>
                         <h1 class="text-2xl font-black text-white mb-2">Admin Account Required</h1>
                         <p class="text-slate-400 text-sm mb-8">This section is for site administration. Please log in with your admin credentials or return to the main store.</p>
@@ -199,9 +199,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         if (order.type.startsWith('vps')) vpsCount++;
 
                         const itemHtml = `
-                            <div class="flex justify-between items-center p-5 bg-slate-900 rounded-2xl border border-slate-800 hover:border-blue-900 transition-all cursor-pointer">
+                            <div class="flex justify-between items-center p-5 bg-slate-900 rounded-2xl border-slate-800 hover:border-blue-900 transition-all cursor-pointer">
                                 <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center text-lg shadow-sm border border-slate-700">
+                                    <div class="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center text-lg shadow-sm border-slate-700">
                                         ${order.type === 'llc_formation' || order.type === 'dba_registration' ? '🏛️' : order.type.startsWith('vps') ? '🖥️' : '🌐'}
                                     </div>
                                     <div>
@@ -363,9 +363,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     document.getElementById('apiKeySection').innerHTML = `
                         <div class="space-y-2">
                             <div class="text-[8px] text-gray-500 uppercase font-black">Public Key</div>
-                            <div class="bg-black/20 p-2 rounded border border-white/5 text-[10px] mono text-blue-400 break-all">${data.public_key}</div>
+                            <div class="bg-black/20 p-2 rounded border-white/5 text-[10px] mono text-blue-400 break-all">${data.public_key}</div>
                             <div class="text-[8px] text-amber-500 uppercase font-black">Private Key (SECRET)</div>
-                            <div class="bg-black/40 p-2 rounded border border-amber-500/20 text-[10px] mono text-amber-400 break-all">${data.private_key}</div>
+                            <div class="bg-black/40 p-2 rounded border-amber-500/20 text-[10px] mono text-amber-400 break-all">${data.private_key}</div>
                             <p class="text-[8px] text-gray-500 italic mt-2">"Powering your personal pages via the Obsidian API."</p>
                         </div>
                     `;
@@ -381,7 +381,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     document.getElementById('apiKeySection').innerHTML = `
                         <div class="space-y-2">
                             <div class="text-[8px] text-gray-500 uppercase font-black">Active Public Key</div>
-                            <div class="bg-black/20 p-2 rounded border border-white/5 text-[10px] mono text-blue-400 break-all">${data.keys.public_key}</div>
+                            <div class="bg-black/20 p-2 rounded border-white/5 text-[10px] mono text-blue-400 break-all">${data.keys.public_key}</div>
                             <button onclick="generateApiKeys()" class="text-[8px] text-gray-600 hover:text-white uppercase font-bold">Rotate Keys →</button>
                         </div>
                     `;

@@ -73,7 +73,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="text-slate-500 text-sm">We've stripped away the legacy markups and deceptive upsells.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid-cols-1 md:grid-cols-3 gap-8">
             <div class="feature-card">
                 <div class="text-3xl mb-6">💰</div>
                 <h3 class="text-xl font-black text-slate-900 mb-3">True Wholesale Pricing</h3>
@@ -94,7 +94,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- [+] A-Z Wholesale Domain Catalog -->
     <div class="max-w-7xl mx-auto px-6 pb-20">
-        <div class="bg-white border border-slate-200 rounded-[40px] p-10 shadow-sm">
+        <div class="bg-white border-slate-200 rounded-[40px] p-10 shadow-sm">
             <div class="flex justify-between items-center mb-8 border-b border-slate-100 pb-6">
                 <div>
                     <h2 class="text-xl font-black text-slate-900 tracking-tight uppercase">Registry Catalog</h2>
@@ -106,7 +106,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="h-[400px] overflow-y-auto scrollbar-hide pr-4" id="domainCatalog">
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4" id="catalogGrid">
+                <div class="grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4" id="catalogGrid">
                     <!-- Domain items injected by JS -->
                 </div>
             </div>
@@ -154,7 +154,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             suffixes.forEach(s => {
                 const name = (char + 'empire' + s).toLowerCase() + '.com';
                 const item = document.createElement('div');
-                item.className = 'p-4 bg-slate-50 rounded-2xl border border-slate-100 hover:border-blue-300 transition-all cursor-pointer';
+                item.className = 'p-4 bg-slate-50 rounded-2xl border-slate-100 hover:border-blue-300 transition-all cursor-pointer';
                 item.innerHTML = `
                     <div class="text-[10px] font-bold text-slate-800 mb-1">${name}</div>
                     <div class="flex justify-between items-center">

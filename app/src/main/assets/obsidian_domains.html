@@ -52,7 +52,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h1 class="text-4xl md:text-6xl font-black mb-6">Find your new professional domain.</h1>
             <p class="text-slate-400 text-lg mb-10 font-medium">Wholesale registry access. Zero markups. Free privacy protection for life.</p>
 
-            <div class="bg-slate-900 p-2 rounded-full flex shadow-2xl max-w-2xl mx-auto border border-slate-800">
+            <div class="bg-slate-900 p-2 rounded-full flex shadow-2xl max-w-2xl mx-auto border-slate-800">
                 <input type="text" id="domainInput" aria-label="Domain Name Search" placeholder="Type your brand name (e.g. mybusiness)..." class="flex-1 bg-transparent px-6 py-4 text-white font-bold outline-none">
                 <button onclick="handleSearch()" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-8 py-4 rounded-full text-xs uppercase transition">Search Availability</button>
             </div>
@@ -73,7 +73,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="text-slate-400 text-sm">We've stripped away the legacy markups and deceptive upsells.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid-cols-1 md:grid-cols-3 gap-8">
             <div class="feature-card">
                 <div class="text-3xl mb-6">💰</div>
                 <h3 class="text-xl font-black text-white mb-3">True Wholesale Pricing</h3>
@@ -94,7 +94,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- [+] A-Z Wholesale Domain Catalog -->
     <div class="max-w-7xl mx-auto px-6 pb-20">
-        <div class="bg-[#0a0a0f] border border-slate-800 rounded-[40px] p-10 shadow-sm">
+        <div class="bg-[#0a0a0f] border-slate-800 rounded-[40px] p-10 shadow-sm">
             <div class="flex justify-between items-center mb-8 border-b border-slate-800 pb-6">
                 <div>
                     <h2 class="text-xl font-black text-white tracking-tight uppercase">Registry Catalog</h2>
@@ -106,7 +106,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="h-[400px] overflow-y-auto scrollbar-hide pr-4" id="domainCatalog">
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4" id="catalogGrid">
+                <div class="grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4" id="catalogGrid">
                     <!-- Domain items injected by JS -->
                 </div>
             </div>
@@ -154,7 +154,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             suffixes.forEach(s => {
                 const name = (char + 'business' + s).toLowerCase() + '.com';
                 const item = document.createElement('div');
-                item.className = 'p-4 bg-slate-900 rounded-2xl border border-slate-800 hover:border-blue-700 transition-all cursor-pointer';
+                item.className = 'p-4 bg-slate-900 rounded-2xl border-slate-800 hover:border-blue-700 transition-all cursor-pointer';
                 item.innerHTML = `
                     <div class="text-[10px] font-bold text-white mb-1">${name}</div>
                     <div class="flex justify-between items-center">
