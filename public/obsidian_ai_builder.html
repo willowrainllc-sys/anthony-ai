@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9539640812310468" crossorigin="anonymous"></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Obsidian City | Sovereign Cloud & Identity</title>
+    <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
+    <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
+    <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
+    <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
+    <meta name="description" content="Access the world’s first public AI design workstation. Build your digital throne in minutes."/>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;700;900&family=Space+Mono&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg: #030305;
+            --accent: #3b82f6;
+            --emerald: #10b981;
+            --border: rgba(255, 255, 255, 0.08);
+            --surface: #0a0a0f;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        .mono { font-family: 'Space Mono', monospace; }
+
+        /* [+] Studio Layout: Industrial Workspace */
+        .studio-sidebar {
+            width: 400px;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        .studio-canvas {
+            flex: 1;
+            background: #111;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.02) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        /* [+] Sidebar Components */
+        .sidebar-header { padding: 30px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .sidebar-content { padding: 30px; flex: 1; overflow-y: auto; }
+
+        .access-box {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
+        .access-box:focus-within { border-color: var(--accent); box-shadow: 0 0 30px rgba(59, 130, 246, 0.15); }
+
+        textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            resize: none;
+            height: 120px;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .btn-ignite {
+            background: #fff;
+            color: #000;
+            width: 100%;
+            padding: 18px;
+            border-radius: 12px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+            margin-top: 10px;
+        }
+        .btn-ignite:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+
+        /* [+] Module Pills */
+        .module-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .status-tag { font-size: 8px; font-weight: 900; padding: 3px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 1px; }
+        .status-waiting { background: rgba(255,255,255,0.05); color: #444; }
+        .status-ready { background: rgba(16, 185, 129, 0.1); color: var(--emerald); }
+        .status-sync { background: rgba(59, 130, 246, 0.2); color: var(--accent); animation: pulse 1.5s infinite; }
+
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+
+        /* [+] Canvas Elements */
+        .preview-frame {
+            flex: 1;
+            background: #fff;
+            border-radius: 32px;
+            box-shadow: 0 60px 150px rgba(0,0,0,0.7);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid var(--border);
+        }
+
+        .blueprint-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(3,3,5,0.95);
+            backdrop-filter: blur(20px);
+            z-index: 50;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            text-align: center;
+        }
+
+        /* [+] Blueprint Cards: High Fidelity */
+        .blueprint-row {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .blueprint-row::-webkit-scrollbar { display: none; }
+
+        .blueprint-card {
+            min-width: 320px;
+            flex: 1;
+            background: #0a0a0f;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 30px;
+            cursor: pointer;
+            transition: 0.4s;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .blueprint-card:hover { border-color: var(--accent); transform: scale(1.02) translateY(-10px); }
+        .blueprint-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent); opacity: 0; transition: 0.3s; }
+        .blueprint-card:hover::before { opacity: 1; }
+
+        .blueprint-label { font-size: 9px; font-weight: 900; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; display: block; }
+        .blueprint-title { font-family: 'Orbitron'; font-size: 20px; font-weight: 900; margin-bottom: 15px; }
+        .blueprint-desc { font-size: 11px; color: #555; line-height: 1.6; }
+
+        /* [+] Terminal Log */
+        .terminal-log {
+            height: 140px;
+            background: #000;
+            padding: 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 10px;
+            color: var(--emerald);
+            overflow-y: auto;
+            border-top: 1px solid var(--border);
+            line-height: 1.8;
+        }
+
+        /* [+] Production Control Bar */
+        .control-bar {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+        .btn-control {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 100px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-control:hover { background: #fff; color: #000; }
+
+        /* [+] Modal Rebuild */
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); z-index: 20000; align-items: center; justify-content: center; }
+        .modal-content { background: #fff; color: #000; padding: 60px; border-radius: 40px; width: 90%; max-width: 550px; text-align: center; }
+
+    </style>
+    <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
+    <link href="assets/obsidian_performance_ui.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHCNLC5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <!-- [+] AI STUDIO SIDEBAR -->
+    <aside class="studio-sidebar">
+        <div class="sidebar-header">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-xl shadow-lg shadow-blue-600/30">[+]</div>
+                <div>
+                    <h1 class="orbitron text-xs font-black tracking-widest">OBSIDIAN AI</h1>
+                    <p class="text-[8px] text-gray-500 font-bold uppercase tracking-[2px]">ARES Production Hub</p>
+                </div>
+            </div>
+            <button onclick="window.location.href='index.html'" class="text-gray-500 hover:text-white text-[10px] font-black uppercase">Exit</button>
+        </div>
+
+        <div class="sidebar-content">
+            <div class="text-[9px] font-black text-gray-500 uppercase tracking-widest mb-4">Command Access</div>
+            <div class="access-box">
+                <textarea id="buildPrompt" placeholder="Describe your digital throne... (e.g. A luxury real estate portal for the Missouri elite)"></textarea>
+                <button id="igniteBtn" onclick="initiateSynthesis()" class="btn-ignite">Ignite Production Hub</button>
+            </div>
+
+            <div class="mt-8 p-6 bg-blue-600/5 border-blue-500/10 rounded-2xl">
+                <div class="text-[8px] font-black text-blue-400 uppercase tracking-widest mb-2">Director Status</div>
+                <div class="flex justify-between items-end">
+                    <div>
+                        <div class="text-2xl font-black orbitron">10.0</div>
+                        <div class="text-[8px] text-gray-500 font-bold uppercase">AI Credits Available</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-[8px] text-emerald-400 font-black">HIGH_AURA</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- [+] Quick Blueprints -->
+            <div class="mt-8">
+                <div class="text-[9px] font-black text-gray-500 uppercase tracking-widest mb-4">Quick Blueprints</div>
+                <div class="grid-cols-2 gap-3">
+                    <div class="p-4 bg-white/5 border-white/5 rounded-xl cursor-pointer hover:border-blue-500 transition" onclick="setPrompt('Luxury Real Estate Portal')">
+                        <div class="text-[10px] font-black">ESTATE</div>
+                    </div>
+                    <div class="p-4 bg-white/5 border-white/5 rounded-xl cursor-pointer hover:border-blue-500 transition" onclick="setPrompt('Crypto Trading App')">
+                        <div class="text-[10px] font-black">FINTECH</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="terminal-log" id="studioTerminal">
+            > System Connection Verified.
+            <br>> ARES watching over the colony...
+            <br>> Access Ready.
+        </div>
+    </aside>
+
+    <!-- [+] AI STUDIO CANVAS -->
+    <main class="studio-canvas">
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center gap-4">
+                <span class="text-xs font-black text-gray-600 uppercase tracking-[4px]">Interactive Preview</span>
+                <div class="h-px w-20 bg-white/5"></div>
+            </div>
+            <div class="flex gap-2">
+                <div class="w-2 h-2 rounded-full bg-red-500/40"></div>
+                <div class="w-2 h-2 rounded-full bg-yellow-500/40"></div>
+                <div class="w-2 h-2 rounded-full bg-emerald-500/40"></div>
+            </div>
+        </div>
+
+        <div class="preview-frame" id="renderZone">
+            <div class="h-full flex-col items-center justify-center bg-[#0a0a0f] text-center p-20">
+                <div class="w-24 h-24 bg-blue-600/10 rounded-3xl flex items-center justify-center text-4xl mb-8 border-blue-500/20 animate-pulse">🏗️</div>
+                <h2 class="text-3xl font-black tracking-tight mb-4">Awaiting Divine Access.</h2>
+                <p class="text-gray-500 text-sm max-w-xs leading-relaxed">Enter your mission parameters to synthesize a world-class digital asset instantly.</p>
+            </div>
+        </div>
+
+        <!-- [+] Integrated Control Bar -->
+        <div id="controlBar" class="control-bar hidden">
+            <button onclick="toggleTweak()" class="btn-control">
+                <span>🪄</span> Tweak Design
+            </button>
+            <button onclick="openLaunchModal()" class="btn-control bg-blue-600 border-none">
+                <span>🚀</span> Launch to Empire
+            </button>
+        </div>
+    </main>
+
+    <!-- [+] Launch Modal (Frictionless) -->
+    <div id="launchModal" class="modal">
+        <div class="modal-content">
+            <div class="text-5xl mb-6">[+]</div>
+            <h2 class="text-3xl font-black tracking-tighter mb-2">Secure Your Brand.</h2>
+            <p class="text-slate-500 text-sm mb-10">Your digital asset is ready for deployment. <br>Link your custom domain to go live instantly.</p>
+
+            <div class="space-y-4 mb-10">
+                <div class="p-6 border-2 border-blue-600 rounded-2xl bg-blue-50 text-left">
+                    <div class="flex justify-between items-center">
+                        <div class="font-black text-sm uppercase">Global Wholesale Plan</div>
+                        <div class="text-blue-600 font-black">$9.99/mo</div>
+                    </div>
+                    <div class="text-[10px] text-slate-500 mt-2">Includes Free .com Domain + Managed Edge Hosting</div>
+                </div>
+            </div>
+
+            <button onclick="window.location.href='obsidian_unified_checkout.html?type=asi_node&price=9.99'" class="btn-ignite bg-blue-600 text-white hover:bg-blue-700">Initialize Deployment →</button>
+            <button onclick="hideLaunchModal()" class="mt-6 text-[10px] font-black text-slate-400 uppercase tracking-widest hover:text-black">Return to Studio</button>
+        </div>
+    </div>
+
+    <script>
+        const terminal = document.getElementById('studioTerminal');
+
+        function setPrompt(text) {
+            document.getElementById('buildPrompt').value = text;
+            log(`Blueprint Loaded: "${text}"`);
+        }
+
+        function log(msg, type='info') {
+            const color = type === 'success' ? '#10b981' : (type === 'warning' ? '#f59e0b' : '#3b82f6');
+            terminal.innerHTML += `<div style="color:${color}">> ${msg}</div>`;
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        async function initiateSynthesis() {
+            const prompt = document.getElementById('buildPrompt').value.trim();
+            if(!prompt) {
+                alert("[-] Error: Directive prompt empty.");
+                return;
+            }
+
+            const zone = document.getElementById('renderZone');
+            log(`Mission Access: "${prompt}"`);
+            log("Dispatching to Visual DNA Engine...");
+
+            zone.innerHTML = `
+                <div class="h-full flex-col items-center justify-center bg-black text-center p-20 animate-pulse">
+                    <div class="text-blue-500 font-mono text-[10px] mb-4">GENERATING_VISUAL_VARIATIONS...</div>
+                    <div class="w-64 h-2 bg-white/5 rounded-full overflow-hidden">
+                        <div class="h-full bg-blue-600" style="width: 50%"></div>
+                    </div>
+                </div>
+            `;
+
+            await new Promise(r => setTimeout(r, 1500));
+
+            // Render Blueprints directly in the Zone.innerHTML = `
+                <div class="blueprint-row animate-fadeIn">
+                    <div class="blueprint-card" onclick="manifestBlueprint('Minimal Alpha', 1)">
+                        <span class="blueprint-label">Blueprint 01</span>
+                        <h3 class="blueprint-title">MINIMAL ALPHA</h3>
+                        <p class="blueprint-desc">High-aura dark aesthetics. Precision grid lines and elite typography.</p>
+                        <div class="mt-auto h-32 bg-slate-900 rounded-xl border-white/5 flex items-center justify-center text-[8px] font-black uppercase text-gray-500">PREVIEW_GEN</div>
+                    </div>
+                    <div class="blueprint-card" onclick="manifestBlueprint('Glass Beta', 2)">
+                        <span class="blueprint-label">Blueprint 02</span>
+                        <h3 class="blueprint-title">GLASS BETA</h3>
+                        <p class="blueprint-desc">Deep blurs and vibrant gradients. Future-forward multidimensional layout.</p>
+                        <div class="mt-auto h-32 bg-blue-600/20 rounded-xl border-blue-500/20 flex items-center justify-center text-[8px] font-black uppercase text-blue-400">PREVIEW_GEN</div>
+                    </div>
+                    <div class="blueprint-card" onclick="manifestBlueprint('Industrial Gamma', 3)">
+                        <span class="blueprint-label">Blueprint 03</span>
+                        <h3 class="blueprint-title">INDUSTRIAL GAMMA</h3>
+                        <p class="blueprint-desc">Brutalist mono-scheme. Heavy shadows and raw layout architecture.</p>
+                        <div class="mt-auto h-32 bg-white rounded-xl border-black/5 flex items-center justify-center text-[8px] font-black uppercase text-gray-400">PREVIEW_GEN</div>
+                    </div>
+                </div>
+            `;
+
+            log("Visual DNA Variations Generated. Select foundation in the preview window.", 'warning');
+        }
+
+        async function manifestBlueprint(name, id) {
+            const zone = document.getElementById('renderZone');
+            log(`Blueprint [${name}] Selected. Executing Full-Stack Synthesis...`);
+
+            // Show Synthesis Progress
+            zone.innerHTML = `
+                <div class="h-full flex-col items-center justify-center bg-black text-center p-20 animate-pulse">
+                    <div class="text-blue-500 font-mono text-[10px] mb-4">01010110_SYNTHESIS_ACTIVE</div>
+                    <div class="w-64 h-2 bg-white/5 rounded-full overflow-hidden">
+                        <div class="h-full bg-blue-600" id="synthBar" style="width: 0%; transition: 2.5s width linear;"></div>
+                    </div>
+                </div>
+            `;
+            setTimeout(() => { document.getElementById('synthBar').style.width = '100%'; }, 50);
+
+            await new Promise(r => setTimeout(r, 2600));
+            log("Binding Post-Quantum SSL to Edge Root...");
+            await new Promise(r => setTimeout(r, 1000));
+
+            // [+] REAL HIGH-FIDELITY PREVIEW MANIFESTATION
+            log("MISSION SUCCESSFUL: Digital Throne Secured at the Edge.", 'success');
+
+            const prompt = document.getElementById('buildPrompt').value.trim();
+
+            // Background classes based on blueprint
+            let bgClass = "bg-white text-black";
+            let btnClass = "bg-black text-white";
+            let cardClass = "bg-gray-50 border-gray-200";
+            if (id === 1) { bgClass = "bg-slate-950 text-white"; btnClass = "bg-blue-600 text-white"; cardClass = "bg-slate-900 border-white/5"; }
+            if (id === 2) { bgClass = "bg-gradient-to-br from-indigo-950 to-emerald-950 text-white"; btnClass = "bg-emerald-500 text-black"; cardClass = "bg-white/10 backdrop-blur-xl border-white/10"; }
+
+            zone.innerHTML = `
+                <div class="h-full flex-col ${bgClass} p-0 animate-fadeIn relative overflow-y-auto overflow-x-hidden">
+                    <!-- Browser Chrome Mockup -->
+                    <div class="bg-black/80 backdrop-blur-md p-4 border-b border-white/5 flex items-center gap-4 sticky top-0 z-50">
+                        <div class="flex gap-1.5">
+                            <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded px-3 py-1 text-[9px] font-bold text-white/50 flex-1 text-center">
+                            https://empire-hub-${Math.floor(Math.random()*900)+100}.obsidian.city
+                        </div>
+                    </div>
+
+                    <!-- Synthesized High-Fidelity Template -->
+                    <nav class="p-6 flex justify-between items-center border-b border-white/5">
+                        <div class="font-black text-xl tracking-tighter">${prompt.split(' ')[0].toUpperCase()}</div>
+                        <div class="hidden md:flex gap-6 text-sm font-bold opacity-70">
+                            <span>Features</span>
+                            <span>Pricing</span>
+                            <span>About</span>
+                        </div>
+                        <div class="${btnClass} px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">Get Started</div>
+                    </nav>
+
+                    <header class="py-24 px-8 text-center max-w-4xl mx-auto">
+                        <div class="inline-block px-4 py-1 rounded-full border border-current opacity-60 text-[10px] font-black uppercase tracking-[3px] mb-6">${name} Protocol Active</div>
+                        <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 leading-[1.1]">${prompt}</h1>
+                        <p class="text-lg opacity-60 max-w-2xl mx-auto mb-10">Automatically architected by Obsidian AI. Engineered for global edge deployment, instant wholesale monetization, and zero-latency performance.</p>
+                        <div class="flex justify-center gap-4">
+                             <div class="${btnClass} px-10 py-4 rounded-xl font-black text-sm uppercase tracking-widest shadow-xl cursor-pointer">Launch Platform</div>
+                             <div class="border border-current opacity-70 px-10 py-4 rounded-xl font-black text-sm uppercase tracking-widest cursor-pointer hover:opacity-100 transition">View Source</div>
+                        </div>
+                    </header>
+
+                    <section class="py-16 px-8 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="${cardClass} p-8 rounded-3xl border shadow-xl">
+                            <div class="text-3xl mb-4">⚡</div>
+                            <h3 class="text-xl font-black mb-3">Hyper-Speed Edge</h3>
+                            <p class="text-sm opacity-70 leading-relaxed">Deployed instantly across global CDN nodes. Zero cold boots, infinite scaling, and native SSL security included.</p>
+                        </div>
+                        <div class="${cardClass} p-8 rounded-3xl border shadow-xl">
+                            <div class="text-3xl mb-4">🛒</div>
+                            <h3 class="text-xl font-black mb-3">Square Checkouts</h3>
+                            <p class="text-sm opacity-70 leading-relaxed">Embedded secure checkout pipelines capable of capturing B2B revenue and direct payouts to your ledger.</p>
+                        </div>
+                        <div class="${cardClass} p-8 rounded-3xl border shadow-xl">
+                            <div class="text-3xl mb-4">🤖</div>
+                            <h3 class="text-xl font-black mb-3">AI Engine Connected</h3>
+                            <p class="text-sm opacity-70 leading-relaxed">Hardwired into the Obsidian AI swarm for automated SEO indexing, domain linking, and content generation.</p>
+                        </div>
+                    </section>
+                </div>
+            `;
+
+            document.getElementById('controlBar').classList.remove('hidden');
+        }
+
+        function toggleTweak() {
+            const tweak = prompt("What mission adjustment is required? (e.g. Change primary color to emerald)");
+            if(tweak) {
+                log(`TWEAKING: "${tweak}"... Dispatching re-synthesis...`);
+                setTimeout(() => log("Synthesis Adjusted. Redrawing Canvas.", 'success'), 1000);
+            }
+        }
+
+        function openLaunchModal() { document.getElementById('launchModal').style.display = 'flex'; }
+        function hideLaunchModal() { document.getElementById('launchModal').style.display = 'none'; }
+    </script>
+    <script src="assets/obsidian_performance_engine.js"></script>
+</body>
+</html>

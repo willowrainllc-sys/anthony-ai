@@ -1,0 +1,87 @@
+/* 🔱 OBSIDIAN GLOBAL: HYPER FRAME CSS v1.0 */
+:root {
+    --hf-accent: #3b82f6;
+    --hf-gold: #fbbf24;
+    --hf-emerald: #10b981;
+    --hf-border: rgba(255, 255, 255, 0.1);
+}
+
+#hyper-frame-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    box-sizing: border-box;
+    border: 1px solid var(--hf-border);
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hf-corner {
+    position: absolute;
+    width: 40px; height: 40px;
+    border-color: var(--hf-accent);
+    border-style: solid;
+    transition: 0.3s;
+}
+
+.hf-tl { top: 0; left: 0; border-width: 3px 0 0 3px; }
+.hf-tr { top: 0; right: 0; border-width: 3px 3px 0 0; }
+.hf-bl { bottom: 0; left: 0; border-width: 0 0 3px 3px; }
+.hf-br { bottom: 0; right: 0; border-width: 0 3px 3px 0; }
+
+.hf-label {
+    position: absolute;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8px;
+    font-weight: 900;
+    color: var(--hf-accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.hf-tl .hf-label { top: 10px; left: 15px; }
+.hf-tr .hf-label { top: 10px; right: 15px; }
+.hf-bl .hf-label { bottom: 10px; left: 15px; }
+.hf-br .hf-label { bottom: 10px; right: 15px; }
+
+.hf-vitals {
+    position: absolute;
+    bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--hf-border);
+    padding: 5px 20px;
+    border-radius: 100px;
+    display: flex; gap: 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: #888;
+    pointer-events: auto;
+}
+
+.hf-vitals span { color: var(--hf-emerald); font-weight: bold; }
+
+.hf-scanning-line {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 2px;
+    background: linear-gradient(to right, transparent, var(--hf-accent), transparent);
+    opacity: 0.1;
+    animation: scan 8s linear infinite;
+}
+
+@keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+.hf-pulse {
+    position: absolute;
+    top: 20px; right: 60px;
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'Orbitron'; font-size: 10px; color: #fff;
+    opacity: 0.5;
+}
+
+.hf-dot { width: 6px; height: 6px; background: var(--hf-emerald); border-radius: 50%; box-shadow: 0 0 10px var(--hf-emerald); animation: hf-blink 2s infinite; }
+@keyframes hf-blink { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }

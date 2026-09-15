@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MHCNLC5');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Secure Checkout | Obsidian City Global</title>
+    <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
+    <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
+    <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
+    <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
+    <meta name="description" content="Obsidian City is the premier wholesale domain registrar and cloud edge provider. Get .com domains at cost, $39 LLC formation, and AI-powered app building."/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f8fafc; color: #0f172a; font-family: 'Inter', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .checkout-box { background: #ffffff; border: 1px solid #e2e8f0; padding: 40px; border-radius: 24px; width: 100%; max-width: 500px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+        .input-group { margin-bottom: 18px; }
+        label { display: block; font-size: 11px; color: #475569; margin-bottom: 6px; font-weight: 700; text-transform: uppercase; }
+        input, select { width: 100%; background: #f8fafc; border: 1px solid #cbd5e1; padding: 12px 16px; border-radius: 12px; color: #0f172a; outline: none; transition: 0.2s; font-size: 14px; }
+        input:focus { border-color: #2563eb; background: #ffffff; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+        .summary-card { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 20px; border-radius: 18px; margin-bottom: 24px; }
+        .btn-pay { width: 100%; background: #2563eb; color: #fff; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 15px; transition: 0.2s; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(37,99,235,0.3); }
+        .btn-pay:hover { background: #1d4ed8; }
+        .line-item { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 8px; font-weight: 600; color: #64748b; }
+        .total-item { display: flex; justify-content: space-between; font-size: 16px; font-weight: 900; color: #0f172a; margin-top: 12px; padding-top: 12px; border-top: 1px dashed #cbd5e1; }
+    </style>
+    <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
+    <link href="assets/obsidian_performance_ui.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MHCNLC5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="checkout-box">
+    <div class="mb-4 text-left">
+        <a href="index.html" class="text-xs font-bold text-blue-600 hover:underline">← Back</a>
+    </div>
+
+    <div class="flex justify-between items-center mb-8 text-left">
+        <div>
+            <h1 class="text-xl font-black text-slate-900 tracking-tight">Checkout</h1>
+            <select id="checkoutType" class="text-[10px] text-blue-600 font-bold uppercase tracking-widest bg-transparent border-none p-0 outline-none cursor-pointer">
+                <option value="guest">Express Guest</option>
+                <option value="merchant">Merchant Account</option>
+                <option value="institutional">Enterprise Account</option>
+            </select>
+        </div>
+        <div class="text-right">
+            <div class="bg-blue-50 text-blue-600 text-[10px] font-black px-3 py-1 rounded-full uppercase">PQC Secured</div>
+        </div>
+    </div>
+
+    <!-- [+] Order Summary Breakdown -->
+    <div class="summary-card" id="summaryCard">
+        <div id="summaryItems">
+            <!-- Items injected by JS -->
+        </div>
+        <div class="total-item">
+            <span>Total Due</span>
+            <span id="finalTotal">$0.00</span>
+        </div>
+    </div>
+
+    <form id="checkoutForm">
+        <div class="input-group text-left">
+            <label for="custName">Full Name</label>
+            <input type="text" id="custName" placeholder="Jane Doe" required>
+        </div>
+        <div class="input-group text-left">
+            <label for="custEmail">Delivery Email</label>
+            <input type="email" id="custEmail" placeholder="jane@example.com" required>
+        </div>
+
+        <div id="paymentFields">
+            <div class="input-group text-left">
+                <label>Card Information</label>
+                <input type="text" id="cardNum" placeholder="4242 •••• •••• 4242">
+            </div>
+            <div class="grid-cols-2 gap-4 input-group text-left">
+                <div>
+                    <label>Expiration</label>
+                    <input type="text" id="cardExp" placeholder="MM / YY">
+                </div>
+                <div>
+                    <label>CVC</label>
+                    <input type="text" id="cardCvc" placeholder="123">
+                </div>
+            </div>
+        </div>
+
+        <!-- [+] Manual Card / ID Upload (Front & Back) -->
+        <div class="input-group text-left mt-6 pt-6 border-t border-slate-200">
+            <label class="text-blue-600 font-bold">📸 Alternative: Upload Card (Front & Back)</label>
+            <p class="text-[10px] text-slate-400 mb-3">For manual verification or secure processing, upload card or ID images below.</p>
+            <div class="grid-cols-2 gap-3">
+                <div>
+                    <span class="text-[9px] font-bold text-slate-500 uppercase">Front Image</span>
+                    <input type="file" id="cardFront" accept="image/*" class="text-xs !p-2">
+                </div>
+                <div>
+                    <span class="text-[9px] font-bold text-slate-500 uppercase">Back Image</span>
+                    <input type="file" id="cardBack" accept="image/*" class="text-xs !p-2">
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" id="submitBtn" class="btn-pay mt-2">Authorize & Settle →</button>
+    </form>
+
+    <div class="mt-6 text-center text-[10px] text-slate-400 font-medium">
+        <p id="securityNote">🔒 256-Bit SSL Secured Transaction • No Login Required</p>
+    </div>
+</div>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const type = urlParams.get('type') || 'domain_registration';
+    const basePrice = parseFloat(urlParams.get('price') || '14.70');
+    const stateFee = parseFloat(urlParams.get('state_fee') || '0.00');
+    const isBundle = urlParams.get('bundle') === 'true';
+
+    let total = basePrice + stateFee;
+    const summaryItems = document.getElementById('summaryItems');
+    const checkoutTypeSelect = document.getElementById('checkoutType');
+    let summaryHtml = '';
+
+    // [+] Mode Switcher for Institutional Pricing
+    checkoutTypeSelect.onchange = () => {
+        const mode = checkoutTypeSelect.value;
+        if (mode === 'institutional') {
+            total = (basePrice + stateFee) * 1.5; // Institutional markup
+            document.getElementById('securityNote').innerText = '🛡️ Institutional Grade Support & SLA Active';
+        } else {
+            total = basePrice + stateFee;
+            document.getElementById('securityNote').innerText = '🔒 256-Bit SSL Secured Transaction • No Login Required';
+        }
+        document.getElementById('finalTotal').innerText = '$' + total.toFixed(2);
+    };
+
+    // [+] Bundle Breakdown Logic
+    if (type === 'llc_formation') {
+        document.getElementById('checkoutType').innerText = 'Business Starter Bundle';
+        summaryHtml += `<div class="line-item"><span>LLC Formation (Obsidian)</span><span>$39.00</span></div>`;
+        summaryHtml += `<div class="line-item"><span>Registered Agent (1yr)</span><span>$125.00</span></div>`;
+        summaryHtml += `<div class="line-item"><span>State Filing Fee</span><span>$${stateFee.toFixed(2)}</span></div>`;
+        summaryHtml += `<div class="line-item text-emerald-600"><span>Bundle: Free .COM Domain</span><span>-$14.70</span></div>`;
+    } else if (type === 'dba_registration') {
+        document.getElementById('checkoutType').innerText = 'DBA Trade Name Setup';
+        summaryHtml += `<div class="line-item"><span>DBA Registration Service</span><span>$0.00</span></div>`;
+        summaryHtml += `<div class="line-item"><span>Identity Verification</span><span>INCLUDED</span></div>`;
+        summaryHtml += `<div class="line-item text-emerald-600"><span>Obsidian User Discount</span><span>-$100.00</span></div>`;
+    } else if (type.startsWith('builder_')) {
+        const planName = type.replace('builder_', '').toUpperCase();
+        document.getElementById('checkoutType').innerText = 'Obsidian AI Builder';
+        summaryHtml += `<div class="line-item"><span>AI Builder ${planName} Plan</span><span>$${basePrice.toFixed(2)}</span></div>`;
+        summaryHtml += `<div class="line-item"><span>AI Credits Inclusion</span><span>Included</span></div>`;
+    } else if (type.startsWith('wp_')) {
+        const planName = type.replace('wp_', '').toUpperCase();
+        document.getElementById('checkoutType').innerText = 'Managed WordPress';
+        summaryHtml += `<div class="line-item"><span>Managed WordPress ${planName}</span><span>$${basePrice.toFixed(2)}</span></div>`;
+        summaryHtml += `<div class="line-item"><span>Global Edge CDN</span><span>Included</span></div>`;
+    } else if (type.startsWith('vps_')) {
+        const planName = type.replace('vps_', '').toUpperCase();
+        document.getElementById('checkoutType').innerText = 'Cloud Hosting';
+        summaryHtml += `<div class="line-item"><span>VPS Node: ${planName}</span><span>$${basePrice.toFixed(2)}</span></div>`;
+        summaryHtml += `<div class="line-item"><span>KVM Isolation</span><span>Secure</span></div>`;
+    } else {
+        const itemName = type.toUpperCase().replace('DOMAIN_', '').replace('_', ' ');
+        summaryHtml += `<div class="line-item"><span>${itemName}</span><span>$${basePrice.toFixed(2)}</span></div>`;
+    }
+
+    summaryItems.innerHTML = summaryHtml;
+    document.getElementById('finalTotal').innerText = '$' + total.toFixed(2);
+
+    // UI Toggles for Free Plan
+    const paymentDiv = document.getElementById('paymentFields');
+    const submitBtn = document.getElementById('submitBtn');
+    const securityNote = document.getElementById('securityNote');
+    const cardInputs = [document.getElementById('cardNum'), document.getElementById('cardExp'), document.getElementById('cardCvc')];
+
+    if (total === 0) {
+        paymentDiv.style.display = 'none';
+        submitBtn.innerText = 'Claim Free Credits →';
+        securityNote.innerText = '✓ Direct Setting up • No Payment Required';
+        cardInputs.forEach(input => input.removeAttribute('required'));
+    } else {
+        cardInputs.forEach(input => input.setAttribute('required', ''));
+    }
+
+    document.getElementById('checkoutForm').onsubmit = async (e) => {
+        e.preventDefault();
+        submitBtn.innerText = "Authorizing...";
+        submitBtn.disabled = true;
+
+        const llcData = localStorage.getItem('pending_llc_data');
+        const data = {
+            name: document.getElementById('custName').value,
+            email: document.getElementById('custEmail').value,
+            type: type,
+            amount: total,
+            llc_details: llcData ? JSON.parse(llcData) : null,
+            session_id: localStorage.getItem('obsidian_session')
+        };
+
+        try {
+            const resp = await fetch('/api/settle/authorize', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            });
+            const res = await resp.json();
+
+            if(llcData) localStorage.removeItem('pending_llc_data');
+            window.location.href = `success.html?type=${encodeURIComponent(type)}&price=${total}&txid=${res.txid}`;
+        } catch (err) {
+            window.location.href = `success.html?type=${encodeURIComponent(type)}&price=${total}`;
+        }
+    };
+</script>
+    <script src="assets/obsidian_performance_engine.js"></script>
+</body>
+</html>
