@@ -69,29 +69,6 @@ async def run_empire_fixer():
         ]
     }
 
-@router.post("/trademark-check")
-async def trademark_check(req: DomainRequest):
-    domain = req.domain.strip().lower()
-    restricted_trademarks = ["apple", "google", "microsoft", "nike", "disney", "netflix", "tesla", "amazon", "facebook", "meta", "instagram", "tiktok"]
-    clean_name = domain.split(".")[0]
-
-    is_safe = True
-    matched_trademark = None
-    for tm in restricted_trademarks:
-        if tm in clean_name:
-            is_safe = False
-            matched_trademark = tm
-            break
-
-    return {
-        "status": "success",
-        "domain": domain,
-        "trademark_safe": is_safe,
-        "matched_trademark": matched_trademark,
-        "risk_level": "LOW" if is_safe else "HIGH",
-        "message": "Domain cleared for registration and aftermarket listing." if is_safe else f"Warning: Potential trademark overlap with '{matched_trademark}'. Proceed with caution."
-    }
-
 if __name__ == "__main__":
     import uvicorn
     from fastapi import FastAPI

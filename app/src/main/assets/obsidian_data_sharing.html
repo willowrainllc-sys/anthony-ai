@@ -48,12 +48,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </nav>
 
     <div class="max-w-6xl mx-auto px-6 py-12">
-        <div class="flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
             <div>
                 <h1 class="text-4xl font-black text-slate-900 mb-2">Data Sharing Dashboard</h1>
                 <p class="text-slate-500 text-sm font-medium">Turn your unused bandwidth into Obsidian Credits or USD payouts.</p>
             </div>
-            <div class="bg-blue-50 border-blue-100 p-6 rounded-3xl flex items-center gap-6">
+            <div class="bg-blue-50 border border-blue-100 p-6 rounded-3xl flex items-center gap-6">
                 <div>
                     <div class="text-[10px] text-blue-600 font-black uppercase tracking-widest mb-1">Sharing Status</div>
                     <div class="text-lg font-black text-slate-900" id="statusLabel">Inactive</div>
@@ -65,7 +65,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
 
-        <div class="grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div class="glass-card">
                 <div class="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-4">Total Data Shared</div>
                 <div class="stat-value text-blue-600" id="totalData">0.00 <span class="text-sm text-slate-400">GB</span></div>
@@ -93,12 +93,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span class="text-[10px] font-bold text-gray-400 uppercase">Live Access Active</span>
                 </div>
             </div>
-            <div class="absolute bottom-6 right-8 z-10 text-[9px] text-gray-500 font-bold uppercase tracking-widest bg-black/40 backdrop-blur-md p-3 rounded-lg border-white/5">
+            <div class="absolute bottom-6 right-8 z-10 text-[9px] text-gray-500 font-bold uppercase tracking-widest bg-black/40 backdrop-blur-md p-3 rounded-lg border border-white/5">
                 Nodes active in: St. Louis, Arkansas, Chicago, Dallas, London, Tokyo
             </div>
         </div>
 
-        <div class="grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div class="glass-card">
                 <h3 class="text-xl font-black text-slate-900 mb-4">How it works</h3>
                 <p class="text-slate-600 text-sm leading-relaxed mb-6">
@@ -118,11 +118,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="glass-card">
                 <h3 class="text-xl font-black text-slate-900 mb-4">Download Feeders</h3>
                 <p class="text-slate-500 text-xs mb-6">To earn while away from your browser, install the background feeder app on your other devices.</p>
-                <div class="grid-cols-2 gap-4">
+                <div class="grid grid-cols-2 gap-4">
                     <a href="downloads/obsidian_feeder.apk" class="bg-slate-900 text-white font-bold py-3 rounded-xl text-[10px] uppercase text-center flex items-center justify-center gap-2">
                         <span>🤖</span> Android APK
                     </a>
-                    <a href="downloads/obsidian_feeder_win.exe" class="bg-slate-100 text-slate-900 border-slate-200 font-bold py-3 rounded-xl text-[10px] uppercase text-center flex items-center justify-center gap-2">
+                    <a href="downloads/obsidian_feeder_win.exe" class="bg-slate-100 text-slate-900 border border-slate-200 font-bold py-3 rounded-xl text-[10px] uppercase text-center flex items-center justify-center gap-2">
                         <span>🪟</span> Windows
                     </a>
                 </div>
@@ -130,10 +130,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
 
-        <div class="grid-cols-1 md:grid-cols-1 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
             <div class="glass-card">
                 <h3 class="text-xl font-black text-slate-900 mb-4">Payout Settings</h3>
-                <div class="flex-col md:flex-row gap-4">
+                <div class="flex flex-col md:flex-row gap-4">
                     <button onclick="alert('Settlement scheduled for next batch.')" class="flex-1 bg-slate-900 text-white font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition hover:bg-black">Request USD Payout (Square)</button>
                     <button onclick="alert('Credits added to your account balance.')" class="flex-1 bg-blue-600 text-white font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition hover:bg-blue-700">Convert to Obsidian Credits</button>
                 </div>

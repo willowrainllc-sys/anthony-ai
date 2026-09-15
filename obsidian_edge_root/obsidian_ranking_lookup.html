@@ -42,12 +42,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- [+] Search Access -->
         <div class="lookup-card mb-12 flex gap-4 items-center">
             <label for="targetDomain" class="sr-only">Target Domain</label>
-            <input type="text" id="targetDomain" placeholder="Enter domain (e.g. obsidian.city)" class="flex-1 bg-slate-50 border-slate-200 px-6 py-4 rounded-full text-lg font-bold outline-none focus:border-blue-500 transition-all">
+            <input type="text" id="targetDomain" placeholder="Enter domain (e.g. obsidian.city)" class="flex-1 bg-slate-50 border border-slate-200 px-6 py-4 rounded-full text-lg font-bold outline-none focus:border-blue-500 transition-all">
             <button onclick="executeLookup()" class="bg-blue-600 hover:bg-blue-500 text-white font-black px-10 py-4 rounded-full text-sm uppercase shadow-xl shadow-blue-600/20 transition">Analyze</button>
         </div>
 
         <div id="resultsArea" class="hidden animate-fadeIn">
-            <div class="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 <div class="stat-box">
                     <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Global Rank</div>
                     <div id="globalRank" class="text-2xl font-black text-blue-600">#--</div>
