@@ -315,5 +315,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
         function closeEmpireFixerModal() { document.getElementById('empireFixerModal').classList.add('hidden'); }
     </script>
+    <script>
+        // [+] Robust Video Pipeline Fallback
+        window.addEventListener('DOMContentLoaded', () => {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(v => {
+                v.play().catch(e => {
+                    const wrap = v.closest('.bg-video-wrap') || v.parentElement;
+                    if (wrap) {
+                        wrap.style.background = 'radial-gradient(circle at center, #10b981 0%, #030303 70%)';
+                        wrap.style.opacity = '0.3';
+                        v.remove();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
