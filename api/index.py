@@ -350,12 +350,18 @@ class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         parsed_path = urllib.parse.urlparse(self.path)
         query_params = urllib.parse.parse_qs(parsed_path.query)
-        # Fix Vercel path rewriting issues: Strip /api/index.py or similar if it appears
-        clean_path = parsed_path.path.replace('/api/index.py', '/api').replace('/api/index', '/api')
+
+        # Pull subpath from query (injected by Vercel rewrite) or use the path directly
+        subpath = query_params.get('subpath', [None])[0]
+        if subpath:
+            clean_path = f"/api/{subpath}"
+        else:
+            clean_path = parsed_path.path.replace('/api/index.py', '/api').replace('/api/index', '/api')
+
         try:
             result = asyncio.run(handle_api_get(clean_path, query_params))
         except Exception as e:
-            result = {"error": str(e)}
+            result = {"error": str(e), "trace": str(type(e))}
 
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
@@ -369,16 +375,23 @@ class handler(BaseHTTPRequestHandler):
         payload = json.loads(post_data) if post_data else {}
 
         parsed_path = urllib.parse.urlparse(self.path)
-        clean_path = parsed_path.path.replace('/api/index.py', '/api').replace('/api/index', '/api')
+        query_params = urllib.parse.parse_qs(parsed_path.query)
+
+        subpath = query_params.get('subpath', [None])[0]
+        if subpath:
+            clean_path = f"/api/{subpath}"
+        else:
+            clean_path = parsed_path.path.replace('/api/index.py', '/api').replace('/api/index', '/api')
 
         try:
             result = asyncio.run(handle_api_post(clean_path, payload, self.client_address[0]))
         except Exception as e:
-            result = {"error": str(e)}
+            result = {"error": str(e), "trace": str(type(e))}
 
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
         self.wfile.write(json.dumps(result).encode('utf-8'))
+
 
