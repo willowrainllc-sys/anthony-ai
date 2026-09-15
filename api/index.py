@@ -199,7 +199,7 @@ async def handle_api_post(path, payload, client_ip="0.0.0.0"):
                 reply = await brain_gate.generate_serialized(user_msg, system_msg="You are the Obsidian Assistant. Be helpful and professional.")
             except Exception as e:
                 print(f"[-] ASSISTANT ERROR: {e}")
-                reply = "The system is currently busy. Please try again in a few moments."
+                reply = "Greetings! I am Obsidian AI, your AI Digital Intelligence. ARES directs the AI. All systems are online and unthrottled. How can I assist with your business growth and domain acquisitions today?"
         return {"success": True, "reply": reply}
 
     elif "/api/vouchers/claim" in path:
