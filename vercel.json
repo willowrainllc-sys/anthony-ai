@@ -105,6 +105,10 @@
     {
       "source": "/chat",
       "destination": "/ares_oracle_chat_monitor.html"
+    },
+    {
+      "source": "/whitelabel",
+      "destination": "/obsidian_white_label_licensing.html"
     }
   ]
 }
