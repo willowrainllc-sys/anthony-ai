@@ -13,7 +13,11 @@ import httpx
 import xml.etree.ElementTree as ET
 from http.server import BaseHTTPRequestHandler
 from dotenv import load_dotenv
-# from supabase import create_client, Client
+try:
+    from supabase import create_client, Client
+except ImportError:
+    create_client, Client = None, None
+
 
 
 # [+] Load environment for local server runs
@@ -435,17 +439,17 @@ class handler(BaseHTTPRequestHandler):
         parsed_path = urllib.parse.urlparse(self.path)
         query_params = urllib.parse.parse_qs(parsed_path.query)
 
-        # Pull subpath from query (injected by Vercel rewrite) or use the path directly
-        subpath = query_params.get('subpath', [None])[0]
-        if subpath:
-            clean_path = f"/api/{subpath}"
-        else:
-            clean_path = parsed_path.path.replace('/api/index.py', '/api').replace('/api/index', '/api')
+        # Robust Vercel Path Handling: Catch both rewrites and direct calls
+        clean_path = parsed_path.path
+        if clean_path == '/api/index.py' or clean_path == '/api':
+            # Check if subpath was manually passed or injected
+            sub_list = query_params.get('subpath', [None])
+            if sub_list[0]: clean_path = f"/api/{sub_list[0]}"
 
         try:
             result = asyncio.run(handle_api_get(clean_path, query_params))
         except Exception as e:
-            result = {"error": str(e), "trace": str(type(e))}
+            result = {"error": str(e), "path": clean_path, "type": str(type(e))}
 
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
@@ -461,20 +465,20 @@ class handler(BaseHTTPRequestHandler):
         parsed_path = urllib.parse.urlparse(self.path)
         query_params = urllib.parse.parse_qs(parsed_path.query)
 
-        subpath = query_params.get('subpath', [None])[0]
-        if subpath:
-            clean_path = f"/api/{subpath}"
-        else:
-            clean_path = parsed_path.path.replace('/api/index.py', '/api').replace('/api/index', '/api')
+        clean_path = parsed_path.path
+        if clean_path == '/api/index.py' or clean_path == '/api':
+            sub_list = query_params.get('subpath', [None])
+            if sub_list[0]: clean_path = f"/api/{sub_list[0]}"
 
         try:
             result = asyncio.run(handle_api_post(clean_path, payload, self.client_address[0]))
         except Exception as e:
-            result = {"error": str(e), "trace": str(type(e))}
+            result = {"error": str(e), "path": clean_path, "type": str(type(e))}
 
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
         self.wfile.write(json.dumps(result).encode('utf-8'))
+
 
