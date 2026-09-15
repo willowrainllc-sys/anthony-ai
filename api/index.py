@@ -346,9 +346,10 @@ class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         parsed_path = urllib.parse.urlparse(self.path)
         query_params = urllib.parse.parse_qs(parsed_path.query)
+        # Fix Vercel path rewriting issues: Strip /api/index.py or similar if it appears
+        clean_path = parsed_path.path.replace('/api/index.py', '/api').replace('/api/index', '/api')
         try:
-            # We use a new event loop for every request to avoid "already running" issues
-            result = asyncio.run(handle_api_get(parsed_path.path, query_params))
+            result = asyncio.run(handle_api_get(clean_path, query_params))
         except Exception as e:
             result = {"error": str(e)}
 
@@ -363,8 +364,11 @@ class handler(BaseHTTPRequestHandler):
         post_data = self.rfile.read(content_length).decode('utf-8')
         payload = json.loads(post_data) if post_data else {}
 
+        parsed_path = urllib.parse.urlparse(self.path)
+        clean_path = parsed_path.path.replace('/api/index.py', '/api').replace('/api/index', '/api')
+
         try:
-            result = asyncio.run(handle_api_post(self.path, payload, self.client_address[0]))
+            result = asyncio.run(handle_api_post(clean_path, payload, self.client_address[0]))
         except Exception as e:
             result = {"error": str(e)}
 
@@ -373,3 +377,4 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
         self.wfile.write(json.dumps(result).encode('utf-8'))
+
