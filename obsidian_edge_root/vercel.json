@@ -101,6 +101,10 @@
     {
       "source": "/google(.*)\\.html",
       "destination": "/google$1.html"
+    },
+    {
+      "source": "/chat",
+      "destination": "/ares_oracle_chat_monitor.html"
     }
   ]
 }

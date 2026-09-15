@@ -51,7 +51,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
     </style>
     <link href="assets/obsidian_mobile_core.css" rel="stylesheet"/>
-    <link href="assets/obsidian_aura_ui.css" rel="stylesheet"/>
+    <link href="assets/obsidian_performance_ui.css" rel="stylesheet"/>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -396,7 +396,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             const email = session.email || 'anthony@obsidian.city';
 
             try {
-                // Using Aura API Helper (from obsidian_aura_engine.js)
+                // Using Aura API Helper (from obsidian_performance_engine.js)
                 const resp = await fetch(getApiUrl('/api/director/payout'), {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
@@ -503,6 +503,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // Initialize voices
         window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.getVoices(); };
     </script>
-    <script src="assets/obsidian_aura_engine.js"></script>
+    <script src="assets/obsidian_performance_engine.js"></script>
 </body>
 </html>
